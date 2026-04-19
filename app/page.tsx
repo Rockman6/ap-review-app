@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, BookOpen, CheckCircle2, LineChart } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, ChevronRight, LineChart } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
-import { apMicro } from "@/lib/content";
+import { subjects } from "@/lib/content";
 
 export default function Landing() {
   const t = useT();
@@ -27,12 +27,39 @@ export default function Landing() {
         </p>
         <div className="mt-8 flex flex-wrap gap-3 sm:justify-start">
           <Link
-            href={`/subjects/${apMicro.slug}`}
+            href={`/subjects/${subjects[0].slug}`}
             className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
           >
-            {t({ en: "Start with AP Microeconomics", zh: "从 AP 微观经济学开始" })}
+            {t({ en: `Start with ${subjects[0].title.en}`, zh: `从 ${subjects[0].title.zh} 开始` })}
             <ArrowRight size={16} />
           </Link>
+        </div>
+      </section>
+
+      <section className="mt-14">
+        <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500">
+          {t({ en: "Subjects", zh: "科目" })}
+        </h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          {subjects.map((subject) => (
+            <Link
+              key={subject.slug}
+              href={`/subjects/${subject.slug}`}
+              className="group rounded-xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm"
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-semibold text-slate-900">{t(subject.title)}</h3>
+                <ChevronRight size={16} className="text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-slate-700" />
+              </div>
+              <p className="mt-1 text-sm leading-6 text-slate-600">{t(subject.tagline)}</p>
+              <p className="mt-3 text-xs text-slate-400">
+                {t({
+                  en: `${subject.units.length} units`,
+                  zh: `${subject.units.length} 个单元`,
+                })}
+              </p>
+            </Link>
+          ))}
         </div>
       </section>
 

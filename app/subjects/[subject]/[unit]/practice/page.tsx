@@ -5,7 +5,7 @@ import { use, useEffect, useMemo, useRef, useState } from "react";
 import { notFound } from "next/navigation";
 import { ArrowRight, PartyPopper, RotateCcw } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
-import { apMicro, getUnit, getUnitQuestions } from "@/lib/content";
+import { getSubject, getUnit, getUnitQuestions } from "@/lib/content";
 import { PracticeQuestion } from "@/components/PracticeQuestion";
 import { createClient } from "@/lib/supabase/browser";
 
@@ -13,6 +13,7 @@ async function saveAttempt(args: {
   questionId: string;
   selectedAnswer: string;
   isCorrect: boolean;
+  subjectSlug: string;
   unitSlug: string;
 }) {
   const supabase = createClient();
@@ -20,7 +21,7 @@ async function saveAttempt(args: {
   if (!data.user) return;
   const { error } = await supabase.from("quiz_attempts").insert({
     user_id: data.user.id,
-    subject_slug: apMicro.slug,
+    subject_slug: args.subjectSlug,
     unit_slug: args.unitSlug,
     topic_slug: "unit-review",
     question_id: args.questionId,
@@ -30,14 +31,14 @@ async function saveAttempt(args: {
   if (error) console.error("saveAttempt failed:", error);
 }
 
-async function saveCompletion(args: { score: number; unitSlug: string }) {
+async function saveCompletion(args: { score: number; subjectSlug: string; unitSlug: string }) {
   const supabase = createClient();
   const { data } = await supabase.auth.getUser();
   if (!data.user) return;
   const { error } = await supabase.from("topic_progress").upsert(
     {
       user_id: data.user.id,
-      subject_slug: apMicro.slug,
+      subject_slug: args.subjectSlug,
       unit_slug: args.unitSlug,
       topic_slug: "unit-review",
       score: args.score,
@@ -51,13 +52,15 @@ async function saveCompletion(args: { score: number; unitSlug: string }) {
 export default function UnitPracticePage({
   params,
 }: {
-  params: Promise<{ unit: string }>;
+  params: Promise<{ subject: string; unit: string }>;
 }) {
-  const { unit: unitSlug } = use(params);
+  const { subject: subjectSlug, unit: unitSlug } = use(params);
   const t = useT();
-  const maybeUnit = getUnit(unitSlug);
-  const maybeQuestions = getUnitQuestions(unitSlug);
-  if (!maybeUnit || !maybeQuestions) notFound();
+  const maybeSubject = getSubject(subjectSlug);
+  const maybeUnit = getUnit(subjectSlug, unitSlug);
+  const maybeQuestions = getUnitQuestions(subjectSlug, unitSlug);
+  if (!maybeSubject || !maybeUnit || !maybeQuestions) notFound();
+  const subject = maybeSubject;
   const unit = maybeUnit;
   const questions = maybeQuestions;
 
@@ -84,6 +87,7 @@ export default function UnitPracticePage({
       questionId: current.id,
       selectedAnswer: selectedId,
       isCorrect,
+      subjectSlug: subject.slug,
       unitSlug: unit.slug,
     });
   }
@@ -93,9 +97,10 @@ export default function UnitPracticePage({
     savedRef.current = true;
     void saveCompletion({
       score: correctCount / total,
+      subjectSlug: subject.slug,
       unitSlug: unit.slug,
     });
-  }, [finished, correctCount, total, unit.slug]);
+  }, [finished, correctCount, total, subject.slug, unit.slug]);
 
   function next() {
     if (index + 1 >= total) {
@@ -119,11 +124,11 @@ export default function UnitPracticePage({
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 sm:py-14">
       <nav className="text-xs text-slate-500">
-        <Link href={`/subjects/${apMicro.slug}`} className="hover:text-slate-900">
-          {t(apMicro.title)}
+        <Link href={`/subjects/${subject.slug}`} className="hover:text-slate-900">
+          {t(subject.title)}
         </Link>
         <span className="mx-2">/</span>
-        <Link href={`/subjects/${apMicro.slug}/${unit.slug}`} className="hover:text-slate-900">
+        <Link href={`/subjects/${subject.slug}/${unit.slug}`} className="hover:text-slate-900">
           {t({ en: `Unit ${unit.number}`, zh: `第 ${unit.number} 单元` })}
         </Link>
         <span className="mx-2">/</span>
@@ -156,7 +161,7 @@ export default function UnitPracticePage({
             correct={correctCount}
             total={total}
             onReset={reset}
-            backHref={`/subjects/${apMicro.slug}/${unit.slug}`}
+            backHref={`/subjects/${subject.slug}/${unit.slug}`}
           />
         ) : (
           <>

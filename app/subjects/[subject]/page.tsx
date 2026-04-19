@@ -1,12 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { use } from "react";
+import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
-import { apMicro } from "@/lib/content";
+import { getSubject } from "@/lib/content";
 
-export default function SubjectPage() {
+export default function SubjectPage({ params }: { params: Promise<{ subject: string }> }) {
+  const { subject: subjectSlug } = use(params);
   const t = useT();
+  const subject = getSubject(subjectSlug);
+  if (!subject) notFound();
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
       <nav className="text-xs text-slate-500">
@@ -14,13 +20,13 @@ export default function SubjectPage() {
           {t({ en: "Home", zh: "首页" })}
         </Link>
         <span className="mx-2">/</span>
-        <span className="text-slate-900">{t(apMicro.title)}</span>
+        <span className="text-slate-900">{t(subject.title)}</span>
       </nav>
-      <h1 className="mt-3 text-3xl font-semibold tracking-tight">{t(apMicro.title)}</h1>
-      <p className="mt-2 max-w-2xl text-slate-600">{t(apMicro.tagline)}</p>
+      <h1 className="mt-3 text-3xl font-semibold tracking-tight">{t(subject.title)}</h1>
+      <p className="mt-2 max-w-2xl text-slate-600">{t(subject.tagline)}</p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        {apMicro.units.map((unit) => {
+        {subject.units.map((unit) => {
           const hasContent = unit.topics.length > 0;
           const Card = (
             <div
@@ -47,7 +53,7 @@ export default function SubjectPage() {
             </div>
           );
           return hasContent ? (
-            <Link key={unit.slug} href={`/subjects/${apMicro.slug}/${unit.slug}`}>
+            <Link key={unit.slug} href={`/subjects/${subject.slug}/${unit.slug}`}>
               {Card}
             </Link>
           ) : (

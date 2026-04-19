@@ -5,15 +5,16 @@ import { use } from "react";
 import { notFound } from "next/navigation";
 import { BookOpen, ChevronRight, Dumbbell, Trophy } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
-import { apMicro, getUnit, getNotes, getQuestions, getUnitQuestions } from "@/lib/content";
+import { getSubject, getUnit, getNotes, getQuestions, getUnitQuestions } from "@/lib/content";
 
-export default function UnitPage({ params }: { params: Promise<{ unit: string }> }) {
-  const { unit: unitSlug } = use(params);
+export default function UnitPage({ params }: { params: Promise<{ subject: string; unit: string }> }) {
+  const { subject: subjectSlug, unit: unitSlug } = use(params);
   const t = useT();
-  const maybeUnit = getUnit(unitSlug);
-  if (!maybeUnit) notFound();
+  const subject = getSubject(subjectSlug);
+  const maybeUnit = getUnit(subjectSlug, unitSlug);
+  if (!subject || !maybeUnit) notFound();
   const unit = maybeUnit;
-  const unitQs = getUnitQuestions(unit.slug);
+  const unitQs = getUnitQuestions(subjectSlug, unit.slug);
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
@@ -22,8 +23,8 @@ export default function UnitPage({ params }: { params: Promise<{ unit: string }>
           {t({ en: "Home", zh: "首页" })}
         </Link>
         <span className="mx-2">/</span>
-        <Link href={`/subjects/${apMicro.slug}`} className="hover:text-slate-900">
-          {t(apMicro.title)}
+        <Link href={`/subjects/${subject.slug}`} className="hover:text-slate-900">
+          {t(subject.title)}
         </Link>
         <span className="mx-2">/</span>
         <span className="text-slate-900">
@@ -38,8 +39,8 @@ export default function UnitPage({ params }: { params: Promise<{ unit: string }>
 
       <ol className="mt-8 divide-y divide-slate-200 overflow-hidden rounded-xl border border-slate-200 bg-white">
         {unit.topics.map((topic, i) => {
-          const hasNotes = !!getNotes(unit.slug, topic.slug);
-          const hasQuestions = !!getQuestions(unit.slug, topic.slug);
+          const hasNotes = !!getNotes(subjectSlug, unit.slug, topic.slug);
+          const hasQuestions = !!getQuestions(subjectSlug, unit.slug, topic.slug);
           return (
             <li key={topic.slug} className="group">
               <div className="flex items-start gap-4 p-5">
@@ -52,7 +53,7 @@ export default function UnitPage({ params }: { params: Promise<{ unit: string }>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {hasNotes ? (
                       <Link
-                        href={`/subjects/${apMicro.slug}/${unit.slug}/${topic.slug}/notes`}
+                        href={`/subjects/${subject.slug}/${unit.slug}/${topic.slug}/notes`}
                         className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1.5 text-xs font-medium text-white hover:bg-slate-700"
                       >
                         <BookOpen size={13} />
@@ -62,7 +63,7 @@ export default function UnitPage({ params }: { params: Promise<{ unit: string }>
                     ) : null}
                     {hasQuestions ? (
                       <Link
-                        href={`/subjects/${apMicro.slug}/${unit.slug}/${topic.slug}/practice`}
+                        href={`/subjects/${subject.slug}/${unit.slug}/${topic.slug}/practice`}
                         className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100"
                       >
                         <Dumbbell size={13} />
@@ -85,7 +86,7 @@ export default function UnitPage({ params }: { params: Promise<{ unit: string }>
 
       {unitQs && unitQs.length > 0 && (
         <Link
-          href={`/subjects/${apMicro.slug}/${unit.slug}/practice`}
+          href={`/subjects/${subject.slug}/${unit.slug}/practice`}
           className="group mt-6 block rounded-xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white p-5 transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm"
         >
           <div className="flex items-start gap-4">

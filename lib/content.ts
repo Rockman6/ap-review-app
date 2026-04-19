@@ -3146,25 +3146,167 @@ export const unitQuestions: Record<string, Question[]> = {
 };
 
 // ============================================================
-// Helpers
+// AP Biology — skeleton (units + topics per College Board CED)
+// Notes and questions to be authored topic-by-topic.
 // ============================================================
 
-export function getUnit(unitSlug: string): Unit | undefined {
-  return apMicro.units.find((u) => u.slug === unitSlug);
+export const apBio: Subject = {
+  slug: "ap-bio",
+  title: { en: "AP Biology", zh: "AP 生物学" },
+  tagline: {
+    en: "How life works — from molecules to ecosystems.",
+    zh: "生命如何运作——从分子到生态系统。",
+  },
+  units: [
+    {
+      slug: "unit-1",
+      number: 1,
+      title: { en: "Chemistry of Life", zh: "生命的化学基础" },
+      description: {
+        en: "Water, carbon, macromolecules, and the chemical properties that make life possible.",
+        zh: "水、碳、生物大分子,以及使生命成为可能的化学性质。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Structure of Water & Hydrogen Bonding", zh: "水的结构与氢键" }, summary: { en: "Why water's polarity drives nearly every biological process.", zh: "水的极性为何驱动几乎所有生物过程。" } },
+        { slug: "topic-2", title: { en: "Elements of Life", zh: "生命的元素组成" }, summary: { en: "CHNOPS — the six elements making up most of living matter.", zh: "CHNOPS——构成生物体的六大元素。" } },
+        { slug: "topic-3", title: { en: "Biological Macromolecules", zh: "生物大分子" }, summary: { en: "Carbohydrates, lipids, proteins, nucleic acids — structure vs function.", zh: "糖类、脂质、蛋白质、核酸——结构与功能。" } },
+        { slug: "topic-4", title: { en: "Nucleic Acids", zh: "核酸" }, summary: { en: "DNA vs RNA: directionality, base pairing, and information storage.", zh: "DNA 与 RNA:方向性、碱基配对与信息存储。" } },
+      ],
+    },
+    {
+      slug: "unit-2",
+      number: 2,
+      title: { en: "Cell Structure & Function", zh: "细胞结构与功能" },
+      description: { en: "Organelles, membranes, and how cells maintain life.", zh: "细胞器、细胞膜,以及细胞如何维持生命。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Cell Structure: Subcellular Components", zh: "细胞结构:亚细胞组分" }, summary: { en: "Organelles and their specialized jobs.", zh: "各细胞器及其专门功能。" } },
+        { slug: "topic-2", title: { en: "Cell Size", zh: "细胞大小" }, summary: { en: "Why cells stay small — the surface-area-to-volume limit.", zh: "细胞为何保持较小——表面积/体积比限制。" } },
+        { slug: "topic-3", title: { en: "Plasma Membranes", zh: "细胞膜" }, summary: { en: "The fluid-mosaic model and selective permeability.", zh: "流动镶嵌模型与选择性透过。" } },
+        { slug: "topic-4", title: { en: "Membrane Transport", zh: "跨膜运输" }, summary: { en: "Passive vs active transport; osmosis and tonicity.", zh: "被动与主动运输;渗透与张力。" } },
+      ],
+    },
+    {
+      slug: "unit-3",
+      number: 3,
+      title: { en: "Cellular Energetics", zh: "细胞能量学" },
+      description: { en: "Enzymes, photosynthesis, cellular respiration, and energy flow.", zh: "酶、光合作用、细胞呼吸与能量流动。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Enzyme Structure & Function", zh: "酶的结构与功能" }, summary: { en: "Active sites, specificity, and environmental effects.", zh: "活性位点、特异性与环境影响。" } },
+        { slug: "topic-2", title: { en: "Photosynthesis", zh: "光合作用" }, summary: { en: "Light reactions + Calvin cycle — how plants trap energy.", zh: "光反应与卡尔文循环——植物如何捕获能量。" } },
+        { slug: "topic-3", title: { en: "Cellular Respiration", zh: "细胞呼吸" }, summary: { en: "Glycolysis, Krebs, ETC — extracting ATP from glucose.", zh: "糖酵解、三羧酸循环、电子传递链——从葡萄糖获取 ATP。" } },
+        { slug: "topic-4", title: { en: "Fitness", zh: "适合度与能量效率" }, summary: { en: "How efficient energy use shapes evolutionary fitness.", zh: "高效的能量利用如何塑造进化适合度。" } },
+      ],
+    },
+    {
+      slug: "unit-4",
+      number: 4,
+      title: { en: "Cell Communication & Cell Cycle", zh: "细胞通讯与细胞周期" },
+      description: { en: "Signaling pathways, feedback, and mitosis.", zh: "信号通路、反馈调节与有丝分裂。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Cell Communication", zh: "细胞通讯" }, summary: { en: "How cells send and receive chemical signals.", zh: "细胞如何发送与接收化学信号。" } },
+        { slug: "topic-2", title: { en: "Signal Transduction", zh: "信号转导" }, summary: { en: "Reception → transduction → response cascades.", zh: "接收→转导→响应级联反应。" } },
+        { slug: "topic-3", title: { en: "Feedback", zh: "反馈调节" }, summary: { en: "Negative vs positive feedback loops.", zh: "负反馈与正反馈环。" } },
+        { slug: "topic-4", title: { en: "Cell Cycle & Mitosis", zh: "细胞周期与有丝分裂" }, summary: { en: "Checkpoints, phases, and controlled division.", zh: "检查点、分裂期与有序分裂。" } },
+      ],
+    },
+    {
+      slug: "unit-5",
+      number: 5,
+      title: { en: "Heredity", zh: "遗传学" },
+      description: { en: "Meiosis, Mendelian genetics, and inheritance patterns.", zh: "减数分裂、孟德尔遗传与遗传模式。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Meiosis & Genetic Diversity", zh: "减数分裂与遗传多样性" }, summary: { en: "Crossing over, independent assortment, and why siblings differ.", zh: "交叉互换、自由组合——为什么兄弟姐妹各不相同。" } },
+        { slug: "topic-2", title: { en: "Mendelian Genetics", zh: "孟德尔遗传学" }, summary: { en: "Law of segregation, law of independent assortment, Punnett squares.", zh: "分离定律、自由组合定律与庞内特方格。" } },
+        { slug: "topic-3", title: { en: "Non-Mendelian Genetics", zh: "非孟德尔遗传" }, summary: { en: "Incomplete dominance, codominance, sex-linkage, linked genes.", zh: "不完全显性、共显性、性连锁、连锁基因。" } },
+        { slug: "topic-4", title: { en: "Environmental Effects on Phenotype", zh: "环境对表型的影响" }, summary: { en: "Genes set the range; environment picks the point.", zh: "基因设定范围,环境决定具体表现。" } },
+      ],
+    },
+    {
+      slug: "unit-6",
+      number: 6,
+      title: { en: "Gene Expression & Regulation", zh: "基因表达与调控" },
+      description: { en: "DNA → RNA → protein, and how cells control which genes run when.", zh: "DNA→RNA→蛋白质,以及细胞如何调控基因何时开启。" },
+      topics: [
+        { slug: "topic-1", title: { en: "DNA & RNA Structure", zh: "DNA 与 RNA 结构" }, summary: { en: "Double helix, base pairing, and 5′→3′ directionality.", zh: "双螺旋、碱基配对与 5′→3′ 方向性。" } },
+        { slug: "topic-2", title: { en: "Replication", zh: "DNA 复制" }, summary: { en: "Semiconservative copying — leading vs lagging strand.", zh: "半保留复制——前导链与后随链。" } },
+        { slug: "topic-3", title: { en: "Transcription & Translation", zh: "转录与翻译" }, summary: { en: "How the cell reads DNA and builds proteins.", zh: "细胞如何读取 DNA 并合成蛋白质。" } },
+        { slug: "topic-4", title: { en: "Regulation of Gene Expression", zh: "基因表达调控" }, summary: { en: "Operons, transcription factors, epigenetics.", zh: "操纵子、转录因子与表观遗传。" } },
+        { slug: "topic-5", title: { en: "Mutations", zh: "突变" }, summary: { en: "Point, frameshift, silent, missense, nonsense — effects on proteins.", zh: "点突变、移码、沉默、错义、无义——对蛋白的影响。" } },
+      ],
+    },
+    {
+      slug: "unit-7",
+      number: 7,
+      title: { en: "Natural Selection", zh: "自然选择" },
+      description: { en: "Evolution, evidence, and population genetics.", zh: "进化、证据与群体遗传学。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Natural Selection", zh: "自然选择" }, summary: { en: "Variation + heritability + differential survival = evolution.", zh: "变异+遗传+差异化生存 = 进化。" } },
+        { slug: "topic-2", title: { en: "Hardy-Weinberg Equilibrium", zh: "哈迪-温伯格平衡" }, summary: { en: "The null model — when allele frequencies don't change.", zh: "零假设模型——等位基因频率何时不变。" } },
+        { slug: "topic-3", title: { en: "Evidence of Evolution", zh: "进化的证据" }, summary: { en: "Fossils, homology, biogeography, molecular data.", zh: "化石、同源性、生物地理与分子证据。" } },
+        { slug: "topic-4", title: { en: "Speciation & Extinction", zh: "物种形成与灭绝" }, summary: { en: "How new species arise and why others disappear.", zh: "新物种如何产生,旧物种为何灭绝。" } },
+      ],
+    },
+    {
+      slug: "unit-8",
+      number: 8,
+      title: { en: "Ecology", zh: "生态学" },
+      description: { en: "Populations, communities, ecosystems, and human impact.", zh: "种群、群落、生态系统与人类影响。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Responses to the Environment", zh: "对环境的响应" }, summary: { en: "Behavior, signaling, and energy allocation.", zh: "行为、信号与能量分配。" } },
+        { slug: "topic-2", title: { en: "Energy Flow Through Ecosystems", zh: "生态系统能量流动" }, summary: { en: "10% rule, trophic levels, productivity.", zh: "10% 定律、营养级与生产力。" } },
+        { slug: "topic-3", title: { en: "Population Ecology", zh: "种群生态学" }, summary: { en: "Exponential vs logistic growth; carrying capacity.", zh: "指数增长与逻辑斯蒂增长;环境容纳量。" } },
+        { slug: "topic-4", title: { en: "Community Ecology", zh: "群落生态学" }, summary: { en: "Competition, predation, symbiosis, diversity.", zh: "竞争、捕食、共生与多样性。" } },
+        { slug: "topic-5", title: { en: "Disruptions to Ecosystems", zh: "生态系统的干扰" }, summary: { en: "Invasives, climate change, human impact.", zh: "外来物种、气候变化与人类影响。" } },
+      ],
+    },
+  ],
+};
+
+// ============================================================
+// Subjects registry
+// ============================================================
+
+export const subjects: Subject[] = [apMicro, apBio];
+
+const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
+  "ap-micro": topicNotes,
+  "ap-bio": {},
+};
+
+const questionsBySubject: Record<string, Record<string, Question[]>> = {
+  "ap-micro": topicQuestions,
+  "ap-bio": {},
+};
+
+const unitQuestionsBySubject: Record<string, Record<string, Question[]>> = {
+  "ap-micro": unitQuestions,
+  "ap-bio": {},
+};
+
+// ============================================================
+// Helpers (subject-scoped)
+// ============================================================
+
+export function getSubject(subjectSlug: string): Subject | undefined {
+  return subjects.find((s) => s.slug === subjectSlug);
 }
 
-export function getTopic(unitSlug: string, topicSlug: string): Topic | undefined {
-  return getUnit(unitSlug)?.topics.find((t) => t.slug === topicSlug);
+export function getUnit(subjectSlug: string, unitSlug: string): Unit | undefined {
+  return getSubject(subjectSlug)?.units.find((u) => u.slug === unitSlug);
 }
 
-export function getNotes(unitSlug: string, topicSlug: string): NoteBlock[] | undefined {
-  return topicNotes[`${unitSlug}/${topicSlug}`];
+export function getTopic(subjectSlug: string, unitSlug: string, topicSlug: string): Topic | undefined {
+  return getUnit(subjectSlug, unitSlug)?.topics.find((t) => t.slug === topicSlug);
 }
 
-export function getQuestions(unitSlug: string, topicSlug: string): Question[] | undefined {
-  return topicQuestions[`${unitSlug}/${topicSlug}`];
+export function getNotes(subjectSlug: string, unitSlug: string, topicSlug: string): NoteBlock[] | undefined {
+  return notesBySubject[subjectSlug]?.[`${unitSlug}/${topicSlug}`];
 }
 
-export function getUnitQuestions(unitSlug: string): Question[] | undefined {
-  return unitQuestions[unitSlug];
+export function getQuestions(subjectSlug: string, unitSlug: string, topicSlug: string): Question[] | undefined {
+  return questionsBySubject[subjectSlug]?.[`${unitSlug}/${topicSlug}`];
+}
+
+export function getUnitQuestions(subjectSlug: string, unitSlug: string): Question[] | undefined {
+  return unitQuestionsBySubject[subjectSlug]?.[unitSlug];
 }
