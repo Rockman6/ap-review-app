@@ -1,9 +1,27 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, BookOpen, CheckCircle2, ChevronRight, LineChart } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, LineChart, Leaf, TrendingUp } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
-import { subjects } from "@/lib/content";
+import { subjects, type Subject } from "@/lib/content";
+
+const subjectStyles: Record<
+  string,
+  { icon: React.ReactNode; gradient: string; ring: string; iconBg: string }
+> = {
+  "ap-micro": {
+    icon: <TrendingUp size={22} />,
+    gradient: "from-blue-500 via-indigo-500 to-violet-500",
+    ring: "ring-blue-200",
+    iconBg: "bg-white/20",
+  },
+  "ap-bio": {
+    icon: <Leaf size={22} />,
+    gradient: "from-emerald-500 via-green-500 to-teal-500",
+    ring: "ring-emerald-200",
+    iconBg: "bg-white/20",
+  },
+};
 
 export default function Landing() {
   const t = useT();
@@ -25,40 +43,12 @@ export default function Landing() {
             zh: "概念笔记、互动练习、进度追踪——为备战 AP 考试的中英文学生而打造。",
           })}
         </p>
-        <div className="mt-8 flex flex-wrap gap-3 sm:justify-start">
-          <Link
-            href={`/subjects/${subjects[0].slug}`}
-            className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
-          >
-            {t({ en: `Start with ${subjects[0].title.en}`, zh: `从 ${subjects[0].title.zh} 开始` })}
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
-
-      <section className="mt-14">
-        <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500">
-          {t({ en: "Subjects", zh: "科目" })}
-        </h2>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-slate-500">
+          {t({ en: "Pick a subject", zh: "选择科目" })}
+        </p>
+        <div className="mt-3 grid gap-4 sm:grid-cols-2">
           {subjects.map((subject) => (
-            <Link
-              key={subject.slug}
-              href={`/subjects/${subject.slug}`}
-              className="group rounded-xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm"
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-slate-900">{t(subject.title)}</h3>
-                <ChevronRight size={16} className="text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-slate-700" />
-              </div>
-              <p className="mt-1 text-sm leading-6 text-slate-600">{t(subject.tagline)}</p>
-              <p className="mt-3 text-xs text-slate-400">
-                {t({
-                  en: `${subject.units.length} units`,
-                  zh: `${subject.units.length} 个单元`,
-                })}
-              </p>
-            </Link>
+            <SubjectButton key={subject.slug} subject={subject} />
           ))}
         </div>
       </section>
@@ -90,6 +80,45 @@ export default function Landing() {
         />
       </section>
     </div>
+  );
+}
+
+function SubjectButton({ subject }: { subject: Subject }) {
+  const t = useT();
+  const style = subjectStyles[subject.slug] ?? {
+    icon: <BookOpen size={22} />,
+    gradient: "from-slate-600 via-slate-700 to-slate-800",
+    ring: "ring-slate-200",
+    iconBg: "bg-white/20",
+  };
+  return (
+    <Link
+      href={`/subjects/${subject.slug}`}
+      className={`group relative block overflow-hidden rounded-2xl bg-gradient-to-br ${style.gradient} p-6 text-white shadow-sm ring-1 ${style.ring} transition hover:-translate-y-0.5 hover:shadow-lg`}
+    >
+      <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 blur-2xl transition group-hover:bg-white/20" />
+      <div className="relative flex items-start gap-4">
+        <div className={`flex h-11 w-11 flex-none items-center justify-center rounded-xl ${style.iconBg} backdrop-blur-sm`}>
+          {style.icon}
+        </div>
+        <div className="flex-1">
+          <h3 className="text-lg font-semibold leading-tight">{t(subject.title)}</h3>
+          <p className="mt-1 text-sm leading-6 text-white/80">{t(subject.tagline)}</p>
+          <div className="mt-4 flex items-center justify-between">
+            <span className="text-xs font-medium uppercase tracking-wider text-white/70">
+              {t({
+                en: `${subject.units.length} units`,
+                zh: `${subject.units.length} 个单元`,
+              })}
+            </span>
+            <span className="inline-flex items-center gap-1 text-sm font-medium text-white transition group-hover:gap-2">
+              {t({ en: "Start", zh: "开始" })}
+              <ArrowRight size={15} />
+            </span>
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 }
 
