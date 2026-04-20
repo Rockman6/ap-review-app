@@ -12034,22 +12034,193 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
     {
       kind: "paragraph",
       text: {
-        en: "In electrolysis, we convert **charge** delivered by the power supply into **moles of substance** produced at an electrode. Faraday's law links them.",
-        zh: "在电解中,电源提供的**电荷量**可转换为电极上生成的**物质摩尔数**。法拉第定律给出换算。",
+        en: "**Electrolysis** forces a nonspontaneous redox reaction to happen by pumping electrical energy into the system. It's how we make pure aluminum, plate silver onto jewelry, split water into H₂ and O₂, and charge lithium-ion batteries. In every case, an external power source pushes electrons uphill — against the direction they'd flow spontaneously.",
+        zh: "**电解**通过向体系输入电能,强制非自发的氧化还原反应进行。铝的冶炼、首饰镀银、水的分解(生成 H₂ 与 O₂)、锂电池充电——都是电解过程。外加电源把电子「推上坡」,使之与自发方向相反地流动。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Setup: electrolytic vs galvanic", zh: "装置对比:电解池 vs 原电池" },
+    },
+    {
+      kind: "table",
+      caption: { en: "Side-by-side comparison", zh: "两类电池对照" },
+      columns: [
+        { en: "", zh: "" },
+        { en: "Galvanic (battery)", zh: "原电池(电池)" },
+        { en: "Electrolytic", zh: "电解池" },
+      ],
+      rows: [
+        [{ en: "Energy", zh: "能量" }, { en: "Chemical → electrical", zh: "化学能 → 电能" }, { en: "Electrical → chemical", zh: "电能 → 化学能" }],
+        [{ en: "ΔG", zh: "ΔG" }, { en: "< 0 (spontaneous)", zh: "< 0(自发)" }, { en: "> 0 (driven)", zh: "> 0(外加驱动)" }],
+        [{ en: "E°_cell", zh: "E°_cell" }, { en: "> 0", zh: "> 0" }, { en: "< 0 → need V_applied > |E°|", zh: "< 0 → 需 V_外 > |E°|" }],
+        [{ en: "Anode (oxidation)", zh: "阳极(氧化)" }, { en: "Negative terminal (−)", zh: "负端 (−)" }, { en: "Positive terminal (+)", zh: "正端 (+)" }],
+        [{ en: "Cathode (reduction)", zh: "阴极(还原)" }, { en: "Positive terminal (+)", zh: "正端 (+)" }, { en: "Negative terminal (−)", zh: "负端 (−)" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Common source of confusion", zh: "常见疑惑点" },
+      text: {
+        en: "The **oxidation-at-anode / reduction-at-cathode** rule never changes. What flips is which terminal is positive: in a galvanic cell, the anode is (−) because it pushes out electrons; in electrolysis, the battery forces the anode to be (+) to pull electrons **out** of the solution.",
+        zh: "**阳极氧化、阴极还原**的规律始终成立。变化的只是极性:原电池中阳极为 (−),因为它向外推送电子;电解池中外加电源把阳极变成 (+),强行从溶液里**拉出**电子。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Faraday's law: charge → moles", zh: "法拉第定律:电荷 → 摩尔" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Michael Faraday noticed in 1833 that the mass of an element deposited at an electrode was **proportional to the electric charge** passed through. The proportionality constant is now called **Faraday's constant**: one mole of electrons carries exactly 96 485 coulombs.",
+        zh: "法拉第 (1833) 发现电极上沉积物质的质量**与通过的电荷量成正比**。其比例常数称为**法拉第常数**:1 mol 电子携带恰好 96 485 库仑。",
       },
     },
     {
       kind: "math",
-      tex: "q \\;=\\; I \\cdot t\\qquad\\text{and}\\qquad \\text{mol product} \\;=\\; \\dfrac{q}{n\\,F}",
-      caption: { en: "q in coulombs, I in amps, t in seconds, F = 96485 C/mol e⁻.", zh: "q 单位库仑,I 单位安培,t 单位秒,F = 96485 C/mol e⁻。" },
+      tex: "F \\;=\\; 96\\,485\\ \\text{C/mol e}^{-}",
+      caption: { en: "One faraday = the charge of one mole of electrons.", zh: "1 法拉第 = 1 mol 电子的电荷量。" },
+    },
+    {
+      kind: "math",
+      tex: "q \\;=\\; I \\cdot t\\qquad\\text{mol e}^{-} \\;=\\; \\dfrac{q}{F}\\qquad \\text{mol product} \\;=\\; \\dfrac{q}{n\\,F}",
+      caption: { en: "Everything hinges on the half-reaction — n = electrons per product unit.", zh: "关键在半反应——n = 生成一个产物所需的电子数。" },
+    },
+    {
+      kind: "heading",
+      text: { en: "Three-step recipe", zh: "三步法" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Step 1 — total charge:** q = I × t  (with t in **seconds**).", zh: "**第一步 — 总电荷:** q = I × t(t 必须用**秒**)。" },
+        { en: "**Step 2 — moles of electrons:** mol e⁻ = q / F.", zh: "**第二步 — 电子摩尔数:** mol e⁻ = q / F。" },
+        { en: "**Step 3 — moles of product:** divide by n from the half-reaction (e.g. Al³⁺ + 3 e⁻ → Al means n = 3).", zh: "**第三步 — 产物摩尔数:** 除以半反应中的 n(如 Al³⁺ + 3 e⁻ → Al 对应 n = 3)。" },
+        { en: "Finally, multiply by molar mass to get **grams**.", zh: "最后乘摩尔质量即得**克数**。" },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Why the charge n matters", zh: "为什么电荷数 n 很重要" },
+    },
+    {
+      kind: "table",
+      caption: { en: "Same charge, different amounts deposited", zh: "电荷相同,沉积量不同" },
+      columns: [
+        { en: "Cation", zh: "阳离子" },
+        { en: "Half-reaction", zh: "半反应" },
+        { en: "mol metal per 1 F of charge", zh: "每 1 F 电荷沉积的金属 (mol)" },
+      ],
+      rows: [
+        [{ en: "Ag⁺", zh: "Ag⁺" }, { en: "Ag⁺ + 1 e⁻ → Ag", zh: "Ag⁺ + 1 e⁻ → Ag" }, { en: "1.00", zh: "1.00" }],
+        [{ en: "Cu²⁺", zh: "Cu²⁺" }, { en: "Cu²⁺ + 2 e⁻ → Cu", zh: "Cu²⁺ + 2 e⁻ → Cu" }, { en: "0.50", zh: "0.50" }],
+        [{ en: "Al³⁺", zh: "Al³⁺" }, { en: "Al³⁺ + 3 e⁻ → Al", zh: "Al³⁺ + 3 e⁻ → Al" }, { en: "0.33", zh: "0.33" }],
+      ],
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Running the **same current for the same time** through three silver / copper / aluminum cells deposits **1 mol Ag** but only **½ mol Cu** and **⅓ mol Al** — because the higher-charge cations need more electrons per atom. This is why producing aluminum is energetically expensive.",
+        zh: "用**同电流、同时间**分别通过银/铜/铝三种电解槽,沉积的金属为 **1 mol Ag、½ mol Cu、⅓ mol Al**——电荷越大的阳离子,每个原子需要的电子越多。这就是冶炼铝耗电极大的原因。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Important industrial examples", zh: "重要工业实例" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Hall–Héroult aluminum:** molten Al₂O₃ dissolved in cryolite is electrolyzed → Al metal at the cathode, O₂ at the (carbon) anode. Modern smelters use ~13 kWh per kg of Al.", zh: "**Hall–Héroult 炼铝:** 将 Al₂O₃ 溶于冰晶石熔融后电解——阴极析出 Al,(碳)阳极析出 O₂。现代铝厂每公斤铝耗电约 13 kWh。" },
+        { en: "**Chlor-alkali process:** brine (NaCl solution) electrolyzed → H₂ at cathode, Cl₂ at anode, NaOH in solution — the 'big three' industrial chemicals from one cell.", zh: "**氯碱工业:** 电解盐水(NaCl 溶液)——阴极出 H₂、阳极出 Cl₂、溶液中留下 NaOH。一个电解槽同时产出三种大宗化学品。" },
+        { en: "**Electroplating:** plate a thin layer of a shiny or protective metal (Au, Ag, Cr, Ni) onto a cheaper base metal. The object becomes the cathode; the plating metal is the anode or an ion in solution.", zh: "**电镀:** 在较便宜的基底金属上镀一层贵重或防腐金属(Au、Ag、Cr、Ni)。被镀物体作阴极,镀层金属作阳极或溶液中的离子来源。" },
+        { en: "**Electrorefining copper:** impure copper slab is the anode; pure Cu²⁺ moves through solution and deposits on a pure Cu cathode. Impurities (Ag, Au, Pt) fall as 'anode sludge' — valuable byproduct.", zh: "**铜的电解精炼:** 粗铜作阳极溶解,Cu²⁺ 穿过溶液沉积到纯铜阴极。杂质(Ag、Au、Pt)落入阳极泥——极具回收价值。" },
+        { en: "**Rechargeable batteries:** discharging = galvanic; charging = electrolytic. In a Li-ion battery, charging is an electrolysis that moves Li⁺ back from the cathode to the anode against ΔG.", zh: "**可充电电池:** 放电 = 原电池;充电 = 电解。锂电池充电时,外加电源让 Li⁺ 从阴极返回阳极,与自发方向相反。" },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Water as a competing reagent", zh: "水作为竞争反应物" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "In **aqueous** electrolysis, water itself can be oxidized or reduced at the electrodes — sometimes more easily than the intended ion. That's why Na is **not** produced by electrolyzing aqueous NaCl: the cathode prefers to reduce H₂O to H₂ rather than Na⁺ to Na (E° is more favorable). To make sodium metal, you must electrolyze **molten** NaCl (no water around).",
+        zh: "在**水溶液**电解中,水本身也可能在电极上被氧化或还原——有时比目标离子更易反应。所以电解 NaCl 水溶液**不会**生成 Na 金属:阴极更倾向把 H₂O 还原为 H₂,而不是把 Na⁺ 还原(E° 更有利)。要制 Na 金属,必须电解**熔融** NaCl(无水)。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{H₂O competing half-reactions at 25 °C:}\\qquad\\begin{aligned}\\text{cathode:}\\;\\ce{2 H2O + 2 e- &-> H2 + 2 OH-}\\quad E^{\\circ} = -0.83\\ \\text{V}\\\\\n\\text{anode:}\\;\\ce{2 H2O &-> O2 + 4 H+ + 4 e-}\\quad E^{\\circ} = -1.23\\ \\text{V}\\end{aligned}",
     },
     {
       kind: "callout",
-      label: { en: "Worked example", zh: "例题" },
+      label: { en: "Overpotential — the real world is messier", zh: "过电位——现实更复杂" },
       text: {
-        en: "A current of 2.0 A for 30 min through molten AlCl₃: q = 2.0 × 1800 = 3600 C. Al³⁺ + 3 e⁻ → Al, so n = 3. mol Al = 3600 / (3 × 96485) = **0.0124 mol**, or about 0.34 g of aluminum.",
-        zh: "熔融 AlCl₃ 中通 2.0 A 的电流 30 min:q = 2.0 × 1800 = 3600 C。Al³⁺ + 3 e⁻ → Al,n = 3。mol Al = 3600 / (3 × 96485) = **0.0124 mol**,约 0.34 g 铝。",
+        en: "E° values predict *thermodynamically* which ion reacts, but some reactions (especially gas-producing ones like O₂ evolution) need **extra voltage** — the **overpotential** — to actually proceed at a reasonable rate. This is why electrolyzing aqueous NaCl **does** give Cl₂ at the anode even though water oxidation looks more favorable on paper.",
+        zh: "E° 给出**热力学**上哪种离子优先反应,但有些反应(特别是放出气体的反应,如 O₂ 析出)需要**额外电压**(**过电位**)才能达到可观速率。这就是为什么电解 NaCl 水溶液阳极**确实**放出 Cl₂——尽管水的氧化看上去更有利。",
       },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example 1 — simple plating", zh: "例题 1 — 简单电镀" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "How long must a current of 2.50 A run to plate **5.00 g** of silver onto a spoon? Ag: 107.9 g/mol; Ag⁺ + 1 e⁻ → Ag (n = 1).",
+        zh: "要在勺子上镀 **5.00 g** 银,电流 2.50 A 应持续多久?Ag:107.9 g/mol;Ag⁺ + 1 e⁻ → Ag (n = 1)。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{mol Ag} = 5.00/107.9 = 0.0463\\quad q = n\\,F\\,\\text{(mol Ag)} = 1 \\times 96485 \\times 0.0463 = 4470\\ \\text{C}",
+    },
+    {
+      kind: "math",
+      tex: "t \\;=\\; \\dfrac{q}{I} \\;=\\; \\dfrac{4470}{2.50} \\;\\approx\\; 1790\\ \\text{s} \\;\\approx\\; 29.8\\ \\text{min}",
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example 2 — two cells in series", zh: "例题 2 — 两个电解槽串联" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A current of 3.00 A flows through two cells in series — one plating Cu, one plating Au (Au³⁺ + 3 e⁻ → Au; 197 g/mol) — for **1.50 hours**. How many grams of Au are deposited?",
+        zh: "3.00 A 的电流依次通过两个电解槽——一个镀 Cu、一个镀 Au(Au³⁺ + 3 e⁻ → Au;197 g/mol)——持续 **1.50 小时**。Au 沉积多少克?",
+      },
+    },
+    {
+      kind: "math",
+      tex: "q = 3.00 \\times 5400 = 16{,}200\\ \\text{C}\\quad \\text{mol Au} = \\dfrac{16200}{3 \\times 96485} \\approx 0.0560\\ \\text{mol}",
+    },
+    {
+      kind: "math",
+      tex: "m_{\\mathrm{Au}} = 0.0560 \\times 197 \\;\\approx\\; 11.0\\ \\text{g}",
+    },
+    {
+      kind: "callout",
+      label: { en: "Series-circuit shortcut", zh: "串联速记" },
+      text: {
+        en: "Cells in series see the **same charge** — same q through each. So mol Ag : mol Cu : mol Au = 1/1 : 1/2 : 1/3 for one faraday through all three. Useful for quick comparisons in multi-cell problems.",
+        zh: "串联电解槽通过的**电荷相同**——q 对每个槽一致。因此每通过 1 法拉第,mol Ag : mol Cu : mol Au = 1/1 : 1/2 : 1/3。多槽问题用此速记可快速比较。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Exam-day checklist", zh: "考试清单" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "Convert time to **seconds** before using q = It.", zh: "用 q = It 前,先把时间换成**秒**。" },
+        { en: "Identify the correct n from the **half-reaction**, not the overall equation.", zh: "n 要由**半反应**确定,而不是总方程。" },
+        { en: "Track units — coulombs, amps, seconds, moles, grams. Don't mix kJ with J.", zh: "认真核对单位——C、A、s、mol、g,不要 kJ 与 J 混用。" },
+        { en: "For aqueous electrolysis, always ask: could **water** be oxidized/reduced instead of the ion?", zh: "水溶液电解时永远先问:可能是**水**被氧化/还原,而不是离子吗?" },
+        { en: "Current through **series cells is the same**; in **parallel**, total current splits.", zh: "串联电解槽**电流相同**;并联电解槽**总电流分流**。" },
+      ],
     },
   ],
 };
