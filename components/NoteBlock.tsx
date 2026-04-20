@@ -1,7 +1,10 @@
 "use client";
 
 import "katex/dist/katex.min.css";
+import "katex/contrib/mhchem/mhchem.js";
 import { BlockMath, InlineMath } from "react-katex";
+import { MoleculeDiagram, MoleculeRow } from "./MoleculeDiagram";
+import { Mol3DViewer } from "./Mol3DViewer";
 import { useT } from "./LocaleProvider";
 import { SupplyDemandChart } from "./SupplyDemandChart";
 import { ProductionPossibilitiesChart } from "./ProductionPossibilitiesChart";
@@ -76,6 +79,31 @@ export function NoteBlockRenderer({ block }: { block: NoteBlock }) {
               : <InlineMath key={i} math={seg.tex} />
           )}
         </p>
+      );
+    case "molecule":
+      return (
+        <div className="flex justify-center">
+          <MoleculeDiagram
+            smiles={block.smiles}
+            width={block.width}
+            height={block.height}
+            label={block.label ? t(block.label) : undefined}
+          />
+        </div>
+      );
+    case "molecule-row":
+      return (
+        <MoleculeRow
+          width={block.width}
+          height={block.height}
+          items={block.items.map((it) => ({ smiles: it.smiles, label: it.label ? t(it.label) : undefined }))}
+        />
+      );
+    case "mol3d":
+      return (
+        <div className="flex justify-center">
+          <Mol3DViewer geometry={block.geometry} />
+        </div>
       );
     case "callout":
       return (
