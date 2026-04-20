@@ -32,7 +32,7 @@ export type NoteBlock =
   | { kind: "math-inline-line"; segments: Array<{ t: "text"; text: Bilingual } | { t: "tex"; tex: string }> }
   | { kind: "molecule"; smiles: string; label?: Bilingual; width?: number; height?: number }
   | { kind: "molecule-row"; items: Array<{ smiles: string; label?: Bilingual }>; width?: number; height?: number }
-  | { kind: "mol3d"; geometry: "linear" | "trigonal-planar" | "tetrahedral" | "trigonal-pyramidal" | "bent" | "trigonal-bipyramidal" | "octahedral" }
+  | { kind: "mol3d"; geometry: "linear" | "trigonal-planar" | "tetrahedral" | "trigonal-pyramidal" | "bent" | "trigonal-bipyramidal" | "octahedral" | "see-saw" | "square-planar" }
   | { kind: "lewis"; name: string; label?: Bilingual }
   | { kind: "lewis-row"; names: string[] }
   | {
@@ -9841,29 +9841,173 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
     },
     {
       kind: "heading",
-      text: { en: "See the shapes — drag to rotate", zh: "立体效果(可拖动旋转)" },
-    },
-    {
-      kind: "mol3d",
-      geometry: "tetrahedral",
-    },
-    {
-      kind: "mol3d",
-      geometry: "trigonal-pyramidal",
-    },
-    {
-      kind: "mol3d",
-      geometry: "bent",
-    },
-    {
-      kind: "heading",
-      text: { en: "Hybridization in one sentence", zh: "一句话讲杂化" },
+      text: { en: "All 9 shapes with worked examples", zh: "九种几何 · 详解与例子" },
     },
     {
       kind: "paragraph",
       text: {
-        en: "**Hybridization = count the electron domains around the central atom.** 2 → sp, 3 → sp², 4 → sp³. (Expanded-octet cases give sp³d or sp³d², not on the current AP exam.)",
-        zh: "**杂化 = 中心原子周围电子域的数量。** 2 → sp;3 → sp²;4 → sp³。(扩展八隅体可有 sp³d、sp³d²,已不在现行 AP 考纲内。)",
+        en: "Every 3D viewer below is interactive — **click and drag to rotate, scroll to zoom**. Notice how lone pairs (invisible in the 3D model but implied by the shape) distort bond angles below the ideal values.",
+        zh: "下方每个 3D 模型都可交互——**拖动旋转、滚轮缩放**。孤对电子在模型中不可见,但会使键角偏离理想值。",
+      },
+    },
+
+    {
+      kind: "heading",
+      text: { en: "① Linear — 2 domains, 0 lone pairs", zh: "① 直线形 — 2 电子域、0 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: CO₂.** Each C=O double bond counts as **one** domain. With 2 domains, they sit 180° apart for maximum separation. Hybridization: **sp**. Both unhybridized p orbitals on C form π bonds to the two oxygens.",
+        zh: "**例子:CO₂。** 每个 C=O 双键算**一个**电子域。两个域相距 180° 以最大化间距。杂化:**sp**。C 上两条未杂化 p 轨道分别与两个 O 形成 π 键。",
+      },
+    },
+    { kind: "mol3d", geometry: "linear" },
+
+    {
+      kind: "heading",
+      text: { en: "② Trigonal planar — 3 domains, 0 lone pairs", zh: "② 平面三角 — 3 电子域、0 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: BF₃.** B has 3 bonding domains and — unusually — only 6 valence electrons (incomplete octet). Three F atoms lie at 120° in a single plane. Hybridization: **sp²**.",
+        zh: "**例子:BF₃。** B 有 3 个成键域,且只有 6 个价电子(八隅体不完整)。三个 F 在同一平面上,键角 120°。杂化:**sp²**。",
+      },
+    },
+    { kind: "mol3d", geometry: "trigonal-planar" },
+
+    {
+      kind: "heading",
+      text: { en: "③ Bent (from 3 domains) — 2 bonds, 1 lone pair", zh: "③ 弯曲形(3 域来源) — 2 成键、1 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: SO₂.** The electron-domain geometry is still trigonal planar, but the molecular shape ignores the lone pair on S — leaving a 'bent' visible shape. The lone pair pushes the O–S–O angle **below 120°** (~119° experimentally).",
+        zh: "**例子:SO₂。** 电子域几何仍为平面三角,但孤对不计入分子形状,故呈弯曲形。孤对排斥使 O–S–O 键角**略小于 120°**(实验值约 119°)。",
+      },
+    },
+    { kind: "lewis", name: "so2", label: { en: "Lewis view — lone pair on S visible", zh: "路易斯式——S 上孤对可见" } },
+
+    {
+      kind: "heading",
+      text: { en: "④ Tetrahedral — 4 domains, 0 lone pairs", zh: "④ 正四面体 — 4 电子域、0 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: CH₄.** Four H atoms at the corners of a regular tetrahedron around C. All angles are exactly **109.5°** (the 'tetrahedral angle'). Hybridization: **sp³**. Used by carbon in virtually all of organic chemistry.",
+        zh: "**例子:CH₄。** 四个 H 位于正四面体的四个顶点。所有键角恰好为 **109.5°**。杂化:**sp³**。有机化学中 C 基本都是此构型。",
+      },
+    },
+    { kind: "mol3d", geometry: "tetrahedral" },
+
+    {
+      kind: "heading",
+      text: { en: "⑤ Trigonal pyramidal — 4 domains, 3 bonds + 1 lone pair", zh: "⑤ 三角锥 — 4 电子域、3 成键 + 1 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: NH₃.** N has 4 domains (3 N–H + 1 lone pair). Electron geometry is tetrahedral; molecular shape drops the lone pair → **trigonal pyramidal**. The lone pair's strong repulsion compresses H–N–H to **≈ 107°** (from 109.5°).",
+        zh: "**例子:NH₃。** N 有 4 个域(3 个 N–H + 1 对孤对)。电子几何为四面体;分子形状不计孤对 → **三角锥**。孤对排斥使 H–N–H 压缩到 **≈ 107°**(小于 109.5°)。",
+      },
+    },
+    { kind: "mol3d", geometry: "trigonal-pyramidal" },
+
+    {
+      kind: "heading",
+      text: { en: "⑥ Bent (from 4 domains) — 2 bonds + 2 lone pairs", zh: "⑥ 弯曲形(4 域来源) — 2 成键 + 2 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: H₂O.** O has 4 domains (2 O–H + 2 lone pairs). Electron geometry is tetrahedral; molecular shape with two lone pairs removed is **bent**. Two lone pairs together repel **even more** than one — pushing H–O–H down to **≈ 104.5°**. This 'bent' is less open than SO₂'s bent.",
+        zh: "**例子:H₂O。** O 有 4 个域(2 O–H + 2 对孤对)。电子几何为四面体;去掉两对孤对后分子形状为**弯曲**。两对孤对排斥更强,把 H–O–H 压到 **≈ 104.5°**,比 SO₂ 的弯曲还更闭合。",
+      },
+    },
+    { kind: "mol3d", geometry: "bent" },
+    { kind: "lewis", name: "h2o", label: { en: "Lewis view — two lone pairs on O", zh: "路易斯式——O 上两对孤对" } },
+
+    {
+      kind: "heading",
+      text: { en: "⑦ Trigonal bipyramidal — 5 domains, 0 lone pairs", zh: "⑦ 三角双锥 — 5 电子域、0 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: PCl₅.** Central P uses **sp³d** hybridization (expanded octet, period 3). Two distinct positions: three **equatorial** Cl at 120° in a plane, two **axial** Cl at 180° perpendicular to the plane. Axial–equatorial angle is 90°.",
+        zh: "**例子:PCl₅。** 中心 P 使用 **sp³d** 杂化(扩展八隅体,第 3 周期)。两种位置:三个**赤道** Cl 在同一平面内间隔 120°;两个**轴向** Cl 相互 180°、与赤道垂直。轴-赤键角 90°。",
+      },
+    },
+    { kind: "mol3d", geometry: "trigonal-bipyramidal" },
+
+    {
+      kind: "heading",
+      text: { en: "⑧ See-saw — 5 domains, 4 bonds + 1 lone pair", zh: "⑧ 跷跷板(see-saw) — 5 电子域、4 成键 + 1 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: SF₄.** When a trigonal-bipyramidal center has one lone pair, the lone pair occupies the **equatorial** position (it has more room there). The remaining four bonds make an asymmetric 'see-saw' shape — two axial bonds + two equatorial bonds.",
+        zh: "**例子:SF₄。** 当三角双锥体系有一对孤对时,孤对占据**赤道**位置(那里空间最大)。剩余四根键形成不对称的「跷跷板」形——两根轴向键 + 两根赤道键。",
+      },
+    },
+    { kind: "mol3d", geometry: "see-saw" },
+
+    {
+      kind: "heading",
+      text: { en: "⑨ Octahedral — 6 domains, 0 lone pairs", zh: "⑨ 正八面体 — 6 电子域、0 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: SF₆.** Six bonds all at **90°** to each other — the most symmetric of the big shapes. Central S uses **sp³d²** hybridization. Extraordinarily stable and chemically inert — SF₆ is used as an insulating gas in high-voltage switchgear.",
+        zh: "**例子:SF₆。** 六根键互成 **90°**——大结构中最对称的一种。中心 S 使用 **sp³d²** 杂化。极其稳定、化学惰性——SF₆ 用作高压开关设备的绝缘气体。",
+      },
+    },
+    { kind: "mol3d", geometry: "octahedral" },
+
+    {
+      kind: "heading",
+      text: { en: "⑩ Square planar — 6 domains, 4 bonds + 2 lone pairs", zh: "⑩ 平面正方形 — 6 电子域、4 成键 + 2 孤对" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Example: XeF₄.** Two lone pairs occupy **opposite** axial positions (to minimize their mutual repulsion), leaving four F atoms flat in one plane at 90° to each other. Rare in main-group chemistry but very common for d⁸ transition-metal complexes.",
+        zh: "**例子:XeF₄。** 两对孤对占据**相对**的轴向位置(以最大化彼此间距),剩下四个 F 位于同一平面,相邻键角 90°。主族中罕见,但 d⁸ 过渡金属配合物中非常常见。",
+      },
+    },
+    { kind: "mol3d", geometry: "square-planar" },
+
+    {
+      kind: "heading",
+      text: { en: "Hybridization summary", zh: "杂化方式总结" },
+    },
+    {
+      kind: "table",
+      caption: { en: "Electron-domain count → hybridization", zh: "电子域数量 → 杂化方式" },
+      columns: [
+        { en: "Domains", zh: "域数" },
+        { en: "Hybridization", zh: "杂化" },
+        { en: "Shape(s) it produces", zh: "对应形状" },
+      ],
+      rows: [
+        [{ en: "2", zh: "2" }, { en: "sp", zh: "sp" }, { en: "Linear", zh: "直线形" }],
+        [{ en: "3", zh: "3" }, { en: "sp²", zh: "sp²" }, { en: "Trigonal planar, bent (3)", zh: "平面三角、弯曲(3)" }],
+        [{ en: "4", zh: "4" }, { en: "sp³", zh: "sp³" }, { en: "Tetrahedral, trigonal pyramidal, bent (4)", zh: "正四面体、三角锥、弯曲(4)" }],
+        [{ en: "5", zh: "5" }, { en: "sp³d  (beyond current AP exam)", zh: "sp³d(已超出现行 AP 考纲)" }, { en: "Trigonal bipyramidal, see-saw", zh: "三角双锥、跷跷板" }],
+        [{ en: "6", zh: "6" }, { en: "sp³d²  (beyond current AP exam)", zh: "sp³d²(已超出现行 AP 考纲)" }, { en: "Octahedral, square planar", zh: "正八面体、平面正方形" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "AP exam focus", zh: "AP 考纲重点" },
+      text: {
+        en: "On the 2026 AP Chemistry exam, the core shapes are the **first six** (2–4 domains). Geometries with 5+ domains (sp³d, sp³d²) are included here for completeness but aren't required — they show up mostly in college general chemistry.",
+        zh: "2026 AP 化学考纲只要求前**六种**形状(2–4 电子域)。5+ 域的几何(sp³d、sp³d²)在此列出是为了完整性,并非考试重点——它们主要出现在大学普化中。",
       },
     },
   ],
