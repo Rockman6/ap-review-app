@@ -45,7 +45,8 @@ export type NoteBlock =
         | "pes-neon"
         | "successive-ie-mg"
         | "solubility-vs-t"
-        | "real-gas-deviation";
+        | "real-gas-deviation"
+        | "titration-strong";
     }
   | { kind: "mass-spectrum"; peaks: Array<{ mz: number; pct: number }>; title?: Bilingual }
   | {
@@ -7657,15 +7658,19 @@ export const apChemistry: Subject = {
       number: 4,
       title: { en: "Chemical Reactions", zh: "化学反应" },
       description: {
-        en: "Reaction types, balancing, stoichiometry, and net ionic equations.",
-        zh: "反应类型、配平、化学计量与离子方程式。",
+        en: "Reaction types, balancing, stoichiometry, titration, acid–base and redox.",
+        zh: "反应类型、配平、化学计量、滴定、酸碱与氧化还原。",
       },
       topics: [
-        { slug: "topic-1", title: { en: "Physical vs Chemical Changes", zh: "物理变化与化学变化" }, summary: { en: "Identifying whether new substances are formed.", zh: "判断是否生成新物质。" } },
-        { slug: "topic-2", title: { en: "Balancing Chemical Equations", zh: "配平化学方程式" }, summary: { en: "Conservation of atoms and charge.", zh: "原子与电荷守恒。" } },
-        { slug: "topic-3", title: { en: "Stoichiometry", zh: "化学计量" }, summary: { en: "Mole ratios, limiting reactants, percent yield.", zh: "摩尔比、限量反应物与产率。" } },
-        { slug: "topic-4", title: { en: "Types of Reactions", zh: "反应类型" }, summary: { en: "Synthesis, decomposition, single/double replacement, combustion.", zh: "化合、分解、置换、复分解、燃烧反应。" } },
-        { slug: "topic-5", title: { en: "Acid–Base & Redox Reactions", zh: "酸碱与氧化还原反应" }, summary: { en: "Identifying H+ transfer and electron transfer in equations.", zh: "识别方程式中的质子转移与电子转移。" } },
+        { slug: "topic-1", title: { en: "Introduction to Reactions", zh: "反应入门" }, summary: { en: "How to recognize a chemical change and write equations.", zh: "如何识别化学变化并书写方程式。" } },
+        { slug: "topic-2", title: { en: "Net Ionic Equations", zh: "净离子方程式" }, summary: { en: "Stripping spectators to see the real change.", zh: "去掉旁观离子,看真正发生的变化。" } },
+        { slug: "topic-3", title: { en: "Representations of Reactions", zh: "反应的表示法" }, summary: { en: "Molecular, complete-ionic, net-ionic, and particulate diagrams.", zh: "分子式、完整离子式、净离子式与粒子图。" } },
+        { slug: "topic-4", title: { en: "Physical vs Chemical Changes", zh: "物理变化与化学变化" }, summary: { en: "Does a new substance form? That's the test.", zh: "是否生成新物质——这就是判据。" } },
+        { slug: "topic-5", title: { en: "Stoichiometry", zh: "化学计量学" }, summary: { en: "Mole ratios, limiting reactants, and percent yield.", zh: "摩尔比、限量反应物与产率。" } },
+        { slug: "topic-6", title: { en: "Introduction to Titration", zh: "滴定入门" }, summary: { en: "Using a known reactant to quantify an unknown.", zh: "用已知浓度的试剂测未知浓度。" } },
+        { slug: "topic-7", title: { en: "Types of Chemical Reactions", zh: "化学反应类型" }, summary: { en: "Synthesis, decomposition, replacement, combustion.", zh: "化合、分解、置换、燃烧等。" } },
+        { slug: "topic-8", title: { en: "Introduction to Acid–Base Reactions", zh: "酸碱反应入门" }, summary: { en: "Brønsted proton transfer and common neutralizations.", zh: "Brønsted 质子转移与常见中和反应。" } },
+        { slug: "topic-9", title: { en: "Oxidation-Reduction (Redox) Reactions", zh: "氧化还原 (Redox) 反应" }, summary: { en: "Assigning oxidation numbers; tracking electron transfer.", zh: "指定氧化数,跟踪电子转移。" } },
       ],
     },
     {
@@ -10302,6 +10307,303 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
   ],
+
+  // ============================================================
+  // UNIT 4 · Chemical Reactions
+  // ============================================================
+
+  // ---------- 4.1 · Introduction to Reactions ----------
+  "unit-4/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **chemical reaction** rearranges atoms: bonds break in the reactants, new bonds form in the products. Three classic clues tell you a reaction has happened — a **color change**, a **gas** (bubbles), or a **precipitate** forming.",
+        zh: "**化学反应**重新排列原子——反应物中的旧键断裂,产物中的新键生成。判断有反应发生的三个经典信号:**颜色变化**、**气体生成**、**沉淀形成**。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "The conservation rules", zh: "守恒定律" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Mass / atoms** — every element must have the same count on both sides.", zh: "**质量/原子守恒**:等式两边每种元素的原子数相等。" },
+        { en: "**Charge** — total charge on the left must equal total on the right.", zh: "**电荷守恒**:方程式两边的总电荷相等。" },
+        { en: "**Energy** — reactions are just energy redistribution; no energy appears or disappears.", zh: "**能量守恒**:反应只是能量重新分配,不会凭空产生或消失。" },
+      ],
+    },
+    {
+      kind: "math",
+      tex: "\\ce{CH4 + 2 O2 -> CO2 + 2 H2O}",
+      caption: { en: "1C, 4H, 4O on each side — balanced.", zh: "两边各有 1 个 C、4 个 H、4 个 O——配平。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Balancing recipe", zh: "配平步骤" },
+      text: {
+        en: "**1.** Write the unbalanced skeleton. **2.** Balance metals first, then nonmetals, then **H** and **O** last. **3.** If nothing works with whole numbers, use fractions and then multiply everything through. **4.** Verify: atom-by-atom and charge.",
+        zh: "**1.** 先写未配平的「骨架」方程。**2.** 先配金属,再配非金属,最后配 **H** 与 **O**。**3.** 整数配不平时用分数,然后整体乘系数。**4.** 逐元素与电荷复查。",
+      },
+    },
+  ],
+
+  // ---------- 4.2 · Net Ionic Equations ----------
+  "unit-4/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "When ionic compounds react in water, most ions stay dissolved and unchanged — they're **spectator ions**. A **net ionic equation** removes the spectators so you see only the atoms and bonds that actually change.",
+        zh: "离子化合物在水中反应时,大部分离子仍处于溶解状态且不变化,它们是**旁观离子**。**净离子方程式**去掉旁观离子,只留下真正参与反应的原子和键。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Three levels of the same reaction", zh: "同一反应的三层写法" },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{AgNO3(aq) + NaCl(aq) -> AgCl(s) + NaNO3(aq)}",
+      caption: { en: "Molecular equation", zh: "分子方程式" },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{Ag+(aq) + NO3^- (aq) + Na+(aq) + Cl^- (aq) -> AgCl(s) + Na+(aq) + NO3^- (aq)}",
+      caption: { en: "Complete ionic equation (all soluble ionic compounds split into ions)", zh: "完整离子方程式(可溶离子化合物全部拆成离子)" },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{Ag+(aq) + Cl^- (aq) -> AgCl(s)}",
+      caption: { en: "Net ionic — only the atoms that changed", zh: "净离子方程式——仅保留变化的部分" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Who splits, who doesn't", zh: "哪些拆、哪些不拆" },
+      text: {
+        en: "**Split:** strong electrolytes (strong acids, strong bases, soluble salts) → show as ions. **Don't split:** molecular compounds, weak acids/bases, insoluble solids, gases → write as one unit.",
+        zh: "**拆开:**强电解质(强酸、强碱、可溶盐)——写成离子;**不拆:**分子化合物、弱酸/弱碱、不溶固体、气体——作为整体书写。",
+      },
+    },
+  ],
+
+  // ---------- 4.3 · Representations of Reactions ----------
+  "unit-4/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The AP exam asks you to translate between **symbolic** equations, **particulate** diagrams, and **graphical** representations. All three describe the same reaction — being fluent in all three is the skill.",
+        zh: "AP 考试要求你能在**符号方程**、**粒子图示**、**图表**三种表示之间自由切换——都描述同一反应,熟练掌握是关键能力。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "The three representations of a reaction", zh: "反应的三种表示法" },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "Looks like", zh: "样式" },
+        { en: "What it shows", zh: "展示什么" },
+      ],
+      rows: [
+        [{ en: "Symbolic", zh: "符号式" }, { en: "Chemical formulas with coefficients", zh: "化学式 + 系数" }, { en: "Stoichiometry", zh: "化学计量关系" }],
+        [{ en: "Particulate", zh: "粒子图" }, { en: "Circles representing individual atoms/molecules", zh: "用圆圈代表原子/分子" }, { en: "Counts of particles before & after", zh: "反应前后的粒子数" }],
+        [{ en: "Graphical", zh: "图表" }, { en: "Plot of amount vs time", zh: "量 vs 时间图" }, { en: "How concentrations change as the reaction runs", zh: "浓度如何随反应进行变化" }],
+      ],
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A common exam task: given a particulate 'before' picture, draw the 'after' picture using the balanced equation. **Count atoms carefully** — if you're drawing 2 H₂ + O₂ → 2 H₂O, the 'after' must have the same total atom count as 'before'.",
+        zh: "常见题型:给出反应前粒子图,按配平方程画出反应后粒子图。**原子数要一一核对**——若反应为 2 H₂ + O₂ → 2 H₂O,反应前后原子总数必须相同。",
+      },
+    },
+  ],
+
+  // ---------- 4.4 · Physical vs Chemical Changes ----------
+  "unit-4/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Physical change:** substance keeps its chemical identity — only phase or shape changes. **Chemical change:** bonds rearrange; a new substance appears.",
+        zh: "**物理变化**:化学组成不变,只改变物态或形状。**化学变化**:键被重新排列,产生新物质。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Physical vs chemical — quick judgment", zh: "物理 vs 化学——快速判别" },
+      columns: [
+        { en: "Observation", zh: "现象" },
+        { en: "Type", zh: "类型" },
+        { en: "Why", zh: "原因" },
+      ],
+      rows: [
+        [{ en: "Ice melts to water", zh: "冰熔化为水" }, { en: "Physical", zh: "物理" }, { en: "Still H₂O — only IMFs broken", zh: "仍是 H₂O,仅破坏分子间作用力" }],
+        [{ en: "Sugar dissolves in water", zh: "糖溶于水" }, { en: "Physical", zh: "物理" }, { en: "Sugar molecules intact", zh: "糖分子保持完整" }],
+        [{ en: "Paper burns", zh: "纸燃烧" }, { en: "Chemical", zh: "化学" }, { en: "Combustion forms CO₂, H₂O — new bonds", zh: "燃烧生成 CO₂、H₂O——形成新键" }],
+        [{ en: "Iron rusts", zh: "铁生锈" }, { en: "Chemical", zh: "化学" }, { en: "Fe + O₂ → Fe₂O₃", zh: "Fe + O₂ → Fe₂O₃" }],
+        [{ en: "Fizzing when baking soda meets vinegar", zh: "小苏打遇醋起泡" }, { en: "Chemical", zh: "化学" }, { en: "CO₂ gas is a new substance", zh: "生成新物质 CO₂ 气体" }],
+      ],
+    },
+  ],
+
+  // ---------- 4.5 · Stoichiometry ----------
+  "unit-4/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Stoichiometry converts between moles of one substance and moles of another using **coefficients from the balanced equation**. Every stoichiometry calculation has three steps: (1) convert to moles, (2) apply the mole ratio, (3) convert back to the desired unit.",
+        zh: "化学计量学利用**配平方程的系数**,在不同物质的摩尔数之间换算。所有计量题都遵循三步:(1) 换成摩尔,(2) 用摩尔比,(3) 换回所需单位。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\underbrace{g\\ A}_{\\text{given}} \\;\\xrightarrow{\\div M_A}\\; mol\\ A \\;\\xrightarrow{\\times \\frac{\\text{coef}\\ B}{\\text{coef}\\ A}}\\; mol\\ B \\;\\xrightarrow{\\times M_B}\\; g\\ B",
+      caption: { en: "Universal stoichiometry pipeline", zh: "通用化学计量流程" },
+    },
+    {
+      kind: "heading",
+      text: { en: "Limiting reactant", zh: "限量反应物" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "When two reactants start together, one usually runs out first — that's the **limiting reactant**, and it determines how much product forms. The other is the **excess reactant**. Compute moles of product from EACH reactant; whichever gives less product is limiting.",
+        zh: "两种反应物同时参与时,通常一种先耗尽——它就是**限量反应物**,决定能生成多少产物;另一种是**过量反应物**。分别用两种反应物计算可能生成的产物摩尔数,**较少**者为限量。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\%\\ \\text{yield} \\;=\\; \\dfrac{\\text{actual yield}}{\\text{theoretical yield}} \\times 100\\%",
+      caption: { en: "Labs never give 100% — side reactions, spills, incomplete conversions.", zh: "实验几乎不可能 100%——副反应、损耗、转化不完全都会降低产率。" },
+    },
+  ],
+
+  // ---------- 4.6 · Titration ----------
+  "unit-4/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Titration** uses a reactant of known concentration (the **titrant**) to quantify an unknown (the **analyte**). The titrant is added slowly until the reaction is exactly complete — the **equivalence point**. For acid–base titrations, this is where moles H⁺ = moles OH⁻.",
+        zh: "**滴定**用已知浓度的试剂(**滴定剂**)测量未知溶液(**被滴定物**)的浓度。慢慢加入滴定剂直到反应恰好完成,即**等当点**。对酸碱滴定,等当点处 mol H⁺ = mol OH⁻。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "M_{\\text{titrant}}\\, V_{\\text{titrant}} \\;=\\; M_{\\text{analyte}}\\, V_{\\text{analyte}}",
+      caption: { en: "For a 1:1 acid–base neutralization", zh: "1:1 中和反应的简化式" },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "titration-strong",
+    },
+    {
+      kind: "callout",
+      label: { en: "Exam skill", zh: "应试要点" },
+      text: {
+        en: "Find the equivalence point by reading where the pH curve has its **steepest slope** (the inflection point). For strong/strong titrations, pH at the equivalence point = 7. For weak-acid + strong-base, equivalence pH > 7 (conjugate base dominates).",
+        zh: "等当点 = pH 曲线**斜率最大**的点(拐点)。强酸-强碱等当点 pH = 7;弱酸-强碱等当点 pH > 7(生成的共轭碱使溶液呈碱性)。",
+      },
+    },
+  ],
+
+  // ---------- 4.7 · Types of Reactions ----------
+  "unit-4/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Most AP-exam reactions fall into a handful of categories. Recognizing the type tells you what to expect for products.",
+        zh: "AP 考纲下的绝大多数反应可归入若干典型类别。识别反应类型有助于预测产物。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Six reaction types you should recognize on sight", zh: "一眼就要认出的六类反应" },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "General form", zh: "通式" },
+        { en: "Example", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "Synthesis (combination)", zh: "化合" }, { en: "A + B → AB", zh: "A + B → AB" }, { en: "2 H₂ + O₂ → 2 H₂O", zh: "2 H₂ + O₂ → 2 H₂O" }],
+        [{ en: "Decomposition", zh: "分解" }, { en: "AB → A + B", zh: "AB → A + B" }, { en: "2 H₂O₂ → 2 H₂O + O₂", zh: "2 H₂O₂ → 2 H₂O + O₂" }],
+        [{ en: "Single replacement", zh: "单置换" }, { en: "A + BC → AC + B", zh: "A + BC → AC + B" }, { en: "Zn + 2 HCl → ZnCl₂ + H₂", zh: "Zn + 2 HCl → ZnCl₂ + H₂" }],
+        [{ en: "Double replacement", zh: "复分解" }, { en: "AB + CD → AD + CB", zh: "AB + CD → AD + CB" }, { en: "AgNO₃ + NaCl → AgCl↓ + NaNO₃", zh: "AgNO₃ + NaCl → AgCl↓ + NaNO₃" }],
+        [{ en: "Acid–base (neutralization)", zh: "酸碱中和" }, { en: "HA + BOH → BA + H₂O", zh: "HA + BOH → BA + H₂O" }, { en: "HCl + NaOH → NaCl + H₂O", zh: "HCl + NaOH → NaCl + H₂O" }],
+        [{ en: "Combustion", zh: "燃烧" }, { en: "C_xH_y + O₂ → CO₂ + H₂O", zh: "C_xH_y + O₂ → CO₂ + H₂O" }, { en: "CH₄ + 2 O₂ → CO₂ + 2 H₂O", zh: "CH₄ + 2 O₂ → CO₂ + 2 H₂O" }],
+      ],
+    },
+  ],
+
+  // ---------- 4.8 · Acid–Base Reactions ----------
+  "unit-4/topic-8": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **Brønsted–Lowry acid** donates a proton (H⁺); a **Brønsted–Lowry base** accepts one. Every acid–base reaction has a **conjugate acid–base pair** on each side, differing by exactly one H⁺.",
+        zh: "**Brønsted–Lowry 酸**是质子 (H⁺) 的给体;**Brønsted–Lowry 碱**是质子的受体。每个酸碱反应两边各有一对**共轭酸碱对**,彼此相差一个 H⁺。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{HA + B <=> A^- + HB+}",
+      caption: { en: "HA/A⁻ and HB⁺/B are the conjugate pairs", zh: "HA/A⁻ 与 HB⁺/B 为共轭对" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Strong vs weak", zh: "强与弱" },
+      text: {
+        en: "**Strong acids** (HCl, HBr, HI, HNO₃, H₂SO₄, HClO₄) ionize **completely** in water. **Weak acids** (CH₃COOH, HF, H₂CO₃) only partially ionize — a dynamic equilibrium sits well to the left. The same split applies for strong (NaOH, KOH, Ca(OH)₂) vs weak (NH₃) bases.",
+        zh: "**强酸**(HCl、HBr、HI、HNO₃、H₂SO₄、HClO₄)在水中**完全电离**;**弱酸**(CH₃COOH、HF、H₂CO₃)部分电离,平衡大幅偏向左侧。碱的强/弱判别同理(NaOH、KOH、Ca(OH)₂ 强;NH₃ 弱)。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{HCl(aq) + NaOH(aq) -> NaCl(aq) + H2O(l)}",
+      caption: { en: "Strong acid + strong base — complete neutralization", zh: "强酸 + 强碱——完全中和" },
+    },
+    {
+      kind: "math",
+      tex: "\\text{Net ionic: }\\;\\ce{H^+ (aq) + OH^- (aq) -> H2O(l)}",
+      caption: { en: "The real chemistry — spectators Na⁺ and Cl⁻ removed", zh: "真正发生的变化——旁观离子 Na⁺ 与 Cl⁻ 已去掉" },
+    },
+  ],
+
+  // ---------- 4.9 · Redox ----------
+  "unit-4/topic-9": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **redox (oxidation–reduction)** reaction is one where electrons transfer from one substance to another. The substance that **loses** electrons is **oxidized**; the one that **gains** them is **reduced**. *LEO the lion goes GER* — Lose Electrons → Oxidation; Gain Electrons → Reduction.",
+        zh: "**氧化还原反应**中,电子从一方转移到另一方。**失**去电子的物质被**氧化**;**得**到电子的物质被**还原**。记忆口诀:*LEO 狮子 goes GER*——Lose e⁻ = Oxidation,Gain e⁻ = Reduction。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Oxidation-number rules (most-used)", zh: "氧化数规则(最常用)" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Free element** = 0  (e.g., O₂, Na(s), H₂)", zh: "**单质** = 0(如 O₂、Na(s)、H₂)" },
+        { en: "**Monatomic ion** = its charge (Na⁺ = +1, O²⁻ = −2)", zh: "**单原子离子** = 其电荷(Na⁺ = +1、O²⁻ = −2)" },
+        { en: "**H** = +1 (except with metals, where it's −1 like in NaH)", zh: "**H** = +1(与金属形成氢化物时为 −1,如 NaH)" },
+        { en: "**O** = −2 (except in peroxides where it's −1, and with F where it's positive)", zh: "**O** = −2(过氧化物中为 −1;与 F 结合时为正)" },
+        { en: "**Sum** of oxidation numbers = overall charge of the species.", zh: "**所有原子氧化数之和** = 物种总电荷。" },
+      ],
+    },
+    {
+      kind: "math",
+      tex: "\\ce{Zn(s) + CuSO4(aq) -> ZnSO4(aq) + Cu(s)}",
+      caption: { en: "Zn: 0 → +2 (oxidized); Cu: +2 → 0 (reduced)", zh: "Zn:0 → +2(氧化);Cu:+2 → 0(还原)" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Identifying redox fast", zh: "快速识别氧化还原" },
+      text: {
+        en: "If any element's oxidation number **changes** between reactants and products, the reaction is redox. If none change (e.g., acid–base, precipitation), it's not. Combustion and single-replacement are always redox; double-replacement is usually not.",
+        zh: "只要任一元素的氧化数**发生变化**,就是氧化还原反应;无变化(如酸碱、沉淀反应)则不是。燃烧与单置换必为氧化还原;复分解通常不是。",
+      },
+    },
+  ],
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -11192,6 +11494,199 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       explanation: {
         en: "A = εbc → c = A / (εb) = 0.75 / (5000 × 1.00) = **1.50 × 10⁻⁴ M**. Choice C inverts the equation — a common calculator mistake.",
         zh: "A = εbc → c = A / (εb) = 0.75 / (5000 × 1.00) = **1.50 × 10⁻⁴ M**。选项 C 把公式倒用了,常见计算失误。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // UNIT 4 · Questions
+  // ============================================================
+
+  "unit-4/topic-1": [
+    {
+      id: "chem-u4-t1-q1",
+      prompt: {
+        en: "Balance the combustion of propane: **C₃H₈ + O₂ → CO₂ + H₂O**. What are the smallest whole-number coefficients?",
+        zh: "配平丙烷燃烧:**C₃H₈ + O₂ → CO₂ + H₂O**。最简整数系数为?",
+      },
+      choices: [
+        { id: "a", text: { en: "1, 5, 3, 4", zh: "1, 5, 3, 4" } },
+        { id: "b", text: { en: "1, 7, 3, 4", zh: "1, 7, 3, 4" } },
+        { id: "c", text: { en: "2, 7, 6, 8", zh: "2, 7, 6, 8" } },
+        { id: "d", text: { en: "1, 3, 3, 4", zh: "1, 3, 3, 4" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Balance C first: 3 CO₂. Then H: 4 H₂O (8 H on each side). Now O on right = 3(2) + 4(1) = 10, so 5 O₂ on left. **C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O** → 1, 5, 3, 4.",
+        zh: "先配 C:3 CO₂;再配 H:4 H₂O(两边各 8 H)。右侧 O 总数 = 3(2) + 4(1) = 10,故左侧 5 O₂。**C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O** → 1, 5, 3, 4。",
+      },
+    },
+  ],
+
+  "unit-4/topic-2": [
+    {
+      id: "chem-u4-t2-q1",
+      prompt: {
+        en: "Aqueous Pb(NO₃)₂ is mixed with aqueous KI to form PbI₂(s) + KNO₃(aq). The **net ionic equation** is?",
+        zh: "Pb(NO₃)₂ 与 KI 水溶液混合,生成 PbI₂(s) 和 KNO₃(aq)。**净离子方程式**为?",
+      },
+      choices: [
+        { id: "a", text: { en: "Pb(NO₃)₂ + 2 KI → PbI₂ + 2 KNO₃", zh: "Pb(NO₃)₂ + 2 KI → PbI₂ + 2 KNO₃" } },
+        { id: "b", text: { en: "Pb²⁺(aq) + 2 I⁻(aq) → PbI₂(s)", zh: "Pb²⁺(aq) + 2 I⁻(aq) → PbI₂(s)" } },
+        { id: "c", text: { en: "K⁺(aq) + NO₃⁻(aq) → KNO₃(aq)", zh: "K⁺(aq) + NO₃⁻(aq) → KNO₃(aq)" } },
+        { id: "d", text: { en: "Pb²⁺ + 2 NO₃⁻ + 2 K⁺ + 2 I⁻ → PbI₂ + 2 K⁺ + 2 NO₃⁻", zh: "Pb²⁺ + 2 NO₃⁻ + 2 K⁺ + 2 I⁻ → PbI₂ + 2 K⁺ + 2 NO₃⁻" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "K⁺ and NO₃⁻ stay dissolved unchanged — they're spectators. The only chemistry is Pb²⁺ + 2 I⁻ forming PbI₂ solid. Choice D is the complete ionic, not net. Choice A is molecular.",
+        zh: "K⁺ 和 NO₃⁻ 保持溶解不变,为旁观离子。真正发生的化学反应只有 Pb²⁺ + 2 I⁻ 结合生成固体 PbI₂。选项 D 是完整离子式,A 是分子式。",
+      },
+    },
+  ],
+
+  "unit-4/topic-3": [
+    {
+      id: "chem-u4-t3-q1",
+      prompt: {
+        en: "A particulate diagram shows 6 H₂ molecules and 4 O₂ molecules in a container. After the reaction **2 H₂ + O₂ → 2 H₂O** goes to completion, how many H₂O molecules should the 'after' diagram show?",
+        zh: "粒子图显示容器中有 6 个 H₂ 分子和 4 个 O₂ 分子。反应 **2 H₂ + O₂ → 2 H₂O** 完全进行后,反应后图中应画出几个 H₂O 分子?",
+      },
+      choices: [
+        { id: "a", text: { en: "4", zh: "4" } },
+        { id: "b", text: { en: "6", zh: "6" } },
+        { id: "c", text: { en: "8", zh: "8" } },
+        { id: "d", text: { en: "10", zh: "10" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Find limiting reactant first.** H₂ can make 6 × (2/2) = 6 H₂O. O₂ can make 4 × (2/1) = 8 H₂O. H₂ gives the smaller number, so H₂ is limiting → **6 H₂O** formed. 1 O₂ remains unreacted.",
+        zh: "**先定限量反应物。** 6 H₂ 可生成 6 × (2/2) = 6 H₂O;4 O₂ 可生成 4 × (2/1) = 8 H₂O。H₂ 较少,为限量 → **生成 6 个 H₂O**。剩 1 个 O₂ 未反应。",
+      },
+    },
+  ],
+
+  "unit-4/topic-4": [
+    {
+      id: "chem-u4-t4-q1",
+      prompt: {
+        en: "Which of the following represents a **chemical** change (not physical)?",
+        zh: "下列哪一过程是**化学**变化(非物理)?",
+      },
+      choices: [
+        { id: "a", text: { en: "Ice melting to water", zh: "冰化成水" } },
+        { id: "b", text: { en: "Salt dissolving in water", zh: "盐溶于水" } },
+        { id: "c", text: { en: "Wood burning in air", zh: "木材在空气中燃烧" } },
+        { id: "d", text: { en: "Liquid nitrogen boiling", zh: "液氮沸腾" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Burning wood breaks cellulose bonds and forms CO₂ and H₂O — new substances = chemical change. The other three preserve the substance's chemical identity and only change phase or dispersal.",
+        zh: "木材燃烧使纤维素键断裂,生成 CO₂ 和 H₂O——形成新物质 = 化学变化。其他三项保持化学组成不变,仅改变相态或分散。",
+      },
+    },
+  ],
+
+  "unit-4/topic-5": [
+    {
+      id: "chem-u4-t5-q1",
+      prompt: {
+        en: "Starting with **24.0 g Mg** (M = 24.3 g/mol) and **32.0 g O₂** (M = 32.0 g/mol) in the reaction **2 Mg + O₂ → 2 MgO**, what is the limiting reactant?",
+        zh: "反应 **2 Mg + O₂ → 2 MgO**,起始有 **24.0 g Mg**(M = 24.3 g/mol)与 **32.0 g O₂**(M = 32.0 g/mol),限量反应物为?",
+      },
+      choices: [
+        { id: "a", text: { en: "Mg", zh: "Mg" } },
+        { id: "b", text: { en: "O₂", zh: "O₂" } },
+        { id: "c", text: { en: "Neither — perfect stoichiometry", zh: "无——完美化学计量" } },
+        { id: "d", text: { en: "Cannot tell without a % yield", zh: "无法判断,需要产率信息" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "**mol Mg** = 24.0 / 24.3 ≈ 0.988. **mol O₂** = 32.0 / 32.0 = 1.00. Need 2 mol Mg for every 1 mol O₂. We have 0.988 / 2 = 0.494 'batches' from Mg and 1.00 / 1 = 1.00 batches from O₂. **Mg runs out first** — it's limiting.",
+        zh: "**mol Mg** = 24.0 / 24.3 ≈ 0.988;**mol O₂** = 32.0 / 32.0 = 1.00。每 1 mol O₂ 需 2 mol Mg。Mg 能支持 0.988/2 = 0.494 轮反应,O₂ 能支持 1.00 轮。**Mg 先耗尽** → 限量。",
+      },
+    },
+  ],
+
+  "unit-4/topic-6": [
+    {
+      id: "chem-u4-t6-q1",
+      prompt: {
+        en: "A **25.0 mL** sample of HCl of unknown concentration requires **18.75 mL** of **0.200 M NaOH** to reach equivalence. What is [HCl]?",
+        zh: "**25.0 mL** 未知浓度 HCl,用 **0.200 M NaOH** 滴定至等当点消耗 **18.75 mL**。[HCl] = ?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.100 M", zh: "0.100 M" } },
+        { id: "b", text: { en: "0.150 M", zh: "0.150 M" } },
+        { id: "c", text: { en: "0.200 M", zh: "0.200 M" } },
+        { id: "d", text: { en: "0.300 M", zh: "0.300 M" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "M₁V₁ = M₂V₂ → (M_HCl)(25.0) = (0.200)(18.75) → M_HCl = 3.75 / 25.0 = **0.150 M**. The 1:1 stoichiometry of HCl + NaOH makes this direct.",
+        zh: "M₁V₁ = M₂V₂ → (M_HCl)(25.0) = (0.200)(18.75) → M_HCl = 3.75 / 25.0 = **0.150 M**。HCl 与 NaOH 为 1:1 中和,可直接套用。",
+      },
+    },
+  ],
+
+  "unit-4/topic-7": [
+    {
+      id: "chem-u4-t7-q1",
+      prompt: {
+        en: "Classify the reaction: **2 KClO₃(s) → 2 KCl(s) + 3 O₂(g)**",
+        zh: "判断反应类型:**2 KClO₃(s) → 2 KCl(s) + 3 O₂(g)**",
+      },
+      choices: [
+        { id: "a", text: { en: "Synthesis", zh: "化合" } },
+        { id: "b", text: { en: "Decomposition", zh: "分解" } },
+        { id: "c", text: { en: "Single replacement", zh: "单置换" } },
+        { id: "d", text: { en: "Combustion", zh: "燃烧" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "One compound (KClO₃) breaks down into two simpler substances (KCl + O₂) → **decomposition** (general form AB → A + B). Note that it's also a redox (Cl: +5 → −1; O: −2 → 0).",
+        zh: "一种化合物 (KClO₃) 分解为两种较简单物质 (KCl + O₂) → **分解反应**(通式 AB → A + B)。同时也是氧化还原(Cl:+5 → −1;O:−2 → 0)。",
+      },
+    },
+  ],
+
+  "unit-4/topic-8": [
+    {
+      id: "chem-u4-t8-q1",
+      prompt: {
+        en: "In the reaction **NH₃(aq) + HCl(aq) → NH₄Cl(aq)**, which species is the **Brønsted–Lowry base**?",
+        zh: "在反应 **NH₃(aq) + HCl(aq) → NH₄Cl(aq)** 中,**Brønsted–Lowry 碱**是?",
+      },
+      choices: [
+        { id: "a", text: { en: "HCl — it donates H⁺", zh: "HCl——给出 H⁺" } },
+        { id: "b", text: { en: "NH₃ — it accepts a proton", zh: "NH₃——接受质子" } },
+        { id: "c", text: { en: "NH₄⁺ — it formed from the reaction", zh: "NH₄⁺——反应生成物" } },
+        { id: "d", text: { en: "Cl⁻ — it's the conjugate base", zh: "Cl⁻——共轭碱" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "A Brønsted base **accepts** a proton. NH₃ picks up H⁺ from HCl to become NH₄⁺ — so NH₃ is the base, HCl is the acid. NH₄⁺ is the **conjugate acid** of NH₃; Cl⁻ is the conjugate base of HCl.",
+        zh: "Brønsted 碱**接受**质子。NH₃ 从 HCl 接过 H⁺ 变成 NH₄⁺——故 NH₃ 为碱,HCl 为酸。NH₄⁺ 是 NH₃ 的**共轭酸**;Cl⁻ 是 HCl 的共轭碱。",
+      },
+    },
+  ],
+
+  "unit-4/topic-9": [
+    {
+      id: "chem-u4-t9-q1",
+      prompt: {
+        en: "In the reaction **Cu + 2 AgNO₃ → Cu(NO₃)₂ + 2 Ag**, which species is **oxidized** and what is its oxidation number change?",
+        zh: "在反应 **Cu + 2 AgNO₃ → Cu(NO₃)₂ + 2 Ag** 中,哪一物质被**氧化**,其氧化数如何变化?",
+      },
+      choices: [
+        { id: "a", text: { en: "Ag: +1 → 0", zh: "Ag:+1 → 0" } },
+        { id: "b", text: { en: "Cu: 0 → +2", zh: "Cu:0 → +2" } },
+        { id: "c", text: { en: "N: +5 → +5 (unchanged)", zh: "N:+5 → +5(不变)" } },
+        { id: "d", text: { en: "O: −2 → −2 (unchanged)", zh: "O:−2 → −2(不变)" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Oxidation = loss of electrons = oxidation number **increases**. Cu goes from 0 (element) to +2 (Cu(NO₃)₂) — loses 2 e⁻, oxidized. Ag is reduced (+1 → 0). N and O don't change (spectator, within NO₃⁻).",
+        zh: "氧化 = 失电子 = 氧化数**增大**。Cu:0(单质)→ +2(Cu(NO₃)₂)——失 2 e⁻,被氧化。Ag 被还原(+1 → 0)。N、O 未变化(NO₃⁻ 为旁观物)。",
       },
     },
   ],
