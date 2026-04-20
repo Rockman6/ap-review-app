@@ -6,6 +6,18 @@ import { BlockMath, InlineMath } from "react-katex";
 import { MoleculeDiagram, MoleculeRow } from "./MoleculeDiagram";
 import { Mol3DViewer } from "./Mol3DViewer";
 import { LewisStructure, LewisRow } from "./LewisStructure";
+import {
+  BeerLambert,
+  BondPotentialEnergy,
+  HeatingCurve,
+  MassSpectrum,
+  MaxwellBoltzmann,
+  PESSpectrum,
+  RealGasDeviation,
+  SolubilityVsT,
+  SuccessiveIE,
+} from "./ChemCharts";
+import { useLocale } from "./LocaleProvider";
 import { useT } from "./LocaleProvider";
 import { SupplyDemandChart } from "./SupplyDemandChart";
 import { ProductionPossibilitiesChart } from "./ProductionPossibilitiesChart";
@@ -45,6 +57,25 @@ export function Highlighted({ text }: { text: string }) {
       })}
     </>
   );
+}
+
+function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" }) {
+  const { locale } = useLocale();
+  switch (chartType) {
+    case "heating-curve": return <HeatingCurve lang={locale} />;
+    case "maxwell-boltzmann": return <MaxwellBoltzmann lang={locale} />;
+    case "bond-potential": return <BondPotentialEnergy lang={locale} />;
+    case "beer-lambert": return <BeerLambert lang={locale} />;
+    case "pes-neon": return <PESSpectrum lang={locale} />;
+    case "successive-ie-mg": return <SuccessiveIE lang={locale} />;
+    case "solubility-vs-t": return <SolubilityVsT lang={locale} />;
+    case "real-gas-deviation": return <RealGasDeviation lang={locale} />;
+  }
+}
+
+function MassSpectrumBlock({ peaks, title }: { peaks: Array<{ mz: number; pct: number }>; title?: string }) {
+  const { locale } = useLocale();
+  return <MassSpectrum peaks={peaks} title={title} lang={locale} />;
 }
 
 export function NoteBlockRenderer({ block }: { block: NoteBlock }) {
@@ -114,6 +145,13 @@ export function NoteBlockRenderer({ block }: { block: NoteBlock }) {
       );
     case "lewis-row":
       return <LewisRow names={block.names} />;
+    case "chem-chart": {
+      // Inline hook is ok because this component is already a render loop consumer;
+      // each block re-renders on locale change since we pass `lang`.
+      return <ChemChartBlock chartType={block.chartType} />;
+    }
+    case "mass-spectrum":
+      return <MassSpectrumBlock peaks={block.peaks} title={block.title ? t(block.title) : undefined} />;
     case "callout":
       return (
         <div className="mt-5 rounded-lg border-l-4 border-blue-500 bg-blue-50 p-4">
