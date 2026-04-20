@@ -631,6 +631,76 @@ export function MultistepProfile({ lang = "en" }: { lang?: "en" | "zh" }) {
   );
 }
 
+// ------------------------------------------------------------
+// 15. Thermal equilibrium — hot + cold object approach same T
+// ------------------------------------------------------------
+export function ThermalEquilibrium({ lang = "en" }: { lang?: "en" | "zh" }) {
+  const data: Array<{ t: number; hot: number; cold: number }> = [];
+  const Tf = 50;
+  for (let t = 0; t <= 30; t += 0.5) {
+    data.push({
+      t,
+      hot: Tf + (90 - Tf) * Math.exp(-0.2 * t),
+      cold: Tf + (10 - Tf) * Math.exp(-0.2 * t),
+    });
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Approach to thermal equilibrium", "达到热平衡的过程")}
+      caption={tt(
+        "Hot object cools while cold object warms until both reach the same final temperature. |q_hot| = |q_cold|.",
+        "热物体降温,冷物体升温,最终两者达到相同温度。|q_hot| = |q_cold|。"
+      )}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="t" type="number" stroke="#475569" label={{ value: tt("Time", "时间"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }} />
+        <YAxis stroke="#475569" domain={[0, 100]} label={{ value: tt("Temperature (°C)", "温度 (°C)"), angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <ReferenceLine y={Tf} stroke="#94a3b8" strokeDasharray="4 3" label={{ value: `T_final = ${Tf}°C`, position: "right", fill: "#475569", fontSize: 11 }} />
+        <Legend verticalAlign="top" height={32} />
+        <Line name={tt("Hot object", "热物体")} dataKey="hot" stroke="#dc2626" strokeWidth={2.5} dot={false} />
+        <Line name={tt("Cold object", "冷物体")} dataKey="cold" stroke="#2563eb" strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
+// ------------------------------------------------------------
+// 16. Hess's law cycle (enthalpy ladder)
+// ------------------------------------------------------------
+export function HessCycle({ lang = "en" }: { lang?: "en" | "zh" }) {
+  // C(s) + O2 → CO2 via two paths
+  const data = [
+    { step: "C(s) + O₂", H: 0, label: "" },
+    { step: "CO(g) + ½O₂", H: -110, label: "ΔH₁ = −110 kJ" },
+    { step: "CO₂(g)", H: -394, label: "ΔH₂ = −284 kJ" },
+  ];
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Hess's-law enthalpy ladder", "盖斯定律——焓阶梯")}
+      caption={tt(
+        "Whether you go direct (ΔH = −394 kJ) or through CO (−110 + −284 = −394 kJ), ΔH is the same.",
+        "直接路径(ΔH = −394 kJ)与经 CO 的两步路径(−110 + −284 = −394 kJ)所得 ΔH 相同。"
+      )}
+    >
+      <BarChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 30 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="step" stroke="#475569" />
+        <YAxis stroke="#475569" domain={[-450, 50]} label={{ value: tt("Enthalpy (kJ)", "焓 (kJ)"), angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <Tooltip />
+        <ReferenceLine y={0} stroke="#94a3b8" />
+        <Bar dataKey="H" radius={[4, 4, 0, 0]}>
+          {data.map((_, i) => (
+            <Cell key={i} fill={["#2563eb", "#ea580c", "#16a34a"][i]} />
+          ))}
+        </Bar>
+      </BarChart>
+    </ChartFrame>
+  );
+}
+
 // silence unused import warning for AreaChart/Area (kept for future)
 void AreaChart;
 void Area;

@@ -50,7 +50,9 @@ export type NoteBlock =
         | "concentration-vs-time"
         | "reaction-profile"
         | "catalyst-effect"
-        | "multistep-profile";
+        | "multistep-profile"
+        | "thermal-equilibrium"
+        | "hess-cycle";
     }
   | { kind: "mass-spectrum"; peaks: Array<{ mz: number; pct: number }>; title?: Bilingual }
   | {
@@ -7702,16 +7704,21 @@ export const apChemistry: Subject = {
     {
       slug: "unit-6",
       number: 6,
-      title: { en: "Thermodynamics", zh: "热力学" },
+      title: { en: "Thermochemistry", zh: "热化学" },
       description: {
-        en: "Energy changes in chemical and physical processes.",
-        zh: "化学与物理过程中的能量变化。",
+        en: "Energy flow, calorimetry, enthalpy, bond energies, and Hess's law.",
+        zh: "能量流动、量热、焓、键能与盖斯定律。",
       },
       topics: [
         { slug: "topic-1", title: { en: "Endothermic & Exothermic Processes", zh: "吸热与放热过程" }, summary: { en: "Direction of energy flow between system and surroundings.", zh: "系统与环境间的能量流向。" } },
-        { slug: "topic-2", title: { en: "Heat Transfer & Calorimetry", zh: "热传递与量热法" }, summary: { en: "q = mcΔT and bomb/coffee-cup calorimetry.", zh: "q = mcΔT 与弹式/咖啡杯量热实验。" } },
-        { slug: "topic-3", title: { en: "Enthalpy of Reaction", zh: "反应焓" }, summary: { en: "ΔH from bond energies and standard enthalpies of formation.", zh: "由键能与标准生成焓求 ΔH。" } },
-        { slug: "topic-4", title: { en: "Hess's Law", zh: "盖斯定律" }, summary: { en: "Combining known reactions to find unknown ΔH.", zh: "组合已知反应求未知 ΔH。" } },
+        { slug: "topic-2", title: { en: "Energy Diagrams", zh: "能量图" }, summary: { en: "Reading PE curves and identifying ΔH at a glance.", zh: "读势能图,一眼看出 ΔH。" } },
+        { slug: "topic-3", title: { en: "Heat Transfer & Thermal Equilibrium", zh: "热传递与热平衡" }, summary: { en: "q_hot + q_cold = 0 — when two objects meet.", zh: "两物体接触时 q_hot + q_cold = 0。" } },
+        { slug: "topic-4", title: { en: "Heat Capacity & Calorimetry", zh: "热容与量热法" }, summary: { en: "q = mcΔT; coffee-cup vs bomb calorimetry.", zh: "q = mcΔT;咖啡杯量热器 vs 弹式量热器。" } },
+        { slug: "topic-5", title: { en: "Energy of Phase Changes", zh: "相变能量" }, summary: { en: "Heat of fusion and vaporization — IMF costs.", zh: "熔化热与汽化热——破坏分子间作用力所需能量。" } },
+        { slug: "topic-6", title: { en: "Introduction to Enthalpy of Reaction", zh: "反应焓入门" }, summary: { en: "ΔH as heat flow at constant pressure.", zh: "恒压下 ΔH 即反应吸/放的热。" } },
+        { slug: "topic-7", title: { en: "Bond Enthalpies", zh: "键能" }, summary: { en: "ΔH ≈ Σ(bonds broken) − Σ(bonds formed).", zh: "ΔH ≈ Σ(断键) − Σ(成键)。" } },
+        { slug: "topic-8", title: { en: "Enthalpy of Formation", zh: "生成焓" }, summary: { en: "ΔH°f and computing ΔH°_rxn from tabulated values.", zh: "ΔH°f 与由表值计算 ΔH°_rxn。" } },
+        { slug: "topic-9", title: { en: "Hess's Law", zh: "盖斯定律" }, summary: { en: "Adding known reactions to find any unknown ΔH.", zh: "组合已知反应以求任意未知 ΔH。" } },
       ],
     },
     {
@@ -10916,6 +10923,234 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       ],
     },
   ],
+
+  // ============================================================
+  // UNIT 6 · Thermochemistry
+  // ============================================================
+
+  // ---------- 6.1 · Endothermic & Exothermic ----------
+  "unit-6/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Every chemical and physical process involves an energy exchange between the **system** (the reaction or substance being studied) and the **surroundings** (everything else). The sign of q tells you which way it flows.",
+        zh: "每一个化学或物理过程都伴随**系统**(所研究的反应或物质)与**环境**(其余所有)之间的能量交换。q 的符号表明能量流向。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Endothermic vs exothermic", zh: "吸热 vs 放热" },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "q (system)", zh: "q(系统)" },
+        { en: "ΔH", zh: "ΔH" },
+        { en: "Feel", zh: "手感" },
+        { en: "Examples", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "Exothermic", zh: "放热" }, { en: "negative (lost)", zh: "负(放出)" }, { en: "ΔH < 0", zh: "ΔH < 0" }, { en: "beaker gets warm", zh: "烧杯变热" }, { en: "combustion, freezing", zh: "燃烧、凝固" }],
+        [{ en: "Endothermic", zh: "吸热" }, { en: "positive (gained)", zh: "正(吸收)" }, { en: "ΔH > 0", zh: "ΔH > 0" }, { en: "beaker gets cold", zh: "烧杯变冷" }, { en: "melting, evaporation, cold packs", zh: "熔化、蒸发、冷敷袋" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Sign convention", zh: "符号约定" },
+      text: {
+        en: "The sign of q (and ΔH) is reported **from the system's point of view**. If the system **releases** heat (exothermic), q_system is negative even though the surroundings got warmer.",
+        zh: "q(以及 ΔH)的符号以**系统为参考**。系统**放出**热(放热),q_system 为负——尽管环境变暖。",
+      },
+    },
+  ],
+
+  // ---------- 6.2 · Energy Diagrams ----------
+  "unit-6/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "An energy diagram plots the system's potential energy from reactants through transition state to products. Two quick readings: (1) the hump height above reactants = **Eₐ**, and (2) the vertical drop (or rise) from reactants to products = **ΔH**.",
+        zh: "能量图把反应从反应物经过渡态到产物的势能变化画出来。两个关键量:(1) 反应物到峰顶的高度 = **Eₐ**;(2) 反应物到产物的垂直位移 = **ΔH**。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "reaction-profile",
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Products BELOW reactants** → exothermic, ΔH < 0.", zh: "**产物低于反应物** → 放热,ΔH < 0。" },
+        { en: "**Products ABOVE reactants** → endothermic, ΔH > 0.", zh: "**产物高于反应物** → 吸热,ΔH > 0。" },
+        { en: "**Same height** is impossible for a true reaction (bonds always change energy).", zh: "**等高**对真实反应不会出现(成键总伴随能量变化)。" },
+      ],
+    },
+  ],
+
+  // ---------- 6.3 · Heat Transfer & Thermal Equilibrium ----------
+  "unit-6/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "When two objects at different temperatures touch (inside an insulated container), heat flows from **hot to cold** until both reach the same final temperature. **Energy is conserved** — whatever the hot object lost, the cold object gained.",
+        zh: "两个温度不同的物体在隔热条件下接触,热量从**高温流向低温**,直到两者温度相等。**能量守恒**——热物体失去多少,冷物体就得到多少。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "q_{\\text{hot}} + q_{\\text{cold}} = 0 \\quad\\Longleftrightarrow\\quad m_{h}c_{h}(T_{f} - T_{h}) + m_{c}c_{c}(T_{f} - T_{c}) = 0",
+      caption: { en: "Solve for T_f (same for both at equilibrium).", zh: "求 T_f(平衡时两者相等)。" },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "thermal-equilibrium",
+    },
+  ],
+
+  // ---------- 6.4 · Heat Capacity & Calorimetry ----------
+  "unit-6/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Heat capacity** measures how much energy it takes to raise an object's temperature. **Specific heat c** is the heat capacity per gram: water's c = 4.184 J/(g·°C) — unusually high, which is why coastlines stay mild year-round.",
+        zh: "**热容**衡量把某物体升温 1 °C 所需的能量。**比热容 c** 是单位质量的热容:水的 c = 4.184 J/(g·°C),异常高——这是沿海气候温和的原因。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "q \\;=\\; m\\,c\\,\\Delta T",
+      caption: { en: "q = heat absorbed (J); m = mass; c = specific heat; ΔT = T_f − T_i", zh: "q = 吸收的热量(J);m = 质量;c = 比热容;ΔT = T_f − T_i" },
+    },
+    {
+      kind: "table",
+      caption: { en: "Two common calorimeters", zh: "两种常见量热器" },
+      columns: [
+        { en: "Device", zh: "装置" },
+        { en: "Pressure", zh: "压强" },
+        { en: "What it measures", zh: "测量" },
+      ],
+      rows: [
+        [{ en: "Coffee-cup calorimeter", zh: "咖啡杯量热器" }, { en: "Constant (atmospheric)", zh: "恒压(大气压)" }, { en: "ΔH directly", zh: "直接测 ΔH" }],
+        [{ en: "Bomb calorimeter", zh: "弹式量热器" }, { en: "Constant volume", zh: "恒容" }, { en: "ΔU (combustion); ≈ ΔH for most reactions", zh: "ΔU(燃烧反应);对多数反应 ≈ ΔH" }],
+      ],
+    },
+  ],
+
+  // ---------- 6.5 · Phase Change Energy ----------
+  "unit-6/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Phase changes require energy to break (or release energy to form) intermolecular attractions. Temperature doesn't change during a phase change — the energy goes into breaking IMFs, not raising kinetic energy.",
+        zh: "相变需要消耗能量以打破(或释放能量以形成)分子间作用力。相变过程中温度不变——能量用于破坏 IMF,而非提高动能。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "q \\;=\\; n\\,\\Delta H_{\\text{fus}}\\quad\\text{(melting)}\\qquad q \\;=\\; n\\,\\Delta H_{\\text{vap}}\\quad\\text{(vaporization)}",
+    },
+    {
+      kind: "callout",
+      label: { en: "For water at 1 atm", zh: "水在 1 atm 下" },
+      text: {
+        en: "ΔH_fus = **6.01 kJ/mol** (at 0 °C); ΔH_vap = **40.7 kJ/mol** (at 100 °C). Vaporization costs ~7× more because ALL hydrogen bonds must break, not just loosen.",
+        zh: "ΔH_fus = **6.01 kJ/mol**(0 °C);ΔH_vap = **40.7 kJ/mol**(100 °C)。汽化需要的能量约为熔化的 7 倍,因为必须**完全**破坏氢键而不是仅松动。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "heating-curve",
+    },
+  ],
+
+  // ---------- 6.6 · Introduction to ΔH_rxn ----------
+  "unit-6/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Enthalpy of reaction (ΔH_rxn)** is the heat released or absorbed at constant pressure. It's an **extensive** property — doubling the reaction doubles ΔH.",
+        zh: "**反应焓 (ΔH_rxn)** 是恒压下反应放出或吸收的热量,是**广度**量——把反应放大一倍,ΔH 也放大一倍。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{CH4(g) + 2 O2(g) -> CO2(g) + 2 H2O(l)}\\qquad \\Delta H_{\\text{rxn}} = -890\\ \\text{kJ}",
+    },
+    {
+      kind: "callout",
+      label: { en: "Three rules of ΔH", zh: "ΔH 的三条规则" },
+      text: {
+        en: "**1.** Reversing a reaction flips the sign of ΔH. **2.** Multiplying coefficients by n multiplies ΔH by n. **3.** ΔH depends on **states** — liquid water and water vapor have different ΔH_f values.",
+        zh: "**1.** 反应反向,ΔH 变号。**2.** 全部系数乘 n,ΔH 也乘 n。**3.** ΔH 与**状态**有关——液态水和水蒸气的 ΔH_f 不同。",
+      },
+    },
+  ],
+
+  // ---------- 6.7 · Bond Enthalpies ----------
+  "unit-6/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "We can estimate ΔH from tabulated **bond enthalpies**. Breaking bonds always absorbs energy (endothermic); forming bonds always releases energy (exothermic).",
+        zh: "可以用表中的**键能**估算 ΔH。断键始终吸热,成键始终放热。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta H_{\\text{rxn}} \\;\\approx\\; \\sum \\text{BE}(\\text{bonds broken}) \\;-\\; \\sum \\text{BE}(\\text{bonds formed})",
+      caption: { en: "Works for gases only; ignores IMF changes.", zh: "仅适用于气相反应,忽略分子间作用的变化。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Sign trap", zh: "符号陷阱" },
+      text: {
+        en: "The formula uses **positive** bond enthalpies throughout — the **minus sign** in the equation does the accounting. If bonds formed are stronger than bonds broken, ΔH is negative (exothermic). The AP exam commonly traps students by reversing signs.",
+        zh: "公式里的键能全部**取正值**——公式中的**负号**完成符号处理。若生成键比断裂键更强,则 ΔH 为负(放热)。AP 考试常用「符号颠倒」设陷。",
+      },
+    },
+  ],
+
+  // ---------- 6.8 · Enthalpy of Formation ----------
+  "unit-6/topic-8": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Standard enthalpy of formation ΔH°f** is the heat change when **one mole** of a compound is formed from its elements in their standard states. By convention, ΔH°f of any element in its standard state = **0**.",
+        zh: "**标准生成焓 ΔH°f**:在标准状态下,由单质生成**一摩尔**化合物时的焓变。按约定,单质在标准状态下的 ΔH°f = **0**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta H^{\\circ}_{\\text{rxn}} \\;=\\; \\sum n_{p}\\Delta H^{\\circ}_{f}(\\text{products}) \\;-\\; \\sum n_{r}\\Delta H^{\\circ}_{f}(\\text{reactants})",
+      caption: { en: "'Products minus reactants' — the universal ΔH°_rxn formula.", zh: "「产物减反应物」——通用 ΔH°_rxn 公式。" },
+    },
+  ],
+
+  // ---------- 6.9 · Hess's Law ----------
+  "unit-6/topic-9": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Hess's law:** ΔH depends only on the initial and final states, not the path. If a reaction can be expressed as the sum of two or more known reactions, its ΔH = the sum of those individual ΔH values.",
+        zh: "**盖斯定律**:ΔH 只取决于初始与终了状态,与路径无关。若某反应可写成若干已知反应之和,其 ΔH = 各步 ΔH 之和。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "hess-cycle",
+    },
+    {
+      kind: "callout",
+      label: { en: "Manipulation rules (recap)", zh: "操作规则(复习)" },
+      text: {
+        en: "**Reverse** a reaction → flip ΔH sign. **Multiply** a reaction by n → multiply ΔH by n. **Add** reactions → add ΔH values. Cancel intermediates that appear on both sides.",
+        zh: "**反向**反应 → ΔH 变号;**乘 n** → ΔH 乘 n;**相加**反应 → ΔH 相加;消去两边同时出现的中间体。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\begin{aligned}\\text{C(s)} + \\tfrac{1}{2}\\text{O}_{2} &\\to \\text{CO}\\quad \\Delta H_{1} = -110\\\\\n\\text{CO} + \\tfrac{1}{2}\\text{O}_{2} &\\to \\text{CO}_{2}\\quad \\Delta H_{2} = -284\\\\\n\\hline\n\\text{C(s)} + \\text{O}_{2} &\\to \\text{CO}_{2}\\quad \\Delta H = -394\\ \\text{kJ}\\end{aligned}",
+      caption: { en: "Two stepwise combustions add up to the overall combustion.", zh: "两步分步燃烧相加得到总燃烧反应。" },
+    },
+  ],
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -12234,6 +12469,199 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       explanation: {
         en: "Catalysts change only Eₐ by providing a different pathway. They speed up forward and reverse **equally** so K is unchanged; ΔH (reactant and product energies) is unchanged.",
         zh: "催化剂只通过提供替代路径**改变 Eₐ**。它同等加快正逆反应,故 K 不变;ΔH(反应物与产物能量差)也不变。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // UNIT 6 · Questions
+  // ============================================================
+
+  "unit-6/topic-1": [
+    {
+      id: "chem-u6-t1-q1",
+      prompt: {
+        en: "A cold pack is activated by mixing ammonium nitrate with water. The pack becomes cold to the touch. From the system's point of view, this process is:",
+        zh: "冷敷袋通过混合硝酸铵与水激活,袋体变冷。从系统角度看,此过程是:",
+      },
+      choices: [
+        { id: "a", text: { en: "Exothermic, q > 0", zh: "放热,q > 0" } },
+        { id: "b", text: { en: "Exothermic, q < 0", zh: "放热,q < 0" } },
+        { id: "c", text: { en: "Endothermic, q > 0", zh: "吸热,q > 0" } },
+        { id: "d", text: { en: "Endothermic, q < 0", zh: "吸热,q < 0" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Pack gets **cold** because the system (NH₄NO₃ dissolving) is **absorbing** heat from the surroundings — endothermic, q_system > 0.",
+        zh: "袋体变冷,因为系统(NH₄NO₃ 溶解)从环境**吸热**——属吸热反应,q_system > 0。",
+      },
+    },
+  ],
+
+  "unit-6/topic-2": [
+    {
+      id: "chem-u6-t2-q1",
+      prompt: {
+        en: "An energy diagram shows reactants at 200 kJ/mol, a transition state at 350 kJ/mol, and products at 150 kJ/mol. What are Eₐ and ΔH?",
+        zh: "某能量图显示反应物 200 kJ/mol、过渡态 350 kJ/mol、产物 150 kJ/mol。Eₐ 与 ΔH 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "Eₐ = 200 kJ, ΔH = +50 kJ", zh: "Eₐ = 200 kJ, ΔH = +50 kJ" } },
+        { id: "b", text: { en: "Eₐ = 150 kJ, ΔH = −50 kJ", zh: "Eₐ = 150 kJ, ΔH = −50 kJ" } },
+        { id: "c", text: { en: "Eₐ = 350 kJ, ΔH = −200 kJ", zh: "Eₐ = 350 kJ, ΔH = −200 kJ" } },
+        { id: "d", text: { en: "Eₐ = 50 kJ, ΔH = +150 kJ", zh: "Eₐ = 50 kJ, ΔH = +150 kJ" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Eₐ = TS − reactants = 350 − 200 = **150 kJ**. ΔH = products − reactants = 150 − 200 = **−50 kJ** (exothermic).",
+        zh: "Eₐ = 过渡态 − 反应物 = 350 − 200 = **150 kJ**。ΔH = 产物 − 反应物 = 150 − 200 = **−50 kJ**(放热)。",
+      },
+    },
+  ],
+
+  "unit-6/topic-3": [
+    {
+      id: "chem-u6-t3-q1",
+      prompt: {
+        en: "A 100.0 g block of copper at 90.0 °C is placed in 200.0 g of water at 20.0 °C. Specific heats: Cu = 0.385 J/(g·°C), water = 4.184 J/(g·°C). Estimate the final temperature.",
+        zh: "100.0 g 铜块(90.0 °C)放入 200.0 g 水(20.0 °C)。比热容:Cu = 0.385、水 = 4.184 J/(g·°C)。估算最终温度。",
+      },
+      choices: [
+        { id: "a", text: { en: "≈ 23.0 °C", zh: "≈ 23.0 °C" } },
+        { id: "b", text: { en: "≈ 55.0 °C", zh: "≈ 55.0 °C" } },
+        { id: "c", text: { en: "≈ 72.0 °C", zh: "≈ 72.0 °C" } },
+        { id: "d", text: { en: "≈ 88.0 °C", zh: "≈ 88.0 °C" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "q_Cu + q_water = 0. 100(0.385)(T_f − 90) + 200(4.184)(T_f − 20) = 0. → 38.5(T_f − 90) + 836.8(T_f − 20) = 0 → 875.3 T_f = 20201 → **T_f ≈ 23.1 °C**. Water's high heat capacity means T_f is close to water's initial T.",
+        zh: "q_Cu + q_water = 0。100(0.385)(T_f − 90) + 200(4.184)(T_f − 20) = 0 → 38.5(T_f − 90) + 836.8(T_f − 20) = 0 → 875.3 T_f = 20201 → **T_f ≈ 23.1 °C**。水热容大,T_f 接近水的初温。",
+      },
+    },
+  ],
+
+  "unit-6/topic-4": [
+    {
+      id: "chem-u6-t4-q1",
+      prompt: {
+        en: "How much heat is needed to raise 50.0 g of water from 25.0 °C to 80.0 °C? (c = 4.184 J/(g·°C))",
+        zh: "使 50.0 g 水从 25.0 °C 升到 80.0 °C 需多少热量?(c = 4.184 J/(g·°C))",
+      },
+      choices: [
+        { id: "a", text: { en: "11.5 kJ", zh: "11.5 kJ" } },
+        { id: "b", text: { en: "5.23 kJ", zh: "5.23 kJ" } },
+        { id: "c", text: { en: "16.7 kJ", zh: "16.7 kJ" } },
+        { id: "d", text: { en: "20.9 kJ", zh: "20.9 kJ" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "q = mcΔT = (50.0)(4.184)(80.0 − 25.0) = (50.0)(4.184)(55.0) = **11,506 J ≈ 11.5 kJ**.",
+        zh: "q = mcΔT = (50.0)(4.184)(80.0 − 25.0) = (50.0)(4.184)(55.0) = **11,506 J ≈ 11.5 kJ**。",
+      },
+    },
+  ],
+
+  "unit-6/topic-5": [
+    {
+      id: "chem-u6-t5-q1",
+      prompt: {
+        en: "How much heat is released when 18.0 g of water vapor at 100 °C condenses to liquid water at 100 °C? (ΔH_vap = 40.7 kJ/mol)",
+        zh: "18.0 g 水蒸气(100 °C)凝结为液态水(100 °C)释放多少热量?(ΔH_vap = 40.7 kJ/mol)",
+      },
+      choices: [
+        { id: "a", text: { en: "40.7 kJ absorbed", zh: "吸收 40.7 kJ" } },
+        { id: "b", text: { en: "40.7 kJ released", zh: "放出 40.7 kJ" } },
+        { id: "c", text: { en: "6.01 kJ released", zh: "放出 6.01 kJ" } },
+        { id: "d", text: { en: "18.0 kJ released", zh: "放出 18.0 kJ" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "18.0 g H₂O = **1 mol**. Condensation is the reverse of vaporization → releases 40.7 kJ (vs. absorbing it). So q = **−40.7 kJ** from the system = 40.7 kJ released.",
+        zh: "18.0 g H₂O = **1 mol**。凝结是汽化的逆过程,放出 40.7 kJ。系统 q = **−40.7 kJ**,即放出 40.7 kJ。",
+      },
+    },
+  ],
+
+  "unit-6/topic-6": [
+    {
+      id: "chem-u6-t6-q1",
+      prompt: {
+        en: "For **2 H₂(g) + O₂(g) → 2 H₂O(l)**, ΔH = −572 kJ. What is ΔH for **H₂O(l) → H₂(g) + ½ O₂(g)**?",
+        zh: "对 **2 H₂(g) + O₂(g) → 2 H₂O(l)**,ΔH = −572 kJ。则 **H₂O(l) → H₂(g) + ½ O₂(g)** 的 ΔH 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "−572 kJ", zh: "−572 kJ" } },
+        { id: "b", text: { en: "+572 kJ", zh: "+572 kJ" } },
+        { id: "c", text: { en: "+286 kJ", zh: "+286 kJ" } },
+        { id: "d", text: { en: "−286 kJ", zh: "−286 kJ" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "**Reverse** the reaction → flip sign: +572 kJ for 2 H₂O → 2 H₂ + O₂. **Divide by 2** for 1 mol H₂O → +572 / 2 = **+286 kJ**. Both manipulations stack.",
+        zh: "**反向** → ΔH 变号:2 H₂O → 2 H₂ + O₂ 为 +572 kJ。**除以 2** 得 1 mol H₂O 的分解:+572 / 2 = **+286 kJ**。两次操作叠加。",
+      },
+    },
+  ],
+
+  "unit-6/topic-7": [
+    {
+      id: "chem-u6-t7-q1",
+      prompt: {
+        en: "Estimate ΔH for **H₂(g) + Cl₂(g) → 2 HCl(g)** using bond enthalpies: H–H = 436, Cl–Cl = 243, H–Cl = 431 (kJ/mol).",
+        zh: "用键能估算 **H₂(g) + Cl₂(g) → 2 HCl(g)** 的 ΔH。H–H = 436、Cl–Cl = 243、H–Cl = 431(kJ/mol)。",
+      },
+      choices: [
+        { id: "a", text: { en: "+248 kJ", zh: "+248 kJ" } },
+        { id: "b", text: { en: "−248 kJ", zh: "−248 kJ" } },
+        { id: "c", text: { en: "−183 kJ", zh: "−183 kJ" } },
+        { id: "d", text: { en: "+183 kJ", zh: "+183 kJ" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Bonds broken: 1 H–H + 1 Cl–Cl = 436 + 243 = **679** kJ. Bonds formed: 2 H–Cl = 2(431) = **862** kJ. ΔH ≈ 679 − 862 = **−183 kJ** (exothermic — more bond energy was released than absorbed).",
+        zh: "断键:1 H–H + 1 Cl–Cl = 436 + 243 = **679** kJ;成键:2 H–Cl = 2(431) = **862** kJ。ΔH ≈ 679 − 862 = **−183 kJ**(放热——成键放出的能量多于断键吸收)。",
+      },
+    },
+  ],
+
+  "unit-6/topic-8": [
+    {
+      id: "chem-u6-t8-q1",
+      prompt: {
+        en: "Given ΔH°f(CO₂, g) = −393.5, ΔH°f(H₂O, l) = −285.8, ΔH°f(CH₄, g) = −74.8 (kJ/mol), find ΔH°_rxn for **CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)**.",
+        zh: "已知 ΔH°f(CO₂, g) = −393.5、ΔH°f(H₂O, l) = −285.8、ΔH°f(CH₄, g) = −74.8 (kJ/mol),求 **CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(l)** 的 ΔH°_rxn。",
+      },
+      choices: [
+        { id: "a", text: { en: "−604.5 kJ", zh: "−604.5 kJ" } },
+        { id: "b", text: { en: "−890.3 kJ", zh: "−890.3 kJ" } },
+        { id: "c", text: { en: "+890.3 kJ", zh: "+890.3 kJ" } },
+        { id: "d", text: { en: "−679.3 kJ", zh: "−679.3 kJ" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Products − reactants: [(−393.5) + 2(−285.8)] − [(−74.8) + 2(0)] = −965.1 − (−74.8) = **−890.3 kJ**. ΔH°f(O₂) = 0 since O₂ is an element in its standard state.",
+        zh: "产物 − 反应物:[(−393.5) + 2(−285.8)] − [(−74.8) + 2(0)] = −965.1 − (−74.8) = **−890.3 kJ**。ΔH°f(O₂) = 0,因为 O₂ 是标准态下的单质。",
+      },
+    },
+  ],
+
+  "unit-6/topic-9": [
+    {
+      id: "chem-u6-t9-q1",
+      prompt: {
+        en: "Given  (1) 2 H₂ + O₂ → 2 H₂O  ΔH₁ = −572 kJ  and  (2) H₂ + O₂ → H₂O₂  ΔH₂ = −188 kJ, what is ΔH for **2 H₂O₂ → 2 H₂O + O₂**?",
+        zh: "已知  (1) 2 H₂ + O₂ → 2 H₂O  ΔH₁ = −572 kJ  与  (2) H₂ + O₂ → H₂O₂  ΔH₂ = −188 kJ,求 **2 H₂O₂ → 2 H₂O + O₂** 的 ΔH。",
+      },
+      choices: [
+        { id: "a", text: { en: "−760 kJ", zh: "−760 kJ" } },
+        { id: "b", text: { en: "−196 kJ", zh: "−196 kJ" } },
+        { id: "c", text: { en: "+760 kJ", zh: "+760 kJ" } },
+        { id: "d", text: { en: "+196 kJ", zh: "+196 kJ" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Reverse (2) and double: **2 H₂O₂ → 2 H₂ + 2 O₂**, ΔH = +376 kJ. Add equation (1): 2 H₂ + O₂ → 2 H₂O, ΔH = −572 kJ. Sum: 2 H₂O₂ + O₂ → 2 H₂O + 2 O₂ → cancel 1 O₂ → **2 H₂O₂ → 2 H₂O + O₂**, ΔH = 376 + (−572) = **−196 kJ**.",
+        zh: "把 (2) 反向并乘 2:**2 H₂O₂ → 2 H₂ + 2 O₂**,ΔH = +376 kJ。与 (1) 相加:2 H₂ + O₂ → 2 H₂O,ΔH = −572 kJ。总:2 H₂O₂ + O₂ → 2 H₂O + 2 O₂,消去 1 个 O₂ → **2 H₂O₂ → 2 H₂O + O₂**,ΔH = 376 + (−572) = **−196 kJ**。",
       },
     },
   ],
