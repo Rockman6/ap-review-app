@@ -13823,6 +13823,291 @@ export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
     },
   ],
 
+  "unit-5/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Rotational motion uses **angular** versions of the quantities you already know. Every translational idea — position, velocity, acceleration, equations — has a rotational twin. Learn the pairing once, and most rotational problems become familiar.",
+        zh: "转动运动用**角量**描述你已熟悉的量。每一个平动概念——位置、速度、加速度、公式——都有对应的转动版本。学会这套映射,转动问题大多就不陌生了。",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Linear vs angular quantities",
+        zh: "平动与角量对照",
+      },
+      columns: [
+        { en: "Linear (translational)", zh: "平动(线量)" },
+        { en: "Angular (rotational)", zh: "转动(角量)" },
+        { en: "Link (at radius r)", zh: "联系(半径 r 处)" },
+      ],
+      rows: [
+        [{ en: "Position x (m)", zh: "位置 x (m)" }, { en: "Angle θ (rad)", zh: "角度 θ (rad)" }, { en: "arc length s = r·θ", zh: "弧长 s = r·θ" }],
+        [{ en: "Velocity v (m/s)", zh: "速度 v (m/s)" }, { en: "Angular velocity ω (rad/s)", zh: "角速度 ω (rad/s)" }, { en: "v = r·ω", zh: "v = r·ω" }],
+        [{ en: "Acceleration a (m/s²)", zh: "加速度 a (m/s²)" }, { en: "Angular acceleration α (rad/s²)", zh: "角加速度 α (rad/s²)" }, { en: "a_t = r·α (tangential)", zh: "a_t = r·α(切向)" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Radians, not degrees", zh: "用弧度,不用度数" },
+      text: {
+        en: "All rotational formulas use **radians** (1 full revolution = 2π rad ≈ 6.28 rad). Mixing degrees into v = rω or τ = Iα will give you the wrong answer. Always convert first.",
+        zh: "所有转动公式都使用**弧度**(1 圈 = 2π rad ≈ 6.28 rad)。把度数代入 v = rω 或 τ = Iα 会得到错误结果。请先换算。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Sign convention", zh: "符号约定" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Pick a positive rotational direction — usually **counterclockwise (CCW) is positive** when looking at a 2D diagram. CW rotation becomes negative. A positive α with a negative ω means the object is slowing down and about to reverse.",
+        zh: "选定一个正方向——一般 2D 图中 **逆时针 (CCW) 为正**,顺时针为负。α 为正而 ω 为负时,物体正在减速、即将反转。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Rotational kinematic equations", zh: "转动运动学方程" },
+    },
+    {
+      kind: "math",
+      tex: "\\omega \\;=\\; \\omega_{0} + \\alpha\\,t",
+    },
+    {
+      kind: "math",
+      tex: "\\Delta\\theta \\;=\\; \\omega_{0}\\,t + \\tfrac{1}{2}\\,\\alpha\\,t^{2}",
+    },
+    {
+      kind: "math",
+      tex: "\\omega^{2} \\;=\\; \\omega_{0}^{2} + 2\\,\\alpha\\,\\Delta\\theta",
+    },
+    {
+      kind: "callout",
+      label: { en: "Same equations, different letters", zh: "同一套方程,换了字母" },
+      text: {
+        en: "If α is **constant**, the rotational kinematic equations are identical in structure to the 1D linear ones (v → ω, a → α, x → θ). Problem-solving strategy is also identical: list knowns, pick the equation missing the variable you don't care about.",
+        zh: "α **恒定**时,转动运动学方程与一维线性方程结构完全相同(v → ω,a → α,x → θ)。解题思路也一致:列已知量,选「缺少不关心变量」的方程。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — spinning up a wheel", zh: "例题——加速旋转的轮子" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A wheel starts from rest and spins up with constant α = 3.0 rad/s² for 4.0 s. (a) Final ω = 0 + (3.0)(4.0) = **12 rad/s**. (b) Δθ = 0 + ½(3.0)(4.0)² = **24 rad** (≈ 3.8 revolutions).",
+        zh: "轮子从静止以恒定 α = 3.0 rad/s² 加速 4.0 s。(a) 末角速度 ω = 0 + (3.0)(4.0) = **12 rad/s**。(b) Δθ = 0 + ½(3.0)(4.0)² = **24 rad**(约 3.8 转)。",
+      },
+    },
+  ],
+
+  "unit-5/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Torque (τ)** is the rotational analog of force. It measures how much a force tends to *rotate* an object about a chosen pivot. Two things determine torque: the force's magnitude, and *where* and *how* it's applied relative to the pivot.",
+        zh: "**力矩 (τ)** 是力的转动对应量,衡量力绕某支点**旋转**物体的倾向。决定力矩的两个因素:力的大小,以及力**作用在哪儿、方向如何**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\tau \\;=\\; r\\,F\\,\\sin\\theta \\;=\\; r_{\\perp}\\,F",
+      caption: {
+        en: "θ is the angle between r and F; r_⊥ is the perpendicular \"lever arm\"",
+        zh: "θ 为 r 与 F 之间夹角;r_⊥ 为「力臂」(垂直分量)",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Lever arm picture", zh: "力臂直观图" },
+      text: {
+        en: "Draw the line of action of the force (its line extended infinitely in both directions). The **lever arm** is the shortest (perpendicular) distance from the pivot to that line. τ = lever-arm × force. A force through the pivot has zero lever arm → zero torque.",
+        zh: "沿力的作用线画出无限长直线。**力臂**是支点到该直线的最短(垂直)距离。τ = 力臂 × 力大小。经过支点的力,力臂为零 → 力矩为零。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Direction (sign)", zh: "方向(符号)" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Use the same convention as ω and α: **CCW = positive**, **CW = negative**. Sum up all the torques on the object from each external force to get the net torque Στ.",
+        zh: "与 ω、α 使用相同约定:**逆时针为正,顺时针为负**。把作用在物体上的每个外力产生的力矩相加,即得到净力矩 Στ。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — pushing a door", zh: "例题——推门" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 40 N force is applied to a door 0.80 m from the hinge. (a) Push perpendicular to the door (θ = 90°): τ = (0.80)(40)(sin 90°) = **32 N·m**. (b) Push at 30° to the door: τ = (0.80)(40)(sin 30°) = **16 N·m** — half as effective. (c) Push straight toward the hinge (along r): τ = 0 — no rotation at all.",
+        zh: "在距铰链 0.80 m 处对门施加 40 N 的力。(a) 垂直推门 (θ = 90°):τ = (0.80)(40)(sin 90°) = **32 N·m**。(b) 与门面成 30° 推:τ = (0.80)(40)(sin 30°) = **16 N·m**——只有前者一半。(c) 沿 r 正对铰链推:τ = 0——完全不转动。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Same force, more torque", zh: "同样的力,更大的力矩" },
+      text: {
+        en: "Doorknobs are placed at the edge of the door (far from the hinge) because **longer r means more torque** for the same push. Wrenches with longer handles loosen stubborn bolts for the same reason.",
+        zh: "门把手安装在门的边缘(离铰链远)——**r 越大,相同推力产生的力矩越大**。长柄扳手能拧开顽固螺栓,原理相同。",
+      },
+    },
+  ],
+
+  "unit-5/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Rotational inertia (I)**, also called *moment of inertia*, is the rotational analog of **mass**. It measures how hard it is to *change* an object's rotation. Unlike mass, I depends not just on how much mass there is, but on **how the mass is distributed** relative to the rotation axis.",
+        zh: "**转动惯量 (I)**(也称**转动惯性**)是**质量**的转动对应量,衡量改变转动状态的难度。与质量不同,I 不仅取决于质量的多少,还取决于**质量相对转轴的分布**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "I \\;=\\; \\sum m_{i}\\,r_{i}^{2} \\qquad (\\text{point masses, each at distance } r_{i})",
+      caption: {
+        en: "For a continuous object: I = ∫ r² dm",
+        zh: "连续体:I = ∫ r² dm",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Farther mass → bigger I", zh: "质量越远,I 越大" },
+      text: {
+        en: "Because **r² appears**, a small bit of mass far from the axis contributes much more to I than the same mass near the axis. That's why spinning figure skaters pull their arms in to spin faster (smaller I) and extend them to slow down.",
+        zh: "因为**含 r² 项**,远离转轴的一小块质量对 I 的贡献比同等质量靠近转轴大得多。这就是花样滑冰选手收臂加速(I 减小)、展臂减速的原因。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Common rotational inertias (about CM)", zh: "常见转动惯量(绕质心)" },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Memorize or recognize these",
+        zh: "这些需熟记或识别",
+      },
+      columns: [
+        { en: "Shape", zh: "形状" },
+        { en: "Axis", zh: "转轴" },
+        { en: "I", zh: "I" },
+      ],
+      rows: [
+        [{ en: "Point mass at distance r", zh: "位于 r 处的点质量" }, { en: "through axis", zh: "过该轴" }, { en: "m·r²", zh: "m·r²" }],
+        [{ en: "Thin hoop / cylinder shell", zh: "薄圆环 / 圆筒壳" }, { en: "symmetry axis", zh: "对称轴" }, { en: "m·R²", zh: "m·R²" }],
+        [{ en: "Solid disk / solid cylinder", zh: "实心圆盘 / 实心圆柱" }, { en: "symmetry axis", zh: "对称轴" }, { en: "½ m·R²", zh: "½ m·R²" }],
+        [{ en: "Solid sphere", zh: "实心球" }, { en: "through center", zh: "过球心" }, { en: "⅖ m·R²", zh: "⅖ m·R²" }],
+        [{ en: "Thin rod (length L)", zh: "细杆(长度 L)" }, { en: "perpendicular through center", zh: "过中点且垂直" }, { en: "1/12 m·L²", zh: "1/12 m·L²" }],
+        [{ en: "Thin rod (length L)", zh: "细杆(长度 L)" }, { en: "perpendicular through end", zh: "过一端且垂直" }, { en: "1/3 m·L²", zh: "1/3 m·L²" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Hoop vs disk — same mass, same radius", zh: "圆环与圆盘——质量相同,半径相同" },
+      text: {
+        en: "A hoop has *all* its mass at r = R; a disk spreads mass from 0 to R. So I_hoop = mR² > I_disk = ½mR². On an incline, the disk rolls down *faster* than the hoop — less I to spin up for the same gain in KE.",
+        zh: "圆环的所有质量都在 r = R 处;圆盘的质量从 0 分布到 R。所以 I_环 = mR² > I_盘 = ½mR²。在斜面上,圆盘比圆环**滚得快**——同样的动能增量,需要「转动起来」的 I 更小。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Parallel axis theorem", zh: "平行轴定理" },
+    },
+    {
+      kind: "math",
+      tex: "I \\;=\\; I_{cm} + m\\,d^{2}",
+      caption: {
+        en: "d is the distance between the new axis and the CM axis (parallel)",
+        zh: "d 为新转轴与过质心的平行轴之间的距离",
+      },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Use the parallel axis theorem when an object rotates about an axis that's **not through its center of mass**. Example: a rod rotating about one end has I = 1/12·mL² + m·(L/2)² = **1/3·mL²** — which matches the table above.",
+        zh: "当物体绕**不过质心**的轴转动时,用平行轴定理。例:杆绕一端转动 I = 1/12·mL² + m·(L/2)² = **1/3·mL²**,与上表一致。",
+      },
+    },
+  ],
+
+  "unit-5/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Newton's second law for rotation** is the rotational twin of ΣF = ma: the net torque on an object equals its rotational inertia times its angular acceleration. It lets you predict how fast something will spin up given the torques applied.",
+        zh: "**转动形式的牛顿第二定律**是 ΣF = ma 的转动版本:物体所受净力矩等于转动惯量乘以角加速度。它可以告诉你给定力矩时物体转得多快。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\sum \\tau \\;=\\; I\\,\\alpha",
+      caption: {
+        en: "All torques measured about the same pivot",
+        zh: "所有力矩需取自同一支点",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Mapping linear ↔ rotational", zh: "平动 ↔ 转动对照" },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "The entire analogy in one table",
+        zh: "一张表覆盖所有对应关系",
+      },
+      columns: [
+        { en: "Linear", zh: "平动" },
+        { en: "Rotational", zh: "转动" },
+      ],
+      rows: [
+        [{ en: "Force F", zh: "力 F" }, { en: "Torque τ", zh: "力矩 τ" }],
+        [{ en: "Mass m", zh: "质量 m" }, { en: "Rotational inertia I", zh: "转动惯量 I" }],
+        [{ en: "Acceleration a", zh: "加速度 a" }, { en: "Angular acceleration α", zh: "角加速度 α" }],
+        [{ en: "Newton 2: ΣF = ma", zh: "牛顿二:ΣF = ma" }, { en: "Στ = Iα", zh: "Στ = Iα" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Problem-solving strategy", zh: "解题策略" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "Identify the pivot (axis of rotation).", zh: "确定支点(转轴)。" },
+        { en: "Compute each torque (including signs: CCW +, CW −).", zh: "计算每个力矩(注意符号:CCW +,CW −)。" },
+        { en: "Find I about that axis (use a table or Parallel Axis theorem).", zh: "求绕该轴的 I(查表或用平行轴定理)。" },
+        { en: "Apply Στ = Iα and solve for α.", zh: "应用 Στ = Iα,求 α。" },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — a torque on a disk", zh: "例题——对圆盘施加力矩" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A string wrapped around a 0.50 kg solid disk (R = 0.10 m) applies a tension T = 2.0 N tangentially. What is the angular acceleration? I_disk = ½mR² = ½(0.50)(0.10)² = 2.5×10⁻³ kg·m². τ = T·R = (2.0)(0.10) = 0.20 N·m. α = τ/I = 0.20 / 0.0025 = **80 rad/s²**.",
+        zh: "一根绳绕在 0.50 kg 的实心圆盘(R = 0.10 m)上,切向张力 T = 2.0 N。角加速度为多少?I_盘 = ½mR² = ½(0.50)(0.10)² = 2.5×10⁻³ kg·m²。τ = T·R = (2.0)(0.10) = 0.20 N·m。α = τ/I = 0.20 / 0.0025 = **80 rad/s²**。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Coupling linear and rotational", zh: "平动与转动的耦合" },
+      text: {
+        en: "Many real problems (yo-yo, rolling ball, pulley with mass) have BOTH linear and rotational Newton's second laws holding simultaneously, linked by **a = r·α** for rolling without slipping. Write both equations and solve as a system.",
+        zh: "很多真实问题(悠悠、滚动的球、有质量的滑轮)同时需要线性和转动两条牛顿第二定律,通过**无滑滚动条件 a = r·α** 联立。写两个方程,联立求解。",
+      },
+    },
+  ],
+
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -17346,6 +17631,234 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
       explanation: {
         en: "Initial: p_x = 5.0, p_y = 0. Puck 1 final: (1.0)(4.0)cos 30° ≈ 3.46 in x, (1.0)(4.0)sin 30° = +2.0 in y. Conservation: puck 2 has p_x = 5.0 − 3.46 ≈ **+1.54** and p_y = 0 − 2.0 = **−2.0 kg·m/s** (south).",
         zh: "初态:p_x = 5.0,p_y = 0。冰球 1 末态:x 方向 (1.0)(4.0)cos 30° ≈ 3.46;y 方向 (1.0)(4.0)sin 30° = +2.0。守恒:冰球 2 的 p_x = 5.0 − 3.46 ≈ **+1.54**,p_y = 0 − 2.0 = **−2.0 kg·m/s**(向南)。",
+      },
+    },
+  ],
+
+  "unit-5/topic-1": [
+    {
+      id: "phys1-u5-t1-q1",
+      prompt: {
+        en: "A wheel starts from rest and accelerates at a constant angular acceleration of 4.0 rad/s² for 3.0 s. What is its final angular velocity?",
+        zh: "一只轮子从静止开始以恒定角加速度 4.0 rad/s² 旋转 3.0 s。末角速度为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "4.0 rad/s", zh: "4.0 rad/s" } },
+        { id: "b", text: { en: "7.0 rad/s", zh: "7.0 rad/s" } },
+        { id: "c", text: { en: "12 rad/s", zh: "12 rad/s" } },
+        { id: "d", text: { en: "24 rad/s", zh: "24 rad/s" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "ω = ω₀ + α·t = 0 + (4.0)(3.0) = **12 rad/s**. Direct rotational analog of v = v₀ + a·t.",
+        zh: "ω = ω₀ + α·t = 0 + (4.0)(3.0) = **12 rad/s**。与 v = v₀ + a·t 完全对应。",
+      },
+    },
+    {
+      id: "phys1-u5-t1-q2",
+      prompt: {
+        en: "A point on the edge of a 0.25 m-radius wheel spinning at 10 rad/s has what **linear** (tangential) speed?",
+        zh: "半径 0.25 m 的轮子以 10 rad/s 旋转时,边缘一点的**线速度**(切向)为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.025 m/s", zh: "0.025 m/s" } },
+        { id: "b", text: { en: "2.5 m/s", zh: "2.5 m/s" } },
+        { id: "c", text: { en: "10 m/s", zh: "10 m/s" } },
+        { id: "d", text: { en: "40 m/s", zh: "40 m/s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "v = r·ω = (0.25)(10) = **2.5 m/s**. A point on the rim moves fast; a point halfway to the axis moves half as fast (same ω, half r).",
+        zh: "v = r·ω = (0.25)(10) = **2.5 m/s**。轮缘上的点速率大;位于半径一半处的点速率为一半(ω 相同,r 减半)。",
+      },
+    },
+    {
+      id: "phys1-u5-t1-q3",
+      prompt: {
+        en: "A flywheel slows from 60 rad/s to rest in 5.0 s at a constant angular deceleration. Through what angle does it rotate during this interval?",
+        zh: "一只飞轮以恒定角减速从 60 rad/s 在 5.0 s 内减至零。此时间内它转过多少弧度?",
+      },
+      choices: [
+        { id: "a", text: { en: "30 rad", zh: "30 rad" } },
+        { id: "b", text: { en: "60 rad", zh: "60 rad" } },
+        { id: "c", text: { en: "150 rad", zh: "150 rad" } },
+        { id: "d", text: { en: "300 rad", zh: "300 rad" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Δθ = ½(ω₀ + ω)·t = ½(60 + 0)(5.0) = **150 rad** (about 24 revolutions). Choice B uses only half the average.",
+        zh: "Δθ = ½(ω₀ + ω)·t = ½(60 + 0)(5.0) = **150 rad**(约 24 圈)。选项 B 只用了一半的平均值。",
+      },
+    },
+  ],
+
+  "unit-5/topic-2": [
+    {
+      id: "phys1-u5-t2-q1",
+      prompt: {
+        en: "A 30 N force is applied perpendicular to the end of a 0.60 m long wrench. What torque does it produce about the bolt?",
+        zh: "在 0.60 m 长扳手的末端垂直施加 30 N 的力。对螺栓产生的力矩为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "5.0 N·m", zh: "5.0 N·m" } },
+        { id: "b", text: { en: "18 N·m", zh: "18 N·m" } },
+        { id: "c", text: { en: "30 N·m", zh: "30 N·m" } },
+        { id: "d", text: { en: "50 N·m", zh: "50 N·m" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "τ = r·F·sin 90° = (0.60)(30)(1) = **18 N·m**. \"Perpendicular\" is the maximum-torque configuration — no sin-factor loss.",
+        zh: "τ = r·F·sin 90° = (0.60)(30)(1) = **18 N·m**。「垂直」是力矩最大的配置——不会因 sin 因子而减小。",
+      },
+    },
+    {
+      id: "phys1-u5-t2-q2",
+      prompt: {
+        en: "A force is applied 0.80 m from a pivot at 30° to the line joining the point and the pivot. The force magnitude is 20 N. What is the torque?",
+        zh: "在距支点 0.80 m 处,力与连接该点到支点的直线成 30° 角,力大小 20 N。力矩是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "4.0 N·m", zh: "4.0 N·m" } },
+        { id: "b", text: { en: "8.0 N·m", zh: "8.0 N·m" } },
+        { id: "c", text: { en: "13.9 N·m", zh: "13.9 N·m" } },
+        { id: "d", text: { en: "16 N·m", zh: "16 N·m" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "τ = r·F·sin θ = (0.80)(20)(sin 30°) = (0.80)(20)(0.5) = **8.0 N·m**. Choice D forgets the sine.",
+        zh: "τ = r·F·sin θ = (0.80)(20)(sin 30°) = (0.80)(20)(0.5) = **8.0 N·m**。选项 D 漏了 sin。",
+      },
+    },
+    {
+      id: "phys1-u5-t2-q3",
+      prompt: {
+        en: "Which action gives the greatest torque on a door about its hinge?",
+        zh: "以下哪种操作对门绕铰链产生的力矩最大?",
+      },
+      choices: [
+        { id: "a", text: { en: "Push the doorknob perpendicular to the door.", zh: "在把手处垂直于门推。" } },
+        { id: "b", text: { en: "Push the middle of the door perpendicular to it.", zh: "在门中央垂直推。" } },
+        { id: "c", text: { en: "Push the doorknob parallel to the door (toward the hinge).", zh: "在把手处沿门推向铰链。" } },
+        { id: "d", text: { en: "Push near the hinge perpendicular to the door.", zh: "靠近铰链垂直推门。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Torque = r·F·sin θ. To maximize: (1) large **r** — push far from the hinge (the knob, not the middle). (2) large **sin θ** — push at 90° (perpendicular). Choice C has sin 0° = 0 → no torque.",
+        zh: "力矩 = r·F·sin θ。要最大化:(1) **r** 大——远离铰链(把手处,而非门中央);(2) **sin θ** 大——垂直推 (90°)。选项 C 的 sin 0° = 0 → 力矩为零。",
+      },
+    },
+  ],
+
+  "unit-5/topic-3": [
+    {
+      id: "phys1-u5-t3-q1",
+      prompt: {
+        en: "Two objects have the same mass. Object A is a solid sphere and Object B is a hollow sphere, both with the same radius. Which has the larger rotational inertia about an axis through its center?",
+        zh: "两个物体质量相同:A 是实心球,B 是空心球,半径相同。绕过球心的轴转动时,哪个转动惯量更大?",
+      },
+      choices: [
+        { id: "a", text: { en: "A (solid sphere)", zh: "A(实心球)" } },
+        { id: "b", text: { en: "B (hollow sphere)", zh: "B(空心球)" } },
+        { id: "c", text: { en: "They are equal.", zh: "两者相等。" } },
+        { id: "d", text: { en: "Depends on the material's density.", zh: "取决于材料密度。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "I_solid = ⅖ mR² vs. I_hollow = ⅔ mR² for a thin hollow sphere. The hollow one has **all mass at r = R** (maximum contribution), while the solid sphere spreads mass from 0 to R. Same reason a hoop has greater I than a disk.",
+        zh: "I_实 = ⅖ mR²;薄空心球 I_空 = ⅔ mR²。空心球**所有质量都在 r = R**(贡献最大),实心球则从 0 到 R 分布。与圆环 vs. 圆盘同理。",
+      },
+    },
+    {
+      id: "phys1-u5-t3-q2",
+      prompt: {
+        en: "A figure skater spins with arms extended, then pulls her arms in close to her body. Her rotational inertia:",
+        zh: "花样滑冰选手伸展手臂旋转,然后把手臂收回靠近身体。她的转动惯量:",
+      },
+      choices: [
+        { id: "a", text: { en: "increases, because her mass stays the same.", zh: "增大,因为质量不变。" } },
+        { id: "b", text: { en: "decreases, because mass moves closer to the axis.", zh: "减小,因为质量向转轴靠拢。" } },
+        { id: "c", text: { en: "stays the same.", zh: "保持不变。" } },
+        { id: "d", text: { en: "becomes zero.", zh: "变为零。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "I = Σm·r² — when mass moves closer to the rotation axis, **r decreases and I decreases**. This is why she spins *faster* when her arms come in (angular momentum conservation in Unit 6).",
+        zh: "I = Σm·r²——质量向转轴靠近时,**r 减小,I 也减小**。这也是收臂后旋转更快的原因(Unit 6 的角动量守恒)。",
+      },
+    },
+    {
+      id: "phys1-u5-t3-q3",
+      prompt: {
+        en: "A 2.0 kg thin rod of length 1.0 m rotates about an axis perpendicular to the rod through one **end**. What is its rotational inertia?",
+        zh: "一根 2.0 kg、长 1.0 m 的细杆绕过**一端**且垂直于杆的轴转动。转动惯量为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.17 kg·m²", zh: "0.17 kg·m²" } },
+        { id: "b", text: { en: "0.50 kg·m²", zh: "0.50 kg·m²" } },
+        { id: "c", text: { en: "0.67 kg·m²", zh: "0.67 kg·m²" } },
+        { id: "d", text: { en: "2.0 kg·m²", zh: "2.0 kg·m²" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "For a rod about one end: I = ⅓ m·L² = ⅓(2.0)(1.0)² = **0.667 kg·m²**. Choice A is the answer for rotation through the rod's center (1/12 mL²).",
+        zh: "杆绕一端转动:I = ⅓ m·L² = ⅓(2.0)(1.0)² = **0.667 kg·m²**。选项 A 是绕**中点**的 (1/12 mL²)。",
+      },
+    },
+  ],
+
+  "unit-5/topic-4": [
+    {
+      id: "phys1-u5-t4-q1",
+      prompt: {
+        en: "A net torque of 8.0 N·m is applied to a wheel with rotational inertia I = 2.0 kg·m². What is the wheel's angular acceleration?",
+        zh: "一只转动惯量 I = 2.0 kg·m² 的轮子受到净力矩 8.0 N·m。它的角加速度为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.25 rad/s²", zh: "0.25 rad/s²" } },
+        { id: "b", text: { en: "4.0 rad/s²", zh: "4.0 rad/s²" } },
+        { id: "c", text: { en: "8.0 rad/s²", zh: "8.0 rad/s²" } },
+        { id: "d", text: { en: "16 rad/s²", zh: "16 rad/s²" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "α = Στ / I = 8.0 / 2.0 = **4.0 rad/s²**. Direct rotational Newton's 2nd law.",
+        zh: "α = Στ / I = 8.0 / 2.0 = **4.0 rad/s²**。转动形式的牛顿第二定律直接套用。",
+      },
+    },
+    {
+      id: "phys1-u5-t4-q2",
+      prompt: {
+        en: "A tangential force of 5.0 N is applied at the rim of a solid disk (mass 2.0 kg, radius 0.40 m). What is the disk's angular acceleration?",
+        zh: "对一只实心圆盘(质量 2.0 kg,半径 0.40 m)边缘施加切向力 5.0 N。角加速度为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "1.6 rad/s²", zh: "1.6 rad/s²" } },
+        { id: "b", text: { en: "6.25 rad/s²", zh: "6.25 rad/s²" } },
+        { id: "c", text: { en: "12.5 rad/s²", zh: "12.5 rad/s²" } },
+        { id: "d", text: { en: "25 rad/s²", zh: "25 rad/s²" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "τ = F·R = (5.0)(0.40) = 2.0 N·m. I = ½m·R² = ½(2.0)(0.40)² = 0.16 kg·m². α = τ/I = 2.0 / 0.16 = **12.5 rad/s²**.",
+        zh: "τ = F·R = (5.0)(0.40) = 2.0 N·m。I = ½m·R² = ½(2.0)(0.40)² = 0.16 kg·m²。α = τ/I = 2.0 / 0.16 = **12.5 rad/s²**。",
+      },
+    },
+    {
+      id: "phys1-u5-t4-q3",
+      prompt: {
+        en: "Two identical disks are spun up from rest by applying a force tangent to the rim: disk X gets a 4 N force, disk Y gets an 8 N force. If both disks have the same radius and mass, how do their angular accelerations compare?",
+        zh: "两只相同的圆盘分别由施加在边缘的切向力从静止加速:盘 X 受 4 N,盘 Y 受 8 N。若半径与质量都相同,角加速度之比为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "α_Y = α_X (same since disks are identical)", zh: "α_Y = α_X(盘相同,因此相等)" } },
+        { id: "b", text: { en: "α_Y = 2·α_X", zh: "α_Y = 2·α_X" } },
+        { id: "c", text: { en: "α_Y = 4·α_X", zh: "α_Y = 4·α_X" } },
+        { id: "d", text: { en: "α_Y = ½·α_X", zh: "α_Y = ½·α_X" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "α = τ/I = F·R/I. Same R, same I, but F_Y = 2·F_X → τ_Y = 2·τ_X → **α_Y = 2·α_X**. Double the torque → double the angular acceleration, just like double the force → double the linear a.",
+        zh: "α = τ/I = F·R/I。R、I 相同,但 F_Y = 2·F_X → τ_Y = 2·τ_X → **α_Y = 2·α_X**。力矩翻倍 → 角加速度翻倍,与力翻倍导致线加速度翻倍完全类似。",
       },
     },
   ],
