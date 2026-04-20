@@ -1,5 +1,7 @@
 "use client";
 
+import "katex/dist/katex.min.css";
+import { BlockMath, InlineMath } from "react-katex";
 import { useT } from "./LocaleProvider";
 import { SupplyDemandChart } from "./SupplyDemandChart";
 import { ProductionPossibilitiesChart } from "./ProductionPossibilitiesChart";
@@ -55,6 +57,25 @@ export function NoteBlockRenderer({ block }: { block: NoteBlock }) {
             <li key={i}><Highlighted text={t(item)} /></li>
           ))}
         </ul>
+      );
+    case "math":
+      return (
+        <figure className="my-5 overflow-x-auto rounded-lg border border-slate-200 bg-slate-50/50 px-4 py-4">
+          <BlockMath math={block.tex} />
+          {block.caption && (
+            <figcaption className="mt-2 text-center text-xs text-slate-500">{t(block.caption)}</figcaption>
+          )}
+        </figure>
+      );
+    case "math-inline-line":
+      return (
+        <p className="mt-4">
+          {block.segments.map((seg, i) =>
+            seg.t === "text"
+              ? <span key={i}><Highlighted text={t(seg.text)} /></span>
+              : <InlineMath key={i} math={seg.tex} />
+          )}
+        </p>
       );
     case "callout":
       return (
