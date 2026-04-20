@@ -55,7 +55,9 @@ export type NoteBlock =
         | "hess-cycle"
         | "equilibrium-approach"
         | "lechatelier-shift"
-        | "titration-weak";
+        | "titration-weak"
+        | "galvanic-cell"
+        | "nernst-curve";
     }
   | { kind: "mass-spectrum"; peaks: Array<{ mz: number; pct: number }>; title?: Bilingual }
   | {
@@ -7773,17 +7775,23 @@ export const apChemistry: Subject = {
     {
       slug: "unit-9",
       number: 9,
-      title: { en: "Electrochemistry & Thermodynamics Applications", zh: "电化学与热力学应用" },
+      title: { en: "Thermodynamics & Electrochemistry", zh: "热力学与电化学" },
       description: {
-        en: "Entropy, free energy, and electrochemistry.",
-        zh: "熵、自由能与电化学。",
+        en: "Entropy, Gibbs free energy, electrochemistry, and Faraday's law.",
+        zh: "熵、吉布斯自由能、电化学与法拉第定律。",
       },
       topics: [
-        { slug: "topic-1", title: { en: "Entropy (ΔS)", zh: "熵 (ΔS)" }, summary: { en: "Measure of disorder; predicting sign of ΔS.", zh: "无序程度的度量;判断 ΔS 的符号。" } },
-        { slug: "topic-2", title: { en: "Gibbs Free Energy (ΔG)", zh: "吉布斯自由能 (ΔG)" }, summary: { en: "ΔG = ΔH − TΔS predicts spontaneity.", zh: "ΔG = ΔH − TΔS 判断自发性。" } },
-        { slug: "topic-3", title: { en: "Coupled Reactions & ΔG° vs K", zh: "耦合反应与 ΔG° 与 K 的关系" }, summary: { en: "ΔG° = −RT ln K — connecting thermodynamics with equilibrium.", zh: "ΔG° = −RT ln K——热力学与平衡的连接。" } },
-        { slug: "topic-4", title: { en: "Galvanic & Electrolytic Cells", zh: "原电池与电解池" }, summary: { en: "Spontaneous vs driven redox; cell diagrams and E°cell.", zh: "自发与外加电源的氧化还原;电池图与 E°cell。" } },
-        { slug: "topic-5", title: { en: "Electrolysis & Faraday's Law", zh: "电解与法拉第定律" }, summary: { en: "Relating charge to moles of substance produced.", zh: "电荷量与生成物摩尔数的关系。" } },
+        { slug: "topic-1", title: { en: "Introduction to Entropy", zh: "熵入门" }, summary: { en: "Measure of disorder; 2nd law of thermodynamics.", zh: "无序度的度量;热力学第二定律。" } },
+        { slug: "topic-2", title: { en: "Absolute Entropy & ΔS", zh: "绝对熵与 ΔS" }, summary: { en: "S° from tables; ΔS = ΣS°(products) − ΣS°(reactants).", zh: "由表查 S°;ΔS = ΣS°(产物) − ΣS°(反应物)。" } },
+        { slug: "topic-3", title: { en: "Gibbs Free Energy & Spontaneity", zh: "吉布斯自由能与自发性" }, summary: { en: "ΔG = ΔH − TΔS; sign of ΔG decides spontaneity.", zh: "ΔG = ΔH − TΔS;符号决定自发性。" } },
+        { slug: "topic-4", title: { en: "Thermodynamic vs Kinetic Control", zh: "热力学控制与动力学控制" }, summary: { en: "Spontaneous ≠ fast — activation energy matters.", zh: "自发 ≠ 快速——活化能也很关键。" } },
+        { slug: "topic-5", title: { en: "Free Energy & Equilibrium", zh: "自由能与平衡" }, summary: { en: "ΔG° = −RT ln K; relating sign of ΔG° to K.", zh: "ΔG° = −RT ln K;ΔG° 的符号与 K 的关系。" } },
+        { slug: "topic-6", title: { en: "Free Energy of Dissolution", zh: "溶解的自由能" }, summary: { en: "When salts dissolve spontaneously.", zh: "盐自发溶解的条件。" } },
+        { slug: "topic-7", title: { en: "Coupled Reactions", zh: "耦合反应" }, summary: { en: "Using a spontaneous ΔG to drive a nonspontaneous one.", zh: "用自发反应的 ΔG 驱动非自发反应。" } },
+        { slug: "topic-8", title: { en: "Galvanic & Electrolytic Cells", zh: "原电池与电解池" }, summary: { en: "Anode oxidation, cathode reduction; salt bridge.", zh: "阳极氧化,阴极还原;盐桥。" } },
+        { slug: "topic-9", title: { en: "Cell Potential & Free Energy", zh: "电池电势与自由能" }, summary: { en: "ΔG = −nFE — the key link.", zh: "ΔG = −nFE——核心联系。" } },
+        { slug: "topic-10", title: { en: "Cell Potential — Nonstandard Conditions", zh: "非标准条件下的电池电势" }, summary: { en: "Nernst equation: E = E° − (RT/nF) ln Q.", zh: "Nernst 方程:E = E° − (RT/nF) ln Q。" } },
+        { slug: "topic-11", title: { en: "Electrolysis & Faraday's Law", zh: "电解与法拉第定律" }, summary: { en: "Charge → moles of product via n·F.", zh: "由电荷量经 n·F 推产物摩尔数。" } },
       ],
     },
   ],
@@ -11764,6 +11772,286 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
   ],
+
+  // ============================================================
+  // UNIT 9 · Thermodynamics & Electrochemistry
+  // ============================================================
+
+  // ---------- 9.1 · Introduction to Entropy ----------
+  "unit-9/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Entropy (S)** is a measure of the number of microscopic arrangements of a system — loosely, its 'disorder'. A pile of bricks has fewer arrangements than the same bricks scattered across a field, so scattered > pile in entropy. The universe strongly favors more arrangements over fewer.",
+        zh: "**熵 (S)** 衡量系统微观排列方式的数目,直观可称为「无序度」。整齐堆放的砖块排列数远少于散落一地的砖块,故散落状态的熵更大。宇宙倾向于排列数多的状态。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Three laws of thermodynamics", zh: "热力学三定律" },
+      text: {
+        en: "**1st:** energy is conserved (ΔU = q + w). **2nd:** every spontaneous process increases the entropy of the universe (ΔS_univ ≥ 0). **3rd:** at absolute zero (0 K), a perfect crystal has S = 0.",
+        zh: "**第一定律:** 能量守恒(ΔU = q + w)。**第二定律:** 自发过程使宇宙总熵增加(ΔS_univ ≥ 0)。**第三定律:** 绝对零度 (0 K) 下完美晶体的 S = 0。",
+      },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "S(solid) < S(liquid) < S(gas) — gases are wildly disordered.", zh: "S(固) < S(液) < S(气)——气体极度无序。" },
+        { en: "More moles of gas → higher S.", zh: "气体摩尔数越多 → 熵越大。" },
+        { en: "Higher temperature → higher S (more kinetic motion).", zh: "温度越高 → 熵越大(动能更大、振动更激烈)。" },
+        { en: "Dissolving a solid usually ↑ S (unless ion–dipole strongly orders water).", zh: "固体溶解通常**增大**熵(除非离子-偶极强烈规整水分子)。" },
+      ],
+    },
+  ],
+
+  // ---------- 9.2 · Absolute Entropy & ΔS ----------
+  "unit-9/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Unlike enthalpy, entropy has an absolute reference (S = 0 at 0 K), so every substance has a **positive S°** value tabulated at 25 °C. ΔS°_rxn is computed just like ΔH°_rxn: products − reactants.",
+        zh: "与焓不同,熵有绝对零点(0 K 时 S = 0),因此每种物质在 25 °C 下都有一个**正的 S° 值**列在表中。ΔS°_rxn 类似 ΔH°_rxn:产物 − 反应物。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta S^{\\circ}_{\\text{rxn}} \\;=\\; \\sum n_{p}\\,S^{\\circ}(\\text{products}) \\;-\\; \\sum n_{r}\\,S^{\\circ}(\\text{reactants})",
+      caption: { en: "Units: J/(mol·K). Note J, not kJ — stay consistent with ΔH in ΔG.", zh: "单位:J/(mol·K)。注意是 J 而非 kJ——与 ΔH 结合时单位要一致。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Predicting the sign of ΔS", zh: "判断 ΔS 符号" },
+      text: {
+        en: "**Count moles of gas** on each side. More gas moles on the product side → ΔS > 0. Fewer → ΔS < 0. Same → ΔS is small and either sign.",
+        zh: "数两边**气体摩尔数**。产物侧气体多 → ΔS > 0;反应物侧气体多 → ΔS < 0;两侧相等 → ΔS 较小,符号不定。",
+      },
+    },
+  ],
+
+  // ---------- 9.3 · Gibbs Free Energy ----------
+  "unit-9/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Gibbs free energy (ΔG)** combines enthalpy and entropy into a single measure of spontaneity at a given temperature. A process is **spontaneous** exactly when **ΔG < 0**.",
+        zh: "**吉布斯自由能 (ΔG)** 把焓与熵合并为判断自发性的单一指标。**ΔG < 0** 时过程自发。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta G \\;=\\; \\Delta H \\;-\\; T\\,\\Delta S",
+      caption: { en: "Units must match: ΔH in J, T in K, ΔS in J/K (or convert).", zh: "单位必须一致:ΔH 用 J,T 用 K,ΔS 用 J/K(或换算)。" },
+    },
+    {
+      kind: "table",
+      caption: { en: "ΔH and ΔS signs — when is ΔG negative?", zh: "ΔH 与 ΔS 符号——何时 ΔG 为负?" },
+      columns: [
+        { en: "ΔH", zh: "ΔH" },
+        { en: "ΔS", zh: "ΔS" },
+        { en: "Spontaneous?", zh: "是否自发?" },
+      ],
+      rows: [
+        [{ en: "−", zh: "−" }, { en: "+", zh: "+" }, { en: "Yes, at all T", zh: "任意 T 都自发" }],
+        [{ en: "+", zh: "+" }, { en: "−", zh: "−" }, { en: "No, at any T", zh: "任意 T 都不自发" }],
+        [{ en: "−", zh: "−" }, { en: "−", zh: "−" }, { en: "Yes at low T only", zh: "仅低温自发" }],
+        [{ en: "+", zh: "+" }, { en: "+", zh: "+" }, { en: "Yes at high T only", zh: "仅高温自发" }],
+      ],
+    },
+  ],
+
+  // ---------- 9.4 · Thermodynamic vs Kinetic Control ----------
+  "unit-9/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Spontaneous ≠ fast.** Thermodynamics (ΔG) only tells you IF a reaction is favorable; kinetics (Eₐ) tells you HOW FAST it happens. A reaction with ΔG ≪ 0 but a huge activation energy will sit unchanged for years.",
+        zh: "**自发 ≠ 快速。** 热力学(ΔG)只说明反应是否**有利**;动力学(Eₐ)决定反应进行的**速度**。ΔG ≪ 0 但 Eₐ 很大的反应,可能数年都看不出变化。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Famous example", zh: "经典例子" },
+      text: {
+        en: "Diamond → graphite has ΔG < 0 (spontaneous!), but the activation energy is enormous. Diamonds are effectively forever because kinetics is the bottleneck, not thermodynamics.",
+        zh: "钻石 → 石墨的 ΔG < 0(热力学上自发!),但活化能极高。钻石「永恒」是因为动力学阻挡,与热力学无关。",
+      },
+    },
+  ],
+
+  // ---------- 9.5 · Free Energy & Equilibrium ----------
+  "unit-9/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "At equilibrium, **ΔG = 0**. Away from equilibrium, ΔG is related to Q — and at standard conditions, ΔG° is tied to K.",
+        zh: "平衡时 **ΔG = 0**。非平衡时 ΔG 与 Q 有关;在标准条件下,ΔG° 与 K 绑定。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta G \\;=\\; \\Delta G^{\\circ} \\;+\\; RT\\ln Q\\qquad\\Rightarrow\\qquad \\Delta G^{\\circ} = -RT\\ln K",
+      caption: { en: "At eq: Q = K and ΔG = 0, which collapses the first equation into the second.", zh: "平衡时 Q = K 且 ΔG = 0,由此第一式化为第二式。" },
+    },
+    {
+      kind: "table",
+      caption: { en: "Relating ΔG° and K", zh: "ΔG° 与 K 的关系" },
+      columns: [
+        { en: "ΔG°", zh: "ΔG°" },
+        { en: "K", zh: "K" },
+        { en: "Equilibrium lies...", zh: "平衡偏向..." },
+      ],
+      rows: [
+        [{ en: "ΔG° < 0", zh: "ΔG° < 0" }, { en: "K > 1", zh: "K > 1" }, { en: "toward products", zh: "产物侧" }],
+        [{ en: "ΔG° = 0", zh: "ΔG° = 0" }, { en: "K = 1", zh: "K = 1" }, { en: "roughly balanced", zh: "大致平衡" }],
+        [{ en: "ΔG° > 0", zh: "ΔG° > 0" }, { en: "K < 1", zh: "K < 1" }, { en: "toward reactants", zh: "反应物侧" }],
+      ],
+    },
+  ],
+
+  // ---------- 9.6 · Free Energy of Dissolution ----------
+  "unit-9/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A salt dissolves spontaneously when ΔG_diss < 0. ΔH_diss depends on which is larger — the lattice energy removed or the hydration energy released; ΔS_diss is usually positive (more disorder).",
+        zh: "盐溶解的自发条件是 ΔG_diss < 0。ΔH_diss 取决于晶格能与水合能的相对大小;ΔS_diss 通常为正(无序度增加)。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta G_{\\text{diss}} \\;=\\; \\Delta H_{\\text{diss}} \\;-\\; T\\,\\Delta S_{\\text{diss}} \\;=\\; -RT\\ln K_{sp}",
+    },
+  ],
+
+  // ---------- 9.7 · Coupled Reactions ----------
+  "unit-9/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **nonspontaneous** reaction (ΔG > 0) can be forced to happen by **coupling** it to a strongly spontaneous reaction (ΔG ≪ 0). As long as the **sum of ΔG** is negative, the overall coupled reaction proceeds.",
+        zh: "**非自发**反应(ΔG > 0)可以通过与强自发反应(ΔG ≪ 0)**耦合**来实现。只要耦合后**总 ΔG** 为负,总反应就能进行。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Biology example", zh: "生物学例子" },
+      text: {
+        en: "Glucose phosphorylation is nonspontaneous on its own (ΔG° ≈ +14 kJ), but it's coupled to ATP hydrolysis (ΔG° ≈ −31 kJ). Net ΔG° ≈ −17 kJ → spontaneous. This is how cells drive endergonic reactions.",
+        zh: "葡萄糖磷酸化本身非自发(ΔG° ≈ +14 kJ),但与 ATP 水解耦合(ΔG° ≈ −31 kJ)后,总 ΔG° ≈ −17 kJ,成为自发——这是细胞驱动吸能反应的方式。",
+      },
+    },
+  ],
+
+  // ---------- 9.8 · Galvanic & Electrolytic Cells ----------
+  "unit-9/topic-8": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **galvanic (voltaic) cell** uses a spontaneous redox reaction to generate electricity. An **electrolytic cell** does the reverse — it uses electricity to drive a nonspontaneous redox reaction.",
+        zh: "**原电池(伏打电池)**利用自发氧化还原反应发电;**电解池**反之——用外加电源驱动非自发氧化还原反应。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "galvanic-cell",
+    },
+    {
+      kind: "table",
+      caption: { en: "Key cell terminology", zh: "电池术语" },
+      columns: [
+        { en: "Term", zh: "术语" },
+        { en: "Galvanic", zh: "原电池" },
+        { en: "Electrolytic", zh: "电解池" },
+      ],
+      rows: [
+        [{ en: "Anode", zh: "阳极" }, { en: "Oxidation; negative (−)", zh: "氧化;负极 (−)" }, { en: "Oxidation; positive (+)", zh: "氧化;正极 (+)" }],
+        [{ en: "Cathode", zh: "阴极" }, { en: "Reduction; positive (+)", zh: "还原;正极 (+)" }, { en: "Reduction; negative (−)", zh: "还原;负极 (−)" }],
+        [{ en: "ΔG", zh: "ΔG" }, { en: "< 0 (spontaneous)", zh: "< 0(自发)" }, { en: "> 0 (driven)", zh: "> 0(外加驱动)" }],
+        [{ en: "E°_cell", zh: "E°_cell" }, { en: "> 0", zh: "> 0" }, { en: "< 0", zh: "< 0" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Mnemonic", zh: "记忆口诀" },
+      text: {
+        en: "**AN OX, RED CAT** — oxidation at Anode, Reduction at Cathode — true for both cell types.",
+        zh: "**AN OX, RED CAT**——阳极 (Anode) 氧化 (Oxidation),阴极 (Cathode) 还原 (Reduction)——对两类电池都成立。",
+      },
+    },
+  ],
+
+  // ---------- 9.9 · Cell Potential & Free Energy ----------
+  "unit-9/topic-9": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Cell potential and Gibbs free energy are tied by one equation. E°_cell is computed from half-cell reduction potentials (table of E° values).",
+        zh: "电池电势与吉布斯自由能由一个方程联系。E°_cell 由半电池还原电位查表获得。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta G^{\\circ} \\;=\\; -n\\,F\\,E^{\\circ}_{\\text{cell}}",
+      caption: { en: "n = mol e⁻ transferred; F = 96 485 C/mol (Faraday constant)", zh: "n = 转移的电子摩尔数;F = 96 485 C/mol(法拉第常数)" },
+    },
+    {
+      kind: "math",
+      tex: "E^{\\circ}_{\\text{cell}} \\;=\\; E^{\\circ}_{\\text{cathode}} \\;-\\; E^{\\circ}_{\\text{anode}}",
+      caption: { en: "Both E° values are reduction potentials from the table; subtract anode's as written.", zh: "两 E° 都是还原电位(查表);直接减去阳极的还原电位即可。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Sign logic", zh: "符号逻辑" },
+      text: {
+        en: "E°_cell > 0 ⇔ ΔG° < 0 ⇔ K > 1 ⇔ spontaneous galvanic cell. All three inequalities flip together.",
+        zh: "E°_cell > 0 ⇔ ΔG° < 0 ⇔ K > 1 ⇔ 原电池自发。三个不等式同向翻转。",
+      },
+    },
+  ],
+
+  // ---------- 9.10 · Nernst ----------
+  "unit-9/topic-10": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The **Nernst equation** gives cell potential at nonstandard concentrations. As the reaction proceeds (products accumulate, Q rises), E decreases — and reaches zero at equilibrium.",
+        zh: "**Nernst 方程**给出非标准浓度下的电池电势。随反应进行(产物积累,Q 增大),E 减小——平衡时 E = 0。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "E \\;=\\; E^{\\circ} \\;-\\; \\dfrac{RT}{nF}\\ln Q \\;\\approx\\; E^{\\circ} \\;-\\; \\dfrac{0.0592}{n}\\log_{10} Q\\quad(\\text{at 298 K})",
+    },
+    {
+      kind: "chem-chart",
+      chartType: "nernst-curve",
+    },
+  ],
+
+  // ---------- 9.11 · Electrolysis & Faraday ----------
+  "unit-9/topic-11": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "In electrolysis, we convert **charge** delivered by the power supply into **moles of substance** produced at an electrode. Faraday's law links them.",
+        zh: "在电解中,电源提供的**电荷量**可转换为电极上生成的**物质摩尔数**。法拉第定律给出换算。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "q \\;=\\; I \\cdot t\\qquad\\text{and}\\qquad \\text{mol product} \\;=\\; \\dfrac{q}{n\\,F}",
+      caption: { en: "q in coulombs, I in amps, t in seconds, F = 96485 C/mol e⁻.", zh: "q 单位库仑,I 单位安培,t 单位秒,F = 96485 C/mol e⁻。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Worked example", zh: "例题" },
+      text: {
+        en: "A current of 2.0 A for 30 min through molten AlCl₃: q = 2.0 × 1800 = 3600 C. Al³⁺ + 3 e⁻ → Al, so n = 3. mol Al = 3600 / (3 × 96485) = **0.0124 mol**, or about 0.34 g of aluminum.",
+        zh: "熔融 AlCl₃ 中通 2.0 A 的电流 30 min:q = 2.0 × 1800 = 3600 C。Al³⁺ + 3 e⁻ → Al,n = 3。mol Al = 3600 / (3 × 96485) = **0.0124 mol**,约 0.34 g 铝。",
+      },
+    },
+  ],
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -13787,6 +14075,241 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       explanation: {
         en: "Capacity against acid is limited by [A⁻] (which neutralizes H⁺). Choice C has the largest [A⁻] = 0.50 M AND an equal [HA] for symmetric capacity. Choice D has lots of HA but only 0.01 M A⁻ — it'll fail quickly against acid.",
         zh: "加酸的容量由 [A⁻] 决定(它消耗 H⁺)。C 选项 [A⁻] 最大(0.50 M)且 [HA] 等同,两向容量都强。D 选项 HA 多但 A⁻ 仅 0.01 M,加酸很快耗尽。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // UNIT 9 · Questions
+  // ============================================================
+
+  "unit-9/topic-1": [
+    {
+      id: "chem-u9-t1-q1",
+      prompt: {
+        en: "Which reaction has the LARGEST positive ΔS?",
+        zh: "下列反应的 ΔS 最大(正值)?",
+      },
+      choices: [
+        { id: "a", text: { en: "H₂(g) + Cl₂(g) → 2 HCl(g)", zh: "H₂(g) + Cl₂(g) → 2 HCl(g)" } },
+        { id: "b", text: { en: "2 H₂(g) + O₂(g) → 2 H₂O(l)", zh: "2 H₂(g) + O₂(g) → 2 H₂O(l)" } },
+        { id: "c", text: { en: "CaCO₃(s) → CaO(s) + CO₂(g)", zh: "CaCO₃(s) → CaO(s) + CO₂(g)" } },
+        { id: "d", text: { en: "N₂(g) + 3 H₂(g) → 2 NH₃(g)", zh: "N₂(g) + 3 H₂(g) → 2 NH₃(g)" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Count moles of gas. C goes from 0 moles gas → 1 → ΔS strongly positive. A: 2 → 2 (no change). B: 3 → 0 (very negative). D: 4 → 2 (negative).",
+        zh: "数气体摩尔数:C 从 0 → 1,ΔS 显著正;A:2 → 2(不变);B:3 → 0(显著负);D:4 → 2(负)。",
+      },
+    },
+  ],
+
+  "unit-9/topic-2": [
+    {
+      id: "chem-u9-t2-q1",
+      prompt: {
+        en: "Using S°(H₂O, l) = 70, S°(H₂, g) = 131, S°(O₂, g) = 205 J/(mol·K), find ΔS° for 2 H₂(g) + O₂(g) → 2 H₂O(l).",
+        zh: "已知 S°(H₂O, l) = 70,S°(H₂, g) = 131,S°(O₂, g) = 205 J/(mol·K),求 2 H₂(g) + O₂(g) → 2 H₂O(l) 的 ΔS°。",
+      },
+      choices: [
+        { id: "a", text: { en: "−327 J/(mol·K)", zh: "−327 J/(mol·K)" } },
+        { id: "b", text: { en: "+141 J/(mol·K)", zh: "+141 J/(mol·K)" } },
+        { id: "c", text: { en: "+327 J/(mol·K)", zh: "+327 J/(mol·K)" } },
+        { id: "d", text: { en: "−45 J/(mol·K)", zh: "−45 J/(mol·K)" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "ΔS° = 2(70) − [2(131) + 1(205)] = 140 − 467 = **−327 J/(mol·K)**. Strongly negative — two gas moles per reactant disappear into one liquid mole per product.",
+        zh: "ΔS° = 2(70) − [2(131) + 1(205)] = 140 − 467 = **−327 J/(mol·K)**。显著为负:2 mol 气体变为 1 mol 液体。",
+      },
+    },
+  ],
+
+  "unit-9/topic-3": [
+    {
+      id: "chem-u9-t3-q1",
+      prompt: {
+        en: "For a reaction with ΔH = +80 kJ and ΔS = +200 J/K, at what temperature does it become spontaneous?",
+        zh: "某反应 ΔH = +80 kJ、ΔS = +200 J/K。反应自发的最低温度为?",
+      },
+      choices: [
+        { id: "a", text: { en: "Above 400 K", zh: "高于 400 K" } },
+        { id: "b", text: { en: "Below 400 K", zh: "低于 400 K" } },
+        { id: "c", text: { en: "Never spontaneous", zh: "永不自发" } },
+        { id: "d", text: { en: "Spontaneous at all T", zh: "任意 T 自发" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "ΔG = ΔH − TΔS < 0 → T > ΔH/ΔS = 80,000 / 200 = **400 K**. Above 400 K the TΔS term overcomes the positive ΔH. Watch units — ΔH in J, not kJ.",
+        zh: "ΔG = ΔH − TΔS < 0 → T > ΔH/ΔS = 80,000 / 200 = **400 K**。高于此温度时 TΔS 压过正的 ΔH。注意 ΔH 要换算为 J。",
+      },
+    },
+  ],
+
+  "unit-9/topic-4": [
+    {
+      id: "chem-u9-t4-q1",
+      prompt: {
+        en: "A diamond at room temperature does not noticeably convert to graphite even though ΔG < 0. Why?",
+        zh: "室温下钻石虽然 ΔG < 0,却几乎不转化为石墨。为什么?",
+      },
+      choices: [
+        { id: "a", text: { en: "ΔG < 0 is not sufficient for a reaction to occur.", zh: "仅 ΔG < 0 并不足以使反应发生。" } },
+        { id: "b", text: { en: "The activation energy for the rearrangement is very high — kinetic barrier.", zh: "原子重排的活化能极高——动力学受阻。" } },
+        { id: "c", text: { en: "Diamond has ΔH = 0.", zh: "钻石的 ΔH = 0。" } },
+        { id: "d", text: { en: "Graphite is less stable than diamond.", zh: "石墨比钻石稳定性低。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Spontaneity (ΔG < 0) tells you the reaction is favorable but not how fast. The huge Eₐ means the reaction essentially never proceeds at room T — kinetic control dominates.",
+        zh: "ΔG < 0 只说明反应有利,不说明速度。高 Eₐ 使反应在室温下几乎不发生——动力学起主导。",
+      },
+    },
+  ],
+
+  "unit-9/topic-5": [
+    {
+      id: "chem-u9-t5-q1",
+      prompt: {
+        en: "At 298 K, a reaction has K = 1.0 × 10⁵. What is ΔG° approximately? (R = 8.314 J/(mol·K))",
+        zh: "298 K 时,某反应 K = 1.0 × 10⁵,ΔG° 约为?(R = 8.314 J/(mol·K))",
+      },
+      choices: [
+        { id: "a", text: { en: "+28.5 kJ/mol", zh: "+28.5 kJ/mol" } },
+        { id: "b", text: { en: "−28.5 kJ/mol", zh: "−28.5 kJ/mol" } },
+        { id: "c", text: { en: "+12.4 kJ/mol", zh: "+12.4 kJ/mol" } },
+        { id: "d", text: { en: "−12.4 kJ/mol", zh: "−12.4 kJ/mol" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "ΔG° = −RT ln K = −(8.314)(298) ln(10⁵) = −2478 × 11.51 ≈ −28,500 J ≈ **−28.5 kJ/mol**. K > 1 → ΔG° < 0.",
+        zh: "ΔG° = −RT ln K = −(8.314)(298) ln(10⁵) = −2478 × 11.51 ≈ −28,500 J ≈ **−28.5 kJ/mol**。K > 1 → ΔG° < 0。",
+      },
+    },
+  ],
+
+  "unit-9/topic-6": [
+    {
+      id: "chem-u9-t6-q1",
+      prompt: {
+        en: "For a salt that dissolves endothermically but with a large +ΔS, which statement best describes its solubility behavior?",
+        zh: "某盐溶解吸热,但 ΔS 显著为正,其溶解度行为最符合下列哪一项?",
+      },
+      choices: [
+        { id: "a", text: { en: "Increasingly soluble as T rises (more favorable −TΔS).", zh: "随温度升高,溶解度上升(−TΔS 更有利)。" } },
+        { id: "b", text: { en: "Decreasingly soluble as T rises.", zh: "随温度升高,溶解度下降。" } },
+        { id: "c", text: { en: "Insoluble at all temperatures.", zh: "任意温度都不溶。" } },
+        { id: "d", text: { en: "Solubility unaffected by temperature.", zh: "溶解度与温度无关。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "ΔG = ΔH − TΔS. With ΔH > 0 but ΔS > 0, raising T makes −TΔS more negative, eventually beating ΔH and making ΔG < 0. Most ionic solids follow this pattern.",
+        zh: "ΔG = ΔH − TΔS。ΔH > 0、ΔS > 0 时,升温使 −TΔS 更负,最终超过 ΔH 使 ΔG < 0。多数离子晶体符合此规律。",
+      },
+    },
+  ],
+
+  "unit-9/topic-7": [
+    {
+      id: "chem-u9-t7-q1",
+      prompt: {
+        en: "Reaction A has ΔG = +30 kJ. Reaction B has ΔG = −50 kJ. Coupled, the overall ΔG is:",
+        zh: "反应 A 的 ΔG = +30 kJ,反应 B 的 ΔG = −50 kJ。耦合后的总 ΔG 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "+80 kJ (nonspontaneous)", zh: "+80 kJ(非自发)" } },
+        { id: "b", text: { en: "−20 kJ (spontaneous)", zh: "−20 kJ(自发)" } },
+        { id: "c", text: { en: "−80 kJ (spontaneous)", zh: "−80 kJ(自发)" } },
+        { id: "d", text: { en: "+20 kJ (nonspontaneous)", zh: "+20 kJ(非自发)" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Coupled ΔG adds: +30 + (−50) = **−20 kJ**. Negative → spontaneous overall. The spontaneous reaction 'carries' the nonspontaneous one.",
+        zh: "耦合 ΔG 相加:+30 + (−50) = **−20 kJ**。负值 → 总体自发。自发反应「带动」了非自发反应。",
+      },
+    },
+  ],
+
+  "unit-9/topic-8": [
+    {
+      id: "chem-u9-t8-q1",
+      prompt: {
+        en: "In a galvanic cell, electrons in the external wire flow:",
+        zh: "在原电池中,外电路的电子流动方向是:",
+      },
+      choices: [
+        { id: "a", text: { en: "Anode → cathode", zh: "阳极 → 阴极" } },
+        { id: "b", text: { en: "Cathode → anode", zh: "阴极 → 阳极" } },
+        { id: "c", text: { en: "No net flow — equilibrium.", zh: "无净流——已平衡。" } },
+        { id: "d", text: { en: "Through the salt bridge.", zh: "通过盐桥流动。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Oxidation releases electrons at the anode; reduction consumes them at the cathode. So electrons flow **anode → cathode** in the wire. The salt bridge carries ions, not electrons.",
+        zh: "阳极氧化产生电子;阴极还原消耗电子。电子在导线中从**阳极流向阴极**。盐桥中流动的是离子,不是电子。",
+      },
+    },
+  ],
+
+  "unit-9/topic-9": [
+    {
+      id: "chem-u9-t9-q1",
+      prompt: {
+        en: "A galvanic cell has E°_cell = +1.10 V and transfers 2 mol e⁻. What is ΔG°?",
+        zh: "某原电池 E°_cell = +1.10 V,转移 2 mol e⁻。ΔG° 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "+106 kJ", zh: "+106 kJ" } },
+        { id: "b", text: { en: "−106 kJ", zh: "−106 kJ" } },
+        { id: "c", text: { en: "−212 kJ", zh: "−212 kJ" } },
+        { id: "d", text: { en: "−53 kJ", zh: "−53 kJ" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "ΔG° = −nFE° = −(2)(96485)(1.10) = −212,267 J ≈ **−212 kJ**. E°_cell > 0 → ΔG° < 0 → spontaneous galvanic cell.",
+        zh: "ΔG° = −nFE° = −(2)(96485)(1.10) = −212,267 J ≈ **−212 kJ**。E°_cell > 0 → ΔG° < 0 → 原电池自发。",
+      },
+    },
+  ],
+
+  "unit-9/topic-10": [
+    {
+      id: "chem-u9-t10-q1",
+      prompt: {
+        en: "A cell with E° = +0.80 V, n = 2, has Q = 100 at 298 K. What is E?",
+        zh: "某电池 E° = +0.80 V,n = 2,298 K 下 Q = 100。E 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.80 V", zh: "0.80 V" } },
+        { id: "b", text: { en: "0.74 V", zh: "0.74 V" } },
+        { id: "c", text: { en: "0.86 V", zh: "0.86 V" } },
+        { id: "d", text: { en: "0.62 V", zh: "0.62 V" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "E = E° − (0.0592/n) log Q = 0.80 − (0.0592/2)(log 100) = 0.80 − (0.0296)(2) = 0.80 − 0.0592 ≈ **0.74 V**. Q > 1 decreases E; Q < 1 would increase it.",
+        zh: "E = E° − (0.0592/n) log Q = 0.80 − (0.0592/2)(log 100) = 0.80 − (0.0296)(2) = 0.80 − 0.0592 ≈ **0.74 V**。Q > 1 使 E 减小;Q < 1 则增大。",
+      },
+    },
+  ],
+
+  "unit-9/topic-11": [
+    {
+      id: "chem-u9-t11-q1",
+      prompt: {
+        en: "How many grams of Cu are deposited when 1.50 A of current runs through Cu²⁺ solution for 1.00 hour? (Cu: 63.5 g/mol; F = 96485 C/mol)",
+        zh: "通过 Cu²⁺ 溶液的 1.50 A 电流持续 1.00 小时,可沉积多少克 Cu?(Cu:63.5 g/mol;F = 96485 C/mol)",
+      },
+      choices: [
+        { id: "a", text: { en: "0.89 g", zh: "0.89 g" } },
+        { id: "b", text: { en: "1.78 g", zh: "1.78 g" } },
+        { id: "c", text: { en: "3.55 g", zh: "3.55 g" } },
+        { id: "d", text: { en: "5.40 g", zh: "5.40 g" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "q = It = 1.50 × 3600 = 5400 C. Cu²⁺ + 2 e⁻ → Cu, n = 2. mol Cu = 5400 / (2 × 96485) = 0.02799. Mass = 0.02799 × 63.5 = **1.78 g**.",
+        zh: "q = It = 1.50 × 3600 = 5400 C。Cu²⁺ + 2 e⁻ → Cu,n = 2。mol Cu = 5400 / (2 × 96485) = 0.02799。质量 = 0.02799 × 63.5 = **1.78 g**。",
       },
     },
   ],
