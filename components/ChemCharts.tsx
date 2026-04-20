@@ -415,6 +415,65 @@ export function RealGasDeviation({ lang = "en" }: { lang?: "en" | "zh" }) {
   );
 }
 
+// ------------------------------------------------------------
+// 10. Strong-acid / strong-base titration curve
+// ------------------------------------------------------------
+export function TitrationCurve({ lang = "en" }: { lang?: "en" | "zh" }) {
+  // Titrating 25.00 mL of 0.100 M HCl with 0.100 M NaOH — equiv pt at V = 25.00 mL
+  const data: Array<{ V: number; pH: number }> = [];
+  const V0 = 25.0;
+  const C = 0.1;
+  for (let V = 0; V <= 50; V += 0.5) {
+    let pH: number;
+    if (V < V0 - 0.05) {
+      // excess acid
+      const molH = (V0 - V) * C;
+      const total = V0 + V;
+      pH = -Math.log10(molH / total);
+    } else if (V > V0 + 0.05) {
+      // excess base
+      const molOH = (V - V0) * C;
+      const total = V0 + V;
+      const pOH = -Math.log10(molOH / total);
+      pH = 14 - pOH;
+    } else {
+      pH = 7;
+    }
+    data.push({ V, pH: +pH.toFixed(2) });
+  }
+  const t = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={t("Strong-acid + strong-base titration", "强酸 + 强碱滴定曲线")}
+      caption={t(
+        "Flat before and after; near equivalence (25 mL here) pH jumps sharply from ~3 to ~11. Midpoint pH = 7 for strong/strong.",
+        "等当点(此处 V = 25 mL)前后 pH 平缓,等当点附近 pH 从 ~3 急剧跃升到 ~11。强酸-强碱等当点 pH = 7。"
+      )}
+      height={300}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis
+          dataKey="V"
+          type="number"
+          domain={[0, 50]}
+          stroke="#475569"
+          label={{ value: t("Volume NaOH added (mL)", "加入 NaOH 体积 (mL)"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }}
+        />
+        <YAxis
+          stroke="#475569"
+          domain={[0, 14]}
+          label={{ value: "pH", angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }}
+        />
+        <ReferenceLine x={25} stroke="#16a34a" strokeDasharray="4 3" label={{ value: t("equiv. pt", "等当点"), position: "top", fill: "#16a34a", fontSize: 11 }} />
+        <ReferenceLine y={7} stroke="#94a3b8" strokeDasharray="4 3" />
+        <Line type="monotone" dataKey="pH" stroke="#dc2626" strokeWidth={2.5} dot={false} />
+        <ReferenceDot x={25} y={7} r={6} fill="#16a34a" stroke="#065f46" strokeWidth={2} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
 // silence unused import warning for AreaChart/Area (kept for future)
 void AreaChart;
 void Area;

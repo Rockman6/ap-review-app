@@ -16,6 +16,7 @@ import {
   RealGasDeviation,
   SolubilityVsT,
   SuccessiveIE,
+  TitrationCurve,
 } from "./ChemCharts";
 import { useLocale } from "./LocaleProvider";
 import { useT } from "./LocaleProvider";
@@ -59,7 +60,7 @@ export function Highlighted({ text }: { text: string }) {
   );
 }
 
-function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" }) {
+function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" }) {
   const { locale } = useLocale();
   switch (chartType) {
     case "heating-curve": return <HeatingCurve lang={locale} />;
@@ -70,6 +71,7 @@ function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-b
     case "successive-ie-mg": return <SuccessiveIE lang={locale} />;
     case "solubility-vs-t": return <SolubilityVsT lang={locale} />;
     case "real-gas-deviation": return <RealGasDeviation lang={locale} />;
+    case "titration-strong": return <TitrationCurve lang={locale} />;
   }
 }
 
