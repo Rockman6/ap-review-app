@@ -1,52 +1,65 @@
 "use client";
 
 /**
- * Hand-drawn Lewis structure SVGs for canonical AP Chem molecules.
- * Every structure shows atom labels, bonds (1/2/3 lines), and lone-pair dots.
+ * Textbook-style Lewis structure renderer in pure SVG.
+ * Shows atom labels (CPK-colored), bonds (1/2/3 parallel lines),
+ * lone-pair dots, atom formal charges, and overall ion charges.
  *
- * Coordinate system: a local 200×160 SVG viewBox; center of the diagram
- * is roughly (100, 80). Atom labels sit at the atom position; bonds are
- * drawn between atom centers with a small gap so the label stays readable.
+ * ViewBox is 240x200 to give the diagram breathing room.
  */
 
+type Direction = "N" | "S" | "E" | "W" | "NE" | "NW" | "SE" | "SW";
+
 type Atom = {
-  /** element symbol */
   el: string;
-  /** x,y in viewBox units */
   x: number;
   y: number;
-  /** formal charge label, e.g. "+", "-", "2-" */
   charge?: string;
-  /** lone pairs — each entry is a cardinal direction, N/S/E/W/NE/NW/SE/SW */
-  lp?: Array<"N" | "S" | "E" | "W" | "NE" | "NW" | "SE" | "SW">;
+  lp?: Direction[];
 };
 
-type Bond = {
-  from: number;
-  to: number;
-  order: 1 | 2 | 3;
-};
+type Bond = { from: number; to: number; order: 1 | 2 | 3 };
 
 type Spec = {
   atoms: Atom[];
   bonds: Bond[];
   caption?: string;
   overallCharge?: string;
-  width?: number;
-  height?: number;
 };
 
+// CPK-style element colors
+const CPK: Record<string, string> = {
+  H: "#111827",
+  C: "#111827",
+  N: "#2563eb",
+  O: "#dc2626",
+  F: "#16a34a",
+  Cl: "#16a34a",
+  Br: "#b45309",
+  I: "#7c3aed",
+  S: "#ca8a04",
+  P: "#ea580c",
+  Na: "#9333ea",
+  K: "#9333ea",
+  Mg: "#0891b2",
+  Ca: "#0891b2",
+  B: "#d97706",
+  Si: "#475569",
+};
+
+const atomColor = (el: string) => CPK[el] ?? "#111827";
+
 // -----------------------------------------------------------
-// Canonical specs
+// Canonical specs (centered around 120, 100 in a 240x200 viewBox)
 // -----------------------------------------------------------
 
 const SPECS: Record<string, Spec> = {
   h2o: {
     caption: "H₂O",
     atoms: [
-      { el: "O", x: 100, y: 80, lp: ["N", "S"] },
-      { el: "H", x: 50, y: 120 },
-      { el: "H", x: 150, y: 120 },
+      { el: "O", x: 120, y: 100, lp: ["N", "S"] },
+      { el: "H", x: 65, y: 140 },
+      { el: "H", x: 175, y: 140 },
     ],
     bonds: [
       { from: 0, to: 1, order: 1 },
@@ -56,10 +69,10 @@ const SPECS: Record<string, Spec> = {
   nh3: {
     caption: "NH₃",
     atoms: [
-      { el: "N", x: 100, y: 80, lp: ["N"] },
-      { el: "H", x: 50, y: 125 },
-      { el: "H", x: 100, y: 135 },
-      { el: "H", x: 150, y: 125 },
+      { el: "N", x: 120, y: 95, lp: ["N"] },
+      { el: "H", x: 65, y: 150 },
+      { el: "H", x: 120, y: 160 },
+      { el: "H", x: 175, y: 150 },
     ],
     bonds: [
       { from: 0, to: 1, order: 1 },
@@ -70,11 +83,11 @@ const SPECS: Record<string, Spec> = {
   ch4: {
     caption: "CH₄",
     atoms: [
-      { el: "C", x: 100, y: 80 },
-      { el: "H", x: 100, y: 30 },
-      { el: "H", x: 100, y: 130 },
-      { el: "H", x: 50, y: 80 },
-      { el: "H", x: 150, y: 80 },
+      { el: "C", x: 120, y: 100 },
+      { el: "H", x: 120, y: 40 },
+      { el: "H", x: 120, y: 160 },
+      { el: "H", x: 60, y: 100 },
+      { el: "H", x: 180, y: 100 },
     ],
     bonds: [
       { from: 0, to: 1, order: 1 },
@@ -86,9 +99,9 @@ const SPECS: Record<string, Spec> = {
   co2: {
     caption: "CO₂",
     atoms: [
-      { el: "O", x: 30, y: 80, lp: ["N", "S"] },
-      { el: "C", x: 100, y: 80 },
-      { el: "O", x: 170, y: 80, lp: ["N", "S"] },
+      { el: "O", x: 40, y: 100, lp: ["N", "S"] },
+      { el: "C", x: 120, y: 100 },
+      { el: "O", x: 200, y: 100, lp: ["N", "S"] },
     ],
     bonds: [
       { from: 0, to: 1, order: 2 },
@@ -98,55 +111,54 @@ const SPECS: Record<string, Spec> = {
   hf: {
     caption: "HF",
     atoms: [
-      { el: "H", x: 60, y: 80 },
-      { el: "F", x: 140, y: 80, lp: ["N", "S", "E"] },
+      { el: "H", x: 75, y: 100 },
+      { el: "F", x: 165, y: 100, lp: ["N", "S", "E"] },
     ],
     bonds: [{ from: 0, to: 1, order: 1 }],
   },
   n2: {
     caption: "N₂",
     atoms: [
-      { el: "N", x: 60, y: 80, lp: ["W"] },
-      { el: "N", x: 140, y: 80, lp: ["E"] },
+      { el: "N", x: 75, y: 100, lp: ["W"] },
+      { el: "N", x: 165, y: 100, lp: ["E"] },
     ],
     bonds: [{ from: 0, to: 1, order: 3 }],
   },
   o2: {
     caption: "O₂",
     atoms: [
-      { el: "O", x: 60, y: 80, lp: ["N", "S"] },
-      { el: "O", x: 140, y: 80, lp: ["N", "S"] },
+      { el: "O", x: 75, y: 100, lp: ["N", "S"] },
+      { el: "O", x: 165, y: 100, lp: ["N", "S"] },
     ],
     bonds: [{ from: 0, to: 1, order: 2 }],
   },
   hcl: {
     caption: "HCl",
     atoms: [
-      { el: "H", x: 60, y: 80 },
-      { el: "Cl", x: 140, y: 80, lp: ["N", "S", "E"] },
+      { el: "H", x: 75, y: 100 },
+      { el: "Cl", x: 165, y: 100, lp: ["N", "S", "E"] },
     ],
     bonds: [{ from: 0, to: 1, order: 1 }],
   },
   so2: {
     caption: "SO₂",
     atoms: [
-      { el: "S", x: 100, y: 70, lp: ["N"] },
-      { el: "O", x: 50, y: 120, lp: ["W", "S"] },
-      { el: "O", x: 150, y: 120, lp: ["E", "S"] },
+      { el: "S", x: 120, y: 85, lp: ["N"] },
+      { el: "O", x: 60, y: 150, lp: ["W", "SW"] },
+      { el: "O", x: 180, y: 150, lp: ["E", "SE"] },
     ],
     bonds: [
       { from: 0, to: 1, order: 2 },
       { from: 0, to: 2, order: 1 },
     ],
-    overallCharge: "",
   },
   "no3-minus-1": {
-    caption: "NO₃⁻ (form 1)",
+    caption: "NO₃⁻  (form 1)",
     atoms: [
-      { el: "N", x: 100, y: 80, charge: "+" },
-      { el: "O", x: 100, y: 25, lp: ["N", "E"] },
-      { el: "O", x: 50, y: 130, lp: ["W", "S"], charge: "−" },
-      { el: "O", x: 150, y: 130, lp: ["E", "S"], charge: "−" },
+      { el: "N", x: 120, y: 100, charge: "+" },
+      { el: "O", x: 120, y: 35, lp: ["N", "E"] },
+      { el: "O", x: 55, y: 155, lp: ["W", "SW"], charge: "−" },
+      { el: "O", x: 185, y: 155, lp: ["E", "SE"], charge: "−" },
     ],
     bonds: [
       { from: 0, to: 1, order: 2 },
@@ -156,12 +168,12 @@ const SPECS: Record<string, Spec> = {
     overallCharge: "−",
   },
   "no3-minus-2": {
-    caption: "NO₃⁻ (form 2)",
+    caption: "NO₃⁻  (form 2)",
     atoms: [
-      { el: "N", x: 100, y: 80, charge: "+" },
-      { el: "O", x: 100, y: 25, lp: ["N", "E"], charge: "−" },
-      { el: "O", x: 50, y: 130, lp: ["W", "S"] },
-      { el: "O", x: 150, y: 130, lp: ["E", "S"], charge: "−" },
+      { el: "N", x: 120, y: 100, charge: "+" },
+      { el: "O", x: 120, y: 35, lp: ["N", "E"], charge: "−" },
+      { el: "O", x: 55, y: 155, lp: ["W", "SW"] },
+      { el: "O", x: 185, y: 155, lp: ["E", "SE"], charge: "−" },
     ],
     bonds: [
       { from: 0, to: 1, order: 1 },
@@ -171,12 +183,12 @@ const SPECS: Record<string, Spec> = {
     overallCharge: "−",
   },
   "no3-minus-3": {
-    caption: "NO₃⁻ (form 3)",
+    caption: "NO₃⁻  (form 3)",
     atoms: [
-      { el: "N", x: 100, y: 80, charge: "+" },
-      { el: "O", x: 100, y: 25, lp: ["N", "E"], charge: "−" },
-      { el: "O", x: 50, y: 130, lp: ["W", "S"], charge: "−" },
-      { el: "O", x: 150, y: 130, lp: ["E", "S"] },
+      { el: "N", x: 120, y: 100, charge: "+" },
+      { el: "O", x: 120, y: 35, lp: ["N", "E"], charge: "−" },
+      { el: "O", x: 55, y: 155, lp: ["W", "SW"], charge: "−" },
+      { el: "O", x: 185, y: 155, lp: ["E", "SE"] },
     ],
     bonds: [
       { from: 0, to: 1, order: 1 },
@@ -186,20 +198,20 @@ const SPECS: Record<string, Spec> = {
     overallCharge: "−",
   },
   "na-cl-ionic": {
-    caption: "NaCl (ionic pair)",
+    caption: "NaCl  (ionic pair)",
     atoms: [
-      { el: "Na", x: 60, y: 80, charge: "+" },
-      { el: "Cl", x: 140, y: 80, lp: ["N", "S", "E", "W"], charge: "−" },
+      { el: "Na", x: 70, y: 100, charge: "+" },
+      { el: "Cl", x: 170, y: 100, lp: ["N", "S", "E", "W"], charge: "−" },
     ],
     bonds: [],
   },
   bf3: {
-    caption: "BF₃ (incomplete octet on B)",
+    caption: "BF₃  (incomplete octet on B)",
     atoms: [
-      { el: "B", x: 100, y: 80 },
-      { el: "F", x: 100, y: 25, lp: ["N", "E", "W"] },
-      { el: "F", x: 50, y: 130, lp: ["W", "S"] },
-      { el: "F", x: 150, y: 130, lp: ["E", "S"] },
+      { el: "B", x: 120, y: 100 },
+      { el: "F", x: 120, y: 35, lp: ["N", "E", "W"] },
+      { el: "F", x: 55, y: 155, lp: ["W", "SW", "S"] },
+      { el: "F", x: 185, y: 155, lp: ["E", "SE", "S"] },
     ],
     bonds: [
       { from: 0, to: 1, order: 1 },
@@ -210,92 +222,42 @@ const SPECS: Record<string, Spec> = {
 };
 
 // -----------------------------------------------------------
-// Renderer
+// Rendering helpers
 // -----------------------------------------------------------
 
-function LonePair({
-  cx,
-  cy,
-  dir,
-  atomSize = 18,
-}: {
-  cx: number;
-  cy: number;
-  dir: Atom["lp"] extends Array<infer T> | undefined ? T : never;
-  atomSize?: number;
-}) {
-  const d = atomSize + 6;
-  const map: Record<string, { dx: number; dy: number; vert?: boolean }> = {
-    N: { dx: 0, dy: -d, vert: false },
-    S: { dx: 0, dy: d, vert: false },
-    E: { dx: d, dy: 0, vert: true },
-    W: { dx: -d, dy: 0, vert: true },
-    NE: { dx: d * 0.7, dy: -d * 0.7 },
-    NW: { dx: -d * 0.7, dy: -d * 0.7 },
-    SE: { dx: d * 0.7, dy: d * 0.7 },
-    SW: { dx: -d * 0.7, dy: d * 0.7 },
-  };
-  const m = map[dir];
-  const gap = 4;
-  const horizontal = m.vert !== true && (dir === "N" || dir === "S" || dir === "NE" || dir === "NW" || dir === "SE" || dir === "SW");
-  return (
-    <g fill="#0f172a">
-      <circle
-        cx={cx + m.dx - (horizontal ? gap : 0)}
-        cy={cy + m.dy - (horizontal ? 0 : gap)}
-        r={1.8}
-      />
-      <circle
-        cx={cx + m.dx + (horizontal ? gap : 0)}
-        cy={cy + m.dy + (horizontal ? 0 : gap)}
-        r={1.8}
-      />
-    </g>
-  );
-}
+const ATOM_R = 14; // radius of the "keep-out" disc around an atom center
 
-function Bond({
-  a,
-  b,
-  order,
-  atomR = 14,
-}: {
-  a: Atom;
-  b: Atom;
-  order: 1 | 2 | 3;
-  atomR?: number;
-}) {
+function BondG({ a, b, order }: { a: Atom; b: Atom; order: 1 | 2 | 3 }) {
   const dx = b.x - a.x;
   const dy = b.y - a.y;
   const len = Math.hypot(dx, dy);
   if (len === 0) return null;
   const ux = dx / len;
   const uy = dy / len;
-  // shorten so bond doesn't collide with letters
-  const x1 = a.x + ux * atomR;
-  const y1 = a.y + uy * atomR;
-  const x2 = b.x - ux * atomR;
-  const y2 = b.y - uy * atomR;
-  // perpendicular offset for multiple bonds
+  const x1 = a.x + ux * ATOM_R;
+  const y1 = a.y + uy * ATOM_R;
+  const x2 = b.x - ux * ATOM_R;
+  const y2 = b.y - uy * ATOM_R;
   const px = -uy;
   const py = ux;
   const stroke = "#334155";
-  const sw = 2;
+  const sw = 2.4;
+  const cap = "round" as const;
   if (order === 1) {
-    return <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={stroke} strokeWidth={sw} strokeLinecap="round" />;
+    return <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={stroke} strokeWidth={sw} strokeLinecap={cap} />;
   }
   if (order === 2) {
-    const off = 3;
+    const off = 3.5;
     return (
-      <g stroke={stroke} strokeWidth={sw} strokeLinecap="round">
+      <g stroke={stroke} strokeWidth={sw} strokeLinecap={cap}>
         <line x1={x1 + px * off} y1={y1 + py * off} x2={x2 + px * off} y2={y2 + py * off} />
         <line x1={x1 - px * off} y1={y1 - py * off} x2={x2 - px * off} y2={y2 - py * off} />
       </g>
     );
   }
-  const off = 4;
+  const off = 5;
   return (
-    <g stroke={stroke} strokeWidth={sw} strokeLinecap="round">
+    <g stroke={stroke} strokeWidth={sw} strokeLinecap={cap}>
       <line x1={x1 + px * off} y1={y1 + py * off} x2={x2 + px * off} y2={y2 + py * off} />
       <line x1={x1} y1={y1} x2={x2} y2={y2} />
       <line x1={x1 - px * off} y1={y1 - py * off} x2={x2 - px * off} y2={y2 - py * off} />
@@ -303,13 +265,54 @@ function Bond({
   );
 }
 
+/**
+ * Draws a pair of dots representing a lone pair, positioned around an atom.
+ * The pair is oriented perpendicular to the radial direction so the two dots
+ * sit side-by-side *along* the atom's edge (textbook convention).
+ */
+function LonePair({ cx, cy, dir }: { cx: number; cy: number; dir: Direction }) {
+  // radial unit vector for the direction
+  const radial: Record<Direction, [number, number]> = {
+    N: [0, -1],
+    S: [0, 1],
+    E: [1, 0],
+    W: [-1, 0],
+    NE: [Math.SQRT1_2, -Math.SQRT1_2],
+    NW: [-Math.SQRT1_2, -Math.SQRT1_2],
+    SE: [Math.SQRT1_2, Math.SQRT1_2],
+    SW: [-Math.SQRT1_2, Math.SQRT1_2],
+  };
+  const [rx, ry] = radial[dir];
+  const distance = 21; // center of the pair is this far from atom center
+  const pairOffset = 4.2; // half-distance between the two dots
+  // Tangent (perpendicular to radial) — along which the two dots sit.
+  const tx = -ry;
+  const ty = rx;
+  const centerX = cx + rx * distance;
+  const centerY = cy + ry * distance;
+  const d1x = centerX + tx * pairOffset;
+  const d1y = centerY + ty * pairOffset;
+  const d2x = centerX - tx * pairOffset;
+  const d2y = centerY - ty * pairOffset;
+  return (
+    <g fill="#0f172a">
+      <circle cx={d1x} cy={d1y} r={2.3} />
+      <circle cx={d2x} cy={d2y} r={2.3} />
+    </g>
+  );
+}
+
+// -----------------------------------------------------------
+// Public components
+// -----------------------------------------------------------
+
 export function LewisStructure({
   name,
   width = 260,
-  height = 200,
+  height = 210,
   label,
 }: {
-  name: keyof typeof SPECS | string;
+  name: string;
   width?: number;
   height?: number;
   label?: string;
@@ -323,48 +326,42 @@ export function LewisStructure({
     );
   }
   return (
-    <figure className="my-4 inline-flex flex-col items-center rounded-xl border border-slate-200 bg-white p-3">
+    <figure className="my-4 inline-flex flex-col items-center rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
       <svg
-        viewBox="0 0 200 160"
+        viewBox="0 0 240 200"
         width={width}
         height={height}
         role="img"
-        aria-label={label ?? spec.caption ?? String(name)}
+        aria-label={label ?? spec.caption ?? name}
       >
         {spec.bonds.map((b, i) => (
-          <Bond key={i} a={spec.atoms[b.from]} b={spec.atoms[b.to]} order={b.order} />
+          <BondG key={i} a={spec.atoms[b.from]} b={spec.atoms[b.to]} order={b.order} />
         ))}
         {spec.atoms.map((atom, i) => (
           <g key={i}>
             {atom.lp?.map((dir, j) => (
               <LonePair key={j} cx={atom.x} cy={atom.y} dir={dir} />
             ))}
-            <rect
-              x={atom.x - 11}
-              y={atom.y - 11}
-              width={22}
-              height={22}
-              fill="white"
-              opacity={0.95}
-            />
+            {/* translucent circle masks bonds from cutting through the label area */}
+            <circle cx={atom.x} cy={atom.y} r={12} fill="white" />
             <text
               x={atom.x}
-              y={atom.y + 5}
+              y={atom.y + 6}
               textAnchor="middle"
-              fontSize={15}
+              fontSize={18}
               fontWeight={600}
               fontFamily="ui-sans-serif, system-ui, sans-serif"
-              fill="#0f172a"
+              fill={atomColor(atom.el)}
             >
               {atom.el}
             </text>
             {atom.charge && (
               <text
                 x={atom.x + 13}
-                y={atom.y - 8}
+                y={atom.y - 10}
                 textAnchor="start"
-                fontSize={10}
-                fontWeight={600}
+                fontSize={11}
+                fontWeight={700}
                 fill="#0f172a"
               >
                 {atom.charge}
@@ -374,15 +371,17 @@ export function LewisStructure({
         ))}
         {spec.overallCharge && (
           <g>
-            <rect x={175} y={5} width={22} height={22} rx={3} fill="none" stroke="#0f172a" strokeWidth={1.2} />
-            <text x={186} y={21} textAnchor="middle" fontSize={13} fontWeight={600} fill="#0f172a">
+            <rect x={206} y={8} width={26} height={26} rx={13} fill="none" stroke="#334155" strokeWidth={1.2} />
+            <text x={219} y={27} textAnchor="middle" fontSize={15} fontWeight={600} fill="#334155">
               {spec.overallCharge}
             </text>
           </g>
         )}
       </svg>
       {(label ?? spec.caption) && (
-        <figcaption className="mt-1 text-xs text-slate-600">{label ?? spec.caption}</figcaption>
+        <figcaption className="mt-1 text-[11px] font-medium uppercase tracking-widest text-slate-500">
+          {label ?? spec.caption}
+        </figcaption>
       )}
     </figure>
   );
