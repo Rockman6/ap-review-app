@@ -29,10 +29,14 @@ import { LewisStructure, LewisRow } from "./LewisStructure";
 import {
   BeerLambert,
   BondPotentialEnergy,
+  CatalystEffect,
+  ConcentrationVsTime,
   HeatingCurve,
   MassSpectrum,
   MaxwellBoltzmann,
+  MultistepProfile,
   PESSpectrum,
+  ReactionProfile,
   RealGasDeviation,
   SolubilityVsT,
   SuccessiveIE,
@@ -80,7 +84,7 @@ export function Highlighted({ text }: { text: string }) {
   );
 }
 
-function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" }) {
+function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" }) {
   const { locale } = useLocale();
   switch (chartType) {
     case "heating-curve": return <HeatingCurve lang={locale} />;
@@ -92,6 +96,10 @@ function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-b
     case "solubility-vs-t": return <SolubilityVsT lang={locale} />;
     case "real-gas-deviation": return <RealGasDeviation lang={locale} />;
     case "titration-strong": return <TitrationCurve lang={locale} />;
+    case "concentration-vs-time": return <ConcentrationVsTime lang={locale} />;
+    case "reaction-profile": return <ReactionProfile lang={locale} />;
+    case "catalyst-effect": return <CatalystEffect lang={locale} />;
+    case "multistep-profile": return <MultistepProfile lang={locale} />;
   }
 }
 
