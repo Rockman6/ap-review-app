@@ -474,6 +474,163 @@ export function TitrationCurve({ lang = "en" }: { lang?: "en" | "zh" }) {
   );
 }
 
+// ------------------------------------------------------------
+// 11. Concentration vs time — three rate orders overlaid
+// ------------------------------------------------------------
+export function ConcentrationVsTime({ lang = "en" }: { lang?: "en" | "zh" }) {
+  const data: Array<{ t: number; zero: number; first: number; second: number }> = [];
+  const A0 = 1.0;
+  const k0 = 0.05;
+  const k1 = 0.1;
+  const k2 = 0.25;
+  for (let t = 0; t <= 20; t += 0.5) {
+    data.push({
+      t,
+      zero: Math.max(A0 - k0 * t, 0),
+      first: A0 * Math.exp(-k1 * t),
+      second: A0 / (1 + k2 * A0 * t),
+    });
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Concentration vs time by reaction order", "不同级数反应的浓度-时间曲线")}
+      caption={tt(
+        "Zero-order: straight line. First-order: exponential decay. Second-order: hyperbolic decay (drops fast, then slows).",
+        "零级:直线;一级:指数衰减;二级:双曲衰减(先快后慢)。"
+      )}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="t" type="number" stroke="#475569" label={{ value: tt("Time", "时间"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }} />
+        <YAxis stroke="#475569" domain={[0, 1]} label={{ value: "[A]", angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <Legend verticalAlign="top" height={32} />
+        <Line name={tt("zero-order", "零级")} dataKey="zero" stroke="#2563eb" strokeWidth={2} dot={false} />
+        <Line name={tt("first-order", "一级")} dataKey="first" stroke="#16a34a" strokeWidth={2} dot={false} />
+        <Line name={tt("second-order", "二级")} dataKey="second" stroke="#dc2626" strokeWidth={2} dot={false} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
+// ------------------------------------------------------------
+// 12. Reaction energy profile (single-step, exothermic)
+// ------------------------------------------------------------
+export function ReactionProfile({ lang = "en" }: { lang?: "en" | "zh" }) {
+  // Simple Gaussian hump: energy vs reaction coordinate
+  const data: Array<{ x: number; E: number }> = [];
+  for (let x = 0; x <= 10; x += 0.1) {
+    // start at 20 (reactants), peak near x=5 at 80, end at 30 (products) — exothermic
+    const base = 20 - 2.5 * x; // linear descent to 30 at x=10... actually that makes it endothermic. Let me flip: start 50, end 20 (exothermic).
+    const reactant = 50;
+    const product = 20;
+    const slope = (product - reactant) / 10;
+    const linear = reactant + slope * x;
+    const hump = 55 * Math.exp(-Math.pow((x - 5) / 1.4, 2));
+    data.push({ x, E: +(linear + hump).toFixed(2) });
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Reaction energy profile (exothermic)", "反应能量曲线(放热)")}
+      caption={tt(
+        "Barrier height = activation energy Eₐ. Gap between reactants and products = ΔH (negative here).",
+        "势垒高度 = 活化能 Eₐ;反应物与产物能量差 = ΔH(此处为负)。"
+      )}
+      height={280}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis
+          dataKey="x"
+          type="number"
+          tick={false}
+          stroke="#475569"
+          label={{ value: tt("Reaction coordinate →", "反应坐标 →"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }}
+        />
+        <YAxis
+          stroke="#475569"
+          label={{ value: tt("Energy", "能量"), angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }}
+        />
+        <Line type="monotone" dataKey="E" stroke="#9333ea" strokeWidth={2.5} dot={false} />
+        <ReferenceDot x={0} y={50} r={5} fill="#2563eb" label={{ value: tt("reactants", "反应物"), position: "top", fill: "#2563eb", fontSize: 11 }} />
+        <ReferenceDot x={5} y={94} r={5} fill="#dc2626" label={{ value: tt("transition state", "过渡态"), position: "top", fill: "#dc2626", fontSize: 11 }} />
+        <ReferenceDot x={10} y={20} r={5} fill="#16a34a" label={{ value: tt("products", "产物"), position: "top", fill: "#16a34a", fontSize: 11 }} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
+// ------------------------------------------------------------
+// 13. Catalyst effect — profile with & without catalyst
+// ------------------------------------------------------------
+export function CatalystEffect({ lang = "en" }: { lang?: "en" | "zh" }) {
+  const data: Array<{ x: number; uncat: number; cat: number }> = [];
+  for (let x = 0; x <= 10; x += 0.1) {
+    const reactant = 50;
+    const product = 20;
+    const linear = reactant + ((product - reactant) / 10) * x;
+    const humpU = 55 * Math.exp(-Math.pow((x - 5) / 1.4, 2));
+    const humpC = 25 * Math.exp(-Math.pow((x - 5) / 1.4, 2));
+    data.push({ x, uncat: +(linear + humpU).toFixed(2), cat: +(linear + humpC).toFixed(2) });
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Effect of a catalyst on Eₐ", "催化剂对 Eₐ 的影响")}
+      caption={tt(
+        "A catalyst lowers the activation barrier (purple) without changing reactant or product energies — ΔH is unchanged.",
+        "催化剂降低活化能(紫色曲线),但反应物与产物能量不变——ΔH 不变。"
+      )}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="x" type="number" tick={false} stroke="#475569" label={{ value: tt("Reaction coordinate →", "反应坐标 →"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }} />
+        <YAxis stroke="#475569" label={{ value: tt("Energy", "能量"), angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <Legend verticalAlign="top" height={32} />
+        <Line name={tt("uncatalyzed", "无催化")} dataKey="uncat" stroke="#dc2626" strokeWidth={2.5} dot={false} />
+        <Line name={tt("with catalyst", "加催化剂")} dataKey="cat" stroke="#9333ea" strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
+// ------------------------------------------------------------
+// 14. Multistep reaction energy profile — two humps
+// ------------------------------------------------------------
+export function MultistepProfile({ lang = "en" }: { lang?: "en" | "zh" }) {
+  const data: Array<{ x: number; E: number }> = [];
+  for (let x = 0; x <= 10; x += 0.05) {
+    // two humps with an intermediate valley
+    const hump1 = 60 * Math.exp(-Math.pow((x - 2.5) / 0.9, 2));
+    const hump2 = 40 * Math.exp(-Math.pow((x - 7) / 0.9, 2));
+    const base = 20 + 30 * Math.exp(-Math.pow((x - 5) / 1.2, 2)) * 0; // flat base
+    const final = 10; // exothermic overall
+    const linear = 30 + (final - 30) * (x / 10);
+    data.push({ x, E: +(linear + hump1 + hump2 + base).toFixed(2) });
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Two-step reaction profile", "两步反应能量曲线")}
+      caption={tt(
+        "Valley between peaks = intermediate. The tallest peak is the rate-determining step (here, step 1).",
+        "两峰之间的谷 = 中间体;最高峰 = 决速步骤(此处为第 1 步)。"
+      )}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="x" type="number" tick={false} stroke="#475569" label={{ value: tt("Reaction coordinate →", "反应坐标 →"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }} />
+        <YAxis stroke="#475569" label={{ value: tt("Energy", "能量"), angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <Line type="monotone" dataKey="E" stroke="#0891b2" strokeWidth={2.5} dot={false} />
+        <ReferenceDot x={2.5} y={85} r={4} fill="#dc2626" label={{ value: "TS₁", position: "top", fill: "#dc2626", fontSize: 11 }} />
+        <ReferenceDot x={5} y={25} r={4} fill="#16a34a" label={{ value: tt("intermediate", "中间体"), position: "top", fill: "#16a34a", fontSize: 11 }} />
+        <ReferenceDot x={7} y={55} r={4} fill="#dc2626" label={{ value: "TS₂", position: "top", fill: "#dc2626", fontSize: 11 }} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
 // silence unused import warning for AreaChart/Area (kept for future)
 void AreaChart;
 void Area;

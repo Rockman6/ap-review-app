@@ -46,7 +46,11 @@ export type NoteBlock =
         | "successive-ie-mg"
         | "solubility-vs-t"
         | "real-gas-deviation"
-        | "titration-strong";
+        | "titration-strong"
+        | "concentration-vs-time"
+        | "reaction-profile"
+        | "catalyst-effect"
+        | "multistep-profile";
     }
   | { kind: "mass-spectrum"; peaks: Array<{ mz: number; pct: number }>; title?: Bilingual }
   | {
@@ -7682,11 +7686,17 @@ export const apChemistry: Subject = {
         zh: "反应速率、速率方程、机理与催化作用。",
       },
       topics: [
-        { slug: "topic-1", title: { en: "Reaction Rates", zh: "反应速率" }, summary: { en: "How concentration changes with time.", zh: "浓度随时间的变化。" } },
-        { slug: "topic-2", title: { en: "Rate Laws", zh: "速率方程" }, summary: { en: "Determining order and rate constants from data.", zh: "由实验数据确定反应级数与速率常数。" } },
-        { slug: "topic-3", title: { en: "Integrated Rate Laws", zh: "积分速率方程" }, summary: { en: "Zero-, first-, and second-order — half-life formulas.", zh: "零级、一级、二级反应——半衰期公式。" } },
-        { slug: "topic-4", title: { en: "Reaction Mechanisms", zh: "反应机理" }, summary: { en: "Elementary steps, intermediates, and the rate-determining step.", zh: "基元反应、中间体与决速步骤。" } },
-        { slug: "topic-5", title: { en: "Collision Theory & Catalysis", zh: "碰撞理论与催化" }, summary: { en: "Activation energy, the Arrhenius equation, and catalysts.", zh: "活化能、阿伦尼乌斯方程与催化剂。" } },
+        { slug: "topic-1", title: { en: "Reaction Rates", zh: "反应速率" }, summary: { en: "Concentration vs time — instantaneous vs average.", zh: "浓度-时间关系——瞬时与平均速率。" } },
+        { slug: "topic-2", title: { en: "Introduction to Rate Law", zh: "速率方程入门" }, summary: { en: "rate = k[A]ᵐ[B]ⁿ; orders from data.", zh: "rate = k[A]ᵐ[B]ⁿ;由数据确定反应级数。" } },
+        { slug: "topic-3", title: { en: "Concentration Changes Over Time", zh: "浓度随时间变化" }, summary: { en: "Integrated rate laws (0, 1st, 2nd order) and half-lives.", zh: "积分速率方程(0 / 1 / 2 级)与半衰期。" } },
+        { slug: "topic-4", title: { en: "Elementary Reactions", zh: "基元反应" }, summary: { en: "Molecularity and rate law straight from stoichiometry.", zh: "分子数与由化学计量直接写出的速率式。" } },
+        { slug: "topic-5", title: { en: "Collision Model", zh: "碰撞模型" }, summary: { en: "Frequency, orientation, and activation energy.", zh: "碰撞频率、取向与活化能。" } },
+        { slug: "topic-6", title: { en: "Reaction Energy Profile", zh: "反应能量曲线" }, summary: { en: "Reactants → transition state → products.", zh: "反应物 → 过渡态 → 产物。" } },
+        { slug: "topic-7", title: { en: "Introduction to Reaction Mechanisms", zh: "反应机理入门" }, summary: { en: "Breaking an overall reaction into elementary steps.", zh: "把总反应拆成一系列基元步骤。" } },
+        { slug: "topic-8", title: { en: "Reaction Mechanism & Rate Law", zh: "反应机理与速率方程" }, summary: { en: "The rate-determining step sets the rate.", zh: "决速步骤决定总反应速率。" } },
+        { slug: "topic-9", title: { en: "Pre-Equilibrium Approximation", zh: "预平衡近似" }, summary: { en: "Handling fast reversible steps before the RDS.", zh: "处理决速步骤前的快速可逆步骤。" } },
+        { slug: "topic-10", title: { en: "Multistep Reaction Energy Profile", zh: "多步反应能量曲线" }, summary: { en: "Multiple humps — highest barrier is rate-determining.", zh: "多个能量峰——最高的是决速步骤。" } },
+        { slug: "topic-11", title: { en: "Catalysis", zh: "催化作用" }, summary: { en: "Lower Eₐ without being consumed.", zh: "降低 Eₐ 且自身不被消耗。" } },
       ],
     },
     {
@@ -10604,6 +10614,308 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
   ],
+
+  // ============================================================
+  // UNIT 5 · Kinetics
+  // ============================================================
+
+  // ---------- 5.1 · Reaction Rates ----------
+  "unit-5/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Reaction rate** is the speed at which concentrations change with time. By convention, rate is defined as a **positive** quantity — so we put a minus sign in front of any reactant's disappearance rate.",
+        zh: "**反应速率**是浓度随时间变化的快慢。按约定,速率恒为**正值**——因此反应物的消耗速率前面要加负号。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{rate} \\;=\\; -\\dfrac{1}{a}\\dfrac{\\Delta[\\mathrm{A}]}{\\Delta t} \\;=\\; +\\dfrac{1}{c}\\dfrac{\\Delta[\\mathrm{C}]}{\\Delta t}\\qquad\\text{for }\\ a\\,\\mathrm{A}\\rightarrow c\\,\\mathrm{C}",
+      caption: { en: "Divide by each stoichiometric coefficient so all species report the same rate.", zh: "每个物种除以其化学计量系数,使各物种得到同一速率值。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Average vs instantaneous", zh: "平均 vs 瞬时" },
+      text: {
+        en: "**Average rate** uses a big Δt (slope of a secant). **Instantaneous rate** uses an infinitesimal Δt — graphically, the **tangent line** at a single point. Rates decrease over time as reactants are consumed.",
+        zh: "**平均速率**:用较大的 Δt(割线斜率)。**瞬时速率**:用无限小 Δt——图上即某一点的**切线斜率**。反应物被消耗,速率一般随时间下降。",
+      },
+    },
+  ],
+
+  // ---------- 5.2 · Introduction to Rate Law ----------
+  "unit-5/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **rate law** expresses the rate as a function of concentrations of reactants. The exponents — the **orders** — can't be read off the balanced equation; they must come from **experiment**.",
+        zh: "**速率方程**把反应速率表示为反应物浓度的函数。其中的指数(反应**级数**)不能由配平方程看出,必须通过**实验**确定。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{rate} \\;=\\; k\\,[\\mathrm{A}]^{m}\\,[\\mathrm{B}]^{n}",
+      caption: { en: "m, n = orders (often 0, 1, 2); k = rate constant (temperature-dependent)", zh: "m、n = 反应级数(常为 0、1、2);k = 速率常数(随温度变化)" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Method of initial rates", zh: "初始速率法" },
+      text: {
+        en: "To find an order in A: pick two trials where **only [A] changes**. Divide their rates and their [A] values. Rate ratio = (concentration ratio)^m — solve for m. Repeat for other reactants, then plug in one trial to solve for k.",
+        zh: "求对 A 的级数:选两组**只 [A] 变化**的实验,作速率比 = (浓度比)^m,解出 m。对其他反应物重复。最后代入任一组求 k。",
+      },
+    },
+  ],
+
+  // ---------- 5.3 · Concentration Changes Over Time ----------
+  "unit-5/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The **integrated rate law** gives [A] as an explicit function of time. There's one for each common order, and the shape of the [A] vs. t plot tells you which applies.",
+        zh: "**积分速率方程**把 [A] 写成时间 t 的显式函数。不同级数各有一条公式,[A]-t 图的形状可反推级数。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Integrated rate laws and half-lives", zh: "积分速率方程与半衰期" },
+      columns: [
+        { en: "Order", zh: "级数" },
+        { en: "Integrated form", zh: "积分式" },
+        { en: "Linear plot", zh: "线性化" },
+        { en: "Half-life t₁/₂", zh: "半衰期 t₁/₂" },
+      ],
+      rows: [
+        [{ en: "0", zh: "0" }, { en: "[A] = [A]₀ − kt", zh: "[A] = [A]₀ − kt" }, { en: "[A] vs t", zh: "[A] 对 t" }, { en: "[A]₀ / (2k)", zh: "[A]₀ / (2k)" }],
+        [{ en: "1", zh: "1" }, { en: "ln[A] = ln[A]₀ − kt", zh: "ln[A] = ln[A]₀ − kt" }, { en: "ln[A] vs t", zh: "ln[A] 对 t" }, { en: "0.693 / k  (constant!)", zh: "0.693 / k(恒定!)" }],
+        [{ en: "2", zh: "2" }, { en: "1/[A] = 1/[A]₀ + kt", zh: "1/[A] = 1/[A]₀ + kt" }, { en: "1/[A] vs t", zh: "1/[A] 对 t" }, { en: "1 / (k · [A]₀)", zh: "1 / (k · [A]₀)" }],
+      ],
+    },
+    {
+      kind: "chem-chart",
+      chartType: "concentration-vs-time",
+    },
+    {
+      kind: "callout",
+      label: { en: "Key feature of first-order", zh: "一级反应的核心特征" },
+      text: {
+        en: "**First-order half-life is constant** — independent of [A]₀. Every half-life, [A] halves. That's why radioactive decay (first-order) has a single 'half-life' that's always quoted.",
+        zh: "**一级反应的半衰期为常数**——与 [A]₀ 无关。每隔一个半衰期 [A] 减半。这就是放射性衰变(一级反应)总有一个固定「半衰期」的原因。",
+      },
+    },
+  ],
+
+  // ---------- 5.4 · Elementary Reactions ----------
+  "unit-5/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "An **elementary reaction** happens in a single step — one collision, one transition state. For elementary reactions only, you **can** read the rate law straight from the stoichiometry.",
+        zh: "**基元反应**只经一次碰撞、一个过渡态。**仅对基元反应**,可直接由化学计量式写出速率方程。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Molecularity → rate law (elementary only)", zh: "分子数 → 速率式(仅限基元反应)" },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "Example", zh: "例子" },
+        { en: "Rate law", zh: "速率方程" },
+      ],
+      rows: [
+        [{ en: "Unimolecular", zh: "单分子" }, { en: "A → P", zh: "A → P" }, { en: "rate = k[A]", zh: "rate = k[A]" }],
+        [{ en: "Bimolecular", zh: "双分子" }, { en: "A + B → P", zh: "A + B → P" }, { en: "rate = k[A][B]", zh: "rate = k[A][B]" }],
+        [{ en: "Bimolecular (same A)", zh: "双分子(两 A)" }, { en: "2 A → P", zh: "2 A → P" }, { en: "rate = k[A]²", zh: "rate = k[A]²" }],
+        [{ en: "Termolecular (rare!)", zh: "三分子(极少见!)" }, { en: "A + B + C → P", zh: "A + B + C → P" }, { en: "rate = k[A][B][C]", zh: "rate = k[A][B][C]" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Common trap", zh: "常见陷阱" },
+      text: {
+        en: "This shortcut **only** works for elementary steps. If a balanced equation says **2 NO + O₂ → 2 NO₂**, you can't assume rate = k[NO]²[O₂] — the real mechanism may have two elementary steps, and the observed rate law must be measured, not guessed.",
+        zh: "这一捷径**仅**适用于基元反应。配平方程 **2 NO + O₂ → 2 NO₂** 并不意味着 rate = k[NO]²[O₂]——真实机理可能含多个基元步骤,速率方程须由实验决定,不能凭猜。",
+      },
+    },
+  ],
+
+  // ---------- 5.5 · Collision Model ----------
+  "unit-5/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Collision theory** says a reaction happens only when three things line up: (1) particles **collide**, (2) they hit with **enough energy** (≥ activation energy Eₐ), and (3) they have the **correct orientation**.",
+        zh: "**碰撞理论**:只有三者同时满足才能反应——(1) 粒子**相碰**;(2) 碰撞能量**足够**(≥ 活化能 Eₐ);(3) **取向正确**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "k \\;=\\; A\\,e^{-E_{a}/(RT)}",
+      caption: { en: "Arrhenius equation — A is the frequency/orientation factor; exponential encodes 'enough energy'.", zh: "阿伦尼乌斯方程——A 为频率/取向因子,指数项代表「能量足够」部分。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Why temperature matters", zh: "温度为何影响速率" },
+      text: {
+        en: "Raising T has a double effect: the Maxwell–Boltzmann curve shifts more molecules above Eₐ (exponential in 1/T), and it slightly increases collision frequency. The exponential dominates — which is why rates roughly **double** for every 10 °C rise near room temperature.",
+        zh: "升温有双重效果:Maxwell–Boltzmann 分布使更多分子能量超过 Eₐ(依赖 1/T 的指数),碰撞频率也略增。指数项起主导作用——室温附近每升高约 10 °C,速率大约**翻倍**。",
+      },
+    },
+  ],
+
+  // ---------- 5.6 · Reaction Energy Profile ----------
+  "unit-5/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **reaction energy profile** plots the system's potential energy as it progresses along a **reaction coordinate**. Key features: the **activation energy** Eₐ (hump height from reactants), the **transition state** (top of the hump), and **ΔH** (vertical distance from reactants to products).",
+        zh: "**反应能量曲线**横轴为**反应进程**,纵轴为体系势能。关键元素:**活化能 Eₐ**(反应物到峰顶的高度)、**过渡态**(峰顶)、**ΔH**(反应物到产物的垂直距离)。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "reaction-profile",
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Exothermic:** products lower than reactants → ΔH < 0 (hump still present!).", zh: "**放热反应:** 产物低于反应物 → ΔH < 0(但仍存在能量势垒!)。" },
+        { en: "**Endothermic:** products higher than reactants → ΔH > 0.", zh: "**吸热反应:** 产物高于反应物 → ΔH > 0。" },
+        { en: "**Eₐ(forward) − Eₐ(reverse) = ΔH.**", zh: "**正反应 Eₐ − 逆反应 Eₐ = ΔH。**" },
+      ],
+    },
+  ],
+
+  // ---------- 5.7 · Introduction to Reaction Mechanisms ----------
+  "unit-5/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **reaction mechanism** breaks an overall reaction into a sequence of **elementary steps** — the actual atomic-level events. A species that appears in a middle step but is neither a reactant nor a product is an **intermediate** (produced and then consumed).",
+        zh: "**反应机理**把总反应拆成若干**基元步骤**——即原子层面的实际事件。只在中间步骤中出现、既非反应物也非产物的物种称为**中间体**(先生成再被消耗)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Tests a valid mechanism must pass", zh: "合理机理必须通过的检验" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Sum of steps = overall balanced reaction.** Intermediates cancel.", zh: "**各步加和 = 总反应。** 中间体相互抵消。" },
+        { en: "**Predicted rate law matches experiment.** If not, the mechanism is wrong.", zh: "**机理预测的速率方程 = 实测速率方程。** 若不符,机理错误。" },
+        { en: "**Every step is plausible** — usually unimolecular or bimolecular.", zh: "**每步合理**——通常为单分子或双分子反应。" },
+      ],
+    },
+  ],
+
+  // ---------- 5.8 · Mechanism & Rate Law ----------
+  "unit-5/topic-8": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The **rate-determining step (RDS)** is the slowest elementary step. Because all other steps are fast, the overall reaction can move no faster than the RDS — its rate law is the mechanism's predicted rate law (after eliminating intermediates).",
+        zh: "**决速步骤 (RDS)** 是最慢的基元步骤。由于其余步骤快,总反应无法超过 RDS。其速率式即机理预测的速率式(去掉中间体后)。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{Step 1 (slow):}\\quad 2\\,\\mathrm{NO} \\xrightarrow{k_{1}} \\mathrm{N_{2}O_{2}}",
+      caption: { en: "Rate-determining", zh: "决速" },
+    },
+    {
+      kind: "math",
+      tex: "\\text{Step 2 (fast):}\\quad \\mathrm{N_{2}O_{2}} + \\mathrm{O_{2}} \\xrightarrow{k_{2}} 2\\,\\mathrm{NO_{2}}",
+    },
+    {
+      kind: "math",
+      tex: "\\text{Predicted rate} \\;=\\; k_{1}\\,[\\mathrm{NO}]^{2}",
+      caption: { en: "Rate law comes from the slow step alone.", zh: "速率式仅来自决速步骤。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Rule of thumb", zh: "速记" },
+      text: {
+        en: "If the RDS is **step 1**, the predicted rate law uses only the reactants of step 1. If the RDS is **later**, the rate law may contain an **intermediate**; use the pre-equilibrium approximation to eliminate it.",
+        zh: "若 RDS 为**第 1 步**,速率式仅含第 1 步反应物;若 RDS **在后面**,速率式可能含**中间体**——用预平衡近似消去。",
+      },
+    },
+  ],
+
+  // ---------- 5.9 · Pre-Equilibrium ----------
+  "unit-5/topic-9": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "When a **fast reversible step** precedes the RDS, we assume it reaches equilibrium much faster than the slow step consumes its product. Setting the forward = reverse rates gives [intermediate] as a ratio of [reactants], which we plug into the RDS rate law to eliminate the intermediate.",
+        zh: "当 **快速可逆步骤** 出现在决速步之前,我们假定该步骤在 RDS 消耗其产物之前已达平衡。令正逆速率相等,可求得[中间体]与[反应物]的比例关系,代入 RDS 速率式即消去中间体。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{Step 1 (fast, eq):}\\quad \\mathrm{A} + \\mathrm{B} \\rightleftharpoons \\mathrm{I}\\quad\\Rightarrow\\quad [\\mathrm{I}] = \\tfrac{k_{1}}{k_{-1}}[\\mathrm{A}][\\mathrm{B}]",
+    },
+    {
+      kind: "math",
+      tex: "\\text{Step 2 (slow):}\\quad \\mathrm{I} + \\mathrm{C} \\xrightarrow{k_{2}} \\text{products}",
+    },
+    {
+      kind: "math",
+      tex: "\\text{rate} \\;=\\; k_{2}[\\mathrm{I}][\\mathrm{C}] \\;=\\; \\underbrace{\\tfrac{k_{2}k_{1}}{k_{-1}}}_{k_{\\text{obs}}}[\\mathrm{A}][\\mathrm{B}][\\mathrm{C}]",
+    },
+  ],
+
+  // ---------- 5.10 · Multistep Energy Profile ----------
+  "unit-5/topic-10": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A mechanism with multiple elementary steps produces a **multi-humped** energy profile — one transition state per step, with intermediates in the valleys between. The tallest hump is the rate-determining step.",
+        zh: "多步机理对应**多峰**能量曲线:每一基元步对应一个过渡态,相邻过渡态之间的谷就是中间体。**最高的峰**对应决速步骤。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "multistep-profile",
+    },
+    {
+      kind: "callout",
+      label: { en: "Reading the plot", zh: "读图要点" },
+      text: {
+        en: "The tallest absolute barrier (measured from reactants or any intermediate to the next transition state) is rate-determining. ΔH of the overall reaction = energy of final products − energy of initial reactants.",
+        zh: "**最高的**绝对势垒(从反应物或前一中间体到下一过渡态)决定速率。总反应 ΔH = 最终产物能量 − 起始反应物能量。",
+      },
+    },
+  ],
+
+  // ---------- 5.11 · Catalysis ----------
+  "unit-5/topic-11": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **catalyst** provides an alternate pathway with a **lower activation energy**. It speeds up both the forward and reverse reactions equally — so it does **not** shift equilibrium and does **not** change ΔH. Catalysts are regenerated, not consumed.",
+        zh: "**催化剂**提供**活化能更低**的替代路径。它同样加快正反应与逆反应——因此**不**改变平衡,也**不**改变 ΔH。催化剂反应后被再生,不被消耗。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "catalyst-effect",
+    },
+    {
+      kind: "table",
+      caption: { en: "Types of catalysts", zh: "催化剂类型" },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "Phase", zh: "相" },
+        { en: "Example", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "Homogeneous", zh: "均相" }, { en: "Same phase as reactants", zh: "与反应物同相" }, { en: "H₂SO₄ catalyzing ester formation", zh: "H₂SO₄ 催化酯化" }],
+        [{ en: "Heterogeneous", zh: "非均相" }, { en: "Different phase", zh: "与反应物异相" }, { en: "Pt surface in catalytic converters", zh: "催化转化器中的 Pt 表面" }],
+        [{ en: "Enzyme", zh: "酶" }, { en: "Biological protein", zh: "生物蛋白" }, { en: "Amylase breaking down starch", zh: "淀粉酶分解淀粉" }],
+      ],
+    },
+  ],
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -11687,6 +11999,241 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       explanation: {
         en: "Oxidation = loss of electrons = oxidation number **increases**. Cu goes from 0 (element) to +2 (Cu(NO₃)₂) — loses 2 e⁻, oxidized. Ag is reduced (+1 → 0). N and O don't change (spectator, within NO₃⁻).",
         zh: "氧化 = 失电子 = 氧化数**增大**。Cu:0(单质)→ +2(Cu(NO₃)₂)——失 2 e⁻,被氧化。Ag 被还原(+1 → 0)。N、O 未变化(NO₃⁻ 为旁观物)。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // UNIT 5 · Questions
+  // ============================================================
+
+  "unit-5/topic-1": [
+    {
+      id: "chem-u5-t1-q1",
+      prompt: {
+        en: "For the reaction **N₂ + 3 H₂ → 2 NH₃**, if H₂ is disappearing at 0.30 M/s, at what rate is NH₃ appearing?",
+        zh: "反应 **N₂ + 3 H₂ → 2 NH₃** 中,H₂ 以 0.30 M/s 的速率消耗,NH₃ 以何速率生成?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.10 M/s", zh: "0.10 M/s" } },
+        { id: "b", text: { en: "0.20 M/s", zh: "0.20 M/s" } },
+        { id: "c", text: { en: "0.30 M/s", zh: "0.30 M/s" } },
+        { id: "d", text: { en: "0.45 M/s", zh: "0.45 M/s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Stoichiometric rate: −Δ[H₂]/(3 Δt) = +Δ[NH₃]/(2 Δt). So Δ[NH₃]/Δt = (2/3)(0.30) = **0.20 M/s**.",
+        zh: "化学计量速率:−Δ[H₂]/(3 Δt) = +Δ[NH₃]/(2 Δt)。故 Δ[NH₃]/Δt = (2/3)(0.30) = **0.20 M/s**。",
+      },
+    },
+  ],
+
+  "unit-5/topic-2": [
+    {
+      id: "chem-u5-t2-q1",
+      prompt: {
+        en: "Three trials give: [A]=0.1, [B]=0.1, rate=2; [A]=0.2, [B]=0.1, rate=8; [A]=0.2, [B]=0.2, rate=8. What is the rate law?",
+        zh: "三组实验数据:[A]=0.1,[B]=0.1,rate=2;[A]=0.2,[B]=0.1,rate=8;[A]=0.2,[B]=0.2,rate=8。速率方程为?",
+      },
+      choices: [
+        { id: "a", text: { en: "rate = k[A][B]", zh: "rate = k[A][B]" } },
+        { id: "b", text: { en: "rate = k[A]²[B]", zh: "rate = k[A]²[B]" } },
+        { id: "c", text: { en: "rate = k[A]²", zh: "rate = k[A]²" } },
+        { id: "d", text: { en: "rate = k[A][B]²", zh: "rate = k[A][B]²" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "From trials 1→2 ([A] doubled, [B] constant), rate went 2→8 = 4× → order in A is **2**. From trials 2→3 ([B] doubled, [A] constant), rate unchanged → order in B is **0**. **rate = k[A]²**.",
+        zh: "比较实验 1→2([A] 加倍,[B] 不变):速率 2→8,变 4 倍 → A 的级数为 **2**。比较 2→3([B] 加倍,[A] 不变):速率不变 → B 的级数为 **0**。**rate = k[A]²**。",
+      },
+    },
+  ],
+
+  "unit-5/topic-3": [
+    {
+      id: "chem-u5-t3-q1",
+      prompt: {
+        en: "A first-order reaction has a half-life of **120 s**. How long until only **12.5%** of the original reactant remains?",
+        zh: "某一级反应半衰期为 **120 s**。何时剩余反应物为原来的 **12.5%**?",
+      },
+      choices: [
+        { id: "a", text: { en: "120 s", zh: "120 s" } },
+        { id: "b", text: { en: "240 s", zh: "240 s" } },
+        { id: "c", text: { en: "360 s", zh: "360 s" } },
+        { id: "d", text: { en: "480 s", zh: "480 s" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "12.5% = 1/8 = (1/2)³. Three half-lives pass → 3 × 120 s = **360 s**. First-order half-life is constant, so each half-life halves the concentration.",
+        zh: "12.5% = 1/8 = (1/2)³,即经过 3 个半衰期:3 × 120 = **360 s**。一级反应半衰期为常数,每个半衰期浓度减半。",
+      },
+    },
+  ],
+
+  "unit-5/topic-4": [
+    {
+      id: "chem-u5-t4-q1",
+      prompt: {
+        en: "For the **elementary** reaction **2 A + B → products**, the rate law must be:",
+        zh: "对**基元反应** **2 A + B → products**,其速率方程应为:",
+      },
+      choices: [
+        { id: "a", text: { en: "rate = k[A][B]", zh: "rate = k[A][B]" } },
+        { id: "b", text: { en: "rate = k[A]²[B]", zh: "rate = k[A]²[B]" } },
+        { id: "c", text: { en: "rate = k[A]²[B]⁻¹", zh: "rate = k[A]²[B]⁻¹" } },
+        { id: "d", text: { en: "Cannot tell without experimental data.", zh: "无实验数据无法判断。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**For elementary reactions only**, the rate law mirrors the stoichiometry: coefficients become exponents. Two A and one B → rate = k[A]²[B]. Choice D is the correct answer only for **non-elementary** (overall) reactions.",
+        zh: "**仅对基元反应**,速率方程与化学计量一致:系数即为指数。两个 A、一个 B → rate = k[A]²[B]。选项 D 适用于**非基元**(总反应),本题明确告知是基元反应。",
+      },
+    },
+  ],
+
+  "unit-5/topic-5": [
+    {
+      id: "chem-u5-t5-q1",
+      prompt: {
+        en: "Which of the following would INCREASE the rate of a gas-phase reaction the MOST?",
+        zh: "下列哪一因素对气相反应**加速作用最大**?",
+      },
+      choices: [
+        { id: "a", text: { en: "Doubling the concentration of one reactant", zh: "某反应物浓度加倍" } },
+        { id: "b", text: { en: "Adding an inert gas at constant volume", zh: "定容下加入惰性气体" } },
+        { id: "c", text: { en: "Increasing temperature from 25 °C to 35 °C", zh: "温度从 25 °C 升到 35 °C" } },
+        { id: "d", text: { en: "Slightly reducing the activation energy", zh: "稍微降低活化能" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "**Temperature** usually wins because of the Arrhenius exponential — a 10 °C rise typically roughly **doubles** the rate for many reactions (depends on Eₐ). Choice B changes nothing (inert gas at constant V doesn't affect partial pressures of reactants). Choice A only helps if the reaction is first-order or higher in that reactant.",
+        zh: "**温度**通常效果最大——阿伦尼乌斯指数关系使 10 °C 升温常令速率**约翻倍**(具体与 Eₐ 有关)。选项 B 不起作用(定容加惰性气体不影响反应物分压);选项 A 只在对该物质级数 ≥ 1 时有效。",
+      },
+    },
+  ],
+
+  "unit-5/topic-6": [
+    {
+      id: "chem-u5-t6-q1",
+      prompt: {
+        en: "On a reaction energy profile, the difference between the transition-state energy and the reactant energy equals:",
+        zh: "反应能量曲线上,过渡态能量与反应物能量之差等于:",
+      },
+      choices: [
+        { id: "a", text: { en: "ΔH of the reaction", zh: "反应的 ΔH" } },
+        { id: "b", text: { en: "The activation energy Eₐ of the forward reaction", zh: "正反应的活化能 Eₐ" } },
+        { id: "c", text: { en: "The activation energy of the reverse reaction", zh: "逆反应的活化能" } },
+        { id: "d", text: { en: "The rate constant k", zh: "速率常数 k" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Eₐ(forward)** = (energy at top) − (energy of reactants). The reverse Eₐ = (top) − (products). ΔH = products − reactants = Eₐ(forward) − Eₐ(reverse).",
+        zh: "**正反应 Eₐ** = 峰顶能量 − 反应物能量;逆反应 Eₐ = 峰顶 − 产物。ΔH = 产物 − 反应物 = 正 Eₐ − 逆 Eₐ。",
+      },
+    },
+  ],
+
+  "unit-5/topic-7": [
+    {
+      id: "chem-u5-t7-q1",
+      prompt: {
+        en: "A proposed mechanism for **2 A + B → C** consists of two steps. Step 1: A + B → X (slow). Step 2: X + A → C (fast). Which species is an **intermediate**?",
+        zh: "对 **2 A + B → C**,某机理包含两步:第 1 步 A + B → X(慢);第 2 步 X + A → C(快)。哪一物种为**中间体**?",
+      },
+      choices: [
+        { id: "a", text: { en: "A", zh: "A" } },
+        { id: "b", text: { en: "B", zh: "B" } },
+        { id: "c", text: { en: "C", zh: "C" } },
+        { id: "d", text: { en: "X", zh: "X" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "An intermediate is produced in one step and consumed in a later one — appears in neither the overall reactants nor the overall products. X fits: produced in step 1, consumed in step 2, and doesn't appear in 2 A + B → C.",
+        zh: "中间体在某步生成、在后续步骤消耗——既非总反应物也非总产物。X 在第 1 步生成,第 2 步消耗,且未出现在总反应 2 A + B → C 中,故为中间体。",
+      },
+    },
+  ],
+
+  "unit-5/topic-8": [
+    {
+      id: "chem-u5-t8-q1",
+      prompt: {
+        en: "For a mechanism where step 1 is slow and involves only [A], the predicted overall rate law is:",
+        zh: "某机理中第 1 步为慢步,且只涉及 [A]。预测总反应速率方程为:",
+      },
+      choices: [
+        { id: "a", text: { en: "rate = k[A]", zh: "rate = k[A]" } },
+        { id: "b", text: { en: "rate = k[B]", zh: "rate = k[B]" } },
+        { id: "c", text: { en: "rate = k[A][B]", zh: "rate = k[A][B]" } },
+        { id: "d", text: { en: "Cannot tell without knowing step 2.", zh: "不知第 2 步无法判断。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "When step 1 is rate-determining and involves only [A] (elementary), the rate law is just **rate = k[A]**. Steps that happen **after** the RDS don't appear in the rate law.",
+        zh: "第 1 步为决速且仅涉及 [A](基元)时,速率式即 **rate = k[A]**。决速步之后的步骤不出现在速率式中。",
+      },
+    },
+  ],
+
+  "unit-5/topic-9": [
+    {
+      id: "chem-u5-t9-q1",
+      prompt: {
+        en: "A mechanism has step 1 (fast, reversible): 2 NO ⇌ N₂O₂, and step 2 (slow): N₂O₂ + O₂ → 2 NO₂. Using pre-equilibrium, what is the overall rate law?",
+        zh: "机理:第 1 步(快,可逆):2 NO ⇌ N₂O₂;第 2 步(慢):N₂O₂ + O₂ → 2 NO₂。用预平衡近似,总速率方程为?",
+      },
+      choices: [
+        { id: "a", text: { en: "rate = k[NO][O₂]", zh: "rate = k[NO][O₂]" } },
+        { id: "b", text: { en: "rate = k[N₂O₂][O₂]", zh: "rate = k[N₂O₂][O₂]" } },
+        { id: "c", text: { en: "rate = k[NO]²[O₂]", zh: "rate = k[NO]²[O₂]" } },
+        { id: "d", text: { en: "rate = k[NO]²", zh: "rate = k[NO]²" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "From pre-equilibrium of step 1: [N₂O₂] = K₁[NO]². Sub into step-2 rate: rate = k₂[N₂O₂][O₂] = k₂K₁[NO]²[O₂] = **k_obs[NO]²[O₂]**. Intermediate [N₂O₂] is eliminated.",
+        zh: "由第 1 步预平衡:[N₂O₂] = K₁[NO]²。代入第 2 步:rate = k₂[N₂O₂][O₂] = k₂K₁[NO]²[O₂] = **k_obs[NO]²[O₂]**。已消去中间体。",
+      },
+    },
+  ],
+
+  "unit-5/topic-10": [
+    {
+      id: "chem-u5-t10-q1",
+      prompt: {
+        en: "A two-step mechanism has transition states at energies 90 kJ/mol (step 1) and 60 kJ/mol (step 2), starting from reactants at 0 kJ/mol. Which step is rate-determining and what is the overall Eₐ?",
+        zh: "某两步机理的过渡态能量:第 1 步 90 kJ/mol,第 2 步 60 kJ/mol(反应物为 0)。哪一步为决速?总活化能为?",
+      },
+      choices: [
+        { id: "a", text: { en: "Step 1; Eₐ = 90 kJ/mol", zh: "第 1 步;Eₐ = 90 kJ/mol" } },
+        { id: "b", text: { en: "Step 2; Eₐ = 60 kJ/mol", zh: "第 2 步;Eₐ = 60 kJ/mol" } },
+        { id: "c", text: { en: "Step 1; Eₐ = 30 kJ/mol (difference)", zh: "第 1 步;Eₐ = 30 kJ/mol(差值)" } },
+        { id: "d", text: { en: "Step 2; Eₐ = 90 kJ/mol", zh: "第 2 步;Eₐ = 90 kJ/mol" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "The rate-determining step is the one with the **highest absolute transition-state energy** from reactants — here 90 kJ/mol (step 1). The overall Eₐ is that full height, 90 kJ/mol.",
+        zh: "决速步为**绝对过渡态能量最高**的那一步——此处为第 1 步(90 kJ/mol)。总活化能就是这一高度 90 kJ/mol。",
+      },
+    },
+  ],
+
+  "unit-5/topic-11": [
+    {
+      id: "chem-u5-t11-q1",
+      prompt: {
+        en: "Adding a catalyst to a reaction will change which of the following?",
+        zh: "向反应中加入催化剂会改变下列哪一项?",
+      },
+      choices: [
+        { id: "a", text: { en: "The equilibrium constant K", zh: "平衡常数 K" } },
+        { id: "b", text: { en: "The activation energy Eₐ", zh: "活化能 Eₐ" } },
+        { id: "c", text: { en: "The ΔH of the reaction", zh: "反应的 ΔH" } },
+        { id: "d", text: { en: "The energy of the products", zh: "产物的能量" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Catalysts change only Eₐ by providing a different pathway. They speed up forward and reverse **equally** so K is unchanged; ΔH (reactant and product energies) is unchanged.",
+        zh: "催化剂只通过提供替代路径**改变 Eₐ**。它同等加快正逆反应,故 K 不变;ΔH(反应物与产物能量差)也不变。",
       },
     },
   ],
