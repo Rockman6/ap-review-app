@@ -701,6 +701,93 @@ export function HessCycle({ lang = "en" }: { lang?: "en" | "zh" }) {
   );
 }
 
+// ------------------------------------------------------------
+// 17. Equilibrium approach — concentrations vs time
+// ------------------------------------------------------------
+export function EquilibriumApproach({ lang = "en" }: { lang?: "en" | "zh" }) {
+  // A ⇌ B starting from pure A
+  const data: Array<{ t: number; A: number; B: number }> = [];
+  const Aeq = 0.3;
+  const Beq = 0.7;
+  for (let t = 0; t <= 30; t += 0.5) {
+    data.push({
+      t,
+      A: Aeq + (1 - Aeq) * Math.exp(-0.25 * t),
+      B: Beq * (1 - Math.exp(-0.25 * t)),
+    });
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Approach to equilibrium: A ⇌ B", "趋近平衡:A ⇌ B")}
+      caption={tt(
+        "Rates change but concentrations stop changing when forward = reverse. Concentrations plateau — they are NOT necessarily equal.",
+        "速率变化,但当正=逆时,浓度不再变化。平衡时浓度稳定,但**不一定相等**。"
+      )}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="t" type="number" stroke="#475569" label={{ value: tt("Time", "时间"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }} />
+        <YAxis stroke="#475569" domain={[0, 1]} label={{ value: tt("Concentration (M)", "浓度 (M)"), angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <Legend verticalAlign="top" height={32} />
+        <Line name="[A]" dataKey="A" stroke="#2563eb" strokeWidth={2.5} dot={false} />
+        <Line name="[B]" dataKey="B" stroke="#16a34a" strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
+// ------------------------------------------------------------
+// 18. Le Châtelier shift — disturb, then re-equilibrate
+// ------------------------------------------------------------
+export function LeChatelierShift({ lang = "en" }: { lang?: "en" | "zh" }) {
+  // reach eq at t=15, then add more A at t=15 (spike), then system shifts right
+  const data: Array<{ t: number; A: number; B: number }> = [];
+  const step = 15;
+  const post = 30;
+  for (let t = 0; t <= post; t += 0.25) {
+    if (t < step) {
+      // first equilibration
+      data.push({
+        t,
+        A: 0.3 + 0.7 * Math.exp(-0.3 * t),
+        B: 0.7 * (1 - Math.exp(-0.3 * t)),
+      });
+    } else if (t === step) {
+      // at the disturbance moment, push [A] up and record both values
+      data.push({ t, A: 0.8, B: 0.7 });
+    } else {
+      // re-equilibration towards new eq (A drops, B rises)
+      const tau = t - step;
+      data.push({
+        t,
+        A: 0.4 + 0.4 * Math.exp(-0.3 * tau),
+        B: 0.9 - 0.2 * Math.exp(-0.3 * tau),
+      });
+    }
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Le Châtelier: adding reactant A at t = 15", "勒夏特列:t = 15 时加入反应物 A")}
+      caption={tt(
+        "After the disturbance, the system shifts forward — [A] decreases, [B] increases — until a NEW equilibrium is reached.",
+        "扰动后系统正向移动——[A] 下降,[B] 上升——直到达到新的平衡。"
+      )}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="t" type="number" stroke="#475569" label={{ value: tt("Time", "时间"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }} />
+        <YAxis stroke="#475569" domain={[0, 1]} label={{ value: tt("Concentration (M)", "浓度 (M)"), angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <ReferenceLine x={15} stroke="#ea580c" strokeDasharray="4 3" label={{ value: tt("+A added", "加入 A"), position: "top", fill: "#ea580c", fontSize: 11 }} />
+        <Legend verticalAlign="top" height={32} />
+        <Line name="[A]" dataKey="A" stroke="#2563eb" strokeWidth={2.5} dot={false} />
+        <Line name="[B]" dataKey="B" stroke="#16a34a" strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
 // silence unused import warning for AreaChart/Area (kept for future)
 void AreaChart;
 void Area;
