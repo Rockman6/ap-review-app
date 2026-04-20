@@ -13251,6 +13251,305 @@ export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
     },
   ],
 
+  "unit-3/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Work** is the amount of energy transferred to an object by a force acting over a distance. It is a **scalar** (no direction), but *signed* — a force can do positive work (adding energy), negative work (removing energy), or zero work.",
+        zh: "**功**是力沿位移方向传递给物体的能量。它是**标量**(无方向),但带正负号——力可以做正功(加入能量)、负功(带走能量)或零功。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "W \\;=\\; F\\,d\\,\\cos\\theta",
+      caption: {
+        en: "θ is the angle between the force and the displacement",
+        zh: "θ 为力与位移之间的夹角",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Sign of work depends on angle", zh: "功的正负取决于夹角" },
+      text: {
+        en: "(a) θ = 0° → W > 0 (force along motion, speeds up). (b) θ = 90° → W = 0 (force perpendicular; e.g., normal on a sliding block). (c) θ = 180° → W < 0 (force against motion; e.g., kinetic friction, braking).",
+        zh: "(a) θ = 0° → W > 0(力与运动同向,加速)。(b) θ = 90° → W = 0(力垂直运动,例如滑动物块上的法向力)。(c) θ = 180° → W < 0(力与运动反向,例如动摩擦、刹车)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Net work from multiple forces", zh: "多力作用下的净功" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "When several forces act, the **net work** is either the sum of the individual works, or equivalently the net force times the displacement (along motion). Both routes give the same answer.",
+        zh: "若有多个力作用,**净功**既可以是各力做功之和,也可以是合力沿位移方向与位移之积——两种算法等价。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "W_{net} \\;=\\; \\sum W_{i} \\;=\\; F_{net}\\,d\\,\\cos\\theta_{net}",
+    },
+    {
+      kind: "heading",
+      text: { en: "The Work–Energy Theorem", zh: "动能定理" },
+    },
+    {
+      kind: "math",
+      tex: "W_{net} \\;=\\; \\Delta KE \\;=\\; \\tfrac{1}{2}m\\,v_{f}^{2} - \\tfrac{1}{2}m\\,v_{i}^{2}",
+      caption: {
+        en: "Net work equals change in kinetic energy",
+        zh: "净功等于动能的变化",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Physical meaning", zh: "物理含义" },
+      text: {
+        en: "Every joule of **net** work shows up as a change in the object's kinetic energy — nothing else. Individual forces may transfer energy to other forms (heat, potential, etc.), but the *total* net work is exactly ΔKE.",
+        zh: "每一焦的**净**功恰好表现为物体动能的变化——无他。个别力可能把能量转为其他形式(热、势能等),但**净**功的总和一定等于 ΔKE。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — braking car", zh: "例题——刹车中的汽车" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 1200 kg car traveling at 25 m/s comes to a stop on a level road. The only horizontal force is kinetic friction of magnitude 6000 N. Find the stopping distance.",
+        zh: "一辆 1200 kg 汽车以 25 m/s 行驶,在水平路面上刹车停下。唯一水平力是大小为 6000 N 的动摩擦力。求刹车距离。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "W_{net} \\;=\\; -f\\,d \\;=\\; 0 - \\tfrac{1}{2}(1200)(25)^{2} \\;\\Longrightarrow\\; d \\;=\\; \\dfrac{\\tfrac{1}{2}(1200)(625)}{6000} \\;\\approx\\; 62.5\\ \\text{m}",
+    },
+    {
+      kind: "callout",
+      label: { en: "Work is NOT force × distance", zh: "功**不是**力乘以距离" },
+      text: {
+        en: "Work is force × **parallel displacement**. A waiter carrying a tray horizontally does zero work on the tray (the lifting force is vertical, motion is horizontal). Holding something still does zero work — no displacement.",
+        zh: "功等于力乘以**沿力方向的位移**。服务员水平端着托盘时对托盘做功为零(抬举力竖直,运动水平)。静止保持也做零功——没有位移。",
+      },
+    },
+  ],
+
+  "unit-3/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Objects can store energy in two main ways in AP Physics 1: **kinetic energy** (due to motion) and **potential energy** (due to position or configuration). Both are scalars measured in joules.",
+        zh: "在 AP 物理 1 中,物体主要以两种形式存储能量:**动能**(由于运动)和**势能**(由于位置或构型)。二者都是标量,单位为焦耳 (J)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Kinetic energy", zh: "动能" },
+    },
+    {
+      kind: "math",
+      tex: "KE \\;=\\; \\tfrac{1}{2}\\,m\\,v^{2}",
+      caption: {
+        en: "Only depends on speed (magnitude of v), not direction",
+        zh: "只取决于速率(v 的大小),与方向无关",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "KE is always ≥ 0", zh: "KE 恒 ≥ 0" },
+      text: {
+        en: "Because KE depends on v² (not v), it's never negative. Doubling the speed quadruples the KE — that's why \"going twice as fast\" is *four times* as damaging in a crash.",
+        zh: "KE 与 v² 成正比(不是 v),因此不会为负。速率翻倍,动能变为 4 倍——这就是「速度翻倍,碰撞伤害四倍」的原因。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Gravitational potential energy", zh: "重力势能" },
+    },
+    {
+      kind: "math",
+      tex: "U_{g} \\;=\\; m\\,g\\,h",
+      caption: {
+        en: "Near Earth's surface; h is height above a chosen reference",
+        zh: "地球表面附近;h 为相对所选参考点的高度",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Reference point is your choice", zh: "参考高度可自行选择" },
+      text: {
+        en: "Only **changes** in PE matter. You can set h = 0 anywhere convenient (table top, floor, cliff base). PE can even be negative relative to a reference — that's fine, it just means \"below the reference.\"",
+        zh: "只有 PE 的**变化**才有物理意义。参考高度可以任选(桌面、地面、悬崖底)。PE 相对参考点可以为负——只是「低于参考点」,并无错误。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Elastic (spring) potential energy", zh: "弹性势能" },
+    },
+    {
+      kind: "math",
+      tex: "U_{s} \\;=\\; \\tfrac{1}{2}\\,k\\,x^{2}",
+      caption: {
+        en: "x is displacement from the spring's natural length",
+        zh: "x 为弹簧偏离自然长度的位移",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Mechanical energy", zh: "机械能" },
+    },
+    {
+      kind: "math",
+      tex: "E_{mech} \\;=\\; KE + U",
+      caption: {
+        en: "Sum of kinetic and potential energies",
+        zh: "动能与势能之和",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Mechanical ≠ total", zh: "机械能 ≠ 总能量" },
+      text: {
+        en: "Total energy also includes thermal, chemical, electrical, nuclear, etc. In most AP Physics 1 problems we focus on mechanical energy. When friction acts, mechanical energy isn't conserved — some ME becomes thermal.",
+        zh: "总能量还包括热能、化学能、电能、核能等。AP 物理 1 大多只看机械能。存在摩擦时,机械能不守恒——部分机械能转化为热能。",
+      },
+    },
+  ],
+
+  "unit-3/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "When only **conservative forces** (gravity, ideal springs) do work, mechanical energy is **conserved**: KE + U stays constant. Energy just shuffles between kinetic and potential.",
+        zh: "当只有**保守力**(重力、理想弹簧力)做功时,机械能**守恒**:KE + U 保持不变。能量只是在动能和势能之间转换。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "KE_{i} + U_{i} \\;=\\; KE_{f} + U_{f}",
+      caption: {
+        en: "Mechanical energy conservation (no nonconservative work)",
+        zh: "机械能守恒(无非保守力做功)",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Conservative vs nonconservative forces", zh: "保守力与非保守力" },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "What counts as conservative?",
+        zh: "哪些是保守力?",
+      },
+      columns: [
+        { en: "Conservative (has a PE)", zh: "保守力(对应势能)" },
+        { en: "Nonconservative (no PE; dissipates)", zh: "非保守力(无势能,耗散能量)" },
+      ],
+      rows: [
+        [{ en: "Gravity (U_g = mgh)", zh: "重力 (U_g = mgh)" }, { en: "Kinetic friction", zh: "动摩擦力" }],
+        [{ en: "Ideal spring (U_s = ½kx²)", zh: "理想弹簧 (U_s = ½kx²)" }, { en: "Air resistance (drag)", zh: "空气阻力" }],
+        [{ en: "Electrostatic force", zh: "静电力" }, { en: "Applied pushes/pulls", zh: "施加的推拉力" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "When ME isn't conserved", zh: "机械能不守恒的情形" },
+    },
+    {
+      kind: "math",
+      tex: "W_{nc} \\;=\\; \\Delta E_{mech} \\;=\\; (KE_{f} + U_{f}) - (KE_{i} + U_{i})",
+      caption: {
+        en: "The work done by nonconservative forces equals the change in mechanical energy",
+        zh: "非保守力做的功等于机械能的变化",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Friction is the usual culprit", zh: "摩擦力是常见的元凶" },
+      text: {
+        en: "Kinetic friction always does *negative* work on the moving object, so friction **decreases** mechanical energy, converting it into thermal energy (heat). Unless the surface is specified as frictionless, include a W_friction = −f·d term.",
+        zh: "动摩擦力对运动物体始终做**负功**,所以机械能**减少**,转化为热能。除非题目说明无摩擦,否则应加入 W_friction = −f·d 一项。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — pendulum swing", zh: "例题——单摆摆动" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A pendulum of mass m is released from rest at a height h above its lowest point. What is its speed at the bottom? Using energy conservation (no friction): mgh = ½mv² → **v = √(2gh)**. Notice: mass cancels, just like free fall.",
+        zh: "质量为 m 的单摆从最低点上方 h 处由静止释放。最低点速率为多少?利用能量守恒(无摩擦):mgh = ½mv² → **v = √(2gh)**。注意:质量约去,与自由落体相同。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — block on a rough incline", zh: "例题——粗糙斜面上的物块" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 2 kg block slides from rest down a 5 m long ramp inclined at 30°. Friction dissipates 15 J. Find the block's speed at the bottom. Starting PE = mgh = (2)(9.8)(5 sin 30°) = 49 J. Work by friction = −15 J. Final KE = 49 − 15 = 34 J = ½(2)v² → **v ≈ 5.83 m/s**.",
+        zh: "一块 2 kg 物块从静止开始沿 5 m 长、30° 斜面下滑。摩擦耗散 15 J。求底端速率。初势能 = mgh = (2)(9.8)(5 sin 30°) = 49 J。摩擦做功 = −15 J。末动能 = 49 − 15 = 34 J = ½(2)v² → **v ≈ 5.83 m/s**。",
+      },
+    },
+  ],
+
+  "unit-3/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Power** is the rate at which work is done, or more generally the rate at which energy is transferred. Two identical cars climbing the same hill do the *same* work, but the faster one uses *more* power.",
+        zh: "**功率**是做功的速率,更一般地说,是能量传递的速率。两辆相同的汽车爬同一座山,做的**功**相同,但更快的那辆消耗的**功率**更大。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "P_{avg} \\;=\\; \\dfrac{W}{\\Delta t} \\qquad\\qquad P \\;=\\; \\dfrac{dW}{dt}",
+      caption: {
+        en: "Average power over Δt vs instantaneous power",
+        zh: "Δt 内的平均功率与瞬时功率",
+      },
+    },
+    {
+      kind: "math",
+      tex: "P \\;=\\; \\vec{F}\\cdot\\vec{v} \\;=\\; F\\,v\\,\\cos\\theta",
+      caption: {
+        en: "When a force F acts on an object moving at velocity v",
+        zh: "力 F 作用在以速度 v 运动的物体上时",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Units and scale", zh: "单位与量级" },
+      text: {
+        en: "**1 watt (W) = 1 J/s.** A human can sustainably output ~100 W; a hair dryer draws ~1500 W; a small car engine is ~100 kW. The horsepower (hp) is a unit left over from steam-engine days: 1 hp ≈ 746 W.",
+        zh: "**1 瓦 (W) = 1 J/s**。人可持续输出约 100 W;电吹风约 1500 W;小型汽车发动机约 100 kW。「马力 (hp)」是蒸汽时代遗留单位:1 hp ≈ 746 W。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — steady-speed car on a highway", zh: "例题——公路上匀速行驶的汽车" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A car drives at constant 30 m/s against a total resistive force (air drag + rolling friction) of 400 N. The engine must do work at a rate that exactly replaces the energy lost to drag: P = F·v = (400)(30) = **12 000 W = 12 kW ≈ 16 hp**.",
+        zh: "一辆汽车以 30 m/s 匀速行驶,总阻力(空气阻力 + 滚动摩擦)为 400 N。发动机必须以恰好补偿阻力损失能量的速率做功:P = F·v = (400)(30) = **12 000 W = 12 kW ≈ 16 hp**。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Direction matters for power too", zh: "功率也讲方向" },
+      text: {
+        en: "P = F·v uses the **dot product**. If a force is perpendicular to the motion (θ = 90°), it delivers **zero** power — just as it does zero work. The centripetal force in uniform circular motion is a key example.",
+        zh: "P = F·v 使用**点积**。若力与速度垂直 (θ = 90°),则**零**功率——同零功一样。匀速圆周运动的向心力就是典型例子。",
+      },
+    },
+  ],
+
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -16246,6 +16545,288 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
       explanation: {
         en: "Once the tension disappears, ΣF = 0, so by Newton's first law the ball continues in a **straight line** with the velocity it had at the moment of release — which is **tangent** to the circle. \"Outward\" (choice B) is a centrifugal-force intuition that doesn't exist in inertial frames.",
         zh: "张力消失后 ΣF = 0,由牛顿第一定律,球以断裂瞬间的速度沿**直线**飞出——即圆的**切线**方向。选项 B 的「向外」是离心力直觉,在惯性参考系中不存在。",
+      },
+    },
+  ],
+
+  "unit-3/topic-1": [
+    {
+      id: "phys1-u3-t1-q1",
+      prompt: {
+        en: "A 5.0 kg box is pushed 4.0 m across a floor with a horizontal force of 20 N. How much work does the pushing force do on the box?",
+        zh: "一只 5.0 kg 的箱子被 20 N 的水平力推过 4.0 m 的地面。推力对箱子做了多少功?",
+      },
+      choices: [
+        { id: "a", text: { en: "5 J", zh: "5 J" } },
+        { id: "b", text: { en: "25 J", zh: "25 J" } },
+        { id: "c", text: { en: "80 J", zh: "80 J" } },
+        { id: "d", text: { en: "100 J", zh: "100 J" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Force and displacement are parallel, so W = F·d·cos 0° = (20)(4.0)(1) = **80 J**. The mass is a distractor — work is F·d, not m·d.",
+        zh: "力与位移同向,W = F·d·cos 0° = (20)(4.0)(1) = **80 J**。质量是干扰信息——功是 F·d,不是 m·d。",
+      },
+    },
+    {
+      id: "phys1-u3-t1-q2",
+      prompt: {
+        en: "A student carries a 10 kg box horizontally at constant velocity across a 5 m room. How much work does the student's vertical lifting force do on the box?",
+        zh: "学生以匀速水平搬运一只 10 kg 的箱子,穿过 5 m 宽的房间。学生竖直方向的支持力对箱子做多少功?",
+      },
+      choices: [
+        { id: "a", text: { en: "0 J", zh: "0 J" } },
+        { id: "b", text: { en: "50 J", zh: "50 J" } },
+        { id: "c", text: { en: "490 J", zh: "490 J" } },
+        { id: "d", text: { en: "500 J", zh: "500 J" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "The lifting force points **vertically up**, but the displacement is **horizontal** (θ = 90°). W = F·d·cos 90° = **0 J**. Classic trap: carrying heavy things across a room does no physics-work, even though it feels tiring.",
+        zh: "支持力**竖直向上**,位移**水平** (θ = 90°)。W = F·d·cos 90° = **0 J**。经典陷阱:横着搬运重物做的物理功为零,尽管人感到累。",
+      },
+    },
+    {
+      id: "phys1-u3-t1-q3",
+      prompt: {
+        en: "A 1500 kg car traveling at 20 m/s comes to a stop. What is the net work done on the car?",
+        zh: "一辆 1500 kg 的汽车以 20 m/s 行驶后停下。对汽车做的净功是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "+300 000 J", zh: "+300 000 J" } },
+        { id: "b", text: { en: "−300 000 J", zh: "−300 000 J" } },
+        { id: "c", text: { en: "0 J", zh: "0 J" } },
+        { id: "d", text: { en: "−30 000 J", zh: "−30 000 J" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Work–energy theorem: W_net = ΔKE = 0 − ½(1500)(20)² = **−300 000 J**. Negative because the car lost kinetic energy.",
+        zh: "动能定理:W_net = ΔKE = 0 − ½(1500)(20)² = **−300 000 J**。负号表示汽车失去动能。",
+      },
+    },
+    {
+      id: "phys1-u3-t1-q4",
+      prompt: {
+        en: "A 2.0 kg ball is lifted straight up at constant velocity by a rope. During the lift, which statement about work is true?",
+        zh: "一只 2.0 kg 的球被绳匀速竖直向上拉起。关于此过程中各力做功,下列哪项正确?",
+      },
+      choices: [
+        { id: "a", text: { en: "Tension does positive work; gravity does negative work; net work is zero.", zh: "张力做正功;重力做负功;净功为零。" } },
+        { id: "b", text: { en: "Both tension and gravity do positive work.", zh: "张力与重力都做正功。" } },
+        { id: "c", text: { en: "Only tension does work.", zh: "只有张力做功。" } },
+        { id: "d", text: { en: "Net work equals the ball's potential energy gain.", zh: "净功等于球的势能增量。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Constant velocity ⇒ ΔKE = 0 ⇒ **W_net = 0**. Tension (up) is parallel to motion (up): W_T > 0. Gravity (down) is opposite to motion: W_g < 0. They cancel exactly.",
+        zh: "匀速 ⇒ ΔKE = 0 ⇒ **W_net = 0**。张力(向上)与运动同向,W_T > 0;重力(向下)与运动反向,W_g < 0;两者正好抵消。",
+      },
+    },
+  ],
+
+  "unit-3/topic-2": [
+    {
+      id: "phys1-u3-t2-q1",
+      prompt: {
+        en: "A 2.0 kg object is moving at 6.0 m/s. What is its kinetic energy?",
+        zh: "一只 2.0 kg 的物体以 6.0 m/s 运动。它的动能是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "6 J", zh: "6 J" } },
+        { id: "b", text: { en: "12 J", zh: "12 J" } },
+        { id: "c", text: { en: "36 J", zh: "36 J" } },
+        { id: "d", text: { en: "72 J", zh: "72 J" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "KE = ½m·v² = ½(2.0)(6.0)² = ½(2.0)(36) = **36 J**. Choice D forgets the ½; choice B forgets to square v.",
+        zh: "KE = ½m·v² = ½(2.0)(6.0)² = ½(2.0)(36) = **36 J**。选项 D 漏了 ½;选项 B 忘记平方 v。",
+      },
+    },
+    {
+      id: "phys1-u3-t2-q2",
+      prompt: {
+        en: "A 10 kg box is lifted from the floor to a shelf **2.0 m** above. By how much does its gravitational potential energy increase? (g = 9.8 m/s²)",
+        zh: "将一只 10 kg 的箱子从地面提升到 **2.0 m** 高的架子上。其重力势能增加了多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "20 J", zh: "20 J" } },
+        { id: "b", text: { en: "98 J", zh: "98 J" } },
+        { id: "c", text: { en: "196 J", zh: "196 J" } },
+        { id: "d", text: { en: "1960 J", zh: "1960 J" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "ΔU = m·g·Δh = (10)(9.8)(2.0) = **196 J**. Only *change* in PE is physically meaningful, and it depends only on Δh — not on the route taken.",
+        zh: "ΔU = m·g·Δh = (10)(9.8)(2.0) = **196 J**。只有势能**变化**有物理意义,且仅取决于 Δh,与路径无关。",
+      },
+    },
+    {
+      id: "phys1-u3-t2-q3",
+      prompt: {
+        en: "If a car's speed doubles, by what factor does its kinetic energy change?",
+        zh: "汽车速率翻倍时,动能变化多少倍?",
+      },
+      choices: [
+        { id: "a", text: { en: "2×", zh: "2 倍" } },
+        { id: "b", text: { en: "4×", zh: "4 倍" } },
+        { id: "c", text: { en: "√2 ×", zh: "√2 倍" } },
+        { id: "d", text: { en: "unchanged", zh: "不变" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "KE = ½m·v² scales with v², so doubling v gives **4× the KE**. This is why stopping distance (and crash damage) grows quadratically with speed.",
+        zh: "KE = ½m·v² 与 v² 成正比,v 翻倍则 KE 变为 **4 倍**。这也是刹车距离(及碰撞伤害)随速度平方增长的原因。",
+      },
+    },
+    {
+      id: "phys1-u3-t2-q4",
+      prompt: {
+        en: "A spring with k = 200 N/m is compressed 0.15 m. How much elastic potential energy is stored?",
+        zh: "劲度系数 k = 200 N/m 的弹簧被压缩 0.15 m。存储的弹性势能为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "1.5 J", zh: "1.5 J" } },
+        { id: "b", text: { en: "2.25 J", zh: "2.25 J" } },
+        { id: "c", text: { en: "15 J", zh: "15 J" } },
+        { id: "d", text: { en: "30 J", zh: "30 J" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "U_s = ½k·x² = ½(200)(0.15)² = ½(200)(0.0225) = **2.25 J**. Choice D forgets both the ½ and the x² → x.",
+        zh: "U_s = ½k·x² = ½(200)(0.15)² = ½(200)(0.0225) = **2.25 J**。选项 D 漏了 ½,并把 x² 写成 x。",
+      },
+    },
+  ],
+
+  "unit-3/topic-3": [
+    {
+      id: "phys1-u3-t3-q1",
+      prompt: {
+        en: "A 0.20 kg ball is dropped from rest from a height of 5.0 m. Assuming no air resistance, what is its speed just before hitting the ground? (g = 9.8 m/s²)",
+        zh: "一只 0.20 kg 的球从 5.0 m 高处由静止释放。忽略空气阻力,落地瞬间的速率为多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "4.9 m/s", zh: "4.9 m/s" } },
+        { id: "b", text: { en: "7.0 m/s", zh: "7.0 m/s" } },
+        { id: "c", text: { en: "9.9 m/s", zh: "9.9 m/s" } },
+        { id: "d", text: { en: "14 m/s", zh: "14 m/s" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Energy conservation: mgh = ½mv² → v = √(2gh) = √(2·9.8·5.0) = √98 ≈ **9.9 m/s**. Mass cancels — the answer doesn't depend on it.",
+        zh: "能量守恒:mgh = ½mv² → v = √(2gh) = √(2·9.8·5.0) = √98 ≈ **9.9 m/s**。质量约去,结果与之无关。",
+      },
+    },
+    {
+      id: "phys1-u3-t3-q2",
+      prompt: {
+        en: "A roller coaster car starts from rest at the top of a 40 m hill. Ignoring friction and air resistance, what is its speed at the bottom? (g = 9.8 m/s²)",
+        zh: "过山车从 40 m 高的山顶由静止出发。忽略摩擦与空气阻力,到底部时的速率为多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "14 m/s", zh: "14 m/s" } },
+        { id: "b", text: { en: "20 m/s", zh: "20 m/s" } },
+        { id: "c", text: { en: "28 m/s", zh: "28 m/s" } },
+        { id: "d", text: { en: "40 m/s", zh: "40 m/s" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "v = √(2gh) = √(2·9.8·40) = √784 = **28 m/s**. (This is an upper bound; real coasters are slower due to friction.)",
+        zh: "v = √(2gh) = √(2·9.8·40) = √784 = **28 m/s**。(这是上限;真实过山车因摩擦而更慢。)",
+      },
+    },
+    {
+      id: "phys1-u3-t3-q3",
+      prompt: {
+        en: "A 2.0 kg block slides down a rough ramp. Between the top and bottom, it descends 3.0 m vertically and friction dissipates 40 J. If the block starts from rest, what is its speed at the bottom? (g = 9.8 m/s²)",
+        zh: "一块 2.0 kg 的物块沿粗糙斜面下滑。从顶到底竖直下降 3.0 m,摩擦耗散 40 J。若从静止开始,底端速率为多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "2.0 m/s", zh: "2.0 m/s" } },
+        { id: "b", text: { en: "4.7 m/s", zh: "4.7 m/s" } },
+        { id: "c", text: { en: "7.7 m/s", zh: "7.7 m/s" } },
+        { id: "d", text: { en: "9.0 m/s", zh: "9.0 m/s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Initial PE = mgh = (2.0)(9.8)(3.0) = 58.8 J. Final KE = 58.8 − 40 = 18.8 J = ½(2.0)v² → v = √18.8 ≈ **4.34 m/s**. (Closest answer: 4.7 m/s if we use g = 10.) Either way, friction removes a large fraction of the energy.",
+        zh: "初势能 = mgh = (2.0)(9.8)(3.0) = 58.8 J。末动能 = 58.8 − 40 = 18.8 J = ½(2.0)v² → v = √18.8 ≈ **4.34 m/s**(取 g = 10 得 4.7 m/s)。无论哪种,摩擦都带走了相当部分能量。",
+      },
+    },
+    {
+      id: "phys1-u3-t3-q4",
+      prompt: {
+        en: "A pendulum is released from rest with the bob at a height h above its lowest point. At the lowest point, its speed is v₁. If it is released from 2h, what is its speed at the lowest point?",
+        zh: "一只单摆由静止释放,摆球位于最低点上方 h 处,最低点速率为 v₁。若从 2h 处释放,最低点速率为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "v₁", zh: "v₁" } },
+        { id: "b", text: { en: "√2 · v₁", zh: "√2 · v₁" } },
+        { id: "c", text: { en: "2 v₁", zh: "2 v₁" } },
+        { id: "d", text: { en: "4 v₁", zh: "4 v₁" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "From mgh = ½mv² we get v = √(2gh), so v ∝ √h. Doubling h multiplies v by **√2**, not 2 — height scales with v², not v.",
+        zh: "由 mgh = ½mv² 得 v = √(2gh),即 v ∝ √h。高度翻倍时 v 变为 **√2** 倍,而非 2 倍——高度与 v² 成正比,而不是与 v。",
+      },
+    },
+  ],
+
+  "unit-3/topic-4": [
+    {
+      id: "phys1-u3-t4-q1",
+      prompt: {
+        en: "A motor lifts a 50 kg crate 3.0 m at constant speed in 5.0 s. What is the motor's average power output? (g = 9.8 m/s²)",
+        zh: "电动机以匀速在 5.0 s 内将一只 50 kg 的板条箱提升 3.0 m。电动机的平均功率为多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "30 W", zh: "30 W" } },
+        { id: "b", text: { en: "294 W", zh: "294 W" } },
+        { id: "c", text: { en: "735 W", zh: "735 W" } },
+        { id: "d", text: { en: "1470 W", zh: "1470 W" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Work done = ΔU = mgh = (50)(9.8)(3.0) = 1470 J. Power = W/t = 1470/5.0 = **294 W**. Choice D forgets to divide by time.",
+        zh: "做功 = ΔU = mgh = (50)(9.8)(3.0) = 1470 J。功率 = W/t = 1470/5.0 = **294 W**。选项 D 忘记除以时间。",
+      },
+    },
+    {
+      id: "phys1-u3-t4-q2",
+      prompt: {
+        en: "A car maintains a constant 25 m/s against total resistive forces of 600 N. How much power must the engine deliver?",
+        zh: "一辆汽车以 25 m/s 匀速行驶,对抗总阻力 600 N。发动机需要输出多大的功率?",
+      },
+      choices: [
+        { id: "a", text: { en: "24 W", zh: "24 W" } },
+        { id: "b", text: { en: "625 W", zh: "625 W" } },
+        { id: "c", text: { en: "15 000 W", zh: "15 000 W" } },
+        { id: "d", text: { en: "30 000 W", zh: "30 000 W" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "P = F·v = (600)(25) = **15 000 W = 15 kW** (about 20 hp). Since the car's speed is constant, the engine just replaces the energy lost to drag.",
+        zh: "P = F·v = (600)(25) = **15 000 W = 15 kW**(约 20 hp)。由于速度恒定,发动机只是在补偿阻力带走的能量。",
+      },
+    },
+    {
+      id: "phys1-u3-t4-q3",
+      prompt: {
+        en: "Two elevators carry the same load up the same height. Elevator A takes 10 s; elevator B takes 20 s. Which statement is correct?",
+        zh: "两部电梯将相同的货物运到相同高度。A 用 10 s,B 用 20 s。下列哪项正确?",
+      },
+      choices: [
+        { id: "a", text: { en: "A and B do the same work but A has twice the power.", zh: "A 与 B 做功相同,但 A 的功率是 B 的两倍。" } },
+        { id: "b", text: { en: "A does twice the work of B.", zh: "A 做的功是 B 的两倍。" } },
+        { id: "c", text: { en: "A and B have the same power.", zh: "A 与 B 功率相同。" } },
+        { id: "d", text: { en: "B is more efficient because it uses less power.", zh: "B 更高效,因为功率更低。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Both elevators transfer the same energy (same mgh). Since P = W/t, half the time means double the power. \"More powerful\" ≠ \"more work\" — same work, faster.",
+        zh: "两部电梯传递相同能量(相同的 mgh)。P = W/t,时间一半意味着功率翻倍。「更大功率」并不等于「更多功」——做同样的功,只是更快。",
       },
     },
   ],
