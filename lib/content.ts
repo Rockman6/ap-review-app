@@ -28,6 +28,8 @@ export type NoteBlock =
   | { kind: "paragraph"; text: Bilingual }
   | { kind: "callout"; label: Bilingual; text: Bilingual }
   | { kind: "list"; items: Bilingual[] }
+  | { kind: "math"; tex: string; caption?: Bilingual }
+  | { kind: "math-inline-line"; segments: Array<{ t: "text"; text: Bilingual } | { t: "tex"; tex: string }> }
   | {
       kind: "chart";
       chartType:
@@ -8802,6 +8804,193 @@ export const finalQuestions: Record<string, Question[]> = {
 };
 
 // ============================================================
+// AP Chemistry — notes (keyed by "unit/topic")
+// ============================================================
+
+export const topicNotesChem: Record<string, NoteBlock[]> = {
+  "unit-1/topic-1": [
+    {
+      kind: "table",
+      caption: {
+        en: "Everyday counting units vs. the chemist's counting unit",
+        zh: "日常的计数单位 vs. 化学家使用的计数单位",
+      },
+      columns: [
+        { en: "Unit", zh: "单位" },
+        { en: "How many items?", zh: "代表多少个?" },
+        { en: "When we use it", zh: "什么时候用" },
+      ],
+      rows: [
+        [{ en: "A pair", zh: "一对" }, { en: "2", zh: "2" }, { en: "Shoes, chopsticks", zh: "鞋、筷子" }],
+        [{ en: "A dozen", zh: "一打" }, { en: "12", zh: "12" }, { en: "Eggs, bagels", zh: "鸡蛋、贝果" }],
+        [{ en: "A ream", zh: "一令" }, { en: "500", zh: "500" }, { en: "Sheets of paper", zh: "纸张" }],
+        [{ en: "A mole (mol)", zh: "一摩尔 (mol)" }, { en: "6.022 × 10²³", zh: "6.022 × 10²³" }, { en: "Atoms, molecules, ions", zh: "原子、分子、离子" }],
+      ],
+      highlightLastRow: true,
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Chemists can't count atoms one by one — a drop of water holds more atoms than there are stars in the observable universe. So we count **by weighing**, using a huge fixed group size called the **mole**. One mole is simply a specific number of particles, just like a dozen is a specific number of eggs.",
+        zh: "化学家无法逐个数原子——一滴水里的原子数比可观测宇宙中的恒星还多。所以我们通过**称重**来计数,使用一个固定的极大分组——**摩尔 (mole)**。一摩尔就是一个特定数量的粒子,就像「一打」是固定的 12 个鸡蛋一样。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "N_{A} \\;=\\; 6.022 \\times 10^{23}\\ \\text{particles/mol}",
+      caption: {
+        en: "Avogadro's number — the number of particles in exactly one mole",
+        zh: "阿伏伽德罗常数——恰好一摩尔所含的粒子数",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Key term · 核心术语", zh: "核心术语 · Key term" },
+      text: {
+        en: "**Mole (mol):** a counting unit equal to **Avogadro's number (Nₐ)** of particles. The particles can be atoms, molecules, ions, or electrons — the mole is unit-neutral. Whenever a problem says *moles of X*, picture **6.022 × 10²³ of X**.",
+        zh: "**摩尔 (mol):** 一种计数单位,等于**阿伏伽德罗常数 (Nₐ)** 那么多的粒子。粒子可以是原子、分子、离子或电子——摩尔本身与粒子种类无关。看到「X 的摩尔数」时,就想成 **6.022 × 10²³ 个 X**。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Molar mass — the bridge between grams and moles", zh: "摩尔质量——连接克与摩尔的桥梁" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "The **molar mass** of a substance is the mass (in grams) of exactly one mole of it. Its units are **g/mol**. For an element, the molar mass is numerically equal to the atomic mass printed on the periodic table. For a compound, add up the molar masses of each atom in the formula.",
+        zh: "物质的**摩尔质量**是一摩尔该物质的克数,单位为 **g/mol**。对于元素,摩尔质量在数值上等于周期表上的原子质量。对于化合物,把分子式中每个原子的摩尔质量加起来即可。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "n \\;=\\; \\dfrac{m}{M}\\qquad\\Longleftrightarrow\\qquad m \\;=\\; n\\,M",
+      caption: {
+        en: "n = moles, m = mass in grams, M = molar mass in g/mol",
+        zh: "n = 摩尔数,m = 质量(克),M = 摩尔质量(g/mol)",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example · H₂O", zh: "例题 · H₂O" },
+    },
+    {
+      kind: "math",
+      tex: "M_{\\mathrm{H_2O}} \\;=\\; 2\\,(1.008) + 1\\,(16.00) \\;=\\; 18.02\\ \\text{g/mol}",
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example · CO₂", zh: "例题 · CO₂" },
+    },
+    {
+      kind: "math",
+      tex: "M_{\\mathrm{CO_2}} \\;=\\; 1\\,(12.01) + 2\\,(16.00) \\;=\\; 44.01\\ \\text{g/mol}",
+    },
+    {
+      kind: "heading",
+      text: { en: "Dimensional analysis: grams ↔ moles ↔ particles", zh: "量纲分析:克 ↔ 摩尔 ↔ 粒子" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Line up your conversion factors so that **unwanted units cancel diagonally**. Between grams and moles, the conversion factor is the molar mass. Between moles and individual particles, the conversion factor is Avogadro's number.",
+        zh: "把换算因子排好,使**要消去的单位沿对角线抵消**。克与摩尔之间的换算因子是摩尔质量;摩尔与粒子数之间的换算因子是阿伏伽德罗常数。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\underbrace{\\text{grams}}_{\\text{what you weigh}} \\;\\xrightarrow{\\;\\div M\\;}\\; \\underbrace{\\text{moles}}_{\\text{counting unit}} \\;\\xrightarrow{\\;\\times N_A\\;}\\; \\underbrace{\\text{particles}}_{\\text{atoms or molecules}}",
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example · 50.0 g of CO₂", zh: "例题 · 50.0 g CO₂" },
+    },
+    {
+      kind: "math",
+      tex: "50.0\\ \\text{g CO}_2 \\times \\dfrac{1\\ \\text{mol CO}_2}{44.01\\ \\text{g CO}_2} \\;=\\; 1.136\\ \\text{mol CO}_2",
+      caption: { en: "Step 1 · grams → moles", zh: "第一步 · 克 → 摩尔" },
+    },
+    {
+      kind: "math",
+      tex: "1.136\\ \\text{mol CO}_2 \\times \\dfrac{6.022 \\times 10^{23}\\ \\text{molecules}}{1\\ \\text{mol}} \\;=\\; 6.84 \\times 10^{23}\\ \\text{CO}_2\\ \\text{molecules}",
+      caption: { en: "Step 2 · moles → molecules", zh: "第二步 · 摩尔 → 分子数" },
+    },
+    {
+      kind: "math",
+      tex: "6.84 \\times 10^{23}\\ \\text{CO}_2 \\times \\dfrac{2\\ \\text{O atoms}}{1\\ \\text{CO}_2} \\;=\\; 1.37 \\times 10^{24}\\ \\text{O atoms}",
+      caption: { en: "Step 3 · molecules → O atoms (subscript of O in CO₂ is 2)", zh: "第三步 · 分子数 → O 原子数(CO₂ 中 O 的下标为 2)" },
+    },
+    {
+      kind: "callout",
+      label: { en: "AP exam tip · 考试提示", zh: "考试提示 · AP exam tip" },
+      text: {
+        en: "Sig figs matter. Molar masses from the periodic table are typically 3–4 sig figs, so your final answer should reflect that. The AP exam commonly deducts points when students report more precision than the data allows.",
+        zh: "注意**有效数字**。周期表上的摩尔质量通常是 3–4 位有效数字,因此最终答案的位数也应与之一致。AP 考试经常因「结果精度超过数据本身」而扣分。",
+      },
+    },
+  ],
+};
+
+export const topicQuestionsChem: Record<string, Question[]> = {
+  "unit-1/topic-1": [
+    {
+      id: "chem-u1-t1-q1",
+      prompt: {
+        en: "A student weighs a sample of pure glucose (**C₆H₁₂O₆**). Using atomic masses H = 1.008, C = 12.01, O = 16.00, what is the molar mass of glucose?",
+        zh: "某学生称取一份纯葡萄糖 (**C₆H₁₂O₆**)。已知原子质量 H = 1.008、C = 12.01、O = 16.00,则葡萄糖的摩尔质量为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "29.02 g/mol", zh: "29.02 g/mol" } },
+        { id: "b", text: { en: "150.1 g/mol", zh: "150.1 g/mol" } },
+        { id: "c", text: { en: "180.2 g/mol", zh: "180.2 g/mol" } },
+        { id: "d", text: { en: "342.3 g/mol", zh: "342.3 g/mol" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "**6(12.01) + 12(1.008) + 6(16.00) = 72.06 + 12.10 + 96.00 = 180.2 g/mol.** Choice A sums one atom of each element (forgetting subscripts). Choice D is the molar mass of sucrose (C₁₂H₂₂O₁₁), a common trap distractor.",
+        zh: "**6(12.01) + 12(1.008) + 6(16.00) = 72.06 + 12.10 + 96.00 = 180.2 g/mol**。选项 A 每种元素只加了一个原子(忽略了下标);选项 D 是蔗糖 (C₁₂H₂₂O₁₁) 的摩尔质量,是常见干扰项。",
+      },
+    },
+    {
+      id: "chem-u1-t1-q2",
+      prompt: {
+        en: "A 6.60 g sample of carbon dioxide (**CO₂**, M = 44.01 g/mol) is stored in a flask. How many **oxygen atoms** are in the flask?",
+        zh: "一只烧瓶内装有 6.60 g 的二氧化碳 (**CO₂**,M = 44.01 g/mol)。瓶中有多少个**氧原子**?",
+      },
+      choices: [
+        { id: "a", text: { en: "9.03 × 10²² O atoms", zh: "9.03 × 10²² 个 O" } },
+        { id: "b", text: { en: "1.81 × 10²³ O atoms", zh: "1.81 × 10²³ 个 O" } },
+        { id: "c", text: { en: "3.61 × 10²³ O atoms", zh: "3.61 × 10²³ 个 O" } },
+        { id: "d", text: { en: "6.02 × 10²³ O atoms", zh: "6.02 × 10²³ 个 O" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Step 1:** 6.60 g ÷ 44.01 g/mol = **0.1500 mol CO₂**. **Step 2:** 0.1500 mol × 6.022 × 10²³ = 9.03 × 10²² CO₂ molecules. **Step 3:** each CO₂ contains **2** O atoms, so 9.03 × 10²² × 2 = **1.81 × 10²³ O atoms**. Choice A forgets the ×2 for the subscript. Choice D is one full mole of atoms, unrelated to this mass.",
+        zh: "**第一步:** 6.60 g ÷ 44.01 g/mol = **0.1500 mol CO₂**。**第二步:** 0.1500 × 6.022 × 10²³ = 9.03 × 10²² 个 CO₂ 分子。**第三步:** 每个 CO₂ 含 **2** 个 O,所以 9.03 × 10²² × 2 = **1.81 × 10²³ 个 O**。选项 A 忘记乘 2;选项 D 是一整摩尔的粒子数,与本题质量无关。",
+      },
+    },
+    {
+      id: "chem-u1-t1-q3",
+      prompt: {
+        en: "An unknown hydrocarbon has a molar mass of **30.07 g/mol** and the empirical formula **CH₃**. Using atomic masses C = 12.01, H = 1.008, what is the molecular formula?",
+        zh: "某未知烃的摩尔质量为 **30.07 g/mol**,实验式为 **CH₃**。已知 C = 12.01、H = 1.008,其分子式为?",
+      },
+      choices: [
+        { id: "a", text: { en: "CH₃ (same as empirical)", zh: "CH₃(与实验式相同)" } },
+        { id: "b", text: { en: "C₂H₆", zh: "C₂H₆" } },
+        { id: "c", text: { en: "C₂H₄", zh: "C₂H₄" } },
+        { id: "d", text: { en: "C₃H₉", zh: "C₃H₉" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Empirical-unit mass of CH₃ = 12.01 + 3(1.008) = **15.03 g/mol**. Ratio of molecular to empirical mass = 30.07 / 15.03 ≈ **2**, so multiply the empirical formula by 2: **C₂H₆** (ethane). Choice C (C₂H₄) is ethylene, which has empirical formula CH₂, not CH₃. Choice D violates the octet rule — carbon cannot bond to four hydrogens in that ratio without an extra carbon.",
+        zh: "实验式 CH₃ 的单位质量 = 12.01 + 3(1.008) = **15.03 g/mol**。分子质量 / 实验式质量 = 30.07 / 15.03 ≈ **2**,所以把实验式乘以 2:**C₂H₆**(乙烷)。选项 C (C₂H₄) 是乙烯,其实验式为 CH₂,而不是 CH₃。选项 D 违反八隅体规则——不加一个碳原子时,每个 C 无法与 3 个 H 成键且保持化学可行性。",
+      },
+    },
+  ],
+};
+
+// ============================================================
 // Subjects registry
 // ============================================================
 
@@ -8811,7 +9000,7 @@ const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
   "ap-micro": topicNotes,
   "ap-bio": {},
   "ap-physics-1": {},
-  "ap-chem": {},
+  "ap-chem": topicNotesChem,
   "ap-calculus-bc": {},
   "ap-eng-lang": {},
 };
@@ -8820,7 +9009,7 @@ const questionsBySubject: Record<string, Record<string, Question[]>> = {
   "ap-micro": topicQuestions,
   "ap-bio": {},
   "ap-physics-1": {},
-  "ap-chem": {},
+  "ap-chem": topicQuestionsChem,
   "ap-calculus-bc": {},
   "ap-eng-lang": {},
 };
