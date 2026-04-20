@@ -30,6 +30,9 @@ export type NoteBlock =
   | { kind: "list"; items: Bilingual[] }
   | { kind: "math"; tex: string; caption?: Bilingual }
   | { kind: "math-inline-line"; segments: Array<{ t: "text"; text: Bilingual } | { t: "tex"; tex: string }> }
+  | { kind: "molecule"; smiles: string; label?: Bilingual; width?: number; height?: number }
+  | { kind: "molecule-row"; items: Array<{ smiles: string; label?: Bilingual }>; width?: number; height?: number }
+  | { kind: "mol3d"; geometry: "linear" | "trigonal-planar" | "tetrahedral" | "trigonal-pyramidal" | "bent" | "trigonal-bipyramidal" | "octahedral" }
   | {
       kind: "chart";
       chartType:
@@ -7601,11 +7604,13 @@ export const apChemistry: Subject = {
         zh: "化学键、路易斯结构、VSEPR 几何与分子间作用力。",
       },
       topics: [
-        { slug: "topic-1", title: { en: "Types of Chemical Bonds", zh: "化学键的类型" }, summary: { en: "Ionic, covalent, and metallic bonding — and how to predict them.", zh: "离子键、共价键与金属键——以及如何判断。" } },
-        { slug: "topic-2", title: { en: "Lewis Structures & Resonance", zh: "路易斯结构与共振" }, summary: { en: "Drawing electron-dot structures and showing resonance hybrids.", zh: "绘制电子点式并展示共振杂化结构。" } },
-        { slug: "topic-3", title: { en: "VSEPR & Molecular Geometry", zh: "VSEPR 与分子几何" }, summary: { en: "Predicting shape from electron-pair repulsion.", zh: "由电子对排斥推断几何形状。" } },
-        { slug: "topic-4", title: { en: "Bond Polarity & Molecular Polarity", zh: "键的极性与分子的极性" }, summary: { en: "Vector sum of bond dipoles determines molecular polarity.", zh: "键偶极的矢量和决定分子极性。" } },
-        { slug: "topic-5", title: { en: "Intermolecular Forces", zh: "分子间作用力" }, summary: { en: "London dispersion, dipole-dipole, hydrogen bonding — strength order.", zh: "色散力、偶极-偶极、氢键——强度比较。" } },
+        { slug: "topic-1", title: { en: "Types of Chemical Bonds", zh: "化学键的类型" }, summary: { en: "Ionic, covalent, metallic — predicting bond type from electronegativity.", zh: "离子键、共价键、金属键——由电负性判断键型。" } },
+        { slug: "topic-2", title: { en: "Intramolecular Force & Potential Energy", zh: "分子内作用力与势能" }, summary: { en: "Coulomb's law, bond length, bond strength, and potential-energy curves.", zh: "库仑定律、键长、键能与势能曲线。" } },
+        { slug: "topic-3", title: { en: "Structure of Ionic Solids", zh: "离子晶体的结构" }, summary: { en: "Lattices, coordination number, and properties of ionic solids.", zh: "晶格、配位数与离子晶体的性质。" } },
+        { slug: "topic-4", title: { en: "Structure of Metals & Alloys", zh: "金属与合金的结构" }, summary: { en: "Sea-of-electrons model; substitutional vs interstitial alloys.", zh: "电子海模型;置换合金与间隙合金。" } },
+        { slug: "topic-5", title: { en: "Lewis Diagrams", zh: "路易斯结构" }, summary: { en: "Drawing electron-dot structures that satisfy the octet rule.", zh: "绘制满足八隅体规则的电子点式。" } },
+        { slug: "topic-6", title: { en: "Resonance & Formal Charge", zh: "共振与形式电荷" }, summary: { en: "Equivalent structures, curved arrows, and picking the best contributor.", zh: "共振结构、箭头表示与最佳共振式判断。" } },
+        { slug: "topic-7", title: { en: "VSEPR & Bond Hybridization", zh: "VSEPR 与键的杂化" }, summary: { en: "Electron-domain geometry, molecular shape, and sp/sp²/sp³ hybridization.", zh: "电子域几何、分子形状与 sp/sp²/sp³ 杂化。" } },
       ],
     },
     {
@@ -9443,6 +9448,343 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
   ],
+
+  // ============================================================
+  // UNIT 2 · Compound Structure & Properties
+  // ============================================================
+
+  // ---------- Topic 2.1 · Types of Chemical Bonds ----------
+  "unit-2/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Every chemical bond is ultimately an electrostatic interaction — positive and negative charges pulling on each other. The **type** of bond that forms depends mostly on the **difference in electronegativity (ΔEN)** between the atoms involved.",
+        zh: "所有化学键本质上都是静电作用——正负电荷互相吸引。形成哪一**种**键,主要取决于两原子间的**电负性差 ΔEN**。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Bond type from electronegativity difference", zh: "按电负性差划分键型" },
+      columns: [
+        { en: "ΔEN", zh: "ΔEN" },
+        { en: "Bond type", zh: "键型" },
+        { en: "What's happening", zh: "本质" },
+        { en: "Example", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "0 – 0.4", zh: "0 – 0.4" }, { en: "Nonpolar covalent", zh: "非极性共价键" }, { en: "Electrons shared roughly equally", zh: "电子基本均分" }, { en: "H–H, C–C", zh: "H–H、C–C" }],
+        [{ en: "0.4 – 1.7", zh: "0.4 – 1.7" }, { en: "Polar covalent", zh: "极性共价键" }, { en: "Shared but pulled toward more electronegative atom", zh: "电子偏向电负性更大的原子" }, { en: "H–O, H–Cl", zh: "H–O、H–Cl" }],
+        [{ en: "> 1.7", zh: "> 1.7" }, { en: "Ionic", zh: "离子键" }, { en: "Electron fully transferred → cation + anion", zh: "电子完全转移 → 阳离子 + 阴离子" }, { en: "Na⁺Cl⁻, Mg²⁺O²⁻", zh: "Na⁺Cl⁻、Mg²⁺O²⁻" }],
+      ],
+      highlightLastRow: false,
+    },
+    {
+      kind: "molecule-row",
+      items: [
+        { smiles: "[H][H]", label: { en: "H₂ · nonpolar covalent", zh: "H₂ · 非极性共价" } },
+        { smiles: "O", label: { en: "H₂O · polar covalent", zh: "H₂O · 极性共价" } },
+        { smiles: "[Na+].[Cl-]", label: { en: "NaCl · ionic", zh: "NaCl · 离子键" } },
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Key term", zh: "核心术语" },
+      text: {
+        en: "**Metallic bond:** atoms pool their valence electrons into a shared 'sea' that flows between fixed metal cations. This sea explains why metals conduct electricity, conduct heat, and are malleable.",
+        zh: "**金属键:** 金属原子把价电子共享成一个流动的「电子海」,金属阳离子固定排列于其中。电子海解释了金属的导电、导热与延展性。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Predicting bond type quickly", zh: "快速判断键型" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Metal + nonmetal → ionic** (e.g., Na + Cl, Ca + O).", zh: "**金属 + 非金属 → 离子键**(如 Na + Cl、Ca + O)。" },
+        { en: "**Nonmetal + nonmetal → covalent** (check ΔEN to decide polar vs nonpolar).", zh: "**非金属 + 非金属 → 共价键**(用 ΔEN 判断极性)。" },
+        { en: "**Metal + metal → metallic** (alloys, pure metals).", zh: "**金属 + 金属 → 金属键**(合金、纯金属)。" },
+      ],
+    },
+  ],
+
+  // ---------- Topic 2.2 · Intramolecular Force & Potential Energy ----------
+  "unit-2/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The strength of any chemical bond depends on how strongly the nuclei attract the shared or transferred electrons. **Coulomb's law** makes this quantitative: bigger charges and shorter distances mean stronger attraction — and a stronger bond.",
+        zh: "化学键的强弱取决于原子核对共享或转移电子的吸引力。**库仑定律**给出定量关系:电荷越大、距离越短,吸引越强,键也越强。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "F \\;=\\; k\\,\\dfrac{q_{1}\\,q_{2}}{r^{2}}",
+      caption: { en: "Larger charges → stronger force; larger distance → weaker force (falls as 1/r²).", zh: "电荷越大,力越强;距离越大,力越弱(按 1/r² 衰减)。" },
+    },
+    {
+      kind: "heading",
+      text: { en: "The bond potential-energy curve", zh: "键的势能曲线" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Plot potential energy (y-axis) vs. distance between two bonding atoms (x-axis). At very large distance, energy ≈ 0 (no interaction). As they approach, attraction drops the energy to a **minimum at the bond length** — the most stable distance. Squeezing them closer raises energy sharply because core electrons repel.",
+        zh: "以势能为纵轴、两成键原子间距为横轴。距离很大时势能 ≈ 0(无相互作用)。靠近时吸引使势能下降,到**键长处**达到最低点——最稳定。再压近时,内层电子互斥,势能急剧上升。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Key term", zh: "核心术语" },
+      text: {
+        en: "**Bond length** = distance at which PE is lowest. **Bond energy** = depth of that well (energy required to break the bond). Shorter, higher-charge bonds are **both shorter and stronger** — e.g., C≡C < C=C < C–C in length; opposite order in strength.",
+        zh: "**键长** = 势能最低处对应的距离;**键能** = 势能井的深度(断键所需能量)。键越短、电荷越大,**既短又强**——如 C≡C < C=C < C–C 长度递增,强度递减。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Comparing C–C, C=C, C≡C", zh: "比较 C–C、C=C、C≡C" },
+      columns: [
+        { en: "Bond", zh: "键" },
+        { en: "Order", zh: "键级" },
+        { en: "Length (pm)", zh: "键长 (pm)" },
+        { en: "Energy (kJ/mol)", zh: "键能 (kJ/mol)" },
+      ],
+      rows: [
+        [{ en: "C–C (single)", zh: "C–C(单)" }, { en: "1", zh: "1" }, { en: "154", zh: "154" }, { en: "347", zh: "347" }],
+        [{ en: "C=C (double)", zh: "C=C(双)" }, { en: "2", zh: "2" }, { en: "134", zh: "134" }, { en: "614", zh: "614" }],
+        [{ en: "C≡C (triple)", zh: "C≡C(三)" }, { en: "3", zh: "3" }, { en: "120", zh: "120" }, { en: "839", zh: "839" }],
+      ],
+    },
+  ],
+
+  // ---------- Topic 2.3 · Structure of Ionic Solids ----------
+  "unit-2/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "An **ionic solid** is a 3D lattice of alternating cations and anions. Each ion is surrounded by oppositely charged neighbors, maximizing attraction and minimizing repulsion. The whole crystal is held together by electrostatic attraction — not by discrete molecules.",
+        zh: "**离子晶体**是阳离子与阴离子交替排列的三维晶格。每个离子都被异号离子环绕,最大化吸引、最小化排斥。整块晶体靠静电作用维系,没有独立分子。",
+      },
+    },
+    {
+      kind: "molecule",
+      smiles: "[Na+].[Cl-]",
+      label: { en: "NaCl formula unit (lattice repeats this pair in 3D)", zh: "NaCl 的「式单位」(三维晶格中无限重复)" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Key term", zh: "核心术语" },
+      text: {
+        en: "**Coordination number:** the number of nearest-neighbor opposite ions. NaCl has coordination 6 — each Na⁺ is touched by 6 Cl⁻, and each Cl⁻ by 6 Na⁺. CsCl has coordination 8 (larger cation fits 8 around).",
+        zh: "**配位数:** 最近异号邻居数。NaCl 配位数为 6——每个 Na⁺ 周围 6 个 Cl⁻,每个 Cl⁻ 周围 6 个 Na⁺。CsCl 配位数为 8(较大阳离子可容纳 8 个邻居)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Why ionic solids have their properties", zh: "离子晶体性质的来源" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**High melting point.** Breaking a lattice means breaking many strong Coulombic attractions at once.", zh: "**熔点高。** 打破晶格需要同时破坏大量库仑吸引。" },
+        { en: "**Brittle.** Sliding one layer so like-charges line up flips attraction into repulsion — the crystal shatters along cleavage planes.", zh: "**脆性。** 一层滑动后同号离子相邻,吸引变排斥,沿解理面崩裂。" },
+        { en: "**Conducts only when melted or dissolved.** The ions must be free to move to carry current.", zh: "**熔融或溶解时才导电。** 离子能自由移动才能传导电流。" },
+      ],
+    },
+    {
+      kind: "math",
+      tex: "E_{\\text{lattice}} \\;\\propto\\; \\dfrac{|q_{+}\\, q_{-}|}{r_{+} + r_{-}}",
+      caption: { en: "Higher charges / smaller ions → stronger lattice → higher melting point", zh: "电荷越大、离子越小 → 晶格能越大 → 熔点越高" },
+    },
+  ],
+
+  // ---------- Topic 2.4 · Structure of Metals & Alloys ----------
+  "unit-2/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "In a pure metal, atoms pack into a regular lattice and **donate their valence electrons to a shared pool** — the famous *sea of electrons*. These delocalized electrons drift through the whole solid, explaining every signature metal property.",
+        zh: "在纯金属中,原子规则排列并**把价电子贡献给共用的电子池**——即「电子海」。这些离域电子在整块固体中自由移动,由此解释金属的所有标志性质。",
+      },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Electrical conductor:** mobile electrons carry charge.", zh: "**导电:** 自由电子载流。" },
+        { en: "**Thermal conductor:** mobile electrons carry kinetic energy.", zh: "**导热:** 自由电子传递动能。" },
+        { en: "**Malleable / ductile:** atoms can slide without breaking bonds — the electron sea follows them.", zh: "**延展性 / 韧性:** 原子可滑动而键不断——电子海随之移动。" },
+        { en: "**Lustrous:** surface electrons absorb and re-emit visible light.", zh: "**金属光泽:** 表面电子吸收并重新发射可见光。" },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Two flavors of alloy", zh: "两类合金" },
+    },
+    {
+      kind: "table",
+      caption: { en: "Substitutional vs interstitial alloys", zh: "置换合金 vs 间隙合金" },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "How it forms", zh: "形成方式" },
+        { en: "Good when…", zh: "适用条件" },
+        { en: "Example", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "Substitutional", zh: "置换合金" }, { en: "Foreign atoms replace host atoms in lattice", zh: "外来原子取代主原子位置" }, { en: "Two atoms have similar radius", zh: "两原子半径相近" }, { en: "Brass (Cu + Zn)", zh: "黄铜 (Cu + Zn)" }],
+        [{ en: "Interstitial", zh: "间隙合金" }, { en: "Small atoms fit between host atoms", zh: "小原子填入主原子之间" }, { en: "Added atom is much smaller", zh: "外来原子明显较小" }, { en: "Steel (Fe + C)", zh: "钢 (Fe + C)" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Exam insight", zh: "考试提示" },
+      text: {
+        en: "Alloying usually makes a metal **harder and less malleable** because the foreign atoms disrupt the regular lattice, blocking layers from sliding past each other. That's why steel is harder than pure iron.",
+        zh: "合金化通常使金属**更硬、延展性变差**,因为外来原子扰乱规则晶格,阻碍层间滑动。这就是钢比纯铁硬的原因。",
+      },
+    },
+  ],
+
+  // ---------- Topic 2.5 · Lewis Diagrams ----------
+  "unit-2/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **Lewis diagram** shows every valence electron: bonding pairs as lines between atoms, and lone pairs as dots. Done right, each non-H atom usually ends with **8 electrons around it** (the octet rule), and H ends with 2.",
+        zh: "**路易斯结构**把每个价电子都画出来:成键对用连线,孤对用点。绘制正确时,非 H 原子周围通常有 **8 个电子**(八隅体规则),H 周围为 2 个。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Five-step recipe", zh: "五步法" },
+      text: {
+        en: "**1. Count** total valence electrons (add charge for anions, subtract for cations). **2. Pick a central atom** (least electronegative, not H). **3. Connect** peripherals with single bonds. **4. Complete octets** on outer atoms using remaining electrons. **5. Form multiple bonds** if the central atom lacks an octet.",
+        zh: "**1. 数** 总价电子数(阴离子加、阳离子减)。**2. 选中心原子**(电负性最小,H 不作中心)。**3. 用单键**连接外围原子。**4. 用剩余电子为外围原子补足八隅体。** **5. 若中心不足八隅体,建立多重键。**",
+      },
+    },
+    {
+      kind: "molecule-row",
+      items: [
+        { smiles: "O", label: { en: "H₂O · 2 lone pairs on O", zh: "H₂O · O 上两对孤对" } },
+        { smiles: "N", label: { en: "NH₃ · 1 lone pair on N", zh: "NH₃ · N 上一对孤对" } },
+        { smiles: "C", label: { en: "CH₄ · no lone pairs", zh: "CH₄ · 无孤对" } },
+        { smiles: "O=C=O", label: { en: "CO₂ · two C=O double bonds", zh: "CO₂ · 两个 C=O 双键" } },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "When the octet rule bends", zh: "八隅体规则的例外" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Incomplete octets:** B and Be often have only 6 or 4 electrons (e.g., BF₃ — boron has 6).", zh: "**八隅体不完整:** B 与 Be 常为 6 或 4 个电子(如 BF₃ 中 B 只有 6 个)。" },
+        { en: "**Expanded octets:** period-3+ atoms with empty d-orbitals can hold 10 or 12 (e.g., PCl₅, SF₆).", zh: "**超价(扩展八隅体):** 第 3 周期及以上的原子可利用空 d 轨道容纳 10 或 12 个(如 PCl₅、SF₆)。" },
+        { en: "**Odd-electron species:** radicals like NO have an unpaired electron and can't satisfy the octet.", zh: "**奇电子物种:** 如 NO 自由基,存在未成对电子,无法满足八隅体。" },
+      ],
+    },
+  ],
+
+  // ---------- Topic 2.6 · Resonance & Formal Charge ----------
+  "unit-2/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Some molecules can't be described by a single Lewis structure. When two or more valid structures differ **only in the placement of electrons** (not atoms), the real molecule is a blend — a **resonance hybrid** — and all contributors share the electron density.",
+        zh: "有些分子无法用单一的路易斯结构描述。若两个或多个合理结构**只在电子位置上不同**(原子不变),真实分子就是它们的**共振杂化体**,各结构共同贡献电子分布。",
+      },
+    },
+    {
+      kind: "molecule-row",
+      items: [
+        { smiles: "O=[N+]([O-])[O-]", label: { en: "NO₃⁻ · one of 3 equivalent resonance forms", zh: "NO₃⁻ · 三种等价共振式之一" } },
+        { smiles: "[O-][N+](=O)[O-]", label: { en: "NO₃⁻ · another equivalent form", zh: "NO₃⁻ · 另一等价式" } },
+        { smiles: "[O-][N+]([O-])=O", label: { en: "NO₃⁻ · third equivalent form", zh: "NO₃⁻ · 第三等价式" } },
+      ],
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "In reality, every N–O bond in NO₃⁻ has the same length — somewhere between a single and a double bond. The three resonance forms are drawing tricks; the molecule has no localized double bond.",
+        zh: "实际上 NO₃⁻ 中的三个 N–O 键长相同——介于单键与双键之间。三种共振式只是画法约定,真实分子没有局域双键。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Formal charge — which structure is best?", zh: "形式电荷——如何选最佳共振式" },
+    },
+    {
+      kind: "math",
+      tex: "\\text{Formal charge} \\;=\\; (\\text{valence e}^{-}) - (\\text{nonbonding e}^{-}) - \\tfrac{1}{2}(\\text{bonding e}^{-})",
+    },
+    {
+      kind: "callout",
+      label: { en: "Rules of thumb", zh: "判断原则" },
+      text: {
+        en: "The **best** Lewis structure is the one where (1) formal charges are **smallest in magnitude**, (2) **negative formal charge sits on the most electronegative atom**, and (3) the **sum of formal charges equals the overall charge** of the species.",
+        zh: "**最佳**路易斯结构应满足:(1) 形式电荷**绝对值最小**;(2) **负形式电荷位于电负性最大的原子上**;(3) 形式电荷之和等于物种**总电荷**。",
+      },
+    },
+  ],
+
+  // ---------- Topic 2.7 · VSEPR & Bond Hybridization ----------
+  "unit-2/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**VSEPR** (Valence Shell Electron Pair Repulsion) predicts molecular shape from one idea: electron domains around a central atom **push each other as far apart as possible**. An electron domain is a single bond, multiple bond, or lone pair — lone pairs count as one domain and repel *more strongly* than bonding pairs.",
+        zh: "**VSEPR**(价层电子对互斥理论)仅用一条原则预测分子几何:中心原子周围的电子域**尽可能彼此远离**。电子域包括单键、多重键、孤对——孤对算一个域,且排斥**更强**。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Geometry from electron + bonding domains", zh: "由电子域/成键数推出几何" },
+      columns: [
+        { en: "e⁻ domains", zh: "电子域" },
+        { en: "Bonds / lone pairs", zh: "成键 / 孤对" },
+        { en: "Molecular shape", zh: "分子形状" },
+        { en: "Angle", zh: "键角" },
+        { en: "Example", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "2", zh: "2" }, { en: "2 / 0", zh: "2 / 0" }, { en: "Linear", zh: "直线形" }, { en: "180°", zh: "180°" }, { en: "CO₂", zh: "CO₂" }],
+        [{ en: "3", zh: "3" }, { en: "3 / 0", zh: "3 / 0" }, { en: "Trigonal planar", zh: "平面三角" }, { en: "120°", zh: "120°" }, { en: "BF₃", zh: "BF₃" }],
+        [{ en: "3", zh: "3" }, { en: "2 / 1", zh: "2 / 1" }, { en: "Bent", zh: "弯曲形" }, { en: "< 120°", zh: "< 120°" }, { en: "SO₂", zh: "SO₂" }],
+        [{ en: "4", zh: "4" }, { en: "4 / 0", zh: "4 / 0" }, { en: "Tetrahedral", zh: "正四面体" }, { en: "109.5°", zh: "109.5°" }, { en: "CH₄", zh: "CH₄" }],
+        [{ en: "4", zh: "4" }, { en: "3 / 1", zh: "3 / 1" }, { en: "Trigonal pyramidal", zh: "三角锥" }, { en: "~107°", zh: "~107°" }, { en: "NH₃", zh: "NH₃" }],
+        [{ en: "4", zh: "4" }, { en: "2 / 2", zh: "2 / 2" }, { en: "Bent", zh: "弯曲形" }, { en: "~104.5°", zh: "~104.5°" }, { en: "H₂O", zh: "H₂O" }],
+        [{ en: "5", zh: "5" }, { en: "5 / 0", zh: "5 / 0" }, { en: "Trigonal bipyramidal", zh: "三角双锥" }, { en: "90° / 120°", zh: "90° / 120°" }, { en: "PCl₅", zh: "PCl₅" }],
+        [{ en: "6", zh: "6" }, { en: "6 / 0", zh: "6 / 0" }, { en: "Octahedral", zh: "正八面体" }, { en: "90°", zh: "90°" }, { en: "SF₆", zh: "SF₆" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "See the shapes — drag to rotate", zh: "立体效果(可拖动旋转)" },
+    },
+    {
+      kind: "mol3d",
+      geometry: "tetrahedral",
+    },
+    {
+      kind: "mol3d",
+      geometry: "trigonal-pyramidal",
+    },
+    {
+      kind: "mol3d",
+      geometry: "bent",
+    },
+    {
+      kind: "heading",
+      text: { en: "Hybridization in one sentence", zh: "一句话讲杂化" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Hybridization = count the electron domains around the central atom.** 2 → sp, 3 → sp², 4 → sp³. (Expanded-octet cases give sp³d or sp³d², not on the current AP exam.)",
+        zh: "**杂化 = 中心原子周围电子域的数量。** 2 → sp;3 → sp²;4 → sp³。(扩展八隅体可有 sp³d、sp³d²,已不在现行 AP 考纲内。)",
+      },
+    },
+  ],
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -9779,6 +10121,283 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       explanation: {
         en: "Mg is in Group 2 with 2 valence electrons. To reach a noble-gas configuration, it loses **both** to become **Mg²⁺** — not Mg⁺. Group 2 metals essentially never form +1 ions. O²⁻, Al³⁺, and F⁻ all match the octet rule.",
         zh: "Mg 在第 2 族,有 2 个价电子。要达到惰性气体构型,它必须同时失去**两个**,形成 **Mg²⁺**——而非 Mg⁺。第 2 族金属几乎不会形成 +1 离子。O²⁻、Al³⁺、F⁻ 均符合八隅体规则。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // UNIT 2 · Questions
+  // ============================================================
+
+  "unit-2/topic-1": [
+    {
+      id: "chem-u2-t1-q1",
+      prompt: {
+        en: "Using Pauling electronegativities (H = 2.20, C = 2.55, N = 3.04, O = 3.44, F = 3.98, Na = 0.93), which of the following bonds is **most ionic**?",
+        zh: "已知鲍林电负性(H = 2.20、C = 2.55、N = 3.04、O = 3.44、F = 3.98、Na = 0.93),下列哪种键**最具离子性**?",
+      },
+      choices: [
+        { id: "a", text: { en: "C–H", zh: "C–H" } },
+        { id: "b", text: { en: "C–O", zh: "C–O" } },
+        { id: "c", text: { en: "H–F", zh: "H–F" } },
+        { id: "d", text: { en: "Na–F", zh: "Na–F" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Bond-type 'ionicity' tracks **ΔEN**. ΔEN values: C–H = 0.35, C–O = 0.89, H–F = 1.78, **Na–F = 3.05**. Na–F is the largest by far, well above the ~1.7 threshold for ionic character.",
+        zh: "键的离子性随 **ΔEN** 增大而增大。ΔEN:C–H = 0.35、C–O = 0.89、H–F = 1.78、**Na–F = 3.05**。Na–F 远大于离子键的约 1.7 阈值,最具离子性。",
+      },
+    },
+    {
+      id: "chem-u2-t1-q2",
+      prompt: {
+        en: "Which property is BEST explained by the **sea of electrons** model for metals?",
+        zh: "下列哪一性质**最直接**由金属的「电子海」模型解释?",
+      },
+      choices: [
+        { id: "a", text: { en: "Metals have fixed melting points.", zh: "金属具有固定熔点。" } },
+        { id: "b", text: { en: "Metals conduct electricity in the solid state.", zh: "金属在固态下导电。" } },
+        { id: "c", text: { en: "Metals react with nonmetals to form ionic compounds.", zh: "金属与非金属反应形成离子化合物。" } },
+        { id: "d", text: { en: "Metals have high ionization energies.", zh: "金属具有较高的电离能。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Delocalized valence electrons are free to drift through the lattice → they carry charge → solid-state conductivity. Ionic compounds by contrast only conduct when dissolved or molten. Choice D is wrong — metals have **low** ionization energies.",
+        zh: "离域的价电子在晶格中自由移动 → 可传导电荷 → 固态导电。离子化合物则需熔融或溶解才能导电。选项 D 错误——金属的电离能**较低**。",
+      },
+    },
+  ],
+
+  "unit-2/topic-2": [
+    {
+      id: "chem-u2-t2-q1",
+      prompt: {
+        en: "Rank the following bonds by **increasing bond length**: C–C, C=C, C≡C, C–H.",
+        zh: "按**键长递增**排序:C–C、C=C、C≡C、C–H。",
+      },
+      choices: [
+        { id: "a", text: { en: "C–H < C–C < C=C < C≡C", zh: "C–H < C–C < C=C < C≡C" } },
+        { id: "b", text: { en: "C≡C < C=C < C–H < C–C", zh: "C≡C < C=C < C–H < C–C" } },
+        { id: "c", text: { en: "C–H < C≡C < C=C < C–C", zh: "C–H < C≡C < C=C < C–C" } },
+        { id: "d", text: { en: "C–C < C=C < C≡C < C–H", zh: "C–C < C=C < C≡C < C–H" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "More bond order = shorter bond: **C≡C (120 pm) < C=C (134 pm) < C–C (154 pm)**. The C–H bond is shortest of all (≈ 109 pm) because H is tiny. Order: **C–H < C≡C < C=C < C–C**.",
+        zh: "键级越大,键越短:**C≡C (120 pm) < C=C (134 pm) < C–C (154 pm)**。C–H 最短(约 109 pm),因 H 很小。顺序为 **C–H < C≡C < C=C < C–C**。",
+      },
+    },
+    {
+      id: "chem-u2-t2-q2",
+      prompt: {
+        en: "On a potential-energy vs. internuclear-distance curve for a diatomic molecule, the **bond length** corresponds to which feature?",
+        zh: "对双原子分子的势能 vs. 核间距曲线,**键长**对应图中哪一位置?",
+      },
+      choices: [
+        { id: "a", text: { en: "The distance where PE = 0.", zh: "势能为 0 时的距离。" } },
+        { id: "b", text: { en: "The distance of the minimum PE.", zh: "势能**最小**处的距离。" } },
+        { id: "c", text: { en: "The distance where repulsion is maximum.", zh: "斥力最大的位置。" } },
+        { id: "d", text: { en: "Half the distance of the asymptote.", zh: "渐近线距离的一半。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "The PE **minimum** = most stable separation = bond length. At PE = 0 the atoms are essentially infinitely far apart. Repulsion dominates at very short distances but that's *not* where the bond 'sits'.",
+        zh: "势能**最小**处 = 最稳定距离 = 键长。PE = 0 对应两原子无限远。极短距离下斥力占主导,但不是成键平衡位置。",
+      },
+    },
+  ],
+
+  "unit-2/topic-3": [
+    {
+      id: "chem-u2-t3-q1",
+      prompt: {
+        en: "Rank the lattice energies of **NaF, MgO, CaO** from smallest to largest. (All three have similar structures.)",
+        zh: "下列三种结构相似的离子化合物,按**晶格能从小到大**排列:**NaF、MgO、CaO**。",
+      },
+      choices: [
+        { id: "a", text: { en: "NaF < CaO < MgO", zh: "NaF < CaO < MgO" } },
+        { id: "b", text: { en: "MgO < CaO < NaF", zh: "MgO < CaO < NaF" } },
+        { id: "c", text: { en: "NaF < MgO < CaO", zh: "NaF < MgO < CaO" } },
+        { id: "d", text: { en: "CaO < NaF < MgO", zh: "CaO < NaF < MgO" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Lattice energy grows with **|q₊q₋| / (r₊ + r₋)**. NaF has charges (+1)(−1) = 1; MgO and CaO have (+2)(−2) = 4. Among the ±2/±2 pair, Mg²⁺ is smaller than Ca²⁺, so MgO has a smaller sum of radii and **highest** lattice energy. Order: **NaF < CaO < MgO**.",
+        zh: "晶格能 ∝ **|q₊q₋| / (r₊ + r₋)**。NaF 的电荷积为 1,MgO 与 CaO 为 4。在 ±2/±2 中,Mg²⁺ 比 Ca²⁺ 小,故 MgO 半径和更小、晶格能**最大**。顺序为 **NaF < CaO < MgO**。",
+      },
+    },
+    {
+      id: "chem-u2-t3-q2",
+      prompt: {
+        en: "A student observes that solid NaCl does not conduct electricity, but molten NaCl does. The best explanation is:",
+        zh: "某学生发现固体 NaCl 不导电,而熔融 NaCl 导电。最合适的解释是:",
+      },
+      choices: [
+        { id: "a", text: { en: "Melting converts Na⁺ and Cl⁻ into atoms.", zh: "熔化把 Na⁺、Cl⁻ 变成原子。" } },
+        { id: "b", text: { en: "Molten NaCl has mobile ions; solid NaCl has ions locked in a lattice.", zh: "熔融 NaCl 中离子可自由移动;固体中离子被晶格锁定。" } },
+        { id: "c", text: { en: "NaCl only exists as a liquid.", zh: "NaCl 只有液态存在。" } },
+        { id: "d", text: { en: "Solid NaCl lacks electrons.", zh: "固体 NaCl 没有电子。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Ionic conductivity requires **mobile charge carriers**. In the solid, Na⁺ and Cl⁻ are frozen in a lattice. Melting lets them move, so the melt conducts. Choice A wrongly claims melting reduces ions to atoms — no chemistry changes on phase change.",
+        zh: "导电需要**可移动的载流子**。固态 NaCl 中 Na⁺、Cl⁻ 被晶格束缚,熔化后可自由移动,故导电。选项 A 错误——相变不改变化学组成。",
+      },
+    },
+  ],
+
+  "unit-2/topic-4": [
+    {
+      id: "chem-u2-t4-q1",
+      prompt: {
+        en: "Steel is made by adding a small amount of carbon to iron. Steel is **harder than pure iron**. Which statement BEST explains this?",
+        zh: "钢是在铁中加入少量碳得到的,**比纯铁更硬**。下列哪一说法**最合适**?",
+      },
+      choices: [
+        { id: "a", text: { en: "Carbon atoms replace iron atoms, so the lattice has a weaker electron sea.", zh: "碳原子取代铁原子,使电子海变弱。" } },
+        { id: "b", text: { en: "Small carbon atoms lodge between iron atoms, disrupting the lattice and making layer-sliding harder.", zh: "小碳原子嵌入铁原子之间,破坏晶格,使层间滑动更困难。" } },
+        { id: "c", text: { en: "Carbon atoms turn metallic bonds into covalent bonds.", zh: "碳原子把金属键变成共价键。" } },
+        { id: "d", text: { en: "Adding carbon increases the number of valence electrons per iron.", zh: "加碳使每个铁的价电子增多。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Carbon is much smaller than iron, so it forms an **interstitial alloy** — C atoms squeeze between Fe atoms in the lattice. They block Fe layers from sliding, increasing hardness. Choice A describes substitutional alloys (e.g., brass), not steel.",
+        zh: "碳明显比铁小,形成**间隙合金**——C 原子挤入 Fe 原子间,阻碍 Fe 层滑动,从而增加硬度。选项 A 描述的是置换合金(如黄铜),与钢不同。",
+      },
+    },
+    {
+      id: "chem-u2-t4-q2",
+      prompt: {
+        en: "Which of the following metallic properties is NOT directly explained by the sea-of-electrons model?",
+        zh: "下列金属性质,**不**能由电子海模型直接解释的是?",
+      },
+      choices: [
+        { id: "a", text: { en: "High electrical conductivity", zh: "高导电性" } },
+        { id: "b", text: { en: "Malleability", zh: "延展性" } },
+        { id: "c", text: { en: "Metallic luster", zh: "金属光泽" } },
+        { id: "d", text: { en: "Variable oxidation states of transition metals", zh: "过渡金属的可变氧化态" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Variable oxidation states come from the availability of multiple d-orbital electrons to ionize at similar energies — a **valence-shell** effect, not a delocalized-electron-sea effect. The sea model cleanly predicts conductivity, malleability, and luster.",
+        zh: "可变氧化态源于过渡金属 d 轨道上多个电子电离能相近,属**价层效应**,并非电子海的直接结果。电子海模型能整齐地解释导电、延展和光泽。",
+      },
+    },
+  ],
+
+  "unit-2/topic-5": [
+    {
+      id: "chem-u2-t5-q1",
+      prompt: {
+        en: "How many **total** valence electrons must be placed in the Lewis diagram of the carbonate ion, **CO₃²⁻**?",
+        zh: "绘制碳酸根离子 **CO₃²⁻** 的路易斯结构时,应安排多少个**价电子**?",
+      },
+      choices: [
+        { id: "a", text: { en: "22", zh: "22" } },
+        { id: "b", text: { en: "24", zh: "24" } },
+        { id: "c", text: { en: "26", zh: "26" } },
+        { id: "d", text: { en: "28", zh: "28" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "C contributes 4, each O contributes 6 (×3 = 18), plus **2 extra** for the 2− charge: **4 + 18 + 2 = 24**. A common mistake is forgetting to add for the anion charge.",
+        zh: "C 贡献 4 个,每个 O 6 个(×3 = 18),再加 **2** 个以反映 2− 电荷:**4 + 18 + 2 = 24**。常见错误是忘记把阴离子电荷加上。",
+      },
+    },
+    {
+      id: "chem-u2-t5-q2",
+      prompt: {
+        en: "Sulfur hexafluoride (**SF₆**) has 12 electrons around the central S atom. This violates the octet rule because:",
+        zh: "六氟化硫 (**SF₆**) 的中心 S 原子周围有 12 个电子,**违反**八隅体规则的原因是:",
+      },
+      choices: [
+        { id: "a", text: { en: "SF₆ is a radical.", zh: "SF₆ 是自由基。" } },
+        { id: "b", text: { en: "Period-3 atoms like S can use vacant d orbitals to host more than 8 electrons (expanded octet).", zh: "第 3 周期的 S 可利用空 d 轨道,容纳超过 8 个电子(扩展八隅体)。" } },
+        { id: "c", text: { en: "F is smaller than S.", zh: "F 比 S 小。" } },
+        { id: "d", text: { en: "The octet rule was always wrong.", zh: "八隅体规则本身是错的。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Period-3+ central atoms (S, P, Cl, etc.) have energetically accessible d orbitals that can accept additional electron pairs — the **expanded octet**. First-period elements (B, C, N, O, F, Ne) can't do this because they lack accessible d orbitals.",
+        zh: "第 3 周期及更高的中心原子(S、P、Cl 等)具备能量相近的 d 轨道,可接受额外电子对——即**扩展八隅体**。第 2 周期元素(B、C、N、O、F、Ne)没有可用 d 轨道,不能扩展。",
+      },
+    },
+  ],
+
+  "unit-2/topic-6": [
+    {
+      id: "chem-u2-t6-q1",
+      prompt: {
+        en: "In the **NO₃⁻** ion, three resonance structures can be drawn. Experimentally, all three N–O bond lengths are **equal**. What does this tell us?",
+        zh: "在 **NO₃⁻** 中可以画出三个共振式。实验上三个 N–O 键长**相等**。这说明:",
+      },
+      choices: [
+        { id: "a", text: { en: "One resonance form is correct; the others are errors.", zh: "只有一个共振式正确,其它为错误。" } },
+        { id: "b", text: { en: "The molecule rapidly switches between the three forms.", zh: "分子在三种结构间快速切换。" } },
+        { id: "c", text: { en: "The true structure is a hybrid — electron density is delocalized evenly across all three N–O bonds.", zh: "真实结构是共振杂化体——电子密度均匀分布于三个 N–O 键。" } },
+        { id: "d", text: { en: "Resonance structures can't predict bond length.", zh: "共振式无法预测键长。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "The molecule doesn't flip between forms; it exists as a single hybrid with bond order **≈ 4/3** (one double bond averaged over three positions). Choice B is a common misconception — resonance is **not** rapid oscillation.",
+        zh: "分子并非在不同结构间来回切换,而是以单一共振杂化体存在,每个 N–O 的键级 **≈ 4/3**(一个双键在三处平均)。选项 B 是常见误解——共振**不是**快速振荡。",
+      },
+    },
+    {
+      id: "chem-u2-t6-q2",
+      prompt: {
+        en: "For the thiocyanate ion **SCN⁻**, two Lewis structures are drawn: (I) S=C=N with formal charges **S: 0, C: 0, N: −1**; (II) S≡C–N with formal charges **S: +1, C: 0, N: −2**. Which is the **better** contributor and why?",
+        zh: "硫氰酸根 **SCN⁻** 可画两个路易斯结构:(I) S=C=N,形式电荷 **S: 0、C: 0、N: −1**;(II) S≡C–N,形式电荷 **S: +1、C: 0、N: −2**。哪一个是**更好**的共振贡献者?",
+      },
+      choices: [
+        { id: "a", text: { en: "Structure I — smaller formal charges overall.", zh: "结构 I——形式电荷绝对值更小。" } },
+        { id: "b", text: { en: "Structure II — more bonds between atoms.", zh: "结构 II——原子间键更多。" } },
+        { id: "c", text: { en: "Structure II — N is more electronegative so it prefers −2.", zh: "结构 II——N 更电负,偏爱 −2。" } },
+        { id: "d", text: { en: "They contribute equally.", zh: "两者贡献相同。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Best-structure rule: formal charges closest to zero win. Structure I has magnitudes {0, 0, 1}; structure II has {1, 0, 2}. Structure I also places the negative charge on N (the most electronegative of S, C, N). So I is the major contributor.",
+        zh: "最佳结构原则:形式电荷越接近零越好。结构 I 的绝对值 {0, 0, 1},结构 II 为 {1, 0, 2}。结构 I 的负电荷也正好在电负性最大的 N 上。故 I 为主要贡献者。",
+      },
+    },
+  ],
+
+  "unit-2/topic-7": [
+    {
+      id: "chem-u2-t7-q1",
+      prompt: {
+        en: "What is the molecular shape and approximate H–N–H bond angle in **NH₃**?",
+        zh: "**NH₃** 的分子形状与 H–N–H 键角约为?",
+      },
+      choices: [
+        { id: "a", text: { en: "Trigonal planar; 120°", zh: "平面三角;120°" } },
+        { id: "b", text: { en: "Trigonal pyramidal; ~107°", zh: "三角锥;约 107°" } },
+        { id: "c", text: { en: "Tetrahedral; 109.5°", zh: "正四面体;109.5°" } },
+        { id: "d", text: { en: "Bent; ~104.5°", zh: "弯曲形;约 104.5°" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "N has 4 electron domains (3 N–H bonds + 1 lone pair). Electron-domain geometry is tetrahedral; molecular shape ignores the lone pair and is **trigonal pyramidal**. The lone pair's extra repulsion compresses the H–N–H angle from 109.5° down to ≈ **107°**.",
+        zh: "N 有 4 个电子域(3 个 N–H + 1 个孤对)。电子域几何为四面体;不计孤对,分子形状为**三角锥**。孤对的额外排斥使 H–N–H 角从 109.5° 压缩到约 **107°**。",
+      },
+    },
+    {
+      id: "chem-u2-t7-q2",
+      prompt: {
+        en: "What is the hybridization of the **central carbon** in ethyne (acetylene), **H–C≡C–H**?",
+        zh: "乙炔 **H–C≡C–H** 中**中心碳**的杂化方式为?",
+      },
+      choices: [
+        { id: "a", text: { en: "sp", zh: "sp" } },
+        { id: "b", text: { en: "sp²", zh: "sp²" } },
+        { id: "c", text: { en: "sp³", zh: "sp³" } },
+        { id: "d", text: { en: "sp³d", zh: "sp³d" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Each C has **2 electron domains** (one to H, one to the other C — the triple bond counts as one domain). 2 domains → **sp** hybridization. The two unhybridized p-orbitals on each C form the two π bonds of the triple bond.",
+        zh: "每个 C 有 **2 个电子域**(一个连 H,一个连另一个 C——三键算一个域)。2 个域 → **sp 杂化**。每个 C 剩下两条未杂化 p 轨道,形成三键中的两条 π 键。",
       },
     },
   ],
