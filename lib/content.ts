@@ -33,6 +33,8 @@ export type NoteBlock =
   | { kind: "molecule"; smiles: string; label?: Bilingual; width?: number; height?: number }
   | { kind: "molecule-row"; items: Array<{ smiles: string; label?: Bilingual }>; width?: number; height?: number }
   | { kind: "mol3d"; geometry: "linear" | "trigonal-planar" | "tetrahedral" | "trigonal-pyramidal" | "bent" | "trigonal-bipyramidal" | "octahedral" }
+  | { kind: "lewis"; name: string; label?: Bilingual }
+  | { kind: "lewis-row"; names: string[] }
   | {
       kind: "chart";
       chartType:
@@ -9479,12 +9481,8 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       highlightLastRow: false,
     },
     {
-      kind: "molecule-row",
-      items: [
-        { smiles: "[H][H]", label: { en: "H₂ · nonpolar covalent", zh: "H₂ · 非极性共价" } },
-        { smiles: "O", label: { en: "H₂O · polar covalent", zh: "H₂O · 极性共价" } },
-        { smiles: "[Na+].[Cl-]", label: { en: "NaCl · ionic", zh: "NaCl · 离子键" } },
-      ],
+      kind: "lewis-row",
+      names: ["hf", "h2o", "na-cl-ionic"],
     },
     {
       kind: "callout",
@@ -9568,9 +9566,9 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
     {
-      kind: "molecule",
-      smiles: "[Na+].[Cl-]",
-      label: { en: "NaCl formula unit (lattice repeats this pair in 3D)", zh: "NaCl 的「式单位」(三维晶格中无限重复)" },
+      kind: "lewis",
+      name: "na-cl-ionic",
+      label: { en: "NaCl formula unit — the lattice repeats this pair in 3D", zh: "NaCl 的「式单位」——三维晶格中无限重复" },
     },
     {
       kind: "callout",
@@ -9663,13 +9661,12 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
     {
-      kind: "molecule-row",
-      items: [
-        { smiles: "O", label: { en: "H₂O · 2 lone pairs on O", zh: "H₂O · O 上两对孤对" } },
-        { smiles: "N", label: { en: "NH₃ · 1 lone pair on N", zh: "NH₃ · N 上一对孤对" } },
-        { smiles: "C", label: { en: "CH₄ · no lone pairs", zh: "CH₄ · 无孤对" } },
-        { smiles: "O=C=O", label: { en: "CO₂ · two C=O double bonds", zh: "CO₂ · 两个 C=O 双键" } },
-      ],
+      kind: "lewis-row",
+      names: ["h2o", "nh3", "ch4", "co2"],
+    },
+    {
+      kind: "lewis",
+      name: "bf3",
     },
     {
       kind: "heading",
@@ -9695,12 +9692,8 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
     {
-      kind: "molecule-row",
-      items: [
-        { smiles: "O=[N+]([O-])[O-]", label: { en: "NO₃⁻ · one of 3 equivalent resonance forms", zh: "NO₃⁻ · 三种等价共振式之一" } },
-        { smiles: "[O-][N+](=O)[O-]", label: { en: "NO₃⁻ · another equivalent form", zh: "NO₃⁻ · 另一等价式" } },
-        { smiles: "[O-][N+]([O-])=O", label: { en: "NO₃⁻ · third equivalent form", zh: "NO₃⁻ · 第三等价式" } },
-      ],
+      kind: "lewis-row",
+      names: ["no3-minus-1", "no3-minus-2", "no3-minus-3"],
     },
     {
       kind: "paragraph",

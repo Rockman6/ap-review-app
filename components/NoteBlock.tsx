@@ -5,6 +5,7 @@ import "katex/contrib/mhchem/mhchem.js";
 import { BlockMath, InlineMath } from "react-katex";
 import { MoleculeDiagram, MoleculeRow } from "./MoleculeDiagram";
 import { Mol3DViewer } from "./Mol3DViewer";
+import { LewisStructure, LewisRow } from "./LewisStructure";
 import { useT } from "./LocaleProvider";
 import { SupplyDemandChart } from "./SupplyDemandChart";
 import { ProductionPossibilitiesChart } from "./ProductionPossibilitiesChart";
@@ -105,6 +106,14 @@ export function NoteBlockRenderer({ block }: { block: NoteBlock }) {
           <Mol3DViewer geometry={block.geometry} />
         </div>
       );
+    case "lewis":
+      return (
+        <div className="flex justify-center">
+          <LewisStructure name={block.name} label={block.label ? t(block.label) : undefined} />
+        </div>
+      );
+    case "lewis-row":
+      return <LewisRow names={block.names} />;
     case "callout":
       return (
         <div className="mt-5 rounded-lg border-l-4 border-blue-500 bg-blue-50 p-4">
