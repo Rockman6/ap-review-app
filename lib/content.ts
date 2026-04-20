@@ -14108,6 +14108,275 @@ export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
     },
   ],
 
+  "unit-6/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A spinning object carries **rotational kinetic energy**, even if its center of mass is at rest. It's the rotational analog of ½mv², built from the rotational analogs of mass (I) and speed (ω).",
+        zh: "旋转物体拥有**转动动能**,即使其质心静止亦然。它是 ½mv² 的转动版本,由质量的对应量 (I) 与速度的对应量 (ω) 构成。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "KE_{rot} \\;=\\; \\tfrac{1}{2}\\,I\\,\\omega^{2}",
+      caption: {
+        en: "Rotational kinetic energy",
+        zh: "转动动能",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Total KE of a rolling object", zh: "滚动物体的总动能" },
+    },
+    {
+      kind: "math",
+      tex: "KE_{total} \\;=\\; \\tfrac{1}{2}\\,m\\,v_{cm}^{2} + \\tfrac{1}{2}\\,I\\,\\omega^{2}",
+      caption: {
+        en: "Translational + rotational pieces add",
+        zh: "平动 + 转动两部分相加",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Both types of KE are real", zh: "两种动能都是真实能量" },
+      text: {
+        en: "A rolling bowling ball has *both* translational KE (because its CM moves) and rotational KE (because it spins). To slow it to rest, both pieces must be converted — which is why rolling objects go farther than sliding ones with the same initial speed.",
+        zh: "滚动的保龄球同时拥有**平动动能**(质心在移动)与**转动动能**(球在旋转)。要使其静止,必须耗散**两部分**能量——这也是相同初速度下,滚动物比滑动物走得更远的原因。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Rolling without slipping — the key constraint", zh: "无滑滚动——关键约束" },
+    },
+    {
+      kind: "math",
+      tex: "v_{cm} \\;=\\; r\\,\\omega \\qquad a_{cm} \\;=\\; r\\,\\alpha",
+      caption: {
+        en: "Links the translational and rotational motions of the CM",
+        zh: "把质心的平动与转动联系起来",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Energy conservation — rolling down an incline", zh: "能量守恒——沿斜面滚下" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "An object released from rest at height h rolls to the bottom without slipping. Apply mgh = ½mv² + ½Iω². Use ω = v/r to eliminate ω, then solve for v. The result depends on the *shape* through I — a solid disk rolls faster than a hoop of the same mass and radius.",
+        zh: "物体从高度 h 由静止无滑滚下。应用 mgh = ½mv² + ½Iω²,用 ω = v/r 消去 ω,再解 v。结果通过 I 依赖于**形状**——相同质量和半径的实心圆盘比圆环滚得快。",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Speed at the bottom of a frictionless rolling descent (height h)",
+        zh: "无能量损失下,高度 h 处滚至底部的速率",
+      },
+      columns: [
+        { en: "Object", zh: "物体" },
+        { en: "I", zh: "I" },
+        { en: "v at bottom", zh: "底部 v" },
+      ],
+      rows: [
+        [{ en: "Sliding block (no rotation)", zh: "滑动物块(不转)" }, { en: "—", zh: "—" }, { en: "√(2gh)", zh: "√(2gh)" }],
+        [{ en: "Solid sphere", zh: "实心球" }, { en: "⅖ mR²", zh: "⅖ mR²" }, { en: "√(10gh/7)", zh: "√(10gh/7)" }],
+        [{ en: "Solid disk / cylinder", zh: "实心圆盘 / 圆柱" }, { en: "½ mR²", zh: "½ mR²" }, { en: "√(4gh/3)", zh: "√(4gh/3)" }],
+        [{ en: "Hoop / hollow cylinder", zh: "圆环 / 空心圆柱" }, { en: "mR²", zh: "mR²" }, { en: "√(gh)", zh: "√(gh)" }],
+      ],
+      highlightLastRow: true,
+    },
+    {
+      kind: "callout",
+      label: { en: "Shape wins the race", zh: "形状决定胜负" },
+      text: {
+        en: "Mass and radius **don't** matter (they cancel). The winner of a rolling race is always the **shape with the smallest I/mR² ratio** — less energy gets \"trapped\" in rotation, more in translation. Solid sphere < solid disk < hoop.",
+        zh: "质量和半径**无关**(会约去)。滚动比赛的冠军永远是 **I/mR² 比值最小的形状**——更少的能量被「锁」在转动上,更多变为平动。实心球 < 实心盘 < 圆环。",
+      },
+    },
+  ],
+
+  "unit-6/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Angular momentum (L)** is the rotational analog of linear momentum. Just as p = mv, for a rigid body spinning about a fixed axis, L = Iω. Like p, L is a vector, and like p, it is conserved when no external *torque* acts.",
+        zh: "**角动量 (L)** 是线动量的转动对应量。就像 p = mv,对绕固定轴转动的刚体,L = Iω。与 p 一样,L 是矢量;外**力矩**为零时,L 守恒。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "L \\;=\\; I\\,\\omega \\qquad\\text{(rigid body)}",
+      caption: {
+        en: "Units: kg·m²/s",
+        zh: "单位:kg·m²/s",
+      },
+    },
+    {
+      kind: "math",
+      tex: "L \\;=\\; r\\,m\\,v\\,\\sin\\theta \\qquad\\text{(point particle relative to a pivot)}",
+      caption: {
+        en: "Even non-spinning point particles have angular momentum about a chosen axis",
+        zh: "点粒子即使不绕自身转动,相对选定的轴也有角动量",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "The full linear ↔ angular analogy",
+        zh: "完整的线量 ↔ 角量对应",
+      },
+      columns: [
+        { en: "Linear", zh: "线性" },
+        { en: "Angular", zh: "转动" },
+      ],
+      rows: [
+        [{ en: "p = mv", zh: "p = mv" }, { en: "L = Iω", zh: "L = Iω" }],
+        [{ en: "F = dp/dt", zh: "F = dp/dt" }, { en: "τ = dL/dt", zh: "τ = dL/dt" }],
+        [{ en: "J = FΔt = Δp (impulse)", zh: "J = FΔt = Δp(冲量)" }, { en: "τΔt = ΔL (angular impulse)", zh: "τΔt = ΔL(角冲量)" }],
+        [{ en: "KE = ½mv² = p²/(2m)", zh: "KE = ½mv² = p²/(2m)" }, { en: "KE_rot = ½Iω² = L²/(2I)", zh: "KE_rot = ½Iω² = L²/(2I)" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "L is a vector", zh: "L 是矢量" },
+      text: {
+        en: "Angular momentum has a **direction**, given by the right-hand rule (curl fingers in direction of rotation; thumb points along L). For AP 1, you mainly need +/− signs: CCW is +, CW is −, along the chosen axis.",
+        zh: "角动量有**方向**,由右手定则给出(手指沿旋转方向弯曲,大拇指指向 L)。AP 1 中主要关注 +/−:沿所选轴方向,CCW 为正,CW 为负。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Torque changes L", zh: "力矩改变 L" },
+    },
+    {
+      kind: "math",
+      tex: "\\vec{\\tau} \\;=\\; \\dfrac{d\\vec{L}}{dt}",
+      caption: {
+        en: "Rotational analog of F = dp/dt",
+        zh: "F = dp/dt 的转动对应",
+      },
+    },
+  ],
+
+  "unit-6/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "When the **net external torque** on a system is zero, the system's **total angular momentum is conserved**. This is a separate conservation law from momentum (which needs zero external force) or energy (needs no nonconservative work).",
+        zh: "当系统所受**外部净力矩为零**时,系统的**总角动量守恒**。它与动量守恒(需外力为零)、能量守恒(需无非保守力做功)是彼此独立的守恒律。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "I_{i}\\,\\omega_{i} \\;=\\; I_{f}\\,\\omega_{f}",
+      caption: {
+        en: "Rigid-body form; in general, ΣL is conserved",
+        zh: "刚体形式;一般地,总 L 守恒",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Shrinking I means spinning faster", zh: "I 减小则转得更快" },
+      text: {
+        en: "If L = I·ω is fixed and you *reduce* I (by pulling mass closer to the axis), then ω must *increase* to compensate. This is why skaters pull in their arms to spin faster and divers tuck to rotate quickly.",
+        zh: "若 L = I·ω 不变,**减小 I**(把质量向转轴靠近),ω 必须**增大**作为补偿。这就是花样滑冰选手收臂加速旋转、跳水运动员抱团翻滚的原因。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Classic examples", zh: "经典例子" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "Figure skater: arms out (large I) → pulls arms in (small I) → ω grows.", zh: "花样滑冰选手:展臂 (I 大) → 收臂 (I 小) → ω 变大。" },
+        { en: "Diver off the board: tucking reduces I → somersault faster; straightening out before entry → slow for a clean splash.", zh: "跳水:抱团减小 I → 翻滚更快;入水前展开 → 减慢以干净入水。" },
+        { en: "Person steps onto a spinning merry-go-round: I increases → ω drops.", zh: "人踏上旋转木马:I 增大 → ω 减小。" },
+        { en: "Neutron star formation: huge I star collapses → tiny I neutron star spins at thousands of rev/s.", zh: "中子星形成:巨大 I 的恒星塌缩 → 小 I 的中子星以每秒数千转自转。" },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — skater pulls arms in", zh: "例题——选手收回手臂" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A figure skater spins at 2.0 rad/s with arms extended (I = 6.0 kg·m²). She pulls her arms in, reducing her I to 2.0 kg·m². Her new angular velocity: L_i = L_f → (6.0)(2.0) = (2.0)ω_f → **ω_f = 6.0 rad/s** (three times faster).",
+        zh: "花样滑冰选手展臂旋转,ω = 2.0 rad/s,I = 6.0 kg·m²。她收回手臂,I 减小到 2.0 kg·m²。新角速度:L_i = L_f → (6.0)(2.0) = (2.0)ω_f → **ω_f = 6.0 rad/s**(三倍快)。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "KE is NOT conserved here", zh: "此过程中动能**不**守恒" },
+      text: {
+        en: "In the skater example, KE_rot = ½Iω². Before: ½(6.0)(2.0)² = 12 J. After: ½(2.0)(6.0)² = 36 J. KE **tripled** — where did the extra energy come from? Her muscles did work pulling her arms against centrifugal tendency. Momentum and energy follow different rules.",
+        zh: "上题中 KE_rot = ½Iω²。前:½(6.0)(2.0)² = 12 J;后:½(2.0)(6.0)² = 36 J。动能**变为三倍**——多出的能量来自哪里?选手的肌肉对抗离心趋势做功。动量与能量守恒是两套规则。",
+      },
+    },
+  ],
+
+  "unit-6/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Rolling** combines translation (CM moving) with rotation (body spinning). A car wheel rolls forward; a bowling ball rolls down the lane. At any instant, the point of contact with the ground is momentarily at rest (no slipping).",
+        zh: "**滚动**是平动(质心移动)与转动(物体自转)的叠加。汽车车轮向前滚,保龄球在跑道上滚。任一瞬间,与地面接触的点**瞬时静止**(无滑)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Rolling without slipping", zh: "无滑滚动" },
+    },
+    {
+      kind: "math",
+      tex: "v_{cm} \\;=\\; r\\,\\omega \\qquad a_{cm} \\;=\\; r\\,\\alpha",
+      caption: {
+        en: "The constraint that turns two variables (v and ω) into one",
+        zh: "该约束把两个变量 (v, ω) 归结为一个",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Contact point paradox", zh: "接触点悖论" },
+      text: {
+        en: "The bottom of a rolling wheel has **zero** velocity at the instant it's in contact — the wheel is spinning backward *exactly* fast enough to cancel the translation. The top of the wheel moves forward at **2v**. A car tire's tread briefly stops touching the road at each revolution.",
+        zh: "滚动轮子的**底部**在接触瞬间速度**为零**——轮子后转的速度恰好与平动速度抵消。轮子顶部以 **2v** 向前运动。汽车轮胎胎面每转一圈,与地面的接触处瞬间静止。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Energy breakdown", zh: "能量分解" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "For a rolling object, the kinetic energy splits between translation and rotation. The fraction in each depends on **I / (mR²)**: for a hoop it's 50/50, for a solid disk 2/3 in translation, for a solid sphere 5/7 in translation.",
+        zh: "滚动物体的动能分为平动与转动两部分。各自所占比例由 **I / (mR²)** 决定:圆环 50/50;实心圆盘 2/3 为平动;实心球 5/7 为平动。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — race down an incline", zh: "例题——斜面比赛" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A solid sphere, a hoop, and a box (sliding, frictionless) are released simultaneously from the top of the same incline. Using mgh = KE_f, the **sliding box** wins (no rotational KE — all mgh becomes ½mv²); next the **solid sphere** (least \"rotational tax\"); and last the **hoop** (most of its mass is on the rim, biggest I/mR²).",
+        zh: "实心球、圆环和无摩擦滑动的方块在同一斜面顶端同时释放。由 mgh = KE_f,**滑动方块**胜出(无转动动能——所有 mgh 变为 ½mv²);其次是**实心球**(转动「税」最小);最后是**圆环**(质量多在边缘,I/mR² 最大)。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Friction here does NO work", zh: "此处摩擦做零功" },
+      text: {
+        en: "Rolling-without-slipping uses **static friction** at the contact point. Because the contact point is instantaneously at rest, that friction does **no work** — mechanical energy is conserved even though a friction force is present. This is a special feature of rolling.",
+        zh: "无滑滚动在接触点处的是**静摩擦力**。由于接触点瞬时静止,该摩擦力做**零功**——尽管有摩擦力,机械能仍守恒。这是滚动的独特性质。",
+      },
+    },
+  ],
+
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -17859,6 +18128,234 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
       explanation: {
         en: "α = τ/I = F·R/I. Same R, same I, but F_Y = 2·F_X → τ_Y = 2·τ_X → **α_Y = 2·α_X**. Double the torque → double the angular acceleration, just like double the force → double the linear a.",
         zh: "α = τ/I = F·R/I。R、I 相同,但 F_Y = 2·F_X → τ_Y = 2·τ_X → **α_Y = 2·α_X**。力矩翻倍 → 角加速度翻倍,与力翻倍导致线加速度翻倍完全类似。",
+      },
+    },
+  ],
+
+  "unit-6/topic-1": [
+    {
+      id: "phys1-u6-t1-q1",
+      prompt: {
+        en: "A disk with I = 0.50 kg·m² rotates at 4.0 rad/s. What is its rotational kinetic energy?",
+        zh: "I = 0.50 kg·m² 的圆盘以 4.0 rad/s 旋转。它的转动动能是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "1.0 J", zh: "1.0 J" } },
+        { id: "b", text: { en: "2.0 J", zh: "2.0 J" } },
+        { id: "c", text: { en: "4.0 J", zh: "4.0 J" } },
+        { id: "d", text: { en: "8.0 J", zh: "8.0 J" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "KE_rot = ½I·ω² = ½(0.50)(4.0)² = ½(0.50)(16) = **4.0 J**. Choice D forgets the ½; choice B forgets the square.",
+        zh: "KE_rot = ½I·ω² = ½(0.50)(4.0)² = ½(0.50)(16) = **4.0 J**。选项 D 漏了 ½;选项 B 忘记平方。",
+      },
+    },
+    {
+      id: "phys1-u6-t1-q2",
+      prompt: {
+        en: "Three objects with the same mass and radius roll without slipping down identical inclines, released from rest from the same height. Which arrives at the bottom first?",
+        zh: "质量和半径都相同的三个物体在相同斜面上从相同高度由静止无滑滚下。哪个先到底?",
+      },
+      choices: [
+        { id: "a", text: { en: "Hoop", zh: "圆环" } },
+        { id: "b", text: { en: "Solid disk", zh: "实心圆盘" } },
+        { id: "c", text: { en: "Solid sphere", zh: "实心球" } },
+        { id: "d", text: { en: "All arrive at the same time.", zh: "同时到达。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Using mgh = ½mv² + ½Iω² with ω = v/r, the shape with the **smallest I/mR²** wins. Solid sphere (⅖) < solid disk (½) < hoop (1). The **solid sphere** arrives first.",
+        zh: "由 mgh = ½mv² + ½Iω² 与 ω = v/r,**I/mR² 最小**的形状胜出。实心球 (⅖) < 实心盘 (½) < 圆环 (1)。**实心球先到**。",
+      },
+    },
+    {
+      id: "phys1-u6-t1-q3",
+      prompt: {
+        en: "A solid sphere of mass m = 2.0 kg and radius 0.10 m rolls without slipping with a center-of-mass speed of 3.0 m/s. What is its total kinetic energy?",
+        zh: "质量 m = 2.0 kg、半径 0.10 m 的实心球以质心速率 3.0 m/s 无滑滚动。总动能是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "3.6 J", zh: "3.6 J" } },
+        { id: "b", text: { en: "9.0 J", zh: "9.0 J" } },
+        { id: "c", text: { en: "12.6 J", zh: "12.6 J" } },
+        { id: "d", text: { en: "14.0 J", zh: "14.0 J" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "KE_trans = ½(2.0)(3.0)² = 9.0 J. KE_rot = ½·I·ω² = ½·⅖mR²·(v/R)² = ⅕·m·v² = ⅕(2.0)(9) = 3.6 J. Total = **12.6 J**. (Rolling tax: rotation adds 40% to translation.)",
+        zh: "KE_平 = ½(2.0)(3.0)² = 9.0 J;KE_转 = ½·I·ω² = ½·⅖mR²·(v/R)² = ⅕·m·v² = ⅕(2.0)(9) = 3.6 J。总和 = **12.6 J**。(滚动「税」:转动让总动能比纯平动多 40%。)",
+      },
+    },
+  ],
+
+  "unit-6/topic-2": [
+    {
+      id: "phys1-u6-t2-q1",
+      prompt: {
+        en: "A solid disk with I = 0.80 kg·m² rotates at 5.0 rad/s. What is its angular momentum?",
+        zh: "I = 0.80 kg·m² 的实心圆盘以 5.0 rad/s 旋转。角动量为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.16 kg·m²/s", zh: "0.16 kg·m²/s" } },
+        { id: "b", text: { en: "4.0 kg·m²/s", zh: "4.0 kg·m²/s" } },
+        { id: "c", text: { en: "20 kg·m²/s", zh: "20 kg·m²/s" } },
+        { id: "d", text: { en: "10 J", zh: "10 J" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "L = I·ω = (0.80)(5.0) = **4.0 kg·m²/s**. Units of L are kg·m²/s, never joules — that's energy.",
+        zh: "L = I·ω = (0.80)(5.0) = **4.0 kg·m²/s**。L 的单位是 kg·m²/s,不是焦耳(焦耳是能量)。",
+      },
+    },
+    {
+      id: "phys1-u6-t2-q2",
+      prompt: {
+        en: "Which statement about angular momentum is correct?",
+        zh: "关于角动量的说法,下列哪项正确?",
+      },
+      choices: [
+        { id: "a", text: { en: "Only rotating objects have angular momentum.", zh: "只有转动的物体有角动量。" } },
+        { id: "b", text: { en: "A particle moving in a straight line has no angular momentum.", zh: "沿直线运动的粒子没有角动量。" } },
+        { id: "c", text: { en: "Angular momentum is a vector.", zh: "角动量是矢量。" } },
+        { id: "d", text: { en: "Angular momentum is measured in joules.", zh: "角动量以焦耳为单位。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Angular momentum is a **vector** (L = I·ω for a rigid body; L = r·m·v·sinθ for a point). A particle in a straight line past a pivot **does** have L about that pivot (choice B wrong). Units are kg·m²/s, not joules (choice D).",
+        zh: "角动量是**矢量**(刚体 L = I·ω;点粒子 L = r·m·v·sinθ)。即使粒子直线经过某点,相对该点**仍有** L(选项 B 错)。单位是 kg·m²/s,不是焦耳(选项 D 错)。",
+      },
+    },
+    {
+      id: "phys1-u6-t2-q3",
+      prompt: {
+        en: "A torque of 4.0 N·m is applied to a spinning flywheel for 3.0 s. What is the change in the flywheel's angular momentum?",
+        zh: "对一只转动的飞轮施加 4.0 N·m 的力矩持续 3.0 s。飞轮角动量的变化是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.75 kg·m²/s", zh: "0.75 kg·m²/s" } },
+        { id: "b", text: { en: "4.0 kg·m²/s", zh: "4.0 kg·m²/s" } },
+        { id: "c", text: { en: "7.0 kg·m²/s", zh: "7.0 kg·m²/s" } },
+        { id: "d", text: { en: "12 kg·m²/s", zh: "12 kg·m²/s" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Angular impulse = τ·Δt = ΔL → ΔL = (4.0)(3.0) = **12 kg·m²/s**. This is the rotational analog of impulse = F·Δt = Δp.",
+        zh: "角冲量 = τ·Δt = ΔL → ΔL = (4.0)(3.0) = **12 kg·m²/s**。即平动中冲量 = F·Δt = Δp 的转动对应。",
+      },
+    },
+  ],
+
+  "unit-6/topic-3": [
+    {
+      id: "phys1-u6-t3-q1",
+      prompt: {
+        en: "A figure skater spins at 2.0 rev/s with arms out, with rotational inertia 5.0 kg·m². She pulls her arms in, reducing I to 2.0 kg·m². What is her new angular speed? (Ignore friction.)",
+        zh: "花样滑冰选手展臂以 2.0 rev/s 旋转,转动惯量 5.0 kg·m²。她收臂后 I 减小到 2.0 kg·m²。新的角速度为多少?(忽略摩擦。)",
+      },
+      choices: [
+        { id: "a", text: { en: "0.8 rev/s", zh: "0.8 rev/s" } },
+        { id: "b", text: { en: "2.0 rev/s", zh: "2.0 rev/s" } },
+        { id: "c", text: { en: "5.0 rev/s", zh: "5.0 rev/s" } },
+        { id: "d", text: { en: "10 rev/s", zh: "10 rev/s" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Conservation of L (no external torque): I_i·ω_i = I_f·ω_f → (5.0)(2.0) = (2.0)ω_f → **ω_f = 5.0 rev/s**. Her rotation rate increased by the ratio I_i/I_f = 2.5×.",
+        zh: "角动量守恒(无外力矩):I_i·ω_i = I_f·ω_f → (5.0)(2.0) = (2.0)ω_f → **ω_f = 5.0 rev/s**。转速增大为原来的 I_i/I_f = 2.5 倍。",
+      },
+    },
+    {
+      id: "phys1-u6-t3-q2",
+      prompt: {
+        en: "When the skater in the previous question pulls her arms in, her rotational kinetic energy:",
+        zh: "上题中选手收臂后,她的转动动能:",
+      },
+      choices: [
+        { id: "a", text: { en: "stays the same (angular momentum is conserved).", zh: "不变(角动量守恒)。" } },
+        { id: "b", text: { en: "decreases, since she's more compact.", zh: "减小,因为身体更紧凑。" } },
+        { id: "c", text: { en: "increases, because she does work pulling her arms in.", zh: "增大,因为收臂时做了功。" } },
+        { id: "d", text: { en: "drops to zero instantly.", zh: "瞬间减到零。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "KE = ½I·ω² = L²/(2I). With L conserved and I decreasing, KE actually **increases** (by the factor I_i/I_f). The extra energy comes from the work the skater's muscles do pulling her arms inward against the \"centrifugal tendency.\"",
+        zh: "KE = ½I·ω² = L²/(2I)。L 守恒而 I 减小时,KE **增大**(为原来的 I_i/I_f 倍)。多出的能量来自肌肉对抗「离心趋势」向内收臂所做的功。",
+      },
+    },
+    {
+      id: "phys1-u6-t3-q3",
+      prompt: {
+        en: "A person walks from the edge toward the center of a rotating platform. Ignoring friction on the bearing, how does the platform's rotation rate change?",
+        zh: "一个人从旋转平台的边缘向中心走去。若不计轴承摩擦,平台转速如何变化?",
+      },
+      choices: [
+        { id: "a", text: { en: "Unchanged.", zh: "不变。" } },
+        { id: "b", text: { en: "Speeds up, because total I decreases.", zh: "加快,因为总 I 减小。" } },
+        { id: "c", text: { en: "Slows down.", zh: "减慢。" } },
+        { id: "d", text: { en: "Depends on the person's mass.", zh: "取决于此人质量。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "As the person moves toward the axis, their contribution to I (m·r²) drops. L = I·ω is conserved, so ω must **increase**. Same idea as the skater pulling arms in.",
+        zh: "人向转轴靠近,其对 I 的贡献 (m·r²) 下降。L = I·ω 守恒,ω 必须**增大**。与选手收臂是同一原理。",
+      },
+    },
+  ],
+
+  "unit-6/topic-4": [
+    {
+      id: "phys1-u6-t4-q1",
+      prompt: {
+        en: "A wheel of radius 0.30 m rolls without slipping at a center-of-mass speed of 6.0 m/s. What is its angular speed?",
+        zh: "半径 0.30 m 的轮子以质心速率 6.0 m/s 无滑滚动。它的角速度为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.05 rad/s", zh: "0.05 rad/s" } },
+        { id: "b", text: { en: "2.0 rad/s", zh: "2.0 rad/s" } },
+        { id: "c", text: { en: "18 rad/s", zh: "18 rad/s" } },
+        { id: "d", text: { en: "20 rad/s", zh: "20 rad/s" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Rolling without slipping: v = r·ω → ω = v/r = 6.0 / 0.30 = **20 rad/s**. Choice C reverses the formula.",
+        zh: "无滑滚动:v = r·ω → ω = v/r = 6.0 / 0.30 = **20 rad/s**。选项 C 把公式用反了。",
+      },
+    },
+    {
+      id: "phys1-u6-t4-q2",
+      prompt: {
+        en: "At the instant a wheel is rolling forward at speed v (without slipping), what is the velocity of the point of the wheel in contact with the ground?",
+        zh: "轮子以速率 v 向前无滑滚动的瞬间,轮子与地面接触点的速度是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "+v (same as the CM)", zh: "+v(与质心相同)" } },
+        { id: "b", text: { en: "+2v (fastest point on the wheel)", zh: "+2v(轮上最快的点)" } },
+        { id: "c", text: { en: "0 (instantaneously at rest)", zh: "0(瞬时静止)" } },
+        { id: "d", text: { en: "−v (moving backward)", zh: "−v(向后运动)" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Rolling without slipping means the contact point has **zero velocity** at that instant. Translation (+v) plus rotation (−v at the bottom due to spin) cancel. The **top** of the wheel, on the other hand, moves at +2v.",
+        zh: "无滑滚动意味着接触点**瞬时速度为零**:平动 (+v) 与转动在底部的 (−v) 恰好相消。与此相对,轮子**顶部**以 +2v 向前运动。",
+      },
+    },
+    {
+      id: "phys1-u6-t4-q3",
+      prompt: {
+        en: "A solid sphere rolls down an incline without slipping. Which forces act on it while rolling?",
+        zh: "一只实心球沿斜面无滑滚下。滚动过程中受到哪些力?",
+      },
+      choices: [
+        { id: "a", text: { en: "Gravity only — friction isn't needed.", zh: "只有重力——不需要摩擦。" } },
+        { id: "b", text: { en: "Gravity, normal, and static friction.", zh: "重力、法向力和静摩擦力。" } },
+        { id: "c", text: { en: "Gravity, normal, and kinetic friction.", zh: "重力、法向力和动摩擦力。" } },
+        { id: "d", text: { en: "Only gravity and a centripetal force.", zh: "只有重力和向心力。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Without friction, the sphere would just slide (no torque, no spin). **Static** friction at the contact point provides the torque that makes it rotate. Since the contact point is instantaneously at rest, the friction is static (not kinetic) and does **no work** — mechanical energy is conserved.",
+        zh: "没有摩擦时球只会滑动(无力矩,不旋转)。接触点的**静摩擦力**提供使球转动的力矩。由于接触点瞬时静止,这是静摩擦而非动摩擦,且做功为零——机械能守恒。",
       },
     },
   ],
