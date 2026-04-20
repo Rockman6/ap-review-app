@@ -14377,6 +14377,216 @@ export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
     },
   ],
 
+  "unit-7/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Simple Harmonic Motion (SHM)** is the back-and-forth motion that happens whenever a **restoring force** is proportional to displacement: the farther the object is from equilibrium, the harder it gets pulled back. The result is always a smooth, sinusoidal oscillation.",
+        zh: "**简谐运动 (SHM)** 是**回复力**与位移成正比时产生的往返运动:物体偏离平衡位置越远,回复力越大。结果必为光滑的正弦振动。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "F_{net} \\;=\\; -\\,k\\,x",
+      caption: {
+        en: "The defining feature of SHM: force opposite to displacement, proportional to it",
+        zh: "SHM 的定义特征:力与位移反向,且成正比",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "The motion itself", zh: "运动函数" },
+    },
+    {
+      kind: "math",
+      tex: "x(t) \\;=\\; A\\,\\cos(\\omega t + \\varphi)",
+      caption: {
+        en: "A = amplitude, ω = angular frequency, φ = phase",
+        zh: "A = 振幅,ω = 角频率,φ = 相位",
+      },
+    },
+    {
+      kind: "math",
+      tex: "v(t) \\;=\\; -\\,A\\,\\omega\\,\\sin(\\omega t + \\varphi) \\qquad a(t) \\;=\\; -\\,\\omega^{2}\\,x(t)",
+      caption: {
+        en: "v and a are derivatives of x; note a is always proportional to −x",
+        zh: "v 与 a 是 x 的导数;注意 a 始终与 −x 成正比",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Period and frequency", zh: "周期与频率" },
+    },
+    {
+      kind: "math",
+      tex: "T \\;=\\; \\dfrac{2\\pi}{\\omega} \\qquad f \\;=\\; \\dfrac{1}{T} \\;=\\; \\dfrac{\\omega}{2\\pi}",
+      caption: {
+        en: "Period (s/cycle), frequency (Hz = 1/s), angular frequency (rad/s)",
+        zh: "周期 (s/周期)、频率 (Hz = 1/s)、角频率 (rad/s)",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Amplitude doesn't affect T", zh: "振幅不影响 T" },
+      text: {
+        en: "This is the most surprising feature of ideal SHM: **the period doesn't depend on how big the oscillation is**. Small swings and big swings take the same time. That's why pendulums make good clocks — as long as the amplitude stays small.",
+        zh: "这是理想 SHM 最令人意外的性质:**周期与振幅无关**。无论摆动大小,时间都一样。这也是摆钟之所以准的原因——只要振幅保持很小。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Energy in SHM", zh: "SHM 中的能量" },
+    },
+    {
+      kind: "math",
+      tex: "E_{total} \\;=\\; \\tfrac{1}{2}\\,k\\,A^{2} \\;=\\; \\tfrac{1}{2}\\,m\\,v_{max}^{2}",
+      caption: {
+        en: "Total energy is constant, shuffles between KE and PE",
+        zh: "总能量恒定,在 KE 与 PE 之间往复",
+      },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "At the **extremes** (x = ±A), the object momentarily stops — all energy is PE. At the **equilibrium** (x = 0), velocity is maximum — all energy is KE. In between, the total E stays ½kA² regardless.",
+        zh: "在**两端** (x = ±A),物体瞬时停下——全为势能。在**平衡位置** (x = 0),速度最大——全为动能。中间处总能量始终为 ½kA²。",
+      },
+    },
+  ],
+
+  "unit-7/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A mass on a spring is the **textbook example** of SHM. Hooke's law gives exactly the −kx force required, so the mass oscillates with a period determined only by **m** (inertia) and **k** (spring stiffness).",
+        zh: "弹簧上的质量是 SHM 的**典型例子**。胡克定律给出所需的 −kx 力,因此质量以由 **m**(惯性)和 **k**(弹簧劲度)决定的周期振动。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\omega \\;=\\; \\sqrt{\\dfrac{k}{m}} \\qquad T \\;=\\; 2\\pi\\,\\sqrt{\\dfrac{m}{k}}",
+      caption: {
+        en: "Angular frequency and period of a mass-spring system",
+        zh: "弹簧振子的角频率与周期",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Period intuition", zh: "周期直觉" },
+      text: {
+        en: "**Heavier mass** (m bigger) → **slower oscillation** (T bigger). **Stiffer spring** (k bigger) → **faster oscillation** (T smaller). The formula captures both: T ~ √(m/k). Amplitude doesn't appear.",
+        zh: "**质量越大** (m 增) → **振动越慢** (T 增)。**弹簧越硬** (k 增) → **振动越快** (T 减)。公式兼顾二者:T ~ √(m/k)。振幅不出现。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Where is KE max vs. PE max?", zh: "KE 与 PE 的最大位置" },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Energy at key points of the oscillation",
+        zh: "振动关键位置的能量分布",
+      },
+      columns: [
+        { en: "Position", zh: "位置" },
+        { en: "KE", zh: "KE" },
+        { en: "PE", zh: "PE" },
+        { en: "|v|", zh: "|v|" },
+      ],
+      rows: [
+        [{ en: "x = 0 (equilibrium)", zh: "x = 0(平衡)" }, { en: "max = ½kA²", zh: "最大 = ½kA²" }, { en: "0", zh: "0" }, { en: "max = Aω", zh: "最大 = Aω" }],
+        [{ en: "x = ±A (extremes)", zh: "x = ±A(两端)" }, { en: "0", zh: "0" }, { en: "max = ½kA²", zh: "最大 = ½kA²" }, { en: "0", zh: "0" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Vertical vs horizontal springs", zh: "竖直弹簧 vs 水平弹簧" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A vertical spring with a hanging mass has a **new equilibrium position** below the natural length (by mg/k), but once you measure *x* from that new equilibrium, the motion is **identical** to a horizontal spring: same SHM, same T = 2π√(m/k). Gravity just offsets the equilibrium.",
+        zh: "竖直弹簧挂质量后,**新平衡位置**比自然长度低 mg/k;但只要从新平衡位置量 x,运动与水平弹簧**完全一致**:同样的 SHM,同样的 T = 2π√(m/k)。重力只是让平衡位置平移。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — mass on a spring", zh: "例题——弹簧振子" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 0.25 kg mass on a spring (k = 100 N/m) is pulled 0.10 m from equilibrium and released. (a) T = 2π√(m/k) = 2π√(0.25/100) = **0.314 s**. (b) Max speed: E = ½kA² = ½(100)(0.10)² = 0.50 J = ½(0.25)v_max² → **v_max = 2.0 m/s**. (c) Amplitude stays A = 0.10 m — no friction means no decay.",
+        zh: "0.25 kg 质量接在 k = 100 N/m 的弹簧上,从平衡位置拉开 0.10 m 释放。(a) T = 2π√(m/k) = 2π√(0.25/100) = **0.314 s**。(b) 最大速率:E = ½kA² = ½(100)(0.10)² = 0.50 J = ½(0.25)v_max² → **v_max = 2.0 m/s**。(c) 无摩擦,振幅维持 A = 0.10 m。",
+      },
+    },
+  ],
+
+  "unit-7/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **simple pendulum** is a mass on the end of a massless string of length L, swinging back and forth under gravity. For small angles, it is a near-perfect example of SHM — with a period that depends only on L and g.",
+        zh: "**单摆**是长为 L 的无质量细绳末端的质量,在重力下摆动。在**小角度**下,它近乎完美的 SHM——周期仅取决于 L 和 g。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "T \\;=\\; 2\\pi\\,\\sqrt{\\dfrac{L}{g}}",
+      caption: {
+        en: "Period of a simple pendulum (small-angle approximation)",
+        zh: "单摆周期(小角度近似)",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "T is independent of mass and amplitude (small angle)", zh: "T 与质量和振幅无关(小角度)" },
+      text: {
+        en: "Like all SHM, pendulum period doesn't depend on amplitude (as long as θ ≲ 15°). And unlike the mass-spring system, it also doesn't depend on mass — a feature it shares with free fall, for the same reason (gravity does both the forcing and the inertia).",
+        zh: "和所有 SHM 一样,摆周期与振幅无关(只要 θ ≲ 15°)。与弹簧振子不同,它也**与质量无关**——这与自由落体的原因相同(重力既提供力也决定惯性)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Why small angles?", zh: "为什么要求小角度?" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "The restoring \"force\" on a pendulum is the tangential component of gravity, mg·sinθ. SHM requires a restoring force **proportional to displacement**, but sinθ ≠ θ in general. Only when θ is small is **sin θ ≈ θ**, making the restoring force ≈ proportional to the arc displacement, so the motion is approximately SHM.",
+        zh: "单摆的回复「力」是重力的切向分量 mg·sinθ。SHM 要求回复力**与位移成正比**,但一般 sinθ ≠ θ。仅当 θ 很小时,**sin θ ≈ θ**,回复力近似与弧长位移成正比,运动才近似为 SHM。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\sin\\theta \\;\\approx\\; \\theta \\quad(\\theta\\ \\text{in radians, small})",
+      caption: {
+        en: "The small-angle approximation",
+        zh: "小角度近似",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Big swings lose the SHM property", zh: "大幅摆动不再是 SHM" },
+      text: {
+        en: "At large amplitudes, sin θ drops below θ — the restoring force is weaker than SHM would predict — so **big swings take slightly longer** than small ones. Grandfather clocks use very small amplitudes to keep the period accurate.",
+        zh: "在大振幅下,sin θ 小于 θ——回复力比 SHM 预测的**更弱**——因此大幅摆动比小幅摆动**稍慢**。摆钟使用极小振幅,以保持周期精度。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — grandfather clock", zh: "例题——摆钟" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "How long should the pendulum of a grandfather clock be so that it has a period of 2.0 s (one full tick-tock)? Solve T = 2π√(L/g) for L: L = g·T²/(4π²) = (9.8)(4)/(39.48) ≈ **0.993 m** — almost exactly 1 meter. That's no coincidence; historical definitions of the meter considered this very scale.",
+        zh: "摆钟周期 2.0 s(一个完整 tick-tock)时,摆长应为多少?由 T = 2π√(L/g) 解 L:L = g·T²/(4π²) = (9.8)(4)/(39.48) ≈ **0.993 m**——几乎恰为 1 m。这并非巧合;历史上「米」的定义曾以此为标准。",
+      },
+    },
+  ],
+
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -18356,6 +18566,177 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
       explanation: {
         en: "Without friction, the sphere would just slide (no torque, no spin). **Static** friction at the contact point provides the torque that makes it rotate. Since the contact point is instantaneously at rest, the friction is static (not kinetic) and does **no work** — mechanical energy is conserved.",
         zh: "没有摩擦时球只会滑动(无力矩,不旋转)。接触点的**静摩擦力**提供使球转动的力矩。由于接触点瞬时静止,这是静摩擦而非动摩擦,且做功为零——机械能守恒。",
+      },
+    },
+  ],
+
+  "unit-7/topic-1": [
+    {
+      id: "phys1-u7-t1-q1",
+      prompt: {
+        en: "An object undergoing SHM with amplitude A momentarily has zero kinetic energy. Where is it?",
+        zh: "一做 SHM 的物体瞬时动能为零。它此刻位于何处?",
+      },
+      choices: [
+        { id: "a", text: { en: "At equilibrium (x = 0).", zh: "平衡位置 (x = 0)。" } },
+        { id: "b", text: { en: "At a turning point (x = ±A).", zh: "转折点 (x = ±A)。" } },
+        { id: "c", text: { en: "Halfway between equilibrium and a turning point.", zh: "平衡位置与转折点之间的中点。" } },
+        { id: "d", text: { en: "At x = A/√2.", zh: "位于 x = A/√2 处。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "KE is zero where the object is momentarily at rest — that's at the turning points, **x = ±A**. There, all energy is potential. KE is maximum at equilibrium (where PE = 0).",
+        zh: "KE 为零的位置即物体瞬时静止处——正是转折点 **x = ±A**。此处能量全为势能。KE 最大在平衡位置(此处 PE = 0)。",
+      },
+    },
+    {
+      id: "phys1-u7-t1-q2",
+      prompt: {
+        en: "For an object in SHM, at what point is the acceleration maximum in magnitude?",
+        zh: "做 SHM 的物体,加速度大小最大在什么位置?",
+      },
+      choices: [
+        { id: "a", text: { en: "At equilibrium (x = 0)", zh: "平衡位置 (x = 0)" } },
+        { id: "b", text: { en: "At a turning point (x = ±A)", zh: "转折点 (x = ±A)" } },
+        { id: "c", text: { en: "At x = A/2", zh: "x = A/2" } },
+        { id: "d", text: { en: "Everywhere — it's constant.", zh: "每处都相同(恒定)。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "a = −ω²·x, so |a| is largest where |x| is largest — at the **turning points** (x = ±A). At equilibrium (x = 0), a = 0 momentarily, but v is max.",
+        zh: "a = −ω²·x,|a| 在 |x| 最大处最大——即**转折点** (x = ±A)。平衡位置 (x = 0) 处 a 瞬时为零,但 v 最大。",
+      },
+    },
+    {
+      id: "phys1-u7-t1-q3",
+      prompt: {
+        en: "If the amplitude of an SHM oscillator doubles (with k and m unchanged), what happens to its period?",
+        zh: "若 SHM 振子的振幅翻倍(k 与 m 不变),周期如何变化?",
+      },
+      choices: [
+        { id: "a", text: { en: "Doubles.", zh: "翻倍。" } },
+        { id: "b", text: { en: "Quadruples.", zh: "四倍。" } },
+        { id: "c", text: { en: "Halves.", zh: "减半。" } },
+        { id: "d", text: { en: "Stays the same.", zh: "不变。" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "T = 2π√(m/k) depends only on m and k — **not on amplitude**. Double amplitude means the mass travels twice as far, but also at double the max speed, so the period is the same. Classic SHM property.",
+        zh: "T = 2π√(m/k) 仅依赖 m 与 k,**与振幅无关**。振幅翻倍意味着行程翻倍,但最大速率也翻倍,因此周期不变。这是 SHM 的典型性质。",
+      },
+    },
+  ],
+
+  "unit-7/topic-2": [
+    {
+      id: "phys1-u7-t2-q1",
+      prompt: {
+        en: "A 0.50 kg mass on a spring (k = 200 N/m) oscillates. What is the period?",
+        zh: "质量 0.50 kg、弹簧劲度系数 k = 200 N/m 的振子振动周期为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.10 s", zh: "0.10 s" } },
+        { id: "b", text: { en: "0.31 s", zh: "0.31 s" } },
+        { id: "c", text: { en: "1.41 s", zh: "1.41 s" } },
+        { id: "d", text: { en: "6.28 s", zh: "6.28 s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "T = 2π√(m/k) = 2π√(0.5/200) = 2π√(0.0025) = 2π(0.05) = **0.314 s ≈ 0.31 s**.",
+        zh: "T = 2π√(m/k) = 2π√(0.5/200) = 2π√(0.0025) = 2π(0.05) = **0.314 s ≈ 0.31 s**。",
+      },
+    },
+    {
+      id: "phys1-u7-t2-q2",
+      prompt: {
+        en: "A horizontal mass-spring system oscillates with amplitude A. At what x is the speed equal to **half** the maximum speed?",
+        zh: "水平弹簧振子振幅为 A。在哪个 x 处速率等于最大速率的**一半**?",
+      },
+      choices: [
+        { id: "a", text: { en: "x = A/2", zh: "x = A/2" } },
+        { id: "b", text: { en: "x = A/√2", zh: "x = A/√2" } },
+        { id: "c", text: { en: "x = (√3/2)·A", zh: "x = (√3/2)·A" } },
+        { id: "d", text: { en: "x = A (at the turning point)", zh: "x = A(转折点)" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Energy conservation: ½mv² + ½kx² = ½kA². At v = v_max/2, KE = (1/4)KE_max, so PE = (3/4)E_total → ½kx² = (3/4)½kA² → x² = (3/4)A² → **x = (√3/2)A**. (Choice B is where KE = PE.)",
+        zh: "能量守恒:½mv² + ½kx² = ½kA²。当 v = v_max/2 时,KE 为原来的 1/4,故 PE = 3/4·总能量 → ½kx² = (3/4)½kA² → x² = (3/4)A² → **x = (√3/2)A**。(选项 B 是 KE = PE 的位置。)",
+      },
+    },
+    {
+      id: "phys1-u7-t2-q3",
+      prompt: {
+        en: "Two identical mass-spring systems are at identical amplitudes. System A is on a horizontal frictionless surface; System B hangs vertically in Earth's gravity. How do their periods compare?",
+        zh: "两个完全相同的弹簧振子振幅也相同。A 放在水平无摩擦面上;B 悬挂在地球重力下。两者周期如何比较?",
+      },
+      choices: [
+        { id: "a", text: { en: "T_A = T_B", zh: "T_A = T_B" } },
+        { id: "b", text: { en: "T_A > T_B", zh: "T_A > T_B" } },
+        { id: "c", text: { en: "T_A < T_B", zh: "T_A < T_B" } },
+        { id: "d", text: { en: "It depends on the mass and k.", zh: "取决于 m 与 k。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Gravity in a vertical spring just shifts the equilibrium down by mg/k — the motion **around the new equilibrium** is still SHM with T = 2π√(m/k). Both systems have the same period.",
+        zh: "竖直弹簧中重力只是把平衡位置下移 mg/k——围绕新平衡位置的运动仍是 T = 2π√(m/k) 的 SHM。两系统周期相同。",
+      },
+    },
+  ],
+
+  "unit-7/topic-3": [
+    {
+      id: "phys1-u7-t3-q1",
+      prompt: {
+        en: "A simple pendulum of length 1.5 m swings on Earth. What is its period? (g = 9.8 m/s²)",
+        zh: "长度 1.5 m 的单摆在地球上摆动。周期是多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "0.77 s", zh: "0.77 s" } },
+        { id: "b", text: { en: "2.46 s", zh: "2.46 s" } },
+        { id: "c", text: { en: "6.1 s", zh: "6.1 s" } },
+        { id: "d", text: { en: "9.6 s", zh: "9.6 s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "T = 2π√(L/g) = 2π√(1.5/9.8) = 2π√(0.153) = 2π(0.391) ≈ **2.46 s**.",
+        zh: "T = 2π√(L/g) = 2π√(1.5/9.8) = 2π√(0.153) = 2π(0.391) ≈ **2.46 s**。",
+      },
+    },
+    {
+      id: "phys1-u7-t3-q2",
+      prompt: {
+        en: "A simple pendulum has a period of 2.0 s on Earth. If the same pendulum is taken to the Moon (g_Moon ≈ 1.6 m/s²), its new period will be approximately:",
+        zh: "某单摆在地球上周期为 2.0 s。带到月球上(g_月 ≈ 1.6 m/s²)后周期约为:",
+      },
+      choices: [
+        { id: "a", text: { en: "0.82 s (shorter)", zh: "0.82 s(更短)" } },
+        { id: "b", text: { en: "2.0 s (unchanged)", zh: "2.0 s(不变)" } },
+        { id: "c", text: { en: "4.9 s (longer)", zh: "4.9 s(更长)" } },
+        { id: "d", text: { en: "12.3 s (much longer)", zh: "12.3 s(长得多)" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "T ∝ 1/√g. g_Moon / g_Earth ≈ 1.6/9.8 ≈ 1/6. So T_Moon ≈ T_Earth × √6 ≈ 2.0 × 2.45 ≈ **4.9 s**. Lower gravity → slower pendulum.",
+        zh: "T ∝ 1/√g。g_月 / g_地 ≈ 1.6/9.8 ≈ 1/6。T_月 ≈ T_地 × √6 ≈ 2.0 × 2.45 ≈ **4.9 s**。重力越小,摆动越慢。",
+      },
+    },
+    {
+      id: "phys1-u7-t3-q3",
+      prompt: {
+        en: "A student doubles the mass hanging from a simple pendulum (keeping length and amplitude the same). What happens to the period?",
+        zh: "单摆长度和振幅不变,质量翻倍。周期如何变化?",
+      },
+      choices: [
+        { id: "a", text: { en: "Doubles.", zh: "翻倍。" } },
+        { id: "b", text: { en: "Halves.", zh: "减半。" } },
+        { id: "c", text: { en: "Increases by √2.", zh: "变为原来的 √2 倍。" } },
+        { id: "d", text: { en: "Stays the same.", zh: "不变。" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "T = 2π√(L/g) — mass doesn't appear. A pendulum's period depends only on L and g. (Think of free fall: all masses accelerate the same under gravity.)",
+        zh: "T = 2π√(L/g) 中**不含质量**。单摆周期仅由 L 与 g 决定。(类比自由落体:所有质量在重力下加速度相同。)",
       },
     },
   ],
