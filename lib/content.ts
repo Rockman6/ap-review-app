@@ -14587,6 +14587,275 @@ export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
     },
   ],
 
+  "unit-8/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **fluid** is anything that flows — both liquids and gases. Unlike a rigid block, a fluid conforms to the shape of its container, can be pushed around, and transmits pressure in every direction. We'll start with two core quantities: **density** and **pressure**.",
+        zh: "**流体**泛指能流动的物质,包括液体和气体。它与刚体不同:流体会贴合容器形状、可被挤推、并向各方向传递压强。我们从两个基本量开始:**密度**与**压强**。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Density", zh: "密度" },
+    },
+    {
+      kind: "math",
+      tex: "\\rho \\;=\\; \\dfrac{m}{V}",
+      caption: {
+        en: "Density = mass per unit volume; SI units kg/m³",
+        zh: "密度 = 单位体积的质量;SI 单位 kg/m³",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Typical densities",
+        zh: "常见密度",
+      },
+      columns: [
+        { en: "Material", zh: "物质" },
+        { en: "Density (kg/m³)", zh: "密度 (kg/m³)" },
+      ],
+      rows: [
+        [{ en: "Air (at sea level)", zh: "空气(海平面)" }, { en: "1.2", zh: "1.2" }],
+        [{ en: "Water", zh: "水" }, { en: "1000", zh: "1000" }],
+        [{ en: "Seawater", zh: "海水" }, { en: "1025", zh: "1025" }],
+        [{ en: "Ice", zh: "冰" }, { en: "917", zh: "917" }],
+        [{ en: "Aluminum", zh: "铝" }, { en: "2700", zh: "2700" }],
+        [{ en: "Mercury (liquid)", zh: "汞(液态)" }, { en: "13600", zh: "13600" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Pressure", zh: "压强" },
+    },
+    {
+      kind: "math",
+      tex: "P \\;=\\; \\dfrac{F_{\\perp}}{A}",
+      caption: {
+        en: "Pressure = force perpendicular to a surface, divided by its area; SI units Pa = N/m²",
+        zh: "压强 = 垂直于表面的力除以面积;SI 单位 Pa = N/m²",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Pressure is a scalar", zh: "压强是标量" },
+      text: {
+        en: "At a point in a static fluid, **pressure is the same in all directions** — it's not a vector. The *force* on a surface is pressure times area, pointing perpendicular to that surface. Atmospheric pressure at sea level is about **101 325 Pa ≈ 1 atm**.",
+        zh: "静止流体中某点**各方向压强相等**——它不是矢量。对表面的**力**等于压强乘以面积,方向垂直于该表面。海平面大气压约为 **101 325 Pa ≈ 1 atm**。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Pressure at depth (hydrostatic)", zh: "深度处压强(静水压)" },
+    },
+    {
+      kind: "math",
+      tex: "P \\;=\\; P_{0} + \\rho\\,g\\,h",
+      caption: {
+        en: "P₀ = pressure at surface; h = depth below surface; ρ is fluid's density",
+        zh: "P₀ = 表面压强;h = 距表面深度;ρ 为流体密度",
+      },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Every meter of water adds ~9800 Pa (≈ 0.1 atm) to the pressure. That's why dams are thicker at the bottom, why ears hurt in deep diving, and why submarines have reinforced hulls.",
+        zh: "水深每多 1 m,压强增加约 9800 Pa (≈ 0.1 atm)。这就是为什么大坝底部更厚、潜得深耳朵会痛、潜艇壳体要加固。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — pressure at 10 m depth", zh: "例题——10 m 深处的压强" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "What is the absolute pressure 10 m below the surface of a freshwater lake? P = P_atm + ρgh = 101 325 + (1000)(9.8)(10) = 101 325 + 98 000 ≈ **199 000 Pa ≈ 2 atm**. Roughly, every 10 m of water doubles the absolute pressure compared to the surface.",
+        zh: "淡水湖水面下 10 m 处绝对压强为多少?P = P_atm + ρgh = 101 325 + (1000)(9.8)(10) = 101 325 + 98 000 ≈ **199 000 Pa ≈ 2 atm**。大约每下潜 10 m,绝对压强就比水面翻一倍。",
+      },
+    },
+  ],
+
+  "unit-8/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Place an object in a fluid, and the fluid pushes **up** on it. This upward push is the **buoyant force**. Archimedes' principle says: the buoyant force equals the **weight of the fluid displaced** by the object.",
+        zh: "把物体放入流体,流体对它**向上**推——这就是**浮力**。阿基米德原理:浮力等于物体**排开流体的重量**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "F_{B} \\;=\\; \\rho_{fluid}\\,V_{displaced}\\,g",
+      caption: {
+        en: "Buoyant force = density of fluid × volume displaced × g",
+        zh: "浮力 = 流体密度 × 排开体积 × g",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Buoyancy comes from pressure difference", zh: "浮力源自压强差" },
+      text: {
+        en: "Pressure grows with depth, so the **bottom** of a submerged object sees higher pressure than its **top**. The vertical imbalance is exactly the buoyant force. That's the physics under Archimedes' simple-sounding rule.",
+        zh: "压强随深度增大,故浸没物体的**底部**受到的压强比**顶部**大。上下压强差正是浮力。这就是阿基米德法则背后的物理机制。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Floating vs. sinking", zh: "漂浮与下沉" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "An object **fully submerged** experiences F_B equal to ρ_fluid · V_object · g. Compare this to its weight ρ_object · V_object · g. Since V cancels, the question reduces to comparing **densities**: if ρ_object < ρ_fluid, the object floats up; if equal, it stays suspended; if greater, it sinks.",
+        zh: "**完全浸没**的物体所受浮力为 ρ_流体 · V_物 · g,与其重力 ρ_物 · V_物 · g 相比——V 约去,问题归结为**密度**比较:ρ_物 < ρ_流体 时上浮;相等时悬浮;更大时下沉。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\dfrac{V_{submerged}}{V_{total}} \\;=\\; \\dfrac{\\rho_{object}}{\\rho_{fluid}} \\qquad (\\text{floating})",
+      caption: {
+        en: "For a floating object in equilibrium, this fraction is submerged",
+        zh: "漂浮物处于平衡时,浸没部分占总体积的比例",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — iceberg", zh: "例题——冰山" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "An iceberg (ρ ≈ 917 kg/m³) floats in seawater (ρ ≈ 1025 kg/m³). What fraction is submerged? V_sub / V_total = 917/1025 ≈ **0.895** — about **90% below the surface**. This is where the \"tip of the iceberg\" saying comes from: only ~10% is visible above water.",
+        zh: "冰山密度 ρ ≈ 917 kg/m³,海水 ρ ≈ 1025 kg/m³。浸没比例:V_sub / V_total = 917/1025 ≈ **0.895**——约 **90% 在水下**。这也是「冰山一角」一说的由来:露出水面的仅约 10%。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Apparent weight underwater", zh: "水下的视重" },
+      text: {
+        en: "An object's **apparent weight** while submerged = true weight − buoyant force. That's why a barbell feels much lighter in a pool, and why you can lift heavy rocks underwater.",
+        zh: "物体水下**视重** = 真实重力 − 浮力。这就是哑铃在游泳池里感觉轻得多、水下能举起重石块的原因。",
+      },
+    },
+  ],
+
+  "unit-8/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "For an **incompressible fluid** (like liquid water) flowing through a pipe, the mass flowing in per second must equal the mass flowing out per second — nothing accumulates. Applied to cross-sections, this gives the **continuity equation**.",
+        zh: "对**不可压缩**流体(如液态水)在管中流动,每秒流入的质量必等于流出的质量——系统无积累。应用于不同截面,得到**连续性方程**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "A_{1}\\,v_{1} \\;=\\; A_{2}\\,v_{2}",
+      caption: {
+        en: "Cross-sectional area × flow speed = constant along the pipe",
+        zh: "截面积 × 流速 = 沿管道为常数",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Squeeze the pipe, speed up the flow", zh: "管道变窄,流速变快" },
+      text: {
+        en: "When a pipe narrows, the fluid must **speed up** to carry the same volume per second through the smaller area. This is why a thumb over a garden hose nozzle makes the water shoot faster and farther.",
+        zh: "管道变窄时,为在更小面积内保持每秒相同的体积流量,流体必须**加速**。这就是用拇指按住水管口后,水射得更远更急的原因。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Volume flow rate", zh: "体积流量" },
+    },
+    {
+      kind: "math",
+      tex: "Q \\;=\\; A\\,v",
+      caption: {
+        en: "Units: m³/s",
+        zh: "单位:m³/s",
+      },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "The volume flow rate Q tells you how many cubic meters of fluid cross a section each second. For a steady incompressible flow, Q is the **same at every cross-section** of the pipe.",
+        zh: "体积流量 Q 指每秒通过某截面的流体体积(m³)。稳态不可压流中,Q 在管道的**每个截面**都相同。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — garden hose and nozzle", zh: "例题——水管与喷嘴" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Water flows through a hose of inner radius 1.0 cm at 2.0 m/s. It exits through a nozzle with radius 0.50 cm. Find the exit speed. A₁v₁ = A₂v₂ → (πr₁²)v₁ = (πr₂²)v₂ → v₂ = v₁·(r₁/r₂)² = 2.0·(1.0/0.50)² = 2.0·4 = **8.0 m/s**. Halving the radius **quadruples** the speed — area scales with r².",
+        zh: "水以 2.0 m/s 通过半径 1.0 cm 的水管,经半径 0.50 cm 的喷嘴喷出。求出口速度。A₁v₁ = A₂v₂ → (πr₁²)v₁ = (πr₂²)v₂ → v₂ = v₁·(r₁/r₂)² = 2.0·(1.0/0.50)² = 2.0·4 = **8.0 m/s**。半径减半,速度变为 **4 倍**——面积与 r² 成正比。",
+      },
+    },
+  ],
+
+  "unit-8/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Bernoulli's equation** is energy conservation for an ideal fluid flowing along a streamline. It links three quantities that trade off against each other: **pressure**, **kinetic energy per unit volume**, and **gravitational potential per unit volume**.",
+        zh: "**伯努利方程**是理想流体沿流线的能量守恒。它把三个量联系起来,三者相互消长:**压强**、**单位体积动能**、**单位体积重力势能**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "P + \\tfrac{1}{2}\\,\\rho\\,v^{2} + \\rho\\,g\\,h \\;=\\; \\text{constant along a streamline}",
+      caption: {
+        en: "Pressure + dynamic pressure + gravitational term",
+        zh: "压强 + 动压 + 重力项",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Where flow is fast, pressure is low", zh: "流动快处压强低" },
+      text: {
+        en: "If elevation doesn't change, Bernoulli's equation says **P + ½ρv² is constant**: where speed goes up, pressure must go down. This is the physics behind airplane wings (air moves faster over the curved top, lower pressure there), shower curtains (pulled inward), and a spray-gun's venturi.",
+        zh: "若高度不变,伯努利方程给出 **P + ½ρv² = 常量**:流速升高处压强下降。这就是飞机翼(弯曲上表面气流更快,压强更低)、浴帘(被向内吸)、喷枪文丘里管等现象的原理。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Assumptions", zh: "适用条件" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "Steady flow (not changing with time).", zh: "稳态流(不随时间变化)。" },
+        { en: "Incompressible fluid (density constant).", zh: "不可压缩流体(密度恒定)。" },
+        { en: "Non-viscous (no internal friction).", zh: "无粘性(无内摩擦)。" },
+        { en: "Along a single streamline.", zh: "沿同一流线。" },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — water tank draining", zh: "例题——水箱放水" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A large open tank has a small hole 2.0 m below the water surface. What is the exit speed? At the surface, P = P_atm, v ≈ 0, h = 2.0 m. At the hole, P = P_atm, v = ? (same atmospheric pressure on both ends). Bernoulli: ρg(2.0) = ½ρv² → v = √(2·g·h) = √(2·9.8·2.0) ≈ **6.26 m/s**. This is **Torricelli's law** — and it matches free-fall from the same height.",
+        zh: "大型敞口水箱在水面下 2.0 m 处开一小孔。出口速度为多少?水面:P = P_atm,v ≈ 0,h = 2.0 m;小孔:P = P_atm,v = ?(两端大气压相同)。伯努利:ρg(2.0) = ½ρv² → v = √(2·g·h) = √(2·9.8·2.0) ≈ **6.26 m/s**。这就是**托里切利定律**,与从同一高度自由落体的速率一致。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Bernoulli ↔ energy conservation", zh: "伯努利 ↔ 能量守恒" },
+      text: {
+        en: "Multiply Bernoulli's equation by a small volume ΔV: it becomes PΔV + ½mv² + mgh = constant. PΔV is the work done by pressure, and the other terms are just kinetic and gravitational potential energy. Bernoulli is literally W-E theorem for a piece of fluid.",
+        zh: "将伯努利方程乘以一小体积 ΔV:PΔV + ½mv² + mgh = 常量。PΔV 是压力做的功,其余为动能与重力势能。伯努利方程本质上就是一小块流体的功—能定理。",
+      },
+    },
+  ],
+
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -18737,6 +19006,198 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
       explanation: {
         en: "T = 2π√(L/g) — mass doesn't appear. A pendulum's period depends only on L and g. (Think of free fall: all masses accelerate the same under gravity.)",
         zh: "T = 2π√(L/g) 中**不含质量**。单摆周期仅由 L 与 g 决定。(类比自由落体:所有质量在重力下加速度相同。)",
+      },
+    },
+  ],
+
+  "unit-8/topic-1": [
+    {
+      id: "phys1-u8-t1-q1",
+      prompt: {
+        en: "What is the absolute pressure 5.0 m below the surface of a freshwater lake? (Atmospheric P₀ = 1.01 × 10⁵ Pa, ρ_water = 1000 kg/m³, g = 9.8 m/s²)",
+        zh: "淡水湖水面下 5.0 m 处的绝对压强为多少?(大气压 P₀ = 1.01 × 10⁵ Pa,ρ_水 = 1000 kg/m³,g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "4.9 × 10⁴ Pa", zh: "4.9 × 10⁴ Pa" } },
+        { id: "b", text: { en: "1.01 × 10⁵ Pa", zh: "1.01 × 10⁵ Pa" } },
+        { id: "c", text: { en: "1.50 × 10⁵ Pa", zh: "1.50 × 10⁵ Pa" } },
+        { id: "d", text: { en: "2.02 × 10⁵ Pa", zh: "2.02 × 10⁵ Pa" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "P = P₀ + ρgh = 1.01×10⁵ + (1000)(9.8)(5.0) = 1.01×10⁵ + 4.9×10⁴ ≈ **1.50 × 10⁵ Pa**. Water adds ≈ 5×10⁴ Pa per 5 m of depth.",
+        zh: "P = P₀ + ρgh = 1.01×10⁵ + (1000)(9.8)(5.0) = 1.01×10⁵ + 4.9×10⁴ ≈ **1.50 × 10⁵ Pa**。每下潜 5 m,水贡献约 5×10⁴ Pa。",
+      },
+    },
+    {
+      id: "phys1-u8-t1-q2",
+      prompt: {
+        en: "Two open containers hold water to the same height. Container A is a wide bucket; container B is a narrow tall cylinder. The pressure at the bottom of each container is:",
+        zh: "两只敞口容器水面高度相同。A 是宽底水桶,B 是细高圆柱。容器底部的压强:",
+      },
+      choices: [
+        { id: "a", text: { en: "greater in A (more water).", zh: "A 中更大(水更多)。" } },
+        { id: "b", text: { en: "greater in B (narrower means higher pressure).", zh: "B 中更大(越细压强越高)。" } },
+        { id: "c", text: { en: "the same (pressure depends only on depth and fluid).", zh: "相同(压强只取决于深度与流体)。" } },
+        { id: "d", text: { en: "depends on the container materials.", zh: "取决于容器材料。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "P = P₀ + ρgh — pressure depends only on **depth**, not on the container's shape or total volume. This is \"Pascal's hydrostatic paradox.\" Same water height → same bottom pressure.",
+        zh: "P = P₀ + ρgh——压强仅取决于**深度**,与容器形状或总体积无关。这就是「帕斯卡静水悖论」。水高相同,底部压强就相同。",
+      },
+    },
+  ],
+
+  "unit-8/topic-2": [
+    {
+      id: "phys1-u8-t2-q1",
+      prompt: {
+        en: "A wooden cube (side 0.10 m, density 600 kg/m³) floats in water. What fraction of its volume is below the water's surface?",
+        zh: "一只木立方体(边长 0.10 m,密度 600 kg/m³)漂浮在水中。多少比例的体积位于水面以下?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.40", zh: "0.40" } },
+        { id: "b", text: { en: "0.50", zh: "0.50" } },
+        { id: "c", text: { en: "0.60", zh: "0.60" } },
+        { id: "d", text: { en: "1.00 (fully submerged)", zh: "1.00(完全浸没)" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "For a floating object: V_sub / V_total = ρ_obj / ρ_fluid = 600/1000 = **0.60**. 60% is underwater; 40% is above. Cube size doesn't enter the fraction.",
+        zh: "漂浮:V_sub / V_total = ρ_物 / ρ_流 = 600/1000 = **0.60**。水下 60%,水上 40%。立方体的边长不影响比例。",
+      },
+    },
+    {
+      id: "phys1-u8-t2-q2",
+      prompt: {
+        en: "A rock with a weight of 50 N in air is fully submerged in water. The buoyant force on it is 20 N. What is the rock's apparent weight in the water?",
+        zh: "在空气中重 50 N 的石块完全浸没于水中,所受浮力 20 N。石块在水中的视重为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "20 N", zh: "20 N" } },
+        { id: "b", text: { en: "30 N", zh: "30 N" } },
+        { id: "c", text: { en: "50 N", zh: "50 N" } },
+        { id: "d", text: { en: "70 N", zh: "70 N" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Apparent weight = W − F_B = 50 − 20 = **30 N**. The rock \"feels\" lighter underwater because buoyancy pushes up on it. This is why divers can easily move boulders that would crush them on land.",
+        zh: "视重 = W − F_B = 50 − 20 = **30 N**。水下的物体「感觉更轻」,因为浮力向上。这也是潜水员能搬动陆地上砸人一死的石块的原因。",
+      },
+    },
+    {
+      id: "phys1-u8-t2-q3",
+      prompt: {
+        en: "An object floats with 80% of its volume submerged in water. If placed in a denser fluid, the fraction submerged will:",
+        zh: "某物体 80% 的体积浸没于水中漂浮。若改放入密度更大的流体中,浸没比例将:",
+      },
+      choices: [
+        { id: "a", text: { en: "Increase.", zh: "增大。" } },
+        { id: "b", text: { en: "Decrease.", zh: "减小。" } },
+        { id: "c", text: { en: "Stay the same.", zh: "不变。" } },
+        { id: "d", text: { en: "Go to zero (object floats on top).", zh: "降为 0(完全浮起)。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "V_sub / V_total = ρ_obj / ρ_fluid. If ρ_fluid *increases*, the fraction **decreases** — the object floats higher. Saltwater is denser than freshwater, which is why you float more in the ocean.",
+        zh: "V_sub / V_total = ρ_物 / ρ_流。ρ_流体**增大**时比例**减小**——物体浮得更高。海水比淡水密度大,因此人在海里更容易漂起来。",
+      },
+    },
+  ],
+
+  "unit-8/topic-3": [
+    {
+      id: "phys1-u8-t3-q1",
+      prompt: {
+        en: "Water flows through a pipe whose cross-sectional area narrows from 4.0 cm² to 1.0 cm². If the speed in the wide section is 2.0 m/s, what is the speed in the narrow section?",
+        zh: "水流过一根管道,截面积从 4.0 cm² 收缩至 1.0 cm²。粗段流速 2.0 m/s,细段流速为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.50 m/s", zh: "0.50 m/s" } },
+        { id: "b", text: { en: "2.0 m/s (unchanged)", zh: "2.0 m/s(不变)" } },
+        { id: "c", text: { en: "4.0 m/s", zh: "4.0 m/s" } },
+        { id: "d", text: { en: "8.0 m/s", zh: "8.0 m/s" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "A₁v₁ = A₂v₂ → v₂ = v₁·(A₁/A₂) = 2.0·(4.0/1.0) = **8.0 m/s**. The area shrinks by 4×, so speed grows by 4×.",
+        zh: "A₁v₁ = A₂v₂ → v₂ = v₁·(A₁/A₂) = 2.0·(4.0/1.0) = **8.0 m/s**。面积缩为 1/4,流速增大 4 倍。",
+      },
+    },
+    {
+      id: "phys1-u8-t3-q2",
+      prompt: {
+        en: "A pipe carries water at a volume flow rate of 6.0 × 10⁻⁴ m³/s. If the pipe's cross-sectional area is 3.0 × 10⁻⁴ m², what is the water's speed?",
+        zh: "一段管道输送水的体积流量为 6.0 × 10⁻⁴ m³/s。若管道截面积 3.0 × 10⁻⁴ m²,水的流速是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.50 m/s", zh: "0.50 m/s" } },
+        { id: "b", text: { en: "2.0 m/s", zh: "2.0 m/s" } },
+        { id: "c", text: { en: "5.0 m/s", zh: "5.0 m/s" } },
+        { id: "d", text: { en: "18 m/s", zh: "18 m/s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Q = A·v → v = Q/A = (6.0×10⁻⁴)/(3.0×10⁻⁴) = **2.0 m/s**. Straightforward unit exercise.",
+        zh: "Q = A·v → v = Q/A = (6.0×10⁻⁴)/(3.0×10⁻⁴) = **2.0 m/s**。单位换算直接套公式。",
+      },
+    },
+  ],
+
+  "unit-8/topic-4": [
+    {
+      id: "phys1-u8-t4-q1",
+      prompt: {
+        en: "A large open tank has a small hole 1.0 m below the water's surface. What is the speed of water exiting the hole? (g = 9.8 m/s²)",
+        zh: "大型敞口水箱在水面下 1.0 m 处开一小孔。水从孔中流出的速率为多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "1.4 m/s", zh: "1.4 m/s" } },
+        { id: "b", text: { en: "4.4 m/s", zh: "4.4 m/s" } },
+        { id: "c", text: { en: "9.8 m/s", zh: "9.8 m/s" } },
+        { id: "d", text: { en: "19.6 m/s", zh: "19.6 m/s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Bernoulli (or Torricelli's law): v = √(2gh) = √(2·9.8·1.0) = √19.6 ≈ **4.43 m/s**. Same as free fall from 1.0 m.",
+        zh: "伯努利方程(或托里切利定律):v = √(2gh) = √(2·9.8·1.0) = √19.6 ≈ **4.43 m/s**。与从 1.0 m 自由落体的速率相同。",
+      },
+    },
+    {
+      id: "phys1-u8-t4-q2",
+      prompt: {
+        en: "Air flows faster over the curved top of an airplane wing than along the flat bottom. According to Bernoulli's principle, the pressure on the top of the wing is:",
+        zh: "飞机翼面上方的气流比下方更快。根据伯努利原理,翼面**上方**的压强:",
+      },
+      choices: [
+        { id: "a", text: { en: "higher than on the bottom, which pushes the wing down.", zh: "比下方高,向下压翼面。" } },
+        { id: "b", text: { en: "lower than on the bottom, which creates lift.", zh: "比下方低,从而产生升力。" } },
+        { id: "c", text: { en: "the same on both sides.", zh: "两侧相同。" } },
+        { id: "d", text: { en: "zero, since the air is moving.", zh: "为零(因气流在动)。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Bernoulli: where v is higher, P is **lower** (at constant height). Faster flow above the wing → lower pressure above → **net upward force** (lift). This is one of the core explanations of how wings work.",
+        zh: "伯努利原理:同高度下,v 大处 P 低。翼面上方气流更快 → 压强更低 → 合力向上(升力)。这是机翼产生升力的重要机制之一。",
+      },
+    },
+    {
+      id: "phys1-u8-t4-q3",
+      prompt: {
+        en: "Bernoulli's equation applies to a fluid flow that is:",
+        zh: "伯努利方程适用于下列哪种流动?",
+      },
+      choices: [
+        { id: "a", text: { en: "steady, incompressible, and non-viscous.", zh: "稳态、不可压、无粘性。" } },
+        { id: "b", text: { en: "turbulent and viscous.", zh: "湍流且有粘性。" } },
+        { id: "c", text: { en: "only applicable to gases, not liquids.", zh: "只适用于气体,不适用于液体。" } },
+        { id: "d", text: { en: "only applicable to static fluids.", zh: "仅适用于静止流体。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Bernoulli's equation is energy conservation for an **ideal fluid flow along a streamline**: steady (time-independent), incompressible (constant ρ), non-viscous (no internal friction). Real flows approximate this; highly turbulent/viscous ones don't.",
+        zh: "伯努利方程是**理想流体沿流线**的能量守恒:稳态(不随时间变化)、不可压(ρ 恒定)、无粘性(无内摩擦)。真实流动是近似;强湍流或高粘性流体不适用。",
       },
     },
   ],
