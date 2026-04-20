@@ -12384,6 +12384,407 @@ export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
       },
     },
   ],
+
+  "unit-1/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Motion can be shown three ways: as a **position–time (x–t)** graph, a **velocity–time (v–t)** graph, or an **acceleration–time (a–t)** graph. Each is a different window onto the same motion, and the key skill is translating fluently between them.",
+        zh: "运动可以用三种图来表示:**位置—时间 (x–t)** 图、**速度—时间 (v–t)** 图,以及**加速度—时间 (a–t)** 图。每种图都是同一运动的不同视角,核心能力是**在三者之间自由转换**。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "The position–time graph", zh: "位置—时间图" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "On an **x–t** graph the **slope equals velocity**. A steep upward slope means a large positive velocity; a flat line means the object is at rest; a downward slope means motion in the − direction.",
+        zh: "在 **x–t** 图中,**斜率等于速度**。斜率陡向上表示较大的正速度;水平线表示静止;斜率向下表示朝负方向运动。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "v \\;=\\; \\dfrac{dx}{dt} \\qquad v_{avg} \\;=\\; \\dfrac{\\Delta x}{\\Delta t}",
+      caption: {
+        en: "Instantaneous velocity = slope of tangent; average velocity = slope of secant",
+        zh: "瞬时速度 = 切线斜率;平均速度 = 割线斜率",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "The velocity–time graph", zh: "速度—时间图" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "On a **v–t** graph, **slope = acceleration** and **area under the curve = displacement**. A horizontal line means constant velocity (and therefore zero acceleration).",
+        zh: "在 **v–t** 图中,**斜率 = 加速度**,**曲线下方的面积 = 位移**。水平直线表示匀速(即加速度为零)。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "a \\;=\\; \\dfrac{dv}{dt} \\qquad \\Delta x \\;=\\; \\int_{t_1}^{t_2} v\\,dt",
+      caption: {
+        en: "Slope gives a; signed area gives displacement (area below the axis is negative)",
+        zh: "斜率给出 a;带符号的面积给出位移(坐标轴下方面积为负)",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Signed area", zh: "有符号面积" },
+      text: {
+        en: "Area **above** the t-axis is positive displacement; area **below** is negative. On a v–t graph, *distance traveled* uses the **absolute** area, while *displacement* uses the **signed** area — they differ whenever the object reverses direction.",
+        zh: "位于 t 轴**上方**的面积是正位移,**下方**的面积是负位移。在 v–t 图中,**路程**使用**绝对**面积,而**位移**使用**带符号**的面积——当物体反向时二者不同。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "The acceleration–time graph", zh: "加速度—时间图" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "On an **a–t** graph, the **area under the curve equals the change in velocity (Δv)**. A horizontal line above the axis means constant positive acceleration; below, constant negative acceleration.",
+        zh: "在 **a–t** 图中,**曲线下方的面积 = 速度的变化 (Δv)**。轴上方的水平线表示恒定正加速度,轴下方表示恒定负加速度。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta v \\;=\\; \\int_{t_1}^{t_2} a\\,dt",
+      caption: {
+        en: "Change in velocity is the signed area under the a–t curve",
+        zh: "速度变化 = a–t 曲线下方的带符号面积",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Reading the three graphs together", zh: "三图联读" },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "How the same motion appears on each graph",
+        zh: "同一运动在三种图中的表现",
+      },
+      columns: [
+        { en: "Motion", zh: "运动" },
+        { en: "x–t", zh: "x–t 图" },
+        { en: "v–t", zh: "v–t 图" },
+        { en: "a–t", zh: "a–t 图" },
+      ],
+      rows: [
+        [{ en: "At rest", zh: "静止" }, { en: "Horizontal line", zh: "水平线" }, { en: "On x-axis (v = 0)", zh: "落在 x 轴 (v = 0)" }, { en: "On x-axis (a = 0)", zh: "落在 x 轴 (a = 0)" }],
+        [{ en: "Constant v > 0", zh: "v > 0 且恒定" }, { en: "Straight line, + slope", zh: "直线,正斜率" }, { en: "Horizontal line above axis", zh: "轴上方的水平线" }, { en: "On x-axis (a = 0)", zh: "落在 x 轴 (a = 0)" }],
+        [{ en: "Constant a > 0 (speeding up from rest)", zh: "a > 0 且恒定(从静止开始加速)" }, { en: "Upward parabola", zh: "向上开口的抛物线" }, { en: "Straight line, + slope", zh: "直线,正斜率" }, { en: "Horizontal line above axis", zh: "轴上方的水平线" }],
+        [{ en: "Constant a < 0 (slowing down)", zh: "a < 0 且恒定(减速)" }, { en: "Downward-bending curve", zh: "向下弯曲的曲线" }, { en: "Straight line, − slope", zh: "直线,负斜率" }, { en: "Horizontal line below axis", zh: "轴下方的水平线" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — a ball tossed up", zh: "例题——向上抛出的球" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A ball is thrown straight up at +20 m/s and caught at the same height it was launched. Neglect air resistance. The x–t graph is a downward parabola (position rises, then falls). The v–t graph is a **straight line with slope −g**, starting at +20 and reaching −20 when caught. The a–t graph is a horizontal line at −9.8 m/s² the whole time.",
+        zh: "一只球以 +20 m/s 向上抛出,最后在同一高度被接住。忽略空气阻力。x–t 图为向下开口的抛物线(先升后降);v–t 图为**斜率 −g 的直线**,从 +20 一直下降到接住时的 −20;a–t 图在整个过程中是位于 −9.8 m/s² 的水平线。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Common pitfall", zh: "常见陷阱" },
+      text: {
+        en: "Don't confuse the **shape of the path** with the **shape of the x–t graph**. A ball thrown straight up travels along a vertical *line*, but its x–t graph is a *parabola*. The two plot different things.",
+        zh: "不要把**轨迹的形状**与 **x–t 图的形状**混为一谈。竖直上抛的球沿竖直**直线**运动,但它的 x–t 图却是**抛物线**。两者描述的是不同的事物。",
+      },
+    },
+  ],
+
+  "unit-1/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "When **acceleration is constant**, four algebraic equations link position, velocity, acceleration, and time. They are the workhorses of 1D kinematics — memorize them, and know which one to reach for.",
+        zh: "**加速度恒定**时,四个代数方程将位置、速度、加速度与时间联系起来。它们是一维运动学的主力工具——记住它们,并知道在什么情况下使用哪一个。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "The four constant-acceleration equations", zh: "四个匀加速运动方程" },
+    },
+    {
+      kind: "math",
+      tex: "v \\;=\\; v_{0} + a\\,t",
+      caption: { en: "① velocity after time t (missing Δx)", zh: "① 经过时间 t 后的速度(缺 Δx)" },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta x \\;=\\; v_{0}\\,t + \\tfrac{1}{2}\\,a\\,t^{2}",
+      caption: { en: "② displacement in time t (missing v_f)", zh: "② 时间 t 内的位移(缺 v_f)" },
+    },
+    {
+      kind: "math",
+      tex: "v^{2} \\;=\\; v_{0}^{2} + 2\\,a\\,\\Delta x",
+      caption: { en: "③ velocity at a given position (missing t)", zh: "③ 在给定位移处的速度(缺 t)" },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta x \\;=\\; \\tfrac{1}{2}\\,(v_{0}+v)\\,t",
+      caption: { en: "④ displacement from average velocity (missing a)", zh: "④ 由平均速度求位移(缺 a)" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Strategy", zh: "解题策略" },
+      text: {
+        en: "Each equation is **missing exactly one variable** from the set {v₀, v, a, t, Δx}. List your knowns + target unknown, then pick the equation that **doesn't contain** the variable you *don't* know and *don't* care about.",
+        zh: "每个方程**恰好缺少** {v₀, v, a, t, Δx} 中的一个变量。先列出已知量与目标未知量,再选出那个**不含**你**不知道且不关心**的变量的方程。",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Which variable is missing from each equation?",
+        zh: "每个方程缺少哪个变量?",
+      },
+      columns: [
+        { en: "Equation", zh: "方程" },
+        { en: "Missing variable", zh: "缺少的变量" },
+      ],
+      rows: [
+        [{ en: "v = v₀ + a·t", zh: "v = v₀ + a·t" }, { en: "Δx", zh: "Δx" }],
+        [{ en: "Δx = v₀·t + ½a·t²", zh: "Δx = v₀·t + ½a·t²" }, { en: "v (final)", zh: "v(末)" }],
+        [{ en: "v² = v₀² + 2a·Δx", zh: "v² = v₀² + 2a·Δx" }, { en: "t", zh: "t" }],
+        [{ en: "Δx = ½(v₀ + v)·t", zh: "Δx = ½(v₀ + v)·t" }, { en: "a", zh: "a" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Problem-solving checklist", zh: "解题清单" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "Draw a quick sketch and pick a + direction.", zh: "画草图,选一个正方向。" },
+        { en: "List what you know (v₀, v, a, t, Δx) and what you need.", zh: "列出已知量 (v₀, v, a, t, Δx) 与待求量。" },
+        { en: "Find the equation that excludes the variable you don't care about.", zh: "选出不含「你不关心的那个变量」的方程。" },
+        { en: "Plug in with correct signs, solve, and sanity-check units and direction.", zh: "代入正确符号,求解,然后检查单位与方向是否合理。" },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — accelerating car", zh: "例题——加速的汽车" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A car starts from rest and reaches 25 m/s after traveling 50 m. Find the acceleration. We know v₀ = 0, v = 25 m/s, Δx = 50 m, and we want a. Time isn't given and isn't asked for — so use equation ③, which is missing t.",
+        zh: "一辆汽车从静止开始,行驶 50 m 后达到 25 m/s。求加速度。已知 v₀ = 0、v = 25 m/s、Δx = 50 m,求 a。题中既没有给时间 t,也没有问 t——因此选用缺少 t 的方程 ③。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "a \\;=\\; \\dfrac{v^{2} - v_{0}^{2}}{2\\,\\Delta x} \\;=\\; \\dfrac{25^{2} - 0}{2 \\cdot 50} \\;=\\; 6.25\\ \\text{m/s}^{2}",
+    },
+    {
+      kind: "callout",
+      label: { en: "Sign reminder", zh: "符号提示" },
+      text: {
+        en: "**g ≈ 9.80 m/s²** is always a **positive magnitude**. If you choose up as +, you must write acceleration as **a = −g** in your equations. This sign convention is the #1 source of kinematics errors.",
+        zh: "**g ≈ 9.80 m/s²** 始终是一个**正的大小**。若取向上为正,方程中必须写 **a = −g**。这个符号约定是运动学错误最主要的来源。",
+      },
+    },
+  ],
+
+  "unit-1/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Free fall** is the motion of an object under the influence of **gravity alone** — no air resistance, no thrust, no friction. Near Earth's surface, every object in free fall has the **same** downward acceleration, regardless of its mass.",
+        zh: "**自由落体**是指物体**仅受重力**作用的运动——没有空气阻力、没有推力、没有摩擦。在地球表面附近,所有自由落体的物体**加速度相同**,与质量无关。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "a \\;=\\; -g \\;=\\; -9.80\\ \\text{m/s}^{2}\\ \\ (\\text{up taken as }+)",
+      caption: {
+        en: "Free-fall acceleration when up is positive",
+        zh: "取向上为正时的自由落体加速度",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "g is a magnitude", zh: "g 是大小" },
+      text: {
+        en: "**g = 9.80 m/s² is positive.** The *sign* of acceleration depends on your axis choice. If up is +, then a = −g. If down is +, then a = +g. The physics is identical either way — only the bookkeeping changes.",
+        zh: "**g = 9.80 m/s²** 是**正值**。加速度的**符号**取决于你对坐标轴的选择。若取向上为正,则 a = −g;若取向下为正,则 a = +g。物理本质相同,区别只在于记法。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Symmetry of projectile-on-a-line motion", zh: "一维抛体运动的对称性" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "If you throw a ball straight up and catch it at the same height, its flight is perfectly symmetric: **time up = time down**, and the **speed at any height going up equals the speed at that same height coming down**. Only the *direction* of velocity reverses.",
+        zh: "若把球竖直上抛并在同一高度接住,其飞行完全对称:**上升时间 = 下降时间**,**同一高度上升时的速率 = 下降时的速率**。仅速度的**方向**相反。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "At the peak", zh: "最高点" },
+    },
+    {
+      kind: "callout",
+      label: { en: "v = 0, but a ≠ 0", zh: "v = 0,但 a ≠ 0" },
+      text: {
+        en: "At the highest point of an up-and-down flight, the velocity is **momentarily zero** — that's what \"peak\" means. But the acceleration is **still −g**; gravity never switches off. The object is in the act of *reversing* from up to down.",
+        zh: "上抛至最高点时,速度**瞬时为零**——这就是「最高点」的定义。但加速度**仍为 −g**;重力不会「关掉」。物体正在**由上升转为下降**。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — stone from a cliff", zh: "例题——从悬崖投出的石块" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A stone is thrown straight up at **+15 m/s** from the top of a **40 m** cliff (up is +). Find (a) the time to reach its peak, (b) the maximum height above the cliff top, and (c) the time to hit the ground below.",
+        zh: "在 **40 m** 悬崖顶部以 **+15 m/s** 竖直上抛一块石头(向上为正)。求:(a) 到达最高点所用时间;(b) 相对悬崖顶的最大高度;(c) 落到悬崖底部所用的总时间。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{(a)}\\quad 0 \\;=\\; 15 - 9.8\\,t_{peak} \\;\\Longrightarrow\\; t_{peak} \\;=\\; 1.53\\ \\text{s}",
+    },
+    {
+      kind: "math",
+      tex: "\\text{(b)}\\quad \\Delta y_{peak} \\;=\\; 15(1.53) - \\tfrac{1}{2}(9.8)(1.53)^{2} \\;\\approx\\; 11.5\\ \\text{m above the cliff}",
+    },
+    {
+      kind: "math",
+      tex: "\\text{(c)}\\quad -40 \\;=\\; 15\\,t - \\tfrac{1}{2}(9.8)\\,t^{2} \\;\\Longrightarrow\\; t \\;\\approx\\; 4.50\\ \\text{s}\\ (\\text{total, cliff-top to ground})",
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Part (c) uses the cliff top as the origin, so the ground is at y = −40 m. Solving the quadratic gives a positive root of ~4.50 s.",
+        zh: "(c) 以悬崖顶为原点,地面即 y = −40 m 处。解这个二次方程得到正根约 4.50 s。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Common errors", zh: "常见错误" },
+      text: {
+        en: "(1) Writing a = +9.8 when up is +. (2) Using *distance* instead of *displacement* for Δy. (3) Forgetting that at the peak **a ≠ 0**. (4) Assuming the stone \"reverses\" into a new problem — it doesn't; the same equations carry through the whole flight.",
+        zh: "(1) 取向上为正时把 a 写成 +9.8。(2) 在 Δy 处用**路程**而非**位移**。(3) 忘记最高点 **a ≠ 0**。(4) 以为石块「掉头」后要开新的一道题——不用;同一套方程贯穿整个飞行过程。",
+      },
+    },
+  ],
+
+  "unit-1/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **projectile** is an object moving through the air under the influence of **gravity alone** (no thrust, air resistance ignored). The key insight: **horizontal and vertical motions are independent** — gravity pulls only in the y-direction, so x-motion is just constant velocity.",
+        zh: "**抛体**指仅受**重力**作用的空中运动物体(无推力,忽略空气阻力)。关键认识:**水平与竖直方向的运动彼此独立**——重力只沿 y 方向拉扯物体,所以 x 方向是匀速运动。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "The independence principle", zh: "独立性原理" },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Splitting projectile motion into x and y",
+        zh: "将抛体运动分解为 x 与 y 两个方向",
+      },
+      columns: [
+        { en: "Direction", zh: "方向" },
+        { en: "Acceleration", zh: "加速度" },
+        { en: "Velocity", zh: "速度" },
+        { en: "Position", zh: "位置" },
+      ],
+      rows: [
+        [{ en: "x (horizontal)", zh: "x(水平)" }, { en: "0", zh: "0" }, { en: "vₓ = v₀ₓ (constant)", zh: "vₓ = v₀ₓ(恒定)" }, { en: "x = v₀ₓ · t", zh: "x = v₀ₓ · t" }],
+        [{ en: "y (vertical)", zh: "y(竖直)" }, { en: "−g", zh: "−g" }, { en: "vᵧ = v₀ᵧ − g·t", zh: "vᵧ = v₀ᵧ − g·t" }, { en: "y = v₀ᵧ·t − ½g·t²", zh: "y = v₀ᵧ·t − ½g·t²" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Time is the link", zh: "用时间联系两方向" },
+      text: {
+        en: "The x- and y-motions happen over the **same** time t. Solve whichever direction has enough info to get t (usually vertical — gravity sets the clock), then plug that t into the other direction.",
+        zh: "x 与 y 方向发生在**相同**的时间 t 内。先在信息充足的一方(通常是竖直方向——重力定下了时钟)求出 t,再把 t 代入另一方向。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Launch at an angle θ", zh: "以角度 θ 发射" },
+    },
+    {
+      kind: "math",
+      tex: "v_{0x} \\;=\\; v_{0}\\cos\\theta \\qquad\\qquad v_{0y} \\;=\\; v_{0}\\sin\\theta",
+      caption: {
+        en: "Components of the initial velocity",
+        zh: "初速度的分量",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Horizontal launch (off a cliff or table)", zh: "水平发射(从悬崖或桌面)" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "If the launch is purely horizontal, v₀ᵧ = 0. The time in the air depends only on the fall height h: t = √(2h/g). The horizontal range is then vₓ × t.",
+        zh: "若初速度纯水平,则 v₀ᵧ = 0。空中时间仅由下落高度 h 决定:t = √(2h/g),水平射程为 vₓ × t。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "t_{air} \\;=\\; \\sqrt{\\dfrac{2h}{g}} \\qquad\\qquad \\text{Range} \\;=\\; v_{0x}\\,\\sqrt{\\dfrac{2h}{g}}",
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — ball rolled off a cliff", zh: "例题——从悬崖滚落的球" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A ball rolls horizontally off the edge of a **20 m** cliff at **8.0 m/s**. How far from the base of the cliff does it land?",
+        zh: "一只球以 **8.0 m/s** 的速度从 **20 m** 高的悬崖边水平滚出。它落在距悬崖底部多远处?",
+      },
+    },
+    {
+      kind: "math",
+      tex: "t_{air} \\;=\\; \\sqrt{\\dfrac{2(20)}{9.8}} \\;\\approx\\; 2.02\\ \\text{s}",
+    },
+    {
+      kind: "math",
+      tex: "\\text{Range} \\;=\\; (8.0)(2.02) \\;\\approx\\; 16.2\\ \\text{m}",
+    },
+    {
+      kind: "callout",
+      label: { en: "At the peak of an arc", zh: "弧形轨迹的最高点" },
+      text: {
+        en: "For a projectile launched at an angle, at the peak of its trajectory **vᵧ = 0 but vₓ is unchanged**. So the velocity is **not zero** — it's purely horizontal. The only acceleration is still −g (downward).",
+        zh: "以一定角度发射的抛体在最高点处 **vᵧ = 0,但 vₓ 不变**。因此速度**不为零**,而是纯水平;加速度依旧为 −g(向下)。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Classic demo", zh: "经典演示" },
+      text: {
+        en: "If one ball is **dropped** from height h and another is **fired horizontally** from the same height at the same instant, they hit the ground at the **same time**. Horizontal motion doesn't change the vertical fall time — that's the independence principle in one sentence.",
+        zh: "在同一时刻,一球从高度 h **自由落下**,另一球以同一高度**水平抛出**,两球**同时**落地。水平运动不改变竖直方向的下落时间——这就是独立性原理最简洁的体现。",
+      },
+    },
+  ],
+
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -14737,6 +15138,306 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
       explanation: {
         en: "When **a⃗ and v⃗ point in the same direction** — regardless of whether that direction is + or − — the object is **speeding up**. Here both point in −x, so the object's speed increases. The sign of a alone doesn't tell you \"slowing vs. speeding\" — the *relative* sign of a and v does.",
         zh: "当 **a⃗ 与 v⃗ 方向相同**时——无论是 + 还是 −——物体都在**加速**。此题两者都沿 −x 方向,所以速率增大。仅凭 a 的符号无法判断「加速还是减速」,要看 a 与 v 的**相对符号**。",
+      },
+    },
+  ],
+
+  "unit-1/topic-2": [
+    {
+      id: "phys1-u1-t2-q1",
+      prompt: {
+        en: "A position–time graph is a straight line from (0 s, 2 m) to (4 s, 14 m). What is the object's velocity during this interval?",
+        zh: "位置—时间图是一条从 (0 s, 2 m) 到 (4 s, 14 m) 的直线。在此时间段内物体的速度是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "+2 m/s", zh: "+2 m/s" } },
+        { id: "b", text: { en: "+3 m/s", zh: "+3 m/s" } },
+        { id: "c", text: { en: "+4 m/s", zh: "+4 m/s" } },
+        { id: "d", text: { en: "+12 m/s", zh: "+12 m/s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Velocity = slope of the x–t line = Δx / Δt = (14 − 2) / (4 − 0) = **12 / 4 = +3 m/s**. Choice D uses Δx instead of Δx/Δt.",
+        zh: "速度 = x–t 图的斜率 = Δx / Δt = (14 − 2) / (4 − 0) = **12 / 4 = +3 m/s**。选项 D 用的是 Δx 而不是 Δx/Δt。",
+      },
+    },
+    {
+      id: "phys1-u1-t2-q2",
+      prompt: {
+        en: "On a velocity–time graph, an object's velocity is constant at +4 m/s for 3 s, then constant at −2 m/s for 2 s. What is the object's **displacement** over the full 5 s?",
+        zh: "某物体在 v–t 图上:前 3 s 速度恒为 +4 m/s,后 2 s 恒为 −2 m/s。整个 5 s 的**位移**是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "+16 m", zh: "+16 m" } },
+        { id: "b", text: { en: "+12 m", zh: "+12 m" } },
+        { id: "c", text: { en: "+8 m", zh: "+8 m" } },
+        { id: "d", text: { en: "+20 m", zh: "+20 m" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Displacement = **signed area** under the v–t graph. Area 1 = (+4)(3) = +12 m; Area 2 = (−2)(2) = −4 m. Total Δx = 12 + (−4) = **+8 m**. Choice A uses absolute areas (that's distance traveled = 16 m), not signed areas.",
+        zh: "位移 = v–t 图下方**带符号**的面积。第一段面积 = (+4)(3) = +12 m;第二段 = (−2)(2) = −4 m。总位移 Δx = 12 + (−4) = **+8 m**。选项 A 用了绝对面积(那是路程 = 16 m),而不是带符号的面积。",
+      },
+    },
+    {
+      id: "phys1-u1-t2-q3",
+      prompt: {
+        en: "An object's v–t graph is a straight line that starts at +6 m/s at t = 0 and crosses the t-axis at t = 3 s (reaching v = 0 there). During 0 ≤ t ≤ 3 s, the object is:",
+        zh: "某物体的 v–t 图是一条直线:t = 0 时 v = +6 m/s,在 t = 3 s 时穿过 t 轴(v = 0)。在 0 ≤ t ≤ 3 s 区间内,物体:",
+      },
+      choices: [
+        { id: "a", text: { en: "Moving in the + direction and speeding up", zh: "沿 + 方向运动,且在加速" } },
+        { id: "b", text: { en: "Moving in the + direction and slowing down", zh: "沿 + 方向运动,但在减速" } },
+        { id: "c", text: { en: "Moving in the − direction and slowing down", zh: "沿 − 方向运动,且在减速" } },
+        { id: "d", text: { en: "At rest the whole time", zh: "始终静止" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "v > 0, so motion is in the + direction. The slope of v–t is **negative** (line falls from +6 to 0), so acceleration is **negative**. When v and a have opposite signs, the object is **slowing down**. It reaches rest exactly at t = 3 s.",
+        zh: "v > 0,所以沿 + 方向运动。v–t 图的斜率**为负**(从 +6 下降到 0),因此加速度**为负**。当 v 与 a 符号相反时,物体**减速**。它在 t = 3 s 时刚好停下。",
+      },
+    },
+    {
+      id: "phys1-u1-t2-q4",
+      prompt: {
+        en: "The acceleration of a cart is constant at **−2 m/s²** from t = 0 to t = 5 s. If the cart's initial velocity is +3 m/s, what is its velocity at t = 5 s?",
+        zh: "一辆小车在 0 ≤ t ≤ 5 s 内加速度恒为 **−2 m/s²**。若初速度为 +3 m/s,则 t = 5 s 时速度是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "+13 m/s", zh: "+13 m/s" } },
+        { id: "b", text: { en: "+7 m/s", zh: "+7 m/s" } },
+        { id: "c", text: { en: "−10 m/s", zh: "−10 m/s" } },
+        { id: "d", text: { en: "−7 m/s", zh: "−7 m/s" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Δv = area under the a–t graph = (−2)(5) = **−10 m/s**. Final velocity = v₀ + Δv = (+3) + (−10) = **−7 m/s**. The cart first slows, reaches rest at t = 1.5 s, then reverses and speeds up in the − direction.",
+        zh: "Δv = a–t 图下方面积 = (−2)(5) = **−10 m/s**。末速度 = v₀ + Δv = (+3) + (−10) = **−7 m/s**。小车先减速,在 t = 1.5 s 时停止,随后反向加速。",
+      },
+    },
+  ],
+
+  "unit-1/topic-3": [
+    {
+      id: "phys1-u1-t3-q1",
+      prompt: {
+        en: "A car starts from rest and accelerates uniformly at **3.0 m/s²** for 5.0 s. How far does the car travel in that time?",
+        zh: "一辆汽车从静止开始,以 **3.0 m/s²** 的恒定加速度行驶 5.0 s。这段时间内行驶了多远?",
+      },
+      choices: [
+        { id: "a", text: { en: "15 m", zh: "15 m" } },
+        { id: "b", text: { en: "37.5 m", zh: "37.5 m" } },
+        { id: "c", text: { en: "75 m", zh: "75 m" } },
+        { id: "d", text: { en: "7.5 m", zh: "7.5 m" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Use Δx = v₀t + ½a·t² with v₀ = 0: Δx = 0 + ½(3.0)(5.0)² = **37.5 m**. Choice A uses v·t where v = a·t = 15 m/s — that's the **final** speed, not the average, so it overcounts.",
+        zh: "用 Δx = v₀t + ½a·t²,v₀ = 0:Δx = 0 + ½(3.0)(5.0)² = **37.5 m**。选项 A 用的是 v·t,其中 v = a·t = 15 m/s——这是**末速度**,不是平均值,因此偏大。",
+      },
+    },
+    {
+      id: "phys1-u1-t3-q2",
+      prompt: {
+        en: "A runner moving at +8.0 m/s slows to a stop with constant deceleration over a distance of 16 m. What is the magnitude of the acceleration?",
+        zh: "一位跑步者以 +8.0 m/s 匀减速前进,16 m 后停下。加速度的大小是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "1.0 m/s²", zh: "1.0 m/s²" } },
+        { id: "b", text: { en: "2.0 m/s²", zh: "2.0 m/s²" } },
+        { id: "c", text: { en: "4.0 m/s²", zh: "4.0 m/s²" } },
+        { id: "d", text: { en: "8.0 m/s²", zh: "8.0 m/s²" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Time isn't given or asked, so use v² = v₀² + 2a·Δx: 0 = (8.0)² + 2a(16) → a = −64/32 = **−2.0 m/s²**. Magnitude = **2.0 m/s²**.",
+        zh: "题目不涉及时间,用 v² = v₀² + 2a·Δx:0 = (8.0)² + 2a(16) → a = −64/32 = **−2.0 m/s²**。大小为 **2.0 m/s²**。",
+      },
+    },
+    {
+      id: "phys1-u1-t3-q3",
+      prompt: {
+        en: "A bike is traveling at +12 m/s and accelerates at +2.0 m/s² for 4.0 s. What is the bike's displacement during this time?",
+        zh: "一辆自行车以 +12 m/s 行驶,加速度为 +2.0 m/s²,持续 4.0 s。这段时间内的位移是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "16 m", zh: "16 m" } },
+        { id: "b", text: { en: "48 m", zh: "48 m" } },
+        { id: "c", text: { en: "56 m", zh: "56 m" } },
+        { id: "d", text: { en: "64 m", zh: "64 m" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Δx = v₀·t + ½a·t² = (12)(4) + ½(2)(4)² = 48 + 16 = **56 m**. Choice B forgets the ½a·t² term (assumes constant velocity); Choice D is v_avg confusion.",
+        zh: "Δx = v₀·t + ½a·t² = (12)(4) + ½(2)(4)² = 48 + 16 = **56 m**。选项 B 漏掉了 ½a·t² 项(当作匀速);选项 D 是平均速度的误算。",
+      },
+    },
+    {
+      id: "phys1-u1-t3-q4",
+      prompt: {
+        en: "You are given initial velocity v₀, final velocity v, and time t — and asked to find displacement Δx. Which kinematic equation should you use?",
+        zh: "已知初速度 v₀、末速度 v 和时间 t,求位移 Δx。应选用哪一条运动学方程?",
+      },
+      choices: [
+        { id: "a", text: { en: "v = v₀ + a·t", zh: "v = v₀ + a·t" } },
+        { id: "b", text: { en: "Δx = v₀·t + ½a·t²", zh: "Δx = v₀·t + ½a·t²" } },
+        { id: "c", text: { en: "v² = v₀² + 2a·Δx", zh: "v² = v₀² + 2a·Δx" } },
+        { id: "d", text: { en: "Δx = ½(v₀ + v)·t", zh: "Δx = ½(v₀ + v)·t" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Acceleration is the variable you don't know and weren't asked for — pick the equation that **doesn't contain a**. That's equation ④: Δx = ½(v₀ + v)·t. No need to compute a as an intermediate step.",
+        zh: "加速度是你不知道也不用求的量——选**不含 a** 的方程,即方程 ④:Δx = ½(v₀ + v)·t。不必把 a 作为中间步骤求出来。",
+      },
+    },
+  ],
+
+  "unit-1/topic-4": [
+    {
+      id: "phys1-u1-t4-q1",
+      prompt: {
+        en: "A ball is **dropped from rest** from a height of **80 m**. Ignoring air resistance, how long does it take to hit the ground? (g = 9.8 m/s²)",
+        zh: "一只球从 **80 m** 高处**由静止释放**。忽略空气阻力,多少秒后落地?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "2.0 s", zh: "2.0 s" } },
+        { id: "b", text: { en: "4.0 s", zh: "4.0 s" } },
+        { id: "c", text: { en: "6.3 s", zh: "6.3 s" } },
+        { id: "d", text: { en: "8.2 s", zh: "8.2 s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "With v₀ = 0: h = ½g·t² → t = √(2h/g) = √(160/9.8) ≈ **4.04 s ≈ 4.0 s**. Choice A confuses t² with t.",
+        zh: "v₀ = 0 时:h = ½g·t² → t = √(2h/g) = √(160/9.8) ≈ **4.04 s ≈ 4.0 s**。选项 A 混淆了 t² 与 t。",
+      },
+    },
+    {
+      id: "phys1-u1-t4-q2",
+      prompt: {
+        en: "A ball is thrown straight up at **+20 m/s** from ground level. Ignoring air resistance, what is its maximum height above the launch point? (g = 9.8 m/s²)",
+        zh: "从地面以 **+20 m/s** 竖直上抛一只球。忽略空气阻力,相对发射点的最大高度为多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "10.2 m", zh: "10.2 m" } },
+        { id: "b", text: { en: "20.4 m", zh: "20.4 m" } },
+        { id: "c", text: { en: "40.8 m", zh: "40.8 m" } },
+        { id: "d", text: { en: "200 m", zh: "200 m" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "At the peak, v = 0. Use v² = v₀² + 2a·Δy (a = −g): 0 = (20)² + 2(−9.8)·Δy → Δy = 400/19.6 ≈ **20.4 m**. Choice C forgets the factor of 2 in the denominator.",
+        zh: "最高点 v = 0。用 v² = v₀² + 2a·Δy(a = −g):0 = (20)² + 2(−9.8)·Δy → Δy = 400/19.6 ≈ **20.4 m**。选项 C 漏了分母里的系数 2。",
+      },
+    },
+    {
+      id: "phys1-u1-t4-q3",
+      prompt: {
+        en: "A ball is thrown straight up at +v₀ from the top of a cliff. It rises, falls back to the launch height, and then continues downward past the cliff. What is its **speed** when it passes back through the launch height on the way down? (Ignore air resistance.)",
+        zh: "从悬崖顶部以 +v₀ 竖直上抛一球。它先上升,再回到发射高度,最后继续下落经过悬崖。当它在下落途中回到发射高度时,**速率**是多少?(忽略空气阻力。)",
+      },
+      choices: [
+        { id: "a", text: { en: "0 (it stops momentarily at launch height)", zh: "0(在发射高度瞬时停下)" } },
+        { id: "b", text: { en: "v₀ (same magnitude as launch)", zh: "v₀(与发射时等大)" } },
+        { id: "c", text: { en: "2v₀ (doubled by gravity)", zh: "2v₀(因重力加倍)" } },
+        { id: "d", text: { en: "Depends on the cliff height", zh: "取决于悬崖高度" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "By the **symmetry of free fall**, the speed at any height on the way down equals the speed at that same height on the way up (no air resistance). So at the launch height the speed is **v₀ again** — only the direction (now −) has flipped.",
+        zh: "由**自由落体的对称性**,下落途中经过任一高度时的速率等于上升途中经过该高度时的速率(无空气阻力)。因此回到发射高度时速率仍为 **v₀**——只是方向反转为负。",
+      },
+    },
+    {
+      id: "phys1-u1-t4-q4",
+      prompt: {
+        en: "Which statement about an object in free fall near Earth's surface is true?",
+        zh: "关于地球表面附近自由落体的物体,下列哪一项正确?",
+      },
+      choices: [
+        { id: "a", text: { en: "A heavier object falls faster than a lighter one.", zh: "重物体下落比轻物体快。" } },
+        { id: "b", text: { en: "Acceleration decreases as the object speeds up.", zh: "物体加速时加速度减小。" } },
+        { id: "c", text: { en: "All objects in free fall have the same acceleration, regardless of mass.", zh: "所有自由落体的物体加速度相同,与质量无关。" } },
+        { id: "d", text: { en: "At the peak of an upward throw, the acceleration is zero.", zh: "上抛至最高点时加速度为零。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Near Earth's surface and neglecting air resistance, every object in free fall has the **same acceleration g ≈ 9.8 m/s² downward**. Mass cancels out of the motion (a = F/m with F = mg). Choice D is a classic trap — at the peak v = 0, but a = −g still.",
+        zh: "在地球表面附近并忽略空气阻力,所有自由落体物体的**加速度都为 g ≈ 9.8 m/s²,方向向下**。质量在运动方程中抵消 (a = F/m,F = mg)。选项 D 是经典陷阱——最高点 v = 0,但 a 仍为 −g。",
+      },
+    },
+  ],
+
+  "unit-1/topic-5": [
+    {
+      id: "phys1-u1-t5-q1",
+      prompt: {
+        en: "A ball rolls horizontally off the edge of a **5.0 m** high table at **2.0 m/s**. How far from the base of the table does it land? (g = 9.8 m/s²)",
+        zh: "一只球以 **2.0 m/s** 的水平速度从 **5.0 m** 高的桌边滚出。它落在距桌边多远处?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "1.0 m", zh: "1.0 m" } },
+        { id: "b", text: { en: "2.0 m", zh: "2.0 m" } },
+        { id: "c", text: { en: "5.1 m", zh: "5.1 m" } },
+        { id: "d", text: { en: "10 m", zh: "10 m" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Vertical: t = √(2h/g) = √(10/9.8) ≈ 1.01 s. Horizontal: range = vₓ·t = (2.0)(1.01) ≈ **2.0 m**. The horizontal speed and fall time are **independent** — gravity only acts vertically.",
+        zh: "竖直:t = √(2h/g) = √(10/9.8) ≈ 1.01 s。水平:射程 = vₓ·t = (2.0)(1.01) ≈ **2.0 m**。水平速度与下落时间**彼此独立**——重力只沿竖直方向作用。",
+      },
+    },
+    {
+      id: "phys1-u1-t5-q2",
+      prompt: {
+        en: "Two identical balls are at the top of a 10 m cliff. At the same instant, ball A is **dropped from rest**, and ball B is **launched horizontally** at 5 m/s. Which ball hits the ground first? (Ignore air resistance.)",
+        zh: "悬崖顶部有两个完全相同的球。同一时刻,A 球**从静止释放**,B 球以 5 m/s **水平抛出**。哪一个先落地?(忽略空气阻力。)",
+      },
+      choices: [
+        { id: "a", text: { en: "Ball A (it has no horizontal motion to slow it)", zh: "A 球(没有水平运动拖慢它)" } },
+        { id: "b", text: { en: "Ball B (its higher speed gets it down faster)", zh: "B 球(速率更大,下落更快)" } },
+        { id: "c", text: { en: "They hit at the same time.", zh: "两球同时落地。" } },
+        { id: "d", text: { en: "Cannot be determined without more information.", zh: "信息不足,无法判断。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "This is the **independence principle** in one sentence: horizontal and vertical motions don't affect each other. Both balls start with v_y = 0 and fall the same 10 m, so both take t = √(2h/g) ≈ 1.43 s to hit the ground. Ball B just lands *farther away* horizontally.",
+        zh: "这正是**独立性原理**最经典的体现:水平与竖直运动互不影响。两球初始 v_y = 0,都下落 10 m,落地时间 t = √(2h/g) ≈ 1.43 s 完全相同。B 球只是水平方向落得更远。",
+      },
+    },
+    {
+      id: "phys1-u1-t5-q3",
+      prompt: {
+        en: "A projectile is launched at an angle **θ = 30°** above the horizontal with a speed of **20 m/s** over flat ground. How long is it in the air? (g = 9.8 m/s²)",
+        zh: "一抛体在平地以 **20 m/s**、与水平方向成 **θ = 30°** 的角发射。它在空中停留多长时间?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "1.02 s", zh: "1.02 s" } },
+        { id: "b", text: { en: "2.04 s", zh: "2.04 s" } },
+        { id: "c", text: { en: "3.54 s", zh: "3.54 s" } },
+        { id: "d", text: { en: "4.08 s", zh: "4.08 s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "v₀ᵧ = v₀·sinθ = 20·sin 30° = **10 m/s**. Time in air on flat ground = 2v₀ᵧ / g = 20 / 9.8 ≈ **2.04 s**. (Choice A is only the time to the peak — half the full flight.)",
+        zh: "v₀ᵧ = v₀·sinθ = 20·sin 30° = **10 m/s**。平地上的总滞空时间 = 2v₀ᵧ / g = 20 / 9.8 ≈ **2.04 s**。(选项 A 只是到最高点的时间,恰好是总时间的一半。)",
+      },
+    },
+    {
+      id: "phys1-u1-t5-q4",
+      prompt: {
+        en: "At the **peak** of a projectile's trajectory (launched at an angle, not straight up), what is its velocity?",
+        zh: "一抛体(非竖直发射)的**最高点**处,它的速度是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "Zero in both x and y.", zh: "x 与 y 方向都为零。" } },
+        { id: "b", text: { en: "Zero in y; nonzero in x (purely horizontal).", zh: "y 方向为零,x 方向不为零(纯水平)。" } },
+        { id: "c", text: { en: "Zero in x; nonzero in y.", zh: "x 方向为零,y 方向不为零。" } },
+        { id: "d", text: { en: "Equal to its launch velocity.", zh: "等于发射时的速度。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Gravity acts only in the y-direction, so **vₓ never changes** — it's the same as v₀ₓ the whole flight. At the peak, **vᵧ = 0** (the object is just about to fall), but **vₓ ≠ 0**. So the velocity is purely horizontal, not zero.",
+        zh: "重力只沿 y 方向作用,因此 **vₓ 始终不变**——整个过程中等于 v₀ₓ。最高点 **vᵧ = 0**(即将开始下落),但 **vₓ ≠ 0**。所以此处速度纯水平,并非零。",
       },
     },
   ],
