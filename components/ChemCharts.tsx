@@ -788,6 +788,67 @@ export function LeChatelierShift({ lang = "en" }: { lang?: "en" | "zh" }) {
   );
 }
 
+// ------------------------------------------------------------
+// 19. Weak-acid titration curve (pKa = 4.74, acetic-acid-ish)
+// ------------------------------------------------------------
+export function WeakAcidTitration({ lang = "en" }: { lang?: "en" | "zh" }) {
+  // Titrate 25.00 mL of 0.100 M weak acid (pKa = 4.74) with 0.100 M NaOH
+  const data: Array<{ V: number; pH: number }> = [];
+  const V0 = 25.0;
+  const Ca = 0.1;
+  const Cb = 0.1;
+  const pKa = 4.74;
+  const Ka = Math.pow(10, -pKa);
+  for (let V = 0; V <= 50; V += 0.5) {
+    let pH: number;
+    const molHA0 = V0 * Ca / 1000;
+    const molOH = V * Cb / 1000;
+    const totalV = (V0 + V) / 1000; // L
+    if (V === 0) {
+      // pure weak acid: [H+] ≈ √(Ka·Ca)
+      pH = 0.5 * (pKa - Math.log10(Ca));
+    } else if (molOH < molHA0 - 1e-7) {
+      // buffer region
+      const HA = molHA0 - molOH;
+      const A = molOH;
+      pH = pKa + Math.log10(A / HA);
+    } else if (Math.abs(molOH - molHA0) < 1e-7) {
+      // equivalence: conjugate base hydrolysis
+      const cA = molHA0 / totalV;
+      const Kb = 1e-14 / Ka;
+      const OH = Math.sqrt(Kb * cA);
+      pH = 14 + Math.log10(OH);
+    } else {
+      // past equivalence: excess strong base
+      const excessOH = molOH - molHA0;
+      const OH = excessOH / totalV;
+      pH = 14 + Math.log10(OH);
+    }
+    data.push({ V, pH: +pH.toFixed(2) });
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Weak acid + strong base titration (pKa = 4.74)", "弱酸 + 强碱滴定(pKa = 4.74)")}
+      caption={tt(
+        "Buffer zone is flat around pKa. Equivalence pH > 7 because conjugate base (A⁻) is weakly basic. Half-equivalence (V = 12.5 mL) → pH = pKa.",
+        "缓冲区平缓,中心位于 pKa。等当点 pH > 7——共轭碱 A⁻ 呈弱碱性。半等当点(V = 12.5 mL)pH = pKa。"
+      )}
+      height={300}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="V" type="number" domain={[0, 50]} stroke="#475569" label={{ value: tt("Volume NaOH (mL)", "加入 NaOH (mL)"), position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }} />
+        <YAxis stroke="#475569" domain={[0, 14]} label={{ value: "pH", angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <ReferenceLine x={12.5} stroke="#9333ea" strokeDasharray="4 3" label={{ value: tt("½ eq  (pH = pKa)", "半等当点 (pH = pKa)"), position: "top", fill: "#9333ea", fontSize: 11 }} />
+        <ReferenceLine x={25} stroke="#16a34a" strokeDasharray="4 3" label={{ value: tt("equiv. pt", "等当点"), position: "top", fill: "#16a34a", fontSize: 11 }} />
+        <ReferenceLine y={pKa} stroke="#cbd5e1" strokeDasharray="3 3" />
+        <Line type="monotone" dataKey="pH" stroke="#dc2626" strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
 // silence unused import warning for AreaChart/Area (kept for future)
 void AreaChart;
 void Area;

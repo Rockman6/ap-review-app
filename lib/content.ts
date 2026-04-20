@@ -54,7 +54,8 @@ export type NoteBlock =
         | "thermal-equilibrium"
         | "hess-cycle"
         | "equilibrium-approach"
-        | "lechatelier-shift";
+        | "lechatelier-shift"
+        | "titration-weak";
     }
   | { kind: "mass-spectrum"; peaks: Array<{ mz: number; pct: number }>; title?: Bilingual }
   | {
@@ -7753,15 +7754,20 @@ export const apChemistry: Subject = {
       number: 8,
       title: { en: "Acids & Bases", zh: "酸与碱" },
       description: {
-        en: "pH, weak acid/base equilibria, buffers, and titrations.",
-        zh: "pH、弱酸弱碱平衡、缓冲溶液与滴定。",
+        en: "pH, weak acid/base equilibria, buffers, titrations, and molecular structure.",
+        zh: "pH、弱酸弱碱平衡、缓冲溶液、滴定与分子结构。",
       },
       topics: [
-        { slug: "topic-1", title: { en: "pH & pOH", zh: "pH 与 pOH" }, summary: { en: "Logarithmic measure of [H⁺] and [OH⁻].", zh: "[H⁺] 与 [OH⁻] 的对数表示。" } },
-        { slug: "topic-2", title: { en: "Strong vs Weak Acids & Bases", zh: "强酸碱与弱酸碱" }, summary: { en: "Degree of dissociation and Ka / Kb.", zh: "解离程度与 Ka、Kb。" } },
-        { slug: "topic-3", title: { en: "Weak Acid/Base Equilibria", zh: "弱酸/弱碱平衡" }, summary: { en: "ICE tables to find pH of weak-acid solutions.", zh: "用 ICE 表求弱酸溶液的 pH。" } },
-        { slug: "topic-4", title: { en: "Buffers", zh: "缓冲溶液" }, summary: { en: "Henderson–Hasselbalch equation and buffer capacity.", zh: "亨德森-哈塞尔巴尔赫方程与缓冲容量。" } },
-        { slug: "topic-5", title: { en: "Acid–Base Titrations", zh: "酸碱滴定" }, summary: { en: "Equivalence point, indicators, titration curves.", zh: "等当点、指示剂与滴定曲线。" } },
+        { slug: "topic-1", title: { en: "Introduction to Acids & Bases", zh: "酸碱入门" }, summary: { en: "Brønsted–Lowry acids donate H⁺; bases accept.", zh: "Brønsted–Lowry 酸给出 H⁺,碱接受 H⁺。" } },
+        { slug: "topic-2", title: { en: "pH & pOH of Strong Acids and Bases", zh: "强酸强碱的 pH 与 pOH" }, summary: { en: "Complete ionization → pH = −log[H⁺] directly.", zh: "完全电离 → 直接 pH = −log[H⁺]。" } },
+        { slug: "topic-3", title: { en: "Weak Acid & Base Equilibria", zh: "弱酸弱碱平衡" }, summary: { en: "Ka / Kb and ICE tables for % ionization.", zh: "Ka、Kb 与求电离度的 ICE 表。" } },
+        { slug: "topic-4", title: { en: "Acid–Base Reactions & Buffers", zh: "酸碱反应与缓冲溶液" }, summary: { en: "Weak acid + its conjugate base resists pH change.", zh: "弱酸与其共轭碱能抵抗 pH 变化。" } },
+        { slug: "topic-5", title: { en: "Acid–Base Titrations", zh: "酸碱滴定" }, summary: { en: "Curves for strong/strong, weak/strong, polyprotic.", zh: "强/强、弱/强、多元酸的滴定曲线。" } },
+        { slug: "topic-6", title: { en: "Molecular Structure of Acids & Bases", zh: "酸与碱的分子结构" }, summary: { en: "Why some acids are stronger — EN, size, resonance.", zh: "酸强弱的结构原因——电负性、尺寸、共振。" } },
+        { slug: "topic-7", title: { en: "pH & pKa", zh: "pH 与 pKa" }, summary: { en: "When pH = pKa, [HA] = [A⁻].", zh: "当 pH = pKa 时,[HA] = [A⁻]。" } },
+        { slug: "topic-8", title: { en: "Properties of Buffers", zh: "缓冲溶液的性质" }, summary: { en: "Optimal pH range and resilience to added acid/base.", zh: "最佳 pH 范围与对加酸/碱的耐受。" } },
+        { slug: "topic-9", title: { en: "Henderson–Hasselbalch Equation", zh: "亨德森-哈塞尔巴尔赫方程" }, summary: { en: "pH = pKa + log([A⁻]/[HA]).", zh: "pH = pKa + log([A⁻]/[HA])。" } },
+        { slug: "topic-10", title: { en: "Buffer Capacity", zh: "缓冲容量" }, summary: { en: "How much acid or base the buffer can absorb.", zh: "缓冲溶液能承受多少加入的酸或碱。" } },
       ],
     },
     {
@@ -11510,6 +11516,254 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
   ],
+
+  // ============================================================
+  // UNIT 8 · Acids & Bases
+  // ============================================================
+
+  // ---------- 8.1 · Introduction ----------
+  "unit-8/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The **Brønsted–Lowry** definition is the one you'll use most: an **acid** is a proton (H⁺) donor; a **base** is a proton acceptor. Every acid–base reaction involves a proton jumping from one species to another.",
+        zh: "AP 中最常用的是 **Brønsted–Lowry** 定义:**酸**是 H⁺ 给体;**碱**是 H⁺ 受体。每个酸碱反应都是质子在两物种间转移。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{HA + B <=> A^- + HB+}",
+      caption: { en: "HA & A⁻ are a conjugate pair; B & HB⁺ are a conjugate pair.", zh: "HA 与 A⁻ 是共轭对;B 与 HB⁺ 是共轭对。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Water is amphoteric", zh: "水具两性" },
+      text: {
+        en: "H₂O can act as either acid or base — it autoionizes: **2 H₂O ⇌ H₃O⁺ + OH⁻**, with Kw = [H₃O⁺][OH⁻] = **1.0 × 10⁻¹⁴** at 25 °C. This is why pH + pOH = 14.",
+        zh: "H₂O 既可作酸也可作碱——自身电离:**2 H₂O ⇌ H₃O⁺ + OH⁻**,25 °C 时 Kw = [H₃O⁺][OH⁻] = **1.0 × 10⁻¹⁴**。所以 pH + pOH = 14。",
+      },
+    },
+  ],
+
+  // ---------- 8.2 · pH/pOH of Strong ----------
+  "unit-8/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Strong acids** and **strong bases** ionize **completely** in water — [H⁺] (or [OH⁻]) equals the starting concentration of acid (or base). No equilibrium calculation required.",
+        zh: "**强酸**与**强碱**在水中**完全电离**——[H⁺](或 [OH⁻])直接等于初始浓度,无需做平衡计算。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{pH} = -\\log_{10}[\\mathrm{H^{+}}]\\qquad \\text{pOH} = -\\log_{10}[\\mathrm{OH^{-}}]\\qquad \\text{pH} + \\text{pOH} = 14",
+    },
+    {
+      kind: "table",
+      caption: { en: "Memorize these strong acids/bases", zh: "请背熟这些强酸/强碱" },
+      columns: [
+        { en: "Strong acids (6)", zh: "强酸(6 种)" },
+        { en: "Strong bases", zh: "强碱" },
+      ],
+      rows: [
+        [{ en: "HCl, HBr, HI", zh: "HCl、HBr、HI" }, { en: "LiOH, NaOH, KOH", zh: "LiOH、NaOH、KOH" }],
+        [{ en: "HNO₃, HClO₄", zh: "HNO₃、HClO₄" }, { en: "Ca(OH)₂, Sr(OH)₂, Ba(OH)₂", zh: "Ca(OH)₂、Sr(OH)₂、Ba(OH)₂" }],
+        [{ en: "H₂SO₄ (first H only)", zh: "H₂SO₄(仅第一步强)" }, { en: "— all Group 1 & heavy Group 2 hydroxides —", zh: "— 第 1 族与较重 2 族的氢氧化物 —" }],
+      ],
+    },
+  ],
+
+  // ---------- 8.3 · Weak Equilibria ----------
+  "unit-8/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Weak acids** only partially ionize. The equilibrium constant is **Ka**; the smaller Ka, the weaker the acid. Similarly **Kb** for weak bases. Calculate pH with an ICE table.",
+        zh: "**弱酸**仅部分电离。平衡常数为 **Ka**——Ka 越小酸越弱。弱碱类似,用 **Kb**。pH 需用 ICE 表计算。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{HA <=> H+ + A^-}\\qquad K_a = \\dfrac{[\\mathrm{H^{+}}][\\mathrm{A^{-}}]}{[\\mathrm{HA}]}",
+    },
+    {
+      kind: "math",
+      tex: "[\\mathrm{H^{+}}] \\;\\approx\\; \\sqrt{K_a\\,[\\mathrm{HA}]_0}\\qquad\\text{(valid when \\%\\ ionized < 5\\%)}",
+      caption: { en: "Standard approximation for weak-acid pH.", zh: "弱酸 pH 常用近似公式。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Ka × Kb = Kw", zh: "Ka × Kb = Kw" },
+      text: {
+        en: "For a conjugate acid/base pair, **Ka × Kb = 1.0 × 10⁻¹⁴** at 25 °C. A strong acid has a very weak conjugate base (Kb near 0); a weak acid has a 'not-quite-zero' conjugate base.",
+        zh: "共轭酸碱对满足 **Ka × Kb = 1.0 × 10⁻¹⁴**(25 °C)。强酸的共轭碱几乎无碱性(Kb → 0);弱酸的共轭碱有一定碱性。",
+      },
+    },
+  ],
+
+  // ---------- 8.4 · Acid-Base Reactions & Buffers ----------
+  "unit-8/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **buffer** is a mixture of a weak acid and its conjugate base (or a weak base and its conjugate acid) in comparable amounts. Added H⁺ is consumed by A⁻; added OH⁻ is consumed by HA. The pH barely moves.",
+        zh: "**缓冲溶液**由弱酸与其共轭碱(或弱碱与其共轭酸)以相当量混合。加入 H⁺ 被 A⁻ 吸收,加入 OH⁻ 被 HA 中和,pH 几乎不变。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\begin{aligned}\\ce{A^- + H+ &-> HA}\\\\\n\\ce{HA + OH^- &-> A^- + H2O}\\end{aligned}",
+      caption: { en: "The two 'absorbing' reactions that keep pH steady.", zh: "两个「吸收」反应,使 pH 保持稳定。" },
+    },
+  ],
+
+  // ---------- 8.5 · Titrations ----------
+  "unit-8/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Acid–base titration curves depend on whether the acid/base are strong or weak. The **equivalence point** is where moles of titrant = moles of analyte. The **half-equivalence point** is where exactly half the weak acid has been neutralized — here **pH = pKa**.",
+        zh: "酸碱滴定曲线取决于酸/碱的强弱。**等当点**:滴定剂摩尔数 = 被滴定物摩尔数。**半等当点**:弱酸恰好被中和一半——此时 **pH = pKa**。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "titration-weak",
+    },
+    {
+      kind: "table",
+      caption: { en: "Equivalence-point pH depends on pair type", zh: "等当点 pH 取决于组合类型" },
+      columns: [
+        { en: "Titration", zh: "滴定类型" },
+        { en: "pH at equivalence", zh: "等当点 pH" },
+        { en: "Why", zh: "原因" },
+      ],
+      rows: [
+        [{ en: "Strong acid + strong base", zh: "强酸 + 强碱" }, { en: "= 7", zh: "= 7" }, { en: "Salt has neither acidic nor basic ions.", zh: "生成的盐无酸碱性。" }],
+        [{ en: "Weak acid + strong base", zh: "弱酸 + 强碱" }, { en: "> 7", zh: "> 7" }, { en: "Conjugate base A⁻ is weakly basic.", zh: "共轭碱 A⁻ 呈弱碱性。" }],
+        [{ en: "Weak base + strong acid", zh: "弱碱 + 强酸" }, { en: "< 7", zh: "< 7" }, { en: "Conjugate acid BH⁺ is weakly acidic.", zh: "共轭酸 BH⁺ 呈弱酸性。" }],
+      ],
+    },
+  ],
+
+  // ---------- 8.6 · Molecular Structure ----------
+  "unit-8/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Why are some acids stronger than others? Three structural factors dominate:",
+        zh: "为什么有些酸比其他酸强?主要有三个结构因素:",
+      },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Bond polarity / electronegativity of X in H–X:** a more electronegative X pulls electron density away from H → H is more acidic. (HF < HCl because…)", zh: "**H–X 中 X 的电负性:** X 越电负,电子越偏离 H → H 越酸。(HF 酸性弱于 HCl,原因见下)" },
+        { en: "**Bond strength / size of X:** down a group, H–X bond gets weaker as X grows → easier to release H⁺ → stronger acid. Binary halogens: **HI > HBr > HCl > HF**.", zh: "**H–X 键能/X 的尺寸:** 同族向下 X 增大,键越弱 → H⁺ 更易释放 → 酸性更强。二元卤酸:**HI > HBr > HCl > HF**。" },
+        { en: "**Resonance stabilization of A⁻:** if the conjugate base can spread negative charge over multiple atoms (like CH₃COO⁻), HA is more acidic.", zh: "**共轭碱 A⁻ 的共振稳定:** A⁻ 若能把负电荷分散(如 CH₃COO⁻),对应 HA 更酸。" },
+      ],
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "For oxyacids, more **O atoms** around the central atom = stronger acid: HClO < HClO₂ < HClO₃ < HClO₄.",
+        zh: "含氧酸中,中心原子周围 **O 越多**,酸性越强:HClO < HClO₂ < HClO₃ < HClO₄。",
+      },
+    },
+  ],
+
+  // ---------- 8.7 · pH and pKa ----------
+  "unit-8/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "pKa = −log Ka. **When the pH of a solution equals the pKa of the acid, [HA] = [A⁻]** — the two forms are in equal concentration. Below pKa, HA dominates; above pKa, A⁻ dominates.",
+        zh: "pKa = −log Ka。**当溶液 pH = HA 的 pKa 时,[HA] = [A⁻]** ——两种形式浓度相等。pH < pKa 时 HA 占优;pH > pKa 时 A⁻ 占优。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{At } \\text{pH} = \\text{pKa}:\\;[\\mathrm{HA}] = [\\mathrm{A^{-}}]",
+    },
+    {
+      kind: "callout",
+      label: { en: "Stronger vs weaker", zh: "强弱对比" },
+      text: {
+        en: "A **smaller pKa** means a **stronger** acid (Ka is larger). pKa of a strong acid is negative; pKa of a very weak acid can be 10, 15, even higher.",
+        zh: "**pKa 越小** → 酸越**强**(Ka 越大)。强酸 pKa 为负;极弱酸 pKa 可达 10、15 甚至更大。",
+      },
+    },
+  ],
+
+  // ---------- 8.8 · Properties of Buffers ----------
+  "unit-8/topic-8": [
+    {
+      kind: "list",
+      items: [
+        { en: "**Optimal pH range:** ±1 of the pKa (more specifically, roughly pKa ± 1).", zh: "**最佳 pH 范围:** pKa ± 1 左右。" },
+        { en: "**Total buffer concentration** matters — larger [HA] + [A⁻] = more capacity to absorb added acid or base.", zh: "**总缓冲浓度**很关键——[HA] + [A⁻] 越大,能吸收的酸/碱越多。" },
+        { en: "**Buffers only work within their range.** Outside pKa ± 1, one component is nearly zero and pH changes rapidly.", zh: "**缓冲只在其范围内有效。** 超出 pKa ± 1 后,一种组分几乎耗尽,pH 开始急剧变化。" },
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Choosing a buffer", zh: "缓冲对的选择" },
+      text: {
+        en: "To buffer at pH 5, pick a weak acid with pKa ≈ 5 — acetic acid (pKa = 4.74) is a classic choice. The closer pKa is to the target pH, the more symmetric and powerful the buffer.",
+        zh: "要在 pH 5 缓冲,应选 pKa ≈ 5 的弱酸——醋酸(pKa = 4.74)是经典选择。pKa 越接近目标 pH,缓冲越对称、越强。",
+      },
+    },
+  ],
+
+  // ---------- 8.9 · Henderson-Hasselbalch ----------
+  "unit-8/topic-9": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The Henderson–Hasselbalch equation lets you compute a buffer's pH directly from the ratio of conjugate base to acid — no ICE table needed.",
+        zh: "亨德森-哈塞尔巴尔赫方程可由共轭碱与酸的比值直接计算缓冲 pH,无需 ICE 表。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{pH} \\;=\\; \\text{p}K_a \\;+\\; \\log_{10}\\!\\left(\\dfrac{[\\mathrm{A^{-}}]}{[\\mathrm{HA}]}\\right)",
+    },
+    {
+      kind: "callout",
+      label: { en: "Three shortcuts", zh: "三个捷径" },
+      text: {
+        en: "**1.** If [A⁻] = [HA], pH = pKa. **2.** If [A⁻] = 10·[HA], pH = pKa + 1. **3.** Assumes [HA], [A⁻] are the equilibrium concentrations but we use initial values (valid when % ionization is tiny, which it is inside a buffer).",
+        zh: "**1.** [A⁻] = [HA] → pH = pKa;**2.** [A⁻] = 10·[HA] → pH = pKa + 1;**3.** 方程应用平衡浓度,但缓冲内电离度极小,可直接用初始浓度代入。",
+      },
+    },
+  ],
+
+  // ---------- 8.10 · Buffer Capacity ----------
+  "unit-8/topic-10": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Buffer capacity** is how much strong acid or strong base can be added before pH shifts noticeably. It depends on two things: the **total concentration** and the **ratio** of HA : A⁻.",
+        zh: "**缓冲容量**是加入多少强酸/强碱才会使 pH 显著变化。取决于两点:**总浓度**与 **HA : A⁻ 的比例**。",
+      },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Higher total concentration** → more capacity.", zh: "**总浓度越大** → 容量越大。" },
+        { en: "**Equal ratio (1:1)** → maximum capacity in both directions.", zh: "**比例 1:1** → 抵抗酸碱两方向容量都最大。" },
+        { en: "**Unequal ratio** → buffer has more capacity against whatever would use up the abundant component.", zh: "**比例不均** → 缓冲对「会消耗多的那一方」方向有更大容量。" },
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Biology connection", zh: "生物学联系" },
+      text: {
+        en: "Blood maintains pH 7.35–7.45 via the **H₂CO₃ / HCO₃⁻** buffer (pKa ≈ 6.1). The huge [HCO₃⁻] pool in blood gives it massive capacity against acids, keeping you alive through exercise and diet swings.",
+        zh: "血液通过 **H₂CO₃ / HCO₃⁻** 缓冲对(pKa ≈ 6.1)维持 pH 7.35–7.45。血液中 HCO₃⁻ 量很大,对酸的缓冲容量极强——运动和饮食的酸碱波动由此得以化解。",
+      },
+    },
+  ],
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -13322,11 +13576,221 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       },
     },
   ],
-};
 
-// ============================================================
-// Subjects registry
-// ============================================================
+  // ============================================================
+  // UNIT 8 · Questions
+  // ============================================================
+
+  "unit-8/topic-1": [
+    {
+      id: "chem-u8-t1-q1",
+      prompt: {
+        en: "In the reaction **HCO₃⁻(aq) + H₂O(l) ⇌ H₂CO₃(aq) + OH⁻(aq)**, which species is the Brønsted–Lowry **base**?",
+        zh: "反应 **HCO₃⁻(aq) + H₂O(l) ⇌ H₂CO₃(aq) + OH⁻(aq)** 中,Brønsted–Lowry **碱**是?",
+      },
+      choices: [
+        { id: "a", text: { en: "HCO₃⁻", zh: "HCO₃⁻" } },
+        { id: "b", text: { en: "H₂O", zh: "H₂O" } },
+        { id: "c", text: { en: "H₂CO₃", zh: "H₂CO₃" } },
+        { id: "d", text: { en: "OH⁻", zh: "OH⁻" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "HCO₃⁻ **accepts** a proton from H₂O, becoming H₂CO₃ — so HCO₃⁻ is the base, H₂O is the acid. HCO₃⁻ is amphoteric: here it acts as a base. (In different context it can act as acid.)",
+        zh: "HCO₃⁻ 从 H₂O **接受**质子生成 H₂CO₃——所以 HCO₃⁻ 是碱,H₂O 是酸。HCO₃⁻ 具两性:此处表现为碱。",
+      },
+    },
+  ],
+
+  "unit-8/topic-2": [
+    {
+      id: "chem-u8-t2-q1",
+      prompt: {
+        en: "What is the pH of 0.0020 M HNO₃?",
+        zh: "0.0020 M HNO₃ 的 pH 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "2.00", zh: "2.00" } },
+        { id: "b", text: { en: "2.70", zh: "2.70" } },
+        { id: "c", text: { en: "3.00", zh: "3.00" } },
+        { id: "d", text: { en: "11.30", zh: "11.30" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "HNO₃ is strong → [H⁺] = 0.0020 M. pH = −log(0.0020) = −log(2.0 × 10⁻³) = 3 − log(2.0) ≈ 3 − 0.30 = **2.70**.",
+        zh: "HNO₃ 是强酸 → [H⁺] = 0.0020 M。pH = −log(0.0020) = 3 − log(2.0) ≈ 3 − 0.30 = **2.70**。",
+      },
+    },
+  ],
+
+  "unit-8/topic-3": [
+    {
+      id: "chem-u8-t3-q1",
+      prompt: {
+        en: "Acetic acid (Ka = 1.8 × 10⁻⁵) at 0.10 M. Approximate [H⁺]?",
+        zh: "醋酸(Ka = 1.8 × 10⁻⁵),0.10 M。[H⁺] 约为?",
+      },
+      choices: [
+        { id: "a", text: { en: "1.8 × 10⁻⁶ M", zh: "1.8 × 10⁻⁶ M" } },
+        { id: "b", text: { en: "1.3 × 10⁻³ M", zh: "1.3 × 10⁻³ M" } },
+        { id: "c", text: { en: "1.0 × 10⁻² M", zh: "1.0 × 10⁻² M" } },
+        { id: "d", text: { en: "0.10 M", zh: "0.10 M" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "[H⁺] ≈ √(Ka · C) = √((1.8 × 10⁻⁵)(0.10)) = √(1.8 × 10⁻⁶) ≈ **1.3 × 10⁻³ M**. Corresponds to pH ≈ 2.87.",
+        zh: "[H⁺] ≈ √(Ka·C) = √((1.8 × 10⁻⁵)(0.10)) = √(1.8 × 10⁻⁶) ≈ **1.3 × 10⁻³ M**,对应 pH ≈ 2.87。",
+      },
+    },
+  ],
+
+  "unit-8/topic-4": [
+    {
+      id: "chem-u8-t4-q1",
+      prompt: {
+        en: "Which of the following mixtures is a buffer?",
+        zh: "下列哪一种混合物是缓冲溶液?",
+      },
+      choices: [
+        { id: "a", text: { en: "HCl + NaCl", zh: "HCl + NaCl" } },
+        { id: "b", text: { en: "HCl + NaOH (equal moles)", zh: "HCl + NaOH(等摩尔)" } },
+        { id: "c", text: { en: "CH₃COOH + CH₃COONa", zh: "CH₃COOH + CH₃COONa" } },
+        { id: "d", text: { en: "NaOH + NaCl", zh: "NaOH + NaCl" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "A buffer requires a **weak acid + its conjugate base** (or weak base + conjugate acid). CH₃COOH / CH₃COO⁻ is exactly that. HCl + NaCl is a strong acid + spectator — no buffering.",
+        zh: "缓冲溶液需要**弱酸与其共轭碱**(或弱碱与共轭酸)。CH₃COOH / CH₃COO⁻ 正好符合。HCl + NaCl 是强酸 + 旁观离子,没有缓冲作用。",
+      },
+    },
+  ],
+
+  "unit-8/topic-5": [
+    {
+      id: "chem-u8-t5-q1",
+      prompt: {
+        en: "During titration of 25 mL of 0.10 M acetic acid (pKa = 4.74) with 0.10 M NaOH, the pH at the **half-equivalence** point is:",
+        zh: "用 0.10 M NaOH 滴定 25 mL 0.10 M 醋酸(pKa = 4.74),**半等当点**的 pH 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "4.74", zh: "4.74" } },
+        { id: "b", text: { en: "7.00", zh: "7.00" } },
+        { id: "c", text: { en: "8.72", zh: "8.72" } },
+        { id: "d", text: { en: "12.5", zh: "12.5" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "At the half-equivalence point, half of the weak acid has been converted to conjugate base, so [HA] = [A⁻]. Henderson–Hasselbalch → **pH = pKa = 4.74**.",
+        zh: "半等当点时弱酸恰好有一半被转化为共轭碱,[HA] = [A⁻]。亨德森-哈塞尔巴尔赫方程 → **pH = pKa = 4.74**。",
+      },
+    },
+  ],
+
+  "unit-8/topic-6": [
+    {
+      id: "chem-u8-t6-q1",
+      prompt: {
+        en: "Rank the **acid strength**: HF, HCl, HBr, HI.",
+        zh: "对**酸性强弱**排序:HF、HCl、HBr、HI。",
+      },
+      choices: [
+        { id: "a", text: { en: "HF > HCl > HBr > HI (electronegativity)", zh: "HF > HCl > HBr > HI(按电负性)" } },
+        { id: "b", text: { en: "HI > HBr > HCl > HF (bond strength dominates)", zh: "HI > HBr > HCl > HF(键强度主导)" } },
+        { id: "c", text: { en: "All equal (all halogens)", zh: "相同(同为卤素)" } },
+        { id: "d", text: { en: "HCl > HBr > HI > HF", zh: "HCl > HBr > HI > HF" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Down the halogens, H–X bond weakens faster than electronegativity falls, so acid strength **increases**: HI > HBr > HCl > HF. HF is surprisingly weak because H–F bond is very strong.",
+        zh: "卤族从上到下,H–X 键变弱的速度超过电负性下降的影响,酸性**递增**:HI > HBr > HCl > HF。HF 偏弱是因为 H–F 键特别强。",
+      },
+    },
+  ],
+
+  "unit-8/topic-7": [
+    {
+      id: "chem-u8-t7-q1",
+      prompt: {
+        en: "At pH = 5.0, a solution of a weak acid has pKa = 4.0. What is the approximate ratio [A⁻]/[HA]?",
+        zh: "pH = 5.0 时,某弱酸溶液的 pKa = 4.0。[A⁻]/[HA] 约为?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.1 (mostly HA)", zh: "0.1(主要为 HA)" } },
+        { id: "b", text: { en: "1.0 (equal)", zh: "1.0(相等)" } },
+        { id: "c", text: { en: "10 (mostly A⁻)", zh: "10(主要为 A⁻)" } },
+        { id: "d", text: { en: "100 (almost all A⁻)", zh: "100(几乎全为 A⁻)" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "pH = pKa + log([A⁻]/[HA]) → 5.0 = 4.0 + log(ratio) → log(ratio) = 1 → **ratio = 10**. pH one unit above pKa → A⁻ dominates 10:1.",
+        zh: "pH = pKa + log([A⁻]/[HA]) → 5.0 = 4.0 + log(ratio) → log(ratio) = 1 → **ratio = 10**。pH 高于 pKa 1 个单位 → A⁻ 占 10 倍。",
+      },
+    },
+  ],
+
+  "unit-8/topic-8": [
+    {
+      id: "chem-u8-t8-q1",
+      prompt: {
+        en: "You need to buffer a solution at pH = 7.2. Which weak acid is the BEST choice?",
+        zh: "要将溶液缓冲在 pH = 7.2,下列哪一弱酸最合适?",
+      },
+      choices: [
+        { id: "a", text: { en: "Acetic acid, pKa = 4.74", zh: "醋酸,pKa = 4.74" } },
+        { id: "b", text: { en: "Phosphoric acid (H₂PO₄⁻/HPO₄²⁻), pKa₂ = 7.21", zh: "磷酸对 (H₂PO₄⁻/HPO₄²⁻),pKa₂ = 7.21" } },
+        { id: "c", text: { en: "Ammonium, pKa = 9.25", zh: "铵离子,pKa = 9.25" } },
+        { id: "d", text: { en: "HCl, pKa ≈ −7", zh: "HCl,pKa ≈ −7" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Best buffers have pKa within ±1 of the target pH. 7.21 ≈ 7.2 → perfect match. Acetic and ammonium are outside the window; HCl isn't even a weak acid.",
+        zh: "缓冲对应选 pKa 在目标 pH ± 1 以内。7.21 ≈ 7.2 → 最佳。醋酸与铵离子超出范围;HCl 不是弱酸。",
+      },
+    },
+  ],
+
+  "unit-8/topic-9": [
+    {
+      id: "chem-u8-t9-q1",
+      prompt: {
+        en: "A buffer contains 0.40 M HF (Ka = 7.2 × 10⁻⁴) and 0.20 M NaF. What is the pH?",
+        zh: "某缓冲溶液含 0.40 M HF(Ka = 7.2 × 10⁻⁴)与 0.20 M NaF。pH 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "2.84", zh: "2.84" } },
+        { id: "b", text: { en: "3.14", zh: "3.14" } },
+        { id: "c", text: { en: "3.44", zh: "3.44" } },
+        { id: "d", text: { en: "4.14", zh: "4.14" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "pKa = −log(7.2 × 10⁻⁴) ≈ 3.14. pH = 3.14 + log(0.20/0.40) = 3.14 + log(0.5) = 3.14 − 0.30 = **2.84**.",
+        zh: "pKa = −log(7.2 × 10⁻⁴) ≈ 3.14。pH = 3.14 + log(0.20/0.40) = 3.14 + log(0.5) = 3.14 − 0.30 = **2.84**。",
+      },
+    },
+  ],
+
+  "unit-8/topic-10": [
+    {
+      id: "chem-u8-t10-q1",
+      prompt: {
+        en: "Which buffer has the HIGHEST capacity against added strong acid?",
+        zh: "下列缓冲对加入**强酸**的容量**最大**?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.01 M HA + 0.01 M A⁻", zh: "0.01 M HA + 0.01 M A⁻" } },
+        { id: "b", text: { en: "0.10 M HA + 0.10 M A⁻", zh: "0.10 M HA + 0.10 M A⁻" } },
+        { id: "c", text: { en: "0.50 M HA + 0.50 M A⁻", zh: "0.50 M HA + 0.50 M A⁻" } },
+        { id: "d", text: { en: "0.50 M HA + 0.01 M A⁻", zh: "0.50 M HA + 0.01 M A⁻" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Capacity against acid is limited by [A⁻] (which neutralizes H⁺). Choice C has the largest [A⁻] = 0.50 M AND an equal [HA] for symmetric capacity. Choice D has lots of HA but only 0.01 M A⁻ — it'll fail quickly against acid.",
+        zh: "加酸的容量由 [A⁻] 决定(它消耗 H⁺)。C 选项 [A⁻] 最大(0.50 M)且 [HA] 等同,两向容量都强。D 选项 HA 多但 A⁻ 仅 0.01 M,加酸很快耗尽。",
+      },
+    },
+  ],
+};
 
 export const subjects: Subject[] = [apMicro, apBio, apPhysics1, apChemistry, apCalculusBC, apEngLang];
 
