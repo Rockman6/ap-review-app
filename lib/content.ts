@@ -12785,6 +12785,472 @@ export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
     },
   ],
 
+  "unit-2/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Newton's first law** (the law of inertia) says: an object's velocity is constant unless a **net external force** acts on it. A ball at rest stays at rest; a hockey puck on frictionless ice keeps gliding forever. Force is what *changes* motion, not what *sustains* it.",
+        zh: "**牛顿第一定律**(惯性定律)指出:除非受到**外部合力**作用,物体的速度保持不变。静止的球仍保持静止;无摩擦冰面上的冰球会一直滑行。力**改变**运动,而不是**维持**运动。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Inertia", zh: "惯性" },
+      text: {
+        en: "**Inertia** is an object's resistance to changes in motion. It depends only on **mass** — heavier objects are harder to start, stop, or turn. Inertia is *not* a force; it doesn't appear on free-body diagrams.",
+        zh: "**惯性**是物体抵抗运动变化的性质,只取决于**质量**——越重的物体越难启动、停止或转向。惯性**不是**力,不出现在受力图上。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Equilibrium: ΣF = 0", zh: "平衡:ΣF = 0" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "When the **net force** on an object is zero, its acceleration is zero — and by the first law its velocity is constant. This is called **equilibrium**.",
+        zh: "当物体所受**合力为零**时,加速度为零,根据第一定律其速度保持不变。这被称为**平衡**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\sum \\vec{F} \\;=\\; 0 \\;\\;\\Longleftrightarrow\\;\\; \\vec{a} \\;=\\; 0",
+      caption: {
+        en: "Equilibrium condition",
+        zh: "平衡条件",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Two flavors of equilibrium",
+        zh: "两种平衡状态",
+      },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "What the object does", zh: "物体状态" },
+        { en: "Example", zh: "举例" },
+      ],
+      rows: [
+        [{ en: "Static", zh: "静态" }, { en: "At rest (v = 0)", zh: "静止 (v = 0)" }, { en: "Book on a table", zh: "桌上的书" }],
+        [{ en: "Dynamic", zh: "动态" }, { en: "Constant velocity (v ≠ 0, a = 0)", zh: "匀速 (v ≠ 0,a = 0)" }, { en: "Skydiver at terminal velocity", zh: "跳伞员达到终端速度" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "\"Moving\" ≠ \"has a net force\"", zh: "「在动」≠「有合力」" },
+      text: {
+        en: "Many students think motion requires a force. It doesn't — **constant velocity** requires **zero net force**. A force is required only to *change* the velocity (speed or direction).",
+        zh: "很多学生以为运动需要力,其实不然——**匀速**要求**合力为零**。只有在**改变**速度(大小或方向)时才需要力。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — pushed crate", zh: "例题——被推动的箱子" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A worker pushes a 20 kg crate across a floor at a **constant** velocity. Kinetic friction is 40 N. Apply ΣF = 0 in the horizontal direction: F_push − f_k = 0, so **F_push = 40 N**. Vertically, **N = mg = 196 N**. The crate is in *dynamic* equilibrium.",
+        zh: "工人以**匀速**推动一只 20 kg 的箱子。动摩擦力为 40 N。水平方向 ΣF = 0:F_push − f_k = 0,所以 **F_push = 40 N**。竖直方向 **N = mg = 196 N**。箱子处于**动态**平衡。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Reality check", zh: "现实提醒" },
+      text: {
+        en: "First-law reasoning applies even when motion *looks* \"pushed\" or \"driven.\" If the puck, crate, or car is moving at steady v, the net force is zero — all the applied forces are being canceled by friction or other reactions.",
+        zh: "即使物体**看起来**在「被推」或「被驱动」,第一定律依旧适用。只要速度稳定,合力就为零——所有施加的力都被摩擦或其他反作用力抵消。",
+      },
+    },
+  ],
+
+  "unit-2/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Every force on a free-body diagram is one of a few standard types. For AP Physics 1, the big five are **gravity, normal, tension, friction, and spring**. Learning their rules once saves you from re-deriving them for every problem.",
+        zh: "受力图上的每一个力都属于几种标准类型之一。AP 物理 1 的「五大力」是:**重力、法向力、张力、摩擦力、弹簧力**。掌握它们的规则,就不必每次都重新推导。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Gravity (weight)", zh: "重力" },
+    },
+    {
+      kind: "math",
+      tex: "F_{g} \\;=\\; m\\,g\\qquad\\text{direction: toward Earth's center}",
+      caption: {
+        en: "Near Earth's surface, g ≈ 9.8 m/s²",
+        zh: "地球表面附近,g ≈ 9.8 m/s²",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Weight vs mass", zh: "重量与质量" },
+      text: {
+        en: "**Mass (m)** is the amount of matter — same on Earth, the Moon, or in orbit (kg). **Weight (F_g = mg)** is the gravitational *force* on the mass — depends on local g (N). \"Weightless\" astronauts have mass but negligible weight (local g is tiny or they're in free fall).",
+        zh: "**质量 (m)** 是物质的量——在地球、月球、轨道上都相同(kg)。**重量 (F_g = mg)** 是所受引力——取决于当地 g (N)。「失重」的宇航员有质量,但重量近乎为零(当地 g 很小或正处于自由落体)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Normal force", zh: "法向力" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "The **normal force (N)** is the push from a surface, always **perpendicular** to that surface, outward from the surface onto the object. Its magnitude adjusts to prevent the object from passing through.",
+        zh: "**法向力 (N)** 是表面施加的推力,**垂直于**表面并指向物体一侧。其大小自动调整,防止物体穿透表面。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "N is not always mg", zh: "N 并非总等于 mg" },
+      text: {
+        en: "On a flat horizontal surface with no vertical pushes, N = mg. But on an incline, N = mg·cos θ. With an extra vertical push of magnitude F, N = mg + F (push down) or mg − F (pull up). Always derive N from vertical equilibrium of the actual situation.",
+        zh: "水平面上无竖直外力时 N = mg;在斜面上 N = mg·cos θ;若有附加竖直力 F,则 N = mg + F(下压)或 mg − F(上拉)。始终由具体情境下的竖直平衡导出 N。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Tension", zh: "张力" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Tension (T)** is the force exerted by a rope, string, or cable along its length. On AP Physics 1, ropes are assumed **ideal**: massless and inextensible. Tension has the **same magnitude throughout** an ideal rope.",
+        zh: "**张力 (T)** 是绳、线或缆沿自身方向施加的拉力。AP 物理 1 中绳被假设为**理想**的:无质量、不可伸长。理想绳**整段张力相等**。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Friction", zh: "摩擦力" },
+    },
+    {
+      kind: "math",
+      tex: "f_{s} \\;\\leq\\; \\mu_{s}\\,N \\qquad\\qquad f_{k} \\;=\\; \\mu_{k}\\,N",
+      caption: {
+        en: "Static (before slipping) vs. kinetic (during sliding); typically μ_s > μ_k",
+        zh: "静摩擦(未打滑)与动摩擦(滑动时);通常 μ_s > μ_k",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Static friction adjusts", zh: "静摩擦会自动调整" },
+      text: {
+        en: "**Static friction** is not a fixed value — it takes on *whatever magnitude is needed* (up to its maximum μ_s·N) to keep the object from sliding. Only when the required force exceeds μ_s·N does the object break loose and kinetic friction (a fixed value μ_k·N) takes over.",
+        zh: "**静摩擦力**并非固定值——它自动取所需大小(上限为 μ_s·N),使物体不打滑。只有当所需力超过 μ_s·N 时,物体才开始滑动,由固定值 μ_k·N 的动摩擦力接管。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Spring force (Hooke's law)", zh: "弹簧力(胡克定律)" },
+    },
+    {
+      kind: "math",
+      tex: "F_{spring} \\;=\\; -\\,k\\,x",
+      caption: {
+        en: "x is displacement from natural length; the minus sign is the restoring direction",
+        zh: "x 为偏离自然长度的位移;负号表示回复方向",
+      },
+    },
+  ],
+
+  "unit-2/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **free-body diagram (FBD)** is a simplified drawing where the object is a dot (or box) and every **force acting on it** is an arrow pointing in the force's direction. It is the single most important step in any dynamics problem.",
+        zh: "**受力图 (FBD)** 是一种简化画法:把物体画作一点(或方块),每一个**作用在它上面的力**都用指向力的方向的箭头表示。它是任何动力学题的最关键一步。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Rules for a good FBD", zh: "画好受力图的规则" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "Isolate ONE object. Only draw forces acting *on* it — not forces it exerts on others.", zh: "只孤立**一个**物体,只画作用**在它上面**的力,不画它对别人施加的力。" },
+        { en: "Every arrow is a real physical force (gravity, normal, tension, friction, spring, applied push/pull).", zh: "每个箭头都是真实的力(重力、法向力、张力、摩擦力、弹簧力、施加的推拉力)。" },
+        { en: "Arrows start at the object (or its center) and point in the force's direction.", zh: "箭头从物体(或其中心)出发,方向即力的方向。" },
+        { en: "Label each force (F_g, N, T, f, F_applied). Don't label arrows with \"motion\" or \"velocity.\"", zh: "每个力都要标注 (F_g, N, T, f, F_applied)。不要把「运动」或「速度」当作力来标。" },
+        { en: "Choose axes that simplify the problem — along the direction of motion when possible.", zh: "选择能简化计算的坐标轴——尽量沿运动方向。" },
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Top three FBD mistakes", zh: "受力图三大误区" },
+      text: {
+        en: "(1) Drawing a \"force of motion\" in the direction the object moves — **motion isn't a force**. (2) Including forces the object exerts on *other* things (those belong on *their* FBDs). (3) Forgetting friction or normal on a surface.",
+        zh: "(1) 沿运动方向画出「运动的力」——**运动不是力**。(2) 把物体对**别人**施加的力也画上(那些属于**它们**的受力图)。(3) 遗漏摩擦力或法向力。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — block on an incline", zh: "例题——斜面上的物块" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A block sits on a ramp tilted at angle θ. Three forces act: gravity **F_g = mg** pointing straight down; normal **N** perpendicular to the incline; friction **f** parallel to the incline (direction depends on motion or tendency to slide).",
+        zh: "物块放在倾角 θ 的斜面上。共三个力:重力 **F_g = mg** 竖直向下;法向力 **N** 垂直于斜面;摩擦力 **f** 沿斜面方向(指向取决于运动或滑动趋势)。",
+      },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Rotate your axes so x is **along** the incline and y is **perpendicular** to it. Then gravity must be **decomposed** into a component pulling the block *down the ramp* (mg·sinθ) and one pressing it into the ramp (mg·cosθ).",
+        zh: "把坐标系旋转:x 沿斜面方向,y 垂直于斜面。然后把重力**分解**为沿斜面向下的分量 (mg·sinθ) 和压向斜面的分量 (mg·cosθ)。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "F_{g,\\parallel} \\;=\\; mg\\,\\sin\\theta \\qquad F_{g,\\perp} \\;=\\; mg\\,\\cos\\theta",
+      caption: {
+        en: "Gravity's components along and perpendicular to an incline",
+        zh: "重力沿斜面的平行与垂直分量",
+      },
+    },
+    {
+      kind: "math",
+      tex: "N \\;=\\; mg\\,\\cos\\theta",
+      caption: {
+        en: "On an incline with no extra vertical forces",
+        zh: "斜面上无其他竖直力时",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Gravity is never \"along the incline\"", zh: "重力永远不是「沿斜面」的" },
+      text: {
+        en: "Gravity always points straight toward Earth's center. Its *component* along the incline is mg·sinθ, but the **force itself** still points straight down. Keep that distinction on your FBD.",
+        zh: "重力始终指向地球中心。它**沿斜面的分量**是 mg·sinθ,但**力本身**仍竖直向下。在受力图上要严格区分。",
+      },
+    },
+  ],
+
+  "unit-2/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Newton's second law** links forces to motion: the net force on an object equals its mass times its acceleration. It is a **vector** equation — and the direction of the acceleration is the direction of the net force.",
+        zh: "**牛顿第二定律**把力与运动联系起来:物体所受合力等于质量乘以加速度。这是一个**矢量**方程——加速度方向与合力方向一致。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\sum \\vec{F} \\;=\\; m\\,\\vec{a}",
+      caption: {
+        en: "Vector form — one equation per spatial direction",
+        zh: "矢量形式——每个方向对应一个方程",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Working in components", zh: "分量形式" },
+    },
+    {
+      kind: "math",
+      tex: "\\sum F_{x} \\;=\\; m\\,a_{x} \\qquad\\qquad \\sum F_{y} \\;=\\; m\\,a_{y}",
+      caption: {
+        en: "Apply the law independently in x and y",
+        zh: "在 x 与 y 方向分别独立应用",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Separate the axes", zh: "坐标轴分开处理" },
+      text: {
+        en: "x and y are **independent** (just like in projectile motion). When ΣFᵧ = 0 (vertical equilibrium), that gives you N. The horizontal equation then gives you a. Don't mix components.",
+        zh: "x 与 y 方向**互相独立**(与抛体运动一样)。ΣFᵧ = 0(竖直平衡)给出 N;水平方程则给出 a。不要把分量混在一起。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Strategy for a dynamics problem", zh: "动力学题的通用策略" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "Draw a free-body diagram of the object.", zh: "画出物体的受力图。" },
+        { en: "Choose axes (often along the direction of motion).", zh: "选定坐标轴(通常沿运动方向)。" },
+        { en: "Write ΣFₓ = maₓ and ΣFᵧ = maᵧ, plugging in each force's component.", zh: "写出 ΣFₓ = maₓ 与 ΣFᵧ = maᵧ,代入每个力的分量。" },
+        { en: "Solve for the unknown — usually a, N, or an applied force.", zh: "求解未知量——通常是 a、N 或某施加力。" },
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — block pulled at an angle", zh: "例题——斜向拉动的物块" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 2.0 kg block on a frictionless horizontal surface is pulled by a rope at 30° above horizontal with tension **T = 10 N**. Find the horizontal acceleration.",
+        zh: "一块 2.0 kg 物块放在无摩擦水平面上,绳以斜向上 30° 的方向拉动,张力 **T = 10 N**。求水平加速度。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\sum F_{x} \\;=\\; T\\,\\cos\\theta \\;=\\; m\\,a \\;\\Longrightarrow\\; a \\;=\\; \\dfrac{10\\cos 30°}{2.0} \\;\\approx\\; 4.3\\ \\text{m/s}^{2}",
+    },
+    {
+      kind: "callout",
+      label: { en: "Direction matters", zh: "方向很关键" },
+      text: {
+        en: "Only the **component** of a force along the motion accelerates the object along that direction. A 10 N pull at 30° accelerates less than a 10 N horizontal pull — because part of the tension is spent pulling the block *up*, not forward.",
+        zh: "只有力沿运动方向的**分量**才在该方向上产生加速度。10 N 斜向 30° 的拉力比同等大小的水平拉力产生的水平加速度小——部分张力用来把物块**向上拉**,而非向前推。",
+      },
+    },
+  ],
+
+  "unit-2/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Newton's third law:** whenever object A exerts a force on object B, object B exerts an equal-magnitude, oppositely-directed force on A. Forces always come in **pairs**, acting on **different objects**.",
+        zh: "**牛顿第三定律**:若物体 A 对 B 施加一个力,B 就对 A 施加一个大小相等、方向相反的力。力**总是成对出现**,**作用在不同物体**上。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\vec{F}_{A\\to B} \\;=\\; -\\,\\vec{F}_{B\\to A}",
+      caption: {
+        en: "Action–reaction pair (on two different objects)",
+        zh: "作用—反作用对(分别作用于两个不同物体)",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Three criteria for a true 3rd-law pair", zh: "真正的第三定律对需满足三条件" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "Same physical interaction (same type: both gravitational, or both contact, etc.).", zh: "同一种物理相互作用(性质相同:同为引力、同为接触力等)。" },
+        { en: "Act on two different objects (A pushes B; B pushes A).", zh: "作用在两个不同物体上(A 推 B;B 推 A)。" },
+        { en: "Equal in magnitude, opposite in direction.", zh: "大小相等,方向相反。" },
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Weight and normal are NOT a 3rd-law pair", zh: "重力与法向力**不**是第三定律对" },
+      text: {
+        en: "On a book resting on a table, **weight** (Earth pulls book) and **normal** (table pushes book) happen to be equal *because the book is in equilibrium*, but they act on the **same object** (the book). The true pair for weight is \"book pulls Earth\"; the true pair for the normal is \"book pushes table down.\"",
+        zh: "桌上的书所受**重力**(地球拉书)与**法向力**(桌推书)看似相等,但仅因书处于平衡而等大;两者都作用在**同一物体**(书)上。重力的真正第三定律对是「书拉地球」;法向力的真正对应是「书向下压桌」。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — horse and cart", zh: "例题——马与车" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "If the cart pulls back on the horse with the same force the horse pulls forward, how does the system accelerate? The answer: those two forces act on **different objects** and don't cancel on either one. The external force that accelerates the horse + cart system is **the ground pushing forward on the horse's hooves** (the reaction to the horse pushing back on the ground).",
+        zh: "若车向后拉马的力与马向前拉车的力等大,系统为何仍会加速?原因在于这两个力作用于**不同物体**,在任一物体上都不抵消。真正让马—车系统加速的外力是**地面对马蹄的向前推力**(马向后蹬地的反作用力)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Why 3rd-law thinking matters", zh: "为何要懂第三定律" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Rockets, swimming, walking", zh: "火箭、游泳、行走" },
+      text: {
+        en: "You walk forward because your foot pushes the ground backward, and the ground pushes *you* forward. A rocket accelerates by pushing exhaust gases backward; the gases push the rocket forward. Every kind of self-propulsion is Newton's third law in action.",
+        zh: "你向前走,是因为脚向后蹬地,地面向前推你。火箭加速,是因为尾焰向后喷出,燃气反向推火箭向前。一切自推进都是第三定律的体现。",
+      },
+    },
+  ],
+
+  "unit-2/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Uniform circular motion (UCM)** means an object moves in a circle at **constant speed**. Its speed is constant, but its velocity — and therefore *direction* — is constantly changing. So the object is accelerating.",
+        zh: "**匀速圆周运动 (UCM)** 指物体以**恒定速率**沿圆周运动。速率不变,但速度的**方向**时刻在变,因此物体仍在加速。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Centripetal acceleration", zh: "向心加速度" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "The acceleration in UCM is called **centripetal** (\"center-seeking\"). It always points from the object **toward the center** of the circle, perpendicular to the velocity.",
+        zh: "UCM 的加速度称为**向心加速度**(「指向圆心」之意)。它始终从物体指向圆心,与速度方向垂直。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "a_{c} \\;=\\; \\dfrac{v^{2}}{r} \\qquad\\qquad a_{c} \\;=\\; \\dfrac{4\\pi^{2}\\,r}{T^{2}}",
+      caption: {
+        en: "From speed v and radius r, or from period T and radius r",
+        zh: "由速率 v 与半径 r,或由周期 T 与半径 r 给出",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Centripetal force", zh: "向心力" },
+    },
+    {
+      kind: "math",
+      tex: "F_{net,\\,radial} \\;=\\; m\\,a_{c} \\;=\\; \\dfrac{m\\,v^{2}}{r}",
+      caption: {
+        en: "The net force pointing toward the center",
+        zh: "指向圆心的合力",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "\"Centripetal\" is a role, not a new force", zh: "「向心」是一种角色,不是新力" },
+      text: {
+        en: "Don't add \"centripetal force\" as an extra arrow on an FBD. The centripetal force is simply whatever **real force** (or component) happens to point toward the center — friction, tension, gravity, normal, or some combination.",
+        zh: "不要在受力图上额外加一个「向心力」的箭头。向心力不过是**某个真实的力**(或它的分量)恰好指向圆心——可能是摩擦、张力、重力、法向力,或它们的组合。",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "What plays the centripetal role in common scenarios",
+        zh: "常见情境中谁充当向心力",
+      },
+      columns: [
+        { en: "Scenario", zh: "情境" },
+        { en: "Centripetal force supplied by", zh: "向心力的来源" },
+      ],
+      rows: [
+        [{ en: "Car on a flat curve", zh: "车在平坦弯道" }, { en: "Static friction (tires ↔ road)", zh: "静摩擦力(轮胎—路面)" }],
+        [{ en: "Ball on a string (horizontal circle)", zh: "绳系小球作水平圆周" }, { en: "Horizontal component of tension", zh: "张力的水平分量" }],
+        [{ en: "Satellite orbiting Earth", zh: "地球轨道上的卫星" }, { en: "Gravity", zh: "万有引力" }],
+        [{ en: "Roller coaster at the top of a loop", zh: "过山车经过圆环最高点" }, { en: "Gravity + normal force (both downward)", zh: "重力 + 法向力(二者皆向下)" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "No \"centrifugal force\" in inertial frames", zh: "惯性系中没有「离心力」" },
+      text: {
+        en: "When you feel pushed outward in a turning car, that's your **inertia** — your body tries to go straight while the car turns. There's no actual outward force on you. In an inertial frame, only the inward (centripetal) force is real.",
+        zh: "转弯时感到被「向外推」,其实是你的**惯性**——身体想直线前进,而车子在转弯。并不存在向外的真实力。在惯性系中,只有向内的(向心)力是真实的。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — car on a flat curve", zh: "例题——平坦弯道上的汽车" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 1000 kg car rounds a flat curve of radius 50 m at 15 m/s. Find the friction force needed. Here friction supplies the centripetal force: f = m·v² / r = (1000)(15)² / 50 = **4500 N**, directed inward (toward the center of the curve).",
+        zh: "一辆 1000 kg 的汽车以 15 m/s 行驶过半径 50 m 的平坦弯道。求所需摩擦力。摩擦力提供向心力:f = m·v² / r = (1000)(15)² / 50 = **4500 N**,方向指向弯道圆心。",
+      },
+    },
+  ],
+
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -15438,6 +15904,348 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
       explanation: {
         en: "Gravity acts only in the y-direction, so **vₓ never changes** — it's the same as v₀ₓ the whole flight. At the peak, **vᵧ = 0** (the object is just about to fall), but **vₓ ≠ 0**. So the velocity is purely horizontal, not zero.",
         zh: "重力只沿 y 方向作用,因此 **vₓ 始终不变**——整个过程中等于 v₀ₓ。最高点 **vᵧ = 0**(即将开始下落),但 **vₓ ≠ 0**。所以此处速度纯水平,并非零。",
+      },
+    },
+  ],
+
+  "unit-2/topic-1": [
+    {
+      id: "phys1-u2-t1-q1",
+      prompt: {
+        en: "A book rests motionless on a level table. Which statement correctly describes the **net force** on the book?",
+        zh: "一本书静止在水平桌面上。关于书受到的**合力**,下列哪项正确?",
+      },
+      choices: [
+        { id: "a", text: { en: "It points downward (weight wins).", zh: "合力向下(重力更大)。" } },
+        { id: "b", text: { en: "It points upward (normal force wins).", zh: "合力向上(法向力更大)。" } },
+        { id: "c", text: { en: "It is zero — the book is in equilibrium.", zh: "合力为零——书处于平衡。" } },
+        { id: "d", text: { en: "It equals the book's weight.", zh: "等于书的重力。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Because the book is at rest (and staying at rest), its acceleration is zero. By Newton's first law, **ΣF = 0** — the normal force and weight cancel exactly. That's static equilibrium.",
+        zh: "书保持静止,加速度为零。由牛顿第一定律,**ΣF = 0**——法向力与重力恰好抵消。这就是静态平衡。",
+      },
+    },
+    {
+      id: "phys1-u2-t1-q2",
+      prompt: {
+        en: "A hockey puck slides across a **frictionless** sheet of ice at constant velocity. What is the net force on the puck?",
+        zh: "一只冰球在**无摩擦**的冰面上匀速滑行。冰球受到的合力为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "A forward force equal to mv.", zh: "向前一个等于 mv 的力。" } },
+        { id: "b", text: { en: "A forward force equal to the puck's weight.", zh: "向前一个等于冰球重力的力。" } },
+        { id: "c", text: { en: "Zero — constant velocity means ΣF = 0.", zh: "零——匀速意味着 ΣF = 0。" } },
+        { id: "d", text: { en: "A backward friction force only.", zh: "只受一个向后的摩擦力。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Constant velocity = zero acceleration = **dynamic equilibrium**. No net force is needed to *maintain* motion — this is Newton's first law. The intuitive \"force of motion\" doesn't exist.",
+        zh: "匀速 ⇒ 加速度为零 ⇒ **动态平衡**。**保持**运动不需要净力——这是牛顿第一定律。所谓「运动的力」并不存在。",
+      },
+    },
+    {
+      id: "phys1-u2-t1-q3",
+      prompt: {
+        en: "A 10 kg crate is being pushed across a floor at a **constant velocity** of 2 m/s. If the kinetic friction force on the crate is 30 N, what is the magnitude of the applied pushing force?",
+        zh: "一只 10 kg 板条箱以 2 m/s **匀速**被推过地面。若动摩擦力为 30 N,推力的大小为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0 N", zh: "0 N" } },
+        { id: "b", text: { en: "20 N", zh: "20 N" } },
+        { id: "c", text: { en: "30 N", zh: "30 N" } },
+        { id: "d", text: { en: "60 N", zh: "60 N" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Constant velocity means **ΣF = 0** in the horizontal direction. So the push must exactly balance friction: **F_push = 30 N**. The mass and speed are distractors.",
+        zh: "匀速意味着水平方向 **ΣF = 0**。推力必须恰好平衡摩擦力:**F_push = 30 N**。质量和速度是干扰信息。",
+      },
+    },
+  ],
+
+  "unit-2/topic-2": [
+    {
+      id: "phys1-u2-t2-q1",
+      prompt: {
+        en: "A 5.0 kg block sits motionless on a horizontal table. What is the magnitude of the **normal force** on the block? (g = 9.8 m/s²)",
+        zh: "一块 5.0 kg 的物块静止在水平桌面上。物块所受**法向力**的大小为多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "5.0 N", zh: "5.0 N" } },
+        { id: "b", text: { en: "9.8 N", zh: "9.8 N" } },
+        { id: "c", text: { en: "49 N", zh: "49 N" } },
+        { id: "d", text: { en: "0 N", zh: "0 N" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "On a horizontal surface with no vertical push/pull, the normal force balances gravity: **N = mg = (5.0)(9.8) = 49 N**. Note: N is *not* always mg — only when the surface is horizontal and nothing else pushes vertically.",
+        zh: "水平面上无其他竖直力时,法向力等于重力:**N = mg = (5.0)(9.8) = 49 N**。注意:N 并非总等于 mg,仅当水平面且无其他竖直推/拉时才如此。",
+      },
+    },
+    {
+      id: "phys1-u2-t2-q2",
+      prompt: {
+        en: "A 2.0 kg book rests on a horizontal surface. A student pushes **downward** on top of the book with a force of 15 N. What is the normal force from the surface on the book? (g = 9.8 m/s²)",
+        zh: "一本 2.0 kg 的书放在水平面上。学生**向下**按压书本,施加 15 N 的力。表面对书的法向力是多少?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "4.6 N", zh: "4.6 N" } },
+        { id: "b", text: { en: "15 N", zh: "15 N" } },
+        { id: "c", text: { en: "19.6 N", zh: "19.6 N" } },
+        { id: "d", text: { en: "34.6 N", zh: "34.6 N" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Vertical equilibrium: N = mg + F_push = (2.0)(9.8) + 15 = **34.6 N**. The surface must support both the book's weight **and** the downward push. This is why \"N = mg\" isn't a universal formula.",
+        zh: "竖直平衡:N = mg + F_push = (2.0)(9.8) + 15 = **34.6 N**。表面必须同时支撑书的重力**与**向下的按压力。因此「N = mg」不是普适公式。",
+      },
+    },
+    {
+      id: "phys1-u2-t2-q3",
+      prompt: {
+        en: "A 4.0 kg box sits on a floor (μ_s = 0.40, μ_k = 0.30). A student pushes horizontally with a force of **12 N**. Does the box move? (g = 9.8 m/s²)",
+        zh: "一只 4.0 kg 的箱子放在地面上(μ_s = 0.40,μ_k = 0.30)。学生水平推 **12 N**。箱子动吗?(g = 9.8 m/s²)",
+      },
+      choices: [
+        { id: "a", text: { en: "Yes — the push (12 N) exceeds kinetic friction.", zh: "动——推力 (12 N) 超过动摩擦力。" } },
+        { id: "b", text: { en: "No — the push is less than maximum static friction.", zh: "不动——推力小于最大静摩擦力。" } },
+        { id: "c", text: { en: "Yes — any push causes motion.", zh: "动——有力就动。" } },
+        { id: "d", text: { en: "Depends on the direction of the push.", zh: "取决于推的方向。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Max static friction = μ_s·N = (0.40)(4.0)(9.8) = **15.7 N**. Since the push (12 N) < 15.7 N, static friction exactly matches the push (12 N), and the box stays at rest. Kinetic friction only applies *after* motion begins.",
+        zh: "最大静摩擦力 = μ_s·N = (0.40)(4.0)(9.8) = **15.7 N**。推力 (12 N) < 15.7 N,静摩擦力等于推力 (12 N),箱子静止。动摩擦力只在开始运动后才适用。",
+      },
+    },
+  ],
+
+  "unit-2/topic-3": [
+    {
+      id: "phys1-u2-t3-q1",
+      prompt: {
+        en: "On a free-body diagram of a box being pushed across a rough horizontal floor at constant velocity, which set of forces should appear?",
+        zh: "画一只在粗糙水平地面上被推动、保持匀速的箱子的受力图时,应标出哪几个力?",
+      },
+      choices: [
+        { id: "a", text: { en: "Gravity down, applied force forward only.", zh: "向下的重力、只向前的施加力。" } },
+        { id: "b", text: { en: "Gravity down, normal force up, applied force forward, friction backward.", zh: "向下的重力、向上的法向力、向前的施加力、向后的摩擦力。" } },
+        { id: "c", text: { en: "Gravity down, normal force up, applied force forward, friction backward, and an inertia force forward.", zh: "向下的重力、向上的法向力、向前的施加力、向后的摩擦力,以及向前的「惯性力」。" } },
+        { id: "d", text: { en: "Only the applied force and friction.", zh: "只有施加力与摩擦力。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "A free-body diagram shows every **real force acting on** the object — gravity (down), normal (up), applied push (forward), kinetic friction (backward). **Inertia is not a force**, and velocity is not a force — both are common mistakes.",
+        zh: "受力图只画**作用在**物体上的**真实力**——重力(下)、法向力(上)、施加力(前)、动摩擦力(后)。**惯性不是力**,速度也不是力——这是常见错误。",
+      },
+    },
+    {
+      id: "phys1-u2-t3-q2",
+      prompt: {
+        en: "A 2 kg ball hangs motionless from a string attached to the ceiling. Which free-body diagram is correct?",
+        zh: "一只 2 kg 的球由天花板上的绳悬挂静止。以下哪个受力图正确?",
+      },
+      choices: [
+        { id: "a", text: { en: "Tension up; gravity down; both equal in magnitude.", zh: "向上的张力;向下的重力;大小相等。" } },
+        { id: "b", text: { en: "Tension up; gravity down; tension > gravity.", zh: "向上的张力;向下的重力;张力 > 重力。" } },
+        { id: "c", text: { en: "Only tension up (gravity is canceled).", zh: "只有向上的张力(重力被抵消)。" } },
+        { id: "d", text: { en: "Tension, gravity, and a normal force from the ceiling.", zh: "张力、重力,还有天花板的法向力。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "The ball is in equilibrium, so ΣF = 0. **T = mg = 19.6 N**, with T pointing up and gravity down. Choice B confuses \"net force = 0\" with \"forces of different size.\" There is no normal force — the ball doesn't touch a surface.",
+        zh: "球处于平衡,ΣF = 0。**T = mg = 19.6 N**,张力向上,重力向下。选项 B 把「合力为零」误解为「力大小不同」。球不接触物体,因此没有法向力。",
+      },
+    },
+    {
+      id: "phys1-u2-t3-q3",
+      prompt: {
+        en: "A block on an inclined plane (angle θ above horizontal) is sliding down. Which forces belong on its free-body diagram?",
+        zh: "一块物块沿倾角为 θ 的斜面向下滑。它的受力图应包含哪些力?",
+      },
+      choices: [
+        { id: "a", text: { en: "Gravity (straight down), normal (perpendicular to incline), friction (up along incline).", zh: "重力(竖直向下)、法向力(垂直于斜面)、摩擦力(沿斜面向上)。" } },
+        { id: "b", text: { en: "Gravity (down the incline), normal (up from incline), friction (up the incline).", zh: "重力(沿斜面向下)、法向力(离开斜面向上)、摩擦力(沿斜面向上)。" } },
+        { id: "c", text: { en: "Only gravity and friction.", zh: "只有重力和摩擦力。" } },
+        { id: "d", text: { en: "Gravity (straight down), a centripetal force, and friction.", zh: "重力(竖直向下)、向心力、摩擦力。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Gravity is **always straight down** (toward Earth's center), never \"along the incline.\" Choice B conflates gravity with its component along the incline. Normal is perpendicular to the surface; friction opposes the relative motion, which is down the incline, so friction points up the incline.",
+        zh: "重力**始终竖直向下**(指向地球中心),而不是「沿斜面向下」。选项 B 把重力与其沿斜面分量混淆。法向力垂直于表面;摩擦力与相对运动方向相反——物块向下滑,所以摩擦力沿斜面向上。",
+      },
+    },
+  ],
+
+  "unit-2/topic-4": [
+    {
+      id: "phys1-u2-t4-q1",
+      prompt: {
+        en: "A horizontal net force of **12 N** acts on a 4.0 kg cart. What is the cart's acceleration?",
+        zh: "一辆 4.0 kg 的小车受到水平合力 **12 N** 作用。它的加速度是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.33 m/s²", zh: "0.33 m/s²" } },
+        { id: "b", text: { en: "3.0 m/s²", zh: "3.0 m/s²" } },
+        { id: "c", text: { en: "8.0 m/s²", zh: "8.0 m/s²" } },
+        { id: "d", text: { en: "48 m/s²", zh: "48 m/s²" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Newton's second law: a = ΣF / m = **12 / 4.0 = 3.0 m/s²**, in the direction of the net force. Direct application, no tricks.",
+        zh: "牛顿第二定律:a = ΣF / m = **12 / 4.0 = 3.0 m/s²**,方向与合力相同。直接套用公式,无陷阱。",
+      },
+    },
+    {
+      id: "phys1-u2-t4-q2",
+      prompt: {
+        en: "Two horizontal forces act on a 5.0 kg block on frictionless ice: 20 N east and 8.0 N west. What is the block's acceleration?",
+        zh: "一块 5.0 kg 的物块在无摩擦冰面上,同时受到水平方向 20 N 向东与 8.0 N 向西的两个力作用。加速度是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "2.4 m/s² east", zh: "2.4 m/s² 向东" } },
+        { id: "b", text: { en: "5.6 m/s² east", zh: "5.6 m/s² 向东" } },
+        { id: "c", text: { en: "4.0 m/s² east", zh: "4.0 m/s² 向东" } },
+        { id: "d", text: { en: "28 m/s² east", zh: "28 m/s² 向东" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Net force = 20 − 8 = **12 N east**. a = F_net / m = **12 / 5.0 = 2.4 m/s² east**. Choice D adds the forces (wrong — they oppose). Choice C uses the wrong mass.",
+        zh: "合力 = 20 − 8 = **12 N 向东**。a = F_net / m = **12 / 5.0 = 2.4 m/s² 向东**。选项 D 把两个力相加(错——它们方向相反);选项 C 用了错误的质量。",
+      },
+    },
+    {
+      id: "phys1-u2-t4-q3",
+      prompt: {
+        en: "A 2.0 kg block is pulled along a frictionless horizontal surface by a rope making a 30° angle above the horizontal, with tension 10 N. What is the block's horizontal acceleration?",
+        zh: "一块 2.0 kg 物块被绳拉着在无摩擦水平面上滑动。绳与水平方向成 30° 角斜向上,张力 10 N。物块的水平加速度是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "2.5 m/s²", zh: "2.5 m/s²" } },
+        { id: "b", text: { en: "4.3 m/s²", zh: "4.3 m/s²" } },
+        { id: "c", text: { en: "5.0 m/s²", zh: "5.0 m/s²" } },
+        { id: "d", text: { en: "10.0 m/s²", zh: "10.0 m/s²" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Only the horizontal component of tension accelerates the block: F_x = T·cos 30° = 10(0.866) = 8.66 N. a = F_x / m = **8.66 / 2.0 ≈ 4.3 m/s²**. Choice C uses the full tension (forgets the angle).",
+        zh: "只有张力的水平分量产生加速度:F_x = T·cos 30° = 10(0.866) = 8.66 N。a = F_x / m = **8.66 / 2.0 ≈ 4.3 m/s²**。选项 C 用了全部张力(忘了分解)。",
+      },
+    },
+  ],
+
+  "unit-2/topic-5": [
+    {
+      id: "phys1-u2-t5-q1",
+      prompt: {
+        en: "A horse pulls a cart forward, but the cart pulls back on the horse with an equal force (Newton's third law). How can the system accelerate forward?",
+        zh: "一匹马向前拉车,车也以相等的力向后拉马(牛顿第三定律)。那么整个系统为什么还能向前加速?",
+      },
+      choices: [
+        { id: "a", text: { en: "The horse pulls harder than the cart pulls back.", zh: "马拉车的力大于车拉马的力。" } },
+        { id: "b", text: { en: "Newton's third law is suspended when objects are connected.", zh: "连接的两个物体之间牛顿第三定律失效。" } },
+        { id: "c", text: { en: "The third-law pair acts on different objects; the ground pushes the horse forward, giving the system a net forward force.", zh: "第三定律的两个力作用在不同物体上;地面对马向前的推力使系统获得向前的合力。" } },
+        { id: "d", text: { en: "The cart pushes the horse forward.", zh: "车向前推马。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Third-law pairs act on **different objects**, so they never cancel on the same object. Considering the horse + cart system, the external force is **the ground pushing the horse's hooves forward** (the reaction to the horse pushing backward on the ground). That's what accelerates the system.",
+        zh: "第三定律中的两个力作用在**不同物体**上,因此不会在同一物体上互相抵消。对于马 + 车系统,外力是**地面对马蹄向前的推力**(马向后蹬地的反作用力)。正是这个力使系统加速。",
+      },
+    },
+    {
+      id: "phys1-u2-t5-q2",
+      prompt: {
+        en: "A book lies on a table. Which pair of forces is a **Newton's third law action–reaction pair**?",
+        zh: "一本书放在桌面上。下列哪一对是**牛顿第三定律中的作用—反作用对**?",
+      },
+      choices: [
+        { id: "a", text: { en: "The weight of the book, and the normal force from the table.", zh: "书的重力和桌面的法向力。" } },
+        { id: "b", text: { en: "Earth's gravitational pull on the book, and the book's gravitational pull on Earth.", zh: "地球对书的万有引力和书对地球的万有引力。" } },
+        { id: "c", text: { en: "The normal force from the table, and Earth's pull on the book.", zh: "桌面的法向力和地球对书的引力。" } },
+        { id: "d", text: { en: "The book's inertia, and the table's inertia.", zh: "书的惯性和桌面的惯性。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "A third-law pair is two forces **on different objects** that are **equal, opposite, and of the same type**. Earth pulling the book ↔ book pulling Earth — both gravitational, different objects. Choice A is wrong: both act on the *same* object (the book), so they can't be a third-law pair (they happen to be equal only because the book is in equilibrium).",
+        zh: "第三定律中的两个力作用在**不同物体**上,**大小相等、方向相反、性质相同**。地球拉书 ↔ 书拉地球——都是引力,作用在不同物体上。选项 A 错:两力都作用在**同一**物体(书)上,不能构成第三定律对(它们大小相等仅因书处于平衡)。",
+      },
+    },
+    {
+      id: "phys1-u2-t5-q3",
+      prompt: {
+        en: "A small truck collides with a large sedan at rest. Compared to the force the sedan exerts on the truck during the collision, the force the truck exerts on the sedan is:",
+        zh: "一辆小卡车撞上静止的大轿车。相比于轿车撞击卡车的力,卡车撞击轿车的力:",
+      },
+      choices: [
+        { id: "a", text: { en: "Larger, because the truck was moving.", zh: "更大,因为卡车是运动的。" } },
+        { id: "b", text: { en: "Smaller, because the sedan is more massive.", zh: "更小,因为轿车质量更大。" } },
+        { id: "c", text: { en: "Equal in magnitude, opposite in direction.", zh: "大小相等,方向相反。" } },
+        { id: "d", text: { en: "Depends on the collision type (elastic vs inelastic).", zh: "取决于碰撞类型(弹性或非弹性)。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "By Newton's third law, **forces in any interaction are equal in magnitude and opposite in direction**, regardless of mass, speed, or motion state. The *accelerations* differ (the sedan's larger mass gives it smaller a = F/m), but the *forces* are always equal.",
+        zh: "由牛顿第三定律,**任何相互作用中两力大小相等、方向相反**,与质量、速度、运动状态无关。**加速度**会不同(轿车质量大,a = F/m 小),但**力**永远相等。",
+      },
+    },
+  ],
+
+  "unit-2/topic-6": [
+    {
+      id: "phys1-u2-t6-q1",
+      prompt: {
+        en: "A car rounds a circular curve of radius 50 m at a steady speed of 20 m/s. What is the magnitude of its acceleration?",
+        zh: "一辆汽车以 20 m/s 的恒定速率绕半径 50 m 的圆形弯道行驶。它的加速度大小是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0 m/s² (speed is constant)", zh: "0 m/s²(速率恒定)" } },
+        { id: "b", text: { en: "2.5 m/s²", zh: "2.5 m/s²" } },
+        { id: "c", text: { en: "8.0 m/s²", zh: "8.0 m/s²" } },
+        { id: "d", text: { en: "20 m/s²", zh: "20 m/s²" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Speed is constant, but direction is changing, so there **is** a (centripetal) acceleration: a_c = v² / r = (20)² / 50 = **8.0 m/s²**, pointing toward the center. Choice A is the classic trap of thinking constant speed = no acceleration.",
+        zh: "速率不变,但方向在变,因此**存在**向心加速度:a_c = v² / r = (20)² / 50 = **8.0 m/s²**,指向圆心。选项 A 是「速率不变 = 无加速度」的经典陷阱。",
+      },
+    },
+    {
+      id: "phys1-u2-t6-q2",
+      prompt: {
+        en: "A 1200 kg car travels around a flat circular track of radius 40 m at 15 m/s. What force provides the centripetal acceleration, and what is its magnitude?",
+        zh: "一辆 1200 kg 的汽车以 15 m/s 绕半径 40 m 的平坦圆形赛道行驶。什么力提供向心加速度?大小是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "Gravity, 11760 N", zh: "重力,11760 N" } },
+        { id: "b", text: { en: "Normal force, 11760 N", zh: "法向力,11760 N" } },
+        { id: "c", text: { en: "Friction between tires and road, 6750 N", zh: "轮胎与地面间的摩擦力,6750 N" } },
+        { id: "d", text: { en: "A special centripetal force, 6750 N", zh: "某种特别的向心力,6750 N" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "On a **flat** curve, friction is the only horizontal force available — it points inward and supplies the centripetal force: F_c = m·v² / r = (1200)(225) / 40 = **6750 N**. \"Centripetal force\" is a *role*, not a new kind of force — it's whichever real force (here, friction) happens to point toward the center.",
+        zh: "在**平坦**弯道上,摩擦力是唯一可用的水平力,指向圆心,提供向心力:F_c = m·v² / r = (1200)(225) / 40 = **6750 N**。「向心力」是一个**角色**,并非新的力——指的是任何恰好指向圆心的真实力(此处即摩擦力)。",
+      },
+    },
+    {
+      id: "phys1-u2-t6-q3",
+      prompt: {
+        en: "A ball on a string is whirled in a horizontal circle. The string suddenly breaks. Which path does the ball follow immediately after (neglecting gravity)?",
+        zh: "一只球被绳系着做水平圆周运动。绳突然断裂。忽略重力时,球紧接着沿哪条路径运动?",
+      },
+      choices: [
+        { id: "a", text: { en: "Continues in a circle.", zh: "继续做圆周运动。" } },
+        { id: "b", text: { en: "Flies outward along the radial direction.", zh: "沿径向向外飞出。" } },
+        { id: "c", text: { en: "Flies off along a straight line tangent to the circle at the break point.", zh: "沿断裂瞬间的圆切线方向直线飞出。" } },
+        { id: "d", text: { en: "Spirals outward.", zh: "螺旋向外飞出。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Once the tension disappears, ΣF = 0, so by Newton's first law the ball continues in a **straight line** with the velocity it had at the moment of release — which is **tangent** to the circle. \"Outward\" (choice B) is a centrifugal-force intuition that doesn't exist in inertial frames.",
+        zh: "张力消失后 ΣF = 0,由牛顿第一定律,球以断裂瞬间的速度沿**直线**飞出——即圆的**切线**方向。选项 B 的「向外」是离心力直觉,在惯性参考系中不存在。",
       },
     },
   ],
