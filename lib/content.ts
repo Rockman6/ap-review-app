@@ -52,7 +52,9 @@ export type NoteBlock =
         | "catalyst-effect"
         | "multistep-profile"
         | "thermal-equilibrium"
-        | "hess-cycle";
+        | "hess-cycle"
+        | "equilibrium-approach"
+        | "lechatelier-shift";
     }
   | { kind: "mass-spectrum"; peaks: Array<{ mz: number; pct: number }>; title?: Bilingual }
   | {
@@ -7726,15 +7728,24 @@ export const apChemistry: Subject = {
       number: 7,
       title: { en: "Equilibrium", zh: "化学平衡" },
       description: {
-        en: "Reversible reactions, K expressions, and Le Chatelier's principle.",
-        zh: "可逆反应、平衡常数表达式与勒夏特列原理。",
+        en: "Reversible reactions, K, Q, Le Châtelier, and solubility equilibria.",
+        zh: "可逆反应、K、Q、勒夏特列原理与溶解平衡。",
       },
       topics: [
-        { slug: "topic-1", title: { en: "Dynamic Equilibrium", zh: "动态平衡" }, summary: { en: "Forward and reverse rates equal at equilibrium.", zh: "平衡时正反应速率等于逆反应速率。" } },
-        { slug: "topic-2", title: { en: "Equilibrium Constant K", zh: "平衡常数 K" }, summary: { en: "Writing Kc and Kp expressions; relating them to extent of reaction.", zh: "书写 Kc、Kp 并与反应程度联系。" } },
-        { slug: "topic-3", title: { en: "Reaction Quotient Q", zh: "反应商 Q" }, summary: { en: "Comparing Q to K to predict the direction of shift.", zh: "比较 Q 与 K 以判断反应移动方向。" } },
-        { slug: "topic-4", title: { en: "Le Chatelier's Principle", zh: "勒夏特列原理" }, summary: { en: "How systems respond to changes in concentration, P, T.", zh: "系统对浓度、压强、温度变化的响应。" } },
-        { slug: "topic-5", title: { en: "Solubility Equilibria (Ksp)", zh: "溶解平衡 (Ksp)" }, summary: { en: "Predicting precipitation and the common-ion effect.", zh: "预测沉淀与同离子效应。" } },
+        { slug: "topic-1", title: { en: "Introduction to Equilibrium", zh: "平衡入门" }, summary: { en: "Forward = reverse rates; concentrations stop changing.", zh: "正 = 逆速率;浓度不再变化。" } },
+        { slug: "topic-2", title: { en: "Direction of Reversible Reactions", zh: "可逆反应的方向" }, summary: { en: "How a system can approach equilibrium from either side.", zh: "系统可从任一方向趋近平衡。" } },
+        { slug: "topic-3", title: { en: "Reaction Quotient Q & Equilibrium Constant K", zh: "反应商 Q 与平衡常数 K" }, summary: { en: "Same expression, different moments.", zh: "同一表达式,不同时刻。" } },
+        { slug: "topic-4", title: { en: "Calculating K", zh: "计算 K" }, summary: { en: "From equilibrium concentrations directly.", zh: "直接由平衡浓度计算。" } },
+        { slug: "topic-5", title: { en: "Magnitude of K", zh: "K 的大小" }, summary: { en: "K » 1 favors products; K « 1 favors reactants.", zh: "K » 1 产物占优;K « 1 反应物占优。" } },
+        { slug: "topic-6", title: { en: "Properties of K", zh: "K 的性质" }, summary: { en: "Reverse, multiply, add — how K transforms.", zh: "反向、乘方、相加——K 如何变化。" } },
+        { slug: "topic-7", title: { en: "Calculating Equilibrium Concentrations (ICE)", zh: "计算平衡浓度 (ICE 表)" }, summary: { en: "The ICE table and the x approximation.", zh: "ICE 表与 x 近似。" } },
+        { slug: "topic-8", title: { en: "Representations of Equilibrium", zh: "平衡的表示" }, summary: { en: "Concentration-time plots and particulate pictures.", zh: "浓度-时间图与粒子图示。" } },
+        { slug: "topic-9", title: { en: "Introduction to Le Châtelier's Principle", zh: "勒夏特列原理入门" }, summary: { en: "Systems push back against disturbances.", zh: "系统对扰动做出反向响应。" } },
+        { slug: "topic-10", title: { en: "Q, Le Châtelier & the Shift", zh: "Q、勒夏特列与移动方向" }, summary: { en: "Q vs K tells you the direction.", zh: "Q 与 K 比较可判断方向。" } },
+        { slug: "topic-11", title: { en: "Introduction to Solubility Equilibria (Ksp)", zh: "溶解平衡入门 (Ksp)" }, summary: { en: "Saturated solutions of sparingly soluble salts.", zh: "微溶盐的饱和溶液。" } },
+        { slug: "topic-12", title: { en: "Common-Ion Effect", zh: "同离子效应" }, summary: { en: "Shared ion → solubility drops.", zh: "共享离子 → 溶解度下降。" } },
+        { slug: "topic-13", title: { en: "pH & Solubility", zh: "pH 与溶解度" }, summary: { en: "Salts of weak acids/bases dissolve more in the right pH.", zh: "弱酸/弱碱盐在相应 pH 下溶解度不同。" } },
+        { slug: "topic-14", title: { en: "Free Energy of Dissolution", zh: "溶解的自由能" }, summary: { en: "ΔG_dissolution and when a salt dissolves spontaneously.", zh: "ΔG_溶解——盐何时自发溶解。" } },
       ],
     },
     {
@@ -11151,6 +11162,354 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       caption: { en: "Two stepwise combustions add up to the overall combustion.", zh: "两步分步燃烧相加得到总燃烧反应。" },
     },
   ],
+
+  // ============================================================
+  // UNIT 7 · Equilibrium
+  // ============================================================
+
+  // ---------- 7.1 · Intro to Equilibrium ----------
+  "unit-7/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Dynamic equilibrium** is reached when the **rate** of the forward reaction equals the **rate** of the reverse reaction. Both reactions still happen — molecules convert constantly — but the **concentrations** no longer change.",
+        zh: "**动态平衡**:正反应速率与逆反应速率相等。两个反应都仍在发生——分子不停互相转化——但各物种的**浓度**不再变化。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "equilibrium-approach",
+    },
+    {
+      kind: "callout",
+      label: { en: "Key point", zh: "核心要点" },
+      text: {
+        en: "At equilibrium, concentrations are **constant**, not necessarily **equal**. Don't confuse 'rates equal' with 'concentrations equal' — those are different statements.",
+        zh: "平衡时浓度**恒定**,并非一定**相等**。不要把「速率相等」与「浓度相等」混为一谈——它们含义不同。",
+      },
+    },
+  ],
+
+  // ---------- 7.2 · Direction of Reversible Reactions ----------
+  "unit-7/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A reversible reaction can **approach the same equilibrium from either direction** — whether you start with pure reactants, pure products, or any mixture. Final equilibrium concentrations are determined only by **K** and the initial amounts, not by which side you started on.",
+        zh: "可逆反应可以从**任意方向趋近同一平衡**——无论从纯反应物、纯产物还是混合物开始。最终平衡浓度只由 **K** 与初始总量决定,与起点无关。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{A <=> B}",
+      caption: { en: "Double arrow = reversible; equilibrium reachable from either side.", zh: "双向箭头 = 可逆;从任一方向均可达到同一平衡。" },
+    },
+  ],
+
+  // ---------- 7.3 · Q and K ----------
+  "unit-7/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The **reaction quotient Q** and the **equilibrium constant K** use the *exact same* expression — a ratio of products over reactants raised to their coefficients. The difference: **Q is computed at any moment**, while **K uses equilibrium concentrations**.",
+        zh: "**反应商 Q** 与**平衡常数 K** 的表达式完全一致——以计量数为指数的产物/反应物之比。区别在于:**Q 在任意时刻都可计算**,而 **K 仅用平衡时的浓度**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{For } a\\mathrm{A} + b\\mathrm{B} \\rightleftharpoons c\\mathrm{C} + d\\mathrm{D}:\\qquad K = \\dfrac{[\\mathrm{C}]^{c}[\\mathrm{D}]^{d}}{[\\mathrm{A}]^{a}[\\mathrm{B}]^{b}}",
+    },
+    {
+      kind: "table",
+      caption: { en: "What Q tells you", zh: "由 Q 判断方向" },
+      columns: [
+        { en: "Compare", zh: "比较" },
+        { en: "Meaning", zh: "含义" },
+        { en: "Direction of shift", zh: "反应移动方向" },
+      ],
+      rows: [
+        [{ en: "Q < K", zh: "Q < K" }, { en: "Not enough products", zh: "产物偏少" }, { en: "Shifts →  (forward)", zh: "向右(正向)" }],
+        [{ en: "Q = K", zh: "Q = K" }, { en: "At equilibrium", zh: "处于平衡" }, { en: "No shift", zh: "不移动" }],
+        [{ en: "Q > K", zh: "Q > K" }, { en: "Too much product", zh: "产物过多" }, { en: "Shifts ←  (reverse)", zh: "向左(逆向)" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Pure solids & liquids", zh: "纯固体与纯液体" },
+      text: {
+        en: "Pure solids and pure liquids have effectively constant 'activity' and are **omitted** from K and Q expressions. Only gases and aqueous species appear.",
+        zh: "纯固体与纯液体的活度视为常数,**不出现**在 K 或 Q 的表达式中。只写入气体与水溶液中的物种。",
+      },
+    },
+  ],
+
+  // ---------- 7.4 · Calculating K ----------
+  "unit-7/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "When you're given the **equilibrium concentrations**, K is a plug-and-chug — no ICE table needed. Units of K are usually dropped on the AP exam.",
+        zh: "若已知**平衡浓度**,K 只需直接代入——无需 ICE 表。AP 考试通常省略 K 的单位。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{e.g. }\\ce{N2(g) + 3 H2(g) <=> 2 NH3(g)}\\qquad K_c = \\dfrac{[\\mathrm{NH_3}]^{2}}{[\\mathrm{N_2}]\\,[\\mathrm{H_2}]^{3}}",
+    },
+    {
+      kind: "math",
+      tex: "K_p \\;=\\; K_c\\,(RT)^{\\Delta n}",
+      caption: { en: "Δn = (moles gaseous products) − (moles gaseous reactants)", zh: "Δn = 气态产物摩尔数 − 气态反应物摩尔数" },
+    },
+  ],
+
+  // ---------- 7.5 · Magnitude of K ----------
+  "unit-7/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "K is a **number**, and the magnitude tells you how far the reaction proceeds at equilibrium.",
+        zh: "K 是一个**数值**,其大小说明反应在平衡时进行的程度。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Magnitude of K at a glance", zh: "K 大小速查" },
+      columns: [
+        { en: "K", zh: "K" },
+        { en: "Interpretation", zh: "含义" },
+      ],
+      rows: [
+        [{ en: "K » 1  (e.g., 10⁵)", zh: "K » 1(如 10⁵)" }, { en: "Equilibrium strongly favors products.", zh: "平衡大幅偏向产物。" }],
+        [{ en: "K ≈ 1", zh: "K ≈ 1" }, { en: "Significant amounts of both sides.", zh: "两边量都不可忽略。" }],
+        [{ en: "K « 1  (e.g., 10⁻⁵)", zh: "K « 1(如 10⁻⁵)" }, { en: "Equilibrium strongly favors reactants.", zh: "平衡大幅偏向反应物。" }],
+      ],
+    },
+  ],
+
+  // ---------- 7.6 · Properties of K ----------
+  "unit-7/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "When you manipulate a reaction, K transforms along with it. Mastering this lets you compute new K values without redoing the math.",
+        zh: "对反应做数学操作时,K 相应变化。掌握这些规则可不重算就得到新 K。",
+      },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Reverse** a reaction → **K → 1/K**.", zh: "**反向** → **K → 1/K**。" },
+        { en: "**Multiply** all coefficients by n → **K → Kⁿ**.", zh: "**全部系数乘 n** → **K → Kⁿ**。" },
+        { en: "**Add** two reactions → **K = K₁ × K₂**.", zh: "**两反应相加** → **K = K₁ × K₂**。" },
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Temperature is special", zh: "温度特殊" },
+      text: {
+        en: "K depends **only on temperature**. Changing concentrations, pressures, or adding a catalyst leaves K unchanged — only a temperature change actually changes K.",
+        zh: "K **仅**与温度有关。改变浓度、压强或加催化剂都不改变 K——只有温度变化才会改变 K。",
+      },
+    },
+  ],
+
+  // ---------- 7.7 · ICE Tables ----------
+  "unit-7/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "An **ICE table** (Initial, Change, Equilibrium) is the workhorse for computing equilibrium concentrations. Put initial amounts on the first row, let 'x' stand for the change, then add for equilibrium amounts, then plug into K.",
+        zh: "**ICE 表**(初始、变化、平衡)是求平衡浓度的常用工具。第一行填初始量,第二行用 x 表示变化,第三行得到平衡量,最后代入 K。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "A standard ICE table", zh: "标准 ICE 表" },
+      columns: [
+        { en: "", zh: "" },
+        { en: "A", zh: "A" },
+        { en: "B", zh: "B" },
+        { en: "C", zh: "C" },
+      ],
+      rows: [
+        [{ en: "I (initial)", zh: "I(初始)" }, { en: "0.50", zh: "0.50" }, { en: "0.50", zh: "0.50" }, { en: "0", zh: "0" }],
+        [{ en: "C (change)", zh: "C(变化)" }, { en: "−x", zh: "−x" }, { en: "−x", zh: "−x" }, { en: "+x", zh: "+x" }],
+        [{ en: "E (equilib)", zh: "E(平衡)" }, { en: "0.50 − x", zh: "0.50 − x" }, { en: "0.50 − x", zh: "0.50 − x" }, { en: "x", zh: "x" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "The 'x approximation'", zh: "x 近似" },
+      text: {
+        en: "When **K < ~10⁻³** and **[init] > 100·K**, you can simplify (0.50 − x) ≈ 0.50 — x is so small its subtraction doesn't matter. Always check: 5% rule — if x/[init] < 5%, the approximation is fine.",
+        zh: "当 **K < ~10⁻³** 且 **[初] > 100·K** 时,可简化 (0.50 − x) ≈ 0.50——x 太小,减掉也几乎不影响。验证方法:5% 法则——若 x/[初] < 5%,近似可接受。",
+      },
+    },
+  ],
+
+  // ---------- 7.8 · Representations of Equilibrium ----------
+  "unit-7/topic-8": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Equilibrium can be visualized three ways: a concentration-time graph (approach phase then flat plateau), a particulate picture (mix of molecules in fixed ratio), or a **rate-time graph** where forward and reverse rates meet and stay equal.",
+        zh: "平衡有三种可视化方式:浓度-时间图(先变化、后平稳)、粒子图(固定比例的分子混合物)、以及**速率-时间图**(正反速率汇合后持平)。",
+      },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "equilibrium-approach",
+    },
+  ],
+
+  // ---------- 7.9 · Intro to Le Châtelier ----------
+  "unit-7/topic-9": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Le Châtelier's principle:** if a system at equilibrium is disturbed, it shifts in the direction that **counteracts** the disturbance, eventually settling at a new equilibrium.",
+        zh: "**勒夏特列原理:** 平衡体系受扰动时,会朝**抵消**扰动的方向移动,最终达到新平衡。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Common disturbances and responses", zh: "常见扰动与响应" },
+      columns: [
+        { en: "Disturbance", zh: "扰动" },
+        { en: "Shift", zh: "移动方向" },
+        { en: "K changes?", zh: "K 变?" },
+      ],
+      rows: [
+        [{ en: "Add reactant", zh: "加入反应物" }, { en: "→ forward", zh: "→ 正向" }, { en: "No", zh: "否" }],
+        [{ en: "Remove product", zh: "移除产物" }, { en: "→ forward", zh: "→ 正向" }, { en: "No", zh: "否" }],
+        [{ en: "↑ pressure (gas, fewer moles side)", zh: "↑ 压强(气态,摩尔少的一侧)" }, { en: "→ toward fewer moles", zh: "→ 摩尔数减少的方向" }, { en: "No", zh: "否" }],
+        [{ en: "↑ temperature, exothermic", zh: "↑ 温度,放热反应" }, { en: "← reverse", zh: "← 逆向" }, { en: "**Yes** (K decreases)", zh: "**是**(K 减小)" }],
+        [{ en: "Add catalyst", zh: "加催化剂" }, { en: "No shift", zh: "不移动" }, { en: "No", zh: "否" }],
+      ],
+    },
+    {
+      kind: "chem-chart",
+      chartType: "lechatelier-shift",
+    },
+  ],
+
+  // ---------- 7.10 · Q + Le Châtelier ----------
+  "unit-7/topic-10": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Le Châtelier gives intuition; **Q vs K gives the definitive answer**. After a disturbance, compute Q with the new concentrations and compare to K — whichever side of K it lands on tells you how the reaction shifts.",
+        zh: "勒夏特列原理提供直觉;**比较 Q 与 K 给出确定答案**。扰动后用新浓度计算 Q,与 K 比较:Q 落在 K 的哪一侧,就告诉你反应移动方向。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Worked example", zh: "例题" },
+      text: {
+        en: "An equilibrium has K = 4. We double [reactant]. Now Q is smaller (denominator grew) → Q < K → forward shift. Le Châtelier agrees: adding reactant pushes forward.",
+        zh: "某平衡 K = 4,我们把[反应物]加倍。此时分母变大,Q 变小 → Q < K → 正向移动。与勒夏特列结论一致。",
+      },
+    },
+  ],
+
+  // ---------- 7.11 · Solubility Equilibria (Ksp) ----------
+  "unit-7/topic-11": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "For sparingly soluble salts, only a tiny amount dissolves before saturation. The equilibrium between solid and dissolved ions is described by the **solubility-product constant Ksp**.",
+        zh: "对微溶盐,仅极少量溶解即达到饱和。固体与溶解离子之间的平衡由**溶度积常数 Ksp** 描述。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{AgCl(s) <=> Ag+(aq) + Cl^-(aq)}\\qquad K_{sp} = [\\mathrm{Ag^{+}}]\\,[\\mathrm{Cl^{-}}]",
+      caption: { en: "Solid is omitted from the expression.", zh: "表达式中**不写固体**。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Molar solubility s", zh: "摩尔溶解度 s" },
+      text: {
+        en: "For AgCl, s = [Ag⁺] = [Cl⁻], so Ksp = s². For CaF₂: CaF₂ → Ca²⁺ + 2 F⁻, giving [Ca²⁺] = s, [F⁻] = 2s, so **Ksp = s(2s)² = 4s³**. Don't miss the coefficient's impact!",
+        zh: "AgCl 中 s = [Ag⁺] = [Cl⁻],故 Ksp = s²。CaF₂:CaF₂ → Ca²⁺ + 2 F⁻,[Ca²⁺] = s,[F⁻] = 2s,故 **Ksp = s(2s)² = 4s³**。切记系数影响!",
+      },
+    },
+    {
+      kind: "math",
+      tex: "Q_{sp} > K_{sp} \\;\\Rightarrow\\; \\text{precipitate forms}\\qquad Q_{sp} < K_{sp} \\;\\Rightarrow\\; \\text{more dissolves}",
+    },
+  ],
+
+  // ---------- 7.12 · Common-Ion Effect ----------
+  "unit-7/topic-12": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Adding a **common ion** to a saturated solution shifts the solubility equilibrium **backward** (toward the solid), decreasing the salt's solubility. This is just Le Châtelier applied to Ksp.",
+        zh: "向饱和溶液中加入**同离子**,会使溶解平衡**向左**移动(朝固体方向),降低盐的溶解度。此即勒夏特列原理的应用。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Example", zh: "例子" },
+      text: {
+        en: "AgCl dissolves less in 0.10 M NaCl than in pure water — the extra Cl⁻ pushes the Ag⁺ + Cl⁻ ⇌ AgCl equilibrium toward the solid, lowering molar solubility.",
+        zh: "AgCl 在 0.10 M NaCl 中的溶解度远小于纯水——额外的 Cl⁻ 把 Ag⁺ + Cl⁻ ⇌ AgCl 向固体推,降低其摩尔溶解度。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "s \\;=\\; \\dfrac{K_{sp}}{[\\mathrm{common\\ ion}]}\\quad\\text{for a 1:1 salt when common ion is in excess.}",
+    },
+  ],
+
+  // ---------- 7.13 · pH & Solubility ----------
+  "unit-7/topic-13": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Salts whose anion is a **weak base** (conjugate of a weak acid) dissolve more in **acidic** solutions — H⁺ consumes the anion, pulling the solubility equilibrium forward.",
+        zh: "若盐的阴离子是**弱碱**(弱酸的共轭碱),它在**酸性**溶液中溶解度更大——H⁺ 消耗该阴离子,推动溶解平衡向右。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\ce{CaCO3(s) <=> Ca^{2+}(aq) + CO3^{2-}(aq)}\\qquad\\text{acidic:}\\;\\ce{CO3^{2-} + 2 H+ -> H2O + CO2}",
+      caption: { en: "Adding H⁺ consumes CO₃²⁻, driving more CaCO₃ to dissolve.", zh: "加 H⁺ 消耗 CO₃²⁻,推动 CaCO₃ 继续溶解。" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Which anions react with H⁺?", zh: "哪些阴离子与 H⁺ 反应?" },
+      text: {
+        en: "Anions of **weak acids** (F⁻, CO₃²⁻, PO₄³⁻, S²⁻, OH⁻) are basic and react with H⁺ → solubility **rises** in acid. Anions of strong acids (Cl⁻, Br⁻, NO₃⁻) don't react → solubility unaffected by pH.",
+        zh: "**弱酸**的阴离子(F⁻、CO₃²⁻、PO₄³⁻、S²⁻、OH⁻)呈碱性,能与 H⁺ 反应 → 酸性中溶解度**上升**。强酸的阴离子(Cl⁻、Br⁻、NO₃⁻)不反应 → pH 不影响溶解度。",
+      },
+    },
+  ],
+
+  // ---------- 7.14 · Free Energy of Dissolution ----------
+  "unit-7/topic-14": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A salt dissolves spontaneously when the Gibbs free energy of dissolution is negative. At a given T, that depends on the enthalpy of dissolution (lattice vs hydration) and the entropy change.",
+        zh: "当溶解过程的吉布斯自由能为负时,盐自发溶解。此量在某温度下由溶解焓(晶格能与水合能的差)和熵变共同决定。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta G_{\\text{diss}} \\;=\\; \\Delta H_{\\text{diss}} \\;-\\; T\\,\\Delta S_{\\text{diss}} \\;=\\; -RT\\ln K_{sp}",
+    },
+    {
+      kind: "callout",
+      label: { en: "Signs and meaning", zh: "符号含义" },
+      text: {
+        en: "ΔH_diss = ΔH_hydration − ΔH_lattice (lattice energy is removed from the absolute value). ΔS_diss is usually positive (more disorder when a solid dissolves), so higher T usually helps dissolution — matches what you observe with most ionic solids.",
+        zh: "ΔH_溶 = ΔH_水合 − ΔH_晶格(以绝对值算,晶格能为正、被减去)。ΔS_溶 通常为正(固体溶解熵增),所以升温一般有利溶解——与多数离子晶体的经验一致。",
+      },
+    },
+  ],
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -12662,6 +13021,304 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       explanation: {
         en: "Reverse (2) and double: **2 H₂O₂ → 2 H₂ + 2 O₂**, ΔH = +376 kJ. Add equation (1): 2 H₂ + O₂ → 2 H₂O, ΔH = −572 kJ. Sum: 2 H₂O₂ + O₂ → 2 H₂O + 2 O₂ → cancel 1 O₂ → **2 H₂O₂ → 2 H₂O + O₂**, ΔH = 376 + (−572) = **−196 kJ**.",
         zh: "把 (2) 反向并乘 2:**2 H₂O₂ → 2 H₂ + 2 O₂**,ΔH = +376 kJ。与 (1) 相加:2 H₂ + O₂ → 2 H₂O,ΔH = −572 kJ。总:2 H₂O₂ + O₂ → 2 H₂O + 2 O₂,消去 1 个 O₂ → **2 H₂O₂ → 2 H₂O + O₂**,ΔH = 376 + (−572) = **−196 kJ**。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // UNIT 7 · Questions
+  // ============================================================
+
+  "unit-7/topic-1": [
+    {
+      id: "chem-u7-t1-q1",
+      prompt: {
+        en: "Which is TRUE at dynamic equilibrium?",
+        zh: "动态平衡时下列哪一项**正确**?",
+      },
+      choices: [
+        { id: "a", text: { en: "Forward and reverse reactions have stopped.", zh: "正反应与逆反应已停止。" } },
+        { id: "b", text: { en: "Concentrations of reactants = concentrations of products.", zh: "反应物浓度 = 产物浓度。" } },
+        { id: "c", text: { en: "Rate of forward = rate of reverse; concentrations are constant.", zh: "正 = 逆速率;浓度保持不变。" } },
+        { id: "d", text: { en: "K = 1.", zh: "K = 1。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Dynamic equilibrium means **rates** are equal, not concentrations. Both reactions continue molecularly, but concentrations don't change. K can be any positive number, not necessarily 1.",
+        zh: "动态平衡是**速率**相等,不是浓度相等。两反应仍在继续,但浓度不变。K 可为任意正数,不一定等于 1。",
+      },
+    },
+  ],
+
+  "unit-7/topic-2": [
+    {
+      id: "chem-u7-t2-q1",
+      prompt: {
+        en: "For the reversible reaction N₂O₄ ⇌ 2 NO₂ with K = 0.25 at 25 °C, starting with only NO₂ (no N₂O₄), the system will:",
+        zh: "可逆反应 N₂O₄ ⇌ 2 NO₂,25 °C 下 K = 0.25。若从**纯 NO₂** 开始,系统将:",
+      },
+      choices: [
+        { id: "a", text: { en: "Not react — no N₂O₄ is present.", zh: "不反应——没有 N₂O₄。" } },
+        { id: "b", text: { en: "Shift forward to make more NO₂.", zh: "向右移动,生成更多 NO₂。" } },
+        { id: "c", text: { en: "Shift reverse to form N₂O₄ until equilibrium is reached.", zh: "向左移动,生成 N₂O₄,直到达平衡。" } },
+        { id: "d", text: { en: "K will decrease to 0.", zh: "K 降为 0。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Q is initially ∞ (no reactant) > K, so the reaction shifts reverse to form N₂O₄. Equilibrium can be approached from either side.",
+        zh: "初始 Q = ∞(无反应物)> K,反应向左生成 N₂O₄。平衡可从任一方向接近。",
+      },
+    },
+  ],
+
+  "unit-7/topic-3": [
+    {
+      id: "chem-u7-t3-q1",
+      prompt: {
+        en: "For the reaction **CaCO₃(s) ⇌ CaO(s) + CO₂(g)**, the correct K expression is:",
+        zh: "对 **CaCO₃(s) ⇌ CaO(s) + CO₂(g)**,K 的正确表达式是?",
+      },
+      choices: [
+        { id: "a", text: { en: "K = [CaO][CO₂] / [CaCO₃]", zh: "K = [CaO][CO₂] / [CaCO₃]" } },
+        { id: "b", text: { en: "K = [CO₂]", zh: "K = [CO₂]" } },
+        { id: "c", text: { en: "K = 1 / [CO₂]", zh: "K = 1 / [CO₂]" } },
+        { id: "d", text: { en: "K = [CaCO₃] / [CaO][CO₂]", zh: "K = [CaCO₃] / [CaO][CO₂]" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Pure solids are omitted.** Only the gas CO₂ survives in the expression: K = [CO₂] (or K_p = P(CO₂)).",
+        zh: "**纯固体不写**。表达式中只剩气体 CO₂:K = [CO₂](或 K_p = P(CO₂))。",
+      },
+    },
+  ],
+
+  "unit-7/topic-4": [
+    {
+      id: "chem-u7-t4-q1",
+      prompt: {
+        en: "At equilibrium for H₂ + I₂ ⇌ 2 HI, [H₂] = 0.10, [I₂] = 0.20, [HI] = 0.40 M. What is K?",
+        zh: "H₂ + I₂ ⇌ 2 HI,平衡时 [H₂] = 0.10、[I₂] = 0.20、[HI] = 0.40 M。求 K。",
+      },
+      choices: [
+        { id: "a", text: { en: "2.0", zh: "2.0" } },
+        { id: "b", text: { en: "4.0", zh: "4.0" } },
+        { id: "c", text: { en: "8.0", zh: "8.0" } },
+        { id: "d", text: { en: "20.0", zh: "20.0" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "K = [HI]² / ([H₂][I₂]) = (0.40)² / (0.10 × 0.20) = 0.16 / 0.020 = **8.0**.",
+        zh: "K = [HI]² / ([H₂][I₂]) = (0.40)² / (0.10 × 0.20) = 0.16 / 0.020 = **8.0**。",
+      },
+    },
+  ],
+
+  "unit-7/topic-5": [
+    {
+      id: "chem-u7-t5-q1",
+      prompt: {
+        en: "At 25 °C, K = 4.5 × 10⁻⁶ for a certain reaction. Which describes the equilibrium mixture?",
+        zh: "某反应在 25 °C 下 K = 4.5 × 10⁻⁶。平衡混合物的特征为?",
+      },
+      choices: [
+        { id: "a", text: { en: "Almost all reactants", zh: "几乎全是反应物" } },
+        { id: "b", text: { en: "Roughly equal reactants and products", zh: "反应物与产物大致相当" } },
+        { id: "c", text: { en: "Almost all products", zh: "几乎全是产物" } },
+        { id: "d", text: { en: "Cannot tell — K doesn't describe composition.", zh: "K 不描述组成,无法判断。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "K ≪ 1 → equilibrium lies far to the left → almost all reactants, very little product.",
+        zh: "K ≪ 1 → 平衡偏向左侧 → 几乎全是反应物,产物极少。",
+      },
+    },
+  ],
+
+  "unit-7/topic-6": [
+    {
+      id: "chem-u7-t6-q1",
+      prompt: {
+        en: "If K = 100 for A + B ⇌ 2 C, what is K' for 2 C ⇌ A + B?",
+        zh: "A + B ⇌ 2 C 的 K = 100,则 2 C ⇌ A + B 的 K' 为?",
+      },
+      choices: [
+        { id: "a", text: { en: "100", zh: "100" } },
+        { id: "b", text: { en: "0.01", zh: "0.01" } },
+        { id: "c", text: { en: "10", zh: "10" } },
+        { id: "d", text: { en: "10000", zh: "10000" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Reversing a reaction → K → 1/K. 1/100 = **0.01**.",
+        zh: "反向 → K → 1/K。1/100 = **0.01**。",
+      },
+    },
+  ],
+
+  "unit-7/topic-7": [
+    {
+      id: "chem-u7-t7-q1",
+      prompt: {
+        en: "For A ⇌ B, K = 4. Start with [A]₀ = 1.0 M, [B]₀ = 0. At equilibrium, [B] = ?",
+        zh: "A ⇌ B,K = 4,[A]₀ = 1.0 M,[B]₀ = 0。平衡时 [B] = ?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.20 M", zh: "0.20 M" } },
+        { id: "b", text: { en: "0.50 M", zh: "0.50 M" } },
+        { id: "c", text: { en: "0.80 M", zh: "0.80 M" } },
+        { id: "d", text: { en: "1.00 M", zh: "1.00 M" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "ICE: at eq [A] = 1 − x, [B] = x. K = x / (1 − x) = 4 → x = 4 − 4x → 5x = 4 → x = **0.80 M**.",
+        zh: "ICE:平衡时 [A] = 1 − x、[B] = x。K = x / (1 − x) = 4 → x = 4 − 4x → 5x = 4 → x = **0.80 M**。",
+      },
+    },
+  ],
+
+  "unit-7/topic-8": [
+    {
+      id: "chem-u7-t8-q1",
+      prompt: {
+        en: "On a concentration-vs-time plot, how can you tell the system has reached equilibrium?",
+        zh: "在浓度-时间图上如何判断系统已达平衡?",
+      },
+      choices: [
+        { id: "a", text: { en: "Concentrations of all species become equal.", zh: "所有物种浓度相等。" } },
+        { id: "b", text: { en: "All curves flatten (become horizontal) at the same time.", zh: "所有曲线同时变为水平。" } },
+        { id: "c", text: { en: "Products disappear.", zh: "产物消失。" } },
+        { id: "d", text: { en: "Reactants reach zero.", zh: "反应物归零。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "When the curves become horizontal, concentrations have stopped changing — that's equilibrium. They're rarely at the same value.",
+        zh: "曲线变水平表示浓度不再变化——即平衡。各物种浓度通常并不相等。",
+      },
+    },
+  ],
+
+  "unit-7/topic-9": [
+    {
+      id: "chem-u7-t9-q1",
+      prompt: {
+        en: "For the **exothermic** reaction N₂ + 3 H₂ ⇌ 2 NH₃ at equilibrium, what happens when the temperature is increased?",
+        zh: "**放热**反应 N₂ + 3 H₂ ⇌ 2 NH₃ 处于平衡,升温后会怎样?",
+      },
+      choices: [
+        { id: "a", text: { en: "Shift forward; K increases.", zh: "正向移动;K 增大。" } },
+        { id: "b", text: { en: "Shift reverse; K decreases.", zh: "逆向移动;K 减小。" } },
+        { id: "c", text: { en: "No shift; K unchanged.", zh: "不移动;K 不变。" } },
+        { id: "d", text: { en: "Shift forward; K unchanged.", zh: "正向移动;K 不变。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Exothermic reaction: heat is a 'product'. Adding heat pushes equilibrium reverse (less NH₃). K also decreases with temperature for exothermic reactions.",
+        zh: "放热反应:热量相当于「产物」。升温相当于加产物,平衡向左移(NH₃ 减少)。放热反应 K 也随温度升高而减小。",
+      },
+    },
+  ],
+
+  "unit-7/topic-10": [
+    {
+      id: "chem-u7-t10-q1",
+      prompt: {
+        en: "A system has K = 2. At one moment: [A] = 1, [B] = 1, [C] = 3 for A + B ⇌ C. Which way does it shift?",
+        zh: "某系统 K = 2,A + B ⇌ C,某一时刻 [A] = 1、[B] = 1、[C] = 3。向哪一方向移动?",
+      },
+      choices: [
+        { id: "a", text: { en: "Forward (Q < K)", zh: "正向(Q < K)" } },
+        { id: "b", text: { en: "Reverse (Q > K)", zh: "逆向(Q > K)" } },
+        { id: "c", text: { en: "No shift (Q = K)", zh: "不移动(Q = K)" } },
+        { id: "d", text: { en: "Cannot tell.", zh: "无法判断。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Q = [C]/([A][B]) = 3/(1×1) = **3**. Q (3) > K (2), so the system shifts **reverse** (toward fewer products).",
+        zh: "Q = [C]/([A][B]) = 3/(1×1) = **3**。Q (3) > K (2),故向**左**移动(产物减少)。",
+      },
+    },
+  ],
+
+  "unit-7/topic-11": [
+    {
+      id: "chem-u7-t11-q1",
+      prompt: {
+        en: "The molar solubility of CaF₂ in pure water is measured as 2.0 × 10⁻⁴ M. What is Ksp?",
+        zh: "CaF₂ 在纯水中的摩尔溶解度为 2.0 × 10⁻⁴ M。Ksp 为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "4.0 × 10⁻⁸", zh: "4.0 × 10⁻⁸" } },
+        { id: "b", text: { en: "3.2 × 10⁻¹¹", zh: "3.2 × 10⁻¹¹" } },
+        { id: "c", text: { en: "8.0 × 10⁻⁸", zh: "8.0 × 10⁻⁸" } },
+        { id: "d", text: { en: "2.0 × 10⁻⁴", zh: "2.0 × 10⁻⁴" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "CaF₂ → Ca²⁺ + 2 F⁻. s = [Ca²⁺] = 2.0 × 10⁻⁴, [F⁻] = 2s = 4.0 × 10⁻⁴. Ksp = s(2s)² = 4s³ = 4(2.0 × 10⁻⁴)³ = **3.2 × 10⁻¹¹**.",
+        zh: "CaF₂ → Ca²⁺ + 2 F⁻。s = [Ca²⁺] = 2.0 × 10⁻⁴,[F⁻] = 2s = 4.0 × 10⁻⁴。Ksp = s(2s)² = 4s³ = 4(2.0 × 10⁻⁴)³ = **3.2 × 10⁻¹¹**。",
+      },
+    },
+  ],
+
+  "unit-7/topic-12": [
+    {
+      id: "chem-u7-t12-q1",
+      prompt: {
+        en: "AgCl (Ksp = 1.8 × 10⁻¹⁰) is added to 0.10 M NaCl. Molar solubility of AgCl in this solution is:",
+        zh: "AgCl(Ksp = 1.8 × 10⁻¹⁰)加入 0.10 M NaCl。此时 AgCl 的摩尔溶解度为?",
+      },
+      choices: [
+        { id: "a", text: { en: "1.3 × 10⁻⁵ M (same as in water)", zh: "1.3 × 10⁻⁵ M(与在水中相同)" } },
+        { id: "b", text: { en: "1.8 × 10⁻⁹ M", zh: "1.8 × 10⁻⁹ M" } },
+        { id: "c", text: { en: "0.10 M", zh: "0.10 M" } },
+        { id: "d", text: { en: "Higher than in pure water.", zh: "比纯水中更高。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "With [Cl⁻] ≈ 0.10 M, solubility s = [Ag⁺] = Ksp / [Cl⁻] = 1.8 × 10⁻¹⁰ / 0.10 = **1.8 × 10⁻⁹ M** — much lower than the pure-water value. Common-ion effect suppresses dissolution.",
+        zh: "[Cl⁻] ≈ 0.10 M,s = [Ag⁺] = Ksp / [Cl⁻] = 1.8 × 10⁻¹⁰ / 0.10 = **1.8 × 10⁻⁹ M**,远小于纯水中的值。同离子效应抑制溶解。",
+      },
+    },
+  ],
+
+  "unit-7/topic-13": [
+    {
+      id: "chem-u7-t13-q1",
+      prompt: {
+        en: "Which of the following salts will be MORE soluble in acidic solution than in pure water?",
+        zh: "下列哪一种盐在酸性溶液中比纯水中**更易溶解**?",
+      },
+      choices: [
+        { id: "a", text: { en: "NaCl", zh: "NaCl" } },
+        { id: "b", text: { en: "AgBr", zh: "AgBr" } },
+        { id: "c", text: { en: "CaF₂", zh: "CaF₂" } },
+        { id: "d", text: { en: "KNO₃", zh: "KNO₃" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "F⁻ is the conjugate base of the weak acid HF → reacts with H⁺, pulling CaF₂ dissolution forward. Cl⁻, Br⁻, NO₃⁻ are conjugates of strong acids → no pH effect.",
+        zh: "F⁻ 是弱酸 HF 的共轭碱——能与 H⁺ 反应,推动 CaF₂ 继续溶解。Cl⁻、Br⁻、NO₃⁻ 是强酸的共轭碱,pH 对它们无影响。",
+      },
+    },
+  ],
+
+  "unit-7/topic-14": [
+    {
+      id: "chem-u7-t14-q1",
+      prompt: {
+        en: "Most ionic solids dissolve with an increase in entropy. Why does raising T often increase their solubility?",
+        zh: "多数离子晶体溶解时熵增。升温为何常使其溶解度上升?",
+      },
+      choices: [
+        { id: "a", text: { en: "K for dissolution has T in the numerator.", zh: "K 的分子含温度。" } },
+        { id: "b", text: { en: "ΔG = ΔH − TΔS; as T rises, −TΔS becomes more negative, lowering ΔG.", zh: "ΔG = ΔH − TΔS;T 越大,−TΔS 越负,ΔG 越小。" } },
+        { id: "c", text: { en: "Water molecules evaporate, concentrating solute.", zh: "水蒸发使溶质浓缩。" } },
+        { id: "d", text: { en: "Ksp is independent of temperature.", zh: "Ksp 与温度无关。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "For a typical dissolution where ΔS > 0, the term −TΔS becomes more negative as T grows, making ΔG more negative → more spontaneous → higher solubility / larger Ksp.",
+        zh: "典型溶解过程 ΔS > 0,升温使 −TΔS 更负,ΔG 更负 → 更自发 → 溶解度(Ksp)增大。",
       },
     },
   ],

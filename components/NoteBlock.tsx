@@ -43,6 +43,8 @@ import {
   ThermalEquilibrium,
   TitrationCurve,
   HessCycle,
+  EquilibriumApproach,
+  LeChatelierShift,
 } from "./ChemCharts";
 import { useLocale } from "./LocaleProvider";
 import { useT } from "./LocaleProvider";
@@ -86,7 +88,7 @@ export function Highlighted({ text }: { text: string }) {
   );
 }
 
-function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" | "thermal-equilibrium" | "hess-cycle" }) {
+function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" | "thermal-equilibrium" | "hess-cycle" | "equilibrium-approach" | "lechatelier-shift" }) {
   const { locale } = useLocale();
   switch (chartType) {
     case "heating-curve": return <HeatingCurve lang={locale} />;
@@ -104,6 +106,8 @@ function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-b
     case "multistep-profile": return <MultistepProfile lang={locale} />;
     case "thermal-equilibrium": return <ThermalEquilibrium lang={locale} />;
     case "hess-cycle": return <HessCycle lang={locale} />;
+    case "equilibrium-approach": return <EquilibriumApproach lang={locale} />;
+    case "lechatelier-shift": return <LeChatelierShift lang={locale} />;
   }
 }
 
