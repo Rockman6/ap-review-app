@@ -13550,6 +13550,279 @@ export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
     },
   ],
 
+  "unit-4/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Momentum** (p) is a vector measure of \"how much motion\" an object has. It is **mass times velocity**, and it shares the direction of velocity. Big, fast things are hard to stop — they carry lots of momentum.",
+        zh: "**动量 (p)** 是描述「物体运动多少」的矢量量,等于**质量乘以速度**,方向与速度一致。又大又快的物体难以阻止——它们携带大量动量。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\vec{p} \\;=\\; m\\,\\vec{v}",
+      caption: {
+        en: "Units: kg·m/s",
+        zh: "单位:kg·m/s",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Momentum vs kinetic energy", zh: "动量与动能" },
+      text: {
+        en: "Both depend on mass and velocity, but: **momentum is a vector (direction matters), KE is a scalar.** p ∝ v, but KE ∝ v². Two objects can have equal KE but very different momenta, and vice versa.",
+        zh: "两者都与质量和速度有关,但:**动量是矢量(方向重要),动能是标量**。p ∝ v,而 KE ∝ v²。两物体可能动能相等但动量迥异,反之亦然。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Impulse — how momentum changes", zh: "冲量——动量如何改变" },
+    },
+    {
+      kind: "math",
+      tex: "\\vec{J} \\;=\\; \\vec{F}_{avg}\\,\\Delta t \\;=\\; \\Delta \\vec{p}",
+      caption: {
+        en: "Impulse = average force × time = change in momentum (vector)",
+        zh: "冲量 = 平均力 × 时间 = 动量变化(矢量)",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Impulse–momentum theorem", zh: "动量—冲量定理" },
+      text: {
+        en: "A force acting over time transfers momentum. To change an object's momentum by Δp, you can apply a **big force for a short time** or a **small force for a long time** — the impulse is the same either way.",
+        zh: "力作用一段时间会传递动量。要使动量变化 Δp,可以**大力短时**,也可以**小力长时**——冲量相同。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Variable forces: area under the F–t graph", zh: "变力:F–t 图下方面积" },
+    },
+    {
+      kind: "math",
+      tex: "J \\;=\\; \\int F\\,dt \\;=\\; \\text{area under the F–t curve}",
+    },
+    {
+      kind: "heading",
+      text: { en: "Why airbags, crumple zones, and bending knees work", zh: "为什么气囊、溃缩区、弯膝落地有用" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "For a given collision, Δp is fixed (the body must go from v to 0). Since F_avg = Δp/Δt, **extending Δt reduces F_avg**. That's the whole principle: airbags, crumple zones, padded gloves, and bending your knees when you land all *prolong* the collision so the peak force is smaller.",
+        zh: "对给定碰撞,Δp 是定值(物体必须从 v 变为 0)。由 F_avg = Δp/Δt,**延长 Δt 就能减小 F_avg**。这正是原理:气囊、溃缩区、护具、落地弯膝——都在**拉长**碰撞时间,从而降低峰值力。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — baseball bat", zh: "例题——棒球棒" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 0.145 kg baseball moving at 40 m/s (toward the bat) is hit and leaves at 50 m/s (away from the bat) after a contact time of 1.5 ms. Taking \"away from bat\" as +: Δp = m·Δv = 0.145·(50 − (−40)) = **13.05 kg·m/s**. Average force on ball = Δp/Δt = 13.05 / 0.0015 ≈ **8700 N** — roughly 6000× the ball's weight, which is why you need a bat (and gloves).",
+        zh: "质量 0.145 kg 的棒球以 40 m/s 飞向球棒,被击出后以 50 m/s 远离。接触时间 1.5 ms。取「远离球棒」为正:Δp = m·Δv = 0.145·(50 − (−40)) = **13.05 kg·m/s**。球所受平均力 = Δp/Δt = 13.05 / 0.0015 ≈ **8700 N**——约为球重的 6000 倍,这也是为什么需要球棒(与手套)。",
+      },
+    },
+  ],
+
+  "unit-4/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Conservation of momentum:** when no net *external* force acts on a system, its **total momentum stays constant**. This is one of the most powerful laws in physics — it works even when forces are complicated, short, or unknown.",
+        zh: "**动量守恒**:若系统所受**外部合力**为零,系统的**总动量保持不变**。这是物理学最强有力的定律之一——即使内部力复杂、短暂或未知,它依然成立。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\sum \\vec{p}_{\\,i} \\;=\\; \\sum \\vec{p}_{\\,f}",
+      caption: {
+        en: "Total momentum of an isolated system is the same before and after",
+        zh: "孤立系统前后总动量相等",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Component by component", zh: "分量分开守恒" },
+      text: {
+        en: "Momentum conservation holds **in every direction independently**. Even if momentum isn't conserved overall (external force present), it may still be conserved in a direction where no external force acts (e.g., horizontal when only gravity and normal are external).",
+        zh: "动量守恒在**每个方向上分别独立**成立。即便系统总动量不守恒(存在外力),也可能在**某个方向**上守恒(如仅有重力与法向力时,水平方向仍守恒)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Internal forces can be complicated — and still OK", zh: "内部力可以复杂——但不影响守恒" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Objects in a system can push on each other with huge, messy forces (collisions, explosions, rocket exhaust). By Newton's third law, those forces cancel in pairs inside the system, so they **can't change the total momentum**. Only *external* forces can.",
+        zh: "系统内部的物体之间可以施加剧烈、复杂的力(碰撞、爆炸、火箭喷气)。由牛顿第三定律,这些内部力两两抵消,**不会改变系统总动量**。只有**外部**力才能改变总动量。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — astronaut throws a wrench", zh: "例题——宇航员抛扳手" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "An 80 kg astronaut floating at rest in space throws a 1.5 kg wrench forward at 6 m/s. With no external forces, total p = 0 before and after. 0 = (1.5)(6) + (80)v_astronaut → **v_astronaut = −0.1125 m/s** (backward at 11.25 cm/s). This is recoil — the foundation of rocket propulsion.",
+        zh: "一位 80 kg 的宇航员在太空中静止漂浮,向前抛出 1.5 kg 的扳手,速度 6 m/s。无外力,前后总动量均为 0:0 = (1.5)(6) + (80)v_宇航员 → **v_宇航员 = −0.1125 m/s**(以 11.25 cm/s 向后)。这就是**反冲**——火箭推进的原理。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Energy is not necessarily conserved", zh: "能量不一定守恒" },
+      text: {
+        en: "A momentum-conserving interaction (collision, explosion) often *doesn't* conserve kinetic energy. KE can increase (explosion, spring release) or decrease (sticky collision, heat). Momentum and KE are separate conservation questions.",
+        zh: "动量守恒的相互作用(碰撞、爆炸)通常**不**同时保持动能守恒。KE 可能增加(爆炸、弹簧释放)或减少(粘性碰撞、发热)。动量守恒与能量守恒是两个独立问题。",
+      },
+    },
+  ],
+
+  "unit-4/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "All collisions **conserve momentum**. They differ in what happens to **kinetic energy**. AP Physics 1 distinguishes three types: **elastic**, **inelastic**, and **perfectly inelastic**.",
+        zh: "所有碰撞都**保持动量守恒**,区别在于**动能**是否守恒。AP 物理 1 区分三种类型:**弹性碰撞**、**非弹性碰撞**、**完全非弹性碰撞**。",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Three types of collisions",
+        zh: "三种碰撞类型",
+      },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "Momentum conserved?", zh: "动量守恒?" },
+        { en: "KE conserved?", zh: "动能守恒?" },
+        { en: "Examples", zh: "举例" },
+      ],
+      rows: [
+        [{ en: "Elastic", zh: "弹性" }, { en: "Yes", zh: "守恒" }, { en: "Yes", zh: "守恒" }, { en: "Billiard balls (approx.), atomic collisions", zh: "台球(近似)、原子间碰撞" }],
+        [{ en: "Inelastic", zh: "非弹性" }, { en: "Yes", zh: "守恒" }, { en: "No (some lost to heat/sound)", zh: "不守恒(转为热/声)" }, { en: "Most everyday collisions", zh: "大多数日常碰撞" }],
+        [{ en: "Perfectly inelastic", zh: "完全非弹性" }, { en: "Yes", zh: "守恒" }, { en: "No — minimum possible KE", zh: "不守恒——动能损失最大" }, { en: "Objects stick together after collision", zh: "碰后粘在一起" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Perfectly inelastic collisions (stick together)", zh: "完全非弹性碰撞(粘在一起)" },
+    },
+    {
+      kind: "math",
+      tex: "m_{1}\\,v_{1i} + m_{2}\\,v_{2i} \\;=\\; (m_{1}+m_{2})\\,v_{f}",
+      caption: {
+        en: "One final velocity (they move as one)",
+        zh: "只有一个末速度(合为一体)",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "1D elastic collisions", zh: "一维弹性碰撞" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "For a 1D elastic collision, BOTH momentum and KE are conserved. A useful shortcut is that the **relative speed of approach equals the relative speed of separation** (|v₁ − v₂|_before = |v₂ − v₁|_after).",
+        zh: "一维弹性碰撞中,动量与动能都守恒。一个实用的捷径是**接近的相对速率等于离开的相对速率**(|v₁ − v₂|_碰前 = |v₂ − v₁|_碰后)。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "How to tell which type", zh: "如何判断类型" },
+      text: {
+        en: "If the problem says \"stick together,\" \"coupled,\" \"embed,\" → **perfectly inelastic**. If it explicitly says \"elastic\" or \"no energy lost\" → **elastic**. Otherwise, it's **inelastic** (momentum conserved, KE lost, but objects separate).",
+        zh: "题目出现「粘在一起」、「挂接」、「嵌入」→ **完全非弹性**;明确说「弹性」或「无能量损失」→ **弹性**;其他情况默认**非弹性**(动量守恒、动能减少,物体分开)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — two carts stick", zh: "例题——两辆小车粘连" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 2.0 kg cart moving at +4.0 m/s collides with a stationary 3.0 kg cart and they stick together. Find the final speed. Momentum: (2.0)(4.0) + 0 = (5.0)v_f → v_f = 8/5 = **+1.6 m/s**. KE loss: initial = 16 J, final = ½(5)(1.6)² = 6.4 J → **9.6 J lost** to internal energy (heat, sound, deformation).",
+        zh: "一辆 2.0 kg 小车以 +4.0 m/s 碰上静止的 3.0 kg 小车并粘在一起。求末速度。动量:(2.0)(4.0) + 0 = (5.0)v_f → v_f = 8/5 = **+1.6 m/s**。动能损失:初 16 J,末 ½(5)(1.6)² = 6.4 J → **损失 9.6 J** 转化为内能(热、声、形变)。",
+      },
+    },
+  ],
+
+  "unit-4/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Momentum is a **vector**, so in 2D collisions you must conserve momentum **separately in x and y**. Break each initial and final velocity into its x- and y-components, then write two conservation equations.",
+        zh: "动量是**矢量**,二维碰撞中必须**分别**在 x、y 方向上守恒。先把每个初末速度分解为 x、y 分量,再写两个守恒方程。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\sum p_{xi} \\;=\\; \\sum p_{xf} \\qquad\\quad \\sum p_{yi} \\;=\\; \\sum p_{yf}",
+      caption: {
+        en: "Conservation of momentum in each direction",
+        zh: "每个方向分别守恒动量",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Use components, always", zh: "始终使用分量" },
+      text: {
+        en: "You can't just \"add the magnitudes\" of momenta in 2D. 3 kg·m/s east + 4 kg·m/s north = 5 kg·m/s at 53° north of east — a vector sum, computed component by component.",
+        zh: "二维中不能直接「把动量大小相加」。3 kg·m/s 向东 + 4 kg·m/s 向北 = 5 kg·m/s,北偏东 53°——这是**矢量和**,必须分量计算。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Common setup — one object initially at rest", zh: "常见场景——一方初始静止" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "In problems where a moving object hits a stationary one and both go off at angles, define the initial direction as +x. Then **all initial momentum is in x**; the y-components of the final momenta must sum to zero, making one constraint automatic.",
+        zh: "运动物体碰撞静止物体后两者各以某角度运动时,取初始方向为 +x。则**所有初动量都在 x 方向**;末动量的 y 分量之和必须为零,这样自动多一个约束。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — puck collision", zh: "例题——冰球碰撞" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A 0.20 kg puck moving east at 3.0 m/s hits an identical puck at rest. After the collision, the first puck moves at 2.0 m/s at 30° north of east. Find the second puck's velocity.",
+        zh: "一只 0.20 kg 的冰球以 3.0 m/s 向东运动,撞上一只相同但静止的冰球。碰后第一只冰球以 2.0 m/s 沿北偏东 30° 方向运动。求第二只冰球的速度。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "p_{x}:\\; (0.20)(3.0) \\;=\\; (0.20)(2.0\\cos 30°) + (0.20)\\,v_{2x}",
+    },
+    {
+      kind: "math",
+      tex: "p_{y}:\\; 0 \\;=\\; (0.20)(2.0\\sin 30°) + (0.20)\\,v_{2y}",
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Solving: v_{2x} = 3.0 − 1.73 = **1.27 m/s**; v_{2y} = −1.0 m/s (south). |v₂| = √(1.27² + 1²) ≈ **1.61 m/s** at about **38° south of east**.",
+        zh: "求解:v_{2x} = 3.0 − 1.73 = **1.27 m/s**;v_{2y} = −1.0 m/s(向南)。|v₂| = √(1.27² + 1²) ≈ **1.61 m/s**,方向约为**南偏东 38°**。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Angles are measured consistently", zh: "角度的测量要统一" },
+      text: {
+        en: "Pick a convention (e.g., measure all angles counterclockwise from +x) and stick with it. Sign errors in the y-component are the #1 source of mistakes in 2D collision problems.",
+        zh: "选定一种方向约定(如逆时针从 +x 量起)并始终保持一致。y 分量的符号错误是二维碰撞题最常见的错因。",
+      },
+    },
+  ],
+
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -16827,6 +17100,252 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
       explanation: {
         en: "Both elevators transfer the same energy (same mgh). Since P = W/t, half the time means double the power. \"More powerful\" ≠ \"more work\" — same work, faster.",
         zh: "两部电梯传递相同能量(相同的 mgh)。P = W/t,时间一半意味着功率翻倍。「更大功率」并不等于「更多功」——做同样的功,只是更快。",
+      },
+    },
+  ],
+
+  "unit-4/topic-1": [
+    {
+      id: "phys1-u4-t1-q1",
+      prompt: {
+        en: "A 2.0 kg object moving at 3.0 m/s east has its velocity changed to 2.0 m/s west. What is the magnitude of the impulse delivered to the object?",
+        zh: "一只 2.0 kg 的物体从 3.0 m/s 向东的速度变为 2.0 m/s 向西。它所受冲量的大小是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "2.0 kg·m/s", zh: "2.0 kg·m/s" } },
+        { id: "b", text: { en: "6.0 kg·m/s", zh: "6.0 kg·m/s" } },
+        { id: "c", text: { en: "10 kg·m/s", zh: "10 kg·m/s" } },
+        { id: "d", text: { en: "14 kg·m/s", zh: "14 kg·m/s" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Take east as +: J = Δp = m(v_f − v_i) = 2.0·(−2.0 − 3.0) = **−10 kg·m/s**. Magnitude = **10 kg·m/s**. Choice A forgets that west is negative (so Δv = 1, not 5).",
+        zh: "取东为正:J = Δp = m(v_f − v_i) = 2.0·(−2.0 − 3.0) = **−10 kg·m/s**。大小为 **10 kg·m/s**。选项 A 忘了把向西取负(只算到 Δv = 1)。",
+      },
+    },
+    {
+      id: "phys1-u4-t1-q2",
+      prompt: {
+        en: "A constant force of 50 N is applied to a 5.0 kg cart for 3.0 s. What is the cart's change in momentum?",
+        zh: "一辆 5.0 kg 小车受 50 N 恒力作用 3.0 s。它的动量变化是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "15 kg·m/s", zh: "15 kg·m/s" } },
+        { id: "b", text: { en: "30 kg·m/s", zh: "30 kg·m/s" } },
+        { id: "c", text: { en: "50 kg·m/s", zh: "50 kg·m/s" } },
+        { id: "d", text: { en: "150 kg·m/s", zh: "150 kg·m/s" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Impulse = F·Δt = (50)(3.0) = **150 kg·m/s**, which equals Δp. Mass is a distractor for Δp (but would matter if asked for Δv).",
+        zh: "冲量 = F·Δt = (50)(3.0) = **150 kg·m/s**,即 Δp。质量是求 Δp 时的干扰信息(若问 Δv 才用得到)。",
+      },
+    },
+    {
+      id: "phys1-u4-t1-q3",
+      prompt: {
+        en: "Why does bending your knees when landing from a jump reduce injury?",
+        zh: "落地时弯曲膝盖为何能减轻受伤?",
+      },
+      choices: [
+        { id: "a", text: { en: "It reduces the total impulse.", zh: "它减小了总冲量。" } },
+        { id: "b", text: { en: "It reduces the change in momentum.", zh: "它减小了动量变化。" } },
+        { id: "c", text: { en: "It lengthens the collision time, reducing the peak force.", zh: "它延长了碰撞时间,从而减小峰值力。" } },
+        { id: "d", text: { en: "It converts kinetic energy into potential energy.", zh: "它把动能转为势能。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Δp is fixed by the landing speed — it doesn't change. Because F_avg = Δp/Δt, **increasing Δt** (softer landing) **decreases F_avg**. This is the same principle behind airbags and crumple zones.",
+        zh: "Δp 由落地速度决定,不会改变。由 F_avg = Δp/Δt,**延长 Δt**(软落)使 **F_avg 减小**。这与气囊和溃缩区的原理相同。",
+      },
+    },
+  ],
+
+  "unit-4/topic-2": [
+    {
+      id: "phys1-u4-t2-q1",
+      prompt: {
+        en: "A 60 kg skater standing at rest on frictionless ice pushes off a 40 kg skater, who then moves east at 3.0 m/s. What is the first skater's velocity?",
+        zh: "一位 60 kg 的滑冰者站在无摩擦冰面上静止,他推开一位 40 kg 的滑冰者,后者以 3.0 m/s 向东滑出。第一位滑冰者的速度是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "+2.0 m/s (east)", zh: "+2.0 m/s(向东)" } },
+        { id: "b", text: { en: "−2.0 m/s (west)", zh: "−2.0 m/s(向西)" } },
+        { id: "c", text: { en: "−3.0 m/s (west)", zh: "−3.0 m/s(向西)" } },
+        { id: "d", text: { en: "0", zh: "0" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Initial total p = 0 (both at rest). Final: 0 = (40)(3.0) + (60)v → v = −120/60 = **−2.0 m/s** (west). Classic recoil: lighter person moves faster, but in the opposite direction.",
+        zh: "初始总动量 = 0(两人静止)。末态:0 = (40)(3.0) + (60)v → v = −120/60 = **−2.0 m/s**(向西)。经典反冲:质量小的人反向移动更快。",
+      },
+    },
+    {
+      id: "phys1-u4-t2-q2",
+      prompt: {
+        en: "A toy cannon fires a 0.20 kg ball at 15 m/s. The cannon has mass 2.0 kg and is free to slide on a frictionless track. What is the cannon's recoil speed?",
+        zh: "一门玩具炮发射一颗 0.20 kg 的球,速度 15 m/s。炮身质量 2.0 kg,在无摩擦轨道上自由滑动。炮身的反冲速率是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "0.75 m/s", zh: "0.75 m/s" } },
+        { id: "b", text: { en: "1.5 m/s", zh: "1.5 m/s" } },
+        { id: "c", text: { en: "3.0 m/s", zh: "3.0 m/s" } },
+        { id: "d", text: { en: "15 m/s", zh: "15 m/s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "0 = (0.20)(15) + (2.0)v_c → v_c = **−1.5 m/s**. The cannon recoils at 10× slower speed than the ball (mass ratio), opposite direction.",
+        zh: "0 = (0.20)(15) + (2.0)v_c → v_c = **−1.5 m/s**。炮身以比球慢 10 倍的速率反向反冲(质量比决定)。",
+      },
+    },
+    {
+      id: "phys1-u4-t2-q3",
+      prompt: {
+        en: "A ball falls from rest and is caught. During the fall and catch, is the Earth–ball system's total momentum conserved?",
+        zh: "一只球由静止下落,最后被接住。在整个下落加接住的过程中,地球—球系统的总动量守恒吗?",
+      },
+      choices: [
+        { id: "a", text: { en: "Yes — gravity is internal to the Earth–ball system.", zh: "守恒——重力是地球—球系统的内力。" } },
+        { id: "b", text: { en: "No — gravity acts on the ball, changing its momentum.", zh: "不守恒——重力作用于球,改变其动量。" } },
+        { id: "c", text: { en: "Only horizontal momentum is conserved.", zh: "只有水平动量守恒。" } },
+        { id: "d", text: { en: "Momentum is never conserved on Earth.", zh: "地球上动量永不守恒。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "When you include Earth in the system, gravity is an **internal** force — Newton's third law has the ball pulling Earth too. So Earth gains an equal and opposite momentum as the ball falls. Total p stays zero the whole time.",
+        zh: "把地球纳入系统时,重力是**内力**——牛顿第三定律告诉我们球也在拉地球。球下落时,地球获得等大反向的动量。系统总动量始终保持为零。",
+      },
+    },
+  ],
+
+  "unit-4/topic-3": [
+    {
+      id: "phys1-u4-t3-q1",
+      prompt: {
+        en: "A 3.0 kg ball of clay moving at 4.0 m/s collides with and sticks to a 5.0 kg block at rest. What is the final speed of the combined object?",
+        zh: "一块 3.0 kg 的黏土球以 4.0 m/s 碰上一只静止的 5.0 kg 物块并粘在一起。合并后物体的末速率是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "1.0 m/s", zh: "1.0 m/s" } },
+        { id: "b", text: { en: "1.5 m/s", zh: "1.5 m/s" } },
+        { id: "c", text: { en: "2.4 m/s", zh: "2.4 m/s" } },
+        { id: "d", text: { en: "4.0 m/s", zh: "4.0 m/s" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Perfectly inelastic: p_i = p_f → (3.0)(4.0) = (8.0)v_f → v_f = **1.5 m/s**. Lots of KE is lost (from 24 J to 9 J — 15 J into heat/deformation).",
+        zh: "完全非弹性:p_i = p_f → (3.0)(4.0) = (8.0)v_f → v_f = **1.5 m/s**。动能损失很大(由 24 J 降到 9 J——15 J 转为热/形变)。",
+      },
+    },
+    {
+      id: "phys1-u4-t3-q2",
+      prompt: {
+        en: "Which statement is true for ALL types of collisions?",
+        zh: "下列哪项对**所有类型**的碰撞都成立?",
+      },
+      choices: [
+        { id: "a", text: { en: "Kinetic energy is conserved.", zh: "动能守恒。" } },
+        { id: "b", text: { en: "Momentum is conserved (in an isolated system).", zh: "(孤立系统中)动量守恒。" } },
+        { id: "c", text: { en: "The objects bounce apart.", zh: "物体会弹开。" } },
+        { id: "d", text: { en: "Internal energy doesn't change.", zh: "内能保持不变。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Momentum conservation requires no external net force, and it holds for **every** collision type. KE is conserved only in **elastic** collisions. Objects only bounce apart if the collision isn't perfectly inelastic.",
+        zh: "只要无外部合力,动量守恒对**任何**碰撞都成立。动能仅在**弹性**碰撞中守恒。完全非弹性碰撞后物体不会分开。",
+      },
+    },
+    {
+      id: "phys1-u4-t3-q3",
+      prompt: {
+        en: "Two identical carts (mass m each) collide elastically head-on. Cart A moves at +v, Cart B moves at −v. What are the final velocities?",
+        zh: "两辆相同的小车(各为质量 m)迎面发生弹性碰撞。A 车速度 +v,B 车速度 −v。碰后两车速度分别为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "Both 0 (they stop).", zh: "两车都是 0(停下)。" } },
+        { id: "b", text: { en: "A: −v, B: +v (they exchange velocities).", zh: "A:−v;B:+v(速度互换)。" } },
+        { id: "c", text: { en: "Both move at +v/2 together.", zh: "两者同向以 +v/2 共同前进。" } },
+        { id: "d", text: { en: "A: +v, B: −v (unchanged).", zh: "A:+v;B:−v(不变)。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "For equal masses in a 1D elastic collision, the two objects **exchange velocities** — it's a general result. Both momentum and KE work out: p_total stays 0, and KE stays m·v². Choice A conserves momentum but not KE (so it'd be perfectly inelastic, not elastic).",
+        zh: "一维弹性碰撞中,质量相等的两物体会**互换速度**——这是一个通用结论。动量与动能都符合:总动量仍为 0,总动能仍为 m·v²。选项 A 动量守恒但动能不守恒(那是完全非弹性碰撞)。",
+      },
+    },
+    {
+      id: "phys1-u4-t3-q4",
+      prompt: {
+        en: "A 1.0 kg cart moving at 4.0 m/s collides with a stationary 3.0 kg cart. If the collision is perfectly inelastic, how much kinetic energy is lost?",
+        zh: "一辆 1.0 kg 小车以 4.0 m/s 撞上静止的 3.0 kg 小车。若完全非弹性碰撞,损失的动能是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "2.0 J", zh: "2.0 J" } },
+        { id: "b", text: { en: "4.0 J", zh: "4.0 J" } },
+        { id: "c", text: { en: "6.0 J", zh: "6.0 J" } },
+        { id: "d", text: { en: "8.0 J", zh: "8.0 J" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "v_f = (1.0·4.0)/(4.0) = 1.0 m/s. KE_i = ½(1)(4)² = 8 J; KE_f = ½(4)(1)² = 2 J. **Loss = 6 J.** A big fraction of the KE is lost whenever a light cart hits a much heavier stationary one (and sticks).",
+        zh: "v_f = (1.0·4.0)/(4.0) = 1.0 m/s。KE_i = ½(1)(4)² = 8 J;KE_f = ½(4)(1)² = 2 J。**损失 = 6 J**。轻车撞上静止的重车并粘连时,动能损失占比很大。",
+      },
+    },
+  ],
+
+  "unit-4/topic-4": [
+    {
+      id: "phys1-u4-t4-q1",
+      prompt: {
+        en: "A 2.0 kg object moving east at 3.0 m/s collides with a 2.0 kg object moving north at 4.0 m/s. They stick together. What is the magnitude of their combined momentum after the collision?",
+        zh: "一只 2.0 kg 物体以 3.0 m/s 向东运动,与一只 2.0 kg 物体以 4.0 m/s 向北运动的物体相撞,并粘在一起。碰后合并物体的动量大小是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "6.0 kg·m/s", zh: "6.0 kg·m/s" } },
+        { id: "b", text: { en: "7.0 kg·m/s", zh: "7.0 kg·m/s" } },
+        { id: "c", text: { en: "10 kg·m/s", zh: "10 kg·m/s" } },
+        { id: "d", text: { en: "14 kg·m/s", zh: "14 kg·m/s" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Initial p_x = (2)(3) = 6 kg·m/s; p_y = (2)(4) = 8 kg·m/s. Magnitude of total p = √(6² + 8²) = **10 kg·m/s**. Conservation of vector momentum — the pieces don't just add as numbers.",
+        zh: "初始 p_x = (2)(3) = 6 kg·m/s;p_y = (2)(4) = 8 kg·m/s。总动量大小 = √(6² + 8²) = **10 kg·m/s**。矢量动量守恒——不能直接相加大小。",
+      },
+    },
+    {
+      id: "phys1-u4-t4-q2",
+      prompt: {
+        en: "In a 2D collision, one object is initially at rest. Before the collision, total momentum is 10 kg·m/s east. What is the total momentum just after the collision?",
+        zh: "二维碰撞中,一个物体初始静止。碰前总动量为 10 kg·m/s 向东。刚刚碰撞后,总动量为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "10 kg·m/s east", zh: "10 kg·m/s 向东" } },
+        { id: "b", text: { en: "5 kg·m/s east (split between the two)", zh: "5 kg·m/s 向东(两者平分)" } },
+        { id: "c", text: { en: "Depends on the type of collision.", zh: "取决于碰撞类型。" } },
+        { id: "d", text: { en: "0 (momentum is destroyed in collisions).", zh: "0(碰撞中动量被抵消)。" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Momentum conservation doesn't care about collision type — **total momentum is the same vector before and after**. The individual objects may go off in different directions, but their momenta must vector-sum to **10 kg·m/s east**.",
+        zh: "动量守恒与碰撞类型无关——**碰前碰后总动量矢量相同**。两物体可能朝不同方向飞出,但它们动量的矢量和仍为 **10 kg·m/s 向东**。",
+      },
+    },
+    {
+      id: "phys1-u4-t4-q3",
+      prompt: {
+        en: "A 1.0 kg puck moving east at 5.0 m/s collides with an identical stationary puck. After the collision, the first puck moves at 4.0 m/s at 30° north of east. What are the x- and y-components of the second puck's momentum?",
+        zh: "一只 1.0 kg 冰球以 5.0 m/s 向东运动,撞上相同但静止的冰球。碰后第一只冰球以 4.0 m/s 沿北偏东 30° 方向运动。第二只冰球动量的 x、y 分量分别是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "p_x = +1.5 kg·m/s, p_y = −2.0 kg·m/s", zh: "p_x = +1.5 kg·m/s,p_y = −2.0 kg·m/s" } },
+        { id: "b", text: { en: "p_x = +5.0 kg·m/s, p_y = 0", zh: "p_x = +5.0 kg·m/s,p_y = 0" } },
+        { id: "c", text: { en: "p_x = +1.5 kg·m/s, p_y = +2.0 kg·m/s", zh: "p_x = +1.5 kg·m/s,p_y = +2.0 kg·m/s" } },
+        { id: "d", text: { en: "p_x = 0, p_y = −2.0 kg·m/s", zh: "p_x = 0,p_y = −2.0 kg·m/s" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Initial: p_x = 5.0, p_y = 0. Puck 1 final: (1.0)(4.0)cos 30° ≈ 3.46 in x, (1.0)(4.0)sin 30° = +2.0 in y. Conservation: puck 2 has p_x = 5.0 − 3.46 ≈ **+1.54** and p_y = 0 − 2.0 = **−2.0 kg·m/s** (south).",
+        zh: "初态:p_x = 5.0,p_y = 0。冰球 1 末态:x 方向 (1.0)(4.0)cos 30° ≈ 3.46;y 方向 (1.0)(4.0)sin 30° = +2.0。守恒:冰球 2 的 p_x = 5.0 − 3.46 ≈ **+1.54**,p_y = 0 − 2.0 = **−2.0 kg·m/s**(向南)。",
       },
     },
   ],
