@@ -45,6 +45,7 @@ import {
   HessCycle,
   EquilibriumApproach,
   LeChatelierShift,
+  WeakAcidTitration,
 } from "./ChemCharts";
 import { useLocale } from "./LocaleProvider";
 import { useT } from "./LocaleProvider";
@@ -88,7 +89,7 @@ export function Highlighted({ text }: { text: string }) {
   );
 }
 
-function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" | "thermal-equilibrium" | "hess-cycle" | "equilibrium-approach" | "lechatelier-shift" }) {
+function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" | "thermal-equilibrium" | "hess-cycle" | "equilibrium-approach" | "lechatelier-shift" | "titration-weak" }) {
   const { locale } = useLocale();
   switch (chartType) {
     case "heating-curve": return <HeatingCurve lang={locale} />;
@@ -108,6 +109,7 @@ function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-b
     case "hess-cycle": return <HessCycle lang={locale} />;
     case "equilibrium-approach": return <EquilibriumApproach lang={locale} />;
     case "lechatelier-shift": return <LeChatelierShift lang={locale} />;
+    case "titration-weak": return <WeakAcidTitration lang={locale} />;
   }
 }
 
