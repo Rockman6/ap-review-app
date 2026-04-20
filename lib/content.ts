@@ -36,6 +36,19 @@ export type NoteBlock =
   | { kind: "lewis"; name: string; label?: Bilingual }
   | { kind: "lewis-row"; names: string[] }
   | {
+      kind: "chem-chart";
+      chartType:
+        | "heating-curve"
+        | "maxwell-boltzmann"
+        | "bond-potential"
+        | "beer-lambert"
+        | "pes-neon"
+        | "successive-ie-mg"
+        | "solubility-vs-t"
+        | "real-gas-deviation";
+    }
+  | { kind: "mass-spectrum"; peaks: Array<{ mz: number; pct: number }>; title?: Bilingual }
+  | {
       kind: "chart";
       chartType:
         | "supply-demand"
@@ -9011,6 +9024,15 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
     {
+      kind: "mass-spectrum",
+      peaks: [
+        { mz: 24, pct: 82.8 },
+        { mz: 25, pct: 8.1 },
+        { mz: 26, pct: 9.1 },
+      ],
+      title: { en: "Mass spectrum of element X", zh: "未知元素 X 的质谱图" },
+    },
+    {
       kind: "math",
       tex: "\\bar{A} \\;=\\; 0.828(24) + 0.081(25) + 0.091(26) \\;\\approx\\; 24.3\\ \\text{amu}",
     },
@@ -9308,9 +9330,13 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
     {
       kind: "paragraph",
       text: {
-        en: "For neutral nitrogen (1s² 2s² 2p³) you'd see **three peaks** with heights in ratio **2 : 2 : 3** — corresponding to 1s, 2s, 2p.",
-        zh: "对中性氮 (1s² 2s² 2p³),PES 图会出现**三个峰**,高度比为 **2 : 2 : 3**,依次对应 1s、2s、2p。",
+        en: "For neutral nitrogen (1s² 2s² 2p³) you'd see **three peaks** with heights in ratio **2 : 2 : 3** — corresponding to 1s, 2s, 2p. Below is the spectrum of neon (1s² 2s² 2p⁶), which you should learn to read at a glance.",
+        zh: "对中性氮 (1s² 2s² 2p³),PES 图会出现**三个峰**,高度比为 **2 : 2 : 3**,依次对应 1s、2s、2p。下图是氖 (1s² 2s² 2p⁶) 的 PES——要能一眼读懂。",
       },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "pes-neon",
     },
     {
       kind: "heading",
@@ -9391,6 +9417,10 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       kind: "math",
       tex: "\\text{Mg: } IE_{1} \\ll IE_{2} \\ll IE_{3}\\!\\uparrow\\text{ huge jump (core)}",
       caption: { en: "The leap between IE₂ and IE₃ shows Mg has 2 valence electrons", zh: "IE₂ 到 IE₃ 的飞跃表明 Mg 有 2 个价电子" },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "successive-ie-mg",
     },
   ],
 
@@ -9546,6 +9576,10 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
         en: "**Bond length** = distance at which PE is lowest. **Bond energy** = depth of that well (energy required to break the bond). Shorter, higher-charge bonds are **both shorter and stronger** — e.g., C≡C < C=C < C–C in length; opposite order in strength.",
         zh: "**键长** = 势能最低处对应的距离;**键能** = 势能井的深度(断键所需能量)。键越短、电荷越大,**既短又强**——如 C≡C < C=C < C–C 长度递增,强度递减。",
       },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "bond-potential",
     },
     {
       kind: "table",
@@ -9910,6 +9944,10 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
         zh: "在温度-热量曲线上,每次相变出现**水平平台**:此时所有热量用于破坏分子间作用力,温度不变。斜线段对应显热(q = mcΔT)。",
       },
     },
+    {
+      kind: "chem-chart",
+      chartType: "heating-curve",
+    },
   ],
 
   // ---------- 3.4 · Ideal Gas Law ----------
@@ -9981,6 +10019,10 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
     {
+      kind: "chem-chart",
+      chartType: "maxwell-boltzmann",
+    },
+    {
       kind: "callout",
       label: { en: "Graham's law of effusion", zh: "Graham 扩散定律" },
       text: {
@@ -10023,6 +10065,10 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
         en: "Large nonpolar gases (Xe) and gases that hydrogen-bond (H₂O vapor, NH₃) deviate more than small, inert ones (He, Ne) because their IMFs and/or particle volumes are larger.",
         zh: "大的非极性气体(Xe)和易形成氢键的气体(H₂O 蒸汽、NH₃)偏差较大——它们的 IMF 与/或粒子体积都较显著。小而惰性的气体(He、Ne)偏差很小。",
       },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "real-gas-deviation",
     },
   ],
 
@@ -10147,6 +10193,10 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       tex: "S_{\\text{gas}} \\;=\\; k_{H}\\,P_{\\text{gas}}",
       caption: { en: "Henry's law — gas solubility is proportional to partial pressure above the liquid.", zh: "Henry 定律——气体溶解度与其在液面上方的分压成正比。" },
     },
+    {
+      kind: "chem-chart",
+      chartType: "solubility-vs-t",
+    },
   ],
 
   // ---------- 3.11 · Spectroscopy & EM Spectrum ----------
@@ -10234,6 +10284,10 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
         en: "Plot A (y) vs. c (x) for several known standards at the same wavelength and path length — you get a straight line through the origin with slope εb. Measure A of your unknown and read off its concentration.",
         zh: "用一系列已知浓度的标样在相同波长和光程下测 A,以 c 为横轴、A 为纵轴作图,得到过原点的直线,斜率 εb。测未知样品的 A,由直线反读其浓度。",
       },
+    },
+    {
+      kind: "chem-chart",
+      chartType: "beer-lambert",
     },
     {
       kind: "math",
