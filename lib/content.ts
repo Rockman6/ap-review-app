@@ -7583,10 +7583,13 @@ export const apChemistry: Subject = {
       },
       topics: [
         { slug: "topic-1", title: { en: "Moles & Molar Mass", zh: "摩尔与摩尔质量" }, summary: { en: "Counting atoms and molecules with Avogadro's number.", zh: "用阿伏伽德罗常数计数原子与分子。" } },
-        { slug: "topic-2", title: { en: "Mass Spectrometry", zh: "质谱法" }, summary: { en: "Identifying isotopes and computing average atomic mass.", zh: "鉴定同位素并计算平均原子质量。" } },
-        { slug: "topic-3", title: { en: "Atomic Structure & Electron Configuration", zh: "原子结构与电子排布" }, summary: { en: "Orbitals, the aufbau principle, Hund's rule, Pauli exclusion.", zh: "原子轨道、构造原理、洪特规则与泡利不相容原理。" } },
-        { slug: "topic-4", title: { en: "Photoelectron Spectroscopy", zh: "光电子能谱" }, summary: { en: "Reading PES plots to confirm electron configuration.", zh: "通过 PES 图谱验证电子排布。" } },
-        { slug: "topic-5", title: { en: "Periodic Trends", zh: "周期性规律" }, summary: { en: "Atomic radius, ionization energy, electronegativity across the table.", zh: "原子半径、电离能、电负性的周期变化。" } },
+        { slug: "topic-2", title: { en: "Mass Spectra of Elements", zh: "元素的质谱" }, summary: { en: "Reading a mass spectrum and computing weighted average atomic mass.", zh: "读质谱图并计算加权平均原子质量。" } },
+        { slug: "topic-3", title: { en: "Elemental Composition of Pure Substances", zh: "纯净物的元素组成" }, summary: { en: "Percent composition, empirical vs molecular formulas.", zh: "质量百分比、实验式与分子式。" } },
+        { slug: "topic-4", title: { en: "Composition of Mixtures", zh: "混合物的组成" }, summary: { en: "Pure substances vs mixtures; homogeneous vs heterogeneous; separation techniques.", zh: "纯净物与混合物;均相与非均相;分离方法。" } },
+        { slug: "topic-5", title: { en: "Atomic Structure & Electron Configuration", zh: "原子结构与电子排布" }, summary: { en: "Orbitals, the aufbau principle, Hund's rule, Pauli exclusion.", zh: "原子轨道、构造原理、洪特规则与泡利不相容原理。" } },
+        { slug: "topic-6", title: { en: "Photoelectron Spectroscopy", zh: "光电子能谱" }, summary: { en: "Reading PES plots to confirm electron configuration.", zh: "通过 PES 图谱验证电子排布。" } },
+        { slug: "topic-7", title: { en: "Periodic Trends", zh: "周期性规律" }, summary: { en: "Atomic radius, ionization energy, electronegativity across the table.", zh: "原子半径、电离能、电负性的周期变化。" } },
+        { slug: "topic-8", title: { en: "Valence Electrons & Ionic Compounds", zh: "价电子与离子化合物" }, summary: { en: "Predicting ionic charges from group number and writing ionic formulas.", zh: "由族号预测离子电荷,并书写离子化合物的分子式。" } },
       ],
     },
     {
@@ -8845,7 +8848,7 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
     },
     {
       kind: "callout",
-      label: { en: "Key term · 核心术语", zh: "核心术语 · Key term" },
+      label: { en: "Key term", zh: "核心术语" },
       text: {
         en: "**Mole (mol):** a counting unit equal to **Avogadro's number (Nₐ)** of particles. The particles can be atoms, molecules, ions, or electrons — the mole is unit-neutral. Whenever a problem says *moles of X*, picture **6.022 × 10²³ of X**.",
         zh: "**摩尔 (mol):** 一种计数单位,等于**阿伏伽德罗常数 (Nₐ)** 那么多的粒子。粒子可以是原子、分子、离子或电子——摩尔本身与粒子种类无关。看到「X 的摩尔数」时,就想成 **6.022 × 10²³ 个 X**。",
@@ -8922,10 +8925,521 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
     },
     {
       kind: "callout",
-      label: { en: "AP exam tip · 考试提示", zh: "考试提示 · AP exam tip" },
+      label: { en: "AP exam tip", zh: "考试提示" },
       text: {
         en: "Sig figs matter. Molar masses from the periodic table are typically 3–4 sig figs, so your final answer should reflect that. The AP exam commonly deducts points when students report more precision than the data allows.",
         zh: "注意**有效数字**。周期表上的摩尔质量通常是 3–4 位有效数字,因此最终答案的位数也应与之一致。AP 考试经常因「结果精度超过数据本身」而扣分。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // Topic 1.2 · Mass Spectra of Elements
+  // ============================================================
+  "unit-1/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Atomic masses on the periodic table are never whole numbers. Carbon is listed as **12.01**, not 12. That decimal is a clue: elements exist as several **isotopes** — atoms with the same number of protons but different numbers of neutrons — and what the table shows is a **weighted average** of whatever mix is found in nature.",
+        zh: "周期表上的原子质量几乎从不是整数。碳是 **12.01**,不是 12。这个小数背后的原因是:元素以多种**同位素**存在——同位素的质子数相同、中子数不同——周期表给出的,是它们在自然界中按丰度**加权平均**的结果。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Carbon's two main naturally-occurring isotopes", zh: "碳的两种主要天然同位素" },
+      columns: [
+        { en: "Isotope", zh: "同位素" },
+        { en: "Protons", zh: "质子数" },
+        { en: "Neutrons", zh: "中子数" },
+        { en: "Mass (amu)", zh: "质量 (amu)" },
+        { en: "Natural abundance", zh: "天然丰度" },
+      ],
+      rows: [
+        [{ en: "¹²C", zh: "¹²C" }, { en: "6", zh: "6" }, { en: "6", zh: "6" }, { en: "12.000", zh: "12.000" }, { en: "98.9%", zh: "98.9%" }],
+        [{ en: "¹³C", zh: "¹³C" }, { en: "6", zh: "6" }, { en: "7", zh: "7" }, { en: "13.003", zh: "13.003" }, { en: "1.1%", zh: "1.1%" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "The weighted-average formula", zh: "加权平均公式" },
+    },
+    {
+      kind: "math",
+      tex: "\\bar{A} \\;=\\; \\sum_{i} f_{i}\\, m_{i} \\;=\\; f_{1}m_{1} + f_{2}m_{2} + \\cdots",
+      caption: {
+        en: "f = fractional abundance (percent as a decimal); m = mass of that isotope",
+        zh: "f = 丰度(百分比转为小数),m = 该同位素的质量",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\bar{A}_{\\mathrm{C}} \\;=\\; 0.989\\,(12.000) + 0.011\\,(13.003) \\;\\approx\\; 12.01\\ \\text{amu}",
+      caption: { en: "Applied to carbon", zh: "对碳应用公式" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Key term", zh: "核心术语" },
+      text: {
+        en: "**Mass spectrum:** a plot of relative ion abundance (y-axis) vs. mass-to-charge ratio m/z (x-axis). Each peak is an isotope; the **tallest peak is the most abundant**. A glance at the spectrum tells you both which isotopes are present and their proportions.",
+        zh: "**质谱图:** 以相对丰度为纵轴、质荷比 m/z 为横轴的图。每个峰对应一种同位素;**最高的峰是最丰富的同位素**。一眼就能看出该元素含有哪些同位素以及各自的比例。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Reading a spectrum — element X", zh: "读一张质谱图 — 未知元素 X" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Suppose three peaks appear at m/z = 24 (82.8%), 25 (8.1%), and 26 (9.1%). The weighted average is:",
+        zh: "假设三个峰分别出现在 m/z = 24(82.8%)、25(8.1%)、26(9.1%)。加权平均为:",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\bar{A} \\;=\\; 0.828(24) + 0.081(25) + 0.091(26) \\;\\approx\\; 24.3\\ \\text{amu}",
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Look up 24.3 on the periodic table — it matches **magnesium (Mg)**. Mass spectra let you identify an unknown element purely from its isotope pattern.",
+        zh: "在周期表上查找 24.3——对应的是**镁 (Mg)**。质谱图可以仅凭同位素分布就锁定未知元素。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Reverse problem: given average, find abundances", zh: "反向问题:已知平均质量,求丰度" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "When only two isotopes exist, let one abundance be x and the other be 1 − x. This converts any 2-isotope mass problem into a single-variable linear equation.",
+        zh: "只有两种同位素时,设其中一个丰度为 x,另一个为 1 − x。这样任何「两同位素」的平均质量问题都化为一元一次方程。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\bar{A} \\;=\\; x\\, m_{1} \\;+\\; (1-x)\\, m_{2}",
+    },
+    {
+      kind: "callout",
+      label: { en: "AP exam tip", zh: "考试提示" },
+      text: {
+        en: "Always convert percent → decimal (98.9% → 0.989) **before** multiplying. Double-check that your fractional abundances sum to **1.000** — if they sum to 100, you forgot the conversion.",
+        zh: "乘之前**一定**把百分数转成小数(98.9% → 0.989)。并核对所有丰度加起来应为 **1.000**——如果加起来是 100,说明忘了换算。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // Topic 1.3 · Elemental Composition of Pure Substances
+  // ============================================================
+  "unit-1/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **pure substance** has a fixed composition — every sample contains the same elements in the same proportions. This is the **law of definite proportions**: water is always 11.2% H and 88.8% O by mass, whether it's a raindrop or a reservoir.",
+        zh: "**纯净物**的组成是固定的——每一份样品都含有相同元素、相同比例。这就是**定比定律**:无论是一滴雨水还是一座水库,水永远是 11.2% 的 H 加 88.8% 的 O(按质量)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Percent composition by mass", zh: "质量百分比组成" },
+    },
+    {
+      kind: "math",
+      tex: "\\%\\ \\text{element} \\;=\\; \\dfrac{n \\times M_{\\text{element}}}{M_{\\text{compound}}} \\times 100\\%",
+      caption: {
+        en: "n = number of atoms of that element in the formula",
+        zh: "n = 分子式中该元素的原子数",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example · water", zh: "例题 · 水" },
+    },
+    {
+      kind: "math",
+      tex: "\\%\\ \\text{H} = \\dfrac{2(1.008)}{18.02}\\times 100\\% \\approx 11.19\\%\\qquad \\%\\ \\text{O} = \\dfrac{16.00}{18.02}\\times 100\\% \\approx 88.81\\%",
+    },
+    {
+      kind: "heading",
+      text: { en: "Empirical vs molecular formula", zh: "实验式 vs 分子式" },
+    },
+    {
+      kind: "table",
+      caption: { en: "Two ways to describe the same compound", zh: "描述同一化合物的两种方式" },
+      columns: [
+        { en: "Type", zh: "种类" },
+        { en: "Meaning", zh: "含义" },
+        { en: "Example — glucose", zh: "例 — 葡萄糖" },
+      ],
+      rows: [
+        [{ en: "Empirical", zh: "实验式" }, { en: "Lowest whole-number ratio of atoms", zh: "各原子最简整数比" }, { en: "CH₂O", zh: "CH₂O" }],
+        [{ en: "Molecular", zh: "分子式" }, { en: "Actual atom count in one molecule", zh: "一个分子中实际原子数" }, { en: "C₆H₁₂O₆", zh: "C₆H₁₂O₆" }],
+      ],
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "The molecular formula is always a whole-number multiple of the empirical formula. If both share the same molar mass, they're the same formula.",
+        zh: "分子式总是实验式的整数倍。若两者的摩尔质量相同,则二者实际为同一式。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Four-step recipe", zh: "四步法" },
+      text: {
+        en: "**1. Percent → grams** (assume a 100 g sample so percentages become grams). **2. Grams → moles** (divide each by molar mass). **3. Divide by the smallest mole count.** **4. Multiply to whole numbers** if any ratio is 0.25, 0.33, 0.5, 0.66, 0.75 (× 4, 3, 2, 3, 4 respectively).",
+        zh: "**1. 百分比 → 克**(假设 100 g 样品,把百分数直接当作克数)。**2. 克 → 摩尔**(各自除以摩尔质量)。**3. 同除以最小摩尔数。** **4. 乘到整数**:若比值出现 0.25、0.33、0.5、0.66、0.75,分别乘 4、3、2、3、4。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example · an unknown CₓHᵧOᵤ", zh: "例题 · 未知 CₓHᵧOᵤ" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A carbohydrate is 33.3% C and 7.4% H (and the rest O). Find its empirical formula.",
+        zh: "某碳水化合物含 C 33.3%、H 7.4%,余下为 O。求实验式。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\mathrm{mol\\ C} = \\tfrac{33.3}{12.01} = 2.77\\quad \\mathrm{mol\\ H} = \\tfrac{7.4}{1.008} = 7.34\\quad \\mathrm{mol\\ O} = \\tfrac{59.3}{16.00} = 3.71",
+    },
+    {
+      kind: "math",
+      tex: "\\text{÷ by smallest (2.77):}\\quad \\mathrm{C} = 1.00,\\ \\mathrm{H} = 2.65,\\ \\mathrm{O} = 1.34",
+    },
+    {
+      kind: "math",
+      tex: "\\text{× 3 to clear thirds:}\\quad \\mathrm{C_3H_8O_4}",
+    },
+  ],
+
+  // ============================================================
+  // Topic 1.4 · Composition of Mixtures
+  // ============================================================
+  "unit-1/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Unlike pure substances, a **mixture** combines two or more substances **physically**, not chemically. The components keep their own identities and can be present in any ratio. A cup of sweetened tea has sugar, tea compounds, and water mixed — no new bonds form, and you can vary the sugar without making something other than tea.",
+        zh: "与纯净物不同,**混合物**由两种或多种物质**物理地**(而非化学地)组合而成。各组分保持各自的化学性质,且比例可以任意。一杯加糖的茶由糖、茶成分和水混合构成——没有新键形成,糖多糖少仍然是茶。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Homogeneous vs heterogeneous", zh: "均相 vs 非均相" },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "What you see", zh: "外观" },
+        { en: "Examples", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "Homogeneous", zh: "均相" }, { en: "Uniform — one visible phase", zh: "均匀——只看到一相" }, { en: "Salt water, air, brass", zh: "盐水、空气、黄铜" }],
+        [{ en: "Heterogeneous", zh: "非均相" }, { en: "Non-uniform — components visible", zh: "不均匀——可看见各组分" }, { en: "Sand in water, salad, granite", zh: "沙与水、色拉、花岗岩" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Memory hook", zh: "记忆技巧" },
+      text: {
+        en: "**Homo- = same.** If the whole sample looks the same everywhere (even under a microscope), it's homogeneous. A solution is always homogeneous.",
+        zh: "**Homo- = 相同。** 样品每一处看起来都一样(即使在显微镜下),就是均相。**溶液**一定是均相。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Separation techniques (physical, not chemical)", zh: "分离方法(物理,非化学)" },
+    },
+    {
+      kind: "table",
+      caption: { en: "Which method for which mixture?", zh: "不同混合物该用什么方法?" },
+      columns: [
+        { en: "Method", zh: "方法" },
+        { en: "Based on…", zh: "依据" },
+        { en: "Works when…", zh: "适用条件" },
+      ],
+      rows: [
+        [{ en: "Filtration", zh: "过滤" }, { en: "Particle size (solid ↔ liquid)", zh: "粒径(固 ↔ 液)" }, { en: "Heterogeneous; solid is insoluble", zh: "非均相;固体不溶解" }],
+        [{ en: "Distillation", zh: "蒸馏" }, { en: "Boiling-point differences", zh: "沸点差异" }, { en: "Homogeneous liquids with different bp", zh: "均相液体、沸点不同" }],
+        [{ en: "Chromatography (TLC)", zh: "色谱(TLC)" }, { en: "Polarity / affinity for phases", zh: "极性/对相的亲和力" }, { en: "Any soluble mix; identifies components", zh: "任何可溶混合物;用于鉴定成分" }],
+      ],
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "In TLC the **stationary phase** is usually polar silica; the **mobile phase** is a chosen solvent. *Like dissolves like* — **nonpolar** analytes travel far with a **nonpolar** solvent, while polar analytes stick near the origin.",
+        zh: "TLC 中,**固定相**通常是极性的硅胶,**流动相**是选定的溶剂。根据「**相似相溶**」:**非极性**样品随**非极性**溶剂走得远,极性样品则留在起点附近。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Retention factor R_f", zh: "保留因子 R_f" },
+    },
+    {
+      kind: "math",
+      tex: "R_{f} \\;=\\; \\dfrac{\\text{distance traveled by spot}}{\\text{distance traveled by solvent front}}\\qquad (0 \\le R_{f} \\le 1)",
+    },
+    {
+      kind: "callout",
+      label: { en: "AP exam tip", zh: "考试提示" },
+      text: {
+        en: "When comparing two TLC plates run for different times, **compare R_f values, not raw distances**. A spot at 2 cm on a 4 cm front (R_f = 0.5) matches a spot at 3 cm on a 6 cm front (R_f = 0.5) — same compound.",
+        zh: "比较跑不同时长的两张 TLC 板时,**应比较 R_f 值,而不是原始距离**。4 cm 前沿中 2 cm(R_f = 0.5)与 6 cm 前沿中 3 cm(R_f = 0.5)是同一化合物。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // Topic 1.5 · Atomic Structure & Electron Configuration
+  // ============================================================
+  "unit-1/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Electrons don't orbit the nucleus like planets — they occupy fuzzy, probability-defined regions called **orbitals**. Orbitals are grouped into **shells (n = 1, 2, 3…)**, and each shell contains **subshells (s, p, d, f)** of different shapes.",
+        zh: "电子并不像行星那样沿确定轨道运行,而是占据以概率描述的模糊区域,称为**轨道 (orbital)**。轨道按**主壳层 (n = 1, 2, 3…)** 分组,每个主壳层内还包含不同形状的**亚壳层 (s、p、d、f)**。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Subshell capacities — how many electrons fit", zh: "各亚壳层可容纳的电子数" },
+      columns: [
+        { en: "Subshell", zh: "亚壳层" },
+        { en: "Orbitals", zh: "轨道数" },
+        { en: "Max electrons", zh: "最多电子数" },
+      ],
+      rows: [
+        [{ en: "s", zh: "s" }, { en: "1", zh: "1" }, { en: "2", zh: "2" }],
+        [{ en: "p", zh: "p" }, { en: "3", zh: "3" }, { en: "6", zh: "6" }],
+        [{ en: "d", zh: "d" }, { en: "5", zh: "5" }, { en: "10", zh: "10" }],
+        [{ en: "f", zh: "f" }, { en: "7", zh: "7" }, { en: "14", zh: "14" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Three rules for filling orbitals", zh: "填充轨道的三条规则" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Aufbau:** fill the lowest-energy orbital first (1s → 2s → 2p → 3s → 3p → 4s → 3d → …).", zh: "**构造原理 (Aufbau):** 先填能量最低的轨道(1s → 2s → 2p → 3s → 3p → 4s → 3d → …)。" },
+        { en: "**Pauli exclusion:** no two electrons share all four quantum numbers; an orbital holds at most 2 electrons of opposite spin.", zh: "**泡利不相容:** 同一原子中没有任何两个电子四个量子数完全相同;一个轨道最多容纳 2 个自旋相反的电子。" },
+        { en: "**Hund's rule:** within a subshell, place one electron in each orbital before pairing up.", zh: "**洪特规则:** 同一亚壳层内,先每个轨道放一个电子,再开始配对。" },
+      ],
+    },
+    {
+      kind: "math",
+      tex: "\\text{Fe (}Z=26\\text{):}\\quad 1s^{2}\\,2s^{2}\\,2p^{6}\\,3s^{2}\\,3p^{6}\\,4s^{2}\\,3d^{6}",
+      caption: { en: "Note 4s fills before 3d", zh: "注意 4s 先于 3d 填充" },
+    },
+    {
+      kind: "heading",
+      text: { en: "Noble-gas shorthand", zh: "惰性气体简写" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Write the previous noble gas in brackets to condense the core, then add the remaining valence electrons.",
+        zh: "用方括号中的前一个惰性气体代表内层,再写出剩余的价电子。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{Fe: }[\\text{Ar}]\\,4s^{2}\\,3d^{6}\\qquad \\text{Br: }[\\text{Ar}]\\,4s^{2}\\,3d^{10}\\,4p^{5}",
+    },
+    {
+      kind: "callout",
+      label: { en: "Exceptions worth memorizing", zh: "需要记住的例外" },
+      text: {
+        en: "**Cr** is [Ar] 4s¹ 3d⁵ (not 4s² 3d⁴) and **Cu** is [Ar] 4s¹ 3d¹⁰ (not 4s² 3d⁹). Half-filled and fully-filled d subshells are unusually stable, so one 4s electron jumps into 3d.",
+        zh: "**Cr**: [Ar] 4s¹ 3d⁵(而非 4s² 3d⁴);**Cu**: [Ar] 4s¹ 3d¹⁰(而非 4s² 3d⁹)。d 亚壳层的半满与全满特别稳定,故有一个 4s 电子跃迁到 3d。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // Topic 1.6 · Photoelectron Spectroscopy (PES)
+  // ============================================================
+  "unit-1/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Photoelectron spectroscopy (PES)** is the experimental proof of electron configuration. A sample is hit with high-energy photons; each photon ejects one electron. By measuring the kinetic energy of the ejected electron, we recover its original **binding energy** — the energy that held it to the atom.",
+        zh: "**光电子能谱 (PES)** 是验证电子排布的实验方法。用高能光子轰击样品,每个光子打出一个电子。测定出射电子的动能,即可反推其在原子中的**结合能**——也就是它原本被束缚的能量。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "E_{\\text{photon}} \\;=\\; E_{\\text{binding}} \\;+\\; E_{\\text{kinetic}}",
+      caption: { en: "Conservation of energy — the core idea of PES", zh: "能量守恒——PES 的核心思想" },
+    },
+    {
+      kind: "heading",
+      text: { en: "What a PES plot looks like", zh: "PES 图的样子" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**x-axis:** binding energy (MJ/mol), *typically increasing leftward* — core electrons on the left, valence on the right.", zh: "**x 轴:** 结合能 (MJ/mol),**通常向左增大**——左侧为内层电子,右侧为价电子。" },
+        { en: "**y-axis:** relative number of electrons (peak height ∝ electrons in that subshell).", zh: "**y 轴:** 相对电子数(峰高 ∝ 该亚壳层的电子数)。" },
+        { en: "**Each peak = one subshell.** The ratio of peak heights equals the ratio of electrons in those subshells.", zh: "**每个峰 = 一个亚壳层。** 峰高之比等于亚壳层电子数之比。" },
+      ],
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "For neutral nitrogen (1s² 2s² 2p³) you'd see **three peaks** with heights in ratio **2 : 2 : 3** — corresponding to 1s, 2s, 2p.",
+        zh: "对中性氮 (1s² 2s² 2p³),PES 图会出现**三个峰**,高度比为 **2 : 2 : 3**,依次对应 1s、2s、2p。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Why binding energy rises within a shell", zh: "为什么同一壳层内结合能会上升" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Within a shell, **s electrons sit closer to the nucleus than p electrons**, so they feel a stronger pull and require more energy to remove. Across a period, binding energy rises because the nuclear charge grows while shielding stays roughly constant.",
+        zh: "同一壳层内,**s 电子比 p 电子更靠近核**,受吸引更强,因此更难打出。沿同一周期,核电荷增加而屏蔽几乎不变,故结合能整体升高。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Exam skill", zh: "应试要点" },
+      text: {
+        en: "To identify an unknown element from a PES plot: (1) count the peaks → count the subshells; (2) use the height ratio to recover the electron count in each → the total Z. That Z is the atomic number.",
+        zh: "由 PES 图识别未知元素:(1) 数峰数 → 亚壳层数;(2) 用峰高比反推各亚壳层电子数 → 相加得总电子数 Z。Z 就是原子序数。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // Topic 1.7 · Periodic Trends
+  // ============================================================
+  "unit-1/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Three trends dominate: **atomic radius**, **ionization energy (IE)**, and **electronegativity (EN)**. All three are explained by two competing factors — the effective nuclear charge **Z_eff** pulling electrons in, and the number of occupied shells pushing them out.",
+        zh: "主要的三类周期性规律:**原子半径**、**电离能 (IE)**、**电负性 (EN)**。三者都由两项相互竞争的因素决定——**有效核电荷 Z_eff** 把电子向内拉,占据的壳层数把电子向外推。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "Z_{\\text{eff}} \\;\\approx\\; Z \\;-\\; S",
+      caption: {
+        en: "Z = total protons; S = screening by inner-shell electrons",
+        zh: "Z = 质子总数;S = 内层电子的屏蔽",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Directions of the three main trends", zh: "三大趋势的方向" },
+      columns: [
+        { en: "Property", zh: "性质" },
+        { en: "Across a period (→)", zh: "沿周期 (→)" },
+        { en: "Down a group (↓)", zh: "沿族 (↓)" },
+        { en: "Why", zh: "原因" },
+      ],
+      rows: [
+        [{ en: "Atomic radius", zh: "原子半径" }, { en: "decreases", zh: "减小" }, { en: "increases", zh: "增大" }, { en: "Z_eff rises across; new shells added down", zh: "周期中 Z_eff 升高;族中新增壳层" }],
+        [{ en: "Ionization energy", zh: "电离能" }, { en: "increases", zh: "增大" }, { en: "decreases", zh: "减小" }, { en: "Stronger pull makes removal harder", zh: "吸引力越强越难移出" }],
+        [{ en: "Electronegativity", zh: "电负性" }, { en: "increases", zh: "增大" }, { en: "decreases", zh: "减小" }, { en: "Same reasoning as IE", zh: "原因同 IE" }],
+      ],
+      highlightLastRow: false,
+    },
+    {
+      kind: "callout",
+      label: { en: "Memory hook", zh: "记忆技巧" },
+      text: {
+        en: "**F is the king of EN.** Fluorine has the highest electronegativity (3.98 on the Pauling scale). The trend points *up and to the right* — excluding noble gases.",
+        zh: "**F 是电负性之王。** 氟的电负性最大(鲍林标度 3.98)。趋势指向**右上**——不计惰性气体。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Successive ionization energies", zh: "逐级电离能" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Removing one electron is easier than removing the next — each removal leaves a more positive cation that holds remaining electrons more tightly. But the **biggest jump** happens when you try to remove a **core electron**. That jump reveals the number of valence electrons.",
+        zh: "移出第一个电子最容易,随后越来越难——每移出一个,阳离子正电荷更强,剩余电子被束缚得更紧。但**最大的跃迁**出现在开始移出**内层电子**时,从这里可以看出价电子数。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\text{Mg: } IE_{1} \\ll IE_{2} \\ll IE_{3}\\!\\uparrow\\text{ huge jump (core)}",
+      caption: { en: "The leap between IE₂ and IE₃ shows Mg has 2 valence electrons", zh: "IE₂ 到 IE₃ 的飞跃表明 Mg 有 2 个价电子" },
+    },
+  ],
+
+  // ============================================================
+  // Topic 1.8 · Valence Electrons & Ionic Compounds
+  // ============================================================
+  "unit-1/topic-8": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Valence electrons** are the outermost-shell electrons — the ones involved in bonding. For main-group elements, the group number directly gives the count: Group 1 = 1 valence electron, Group 2 = 2, …, Group 17 = 7, Group 18 = 8 (noble gases — full shell, mostly unreactive).",
+        zh: "**价电子**是最外壳层的电子——负责成键的那一批。对主族元素,价电子数直接等于族号:第 1 族 = 1 个,第 2 族 = 2 个,……,第 17 族 = 7 个,第 18 族 = 8 个(惰性气体——外壳填满,基本不反应)。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "The octet rule and ionic charge", zh: "八隅体规则与离子电荷" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Atoms tend to gain, lose, or share electrons to reach **8 valence electrons** (a noble-gas configuration). Metals on the left lose electrons to become **cations**; nonmetals on the right gain electrons to become **anions**.",
+        zh: "原子倾向于通过得失或共享电子达到**价层 8 电子**(惰性气体构型)。左侧的金属失去电子形成**阳离子**;右侧的非金属得到电子形成**阴离子**。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Typical ionic charges by main group", zh: "主族常见离子电荷" },
+      columns: [
+        { en: "Group", zh: "族" },
+        { en: "Ion", zh: "常见离子" },
+        { en: "Example", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "1 (alkali)", zh: "1(碱金属)" }, { en: "+1", zh: "+1" }, { en: "Na⁺, K⁺", zh: "Na⁺、K⁺" }],
+        [{ en: "2 (alkaline earth)", zh: "2(碱土金属)" }, { en: "+2", zh: "+2" }, { en: "Mg²⁺, Ca²⁺", zh: "Mg²⁺、Ca²⁺" }],
+        [{ en: "13", zh: "13" }, { en: "+3", zh: "+3" }, { en: "Al³⁺", zh: "Al³⁺" }],
+        [{ en: "15", zh: "15" }, { en: "−3", zh: "−3" }, { en: "N³⁻, P³⁻", zh: "N³⁻、P³⁻" }],
+        [{ en: "16", zh: "16" }, { en: "−2", zh: "−2" }, { en: "O²⁻, S²⁻", zh: "O²⁻、S²⁻" }],
+        [{ en: "17 (halogens)", zh: "17(卤素)" }, { en: "−1", zh: "−1" }, { en: "Cl⁻, Br⁻", zh: "Cl⁻、Br⁻" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Writing ionic compound formulas", zh: "书写离子化合物分子式" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Ionic compounds are overall **neutral**. Use the **crisscross rule**: the numerical charge of each ion becomes the subscript of the other. Reduce to lowest whole-number ratio.",
+        zh: "离子化合物整体**电中性**。用**交叉法**:把每个离子电荷的绝对值当作另一离子的下标,再化为最简整数比。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\mathrm{Al^{3+}} + \\mathrm{O^{2-}}\\;\\longrightarrow\\;\\mathrm{Al_{2}O_{3}}",
+      caption: { en: "The 3 goes on O, the 2 goes on Al — balance the charges", zh: "把 3 下放给 O,2 下放给 Al——电荷平衡" },
+    },
+    {
+      kind: "callout",
+      label: { en: "AP exam tip", zh: "考试提示" },
+      text: {
+        en: "**Transition metals** (d-block) can form more than one common charge, so the charge must be given (e.g., Fe²⁺ vs Fe³⁺). You can't predict it from the group number alone.",
+        zh: "**过渡金属**(d 区)可以形成多种常见电荷,题目必须明确指定(如 Fe²⁺ 与 Fe³⁺)。**仅凭族号无法判断。**",
       },
     },
   ],
@@ -8985,6 +9499,286 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       explanation: {
         en: "Empirical-unit mass of CH₃ = 12.01 + 3(1.008) = **15.03 g/mol**. Ratio of molecular to empirical mass = 30.07 / 15.03 ≈ **2**, so multiply the empirical formula by 2: **C₂H₆** (ethane). Choice C (C₂H₄) is ethylene, which has empirical formula CH₂, not CH₃. Choice D violates the octet rule — carbon cannot bond to four hydrogens in that ratio without an extra carbon.",
         zh: "实验式 CH₃ 的单位质量 = 12.01 + 3(1.008) = **15.03 g/mol**。分子质量 / 实验式质量 = 30.07 / 15.03 ≈ **2**,所以把实验式乘以 2:**C₂H₆**(乙烷)。选项 C (C₂H₄) 是乙烯,其实验式为 CH₂,而不是 CH₃。选项 D 违反八隅体规则——不加一个碳原子时,每个 C 无法与 3 个 H 成键且保持化学可行性。",
+      },
+    },
+  ],
+
+  // ---------- Topic 1.2 · Mass Spectra ----------
+  "unit-1/topic-2": [
+    {
+      id: "chem-u1-t2-q1",
+      prompt: {
+        en: "Chlorine has two naturally occurring isotopes: **³⁵Cl** (mass 34.97 amu) and **³⁷Cl** (mass 36.97 amu). The average atomic mass of chlorine is 35.45 amu. What is the approximate percent abundance of **³⁵Cl**?",
+        zh: "氯有两种天然同位素:**³⁵Cl**(质量 34.97 amu)和 **³⁷Cl**(质量 36.97 amu)。氯的平均原子质量为 35.45 amu。**³⁵Cl** 的丰度约为多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "24%", zh: "24%" } },
+        { id: "b", text: { en: "50%", zh: "50%" } },
+        { id: "c", text: { en: "76%", zh: "76%" } },
+        { id: "d", text: { en: "85%", zh: "85%" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Let x = fraction of ³⁵Cl. Then **35.45 = x(34.97) + (1−x)(36.97)**. Solving: 35.45 = 36.97 − 2.00x → 2.00x = 1.52 → **x ≈ 0.76 = 76%**. Quick sanity check: 35.45 is much closer to 34.97 than to 36.97, so ³⁵Cl must be more abundant.",
+        zh: "设 ³⁵Cl 的丰度为 x,则 **35.45 = x(34.97) + (1−x)(36.97)**。化简:35.45 = 36.97 − 2.00x → 2.00x = 1.52 → **x ≈ 0.76 = 76%**。直觉验证:35.45 更接近 34.97,所以 ³⁵Cl 更多。",
+      },
+    },
+    {
+      id: "chem-u1-t2-q2",
+      prompt: {
+        en: "A mass spectrum shows three peaks: at m/z = 63 (69.2%), 65 (30.8%). The average atomic mass computed from this spectrum is closest to:",
+        zh: "某质谱图显示两个峰:m/z = 63(69.2%)、65(30.8%)。由此计算的平均原子质量最接近:",
+      },
+      choices: [
+        { id: "a", text: { en: "63.5 amu (likely Cu)", zh: "63.5 amu(可能是 Cu)" } },
+        { id: "b", text: { en: "64.0 amu (likely Zn)", zh: "64.0 amu(可能是 Zn)" } },
+        { id: "c", text: { en: "65.4 amu (likely Zn)", zh: "65.4 amu(可能是 Zn)" } },
+        { id: "d", text: { en: "63.0 amu — just use the tallest peak", zh: "63.0 amu——直接用最高峰" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "**0.692(63) + 0.308(65) = 43.60 + 20.02 = 63.62 ≈ 63.5 amu.** This matches copper (Cu, 63.55 amu). Choice D is a common trap — the periodic table always gives the *weighted* average, never just the most abundant peak.",
+        zh: "**0.692(63) + 0.308(65) = 43.60 + 20.02 = 63.62 ≈ 63.5 amu。** 这与铜 (Cu, 63.55 amu) 相符。选项 D 是典型陷阱——周期表给的是**加权平均**,不是最高峰本身。",
+      },
+    },
+  ],
+
+  // ---------- Topic 1.3 · Elemental Composition ----------
+  "unit-1/topic-3": [
+    {
+      id: "chem-u1-t3-q1",
+      prompt: {
+        en: "A compound is analyzed and found to contain 40.0% C, 6.7% H, and 53.3% O by mass. What is its **empirical formula**? (Atomic masses: C = 12.01, H = 1.008, O = 16.00.)",
+        zh: "某化合物按质量计含 40.0% C、6.7% H、53.3% O。其**实验式**为?(C = 12.01、H = 1.008、O = 16.00)",
+      },
+      choices: [
+        { id: "a", text: { en: "CHO", zh: "CHO" } },
+        { id: "b", text: { en: "CH₂O", zh: "CH₂O" } },
+        { id: "c", text: { en: "C₂H₄O₂", zh: "C₂H₄O₂" } },
+        { id: "d", text: { en: "C₆H₁₂O₆", zh: "C₆H₁₂O₆" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Assume 100 g: C = 40.0/12.01 = 3.33 mol; H = 6.7/1.008 = 6.65 mol; O = 53.3/16.00 = 3.33 mol. Divide by smallest (3.33): **C = 1.00, H = 2.00, O = 1.00 → CH₂O**. Choices C and D are multiples of the empirical formula — valid molecular formulas, but the question asked for the empirical (simplest) formula.",
+        zh: "按 100 g 计:C = 40.0/12.01 = 3.33 mol;H = 6.7/1.008 = 6.65 mol;O = 53.3/16.00 = 3.33 mol。同除以 3.33:**C = 1.00、H = 2.00、O = 1.00 → CH₂O**。选项 C、D 是该实验式的倍数,是可能的分子式,但题目问的是**实验式**。",
+      },
+    },
+    {
+      id: "chem-u1-t3-q2",
+      prompt: {
+        en: "A hydrocarbon contains only C and H, and is **85.7% C** by mass. Its molar mass is **56.11 g/mol**. What is its **molecular formula**?",
+        zh: "某仅含 C、H 的烃类,按质量计 **85.7% 为 C**,摩尔质量为 **56.11 g/mol**。其**分子式**为?",
+      },
+      choices: [
+        { id: "a", text: { en: "CH₂", zh: "CH₂" } },
+        { id: "b", text: { en: "C₂H₄", zh: "C₂H₄" } },
+        { id: "c", text: { en: "C₄H₈", zh: "C₄H₈" } },
+        { id: "d", text: { en: "C₅H₁₀", zh: "C₅H₁₀" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Empirical formula from percent: C = 85.7/12.01 = 7.14, H = 14.3/1.008 = 14.2. Ratio ≈ **1 : 2 → CH₂** (empirical mass 14.03 g/mol). Ratio of molar to empirical mass = 56.11 / 14.03 ≈ **4**, so molecular formula = **(CH₂)₄ = C₄H₈**. Choice A is empirical only; D has the wrong carbon count.",
+        zh: "由百分比得实验式:C = 85.7/12.01 = 7.14,H = 14.3/1.008 = 14.2,比值约 **1 : 2 → CH₂**(实验式质量 14.03 g/mol)。分子质量 / 实验式质量 = 56.11 / 14.03 ≈ **4**,故分子式 = **(CH₂)₄ = C₄H₈**。选项 A 仅为实验式;D 碳数错误。",
+      },
+    },
+  ],
+
+  // ---------- Topic 1.4 · Mixtures ----------
+  "unit-1/topic-4": [
+    {
+      id: "chem-u1-t4-q1",
+      prompt: {
+        en: "A student has a mixture of sand, table salt (NaCl), and iron filings. Which sequence of techniques **fully separates** the three components?",
+        zh: "某学生有沙子、食盐 (NaCl)、铁屑的混合物。下列哪一组操作能**完全分离**三种组分?",
+      },
+      choices: [
+        { id: "a", text: { en: "Distillation → filtration → chromatography", zh: "蒸馏 → 过滤 → 色谱" } },
+        { id: "b", text: { en: "Magnet to remove Fe → dissolve in water, filter to remove sand → evaporate water to recover NaCl", zh: "磁铁吸除 Fe → 溶于水,过滤除去沙 → 蒸发水分回收 NaCl" } },
+        { id: "c", text: { en: "Filter all three at once — NaCl is the only substance that passes", zh: "一次性过滤三者——NaCl 会直接通过" } },
+        { id: "d", text: { en: "Add acid to dissolve everything, then filter", zh: "加酸使全部溶解,再过滤" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Exploit different physical properties in sequence:** (1) iron is magnetic — pull it out. (2) NaCl is water-soluble, sand is not — filter separates them. (3) evaporate the filtrate to recover salt. Choice A uses the wrong techniques for these components. Choice C fails because dissolved NaCl also passes, mixed with whatever else dissolved.",
+        zh: "**利用不同物理性质依次分离:** (1) 铁具有磁性——用磁铁吸出。(2) NaCl 溶于水,沙不溶——过滤分离。(3) 蒸发滤液回收盐。选项 A 工具不合;选项 C 错,因为 NaCl 溶液也会通过滤纸。",
+      },
+    },
+    {
+      id: "chem-u1-t4-q2",
+      prompt: {
+        en: "On a TLC plate developed in a **nonpolar** solvent, three dyes gave the following R_f values: **A = 0.80, B = 0.25, C = 0.55**. Which dye is the **most polar**, and why?",
+        zh: "在**非极性**溶剂中展开的 TLC 板上,三种染料的 R_f 值为 **A = 0.80、B = 0.25、C = 0.55**。**哪一种最极性?为什么?**",
+      },
+      choices: [
+        { id: "a", text: { en: "A — it traveled farthest, meaning strong attraction to the (polar) silica plate.", zh: "A——走得最远,说明与(极性的)硅胶强烈作用。" } },
+        { id: "b", text: { en: "B — it stuck close to the origin, which is polar silica. Polar attracts polar.", zh: "B——停留在起点附近,起点为极性的硅胶。极性相吸。" } },
+        { id: "c", text: { en: "C — it's in the middle, so it's a balanced compound.", zh: "C——居中,故为「平衡的」化合物。" } },
+        { id: "d", text: { en: "Impossible to tell without the solvent's R_f.", zh: "不知溶剂的 R_f 无法判断。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Low R_f means the dye barely moved** — it preferred the **polar** silica stationary phase over the nonpolar mobile phase. *Like dissolves like.* So B (R_f = 0.25) is the most polar. Choice A reverses the logic — travelling farthest in a nonpolar solvent means the dye is the *least* polar.",
+        zh: "**R_f 低说明染料几乎不移动**——它更偏好**极性的**硅胶固定相,而非非极性的流动相。依据「相似相溶」,B(R_f = 0.25)最极性。选项 A 颠倒了逻辑——在非极性溶剂中走得最远,说明该染料**极性最小**。",
+      },
+    },
+  ],
+
+  // ---------- Topic 1.5 · Electron Configuration ----------
+  "unit-1/topic-5": [
+    {
+      id: "chem-u1-t5-q1",
+      prompt: {
+        en: "What is the ground-state electron configuration of **cobalt (Co, Z = 27)**?",
+        zh: "**钴 (Co, Z = 27)** 的基态电子排布为?",
+      },
+      choices: [
+        { id: "a", text: { en: "[Ar] 4s² 3d⁷", zh: "[Ar] 4s² 3d⁷" } },
+        { id: "b", text: { en: "[Ar] 3d⁹", zh: "[Ar] 3d⁹" } },
+        { id: "c", text: { en: "[Ar] 4s¹ 3d⁸", zh: "[Ar] 4s¹ 3d⁸" } },
+        { id: "d", text: { en: "[Ne] 3s² 3p⁶ 4s² 3d⁷", zh: "[Ne] 3s² 3p⁶ 4s² 3d⁷" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Argon has Z = 18. Cobalt has 9 more electrons: 4s holds 2, then 3d holds 7, giving **[Ar] 4s² 3d⁷**. Cobalt is **not** one of the aufbau exceptions (those are Cr and Cu). Choice D is technically equivalent but not condensed. Choice C would be a Cu/Cr-style half-shift — invalid for Co.",
+        zh: "Ar 的 Z = 18。钴比它多 9 个电子:4s 填 2 个,剩 7 个进入 3d,故为 **[Ar] 4s² 3d⁷**。钴**不是**构造原理的例外(例外是 Cr 与 Cu)。选项 D 实质相同但未简写;选项 C 是 Cu/Cr 类型的半跳,对 Co 不适用。",
+      },
+    },
+    {
+      id: "chem-u1-t5-q2",
+      prompt: {
+        en: "Which rule or principle explains why the electron configuration of nitrogen (1s² 2s² 2p³) places **one** electron in each of the three 2p orbitals with parallel spin, rather than pairing two in a single orbital?",
+        zh: "下列哪条规则解释了氮 (1s² 2s² 2p³) 的三个 2p 电子**分别占据三个轨道且自旋平行**,而不是两两配对?",
+      },
+      choices: [
+        { id: "a", text: { en: "Aufbau principle", zh: "构造原理 (Aufbau)" } },
+        { id: "b", text: { en: "Pauli exclusion principle", zh: "泡利不相容原理" } },
+        { id: "c", text: { en: "Hund's rule", zh: "洪特规则" } },
+        { id: "d", text: { en: "Heisenberg uncertainty principle", zh: "海森堡不确定原理" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "**Hund's rule:** within a degenerate subshell, electrons fill each orbital singly with parallel spins before pairing — this minimizes electron–electron repulsion. Aufbau orders the *subshells*, Pauli forbids two electrons from sharing all four quantum numbers, and Heisenberg is about position/momentum, not configuration.",
+        zh: "**洪特规则:** 能级相同的轨道内,电子先以相同自旋逐个单占,再开始配对——这样可减少电子间排斥。构造原理决定**亚壳层顺序**;泡利禁止四量子数完全相同;海森堡涉及位置/动量,与电子排布无关。",
+      },
+    },
+  ],
+
+  // ---------- Topic 1.6 · PES ----------
+  "unit-1/topic-6": [
+    {
+      id: "chem-u1-t6-q1",
+      prompt: {
+        en: "A PES spectrum of a neutral element shows **four peaks** with height ratios **2 : 2 : 6 : 2**. Which element is it?",
+        zh: "某中性元素的 PES 图显示**四个峰**,高度比为 **2 : 2 : 6 : 2**。该元素为?",
+      },
+      choices: [
+        { id: "a", text: { en: "Be (Z = 4)", zh: "Be (Z = 4)" } },
+        { id: "b", text: { en: "Mg (Z = 12)", zh: "Mg (Z = 12)" } },
+        { id: "c", text: { en: "Ca (Z = 20)", zh: "Ca (Z = 20)" } },
+        { id: "d", text: { en: "Ar (Z = 18)", zh: "Ar (Z = 18)" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Four peaks in ratio 2:2:6:2 mean **1s² 2s² 2p⁶ 3s²**, total 12 electrons → **Z = 12, magnesium**. Ca would show six peaks (adds 3p⁶ 4s²). Ar ends at 3p⁶ (ratio 2:2:6:2:6 — five peaks).",
+        zh: "四个峰且比为 2:2:6:2,对应 **1s² 2s² 2p⁶ 3s²**,共 12 个电子 → **Z = 12,镁**。Ca 会多出 3p⁶、4s²(六个峰);Ar 止于 3p⁶,为五峰(2:2:6:2:6)。",
+      },
+    },
+    {
+      id: "chem-u1-t6-q2",
+      prompt: {
+        en: "In a PES spectrum, the peak for an atom's 1s electrons appears at a **much higher binding energy** than its 2s peak. Why?",
+        zh: "在 PES 图中,某原子的 1s 峰的结合能远**高于**其 2s 峰。原因是?",
+      },
+      choices: [
+        { id: "a", text: { en: "There are more 1s electrons than 2s electrons.", zh: "1s 电子比 2s 电子多。" } },
+        { id: "b", text: { en: "1s electrons are closer to the nucleus and feel a larger effective nuclear charge.", zh: "1s 电子更靠近核,感受到更强的有效核电荷。" } },
+        { id: "c", text: { en: "1s electrons have more kinetic energy.", zh: "1s 电子动能更大。" } },
+        { id: "d", text: { en: "The photons absorbed by 1s electrons have lower frequency.", zh: "被 1s 电子吸收的光子频率更低。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**1s is the innermost shell**, so those electrons sit closest to the nucleus with virtually no shielding — they experience the full nuclear charge and are held most tightly. Higher binding energy = harder to eject. Choice A is wrong (both subshells hold 2 electrons). Choice C conflates kinetic and binding energy.",
+        zh: "**1s 是最内层**,电子最靠近核且几乎无屏蔽——它们感受到全部核电荷,束缚最紧。结合能越高 = 越难打出。选项 A 错(两个亚壳层都容纳 2 个电子);选项 C 混淆了动能与结合能。",
+      },
+    },
+  ],
+
+  // ---------- Topic 1.7 · Periodic Trends ----------
+  "unit-1/topic-7": [
+    {
+      id: "chem-u1-t7-q1",
+      prompt: {
+        en: "Rank the following atoms in order of **increasing atomic radius**: **Na, Mg, K, Cl**.",
+        zh: "按**原子半径递增**排列:**Na、Mg、K、Cl**。",
+      },
+      choices: [
+        { id: "a", text: { en: "Cl < Mg < Na < K", zh: "Cl < Mg < Na < K" } },
+        { id: "b", text: { en: "K < Na < Mg < Cl", zh: "K < Na < Mg < Cl" } },
+        { id: "c", text: { en: "Na < Mg < K < Cl", zh: "Na < Mg < K < Cl" } },
+        { id: "d", text: { en: "Mg < Cl < Na < K", zh: "Mg < Cl < Na < K" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "Across period 3 (Na → Mg → Cl), Z_eff increases so radius **shrinks**: Cl < Mg < Na. Going down group 1 (Na → K) adds a shell, so radius **grows**: Na < K. Combining: **Cl < Mg < Na < K**.",
+        zh: "沿第 3 周期(Na → Mg → Cl)Z_eff 增大,半径**减小**:Cl < Mg < Na。沿第 1 族向下(Na → K)多一层,半径**增大**:Na < K。合并得 **Cl < Mg < Na < K**。",
+      },
+    },
+    {
+      id: "chem-u1-t7-q2",
+      prompt: {
+        en: "The successive ionization energies (in MJ/mol) of an unknown element X are: **IE₁ = 0.74, IE₂ = 1.45, IE₃ = 7.73, IE₄ = 10.5**. To which group of the periodic table does X most likely belong?",
+        zh: "未知元素 X 的逐级电离能(MJ/mol)依次为 **IE₁ = 0.74、IE₂ = 1.45、IE₃ = 7.73、IE₄ = 10.5**。X 最可能属于哪一族?",
+      },
+      choices: [
+        { id: "a", text: { en: "Group 1 (alkali metals)", zh: "第 1 族(碱金属)" } },
+        { id: "b", text: { en: "Group 2 (alkaline earth metals)", zh: "第 2 族(碱土金属)" } },
+        { id: "c", text: { en: "Group 13", zh: "第 13 族" } },
+        { id: "d", text: { en: "Group 17 (halogens)", zh: "第 17 族(卤素)" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "The **huge jump between IE₂ (1.45) and IE₃ (7.73)** tells us the 3rd electron is the first one pulled from a **core shell**. That means X has **exactly 2 valence electrons** → Group 2. IE₁ and IE₂ are moderate (both valence); IE₃ and IE₄ are much higher (core).",
+        zh: "**IE₂(1.45)到 IE₃(7.73)之间的巨大跳跃**说明第 3 个电子来自**内层**。因此 X 有 **2 个价电子** → 第 2 族。IE₁、IE₂ 适中(都是价电子);IE₃、IE₄ 高得多(内层)。",
+      },
+    },
+  ],
+
+  // ---------- Topic 1.8 · Valence Electrons & Ionic Compounds ----------
+  "unit-1/topic-8": [
+    {
+      id: "chem-u1-t8-q1",
+      prompt: {
+        en: "What is the correct formula for the ionic compound formed between **calcium** and **phosphorus**?",
+        zh: "**钙**与**磷**形成的离子化合物的正确分子式为?",
+      },
+      choices: [
+        { id: "a", text: { en: "CaP", zh: "CaP" } },
+        { id: "b", text: { en: "Ca₂P₃", zh: "Ca₂P₃" } },
+        { id: "c", text: { en: "Ca₃P₂", zh: "Ca₃P₂" } },
+        { id: "d", text: { en: "CaP₂", zh: "CaP₂" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Ca is in Group 2 → Ca²⁺. P is in Group 15 → P³⁻. **Crisscross rule:** the 2 becomes the P subscript, the 3 becomes the Ca subscript → **Ca₃P₂** (calcium phosphide). Check neutrality: 3(+2) + 2(−3) = 0. ✓",
+        zh: "Ca 在第 2 族 → Ca²⁺;P 在第 15 族 → P³⁻。**交叉法:** 把 2 放给 P 下标,把 3 放给 Ca 下标 → **Ca₃P₂**(磷化钙)。验证电荷:3(+2) + 2(−3) = 0。✓",
+      },
+    },
+    {
+      id: "chem-u1-t8-q2",
+      prompt: {
+        en: "Which of the following is **NOT** a likely monatomic ion based on the octet rule?",
+        zh: "根据八隅体规则,下列哪个**不是**合理的单原子离子?",
+      },
+      choices: [
+        { id: "a", text: { en: "O²⁻", zh: "O²⁻" } },
+        { id: "b", text: { en: "Al³⁺", zh: "Al³⁺" } },
+        { id: "c", text: { en: "Mg⁺", zh: "Mg⁺" } },
+        { id: "d", text: { en: "F⁻", zh: "F⁻" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Mg is in Group 2 with 2 valence electrons. To reach a noble-gas configuration, it loses **both** to become **Mg²⁺** — not Mg⁺. Group 2 metals essentially never form +1 ions. O²⁻, Al³⁺, and F⁻ all match the octet rule.",
+        zh: "Mg 在第 2 族,有 2 个价电子。要达到惰性气体构型,它必须同时失去**两个**,形成 **Mg²⁺**——而非 Mg⁺。第 2 族金属几乎不会形成 +1 离子。O²⁻、Al³⁺、F⁻ 均符合八隅体规则。",
       },
     },
   ],
