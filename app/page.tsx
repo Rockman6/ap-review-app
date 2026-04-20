@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, BookOpen, CheckCircle2, LineChart, Leaf, TrendingUp } from "lucide-react";
+import { ArrowRight, Atom, BookOpen, CheckCircle2, Feather, FlaskConical, LineChart, Leaf, Sigma, TrendingUp } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
 import { subjects, type Subject } from "@/lib/content";
 
@@ -19,6 +19,30 @@ const subjectStyles: Record<
     icon: <Leaf size={22} />,
     gradient: "from-emerald-500 via-green-500 to-teal-500",
     ring: "ring-emerald-200",
+    iconBg: "bg-white/20",
+  },
+  "ap-physics-1": {
+    icon: <Atom size={22} />,
+    gradient: "from-amber-500 via-orange-500 to-rose-500",
+    ring: "ring-amber-200",
+    iconBg: "bg-white/20",
+  },
+  "ap-chem": {
+    icon: <FlaskConical size={22} />,
+    gradient: "from-fuchsia-500 via-purple-500 to-pink-500",
+    ring: "ring-fuchsia-200",
+    iconBg: "bg-white/20",
+  },
+  "ap-calculus-bc": {
+    icon: <Sigma size={22} />,
+    gradient: "from-sky-500 via-cyan-500 to-teal-500",
+    ring: "ring-sky-200",
+    iconBg: "bg-white/20",
+  },
+  "ap-eng-lang": {
+    icon: <Feather size={22} />,
+    gradient: "from-stone-600 via-zinc-700 to-slate-800",
+    ring: "ring-stone-200",
     iconBg: "bg-white/20",
   },
 };

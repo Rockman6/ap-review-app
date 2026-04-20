@@ -3,6 +3,21 @@
 import { useT } from "./LocaleProvider";
 import { SupplyDemandChart } from "./SupplyDemandChart";
 import { ProductionPossibilitiesChart } from "./ProductionPossibilitiesChart";
+import {
+  CompetitiveLaborMarketChart,
+  LaborMarketShiftChart,
+  LaborMarketTaxChart,
+  MonopolisticCompetitionLRChart,
+  MonopolisticCompetitionSRChart,
+  MonopolyFirmChart,
+  MonopsonyChart,
+  PerfectCompetitionFirmChart,
+} from "./MarketStructureCharts";
+import {
+  LorenzCurveChart,
+  NegativeExternalityChart,
+  PositiveExternalityChart,
+} from "./MarketFailureCharts";
 import type { NoteBlock } from "@/lib/content";
 
 export function Highlighted({ text }: { text: string }) {
@@ -51,8 +66,34 @@ export function NoteBlockRenderer({ block }: { block: NoteBlock }) {
         </div>
       );
     case "chart":
-      if (block.chartType === "ppc") return <ProductionPossibilitiesChart />;
-      return <SupplyDemandChart />;
+      switch (block.chartType) {
+        case "ppc":
+          return <ProductionPossibilitiesChart />;
+        case "perfect-comp-firm":
+          return <PerfectCompetitionFirmChart />;
+        case "monopoly":
+          return <MonopolyFirmChart />;
+        case "monop-comp-sr":
+          return <MonopolisticCompetitionSRChart />;
+        case "monop-comp-lr":
+          return <MonopolisticCompetitionLRChart />;
+        case "monopsony":
+          return <MonopsonyChart />;
+        case "labor-market":
+          return <CompetitiveLaborMarketChart />;
+        case "labor-market-shift":
+          return <LaborMarketShiftChart />;
+        case "labor-market-tax":
+          return <LaborMarketTaxChart />;
+        case "negative-externality":
+          return <NegativeExternalityChart />;
+        case "positive-externality":
+          return <PositiveExternalityChart />;
+        case "lorenz-curve":
+          return <LorenzCurveChart />;
+        default:
+          return <SupplyDemandChart />;
+      }
     case "table":
       return (
         <figure className="my-6 overflow-hidden rounded-xl border border-slate-200 bg-white">
