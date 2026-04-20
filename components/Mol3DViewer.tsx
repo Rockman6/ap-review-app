@@ -9,7 +9,9 @@ type Geometry =
   | "trigonal-pyramidal"
   | "bent"
   | "trigonal-bipyramidal"
-  | "octahedral";
+  | "octahedral"
+  | "see-saw"
+  | "square-planar";
 
 const MOL_DATA: Record<Geometry, { xyz: string; label: string }> = {
   linear: {
@@ -78,6 +80,26 @@ F  0.000  1.560  0.000
 F  0.000 -1.560  0.000
 F  0.000  0.000  1.560
 F  0.000  0.000 -1.560`,
+  },
+  "see-saw": {
+    label: "See-saw (SF₄)",
+    xyz: `5
+SF4
+S  0.000  0.000  0.000
+F  0.000  0.000  1.646
+F  0.000  0.000 -1.646
+F  1.550  0.000  0.000
+F -0.775  1.342  0.000`,
+  },
+  "square-planar": {
+    label: "Square planar (XeF₄)",
+    xyz: `5
+XeF4
+Xe 0.000  0.000  0.000
+F  1.953  0.000  0.000
+F -1.953  0.000  0.000
+F  0.000  1.953  0.000
+F  0.000 -1.953  0.000`,
   },
 };
 
