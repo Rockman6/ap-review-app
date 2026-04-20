@@ -7620,15 +7620,23 @@ export const apChemistry: Subject = {
       number: 3,
       title: { en: "Properties of Substances & Mixtures", zh: "物质与混合物的性质" },
       description: {
-        en: "States of matter, gas laws, solutions, and spectroscopy.",
-        zh: "物质状态、气体定律、溶液与光谱分析。",
+        en: "Intermolecular forces, phases of matter, gas laws, solutions, and spectroscopy.",
+        zh: "分子间作用力、物质状态、气体定律、溶液与光谱分析。",
       },
       topics: [
-        { slug: "topic-1", title: { en: "States of Matter", zh: "物质的状态" }, summary: { en: "Solids, liquids, gases — particle motion and energy.", zh: "固、液、气——粒子运动与能量。" } },
-        { slug: "topic-2", title: { en: "Ideal Gas Law", zh: "理想气体定律" }, summary: { en: "PV = nRT and the kinetic molecular theory.", zh: "PV = nRT 与气体分子运动论。" } },
-        { slug: "topic-3", title: { en: "Solutions & Mixtures", zh: "溶液与混合物" }, summary: { en: "Solubility, concentration units, and dilution.", zh: "溶解度、浓度单位与稀释。" } },
-        { slug: "topic-4", title: { en: "Separation Techniques", zh: "分离技术" }, summary: { en: "Filtration, distillation, chromatography — when to use each.", zh: "过滤、蒸馏、色谱——分别适用何种情况。" } },
-        { slug: "topic-5", title: { en: "Spectroscopy & the Electromagnetic Spectrum", zh: "光谱与电磁波谱" }, summary: { en: "Beer–Lambert law and identifying substances by absorption.", zh: "比尔-朗伯定律——通过吸光鉴定物质。" } },
+        { slug: "topic-1", title: { en: "Intermolecular & Interparticle Forces", zh: "分子间与粒子间作用力" }, summary: { en: "Dispersion, dipole-dipole, hydrogen bonding, ion-dipole.", zh: "色散力、偶极-偶极、氢键、离子-偶极。" } },
+        { slug: "topic-2", title: { en: "Properties of Solids", zh: "固体的性质" }, summary: { en: "Molecular, ionic, metallic, and covalent-network solids.", zh: "分子晶体、离子晶体、金属晶体与共价网状晶体。" } },
+        { slug: "topic-3", title: { en: "Solids, Liquids & Gases", zh: "固、液、气态" }, summary: { en: "Particle behavior and phase changes.", zh: "粒子行为与相变。" } },
+        { slug: "topic-4", title: { en: "Ideal Gas Law", zh: "理想气体定律" }, summary: { en: "PV = nRT; combined and partial-pressure relationships.", zh: "PV = nRT;组合定律与分压定律。" } },
+        { slug: "topic-5", title: { en: "Kinetic Molecular Theory", zh: "气体分子运动论" }, summary: { en: "Maxwell-Boltzmann distribution and KE ∝ T.", zh: "Maxwell-Boltzmann 分布;KE ∝ T。" } },
+        { slug: "topic-6", title: { en: "Deviation from Ideal Gas Law", zh: "真实气体对理想气体的偏离" }, summary: { en: "When high pressure or low temperature breaks PV = nRT.", zh: "高压或低温时 PV = nRT 的失效。" } },
+        { slug: "topic-7", title: { en: "Solutions & Mixtures", zh: "溶液与混合物" }, summary: { en: "Solute, solvent, and the solvation process.", zh: "溶质、溶剂与溶解过程。" } },
+        { slug: "topic-8", title: { en: "Representations of Solutions", zh: "溶液的表示" }, summary: { en: "Molarity, mole fraction, molality — and dilution.", zh: "摩尔浓度、摩尔分数、质量摩尔浓度;稀释。" } },
+        { slug: "topic-9", title: { en: "Separation of Solutions & Mixtures", zh: "溶液与混合物的分离" }, summary: { en: "Distillation, chromatography, filtration — choosing the right tool.", zh: "蒸馏、色谱、过滤——选择合适的方法。" } },
+        { slug: "topic-10", title: { en: "Solubility", zh: "溶解度" }, summary: { en: "'Like dissolves like' and factors that affect solubility.", zh: "相似相溶;影响溶解度的因素。" } },
+        { slug: "topic-11", title: { en: "Spectroscopy & the EM Spectrum", zh: "光谱与电磁波谱" }, summary: { en: "Which wavelengths excite which transitions.", zh: "不同波长对应不同的能级跃迁。" } },
+        { slug: "topic-12", title: { en: "Properties of Photons", zh: "光子的性质" }, summary: { en: "E = hν, photon energy, and wave–particle duality.", zh: "E = hν;光子能量与波粒二象性。" } },
+        { slug: "topic-13", title: { en: "Beer–Lambert Law", zh: "比尔-朗伯定律" }, summary: { en: "A = εbc — measuring concentration from absorbance.", zh: "A = εbc——由吸光度测浓度。" } },
       ],
     },
     {
@@ -9778,6 +9786,468 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
       },
     },
   ],
+
+  // ============================================================
+  // UNIT 3 · Intermolecular Forces & Properties of Substances
+  // ============================================================
+
+  // ---------- 3.1 · IMFs & Interparticle Forces ----------
+  "unit-3/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Intramolecular forces (covalent, ionic) hold **atoms inside a molecule**. **Intermolecular forces (IMFs)** are weaker attractions **between** molecules. IMFs decide boiling points, viscosity, surface tension — anything that involves pulling molecules apart without breaking bonds inside them.",
+        zh: "分子内作用力(共价键、离子键)把**分子内的原子**连在一起;**分子间作用力 (IMFs)** 是**分子之间**较弱的吸引。它决定沸点、黏度、表面张力——任何需要把分子拉开但不破坏分子内部键的性质。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "IMF hierarchy — strongest to weakest", zh: "IMF 强度从强到弱" },
+      columns: [
+        { en: "Force", zh: "类型" },
+        { en: "Who has it", zh: "存在于" },
+        { en: "Origin", zh: "来源" },
+        { en: "Relative strength", zh: "相对强度" },
+      ],
+      rows: [
+        [{ en: "Ion–dipole", zh: "离子-偶极" }, { en: "Ion dissolved in a polar solvent", zh: "极性溶剂中的离子" }, { en: "Full charge attracts partial charge", zh: "整电荷吸引部分电荷" }, { en: "Strongest", zh: "最强" }],
+        [{ en: "Hydrogen bonding", zh: "氢键" }, { en: "H bonded to F, O, or N", zh: "H 直接与 F、O、N 成键" }, { en: "Very polar X–H bond + lone pair on F/O/N", zh: "X–H 极性强 + F/O/N 孤对" }, { en: "Very strong", zh: "很强" }],
+        [{ en: "Dipole–dipole", zh: "偶极-偶极" }, { en: "Polar molecules", zh: "极性分子" }, { en: "δ⁺ of one molecule attracts δ⁻ of another", zh: "一个分子的 δ⁺ 吸引另一分子的 δ⁻" }, { en: "Medium", zh: "中等" }],
+        [{ en: "London dispersion", zh: "色散力" }, { en: "All molecules (only type for nonpolar)", zh: "所有分子(非极性只此一种)" }, { en: "Temporary electron fluctuations", zh: "瞬时电子波动" }, { en: "Weakest (but grows with size!)", zh: "最弱(但随分子增大而增强)" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Common trap", zh: "常见误区" },
+      text: {
+        en: "Dispersion forces are 'weakest' **per pair**, but a large molecule has many more contact points — so a long hydrocarbon like C₂₀H₄₂ has stronger total dispersion than a small polar molecule. Size beats polarity when molecules are big enough.",
+        zh: "色散力**单对**最弱,但大分子接触点多——长链 C₂₀H₄₂ 的总色散力可以超过小的极性分子。分子够大时,体积胜过极性。",
+      },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Hydrogen bonding is what makes water's boiling point (100 °C) so much higher than H₂S's (-60 °C), even though H₂S is a larger molecule. H₂O's O–H bonds create strong, directional H-bonds that H₂S's S–H bonds can't replicate.",
+        zh: "氢键是水的沸点(100 °C)远高于 H₂S(-60 °C)的原因,即便 H₂S 是更大的分子。H₂O 的 O–H 键形成强且具方向性的氢键,而 S–H 键无法形成。",
+      },
+    },
+  ],
+
+  // ---------- 3.2 · Properties of Solids ----------
+  "unit-3/topic-2": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Every solid's properties — melting point, hardness, conductivity, brittleness — come from **what holds its particles together**. Four categories cover nearly everything on the AP exam.",
+        zh: "固体的性质——熔点、硬度、导电性、脆性——都由**粒子之间的作用力**决定。AP 考试中常见的固体基本分为四类。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Four types of solid", zh: "四类固体" },
+      columns: [
+        { en: "Type", zh: "类型" },
+        { en: "Particles", zh: "粒子" },
+        { en: "Force holding them", zh: "作用力" },
+        { en: "Typical properties", zh: "典型性质" },
+        { en: "Example", zh: "例子" },
+      ],
+      rows: [
+        [{ en: "Molecular", zh: "分子晶体" }, { en: "Discrete molecules", zh: "独立分子" }, { en: "IMFs only", zh: "仅分子间作用力" }, { en: "Low mp, soft, non-conducting", zh: "熔点低、软、不导电" }, { en: "Ice, solid CO₂", zh: "冰、干冰" }],
+        [{ en: "Ionic", zh: "离子晶体" }, { en: "Cations + anions", zh: "阳离子 + 阴离子" }, { en: "Electrostatic attraction", zh: "静电吸引" }, { en: "High mp, hard, brittle; conducts only when molten/aq.", zh: "熔点高、硬、脆;熔融或水溶状态下导电" }, { en: "NaCl, MgO", zh: "NaCl、MgO" }],
+        [{ en: "Metallic", zh: "金属晶体" }, { en: "Metal cations + sea of electrons", zh: "金属阳离子 + 电子海" }, { en: "Metallic bonding", zh: "金属键" }, { en: "Varied mp, malleable, conducting, lustrous", zh: "熔点不一、延展、导电、有光泽" }, { en: "Fe, Cu, alloys", zh: "Fe、Cu、合金" }],
+        [{ en: "Covalent network", zh: "共价网状晶体" }, { en: "Atoms in a continuous lattice", zh: "原子组成的连续晶格" }, { en: "Covalent bonds everywhere", zh: "处处为共价键" }, { en: "Very high mp, extremely hard, usually non-conducting", zh: "熔点极高、极硬、通常不导电" }, { en: "Diamond, SiO₂, graphite*", zh: "金刚石、SiO₂、石墨*" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Graphite exception", zh: "石墨的特殊之处" },
+      text: {
+        en: "Graphite is a covalent network of carbon, but delocalized π electrons run along the sheets — so it **conducts electricity** along the plane while still having a very high melting point. Layers can slide (weak IMFs between sheets) → lubricant.",
+        zh: "石墨是碳的共价网状晶体,但其 π 电子在层内离域——因此**沿层导电**,且熔点极高。层间只有弱的分子间力,易滑动 → 可作润滑剂。",
+      },
+    },
+  ],
+
+  // ---------- 3.3 · Solids, Liquids & Gases ----------
+  "unit-3/topic-3": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The difference between a solid, a liquid, and a gas comes down to the **balance between particle kinetic energy and intermolecular forces**. Adding heat raises KE; at some point particles break free of their neighbors.",
+        zh: "固、液、气态的区别,归根到底是**粒子动能与分子间作用力之间的平衡**。加热提升动能,粒子最终挣脱邻居束缚。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Particle picture of the three states", zh: "三态的粒子图像" },
+      columns: [
+        { en: "State", zh: "态" },
+        { en: "Spacing", zh: "粒子间距" },
+        { en: "Motion", zh: "运动" },
+        { en: "Shape / volume", zh: "形状 / 体积" },
+      ],
+      rows: [
+        [{ en: "Solid", zh: "固态" }, { en: "Tight, fixed lattice", zh: "紧密、固定晶格" }, { en: "Vibrate in place", zh: "原地振动" }, { en: "Fixed shape, fixed volume", zh: "形状、体积均固定" }],
+        [{ en: "Liquid", zh: "液态" }, { en: "Close, but free to rearrange", zh: "较近,但可重排" }, { en: "Flow past each other", zh: "互相滑动" }, { en: "Takes container shape, fixed volume", zh: "随容器形,体积固定" }],
+        [{ en: "Gas", zh: "气态" }, { en: "Very far apart", zh: "相隔很远" }, { en: "Rapid, random, constant", zh: "快速、随机、持续" }, { en: "Fills container fully", zh: "充满整个容器" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Phase changes and energy", zh: "相变与能量" },
+    },
+    {
+      kind: "math",
+      tex: "\\underbrace{\\text{solid}}_{\\text{strongest IMFs}} \\xrightleftharpoons[\\text{freezing}]{\\text{melting}} \\text{liquid} \\xrightleftharpoons[\\text{condensation}]{\\text{vaporization}} \\underbrace{\\text{gas}}_{\\text{weakest IMFs}}",
+      caption: { en: "Phase transitions — each arrow to the right absorbs energy", zh: "相变示意——每次向右吸热" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Heating-curve reading", zh: "加热曲线的关键" },
+      text: {
+        en: "On a T-vs-heat plot, **flat plateaus** appear at each phase change: all the incoming energy goes to breaking IMFs, not raising temperature. Sloped segments represent sensible heat (q = mcΔT).",
+        zh: "在温度-热量曲线上,每次相变出现**水平平台**:此时所有热量用于破坏分子间作用力,温度不变。斜线段对应显热(q = mcΔT)。",
+      },
+    },
+  ],
+
+  // ---------- 3.4 · Ideal Gas Law ----------
+  "unit-3/topic-4": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The ideal gas law ties together every macroscopic variable of a gas into one equation. It assumes gas particles take up no volume and don't attract one another — a good approximation at ordinary pressures and temperatures.",
+        zh: "理想气体定律把气体的所有宏观变量压在一个方程里。其假设:气体粒子体积可忽略且彼此无吸引力——在常温常压下是不错的近似。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "PV \\;=\\; nRT",
+      caption: { en: "P in atm, V in L, n in mol, T in K, R = 0.0821 L·atm/(mol·K)", zh: "P 用 atm,V 用 L,n 用 mol,T 用 K,R = 0.0821 L·atm/(mol·K)" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Quick reminders", zh: "速记" },
+      text: {
+        en: "**Always use Kelvin** for T. **STP** (standard T & P) is 0 °C (273.15 K) and 1 atm → **1 mol of ideal gas occupies 22.4 L**. Also remember R = 8.314 J/(mol·K) when working in SI units.",
+        zh: "**T 必须用开尔文**。**STP**(标准温度压力)= 0 °C (273.15 K),1 atm → **1 mol 理想气体占 22.4 L**。用 SI 单位时 R = 8.314 J/(mol·K)。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\dfrac{P_{1}V_{1}}{n_{1}T_{1}} \\;=\\; \\dfrac{P_{2}V_{2}}{n_{2}T_{2}}",
+      caption: { en: "Combined form — hold any variables constant to recover Boyle's, Charles's, etc.", zh: "组合形式——固定若干变量即可得到 Boyle、Charles 等定律" },
+    },
+    {
+      kind: "heading",
+      text: { en: "Dalton's law of partial pressures", zh: "Dalton 分压定律" },
+    },
+    {
+      kind: "math",
+      tex: "P_{\\text{total}} \\;=\\; P_{1} + P_{2} + \\cdots \\quad\\text{and}\\quad P_{i} \\;=\\; \\chi_{i}\\,P_{\\text{total}}",
+      caption: { en: "Mole fraction χᵢ = nᵢ / n_total", zh: "摩尔分数 χᵢ = nᵢ / n_total" },
+    },
+  ],
+
+  // ---------- 3.5 · Kinetic Molecular Theory ----------
+  "unit-3/topic-5": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Kinetic molecular theory (KMT) explains *why* PV = nRT works. Five postulates: (1) gas particles are negligibly small, (2) move in random straight lines, (3) collide elastically (no KE lost), (4) don't attract or repel each other, (5) average KE depends **only on temperature**.",
+        zh: "气体分子运动论 (KMT) 解释了 PV = nRT 成立的原因。五条假设:(1) 粒子体积可忽略;(2) 做直线随机运动;(3) 弹性碰撞(不损失动能);(4) 互不吸引或排斥;(5) 平均动能**只取决于温度**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\overline{KE} \\;=\\; \\tfrac{3}{2}\\,k_{B}\\,T \\;=\\; \\tfrac{1}{2}\\,m\\,\\overline{v^{2}}",
+      caption: { en: "At the same T, all gases have the same average KE — heavier ones move slower.", zh: "同温下所有气体的平均动能相同——质量大的速度慢。" },
+    },
+    {
+      kind: "math",
+      tex: "v_{\\text{rms}} \\;=\\; \\sqrt{\\dfrac{3RT}{M}}\\qquad(\\text{M in kg/mol})",
+      caption: { en: "Root-mean-square speed", zh: "均方根速率" },
+    },
+    {
+      kind: "heading",
+      text: { en: "Maxwell–Boltzmann distribution", zh: "Maxwell–Boltzmann 分布" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Not all particles move at the same speed. A Maxwell–Boltzmann plot shows the **distribution** of speeds: a skewed curve with a peak (most-probable speed) and a long high-speed tail. Raising T widens and flattens the curve — more particles in the high-speed tail, which is why reaction rates rise with temperature.",
+        zh: "并非所有粒子速度相同。Maxwell–Boltzmann 图给出速度**分布**:偏态曲线,有一个峰(最概然速率)和向高速延伸的长尾。升温使曲线变宽变平,高速尾区粒子增多——这也是升温反应加速的原因。",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Graham's law of effusion", zh: "Graham 扩散定律" },
+      text: {
+        en: "Under identical conditions, lighter gases effuse faster. The rate ratio equals the inverse square root of the molar-mass ratio: **rate₁/rate₂ = √(M₂/M₁)**.",
+        zh: "相同条件下,轻气体扩散更快。速率比等于摩尔质量比的反平方根:**rate₁/rate₂ = √(M₂/M₁)**。",
+      },
+    },
+  ],
+
+  // ---------- 3.6 · Deviation from Ideal Gas ----------
+  "unit-3/topic-6": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "PV = nRT breaks down when either of KMT's unrealistic assumptions matter: (1) particle volume is significant, or (2) particles attract each other strongly. Real gases deviate **most at high pressure and low temperature** — exactly the regime where they're close to condensing.",
+        zh: "当 KMT 的两条理想假设不成立时,PV = nRT 失效:(1) 粒子自身体积不可忽略;或 (2) 粒子间存在明显吸引。真实气体在**高压、低温**下偏差最大——此时气体接近液化。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "How deviations show up", zh: "偏差的表现" },
+      columns: [
+        { en: "Condition", zh: "条件" },
+        { en: "Effect", zh: "效果" },
+        { en: "Why", zh: "原因" },
+      ],
+      rows: [
+        [{ en: "High P", zh: "高压" }, { en: "Measured V > ideal prediction", zh: "实测 V > 理想预测" }, { en: "Particle volume no longer negligible", zh: "粒子体积不可忽略" }],
+        [{ en: "Low T", zh: "低温" }, { en: "Measured P < ideal prediction", zh: "实测 P < 理想预测" }, { en: "IMFs slow collisions with walls", zh: "分子间作用力减慢碰壁" }],
+      ],
+    },
+    {
+      kind: "math",
+      tex: "\\underbrace{\\left[P + a\\!\\left(\\tfrac{n}{V}\\right)^{2}\\right]}_{\\text{attraction correction}}\\;\\underbrace{(V - nb)}_{\\text{volume correction}} \\;=\\; nRT",
+      caption: { en: "Van der Waals equation — the ideal-gas law with two corrections", zh: "范德华方程——在理想气体定律上加两项修正" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "Large nonpolar gases (Xe) and gases that hydrogen-bond (H₂O vapor, NH₃) deviate more than small, inert ones (He, Ne) because their IMFs and/or particle volumes are larger.",
+        zh: "大的非极性气体(Xe)和易形成氢键的气体(H₂O 蒸汽、NH₃)偏差较大——它们的 IMF 与/或粒子体积都较显著。小而惰性的气体(He、Ne)偏差很小。",
+      },
+    },
+  ],
+
+  // ---------- 3.7 · Solutions & Mixtures ----------
+  "unit-3/topic-7": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "A **solution** is a homogeneous mixture of a **solute** (the thing dissolved, usually in smaller amount) and a **solvent** (what does the dissolving, usually in larger amount). Solutions look like one phase — you can't see the solute with the naked eye.",
+        zh: "**溶液**是均相混合物,由**溶质**(被溶解物,通常量少)与**溶剂**(做溶解的物质,通常量多)组成。外观上只看到一相——肉眼看不到溶质。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Solvation — why things dissolve", zh: "溶剂化——为什么能溶解" },
+    },
+    {
+      kind: "list",
+      items: [
+        { en: "**Step 1:** break solute–solute attractions (endothermic).", zh: "**第一步:** 破坏溶质之间的作用力(吸热)。" },
+        { en: "**Step 2:** break some solvent–solvent attractions to make room (endothermic).", zh: "**第二步:** 破坏部分溶剂之间的作用力以腾出空间(吸热)。" },
+        { en: "**Step 3:** form new solute–solvent attractions (exothermic).", zh: "**第三步:** 形成新的溶质–溶剂作用力(放热)。" },
+        { en: "Dissolving is favorable when step 3 releases ≥ energy absorbed in steps 1 & 2.", zh: "若第三步释放的能量 ≥ 前两步吸收,总体溶解过程更易发生。" },
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Like dissolves like", zh: "相似相溶" },
+      text: {
+        en: "Polar and ionic solutes dissolve in polar solvents (water); nonpolar solutes dissolve in nonpolar solvents (hexane). The IMFs in solute and solvent must be compatible so that step 3 is energetically competitive.",
+        zh: "极性或离子型溶质溶于极性溶剂(水);非极性溶质溶于非极性溶剂(己烷)。溶质与溶剂的分子间作用力类型相近,第三步才能释放足够能量。",
+      },
+    },
+  ],
+
+  // ---------- 3.8 · Representations of Solutions ----------
+  "unit-3/topic-8": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Different concentration units are useful in different situations. AP Chemistry focuses on **molarity (M)** and, to a lesser extent, **molality (m)** and **mole fraction (χ)**.",
+        zh: "不同浓度单位适用不同场景。AP 化学重点是**摩尔浓度 (M)**,其次是**质量摩尔浓度 (m)** 和**摩尔分数 (χ)**。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Three concentration units", zh: "三种浓度单位" },
+      columns: [
+        { en: "Symbol", zh: "符号" },
+        { en: "Definition", zh: "定义" },
+        { en: "Units", zh: "单位" },
+      ],
+      rows: [
+        [{ en: "M  (molarity)", zh: "M(摩尔浓度)" }, { en: "mol solute / L solution", zh: "溶质 mol / 溶液 L" }, { en: "mol/L", zh: "mol/L" }],
+        [{ en: "m  (molality)", zh: "m(质量摩尔浓度)" }, { en: "mol solute / kg solvent", zh: "溶质 mol / 溶剂 kg" }, { en: "mol/kg", zh: "mol/kg" }],
+        [{ en: "χ  (mole fraction)", zh: "χ(摩尔分数)" }, { en: "mol solute / total mol", zh: "溶质 mol / 总 mol" }, { en: "—", zh: "—" }],
+      ],
+    },
+    {
+      kind: "heading",
+      text: { en: "Dilution", zh: "稀释" },
+    },
+    {
+      kind: "math",
+      tex: "M_{1}V_{1} \\;=\\; M_{2}V_{2}",
+      caption: { en: "Adding solvent doesn't change moles of solute; conservation gives this shortcut.", zh: "加入溶剂不改变溶质的摩尔数,物质守恒即得此关系。" },
+    },
+  ],
+
+  // ---------- 3.9 · Separation ----------
+  "unit-3/topic-9": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Every separation technique exploits a **difference in physical property** between components of a mixture. Choose the right property for the mixture you have.",
+        zh: "每种分离技术都利用组分间**某一物理性质的差异**。关键是根据混合物类型,选对「差异」。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Separation techniques at a glance", zh: "常见分离技术一览" },
+      columns: [
+        { en: "Method", zh: "方法" },
+        { en: "Exploits", zh: "利用" },
+        { en: "Good for", zh: "适用于" },
+      ],
+      rows: [
+        [{ en: "Filtration", zh: "过滤" }, { en: "Particle size", zh: "颗粒大小" }, { en: "Insoluble solid in liquid", zh: "不溶固体与液体" }],
+        [{ en: "Distillation", zh: "蒸馏" }, { en: "Difference in boiling points", zh: "沸点差异" }, { en: "Miscible liquid mixtures", zh: "可互溶液体" }],
+        [{ en: "Chromatography (TLC)", zh: "色谱 (TLC)" }, { en: "Polarity / affinity", zh: "极性/亲和力" }, { en: "Complex mixtures; identification", zh: "复杂混合物;鉴定" }],
+        [{ en: "Recrystallization", zh: "重结晶" }, { en: "Solubility changes with T", zh: "溶解度随温度变化" }, { en: "Purifying a solid", zh: "固体提纯" }],
+        [{ en: "Evaporation", zh: "蒸发" }, { en: "Volatility difference", zh: "挥发性差异" }, { en: "Recovering dissolved solute", zh: "回收溶解的溶质" }],
+      ],
+    },
+  ],
+
+  // ---------- 3.10 · Solubility ----------
+  "unit-3/topic-10": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Solubility is the **maximum amount** of solute that will dissolve in a given solvent at a given temperature. Beyond that limit, excess solute stays undissolved — the solution is saturated.",
+        zh: "溶解度 = 一定温度下,溶质在给定溶剂中**最多**能溶解的量。超过此量,多余溶质不再溶解——溶液达到饱和。",
+      },
+    },
+    {
+      kind: "table",
+      caption: { en: "Factors that change solubility", zh: "影响溶解度的因素" },
+      columns: [
+        { en: "Factor", zh: "因素" },
+        { en: "Solids in liquid", zh: "固体溶于液体" },
+        { en: "Gases in liquid", zh: "气体溶于液体" },
+      ],
+      rows: [
+        [{ en: "↑ Temperature", zh: "升温" }, { en: "Usually solubility ↑", zh: "溶解度一般**升高**" }, { en: "Solubility ↓", zh: "溶解度**降低**" }],
+        [{ en: "↑ Pressure", zh: "升压" }, { en: "Negligible effect", zh: "几乎不影响" }, { en: "Solubility ↑ (Henry's law)", zh: "溶解度**升高**(Henry 定律)" }],
+        [{ en: "Polarity match", zh: "极性匹配" }, { en: "Like dissolves like", zh: "相似相溶" }, { en: "Like dissolves like", zh: "相似相溶" }],
+      ],
+    },
+    {
+      kind: "math",
+      tex: "S_{\\text{gas}} \\;=\\; k_{H}\\,P_{\\text{gas}}",
+      caption: { en: "Henry's law — gas solubility is proportional to partial pressure above the liquid.", zh: "Henry 定律——气体溶解度与其在液面上方的分压成正比。" },
+    },
+  ],
+
+  // ---------- 3.11 · Spectroscopy & EM Spectrum ----------
+  "unit-3/topic-11": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Light is electromagnetic radiation, characterized by wavelength λ and frequency ν. The **electromagnetic spectrum** orders all wavelengths from long (radio) to short (γ-rays). Each region of the spectrum excites a **different kind of molecular transition**, which is why there are so many spectroscopy techniques.",
+        zh: "光是电磁辐射,用波长 λ 和频率 ν 描述。**电磁波谱**按波长从长(无线电)到短(γ 射线)排列。不同波段对应**不同类型的分子跃迁**,因此光谱技术种类繁多。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "c \\;=\\; \\lambda\\,\\nu \\qquad c = 3.00 \\times 10^{8}\\ \\text{m/s}",
+      caption: { en: "Wavelength × frequency = speed of light (in vacuum).", zh: "波长 × 频率 = 真空光速。" },
+    },
+    {
+      kind: "table",
+      caption: { en: "What each part of the EM spectrum probes", zh: "电磁波谱各波段探测的跃迁" },
+      columns: [
+        { en: "Region", zh: "波段" },
+        { en: "Approx. wavelength", zh: "典型波长" },
+        { en: "Transition", zh: "跃迁类型" },
+      ],
+      rows: [
+        [{ en: "Radio", zh: "无线电" }, { en: "m – km", zh: "米 – 千米" }, { en: "Nuclear spin (NMR)", zh: "核自旋(NMR)" }],
+        [{ en: "Microwave", zh: "微波" }, { en: "cm", zh: "厘米" }, { en: "Molecular rotation", zh: "分子转动" }],
+        [{ en: "Infrared (IR)", zh: "红外" }, { en: "μm", zh: "微米" }, { en: "Molecular vibration", zh: "分子振动" }],
+        [{ en: "Visible / UV", zh: "可见 / 紫外" }, { en: "400–700 / 100–400 nm", zh: "400–700 / 100–400 nm" }, { en: "Valence-electron transitions", zh: "价电子跃迁" }],
+        [{ en: "X-ray / γ", zh: "X 射线 / γ 射线" }, { en: "nm – pm", zh: "纳米 – 皮米" }, { en: "Core-electron / nuclear transitions", zh: "内层电子 / 核跃迁" }],
+      ],
+    },
+  ],
+
+  // ---------- 3.12 · Properties of Photons ----------
+  "unit-3/topic-12": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Light behaves as a **particle** in addition to a wave. Each particle (a photon) carries a discrete packet of energy. Higher-frequency light has higher-energy photons.",
+        zh: "光不仅是波,也表现为**粒子**。每个粒子(光子)携带一份离散能量。频率越高,光子能量越大。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "E \\;=\\; h\\,\\nu \\;=\\; \\dfrac{h\\,c}{\\lambda}\\qquad h = 6.626 \\times 10^{-34}\\ \\text{J·s}",
+      caption: { en: "Planck's relation for photon energy", zh: "Planck 关系式" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Key consequence", zh: "核心推论" },
+      text: {
+        en: "A molecule can absorb a photon only when the photon's energy exactly matches a gap between molecular energy levels. That's why absorption spectra show **discrete peaks**, not continuous bands.",
+        zh: "分子只能吸收能量**恰好**等于其能级间距的光子。这就是吸收光谱出现**离散峰**而非连续带的原因。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Typical photon-energy ladder", zh: "典型光子能量阶梯" },
+    },
+    {
+      kind: "math",
+      tex: "E_{\\text{radio}} \\;<\\; E_{\\text{IR}} \\;<\\; E_{\\text{visible}} \\;<\\; E_{\\text{UV}} \\;<\\; E_{\\text{X-ray}}",
+    },
+  ],
+
+  // ---------- 3.13 · Beer–Lambert Law ----------
+  "unit-3/topic-13": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "The Beer–Lambert law is the workhorse of quantitative visible/UV spectroscopy. It says **the more absorbing molecules the light crosses, the more light is absorbed** — linearly.",
+        zh: "比尔-朗伯定律是定量可见/紫外光谱的核心。它告诉我们:光穿过的吸光分子越多,被吸收的光越多——成**线性**关系。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "A \\;=\\; \\varepsilon\\, b\\, c",
+      caption: { en: "A = absorbance, ε = molar absorptivity (M⁻¹·cm⁻¹), b = path length (cm), c = concentration (M)", zh: "A = 吸光度,ε = 摩尔吸光系数 (M⁻¹·cm⁻¹),b = 光程 (cm),c = 浓度 (M)" },
+    },
+    {
+      kind: "callout",
+      label: { en: "Calibration curve", zh: "标准曲线" },
+      text: {
+        en: "Plot A (y) vs. c (x) for several known standards at the same wavelength and path length — you get a straight line through the origin with slope εb. Measure A of your unknown and read off its concentration.",
+        zh: "用一系列已知浓度的标样在相同波长和光程下测 A,以 c 为横轴、A 为纵轴作图,得到过原点的直线,斜率 εb。测未知样品的 A,由直线反读其浓度。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "A \\;=\\; -\\log_{10}\\!\\left(\\dfrac{I}{I_{0}}\\right)",
+      caption: { en: "Absorbance and transmittance — log relationship", zh: "吸光度与透光率——对数关系" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A = 1 means only 10% of the light gets through (T = 10%); A = 2 means 1% gets through. So absorbance is very sensitive to small concentrations.",
+        zh: "A = 1 表示仅有 10% 的光透过(T = 10%);A = 2 表示仅 1%。因此吸光度对低浓度仍非常敏感。",
+      },
+    },
+  ],
 };
 
 export const topicQuestionsChem: Record<string, Question[]> = {
@@ -10391,6 +10861,283 @@ export const topicQuestionsChem: Record<string, Question[]> = {
       explanation: {
         en: "Each C has **2 electron domains** (one to H, one to the other C — the triple bond counts as one domain). 2 domains → **sp** hybridization. The two unhybridized p-orbitals on each C form the two π bonds of the triple bond.",
         zh: "每个 C 有 **2 个电子域**(一个连 H,一个连另一个 C——三键算一个域)。2 个域 → **sp 杂化**。每个 C 剩下两条未杂化 p 轨道,形成三键中的两条 π 键。",
+      },
+    },
+  ],
+
+  // ============================================================
+  // UNIT 3 · Questions
+  // ============================================================
+
+  "unit-3/topic-1": [
+    {
+      id: "chem-u3-t1-q1",
+      prompt: {
+        en: "Which pair of compounds would you expect to have the **greatest difference** in boiling points, and which compound has the higher bp?",
+        zh: "下列哪一对化合物的**沸点差异最大**,其中沸点更高的是哪个?",
+      },
+      choices: [
+        { id: "a", text: { en: "CH₄ and C₂H₆ — CH₄ higher", zh: "CH₄ 与 C₂H₆,CH₄ 更高" } },
+        { id: "b", text: { en: "H₂O and H₂S — H₂S higher", zh: "H₂O 与 H₂S,H₂S 更高" } },
+        { id: "c", text: { en: "H₂O and H₂S — H₂O higher (H-bonding)", zh: "H₂O 与 H₂S,H₂O 更高(氢键)" } },
+        { id: "d", text: { en: "Ne and Ar — Ne higher", zh: "Ne 与 Ar,Ne 更高" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Water has extensive **hydrogen bonding** (O–H donors, O lone-pair acceptors) while H₂S cannot — S is too large and not electronegative enough. The result: H₂O bp = 100 °C, H₂S bp = −60 °C. An enormous 160 °C gap, with H₂O far higher.",
+        zh: "水形成大量**氢键**(O–H 为给体、O 孤对为受体);而 H₂S 因 S 太大、电负性不够,无法形成氢键。故 H₂O 沸点 100 °C,H₂S 沸点 −60 °C,相差 160 °C。",
+      },
+    },
+  ],
+
+  "unit-3/topic-2": [
+    {
+      id: "chem-u3-t2-q1",
+      prompt: {
+        en: "A solid has a very high melting point (> 2000 °C), is extremely hard, and does NOT conduct electricity in any phase. Which type of solid is it?",
+        zh: "某固体熔点极高(>2000 °C)、极硬、**任何相下都不导电**。它属于哪一类固体?",
+      },
+      choices: [
+        { id: "a", text: { en: "Molecular", zh: "分子晶体" } },
+        { id: "b", text: { en: "Ionic", zh: "离子晶体" } },
+        { id: "c", text: { en: "Metallic", zh: "金属晶体" } },
+        { id: "d", text: { en: "Covalent network", zh: "共价网状晶体" } },
+      ],
+      answerId: "d",
+      explanation: {
+        en: "Covalent network solids like diamond or SiO₂ have strong C–C or Si–O covalent bonds throughout the lattice — extremely high mp, very hard, no free charge carriers (diamond). Ionic solids conduct when molten; metals conduct in every phase.",
+        zh: "金刚石、SiO₂ 等共价网状晶体中整个晶格全部由强共价键连接——熔点极高、极硬、无自由载流子(金刚石)。离子晶体熔融时导电,金属任何态下都导电。",
+      },
+    },
+  ],
+
+  "unit-3/topic-3": [
+    {
+      id: "chem-u3-t3-q1",
+      prompt: {
+        en: "On a heating curve for water, a **horizontal plateau** appears at 100 °C while energy continues to be added. What is happening during this plateau?",
+        zh: "水的加热曲线中,在 100 °C 处出现**水平平台**,期间继续加热。此时在发生什么?",
+      },
+      choices: [
+        { id: "a", text: { en: "KE of water is increasing.", zh: "水的动能在增加。" } },
+        { id: "b", text: { en: "Covalent O–H bonds are being broken.", zh: "O–H 共价键正在断裂。" } },
+        { id: "c", text: { en: "All input energy goes to breaking IMFs as liquid becomes gas.", zh: "所有输入能量用于破坏分子间作用力,液态变为气态。" } },
+        { id: "d", text: { en: "The water cools slightly.", zh: "水微微冷却。" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "At the phase-change plateau temperature is constant; incoming energy breaks **intermolecular** attractions, turning liquid into vapor. No covalent bonds break (choice B is wrong).",
+        zh: "相变平台上温度不变,输入能量用于破坏**分子间**作用力,液态变气态。共价键并未断裂(选项 B 错误)。",
+      },
+    },
+  ],
+
+  "unit-3/topic-4": [
+    {
+      id: "chem-u3-t4-q1",
+      prompt: {
+        en: "A 2.00 L container holds 0.250 mol of an ideal gas at 27 °C. What is the pressure? (R = 0.0821 L·atm/(mol·K))",
+        zh: "2.00 L 容器中装有 0.250 mol 理想气体,温度 27 °C。求压强。(R = 0.0821 L·atm/(mol·K))",
+      },
+      choices: [
+        { id: "a", text: { en: "0.27 atm", zh: "0.27 atm" } },
+        { id: "b", text: { en: "3.08 atm", zh: "3.08 atm" } },
+        { id: "c", text: { en: "33.3 atm", zh: "33.3 atm" } },
+        { id: "d", text: { en: "277 atm", zh: "277 atm" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Convert T first:** 27 + 273 = 300 K. P = nRT/V = (0.250)(0.0821)(300)/2.00 = 6.1575/2.00 = **3.08 atm**. Forgetting to convert to Kelvin (using 27 instead of 300) gives wildly wrong answers.",
+        zh: "**先换算温度**:27 + 273 = 300 K。P = nRT/V = (0.250)(0.0821)(300)/2.00 = 6.1575/2.00 = **3.08 atm**。若忘记换成 Kelvin(用 27),结果会差一个数量级。",
+      },
+    },
+  ],
+
+  "unit-3/topic-5": [
+    {
+      id: "chem-u3-t5-q1",
+      prompt: {
+        en: "At the same temperature, which gas molecules move **fastest** on average: H₂, He, O₂, or CO₂?",
+        zh: "同一温度下,下列哪种气体的平均速度**最快**:H₂、He、O₂、还是 CO₂?",
+      },
+      choices: [
+        { id: "a", text: { en: "H₂", zh: "H₂" } },
+        { id: "b", text: { en: "He", zh: "He" } },
+        { id: "c", text: { en: "O₂", zh: "O₂" } },
+        { id: "d", text: { en: "CO₂", zh: "CO₂" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "At a given T, average KE is the same for all gases. Since KE = ½ m v², **lighter molecules move faster**. Molar masses: H₂ = 2.02, He = 4.00, O₂ = 32.0, CO₂ = 44.0. So H₂ wins.",
+        zh: "相同温度下各气体平均动能相同。由 KE = ½ m v²,**质量越小,速度越快**。摩尔质量:H₂ = 2.02、He = 4.00、O₂ = 32.0、CO₂ = 44.0。故 H₂ 最快。",
+      },
+    },
+  ],
+
+  "unit-3/topic-6": [
+    {
+      id: "chem-u3-t6-q1",
+      prompt: {
+        en: "Under which conditions would a real gas show the **least** deviation from ideal behavior?",
+        zh: "下列哪组条件下,真实气体与理想气体偏差**最小**?",
+      },
+      choices: [
+        { id: "a", text: { en: "High pressure, low temperature", zh: "高压、低温" } },
+        { id: "b", text: { en: "High pressure, high temperature", zh: "高压、高温" } },
+        { id: "c", text: { en: "Low pressure, high temperature", zh: "低压、高温" } },
+        { id: "d", text: { en: "Low pressure, low temperature", zh: "低压、低温" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Low pressure means particles are far apart — volume and IMFs negligible. High T means KE dominates over attractive forces. Both conditions make the ideal-gas assumptions accurate.",
+        zh: "低压使粒子稀疏——体积与分子间作用可忽略;高温使动能远大于吸引力。两者共同保证理想气体假设成立。",
+      },
+    },
+  ],
+
+  "unit-3/topic-7": [
+    {
+      id: "chem-u3-t7-q1",
+      prompt: {
+        en: "Which of the following solutes is LEAST likely to dissolve in water?",
+        zh: "下列哪种溶质**最难**溶于水?",
+      },
+      choices: [
+        { id: "a", text: { en: "NaCl (ionic)", zh: "NaCl(离子)" } },
+        { id: "b", text: { en: "CH₃OH (methanol, polar, H-bonds)", zh: "CH₃OH(甲醇,极性,可氢键)" } },
+        { id: "c", text: { en: "C₈H₁₈ (octane, nonpolar)", zh: "C₈H₁₈(辛烷,非极性)" } },
+        { id: "d", text: { en: "NH₃ (polar, H-bonds)", zh: "NH₃(极性,可氢键)" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "Water is highly polar and H-bonds. 'Like dissolves like' → polar/ionic solutes dissolve; nonpolar C₈H₁₈ (only dispersion forces) can't break water's H-bond network to make room, so it floats on top instead.",
+        zh: "水极性强且能形成氢键。相似相溶→极性/离子溶质可溶;非极性 C₈H₁₈ 只能提供色散力,无法破开水的氢键网络腾出空间,故浮在水面。",
+      },
+    },
+  ],
+
+  "unit-3/topic-8": [
+    {
+      id: "chem-u3-t8-q1",
+      prompt: {
+        en: "How do you prepare **250 mL** of a **0.40 M** NaOH solution starting from a **2.0 M** stock?",
+        zh: "欲从 **2.0 M** NaOH 储备液配制 **250 mL** 的 **0.40 M** 溶液,如何操作?",
+      },
+      choices: [
+        { id: "a", text: { en: "Take 100 mL stock and dilute to 250 mL total.", zh: "取 100 mL 储备液,稀释至总体积 250 mL。" } },
+        { id: "b", text: { en: "Take 50 mL stock and dilute to 250 mL total.", zh: "取 50 mL 储备液,稀释至总体积 250 mL。" } },
+        { id: "c", text: { en: "Take 250 mL stock and add 50 mL water.", zh: "取 250 mL 储备液,加 50 mL 水。" } },
+        { id: "d", text: { en: "Take 200 mL stock and dilute to 250 mL total.", zh: "取 200 mL 储备液,稀释至总体积 250 mL。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "M₁V₁ = M₂V₂ → (2.0)(V₁) = (0.40)(250) → V₁ = 50 mL. Take 50 mL of stock, then add water **up to** a total of 250 mL (not add 250 mL of water).",
+        zh: "M₁V₁ = M₂V₂ → (2.0)(V₁) = (0.40)(250) → V₁ = 50 mL。取 50 mL 储备液,再**加水到**总体积 250 mL(不是再加 250 mL 水)。",
+      },
+    },
+  ],
+
+  "unit-3/topic-9": [
+    {
+      id: "chem-u3-t9-q1",
+      prompt: {
+        en: "To separate ethanol (bp 78 °C) from water (bp 100 °C), which method is best?",
+        zh: "要把乙醇(沸点 78 °C)从水(沸点 100 °C)中分离,最合适的方法是?",
+      },
+      choices: [
+        { id: "a", text: { en: "Filtration", zh: "过滤" } },
+        { id: "b", text: { en: "Distillation", zh: "蒸馏" } },
+        { id: "c", text: { en: "Chromatography", zh: "色谱" } },
+        { id: "d", text: { en: "Recrystallization", zh: "重结晶" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Both are liquids, fully miscible, but have different boiling points — the classic setup for **distillation**. Ethanol boils first and is collected as vapor, leaving most of the water behind.",
+        zh: "两者都是液体且完全互溶,但沸点不同——这是**蒸馏**的经典应用。乙醇先汽化被收集,大部分水留下。",
+      },
+    },
+  ],
+
+  "unit-3/topic-10": [
+    {
+      id: "chem-u3-t10-q1",
+      prompt: {
+        en: "A sealed bottle of soda goes flat faster when left open at room temperature than when refrigerated. Why?",
+        zh: "敞口汽水在室温下比在冰箱里更快变「气走掉」。原因是?",
+      },
+      choices: [
+        { id: "a", text: { en: "Gas solubility increases with temperature.", zh: "气体溶解度随温度升高而升高。" } },
+        { id: "b", text: { en: "Gas solubility decreases with temperature, and lower pressure lets CO₂ escape.", zh: "气体溶解度随温度升高而降低,且开盖后 CO₂ 分压下降,气体逸出。" } },
+        { id: "c", text: { en: "Water evaporates, taking the CO₂ with it.", zh: "水蒸发带走 CO₂。" } },
+        { id: "d", text: { en: "Room temperature reacts with CO₂.", zh: "室温会与 CO₂ 反应。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Gas solubility **drops** as temperature rises. Opening the bottle also reduces CO₂ partial pressure above the liquid (Henry's law → less gas dissolved). Room-temperature + open = double whammy.",
+        zh: "气体溶解度随温度升高而**下降**;开盖又使液面上方 CO₂ 分压降低(Henry 定律 → 溶解量减少)。室温 + 开盖,双重作用。",
+      },
+    },
+  ],
+
+  "unit-3/topic-11": [
+    {
+      id: "chem-u3-t11-q1",
+      prompt: {
+        en: "Which type of molecular motion is probed by **infrared (IR) spectroscopy**?",
+        zh: "**红外 (IR) 光谱**探测的是哪种分子运动?",
+      },
+      choices: [
+        { id: "a", text: { en: "Nuclear spin flipping", zh: "核自旋翻转" } },
+        { id: "b", text: { en: "Molecular rotation", zh: "分子转动" } },
+        { id: "c", text: { en: "Bond vibration (stretching, bending)", zh: "化学键振动(伸缩、弯曲)" } },
+        { id: "d", text: { en: "Valence electron promotion", zh: "价电子跃迁" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "IR photons carry the right energy (~0.04 eV) to excite bond **vibrations**. NMR uses radio waves for nuclear-spin flips; microwave excites rotations; UV/Vis excites valence electrons.",
+        zh: "IR 光子能量(约 0.04 eV)恰好用于激发化学键**振动**。NMR 用无线电波激发核自旋;微波激发转动;紫外/可见激发价电子跃迁。",
+      },
+    },
+  ],
+
+  "unit-3/topic-12": [
+    {
+      id: "chem-u3-t12-q1",
+      prompt: {
+        en: "A photon has wavelength 500 nm. Which statement is true about another photon of wavelength 250 nm?",
+        zh: "某光子波长 500 nm。下列关于波长 250 nm 光子的说法正确的是?",
+      },
+      choices: [
+        { id: "a", text: { en: "It carries half the energy.", zh: "它携带的能量减半。" } },
+        { id: "b", text: { en: "It carries twice the energy.", zh: "它携带的能量加倍。" } },
+        { id: "c", text: { en: "It carries the same energy.", zh: "能量相同。" } },
+        { id: "d", text: { en: "It carries four times the energy.", zh: "能量为 4 倍。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "E = hc/λ, so halving λ **doubles** E. A 250 nm UV photon is twice as energetic as a 500 nm green photon.",
+        zh: "E = hc/λ,λ 减半 → E **加倍**。250 nm 紫外光子能量是 500 nm 绿光光子的两倍。",
+      },
+    },
+  ],
+
+  "unit-3/topic-13": [
+    {
+      id: "chem-u3-t13-q1",
+      prompt: {
+        en: "A dye solution has molar absorptivity ε = 5000 M⁻¹cm⁻¹ at 520 nm. A 1.00-cm cuvette is filled with the solution and shows A = 0.75. What is its concentration?",
+        zh: "某染料在 520 nm 的摩尔吸光系数 ε = 5000 M⁻¹cm⁻¹。用 1.00 cm 比色皿测得 A = 0.75,则浓度为?",
+      },
+      choices: [
+        { id: "a", text: { en: "1.50 × 10⁻⁴ M", zh: "1.50 × 10⁻⁴ M" } },
+        { id: "b", text: { en: "6.67 × 10⁻³ M", zh: "6.67 × 10⁻³ M" } },
+        { id: "c", text: { en: "3.75 × 10³ M", zh: "3.75 × 10³ M" } },
+        { id: "d", text: { en: "6.67 M", zh: "6.67 M" } },
+      ],
+      answerId: "a",
+      explanation: {
+        en: "A = εbc → c = A / (εb) = 0.75 / (5000 × 1.00) = **1.50 × 10⁻⁴ M**. Choice C inverts the equation — a common calculator mistake.",
+        zh: "A = εbc → c = A / (εb) = 0.75 / (5000 × 1.00) = **1.50 × 10⁻⁴ M**。选项 C 把公式倒用了,常见计算失误。",
       },
     },
   ],
