@@ -40,7 +40,9 @@ import {
   RealGasDeviation,
   SolubilityVsT,
   SuccessiveIE,
+  ThermalEquilibrium,
   TitrationCurve,
+  HessCycle,
 } from "./ChemCharts";
 import { useLocale } from "./LocaleProvider";
 import { useT } from "./LocaleProvider";
@@ -84,7 +86,7 @@ export function Highlighted({ text }: { text: string }) {
   );
 }
 
-function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" }) {
+function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" | "thermal-equilibrium" | "hess-cycle" }) {
   const { locale } = useLocale();
   switch (chartType) {
     case "heating-curve": return <HeatingCurve lang={locale} />;
@@ -100,6 +102,8 @@ function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-b
     case "reaction-profile": return <ReactionProfile lang={locale} />;
     case "catalyst-effect": return <CatalystEffect lang={locale} />;
     case "multistep-profile": return <MultistepProfile lang={locale} />;
+    case "thermal-equilibrium": return <ThermalEquilibrium lang={locale} />;
+    case "hess-cycle": return <HessCycle lang={locale} />;
   }
 }
 
