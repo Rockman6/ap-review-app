@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { User } from "@supabase/supabase-js";
-import { BookOpen, UserRound } from "lucide-react";
+import { BookOpen, FileText, UserRound } from "lucide-react";
 import { LanguageToggle } from "./LanguageToggle";
 import { useT } from "./LocaleProvider";
 import { createClient } from "@/lib/supabase/browser";
@@ -35,6 +35,13 @@ export function Header() {
           <span>{t({ en: "AP Review", zh: "AP 复习" })}</span>
         </Link>
         <div className="flex items-center gap-3">
+          <Link
+            href="/question-bank"
+            className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
+          >
+            <FileText size={13} />
+            {t({ en: "Question Bank", zh: "题库" })}
+          </Link>
           <LanguageToggle />
           {ready && (user ? (
             <Link

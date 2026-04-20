@@ -3,15 +3,16 @@
 import Link from "next/link";
 import { use } from "react";
 import { notFound } from "next/navigation";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Trophy } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
-import { getSubject } from "@/lib/content";
+import { getSubject, getFinalQuestions } from "@/lib/content";
 
 export default function SubjectPage({ params }: { params: Promise<{ subject: string }> }) {
   const { subject: subjectSlug } = use(params);
   const t = useT();
   const subject = getSubject(subjectSlug);
   if (!subject) notFound();
+  const finalCount = getFinalQuestions(subjectSlug)?.length ?? 0;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
@@ -61,6 +62,37 @@ export default function SubjectPage({ params }: { params: Promise<{ subject: str
           );
         })}
       </div>
+
+      {finalCount > 0 && (
+        <Link
+          href={`/subjects/${subject.slug}/final`}
+          className="mt-6 flex items-center justify-between rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-5 transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-sm"
+        >
+          <div className="flex items-center gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600">
+              <Trophy size={20} />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-amber-700">
+                {t({ en: "Final comprehensive review", zh: "综合期末复习" })}
+              </p>
+              <h2 className="mt-1 text-lg font-semibold text-slate-900">
+                {t({
+                  en: `${finalCount}-question test spanning all units`,
+                  zh: `${finalCount} 题综合测验,覆盖全部单元`,
+                })}
+              </h2>
+              <p className="mt-1 text-sm text-slate-600">
+                {t({
+                  en: "Medium-to-hard questions, many integrating concepts across multiple units.",
+                  zh: "中等到高难度题目,多数整合多个单元的概念。",
+                })}
+              </p>
+            </div>
+          </div>
+          <ChevronRight size={20} className="text-amber-500" />
+        </Link>
+      )}
     </div>
   );
 }
