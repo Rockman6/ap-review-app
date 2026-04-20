@@ -12225,6 +12225,167 @@ export const topicNotesChem: Record<string, NoteBlock[]> = {
   ],
 };
 
+export const topicNotesPhysics1: Record<string, NoteBlock[]> = {
+  "unit-1/topic-1": [
+    {
+      kind: "paragraph",
+      text: {
+        en: "Kinematics is the language we use to describe how things move — *without* yet asking why they move. Everything in AP Physics 1 builds on three quantities: **position**, **velocity**, and **acceleration**. Each of them is a **vector** — a number *with a direction*.",
+        zh: "运动学是描述物体**如何运动**的语言——暂不讨论原因。整个 AP 物理 1 都建立在三个量之上:**位置**、**速度**和**加速度**。这三个量都是**矢量**——既有大小,也有方向。",
+      },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Scalar vs. vector quantities in 1D kinematics",
+        zh: "一维运动学中的标量与矢量",
+      },
+      columns: [
+        { en: "Scalar (magnitude only)", zh: "标量(只有大小)" },
+        { en: "Vector (magnitude + direction)", zh: "矢量(大小 + 方向)" },
+      ],
+      rows: [
+        [{ en: "Distance traveled (d)", zh: "路程 (d)" }, { en: "Displacement (Δx⃗)", zh: "位移 (Δx⃗)" }],
+        [{ en: "Speed (|v|)", zh: "速率 (|v|)" }, { en: "Velocity (v⃗)", zh: "速度 (v⃗)" }],
+        [{ en: "—", zh: "—" }, { en: "Acceleration (a⃗)", zh: "加速度 (a⃗)" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Key distinction", zh: "核心区别" },
+      text: {
+        en: "**Distance** is how far you walked in total. **Displacement** is how far you ended up from where you started, *and in which direction*. Walk 3 m east, then 3 m west → distance = 6 m, displacement = 0.",
+        zh: "**路程**是你总共走了多远;**位移**是你最终离起点有多远**以及朝哪个方向**。向东走 3 m,再向西走 3 m——路程 = 6 m,位移 = 0。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Position and displacement", zh: "位置与位移" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Position** (x) tells you *where* an object is along a chosen axis. In 1D we pick an origin and a positive direction; everything else follows a sign convention. **Displacement** is the *change* in position between two moments.",
+        zh: "**位置** (x) 指物体沿选定坐标轴的位置。一维情形下,我们先选一个原点和一个正方向,其余都依此符号约定。**位移**是两个时刻之间位置的**变化量**。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\Delta \\vec{x} \\;=\\; \\vec{x}_{f} - \\vec{x}_{i}",
+      caption: {
+        en: "Displacement = final position − initial position",
+        zh: "位移 = 末位置 − 初位置",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Velocity — how fast, and which way", zh: "速度——多快,以及朝哪个方向" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Average velocity** is displacement divided by the time interval. **Instantaneous velocity** is the slope of the position–time graph at a single moment — the limit as Δt → 0.",
+        zh: "**平均速度**等于位移除以时间间隔。**瞬时速度**是位置—时间图像在某一瞬间的斜率——当 Δt → 0 时的极限。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\vec{v}_{avg} \\;=\\; \\dfrac{\\Delta \\vec{x}}{\\Delta t} \\qquad\\qquad \\vec{v} \\;=\\; \\lim_{\\Delta t \\to 0}\\dfrac{\\Delta \\vec{x}}{\\Delta t} \\;=\\; \\dfrac{d\\vec{x}}{dt}",
+      caption: {
+        en: "Average velocity vs. instantaneous velocity",
+        zh: "平均速度与瞬时速度",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Speed ≠ velocity", zh: "速率 ≠ 速度" },
+      text: {
+        en: "**Speed** is distance ÷ time (scalar). **Velocity** is displacement ÷ time (vector). A car driving in a perfect circle at 30 mph has *constant speed* but *changing velocity*, because direction is always turning.",
+        zh: "**速率** = 路程 ÷ 时间(标量);**速度** = 位移 ÷ 时间(矢量)。以 30 mph 匀速绕圈的汽车**速率不变**,但**速度在变**,因为方向一直在变。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Acceleration — how velocity changes", zh: "加速度——速度的变化" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "**Acceleration** is the rate at which velocity changes. It is a vector — it points in the direction of Δv⃗, *not* necessarily in the direction of motion.",
+        zh: "**加速度**是速度的变化率,也是矢量,其方向与 Δv⃗ 相同——**不一定**与运动方向一致。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\vec{a}_{avg} \\;=\\; \\dfrac{\\Delta \\vec{v}}{\\Delta t} \\qquad\\qquad \\vec{a} \\;=\\; \\dfrac{d\\vec{v}}{dt}",
+      caption: {
+        en: "Average acceleration vs. instantaneous acceleration",
+        zh: "平均加速度与瞬时加速度",
+      },
+    },
+    {
+      kind: "callout",
+      label: { en: "Common mistake", zh: "常见误区" },
+      text: {
+        en: "A *negative* acceleration does **not** mean \"slowing down.\" It just means the acceleration vector points in the − direction. An object speeds up when **a⃗ and v⃗ point the same way**; it slows down when they point opposite ways. Two negatives can mean speeding up in the − direction.",
+        zh: "**负加速度**并不等于「减速」。它只是说明加速度矢量指向负方向。当 **a⃗ 与 v⃗ 同向**时物体加速;**反向**时减速。两个负值可以表示在负方向上加速。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Worked example — a braking car", zh: "例题——刹车中的汽车" },
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "A car is moving at +20 m/s (east is positive). The driver brakes, and 4.0 s later the car is moving at +8.0 m/s. Find the average acceleration.",
+        zh: "一辆汽车以 +20 m/s 向东(取向东为正)行驶。司机刹车,4.0 s 后速度变为 +8.0 m/s。求平均加速度。",
+      },
+    },
+    {
+      kind: "math",
+      tex: "\\vec{a}_{avg} \\;=\\; \\dfrac{\\vec{v}_{f} - \\vec{v}_{i}}{\\Delta t} \\;=\\; \\dfrac{8.0 - 20}{4.0} \\;=\\; -3.0\\ \\text{m/s}^{2}",
+    },
+    {
+      kind: "paragraph",
+      text: {
+        en: "The minus sign tells us the acceleration points **west** (opposite to motion). Because a⃗ and v⃗ point in opposite directions, the car is **slowing down** — exactly what \"braking\" should mean.",
+        zh: "负号说明加速度方向**向西**(与运动方向相反)。由于 a⃗ 与 v⃗ 反向,汽车正在**减速**——这与「刹车」的物理意义一致。",
+      },
+    },
+    {
+      kind: "heading",
+      text: { en: "Sign conventions in 1D", zh: "一维符号约定" },
+    },
+    {
+      kind: "table",
+      caption: {
+        en: "Reading the signs of v and a in one dimension",
+        zh: "在一维中读取 v 和 a 的符号",
+      },
+      columns: [
+        { en: "Sign of v", zh: "v 的符号" },
+        { en: "Sign of a", zh: "a 的符号" },
+        { en: "What's happening", zh: "物理含义" },
+      ],
+      rows: [
+        [{ en: "+", zh: "+" }, { en: "+", zh: "+" }, { en: "Moving in + direction, speeding up", zh: "向 + 方向运动,加速" }],
+        [{ en: "+", zh: "+" }, { en: "−", zh: "−" }, { en: "Moving in + direction, slowing down", zh: "向 + 方向运动,减速" }],
+        [{ en: "−", zh: "−" }, { en: "+", zh: "+" }, { en: "Moving in − direction, slowing down", zh: "向 − 方向运动,减速" }],
+        [{ en: "−", zh: "−" }, { en: "−", zh: "−" }, { en: "Moving in − direction, speeding up", zh: "向 − 方向运动,加速" }],
+      ],
+    },
+    {
+      kind: "callout",
+      label: { en: "Exam tip", zh: "考试提示" },
+      text: {
+        en: "Whenever you start a problem, **draw an axis and circle the + direction**. Every sign in your answer then means \"in the + direction\" (+) or \"in the − direction\" (−). This one habit prevents most 1D kinematics sign errors.",
+        zh: "每道题一开始就**画坐标轴并圈出正方向**。答案中每个符号要么表示「正方向」(+),要么表示「负方向」(−)。养成这个习惯可避免绝大多数一维运动学的符号错误。",
+      },
+    },
+  ],
+};
+
 export const topicQuestionsChem: Record<string, Question[]> = {
   "unit-1/topic-1": [
     {
@@ -14486,12 +14647,107 @@ export const topicQuestionsChem: Record<string, Question[]> = {
   ],
 };
 
+export const topicQuestionsPhysics1: Record<string, Question[]> = {
+  "unit-1/topic-1": [
+    {
+      id: "phys1-u1-t1-q1",
+      prompt: {
+        en: "A runner jogs **400 m east**, then turns around and jogs **300 m west**. What are the runner's total **distance traveled** and **displacement**?",
+        zh: "一位跑步者先向**东**跑 400 m,然后转身向**西**跑 300 m。她的**总路程**与**位移**分别是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "Distance 100 m, displacement 100 m east", zh: "路程 100 m;位移 100 m(向东)" } },
+        { id: "b", text: { en: "Distance 700 m, displacement 100 m east", zh: "路程 700 m;位移 100 m(向东)" } },
+        { id: "c", text: { en: "Distance 700 m, displacement 700 m east", zh: "路程 700 m;位移 700 m(向东)" } },
+        { id: "d", text: { en: "Distance 100 m, displacement 700 m east", zh: "路程 100 m;位移 700 m(向东)" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Distance** adds the lengths of every leg of the trip: 400 + 300 = **700 m**. **Displacement** is the vector from start to finish: 400 east + 300 west = **100 m east**. Choice A confuses the two quantities; Choice C forgets that the westward leg subtracts from the displacement.",
+        zh: "**路程**是各段长度之和:400 + 300 = **700 m**。**位移**是从起点到终点的矢量:400 m(东)+ 300 m(西)= **100 m 向东**。选项 A 把两者混淆;选项 C 忽略了向西段需要相减。",
+      },
+    },
+    {
+      id: "phys1-u1-t1-q2",
+      prompt: {
+        en: "A cyclist travels **+60 m** (east) in 4.0 s, then **−20 m** (west) in 1.0 s. What is the cyclist's **average velocity** over the full 5.0 s?",
+        zh: "一位骑行者先在 4.0 s 内向东移动 **+60 m**,再在 1.0 s 内向西移动 **−20 m**。整个 5.0 s 的**平均速度**是多少?",
+      },
+      choices: [
+        { id: "a", text: { en: "+16 m/s (east)", zh: "+16 m/s(向东)" } },
+        { id: "b", text: { en: "+8.0 m/s (east)", zh: "+8.0 m/s(向东)" } },
+        { id: "c", text: { en: "+15 m/s (east)", zh: "+15 m/s(向东)" } },
+        { id: "d", text: { en: "+40 m/s (east)", zh: "+40 m/s(向东)" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "Average velocity uses **displacement**, not distance: Δx = +60 + (−20) = **+40 m**. Over Δt = 5.0 s, v_avg = 40 / 5.0 = **+8.0 m/s east**. Choice A is the average *speed* (80 m / 5 s), which uses distance instead of displacement — a classic trap.",
+        zh: "平均速度用的是**位移**,不是路程:Δx = +60 + (−20) = **+40 m**。总时间 Δt = 5.0 s,所以 v_avg = 40 / 5.0 = **+8.0 m/s 向东**。选项 A 是平均**速率**(80 m / 5 s),用的是路程——经典陷阱。",
+      },
+    },
+    {
+      id: "phys1-u1-t1-q3",
+      prompt: {
+        en: "A car drives around a circular track at a **constant speed** of 25 m/s. Which statement is correct?",
+        zh: "一辆汽车以恒定**速率** 25 m/s 绕圆形赛道行驶。下列说法正确的是?",
+      },
+      choices: [
+        { id: "a", text: { en: "The velocity is constant because the speed is constant.", zh: "速度恒定,因为速率恒定。" } },
+        { id: "b", text: { en: "The velocity changes because its direction changes.", zh: "速度在变化,因为方向在变。" } },
+        { id: "c", text: { en: "The acceleration is zero because the speed doesn't change.", zh: "加速度为零,因为速率不变。" } },
+        { id: "d", text: { en: "Both velocity and acceleration are zero.", zh: "速度与加速度都为零。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "**Velocity is a vector**, so a change in *direction* is a change in velocity — even at constant speed. Since velocity is changing, the acceleration is **not** zero (it points toward the center of the circle — centripetal acceleration, Unit 2).",
+        zh: "**速度是矢量**,方向改变即意味着速度改变,即使速率不变。因此加速度**不为零**(方向指向圆心——向心加速度,见第 2 单元)。",
+      },
+    },
+    {
+      id: "phys1-u1-t1-q4",
+      prompt: {
+        en: "A ball is thrown straight up into the air. At the **highest point** of its path, what are the ball's velocity and acceleration? (Take up as positive; ignore air resistance.)",
+        zh: "一只球被竖直向上抛出。在轨迹的**最高点**,它的速度和加速度分别是多少?(取向上为正,忽略空气阻力。)",
+      },
+      choices: [
+        { id: "a", text: { en: "v = 0, a = 0", zh: "v = 0,a = 0" } },
+        { id: "b", text: { en: "v = 0, a = +g (up)", zh: "v = 0,a = +g(向上)" } },
+        { id: "c", text: { en: "v = 0, a = −g (down)", zh: "v = 0,a = −g(向下)" } },
+        { id: "d", text: { en: "v ≠ 0, a = 0", zh: "v ≠ 0,a = 0" } },
+      ],
+      answerId: "c",
+      explanation: {
+        en: "At the peak, the ball has momentarily stopped rising and is about to fall, so **v = 0**. But gravity never turns off — the acceleration is **still −g ≈ −9.8 m/s²** (downward). This is why \"a = 0 when v = 0\" is a classic trap: the two vectors are independent.",
+        zh: "在最高点,球瞬时停止上升、即将下落,所以 **v = 0**。但重力始终存在,加速度**仍为 −g ≈ −9.8 m/s²**(向下)。这正是「v = 0 时 a = 0」这一经典陷阱的由来——两个矢量彼此独立。",
+      },
+    },
+    {
+      id: "phys1-u1-t1-q5",
+      prompt: {
+        en: "An object is moving in the **−x direction** and has an acceleration that is **also in the −x direction**. What is happening to the object's speed?",
+        zh: "一物体沿 **−x 方向**运动,其加速度**也沿 −x 方向**。它的速率如何变化?",
+      },
+      choices: [
+        { id: "a", text: { en: "Decreasing (slowing down)", zh: "减小(减速)" } },
+        { id: "b", text: { en: "Increasing (speeding up)", zh: "增大(加速)" } },
+        { id: "c", text: { en: "Constant", zh: "不变" } },
+        { id: "d", text: { en: "Cannot be determined without knowing the magnitudes.", zh: "不知道大小无法判断。" } },
+      ],
+      answerId: "b",
+      explanation: {
+        en: "When **a⃗ and v⃗ point in the same direction** — regardless of whether that direction is + or − — the object is **speeding up**. Here both point in −x, so the object's speed increases. The sign of a alone doesn't tell you \"slowing vs. speeding\" — the *relative* sign of a and v does.",
+        zh: "当 **a⃗ 与 v⃗ 方向相同**时——无论是 + 还是 −——物体都在**加速**。此题两者都沿 −x 方向,所以速率增大。仅凭 a 的符号无法判断「加速还是减速」,要看 a 与 v 的**相对符号**。",
+      },
+    },
+  ],
+};
+
 export const subjects: Subject[] = [apMicro, apBio, apPhysics1, apChemistry, apCalculusBC, apEngLang];
 
 const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
   "ap-micro": topicNotes,
   "ap-bio": {},
-  "ap-physics-1": {},
+  "ap-physics-1": topicNotesPhysics1,
   "ap-chem": topicNotesChem,
   "ap-calculus-bc": {},
   "ap-eng-lang": {},
@@ -14500,7 +14756,7 @@ const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
 const questionsBySubject: Record<string, Record<string, Question[]>> = {
   "ap-micro": topicQuestions,
   "ap-bio": {},
-  "ap-physics-1": {},
+  "ap-physics-1": topicQuestionsPhysics1,
   "ap-chem": topicQuestionsChem,
   "ap-calculus-bc": {},
   "ap-eng-lang": {},
