@@ -849,6 +849,82 @@ export function WeakAcidTitration({ lang = "en" }: { lang?: "en" | "zh" }) {
   );
 }
 
+// ------------------------------------------------------------
+// 20. Galvanic cell schematic (Zn|Zn²⁺ ‖ Cu²⁺|Cu) as hand-drawn SVG
+// ------------------------------------------------------------
+export function GalvanicCell({ lang = "en" }: { lang?: "en" | "zh" }) {
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <figure className="my-5 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="mb-2 text-sm font-semibold text-slate-900">
+        {tt("Galvanic cell: Zn | Zn²⁺ ‖ Cu²⁺ | Cu", "原电池:Zn | Zn²⁺ ‖ Cu²⁺ | Cu")}
+      </div>
+      <svg viewBox="0 0 400 260" width="100%" style={{ maxWidth: 480 }} role="img">
+        {/* beakers */}
+        <rect x="40" y="80" width="120" height="150" rx="6" fill="#e0f2fe" stroke="#0369a1" strokeWidth="2" />
+        <rect x="240" y="80" width="120" height="150" rx="6" fill="#fee2e2" stroke="#b91c1c" strokeWidth="2" />
+        {/* solution-level labels */}
+        <text x="100" y="220" textAnchor="middle" fontSize="12" fill="#0369a1" fontWeight="600">Zn²⁺(aq)</text>
+        <text x="300" y="220" textAnchor="middle" fontSize="12" fill="#b91c1c" fontWeight="600">Cu²⁺(aq)</text>
+        {/* electrodes */}
+        <rect x="92" y="60" width="16" height="140" fill="#64748b" />
+        <rect x="292" y="60" width="16" height="140" fill="#ea580c" />
+        <text x="100" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#334155">Zn</text>
+        <text x="300" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#9a3412">Cu</text>
+        <text x="100" y="248" textAnchor="middle" fontSize="11" fill="#dc2626" fontWeight="600">{tt("(−) anode", "(−) 阳极")}</text>
+        <text x="300" y="248" textAnchor="middle" fontSize="11" fill="#16a34a" fontWeight="600">{tt("(+) cathode", "(+) 阴极")}</text>
+        {/* wire */}
+        <polyline points="100,60 100,30 300,30 300,60" stroke="#334155" strokeWidth="2.5" fill="none" />
+        {/* voltmeter */}
+        <circle cx="200" cy="30" r="18" fill="white" stroke="#334155" strokeWidth="2" />
+        <text x="200" y="35" textAnchor="middle" fontSize="14" fontWeight="700" fill="#334155">V</text>
+        {/* electron arrows */}
+        <polygon points="170,24 180,30 170,36" fill="#2563eb" />
+        <text x="145" y="22" fontSize="11" fill="#2563eb" fontWeight="600">e⁻</text>
+        {/* salt bridge */}
+        <path d="M 160 90 Q 200 60 240 90 L 240 100 Q 200 70 160 100 Z" fill="#fde68a" stroke="#b45309" strokeWidth="1.5" />
+        <text x="200" y="85" textAnchor="middle" fontSize="10" fill="#78350f" fontWeight="600">{tt("salt bridge", "盐桥")}</text>
+      </svg>
+      <figcaption className="mt-2 text-xs text-slate-600">
+        {tt(
+          "Electrons flow externally from Zn (anode, oxidized) through the wire to Cu (cathode, reduced). Salt bridge balances charge in each solution.",
+          "电子在外电路中从 Zn(阳极,被氧化)经导线流向 Cu(阴极,被还原)。盐桥平衡两溶液中的电荷。"
+        )}
+      </figcaption>
+    </figure>
+  );
+}
+
+// ------------------------------------------------------------
+// 21. Nernst curve — E vs log(Q) at 25 °C
+// ------------------------------------------------------------
+export function NernstCurve({ lang = "en" }: { lang?: "en" | "zh" }) {
+  // n = 2; E° = 1.10 V
+  const data: Array<{ logQ: number; E: number }> = [];
+  for (let lq = -6; lq <= 6; lq += 0.25) {
+    const E = 1.10 - (0.0592 / 2) * lq;
+    data.push({ logQ: lq, E: +E.toFixed(3) });
+  }
+  const tt = (en: string, zh: string) => (lang === "zh" ? zh : en);
+  return (
+    <ChartFrame
+      title={tt("Nernst equation: E vs. log Q (n = 2, E° = 1.10 V)", "Nernst 方程:E 与 log Q(n = 2,E° = 1.10 V)")}
+      caption={tt(
+        "As products accumulate, log Q rises and E drops. At equilibrium, E = 0 and log Q = log K.",
+        "产物增多,log Q 上升,E 下降。平衡时 E = 0,log Q = log K。"
+      )}
+    >
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+        <XAxis dataKey="logQ" type="number" stroke="#475569" label={{ value: "log Q", position: "insideBottom", offset: -10, fill: "#475569", fontSize: 12 }} />
+        <YAxis stroke="#475569" domain={[0.9, 1.3]} label={{ value: "E (V)", angle: -90, position: "insideLeft", fill: "#475569", fontSize: 12 }} />
+        <ReferenceLine y={1.10} stroke="#94a3b8" strokeDasharray="3 3" label={{ value: "E° = 1.10 V", position: "right", fill: "#475569", fontSize: 11 }} />
+        <Line type="monotone" dataKey="E" stroke="#0891b2" strokeWidth={2.5} dot={false} />
+      </LineChart>
+    </ChartFrame>
+  );
+}
+
 // silence unused import warning for AreaChart/Area (kept for future)
 void AreaChart;
 void Area;

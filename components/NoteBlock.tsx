@@ -46,6 +46,8 @@ import {
   EquilibriumApproach,
   LeChatelierShift,
   WeakAcidTitration,
+  GalvanicCell,
+  NernstCurve,
 } from "./ChemCharts";
 import { useLocale } from "./LocaleProvider";
 import { useT } from "./LocaleProvider";
@@ -89,7 +91,7 @@ export function Highlighted({ text }: { text: string }) {
   );
 }
 
-function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" | "thermal-equilibrium" | "hess-cycle" | "equilibrium-approach" | "lechatelier-shift" | "titration-weak" }) {
+function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-boltzmann" | "bond-potential" | "beer-lambert" | "pes-neon" | "successive-ie-mg" | "solubility-vs-t" | "real-gas-deviation" | "titration-strong" | "concentration-vs-time" | "reaction-profile" | "catalyst-effect" | "multistep-profile" | "thermal-equilibrium" | "hess-cycle" | "equilibrium-approach" | "lechatelier-shift" | "titration-weak" | "galvanic-cell" | "nernst-curve" }) {
   const { locale } = useLocale();
   switch (chartType) {
     case "heating-curve": return <HeatingCurve lang={locale} />;
@@ -110,6 +112,8 @@ function ChemChartBlock({ chartType }: { chartType: "heating-curve" | "maxwell-b
     case "equilibrium-approach": return <EquilibriumApproach lang={locale} />;
     case "lechatelier-shift": return <LeChatelierShift lang={locale} />;
     case "titration-weak": return <WeakAcidTitration lang={locale} />;
+    case "galvanic-cell": return <GalvanicCell lang={locale} />;
+    case "nernst-curve": return <NernstCurve lang={locale} />;
   }
 }
 
