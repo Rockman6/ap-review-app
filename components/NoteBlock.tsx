@@ -1,14 +1,28 @@
 "use client";
 
 import "katex/dist/katex.min.css";
-// Force katex to load, then mhchem attaches \ce macro to it.
-// Without explicitly importing katex here, react-katex's internal katex
-// may be a separate module and mhchem won't see it.
 import katex from "katex";
 import "katex/contrib/mhchem/mhchem.js";
-import { BlockMath, InlineMath } from "react-katex";
-// Keep the katex reference used so bundlers don't drop the side-effect import.
-void katex;
+
+function BlockMath({ math }: { math: string }) {
+  const html = katex.renderToString(math, {
+    displayMode: true,
+    throwOnError: false,
+    trust: true,
+    strict: "ignore",
+  });
+  return <span className="katex-display" dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
+function InlineMath({ math }: { math: string }) {
+  const html = katex.renderToString(math, {
+    displayMode: false,
+    throwOnError: false,
+    trust: true,
+    strict: "ignore",
+  });
+  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+}
 import { MoleculeDiagram, MoleculeRow } from "./MoleculeDiagram";
 import { Mol3DViewer } from "./Mol3DViewer";
 import { LewisStructure, LewisRow } from "./LewisStructure";
