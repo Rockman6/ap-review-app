@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Atom, BookOpen, CheckCircle2, Feather, FlaskConical, Landmark, LineChart, Leaf, Sigma, TrendingUp } from "lucide-react";
+import { ArrowRight, Atom, BookOpen, CheckCircle2, Feather, Flame, FlaskConical, Landmark, LineChart, Leaf, Sigma, TrendingUp, Zap } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
 import { subjects, type Subject } from "@/lib/content";
 
@@ -83,6 +83,10 @@ export default function Landing() {
         </div>
       </section>
 
+      <section className="mt-12">
+        <MorePracticeCTA />
+      </section>
+
       <section className="mt-16 grid gap-4 sm:grid-cols-3">
         <Feature
           icon={<BookOpen size={18} />}
@@ -147,6 +151,46 @@ function SubjectButton({ subject }: { subject: Subject }) {
             </span>
           </div>
         </div>
+      </div>
+    </Link>
+  );
+}
+
+function MorePracticeCTA() {
+  const t = useT();
+  return (
+    <Link
+      href="/more-practice"
+      aria-label={t({ en: "Go to More Practice", zh: "前往更多练习" })}
+      className="group relative block overflow-hidden rounded-2xl bg-gradient-to-r from-red-600 via-rose-600 to-orange-600 p-6 text-white shadow-xl shadow-red-500/40 ring-2 ring-red-500 ring-offset-2 transition hover:scale-[1.01] hover:shadow-2xl hover:shadow-red-500/60 motion-safe:animate-pulse sm:p-7"
+    >
+      <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-yellow-300/30 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-red-300/30 blur-3xl" />
+      <div className="relative flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <div className="flex items-center gap-3">
+          <div className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-white/20 ring-2 ring-white/50 backdrop-blur-sm">
+            <Flame size={26} className="drop-shadow" />
+          </div>
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-yellow-200 drop-shadow">
+              {t({ en: "🔥 Just dropped", zh: "🔥 新鲜上线" })}
+            </p>
+            <h2 className="mt-0.5 text-2xl font-black uppercase tracking-tight drop-shadow-md sm:text-3xl">
+              {t({ en: "More Practice", zh: "更多练习" })}
+            </h2>
+            <p className="mt-1 max-w-lg text-sm text-white/90">
+              {t({
+                en: "Timed MCQ sets. No fluff. Find out what you actually know.",
+                zh: "定时选择题练习集,直接检测你的真实水平。",
+              })}
+            </p>
+          </div>
+        </div>
+        <span className="inline-flex flex-none items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-red-700 shadow-lg transition group-hover:gap-3 group-hover:bg-yellow-100">
+          <Zap size={16} />
+          {t({ en: "Grind Now", zh: "马上开刷" })}
+          <ArrowRight size={16} />
+        </span>
       </div>
     </Link>
   );

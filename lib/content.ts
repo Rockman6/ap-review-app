@@ -19694,3 +19694,125 @@ export function getUnitQuestions(subjectSlug: string, unitSlug: string): Questio
 export function getFinalQuestions(subjectSlug: string): Question[] | undefined {
   return finalQuestions[subjectSlug];
 }
+
+// ============================================================
+// MORE PRACTICE — standalone MCQ practice sets
+// ============================================================
+
+export type PracticeSet = {
+  slug: string;
+  title: Bilingual;
+  subject: Bilingual;
+  subjectSlug: string;
+  description: Bilingual;
+  questions: Question[];
+};
+
+export const practiceSets: PracticeSet[] = [
+  {
+    slug: "ap-micro-set-1",
+    title: { en: "AP Micro — Warm-up Set 1", zh: "AP 微观经济学 — 热身练习 1" },
+    subject: { en: "AP Microeconomics", zh: "AP 微观经济学" },
+    subjectSlug: "ap-micro",
+    description: {
+      en: "Five mixed questions on markets, elasticity, surplus, and externalities — a quick sampler.",
+      zh: "市场、弹性、剩余与外部性五题混合练习 — 小试身手。",
+    },
+    questions: [
+      {
+        id: "mp-micro-s1-q1",
+        prompt: {
+          en: "In the market for coffee, a sharp frost destroys much of Brazil's coffee crop. In the short run, what happens to the equilibrium price and quantity of coffee?",
+          zh: "咖啡市场中,一场严寒毁掉了巴西大部分咖啡作物。短期内,咖啡的均衡价格与均衡数量会如何变化?",
+        },
+        choices: [
+          { id: "a", text: { en: "Price rises, quantity rises", zh: "价格上升,数量上升" } },
+          { id: "b", text: { en: "Price rises, quantity falls", zh: "价格上升,数量下降" } },
+          { id: "c", text: { en: "Price falls, quantity rises", zh: "价格下降,数量上升" } },
+          { id: "d", text: { en: "Price falls, quantity falls", zh: "价格下降,数量下降" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "A frost is a **negative supply shock** — the supply curve shifts **left**. Along an unchanged demand curve, equilibrium **price rises** and **quantity falls**. Classic supply-shift diagnosis.",
+          zh: "严寒是**负向供给冲击**,供给曲线**向左**移动。在需求曲线不变的情况下,均衡**价格上升、数量下降**。经典的供给变动分析。",
+        },
+      },
+      {
+        id: "mp-micro-s1-q2",
+        prompt: {
+          en: "A pharmacy raises the price of a life-saving medication by 20%. Quantity demanded falls by only 3%. The price elasticity of demand is:",
+          zh: "一家药店把某种救命药涨价 20%,需求量只下降 3%。此药的**需求价格弹性**属于:",
+        },
+        choices: [
+          { id: "a", text: { en: "Elastic (|E| > 1)", zh: "富有弹性 (|E| > 1)" } },
+          { id: "b", text: { en: "Unit elastic (|E| = 1)", zh: "单位弹性 (|E| = 1)" } },
+          { id: "c", text: { en: "Inelastic (|E| < 1)", zh: "缺乏弹性 (|E| < 1)" } },
+          { id: "d", text: { en: "Perfectly elastic (E = ∞)", zh: "完全弹性 (E = ∞)" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "|E| = %ΔQ / %ΔP = 3 / 20 = **0.15 → inelastic**. Necessities and medications typically have inelastic demand — consumers don't have good substitutes, so they buy even at higher prices.",
+          zh: "|E| = %ΔQ / %ΔP = 3 / 20 = **0.15 → 缺乏弹性**。必需品与药品通常需求缺乏弹性——消费者缺乏替代品,即使涨价也仍会购买。",
+        },
+      },
+      {
+        id: "mp-micro-s1-q3",
+        prompt: {
+          en: "In a competitive market, the equilibrium price is $8 and the quantity is 100 units. A consumer was willing to pay up to $12 for one specific unit. This consumer's **consumer surplus** on that unit is:",
+          zh: "某竞争市场均衡价格为 $8,数量为 100 单位。某消费者对其中一单位的最高支付意愿为 $12。该消费者就此单位获得的**消费者剩余**为:",
+        },
+        choices: [
+          { id: "a", text: { en: "$0", zh: "$0" } },
+          { id: "b", text: { en: "$4", zh: "$4" } },
+          { id: "c", text: { en: "$8", zh: "$8" } },
+          { id: "d", text: { en: "$12", zh: "$12" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Consumer surplus = **willingness to pay − price paid** = $12 − $8 = **$4**. This is the \"extra value\" the consumer receives above what they had to pay.",
+          zh: "消费者剩余 = **愿付价格 − 实际支付价格** = $12 − $8 = **$4**。即消费者获得的、高于实际支付的额外价值。",
+        },
+      },
+      {
+        id: "mp-micro-s1-q4",
+        prompt: {
+          en: "A firm in a perfectly competitive market maximizes profit by producing the quantity where:",
+          zh: "完全竞争市场中,企业实现利润最大化的产量条件是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Total revenue is maximized", zh: "总收益最大" } },
+          { id: "b", text: { en: "Marginal revenue equals marginal cost (MR = MC)", zh: "边际收益 = 边际成本 (MR = MC)" } },
+          { id: "c", text: { en: "Average total cost is minimized", zh: "平均总成本最低" } },
+          { id: "d", text: { en: "Price equals average fixed cost", zh: "价格 = 平均固定成本" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Every firm maximizes profit at **MR = MC**. In perfect competition, firms are price-takers, so P = MR, meaning they produce where **P = MC**. Maximum TR or minimum ATC are different (and usually wrong) criteria.",
+          zh: "任何企业利润最大化的条件都是 **MR = MC**。完全竞争下企业为价格接受者,P = MR,故生产条件为 **P = MC**。总收益最大或平均总成本最低通常并非利润最大化的条件。",
+        },
+      },
+      {
+        id: "mp-micro-s1-q5",
+        prompt: {
+          en: "A factory emits pollution that harms nearby residents but pays nothing for the damage. Compared to the socially optimal outcome, the free-market quantity of the factory's good will be:",
+          zh: "某工厂排放污染,危害周边居民,但不为此付费。相比社会最优结果,自由市场中该厂产品的产量会:",
+        },
+        choices: [
+          { id: "a", text: { en: "Less than optimal (underproduction)", zh: "低于最优(生产不足)" } },
+          { id: "b", text: { en: "Greater than optimal (overproduction)", zh: "高于最优(生产过剩)" } },
+          { id: "c", text: { en: "Exactly optimal", zh: "恰好等于最优" } },
+          { id: "d", text: { en: "Zero — the factory would shut down", zh: "为零——工厂将停业" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Pollution is a **negative externality** — the social marginal cost exceeds the private marginal cost that the firm pays. Because the firm ignores the external cost, it produces **more than the socially optimal quantity** (overproduction). A Pigouvian tax equal to the marginal external cost would internalize this and restore efficiency.",
+          zh: "污染是**负外部性**——社会边际成本 > 工厂承担的私人边际成本。厂商忽略外部成本,因而产量**高于社会最优**(生产过剩)。征收等于边际外部成本的庇古税可将外部性内部化、恢复效率。",
+        },
+      },
+    ],
+  },
+];
+
+export function getPracticeSet(slug: string): PracticeSet | undefined {
+  return practiceSets.find((set) => set.slug === slug);
+}
