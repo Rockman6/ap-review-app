@@ -20561,6 +20561,208 @@ export const practiceSets: PracticeSet[] = [
       },
     ],
   },
+  {
+    slug: "ap-micro-set-2",
+    title: { en: "AP Micro — Advanced Mix", zh: "AP 微观经济学 — 进阶混合" },
+    subject: { en: "AP Microeconomics", zh: "AP 微观经济学" },
+    subjectSlug: "ap-micro",
+    description: {
+      en: "Ten harder mixed questions — cross-price elasticity, game theory, price discrimination, tax incidence, monopolistic competition, public goods, and more. Time to earn your 5.",
+      zh: "十道进阶混合题——交叉价格弹性、博弈论、价格歧视、税收归宿、垄断竞争、公共品等。向 5 分发起冲击。",
+    },
+    questions: [
+      {
+        id: "mp-micro-s2-q1",
+        concept: { en: "Cross-Price Elasticity", zh: "交叉价格弹性" },
+        prompt: {
+          en: "When the price of good X falls by 10%, the quantity demanded of good Y **rises** by 8%. What does this imply about X and Y?",
+          zh: "当商品 X 的价格下降 10% 时,商品 Y 的需求量**上升** 8%。可推断 X 与 Y 之间的关系为:",
+        },
+        choices: [
+          { id: "a", text: { en: "They are substitutes (cross-price elasticity > 0)", zh: "互为替代品(交叉价格弹性 > 0)" } },
+          { id: "b", text: { en: "They are complements (cross-price elasticity < 0)", zh: "互为互补品(交叉价格弹性 < 0)" } },
+          { id: "c", text: { en: "Y is an inferior good", zh: "Y 是劣等品" } },
+          { id: "d", text: { en: "The own-price elasticity of Y is 0.8", zh: "Y 的自身价格弹性为 0.8" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Cross-price elasticity = %ΔQ_Y / %ΔP_X = (+8) / (−10) = **−0.8**. **Negative** cross-price elasticity → **complements** (cheaper X → more of both X and Y). Classic examples: hot dogs & buns, cars & gasoline.",
+          zh: "交叉价格弹性 = %ΔQ_Y / %ΔP_X = (+8) / (−10) = **−0.8**。**负值**意味着**互补品**(X 变便宜 → X、Y 都多买)。典型例子:热狗与面包、汽车与汽油。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q2",
+        concept: { en: "Game Theory: Dominant Strategies", zh: "博弈论:支配策略" },
+        prompt: {
+          en: "Two firms simultaneously choose to **Advertise (A)** or **Not Advertise (N)**. The payoff matrix (Firm 1, Firm 2) is:\n\n|            | Firm 2: A | Firm 2: N |\n|------------|-----------|-----------|\n| Firm 1: A  | (4, 4)    | (10, 2)   |\n| Firm 1: N  | (2, 10)   | (8, 8)    |\n\nWhat is the Nash equilibrium?",
+          zh: "两家企业同时选择**打广告 (A)** 或**不打广告 (N)**。收益矩阵(企业 1,企业 2)如下:\n\n|            | 企业 2: A | 企业 2: N |\n|------------|-----------|-----------|\n| 企业 1: A  | (4, 4)    | (10, 2)   |\n| 企业 1: N  | (2, 10)   | (8, 8)    |\n\n纳什均衡是?",
+        },
+        choices: [
+          { id: "a", text: { en: "(A, A) — both advertise", zh: "(A, A)——都打广告" } },
+          { id: "b", text: { en: "(N, N) — neither advertises", zh: "(N, N)——都不打广告" } },
+          { id: "c", text: { en: "(A, N) or (N, A) — only one advertises", zh: "(A, N) 或 (N, A)——只有一方打广告" } },
+          { id: "d", text: { en: "Both (A, A) and (N, N) are equilibria", zh: "(A, A) 与 (N, N) 同为均衡" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Check Firm 1: if Firm 2 plays A → 4 > 2 (A better); if Firm 2 plays N → 10 > 8 (A better). **A dominates** for Firm 1 (and by symmetry for Firm 2). Nash eq is **(A, A) with payoff 4 each**. This is a classic **prisoner's dilemma** — both could do better at (N, N) = (8, 8), but each has an incentive to defect.",
+          zh: "看企业 1:若企业 2 打 A,4 > 2(选 A);若企业 2 打 N,10 > 8(仍选 A)。A 是企业 1 的**支配策略**(对企业 2 对称成立)。纳什均衡为 **(A, A),各得 4**。这是经典的**囚徒困境**——(N, N) = (8, 8) 对双方更好,但每人都有背叛诱因。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q3",
+        concept: { en: "Third-Degree Price Discrimination", zh: "第三级价格歧视" },
+        prompt: {
+          en: "A monopoly sells in two separable markets: **students** (|PED| = 4) and **adults** (|PED| = 2). The firm's marginal cost is constant and identical for both groups. To maximize profit under third-degree price discrimination, the firm should:",
+          zh: "某垄断企业向两类可分隔的买家销售:**学生**(|PED| = 4)与**成人**(|PED| = 2)。边际成本恒定且对两类相同。实施第三级价格歧视时,为了利润最大化,应当:",
+        },
+        choices: [
+          { id: "a", text: { en: "Charge both groups the same price (Pareto principle)", zh: "两组收相同价格(帕累托原则)" } },
+          { id: "b", text: { en: "Charge adults a higher price than students", zh: "向成人收取更高价格" } },
+          { id: "c", text: { en: "Charge students a higher price than adults", zh: "向学生收取更高价格" } },
+          { id: "d", text: { en: "Charge only marginal cost to each group", zh: "两组均按边际成本定价" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Inverse elasticity rule: for profit max in each market, P = MC / (1 − 1/|ε|). Less elastic demand → **higher markup → higher price**. Adults have |PED| = 2 (less elastic) → higher price. Students (|PED| = 4) → lower price. That's why student discounts exist.",
+          zh: "逆弹性定价规则:P = MC / (1 − 1/|ε|)。弹性越小 → 加价率越高 → **价格越高**。成人 |PED| = 2(较不弹性)→ 价格更高;学生 |PED| = 4(较弹性)→ 价格较低。这就是学生优惠存在的经济学理由。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q4",
+        concept: { en: "Deadweight Loss & Elasticity", zh: "无谓损失与弹性" },
+        prompt: {
+          en: "The government imposes a per-unit excise tax on a good. In which scenario is the **deadweight loss largest** (holding the tax amount constant)?",
+          zh: "政府对某商品征收单位消费税(税额固定)。**无谓损失**最大的情形是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Demand and supply are both nearly **inelastic**", zh: "需求和供给都几乎**无弹性**" } },
+          { id: "b", text: { en: "Demand is elastic, supply is inelastic", zh: "需求有弹性,供给无弹性" } },
+          { id: "c", text: { en: "Demand is inelastic, supply is elastic", zh: "需求无弹性,供给有弹性" } },
+          { id: "d", text: { en: "Demand and supply are both **elastic**", zh: "需求和供给都**有弹性**" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "DWL comes from trades that **don't happen** because of the tax. The more sensitive quantity is to price (elastic demand + elastic supply), the **bigger the triangle** — buyers walk away and sellers exit. Inelastic markets (necessities like cigarettes, insulin) have small DWL, which is why they're often taxed.",
+          zh: "无谓损失来自因税收**未能发生的交易**。需求与供给**越弹性**,数量对价格的反应越大,DWL 三角形**越大**——买方退出、卖方离场。必需品(香烟、胰岛素)弹性小,DWL 小,因此常被课税。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q5",
+        concept: { en: "Tax Incidence", zh: "税收归宿" },
+        prompt: {
+          en: "A per-unit tax is legally placed on **sellers** of a good. Supply is **perfectly inelastic**; demand is elastic. Who actually bears the burden?",
+          zh: "对商品的**卖方**征收单位税。**供给完全无弹性**,需求有弹性。实际税负由谁承担?",
+        },
+        choices: [
+          { id: "a", text: { en: "Entirely buyers (prices rise by the tax amount)", zh: "全部由买方承担(价格上涨税额)" } },
+          { id: "b", text: { en: "Entirely sellers", zh: "全部由卖方承担" } },
+          { id: "c", text: { en: "Split 50/50", zh: "五五分担" } },
+          { id: "d", text: { en: "Mostly buyers, because sellers lobbied for the tax", zh: "主要由买方(因为卖方的游说)" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Incidence follows elasticities, not legal assignment. The **more inelastic side bears more of the tax**. Perfectly inelastic supply → **sellers absorb 100%** of it, and the market price doesn't change at all. Real-world example: land taxes fall almost entirely on landowners.",
+          zh: "税收归宿取决于弹性,而非法律规定。**弹性较小的一方承担更多**。供给完全无弹性 → **卖方全额承担**,市场价格完全不变。现实例子:土地税几乎全由地主承担。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q6",
+        concept: { en: "Monopolistic Competition: Long Run", zh: "垄断竞争:长期均衡" },
+        prompt: {
+          en: "In long-run equilibrium, a monopolistically competitive firm produces where:",
+          zh: "长期均衡下,垄断竞争企业的产量满足:",
+        },
+        choices: [
+          { id: "a", text: { en: "P = MC and P = min ATC", zh: "P = MC,且 P = min ATC" } },
+          { id: "b", text: { en: "P = MC and P > min ATC", zh: "P = MC,且 P > min ATC" } },
+          { id: "c", text: { en: "P > MC and P = ATC (but not at min ATC)", zh: "P > MC,且 P = ATC(但非 min ATC)" } },
+          { id: "d", text: { en: "P > MC and P > ATC (positive profit)", zh: "P > MC,且 P > ATC(有正利润)" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Three long-run conditions: (1) MR = MC for profit max, (2) P > MC because demand slopes down (product differentiation), and (3) P = ATC because free entry drives economic profit to zero. Firms operate to the **left of min ATC** — the signature **\"excess capacity\"** result of monopolistic competition.",
+          zh: "三个长期条件:(1) MR = MC(利润最大化);(2) 因产品差异化,需求曲线向下倾斜,故 P > MC;(3) 自由进入使经济利润归零,P = ATC。企业生产在 min ATC **左侧**——即垄断竞争特有的**「过剩生产能力」**。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q7",
+        concept: { en: "Natural Monopoly Pricing", zh: "自然垄断定价" },
+        prompt: {
+          en: "A regulator forces a **natural monopoly** (an industry with continuously declining average total cost) to price at **marginal cost**. What is the likely outcome?",
+          zh: "监管机构要求一家**自然垄断**企业(平均总成本持续下降的行业)按**边际成本**定价。最可能出现的后果是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Zero economic profit", zh: "经济利润为零" } },
+          { id: "b", text: { en: "Positive economic profit", zh: "正经济利润" } },
+          { id: "c", text: { en: "Negative economic profit (the firm loses money and needs a subsidy)", zh: "负经济利润(企业亏损,需要补贴)" } },
+          { id: "d", text: { en: "Output falls below efficient level", zh: "产量低于效率水平" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "With falling ATC, **MC < ATC** at every output. If P = MC, then P < ATC → the firm **loses money**. Marginal-cost pricing is allocatively efficient but requires a **subsidy** to keep the firm solvent. That's why regulators often use **average-cost pricing** instead (P = ATC → zero profit, mild inefficiency).",
+          zh: "平均总成本下降 ⇒ **MC < ATC**。若 P = MC,则 P < ATC,企业**亏损**。边际成本定价在配置上最优,但需**补贴**维持经营。因此监管通常采用**平均成本定价**(P = ATC → 零利润,轻微低效)。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q8",
+        concept: { en: "Public Goods & Free Rider", zh: "公共品与搭便车" },
+        prompt: {
+          en: "Two neighbors each value a clean park at $50. The cleanup costs $40 in total and cannot be excluded from either neighbor. If each decides simultaneously and independently whether to pay the full $40 for cleanup, what is the most likely outcome?",
+          zh: "两位邻居各自认为干净公园价值 $50。清扫总成本 $40,两人均无法被排除。若二人同时独立决定是否支付全额 $40,最可能的结果是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Both pay $40; park is cleaned and each enjoys it", zh: "两人都支付 $40,公园被清扫并共同享用" } },
+          { id: "b", text: { en: "Each pays $20 and splits the cost evenly", zh: "两人各付 $20,平摊成本" } },
+          { id: "c", text: { en: "Neither pays — the park stays dirty (free-rider problem)", zh: "两人都不付——公园保持脏乱(搭便车问题)" } },
+          { id: "d", text: { en: "Exactly one pays (Pareto-efficient split)", zh: "恰好一人支付(帕累托有效)" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Each player's dominant strategy is to **not pay** and hope the other does. Paying costs $40 and yields $50 (net +$10); free-riding yields either $50 (if other pays) or $0 — but *relative* to contributing, not paying always dominates. Simultaneous, no-coordination choice → **both free-ride → under-provision**. Core justification for government provision of public goods.",
+          zh: "每人的支配策略都是**不支付**并期望对方承担。自己支付 $40 得 $50(净 +$10);搭便车可得 $50(若对方付)或 $0——但**相对于**「支付」,「不支付」始终占优。无协调下同时决定 → 两人都搭便车 → **公共品供给不足**。这正是政府提供公共品的经济理由。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q9",
+        concept: { en: "Income Distribution (Gini/Lorenz)", zh: "收入分配(基尼/洛伦兹)" },
+        prompt: {
+          en: "Country A's Lorenz curve lies **closer to the 45° line of equality** than Country B's. Which statement is correct?",
+          zh: "A 国的洛伦兹曲线比 B 国**更靠近 45° 平等线**。下列哪项正确?",
+        },
+        choices: [
+          { id: "a", text: { en: "Country A is poorer than Country B", zh: "A 国比 B 国更贫穷" } },
+          { id: "b", text: { en: "Country A has a more equal income distribution and a lower Gini coefficient", zh: "A 国收入分配更均等,基尼系数更低" } },
+          { id: "c", text: { en: "Country A has a higher Gini coefficient", zh: "A 国基尼系数更高" } },
+          { id: "d", text: { en: "Country A has a smaller middle class", zh: "A 国中产阶级规模更小" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "The Lorenz curve plots cumulative income share vs. cumulative population share. The **45° line is perfect equality**. Closer to it = more equal distribution = **smaller area between Lorenz and 45°** = **lower Gini coefficient** (Gini = 2× that area, ranging 0 to 1). The curve says nothing about absolute income level.",
+          zh: "洛伦兹曲线纵轴为累计收入占比,横轴为累计人口占比。**45° 线为完全平等**。越靠近 45° → 分配越均等 → Lorenz 与 45° 之间的**面积越小** → **基尼系数越低**(基尼 = 该面积的 2 倍,范围 0–1)。曲线本身不说明收入绝对水平。",
+        },
+      },
+      {
+        id: "mp-micro-s2-q10",
+        concept: { en: "Minimum Wage & Labor Markets", zh: "最低工资与劳动市场" },
+        prompt: {
+          en: "A competitive labor market is initially in equilibrium. The government then imposes a **binding minimum wage** above the equilibrium wage. Which of the following is most likely to occur?",
+          zh: "一个竞争性劳动市场最初处于均衡。政府随后设定**有约束力的最低工资**(高于均衡工资)。下列哪项最可能发生?",
+        },
+        choices: [
+          { id: "a", text: { en: "Total employment rises because workers earn more", zh: "总就业上升,因工人收入增加" } },
+          { id: "b", text: { en: "Employment falls and a surplus of labor (unemployment) emerges, causing a deadweight loss", zh: "就业下降,出现劳动力过剩(失业),产生无谓损失" } },
+          { id: "c", text: { en: "Employment is unchanged; the effect is a pure transfer from firms to workers", zh: "就业不变;效应只是从企业向工人的纯粹转移" } },
+          { id: "d", text: { en: "Firms increase their demand for labor due to higher worker productivity", zh: "因工人生产力提升,企业劳动需求增加" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "A binding wage floor above equilibrium: Q_s (workers wanting to work) > Q_d (workers firms hire). Employment **falls** from Q* to Q_d; the difference is **unemployment**. Employed workers are better off (higher wage), but **total surplus decreases** due to DWL from trades that don't happen. Whether this is a good policy depends on factors monopsony/spillovers AP Micro typically doesn't model.",
+          zh: "有约束力的工资下限(高于均衡):Q_s(愿意工作的人数)> Q_d(企业雇用人数)。就业从 Q* **下降**至 Q_d,差额为**失业**。在岗工人收入提高,但由于未发生交易产生**无谓损失**,**总剩余下降**。该政策是否可取,需考虑 AP 微观通常不涉及的雇主垄断等因素。",
+        },
+      },
+    ],
+  },
 ];
 
 export function getPracticeSet(slug: string): PracticeSet | undefined {
