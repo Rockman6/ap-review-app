@@ -97,6 +97,7 @@ export type Question = {
   choices: QuestionChoice[];
   answerId: string;
   explanation: Bilingual;
+  concept?: Bilingual;
 };
 
 export const apMicro: Subject = {
@@ -20465,6 +20466,7 @@ export const practiceSets: PracticeSet[] = [
     questions: [
       {
         id: "mp-micro-s1-q1",
+        concept: { en: "Supply & Demand Shifts", zh: "供给与需求的变动" },
         prompt: {
           en: "In the market for coffee, a sharp frost destroys much of Brazil's coffee crop. In the short run, what happens to the equilibrium price and quantity of coffee?",
           zh: "咖啡市场中,一场严寒毁掉了巴西大部分咖啡作物。短期内,咖啡的均衡价格与均衡数量会如何变化?",
@@ -20483,6 +20485,7 @@ export const practiceSets: PracticeSet[] = [
       },
       {
         id: "mp-micro-s1-q2",
+        concept: { en: "Price Elasticity of Demand", zh: "需求价格弹性" },
         prompt: {
           en: "A pharmacy raises the price of a life-saving medication by 20%. Quantity demanded falls by only 3%. The price elasticity of demand is:",
           zh: "一家药店把某种救命药涨价 20%,需求量只下降 3%。此药的**需求价格弹性**属于:",
@@ -20501,6 +20504,7 @@ export const practiceSets: PracticeSet[] = [
       },
       {
         id: "mp-micro-s1-q3",
+        concept: { en: "Consumer & Producer Surplus", zh: "消费者与生产者剩余" },
         prompt: {
           en: "In a competitive market, the equilibrium price is $8 and the quantity is 100 units. A consumer was willing to pay up to $12 for one specific unit. This consumer's **consumer surplus** on that unit is:",
           zh: "某竞争市场均衡价格为 $8,数量为 100 单位。某消费者对其中一单位的最高支付意愿为 $12。该消费者就此单位获得的**消费者剩余**为:",
@@ -20519,6 +20523,7 @@ export const practiceSets: PracticeSet[] = [
       },
       {
         id: "mp-micro-s1-q4",
+        concept: { en: "Firm's Profit Maximization", zh: "企业利润最大化" },
         prompt: {
           en: "A firm in a perfectly competitive market maximizes profit by producing the quantity where:",
           zh: "完全竞争市场中,企业实现利润最大化的产量条件是:",
@@ -20537,6 +20542,7 @@ export const practiceSets: PracticeSet[] = [
       },
       {
         id: "mp-micro-s1-q5",
+        concept: { en: "Market Failure: Externalities", zh: "市场失灵:外部性" },
         prompt: {
           en: "A factory emits pollution that harms nearby residents but pays nothing for the damage. Compared to the socially optimal outcome, the free-market quantity of the factory's good will be:",
           zh: "某工厂排放污染,危害周边居民,但不为此付费。相比社会最优结果,自由市场中该厂产品的产量会:",
