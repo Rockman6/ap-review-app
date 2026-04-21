@@ -20449,6 +20449,7 @@ export type PracticeSet = {
   title: Bilingual;
   subject: Bilingual;
   subjectSlug: string;
+  category: Bilingual;
   description: Bilingual;
   questions: Question[];
 };
@@ -20456,6 +20457,7 @@ export type PracticeSet = {
 export const practiceSets: PracticeSet[] = [
   {
     slug: "ap-micro-set-1",
+    category: { en: "Warm-up", zh: "热身" },
     title: { en: "AP Micro — Warm-up Set 1", zh: "AP 微观经济学 — 热身练习 1" },
     subject: { en: "AP Microeconomics", zh: "AP 微观经济学" },
     subjectSlug: "ap-micro",
@@ -20563,6 +20565,7 @@ export const practiceSets: PracticeSet[] = [
   },
   {
     slug: "ap-micro-set-2",
+    category: { en: "Advanced Mix", zh: "进阶混合" },
     title: { en: "AP Micro — Advanced Mix", zh: "AP 微观经济学 — 进阶混合" },
     subject: { en: "AP Microeconomics", zh: "AP 微观经济学" },
     subjectSlug: "ap-micro",
@@ -20761,6 +20764,1934 @@ export const practiceSets: PracticeSet[] = [
           zh: "有约束力的工资下限(高于均衡):Q_s(愿意工作的人数)> Q_d(企业雇用人数)。就业从 Q* **下降**至 Q_d,差额为**失业**。在岗工人收入提高,但由于未发生交易产生**无谓损失**,**总剩余下降**。该政策是否可取,需考虑 AP 微观通常不涉及的雇主垄断等因素。",
         },
       },
+    ],
+  },
+  {
+    slug: "ap-micro-marathon-1",
+    category: { en: "Marathon", zh: "马拉松" },
+    title: { en: "AP Micro — Marathon 1", zh: "AP 微观经济学 — 马拉松 1" },
+    subject: { en: "AP Microeconomics", zh: "AP 微观经济学" },
+    subjectSlug: "ap-micro",
+    description: {
+      en: "100 questions. All 6 units mixed. Easy → hard. Go the distance.",
+      zh: "100 题。6 个单元混合。由易到难。挑战极限。",
+    },
+    questions: [
+      // ==================== UNIT 1 — Basic Economic Concepts (5 Qs) ====================
+      {
+        id: "mp-micro-mar1-q001",
+        concept: { en: "Scarcity & Opportunity Cost", zh: "稀缺与机会成本" },
+        prompt: {
+          en: "Which of the following best defines the **opportunity cost** of attending a concert?",
+          zh: "下列关于参加演唱会的**机会成本**,最准确的定义是?",
+        },
+        choices: [
+          { id: "a", text: { en: "The price paid for the concert ticket", zh: "购买演唱会门票的价格" } },
+          { id: "b", text: { en: "The value of the next best alternative use of your time and money", zh: "次优替代选择(你能用这些时间和金钱做的最好的事)的价值" } },
+          { id: "c", text: { en: "The sum of all the alternatives you gave up", zh: "你放弃的所有替代方案的价值之和" } },
+          { id: "d", text: { en: "The satisfaction you receive from the concert", zh: "你从演唱会获得的满足感" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Opportunity cost is the **value of the *next best* forgone alternative** — not the sum of all alternatives (C), not just the monetary price (A), and not the benefit you gained (D). Always the single best thing you *didn't* choose.",
+          zh: "机会成本是**放弃的次优选择**的价值——不是所有替代选择的总和(C),也不仅是货币价格(A),更不是所获得的满足感(D)。是你**未选择**的最佳方案。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q002",
+        concept: { en: "Production Possibilities Curve", zh: "生产可能性曲线" },
+        prompt: {
+          en: "A country's production possibilities curve (PPC) for guns and butter is drawn with guns on the y-axis and butter on the x-axis. A point **inside** the PPC (below the curve) represents:",
+          zh: "某国枪与黄油的生产可能性曲线(PPC)中,y 轴为枪,x 轴为黄油。**位于曲线内**(下方)的一点表示:",
+        },
+        choices: [
+          { id: "a", text: { en: "An efficient allocation of resources", zh: "资源的有效配置" } },
+          { id: "b", text: { en: "An unattainable combination", zh: "无法实现的组合" } },
+          { id: "c", text: { en: "An attainable but inefficient combination (unemployment or underused resources)", zh: "可实现但无效率的组合(存在失业或资源未充分利用)" } },
+          { id: "d", text: { en: "A combination that requires economic growth", zh: "需要经济增长才能实现的组合" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Points **on** the PPC are efficient (A is wrong — only on-curve points are efficient). Points **outside** are unattainable (B). Points **inside** the curve are attainable but **not efficient** — the country could produce more of at least one good without giving up the other (idle resources, unemployment).",
+          zh: "**曲线上**的点才是有效率的(A 错);**曲线外**的点不可达(B);**曲线内**的点可达但**无效率**——至少可以多产一种商品而不减少另一种(存在闲置资源或失业)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q003",
+        concept: { en: "Opportunity Cost Calculation", zh: "机会成本计算" },
+        prompt: {
+          en: "A farmer can produce **either** 40 bushels of corn **or** 20 bushels of wheat with her resources. What is the opportunity cost of producing **1 bushel of wheat**?",
+          zh: "一位农夫用现有资源**要么**生产 40 蒲式耳玉米,**要么**生产 20 蒲式耳小麦。生产 **1 蒲式耳小麦**的机会成本是多少?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.5 bushels of corn", zh: "0.5 蒲式耳玉米" } },
+          { id: "b", text: { en: "1 bushel of corn", zh: "1 蒲式耳玉米" } },
+          { id: "c", text: { en: "2 bushels of corn", zh: "2 蒲式耳玉米" } },
+          { id: "d", text: { en: "20 bushels of corn", zh: "20 蒲式耳玉米" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Opportunity cost of 1 unit = (forgone good) / (produced good). Opp cost of 1 wheat = 40 corn / 20 wheat = **2 corn per wheat**. The inverse (0.5, choice A) is the opp cost of 1 corn.",
+          zh: "每单位机会成本 = 放弃的商品数 ÷ 生产的商品数。1 小麦的机会成本 = 40 玉米 ÷ 20 小麦 = **2 玉米**。反过来的 0.5(选项 A)是 1 玉米的机会成本。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q004",
+        concept: { en: "Comparative Advantage & Specialization", zh: "比较优势与专业化" },
+        prompt: {
+          en: "In one hour, **Alex** can make 12 pizzas or 6 salads; **Bree** can make 4 pizzas or 4 salads. According to comparative advantage, which person should specialize in salads?",
+          zh: "每小时 **Alex** 可做 12 个披萨或 6 份沙拉;**Bree** 可做 4 个披萨或 4 份沙拉。根据比较优势,谁应当专产沙拉?",
+        },
+        choices: [
+          { id: "a", text: { en: "Alex — she's faster overall", zh: "Alex——她整体更快" } },
+          { id: "b", text: { en: "Bree — she has the lower opportunity cost for salads", zh: "Bree——她生产沙拉的机会成本更低" } },
+          { id: "c", text: { en: "Alex — she has absolute advantage in both goods", zh: "Alex——她在两种商品上都有绝对优势" } },
+          { id: "d", text: { en: "Neither — they should each do half of both", zh: "都不专产——各做一半" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Alex has **absolute** advantage in both, but comparative advantage depends on **opportunity cost**. Alex's opp cost of 1 salad = 2 pizzas. Bree's opp cost of 1 salad = 1 pizza. **Bree gives up less** to make a salad → Bree should specialize in salads, Alex in pizzas. Both gain from trade.",
+          zh: "Alex 在两种商品上都有**绝对**优势,但比较优势取决于**机会成本**。Alex 做 1 沙拉的机会成本 = 2 披萨;Bree 做 1 沙拉的机会成本 = 1 披萨。**Bree 放弃得更少** → Bree 专产沙拉,Alex 专产披萨。双方都能从贸易中获利。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q005",
+        concept: { en: "Economic Growth & PPC Shifts", zh: "经济增长与 PPC 外移" },
+        prompt: {
+          en: "Which of the following would cause a country's entire PPC to **shift outward**?",
+          zh: "下列哪种情况会使该国的整条 PPC **向外移动**?",
+        },
+        choices: [
+          { id: "a", text: { en: "A reduction in unemployment", zh: "失业率下降" } },
+          { id: "b", text: { en: "A new technology that improves productivity in all industries", zh: "提升所有行业生产率的新技术" } },
+          { id: "c", text: { en: "Reallocating workers from one industry to another", zh: "把工人从一个行业调到另一个行业" } },
+          { id: "d", text: { en: "A change in consumer preferences", zh: "消费者偏好的变化" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "An outward PPC shift requires **economic growth**: more resources, better tech, or more productive workers. A broad technology improvement grows the frontier (B). (A) moves from inside-the-PPC to on-the-PPC — doesn't shift the curve. (C) only moves along a fixed PPC. (D) changes *where on* the PPC but not its position.",
+          zh: "PPC 外移需要**经济增长**:更多资源、更好技术或更高生产率。广泛的技术进步会使曲线整体外扩(B)。(A) 是从曲线内移到曲线上,不改变曲线位置;(C) 只是沿既定 PPC 移动;(D) 仅改变 PPC 上的**位置**,并不移动曲线本身。",
+        },
+      },
+
+      // ==================== UNIT 2 — Supply & Demand (20 Qs) ====================
+      {
+        id: "mp-micro-mar1-q006",
+        concept: { en: "Law of Demand", zh: "需求定律" },
+        prompt: {
+          en: "Assuming all else equal, if the price of a good rises, the quantity demanded:",
+          zh: "在其他条件不变的情况下,若某商品价格上涨,需求量将:",
+        },
+        choices: [
+          { id: "a", text: { en: "Increases (positive relationship)", zh: "增加(正向关系)" } },
+          { id: "b", text: { en: "Decreases (negative relationship)", zh: "减少(反向关系)" } },
+          { id: "c", text: { en: "Remains the same", zh: "保持不变" } },
+          { id: "d", text: { en: "Becomes unpredictable", zh: "变化不可预测" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "The **law of demand**: price and quantity demanded move in opposite directions, *ceteris paribus*. Higher price → buyers substitute away and the \"income effect\" makes them feel poorer.",
+          zh: "**需求定律**:其他条件不变时,价格与需求量反向变动。价格升高 → 买家转向替代品,且「收入效应」使他们感到更穷。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q007",
+        concept: { en: "Determinants of Demand", zh: "需求的决定因素" },
+        prompt: {
+          en: "If consumer incomes rise and good X is a **normal good**, what happens to the demand curve for X?",
+          zh: "若消费者收入上升,商品 X 为**正常品**,则 X 的需求曲线会?",
+        },
+        choices: [
+          { id: "a", text: { en: "Shifts left (decrease in demand)", zh: "左移(需求减少)" } },
+          { id: "b", text: { en: "Shifts right (increase in demand)", zh: "右移(需求增加)" } },
+          { id: "c", text: { en: "Moves up along the curve", zh: "沿曲线上移" } },
+          { id: "d", text: { en: "Rotates but doesn't shift", zh: "旋转但不移动" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "A normal good has **positive income elasticity** — income up → demand up → curve shifts **right** at every price. Income change is a non-price determinant, so the curve *shifts*, it doesn't just slide along itself.",
+          zh: "正常品的**收入弹性为正**——收入增加 → 每个价格下的需求量都增加 → 整条曲线**右移**。收入变化是非价格因素,导致曲线整体**平移**,而非沿曲线滑动。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q008",
+        concept: { en: "Change in Demand vs. Change in Quantity Demanded", zh: "需求变化与需求量变化" },
+        prompt: {
+          en: "The price of coffee **decreases**, and more coffee is purchased. This is best described as:",
+          zh: "咖啡价格**下降**,购买量增加。这应描述为:",
+        },
+        choices: [
+          { id: "a", text: { en: "An increase in demand", zh: "需求增加" } },
+          { id: "b", text: { en: "An increase in quantity demanded (a move along the demand curve)", zh: "需求量增加(沿需求曲线移动)" } },
+          { id: "c", text: { en: "A shift of the entire demand curve to the right", zh: "整条需求曲线右移" } },
+          { id: "d", text: { en: "An increase in supply", zh: "供给增加" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "When **price** (the good's own price) changes and nothing else does, you move **along** the demand curve — a change in *quantity demanded*, not demand. \"Demand\" (the whole curve) only shifts when a non-price determinant changes (income, tastes, prices of related goods, expectations, number of buyers).",
+          zh: "当**价格本身**变化而其他因素不变时,是沿需求曲线**移动**——即**需求量**变化,不是需求变化。只有非价格因素(收入、偏好、相关商品价格、预期、买家数量)改变时,整条**需求**曲线才会移动。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q009",
+        concept: { en: "Complements in Demand", zh: "互补品" },
+        prompt: {
+          en: "The price of **gasoline** rises sharply. What is most likely to happen in the market for **large SUVs**?",
+          zh: "**汽油**价格急剧上升,**大型 SUV** 市场最可能出现的变化是?",
+        },
+        choices: [
+          { id: "a", text: { en: "Demand for SUVs increases", zh: "SUV 需求增加" } },
+          { id: "b", text: { en: "Demand for SUVs decreases", zh: "SUV 需求减少" } },
+          { id: "c", text: { en: "Supply of SUVs decreases", zh: "SUV 供给减少" } },
+          { id: "d", text: { en: "Nothing — the markets are unrelated", zh: "无变化——两市场无关" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Gas and SUVs are **complements** (used together). Gas up → cost of owning an SUV up → **demand for SUVs falls** (curve shifts left). Gas up would *increase* demand for hybrids (substitutes) but *decrease* demand for gas-guzzlers.",
+          zh: "汽油与 SUV 是**互补品**(配合使用)。汽油涨价 → 拥有 SUV 总成本上升 → **SUV 需求减少**(曲线左移)。相反,汽油涨价会**增加**对混合动力车(替代品)的需求。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q010",
+        concept: { en: "Determinants of Supply", zh: "供给的决定因素" },
+        prompt: {
+          en: "The cost of steel — a key input for producing cars — rises. What happens in the car market?",
+          zh: "钢材(汽车生产的关键投入)价格上升。汽车市场会如何变化?",
+        },
+        choices: [
+          { id: "a", text: { en: "Supply of cars shifts right; price falls", zh: "汽车供给右移,价格下降" } },
+          { id: "b", text: { en: "Supply of cars shifts left; price rises, quantity falls", zh: "汽车供给左移;价格上升,数量减少" } },
+          { id: "c", text: { en: "Demand for cars shifts left", zh: "汽车需求左移" } },
+          { id: "d", text: { en: "Both supply and demand shift left", zh: "供给与需求均左移" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Higher input cost → producing cars is more expensive at every quantity → **supply shifts left**. Along an unchanged demand curve: **price rises, quantity falls**. Classic cost-push.",
+          zh: "投入成本上升 → 各产量下生产汽车都更贵 → **供给左移**。在需求不变情况下:**价格上升、数量减少**。典型的成本推动。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q011",
+        concept: { en: "Expectations & Supply", zh: "预期与供给" },
+        prompt: {
+          en: "Oil producers expect the price of oil to be **much higher** next month. In the current month's market, what is most likely to happen?",
+          zh: "石油生产商预期下月油价将**大幅上涨**。本月市场上最可能出现的情况是?",
+        },
+        choices: [
+          { id: "a", text: { en: "Current supply decreases (left shift) as producers withhold oil", zh: "本月供给减少(左移),生产商惜售" } },
+          { id: "b", text: { en: "Current supply increases (right shift)", zh: "本月供给增加(右移)" } },
+          { id: "c", text: { en: "Current demand decreases", zh: "本月需求减少" } },
+          { id: "d", text: { en: "No change — expectations don't affect current supply", zh: "无变化——预期不影响本月供给" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "If sellers expect **higher future prices**, they **hold back today** to sell tomorrow → **current supply shifts left** → current price rises. Storage/inventory decisions respond to price expectations, so forward-looking expectations *do* affect today's supply.",
+          zh: "若卖家预期**未来价格更高**,会**惜售**以待来日 → **本月供给左移** → 本月价格上升。存货决策对未来价格敏感,因此预期**确实**影响当前供给。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q012",
+        concept: { en: "Market Equilibrium & Shortages", zh: "市场均衡与短缺" },
+        prompt: {
+          en: "In a market at equilibrium, if the government sets a price **below equilibrium** and enforces it, the result is:",
+          zh: "某市场原处于均衡。若政府强制设定**低于均衡**的价格,结果是:",
+        },
+        choices: [
+          { id: "a", text: { en: "A surplus (Q_s > Q_d)", zh: "过剩 (Q_s > Q_d)" } },
+          { id: "b", text: { en: "A shortage (Q_d > Q_s)", zh: "短缺 (Q_d > Q_s)" } },
+          { id: "c", text: { en: "A new, lower equilibrium", zh: "新的、更低的均衡" } },
+          { id: "d", text: { en: "No change — supply and demand adjust instantly", zh: "无变化——供需瞬时调整" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Below equilibrium: price is lower → **quantity demanded rises** and **quantity supplied falls** → **shortage** (Q_d > Q_s). A binding **price ceiling** (e.g., rent control) causes shortages; a binding **price floor** (e.g., min wage) causes surpluses.",
+          zh: "低于均衡价格时,**需求量上升**而**供给量下降** → **短缺** (Q_d > Q_s)。有效的**价格上限**(如租金管制)造成短缺;有效的**价格下限**(如最低工资)造成过剩。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q013",
+        concept: { en: "Simultaneous Supply & Demand Shifts", zh: "供需同时变动" },
+        prompt: {
+          en: "Demand increases and supply decreases in the same market. What is the effect on equilibrium price and quantity?",
+          zh: "某市场需求增加、供给减少同时发生。均衡价格与数量如何变化?",
+        },
+        choices: [
+          { id: "a", text: { en: "Price rises; quantity rises", zh: "价格上升;数量上升" } },
+          { id: "b", text: { en: "Price rises; quantity change is ambiguous", zh: "价格上升;数量变化不确定" } },
+          { id: "c", text: { en: "Price change is ambiguous; quantity falls", zh: "价格变化不确定;数量下降" } },
+          { id: "d", text: { en: "Price rises; quantity falls", zh: "价格上升;数量下降" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Both shifts push **price up** (demand right + supply left both raise P). But on quantity they conflict: demand right pushes Q up, supply left pushes Q down → **ambiguous**. Magnitudes determine which effect wins.",
+          zh: "两种变动都推**价格上升**(需求右移、供给左移都升 P)。但在数量上二者相反:需求右移提 Q,供给左移降 Q → **不确定**。谁占上风取决于移动幅度。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q014",
+        concept: { en: "Price Elasticity of Demand — Calculation", zh: "需求价格弹性——计算" },
+        prompt: {
+          en: "The price of a good rises from $10 to $12 (a 20% increase), and quantity demanded falls from 100 to 90 (a 10% decrease). The price elasticity of demand is:",
+          zh: "某商品价格由 $10 升至 $12(上涨 20%),需求量由 100 降到 90(下降 10%)。需求价格弹性为:",
+        },
+        choices: [
+          { id: "a", text: { en: "0.5, inelastic", zh: "0.5,缺乏弹性" } },
+          { id: "b", text: { en: "1.0, unit elastic", zh: "1.0,单位弹性" } },
+          { id: "c", text: { en: "2.0, elastic", zh: "2.0,富有弹性" } },
+          { id: "d", text: { en: "0.1, inelastic", zh: "0.1,缺乏弹性" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "|PED| = |%ΔQ / %ΔP| = |10 / 20| = **0.5 → inelastic** (|PED| < 1). Quantity changes less than price in percentage terms — typical for necessities.",
+          zh: "|PED| = |%ΔQ / %ΔP| = |10 / 20| = **0.5 → 缺乏弹性**(|PED| < 1)。数量的百分比变动小于价格的百分比变动——必需品的典型特征。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q015",
+        concept: { en: "Determinants of PED", zh: "PED 的决定因素" },
+        prompt: {
+          en: "Which of the following goods is likely to have the **most elastic** demand?",
+          zh: "下列哪种商品的需求最可能**富有弹性**?",
+        },
+        choices: [
+          { id: "a", text: { en: "Insulin (life-saving medication)", zh: "胰岛素(救命药)" } },
+          { id: "b", text: { en: "Table salt", zh: "食盐" } },
+          { id: "c", text: { en: "Coca-Cola (a specific brand of cola)", zh: "可口可乐(某特定品牌的可乐)" } },
+          { id: "d", text: { en: "Water (a necessity with no substitute)", zh: "饮用水(无替代的必需品)" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Demand is more elastic when (1) close substitutes exist, (2) the good is a luxury, (3) the time horizon is longer, and (4) the good is a large share of income. A specific **brand of cola** has many close substitutes (Pepsi, generics) → most elastic. Insulin, salt, and water are necessities with few substitutes → inelastic.",
+          zh: "需求弹性更大的条件:(1) 替代品多;(2) 属奢侈品;(3) 时间更长;(4) 支出占收入比例高。**特定品牌的可乐**有许多接近替代品(百事、自有品牌)→ 弹性最大。胰岛素、盐、水都是缺乏替代品的必需品 → 弹性小。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q016",
+        concept: { en: "Income Elasticity of Demand", zh: "收入弹性" },
+        prompt: {
+          en: "When income rises by 10%, quantity demanded of good X **falls** by 4%. Good X is:",
+          zh: "收入增长 10% 时,商品 X 的需求量**下降** 4%。X 属于:",
+        },
+        choices: [
+          { id: "a", text: { en: "A normal, necessity good", zh: "正常品(必需品)" } },
+          { id: "b", text: { en: "A normal, luxury good", zh: "正常品(奢侈品)" } },
+          { id: "c", text: { en: "An inferior good", zh: "劣等品" } },
+          { id: "d", text: { en: "A public good", zh: "公共品" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Income elasticity = %ΔQ / %ΔI = (−4) / 10 = **−0.4 < 0** → **inferior good** (demand *falls* as income rises). Examples: bus rides, generic brands, used clothing. Normal goods have positive income elasticity; luxuries have elasticity > 1.",
+          zh: "收入弹性 = %ΔQ / %ΔI = (−4) / 10 = **−0.4 < 0** → **劣等品**(收入升,需求反而降)。例子:公交、平价自有品牌、二手衣。正常品收入弹性为正;奢侈品弹性 > 1。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q017",
+        concept: { en: "Cross-Price Elasticity", zh: "交叉价格弹性" },
+        prompt: {
+          en: "Cross-price elasticity of demand between goods A and B is **+3**. This means A and B are:",
+          zh: "A、B 两种商品的交叉价格弹性为 **+3**。说明两者关系为:",
+        },
+        choices: [
+          { id: "a", text: { en: "Complements", zh: "互补品" } },
+          { id: "b", text: { en: "Weak substitutes", zh: "弱替代品" } },
+          { id: "c", text: { en: "Strong substitutes", zh: "强替代品" } },
+          { id: "d", text: { en: "Unrelated goods", zh: "无关商品" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Sign → type (positive = substitutes). Magnitude → strength. **+3** is both positive and large → **strong substitutes**. Example: major cola brands. Complements would have negative elasticity; unrelated goods ≈ 0.",
+          zh: "**符号**决定类型(正值 = 替代品);**大小**决定强弱。+3 既为正且较大 → **强替代品**。例:两大可乐品牌。互补品为负;无关商品 ≈ 0。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q018",
+        concept: { en: "Elasticity & Total Revenue", zh: "弹性与总收益" },
+        prompt: {
+          en: "A firm lowers its price and finds that total revenue **increases**. This implies that demand for its product is:",
+          zh: "某厂商降价,发现总收益**增加**。这说明其产品的需求:",
+        },
+        choices: [
+          { id: "a", text: { en: "Inelastic (|PED| < 1)", zh: "缺乏弹性 (|PED| < 1)" } },
+          { id: "b", text: { en: "Elastic (|PED| > 1)", zh: "富有弹性 (|PED| > 1)" } },
+          { id: "c", text: { en: "Perfectly inelastic", zh: "完全无弹性" } },
+          { id: "d", text: { en: "Unit elastic", zh: "单位弹性" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "**Total revenue test**: if price and TR move in *opposite* directions, demand is **elastic**. Price ↓, TR ↑ → elastic (the quantity gain more than offsets the price cut). Inelastic would do the opposite; unit-elastic keeps TR constant.",
+          zh: "**总收益检验**:若价格与 TR **反向**变动,需求**富有弹性**。降价 TR 升 → 弹性(数量增加的效应大于单价下降的效应)。缺乏弹性时相反;单位弹性时 TR 不变。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q019",
+        concept: { en: "Consumer & Producer Surplus", zh: "消费者与生产者剩余" },
+        prompt: {
+          en: "In a competitive market, equilibrium price is $10 and equilibrium quantity is 50 units. If the demand curve is a straight line with a vertical intercept at $30, the consumer surplus is:",
+          zh: "某竞争市场均衡价格为 $10,均衡数量 50 单位。若需求曲线为直线,纵截距为 $30,则消费者剩余是:",
+        },
+        choices: [
+          { id: "a", text: { en: "$200", zh: "$200" } },
+          { id: "b", text: { en: "$250", zh: "$250" } },
+          { id: "c", text: { en: "$500", zh: "$500" } },
+          { id: "d", text: { en: "$1500", zh: "$1500" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "CS = area of triangle above price, below demand, up to Q*. Base = 50, height = $30 − $10 = $20. Area = ½ · 50 · 20 = **$500**.",
+          zh: "CS = 价格上方、需求下方、到 Q* 的三角形面积。底 = 50,高 = $30 − $10 = $20。面积 = ½ · 50 · 20 = **$500**。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q020",
+        concept: { en: "Price Ceiling", zh: "价格上限" },
+        prompt: {
+          en: "A city imposes a binding rent control (price ceiling) on apartments. Which effect is NOT typically expected?",
+          zh: "某市对公寓实施有效的租金管制(价格上限)。下列哪项**不是**常见后果?",
+        },
+        choices: [
+          { id: "a", text: { en: "A shortage of rental apartments", zh: "公寓短缺" } },
+          { id: "b", text: { en: "Landlords reducing maintenance quality", zh: "房东降低维护质量" } },
+          { id: "c", text: { en: "An increase in the long-run supply of new apartments", zh: "长期内新公寓供给增加" } },
+          { id: "d", text: { en: "Black-market or non-price rationing", zh: "黑市或非价格配给" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Effective price ceilings cause **shortages** (A), quality deterioration since landlords can't raise rent (B), and non-price rationing like waiting lists or kickbacks (D). Supply of new units **falls** long-run (developers have no incentive to build) — (C) is the opposite of what happens.",
+          zh: "有效价格上限导致:(A) 短缺;(B) 房东无法加租,质量下降;(D) 非价格配给(排队、关系、回扣)。长期内新建公寓**减少**(开发商无动力投资)——(C) 恰恰相反。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q021",
+        concept: { en: "Price Floor", zh: "价格下限" },
+        prompt: {
+          en: "The government sets an **agricultural price floor** for wheat that is above the market equilibrium. Which outcome is most likely?",
+          zh: "政府对小麦设定**高于市场均衡**的农产品价格下限。最可能的结果是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Shortage of wheat", zh: "小麦短缺" } },
+          { id: "b", text: { en: "Surplus of wheat (Q_s > Q_d)", zh: "小麦过剩 (Q_s > Q_d)" } },
+          { id: "c", text: { en: "No effect, since the floor is binding", zh: "无影响,因为价格下限有效" } },
+          { id: "d", text: { en: "A decrease in farmer incomes", zh: "农民收入下降" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Binding price floors (above equilibrium) make Q_s > Q_d → **surplus**. Governments often buy up this surplus (ag price support) or pay farmers to produce less. Farmer income effect depends on elasticity, but surplus is the mechanical result.",
+          zh: "有效价格下限(高于均衡)造成 Q_s > Q_d → **过剩**。政府常收购过剩农产品,或付钱让农民减产。对农民收入的净影响取决于弹性,但**过剩**是机械结果。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q022",
+        concept: { en: "Tax Incidence & Elasticity", zh: "税收归宿与弹性" },
+        prompt: {
+          en: "A per-unit tax is placed on a good. Demand is **elastic** and supply is **inelastic**. Who bears more of the tax burden?",
+          zh: "对某商品征单位税。需求**富有弹性**,供给**缺乏弹性**。谁承担更多税负?",
+        },
+        choices: [
+          { id: "a", text: { en: "Buyers bear more", zh: "买方承担更多" } },
+          { id: "b", text: { en: "Sellers bear more", zh: "卖方承担更多" } },
+          { id: "c", text: { en: "Burden is split equally", zh: "税负均等分担" } },
+          { id: "d", text: { en: "Only the side the tax is legally imposed on", zh: "只有法律规定的纳税方承担" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "**The more inelastic side bears more of the tax**. Inelastic supply → sellers can't reduce quantity much, so they absorb more of the tax. Legal assignment (who hands the money to the government) is irrelevant to economic incidence.",
+          zh: "**弹性小的一方承担更多**。供给缺乏弹性 → 卖方无法显著减产,税负主要由卖方承担。法律规定由谁向政府交税与经济上的归宿无关。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q023",
+        concept: { en: "Deadweight Loss of Taxes", zh: "税收的无谓损失" },
+        prompt: {
+          en: "A per-unit tax creates a deadweight loss. Which statement is correct?",
+          zh: "单位税产生无谓损失。下列哪项正确?",
+        },
+        choices: [
+          { id: "a", text: { en: "DWL is zero if the tax is small enough", zh: "税足够小时 DWL 为零" } },
+          { id: "b", text: { en: "DWL grows approximately with the square of the tax rate", zh: "DWL 大致与税率的平方成正比" } },
+          { id: "c", text: { en: "DWL is zero when demand or supply is perfectly elastic", zh: "需求或供给完全弹性时 DWL 为零" } },
+          { id: "d", text: { en: "DWL represents the tax revenue collected by the government", zh: "DWL 就是政府收到的税收" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "DWL triangle area ∝ tax² (double the tax → roughly 4× the DWL). (C) is backwards: perfectly *inelastic* (not elastic) sides give zero DWL. (D) confuses DWL with revenue — they're separate areas on the diagram.",
+          zh: "DWL 三角形面积 ∝ 税率²(税翻倍 → DWL 约变四倍)。(C) 说反了:只有**完全无弹性**的一方才能使 DWL 为零。(D) 把 DWL 与税收收入混淆——二者在图中是不同面积。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q024",
+        concept: { en: "Perfectly Inelastic Demand", zh: "完全无弹性的需求" },
+        prompt: {
+          en: "Which graph correctly depicts perfectly inelastic demand?",
+          zh: "下列哪种图形正确描绘了完全无弹性的需求?",
+        },
+        choices: [
+          { id: "a", text: { en: "A horizontal line at the market price", zh: "一条水平直线,位于市场价格" } },
+          { id: "b", text: { en: "A vertical line at a fixed quantity", zh: "一条垂直直线,位于固定数量" } },
+          { id: "c", text: { en: "A downward-sloping line passing through the origin", zh: "一条过原点向下倾斜的直线" } },
+          { id: "d", text: { en: "An upward-sloping line", zh: "一条向上倾斜的直线" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Perfectly inelastic demand → quantity demanded doesn't change with price → **vertical line** at Q = fixed. (A) horizontal line is perfectly *elastic*. Essentials with no substitute (insulin in emergencies) approximate this.",
+          zh: "完全无弹性 → 需求量不随价格变化 → **垂直线**于某固定 Q。(A) 水平线是完全**弹性**。紧急情况下的胰岛素等无替代必需品近似如此。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q025",
+        concept: { en: "Market Equilibrium Adjustment", zh: "市场均衡调整" },
+        prompt: {
+          en: "In the short run, supply of strawberries decreases due to bad weather. Which statement correctly describes the new equilibrium compared to the original?",
+          zh: "短期内坏天气使草莓供给减少。与原均衡相比,新均衡的正确描述为?",
+        },
+        choices: [
+          { id: "a", text: { en: "Higher price, higher quantity", zh: "价格上升,数量上升" } },
+          { id: "b", text: { en: "Higher price, lower quantity", zh: "价格上升,数量下降" } },
+          { id: "c", text: { en: "Lower price, higher quantity", zh: "价格下降,数量上升" } },
+          { id: "d", text: { en: "Lower price, lower quantity", zh: "价格下降,数量下降" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Supply shifts **left** along an unchanged demand curve → move up the demand curve → **higher price, lower quantity**. Basic single-shift result.",
+          zh: "供给**左移**、需求不变 → 沿需求曲线上移 → **价格升、数量降**。单变动的基本结果。",
+        },
+      },
+
+      // ==================== UNIT 3 — Production, Cost & Perfect Competition (22 Qs) ====================
+      {
+        id: "mp-micro-mar1-q026",
+        concept: { en: "Short Run vs. Long Run", zh: "短期与长期" },
+        prompt: {
+          en: "In economics, which of the following best distinguishes the **short run** from the **long run**?",
+          zh: "在经济学中,**短期**与**长期**的最佳区分是:",
+        },
+        choices: [
+          { id: "a", text: { en: "The short run is exactly one year; the long run is longer", zh: "短期恰好为一年,长期为更久" } },
+          { id: "b", text: { en: "In the short run, at least one input is fixed; in the long run, all inputs can vary", zh: "短期至少有一种投入固定;长期所有投入都可变" } },
+          { id: "c", text: { en: "The long run is only relevant for monopolies", zh: "长期只与垄断相关" } },
+          { id: "d", text: { en: "The short run ignores costs; the long run considers them", zh: "短期不计成本,长期计成本" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "**Short run**: at least one input (usually capital / plant size) is **fixed**; firms can only adjust variable inputs. **Long run**: *all* inputs are variable — firms can expand, contract, enter, or exit. Time length isn't a calendar definition.",
+          zh: "**短期**:至少一种投入(通常是资本/厂房)**固定**;企业只能调整可变投入。**长期**:所有投入都可变——企业可扩张、缩减、进入或退出。并非日历意义上的长短。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q027",
+        concept: { en: "Fixed vs. Variable Costs", zh: "固定成本与可变成本" },
+        prompt: {
+          en: "Which of the following is a **variable cost** for a pizza restaurant in the short run?",
+          zh: "对于一家披萨店,下列哪项在短期内是**可变成本**?",
+        },
+        choices: [
+          { id: "a", text: { en: "Monthly rent on the building", zh: "每月房租" } },
+          { id: "b", text: { en: "Insurance premium paid annually", zh: "年度保险费" } },
+          { id: "c", text: { en: "Cost of flour and cheese used to make pizzas", zh: "用于做披萨的面粉和奶酪成本" } },
+          { id: "d", text: { en: "The purchase price of the pizza oven", zh: "披萨炉的购置价" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "**Variable costs** change with output (Q). Ingredients scale with pizzas made → variable. Rent, insurance, and oven purchase are fixed in the short run — they don't change with Q.",
+          zh: "**可变成本**随产量 Q 变动。原料用量随披萨数变化 → 可变。房租、保险、烤炉购置在短期内固定,不随 Q 变化。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q028",
+        concept: { en: "Diminishing Marginal Returns", zh: "边际收益递减" },
+        prompt: {
+          en: "As a firm adds more workers to a fixed-size factory, it eventually finds that each additional worker adds less output than the previous one. This describes:",
+          zh: "某企业向固定规模的工厂不断增加工人,后来发现每多雇一人增加的产量比前一人还少。这描述的是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Economies of scale", zh: "规模经济" } },
+          { id: "b", text: { en: "The law of diminishing marginal returns", zh: "边际收益递减规律" } },
+          { id: "c", text: { en: "Constant returns to scale", zh: "规模报酬不变" } },
+          { id: "d", text: { en: "Diseconomies of scale", zh: "规模不经济" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Adding more of a **variable** input (labor) to a **fixed** input (capital/factory) eventually causes **marginal product to fall** — the law of diminishing marginal returns. Economies/diseconomies of scale refer to the *long run* (all inputs change together).",
+          zh: "在**固定**投入(资本/厂房)之上增加**可变**投入(劳动),边际产量终会**下降**——边际收益递减规律。规模经济/不经济是**长期**概念(所有投入同比例变化)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q029",
+        concept: { en: "Marginal Product & Average Product", zh: "边际产量与平均产量" },
+        prompt: {
+          en: "When marginal product of labor (MP) is **greater than** average product (AP):",
+          zh: "当劳动的边际产量 (MP) **大于**平均产量 (AP) 时:",
+        },
+        choices: [
+          { id: "a", text: { en: "AP is rising", zh: "AP 上升" } },
+          { id: "b", text: { en: "AP is falling", zh: "AP 下降" } },
+          { id: "c", text: { en: "AP is at its maximum", zh: "AP 达到最大" } },
+          { id: "d", text: { en: "Total product is falling", zh: "总产量下降" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "If the *marginal* number coming in is bigger than the average, it pulls the average **up**. Classic \"average grade\" analogy: your next test score is higher than your current average → average rises. MP = AP at AP's maximum.",
+          zh: "若新加入的**边际**值大于平均,会把平均**拉高**。类比:新一次考试成绩高于当前平均 → 平均上升。MP = AP 时 AP 达到最大。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q030",
+        concept: { en: "Total, Fixed & Variable Costs", zh: "总成本、固定成本与可变成本" },
+        prompt: {
+          en: "If a firm's total fixed cost is $200, total variable cost is $300, and output is 50 units, what is the **average total cost**?",
+          zh: "某企业总固定成本 $200,总可变成本 $300,产量 50 单位。**平均总成本**为多少?",
+        },
+        choices: [
+          { id: "a", text: { en: "$6", zh: "$6" } },
+          { id: "b", text: { en: "$10", zh: "$10" } },
+          { id: "c", text: { en: "$25", zh: "$25" } },
+          { id: "d", text: { en: "$500", zh: "$500" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "ATC = TC / Q = (TFC + TVC) / Q = ($200 + $300) / 50 = **$10**. Alternatively AFC = 200/50 = $4, AVC = 300/50 = $6, so ATC = AFC + AVC = $10.",
+          zh: "ATC = TC / Q = (TFC + TVC) / Q = ($200 + $300) / 50 = **$10**。也可:AFC = 200/50 = $4,AVC = 300/50 = $6,ATC = AFC + AVC = $10。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q031",
+        concept: { en: "MC & ATC Relationship", zh: "MC 与 ATC 的关系" },
+        prompt: {
+          en: "The marginal cost (MC) curve intersects the average total cost (ATC) curve at:",
+          zh: "边际成本 (MC) 曲线与平均总成本 (ATC) 曲线在何处相交?",
+        },
+        choices: [
+          { id: "a", text: { en: "The maximum of ATC", zh: "ATC 的最高点" } },
+          { id: "b", text: { en: "The minimum of ATC", zh: "ATC 的最低点" } },
+          { id: "c", text: { en: "Where ATC = AVC", zh: "ATC = AVC 之处" } },
+          { id: "d", text: { en: "ATC and MC never intersect", zh: "ATC 与 MC 从不相交" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "MC pulls ATC down while MC < ATC, and pushes ATC up while MC > ATC. They meet exactly at **ATC's minimum**. Same logic makes MC cross AVC at AVC's minimum.",
+          zh: "MC < ATC 时 MC 把 ATC 拉低;MC > ATC 时 MC 把 ATC 推高。二者恰在 **ATC 最低点**相交。同理 MC 交 AVC 于 AVC 最低点。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q032",
+        concept: { en: "Shape of the MC Curve", zh: "MC 曲线的形状" },
+        prompt: {
+          en: "Why is the marginal cost curve typically **U-shaped** in the short run?",
+          zh: "短期内,边际成本曲线通常呈 **U 形**的原因是?",
+        },
+        choices: [
+          { id: "a", text: { en: "Because fixed costs grow with output", zh: "因为固定成本随产量增长" } },
+          { id: "b", text: { en: "Because of increasing, then diminishing marginal returns to the variable input", zh: "因为可变投入先表现为边际报酬递增,后转为递减" } },
+          { id: "c", text: { en: "Because input prices change with output", zh: "因为投入价格随产量变化" } },
+          { id: "d", text: { en: "Because economies of scale kick in at low output", zh: "因为低产量下规模经济起作用" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "At low output, adding workers brings specialization → **increasing** marginal returns → MC falls. Past a point, congestion sets in → **diminishing** marginal returns → MC rises. The mirror image between MP (inverted U) and MC (U) drives the shape.",
+          zh: "低产量时增加工人带来专业化 → 边际报酬**递增** → MC 下降。过了某点后出现拥挤 → 边际报酬**递减** → MC 上升。MP(倒 U)与 MC(U)互为镜像。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q033",
+        concept: { en: "Economies of Scale", zh: "规模经济" },
+        prompt: {
+          en: "A firm's **long-run average total cost curve (LRATC)** is decreasing. This indicates:",
+          zh: "某企业的**长期平均总成本曲线 (LRATC)** 向下倾斜。表明该企业处于:",
+        },
+        choices: [
+          { id: "a", text: { en: "Economies of scale", zh: "规模经济" } },
+          { id: "b", text: { en: "Diseconomies of scale", zh: "规模不经济" } },
+          { id: "c", text: { en: "Constant returns to scale", zh: "规模报酬不变" } },
+          { id: "d", text: { en: "Diminishing marginal returns", zh: "边际收益递减" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Long-run ATC **decreasing** = **economies of scale** (bigger → cheaper per unit, thanks to specialization, bulk input prices, fixed-cost spreading). Flat LRATC = constant returns; rising LRATC = diseconomies.",
+          zh: "长期 ATC **下降** = **规模经济**(规模越大单位成本越低,得益于专业化、批量采购、固定成本摊薄)。LRATC 水平 = 规模报酬不变;上升 = 规模不经济。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q034",
+        concept: { en: "Long-Run ATC as Envelope", zh: "长期 ATC 是 SR 曲线的包络线" },
+        prompt: {
+          en: "The long-run average total cost (LRATC) curve is said to be the **envelope** of short-run ATC curves because:",
+          zh: "长期平均总成本 (LRATC) 被称为短期 ATC 曲线的**包络线**,原因是:",
+        },
+        choices: [
+          { id: "a", text: { en: "It lies above every SR ATC curve", zh: "它位于所有 SR ATC 曲线之上" } },
+          { id: "b", text: { en: "For each output level, LRATC equals the minimum of all SR ATC curves", zh: "对每个产量水平,LRATC 等于所有 SR ATC 曲线的最小值" } },
+          { id: "c", text: { en: "It is identical to the short-run MC curve", zh: "与短期 MC 曲线相同" } },
+          { id: "d", text: { en: "It shows fixed costs only", zh: "只体现固定成本" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "In the long run, firms can choose any plant size. For each output level Q, LRATC(Q) = the **lowest** SR ATC achievable by picking the optimal plant size. Graphically, LRATC touches each SR ATC at exactly one point and lies below it elsewhere.",
+          zh: "长期内企业可自由选择厂房规模。对每个产量 Q,LRATC(Q) = 选择最优厂房规模后的**最低** SR ATC。图上 LRATC 与每条 SR ATC 恰相切于一点,其他地方低于 SR ATC。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q035",
+        concept: { en: "Characteristics of Perfect Competition", zh: "完全竞争的特征" },
+        prompt: {
+          en: "Which of the following is NOT a characteristic of a perfectly competitive market?",
+          zh: "下列哪项**不是**完全竞争市场的特征?",
+        },
+        choices: [
+          { id: "a", text: { en: "Many small buyers and sellers", zh: "大量小买家与小卖家" } },
+          { id: "b", text: { en: "Identical (homogeneous) products", zh: "同质产品" } },
+          { id: "c", text: { en: "Free entry and exit in the long run", zh: "长期内自由进出" } },
+          { id: "d", text: { en: "Firms set their own prices through marketing", zh: "企业通过营销自行定价" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "Perfect competition requires (A) many buyers/sellers, (B) homogeneous goods, (C) free entry/exit, plus (E) perfect information. Firms are **price takers** — they cannot set prices. (D) describes monopolistic competition or monopoly.",
+          zh: "完全竞争的条件:(A) 大量买卖;(B) 同质产品;(C) 自由进出;还有完全信息。企业是**价格接受者**——无法定价。(D) 描述的是垄断竞争或垄断。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q036",
+        concept: { en: "Demand Curve Facing a PC Firm", zh: "完全竞争企业面对的需求曲线" },
+        prompt: {
+          en: "The demand curve facing an individual firm in perfect competition is:",
+          zh: "完全竞争中,单个企业面对的需求曲线是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Downward sloping, same as market demand", zh: "向下倾斜,与市场需求相同" } },
+          { id: "b", text: { en: "Upward sloping", zh: "向上倾斜" } },
+          { id: "c", text: { en: "Perfectly horizontal at the market price", zh: "在市场价格处完全水平" } },
+          { id: "d", text: { en: "Vertical at the efficient quantity", zh: "在有效率数量处垂直" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Because the firm is a tiny price-taker, it can sell any quantity at the market price P* → its demand curve is a **horizontal line at P***. Therefore P = MR = AR for a PC firm. Market demand (industry-wide) is still downward sloping.",
+          zh: "由于企业是渺小的价格接受者,在市场价格 P* 下可售任意数量 → 其需求曲线为 **P* 处的水平线**。所以完全竞争企业中 P = MR = AR。市场总需求(整个行业)仍向下倾斜。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q037",
+        concept: { en: "Profit-Maximizing Rule (P = MC)", zh: "利润最大化法则 (P = MC)" },
+        prompt: {
+          en: "A perfectly competitive firm faces a market price of $20 and has MC curve MC(Q) = 2 + 0.5Q. At what output does the firm maximize profit?",
+          zh: "一家完全竞争企业面对市场价格 $20,MC 曲线为 MC(Q) = 2 + 0.5Q。使利润最大化的产量为?",
+        },
+        choices: [
+          { id: "a", text: { en: "Q = 10", zh: "Q = 10" } },
+          { id: "b", text: { en: "Q = 18", zh: "Q = 18" } },
+          { id: "c", text: { en: "Q = 36", zh: "Q = 36" } },
+          { id: "d", text: { en: "Q = 40", zh: "Q = 40" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "For a PC firm, P = MR, and profit max is MR = MC → set P = MC: 20 = 2 + 0.5Q → 0.5Q = 18 → **Q = 36**.",
+          zh: "完全竞争中 P = MR,利润最大化条件 MR = MC → P = MC:20 = 2 + 0.5Q → 0.5Q = 18 → **Q = 36**。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q038",
+        concept: { en: "Short-Run Shutdown Rule", zh: "短期停业法则" },
+        prompt: {
+          en: "In the short run, a perfectly competitive firm should **shut down** production when:",
+          zh: "短期内,完全竞争企业应**停产**的条件是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Price is below ATC", zh: "价格低于 ATC" } },
+          { id: "b", text: { en: "Price is below AVC", zh: "价格低于 AVC" } },
+          { id: "c", text: { en: "Price is below MC", zh: "价格低于 MC" } },
+          { id: "d", text: { en: "Economic profit is zero", zh: "经济利润为零" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "If P < **AVC**, the firm can't even cover its variable costs — better to shut down and lose only fixed costs. If AVC ≤ P < ATC, the firm **operates at a loss** in SR but covers variable costs and contributes to fixed — better than shutting down.",
+          zh: "若 P < **AVC**,连可变成本都覆盖不了 → 停产,只亏固定成本。若 AVC ≤ P < ATC,企业亏损但能覆盖可变并分摊固定成本 → 继续生产比停产好。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q039",
+        concept: { en: "Break-Even Point", zh: "保本点" },
+        prompt: {
+          en: "A perfectly competitive firm's **break-even price** (zero economic profit) in the short run occurs where:",
+          zh: "完全竞争企业的**保本价格**(短期经济利润为零)出现在:",
+        },
+        choices: [
+          { id: "a", text: { en: "P = minimum AVC", zh: "P = AVC 最低值" } },
+          { id: "b", text: { en: "P = minimum ATC", zh: "P = ATC 最低值" } },
+          { id: "c", text: { en: "P = MC at any quantity", zh: "任意 Q 处 P = MC" } },
+          { id: "d", text: { en: "MR > MC at all quantities", zh: "所有 Q 处 MR > MC" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Zero economic profit requires TR = TC → P·Q = ATC·Q → P = ATC. For a PC firm choosing Q where P = MC, the break-even point sits at **P = min ATC** (since MC = ATC at that minimum).",
+          zh: "零经济利润 ⇒ TR = TC ⇒ P·Q = ATC·Q ⇒ P = ATC。完全竞争企业在 P = MC 处选择 Q,保本点恰为 **P = min ATC**(因为在 ATC 最低处 MC = ATC)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q040",
+        concept: { en: "Short-Run Supply Curve", zh: "短期供给曲线" },
+        prompt: {
+          en: "A perfectly competitive firm's **short-run supply curve** is:",
+          zh: "完全竞争企业的**短期供给曲线**是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Its ATC curve", zh: "ATC 曲线" } },
+          { id: "b", text: { en: "Its MC curve above the minimum AVC", zh: "高于 AVC 最低点以上的 MC 曲线" } },
+          { id: "c", text: { en: "Its demand curve", zh: "它的需求曲线" } },
+          { id: "d", text: { en: "Perfectly horizontal at the market price", zh: "在市场价格处水平" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Because the firm sets P = MC for any price ≥ min AVC (and shuts down below), the MC curve **above min AVC** is the firm's SR supply curve. Below min AVC the firm produces Q = 0.",
+          zh: "只要 P ≥ min AVC,企业按 P = MC 决定产量(低于 min AVC 则停产)。故**高于 AVC 最低点以上**的 MC 曲线就是短期供给曲线;低于该点产量为零。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q041",
+        concept: { en: "Short-Run Profit in PC", zh: "完全竞争的短期利润" },
+        prompt: {
+          en: "A PC firm produces 100 units, sells at $15 each, and ATC at that output is $12. Its short-run economic profit is:",
+          zh: "某完全竞争企业产量 100 单位,售价 $15,ATC 在该产量为 $12。其短期经济利润为?",
+        },
+        choices: [
+          { id: "a", text: { en: "$300", zh: "$300" } },
+          { id: "b", text: { en: "$270", zh: "$270" } },
+          { id: "c", text: { en: "$1,500", zh: "$1,500" } },
+          { id: "d", text: { en: "$1,200", zh: "$1,200" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Profit = Q × (P − ATC) = 100 × ($15 − $12) = **$300**. Per-unit profit of $3 times 100 units.",
+          zh: "利润 = Q × (P − ATC) = 100 × ($15 − $12) = **$300**。每单位利润 $3,共 100 单位。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q042",
+        concept: { en: "Long-Run Entry & Exit in PC", zh: "完全竞争的长期进出" },
+        prompt: {
+          en: "In the long run in a perfectly competitive industry, if **existing firms are earning economic profits**:",
+          zh: "在完全竞争行业中,若**现有企业获得经济利润**,长期内会:",
+        },
+        choices: [
+          { id: "a", text: { en: "Existing firms expand; new firms do not enter", zh: "现有企业扩张,没有新企业进入" } },
+          { id: "b", text: { en: "New firms enter, industry supply rises, price falls until economic profit = 0", zh: "新企业进入,行业供给增加,价格下降至经济利润 = 0" } },
+          { id: "c", text: { en: "Nothing changes — profits persist in the long run", zh: "无变化——利润长期持续存在" } },
+          { id: "d", text: { en: "Firms exit the industry", zh: "企业退出行业" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Positive economic profit attracts entry → industry supply shifts right → price falls → profits erode. Entry continues until economic profit = 0 (normal profit). Conversely, losses cause exit until profits return to zero.",
+          zh: "正经济利润吸引进入 → 行业供给右移 → 价格下降 → 利润被侵蚀。进入持续到经济利润归零(正常利润)。反之,亏损导致退出,直到利润归零。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q043",
+        concept: { en: "Long-Run Equilibrium in PC", zh: "完全竞争长期均衡" },
+        prompt: {
+          en: "In long-run equilibrium, a representative perfectly competitive firm produces where:",
+          zh: "完全竞争长期均衡中,代表性企业生产于:",
+        },
+        choices: [
+          { id: "a", text: { en: "P = MC = min ATC, with zero economic profit", zh: "P = MC = min ATC,经济利润为零" } },
+          { id: "b", text: { en: "P > MC and positive economic profit", zh: "P > MC,经济利润为正" } },
+          { id: "c", text: { en: "P = MC but P > ATC", zh: "P = MC 但 P > ATC" } },
+          { id: "d", text: { en: "P < MC, operating at a loss", zh: "P < MC,运营亏损" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Long-run PC equilibrium: **P = MC** (profit max) **= min ATC** (zero economic profit from free entry/exit). Firms produce at the most efficient scale and earn only normal profit. Both allocatively and productively efficient.",
+          zh: "完全竞争长期均衡:**P = MC**(利润最大化)**= min ATC**(自由进出使经济利润为零)。企业处于最有效率规模,仅获正常利润。兼顾配置效率与生产效率。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q044",
+        concept: { en: "Efficiency of Perfect Competition", zh: "完全竞争的效率" },
+        prompt: {
+          en: "Perfect competition is said to achieve **allocative efficiency** because:",
+          zh: "完全竞争实现**配置效率**的原因是:",
+        },
+        choices: [
+          { id: "a", text: { en: "P = ATC, so firms earn zero profit", zh: "P = ATC,企业零利润" } },
+          { id: "b", text: { en: "P = MC, so the marginal benefit of the good equals its marginal cost", zh: "P = MC,商品的边际效用 = 边际成本" } },
+          { id: "c", text: { en: "Firms produce at the lowest possible output", zh: "企业以最低可能产量生产" } },
+          { id: "d", text: { en: "It minimizes consumer surplus", zh: "消费者剩余最小" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "**Allocative efficiency**: produce the quantity where society's marginal benefit (demand price = P) equals marginal cost to society (MC). PC firms produce where **P = MC** → exactly this condition. (A) describes productive efficiency / zero profit, which is a different property.",
+          zh: "**配置效率**:生产使社会边际效用(需求价格 = P)等于社会边际成本 (MC) 的数量。完全竞争企业在 **P = MC** 生产 → 恰满足该条件。(A) 描述的是生产效率/零利润,属不同性质。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q045",
+        concept: { en: "Accounting vs. Economic Profit", zh: "会计利润与经济利润" },
+        prompt: {
+          en: "A firm has accounting profit of $50,000 and implicit (opportunity) costs of $60,000. Its economic profit is:",
+          zh: "某企业会计利润 $50,000,隐性(机会)成本 $60,000。其经济利润为?",
+        },
+        choices: [
+          { id: "a", text: { en: "$110,000", zh: "$110,000" } },
+          { id: "b", text: { en: "$50,000", zh: "$50,000" } },
+          { id: "c", text: { en: "$10,000", zh: "$10,000" } },
+          { id: "d", text: { en: "−$10,000 (an economic loss)", zh: "−$10,000(经济亏损)" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "Economic profit = Accounting profit − Implicit costs = $50,000 − $60,000 = **−$10,000**. The firm is profitable accounting-wise but is losing value after accounting for what its owner could earn elsewhere. Long-run exit signal in PC.",
+          zh: "经济利润 = 会计利润 − 隐性成本 = $50,000 − $60,000 = **−$10,000**。会计上赚钱,但考虑所有者其他机会成本后反而亏损。在完全竞争中,这是长期退出信号。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q046",
+        concept: { en: "Industry Supply in Long Run (Constant-Cost)", zh: "长期行业供给(成本不变行业)" },
+        prompt: {
+          en: "In a **constant-cost, perfectly competitive industry**, the long-run supply curve is:",
+          zh: "在**成本不变的完全竞争行业**中,长期行业供给曲线为:",
+        },
+        choices: [
+          { id: "a", text: { en: "Upward sloping", zh: "向上倾斜" } },
+          { id: "b", text: { en: "Perfectly horizontal at the minimum of ATC", zh: "在 ATC 最低点处完全水平" } },
+          { id: "c", text: { en: "Downward sloping", zh: "向下倾斜" } },
+          { id: "d", text: { en: "Vertical at the efficient quantity", zh: "在有效率数量处垂直" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "In a constant-cost industry, input prices don't change as the industry expands → each firm's cost curves stay put → long-run supply is **horizontal at P = min ATC**. Any long-run quantity can be supplied at this price through firm entry. Increasing-cost → upward LR supply; decreasing-cost → downward.",
+          zh: "成本不变行业中,行业扩张时投入价格不变 → 每家企业成本曲线不变 → 长期供给为 **P = min ATC 处的水平线**。任何长期数量都可通过企业进入以该价格供给。成本递增行业 LR 供给向上;递减行业向下。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q047",
+        concept: { en: "Profit Graph Areas", zh: "利润图示面积" },
+        prompt: {
+          en: "On a standard firm cost-curve diagram (quantity on x, cost on y), which rectangle represents **total variable cost** at output Q?",
+          zh: "在标准企业成本曲线图(x 轴为 Q,y 轴为成本)中,哪个矩形表示产量 Q 处的**总可变成本**?",
+        },
+        choices: [
+          { id: "a", text: { en: "Q × ATC", zh: "Q × ATC" } },
+          { id: "b", text: { en: "Q × AFC", zh: "Q × AFC" } },
+          { id: "c", text: { en: "Q × AVC", zh: "Q × AVC" } },
+          { id: "d", text: { en: "Q × MC", zh: "Q × MC" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "TVC = AVC × Q = rectangle with base Q and height AVC(Q). Similarly TC = ATC × Q, TFC = AFC × Q. \"Q × MC\" is not a standard rectangle — MC is a slope, not an average.",
+          zh: "TVC = AVC × Q = 以 Q 为底、AVC(Q) 为高的矩形。同理 TC = ATC × Q,TFC = AFC × Q。\"Q × MC\" 无对应标准矩形——MC 是斜率(边际),不是平均量。",
+        },
+      },
+
+      // ==================== UNIT 4 — Imperfect Competition (25 Qs) ====================
+      {
+        id: "mp-micro-mar1-q048",
+        concept: { en: "Monopoly: Barriers to Entry", zh: "垄断:进入壁垒" },
+        prompt: {
+          en: "Which of the following is NOT a typical barrier to entry that creates a monopoly?",
+          zh: "下列哪项**不是**形成垄断的典型进入壁垒?",
+        },
+        choices: [
+          { id: "a", text: { en: "Exclusive control of a key resource", zh: "对关键资源的独占控制" } },
+          { id: "b", text: { en: "A government-issued patent", zh: "政府授予的专利" } },
+          { id: "c", text: { en: "Economies of scale (natural monopoly)", zh: "规模经济(自然垄断)" } },
+          { id: "d", text: { en: "Many small competitors producing identical products", zh: "大量生产同质产品的小竞争者" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "(D) describes perfect competition — the opposite of monopoly. Real barriers to entry include resource control (A), legal monopolies like patents (B), and natural monopolies where one firm can serve the whole market at lower cost (C).",
+          zh: "(D) 描述的是完全竞争,正好相反。真正的进入壁垒包括:(A) 资源独占、(B) 法律性垄断(如专利)、(C) 自然垄断(规模经济使一家企业服务整个市场成本最低)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q049",
+        concept: { en: "Monopoly MR < P", zh: "垄断 MR < P" },
+        prompt: {
+          en: "For a monopolist facing a downward-sloping demand curve, marginal revenue (MR) is:",
+          zh: "面对向下倾斜需求曲线的垄断者,边际收益 (MR) 与价格的关系是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Always equal to price", zh: "始终等于价格" } },
+          { id: "b", text: { en: "Always greater than price", zh: "始终大于价格" } },
+          { id: "c", text: { en: "Always less than price (below the demand curve)", zh: "始终小于价格(位于需求曲线下方)" } },
+          { id: "d", text: { en: "Constant at zero", zh: "恒为零" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "To sell one more unit the monopolist must **lower price on all units** (not just the marginal one). So MR = P − (loss on infra-marginal units) < P. Graphically, MR lies below demand. For a PC firm (price-taker), MR = P because it doesn't have to cut price.",
+          zh: "为多卖一单位,垄断者必须对**所有单位**降价(不仅是边际单位)。故 MR = P −(对前面已售单位的损失) < P。图上 MR 位于需求曲线下方。完全竞争企业(价格接受者)无需降价,故 MR = P。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q050",
+        concept: { en: "Monopoly Profit Maximization", zh: "垄断利润最大化" },
+        prompt: {
+          en: "A monopolist maximizes profit by producing the quantity where:",
+          zh: "垄断者利润最大化的产量条件是:",
+        },
+        choices: [
+          { id: "a", text: { en: "P = MC (same as perfect competition)", zh: "P = MC(与完全竞争相同)" } },
+          { id: "b", text: { en: "P = ATC", zh: "P = ATC" } },
+          { id: "c", text: { en: "MR = MC, then charges price from the demand curve at that Q", zh: "MR = MC,再从需求曲线读出该 Q 对应的价格" } },
+          { id: "d", text: { en: "Average revenue equals average total cost", zh: "平均收益 = 平均总成本" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Every firm — PC, monopoly, or anywhere in between — produces where **MR = MC**. A monopolist then reads the corresponding **price off the demand curve** (because demand tells you what price consumers will pay for that Q). Because MR < P, monopoly produces where P > MC (inefficient).",
+          zh: "任何企业(完全竞争、垄断或其他)都在 **MR = MC** 处生产。垄断者再从**需求曲线**读出对应 Q 的**价格**(需求曲线显示消费者愿付的价格)。由于 MR < P,垄断产出满足 P > MC,造成无效率。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q051",
+        concept: { en: "Deadweight Loss of Monopoly", zh: "垄断的无谓损失" },
+        prompt: {
+          en: "Compared to perfect competition, an unregulated monopoly in the same market typically produces:",
+          zh: "在同一市场中,未受管制的垄断相对完全竞争通常:",
+        },
+        choices: [
+          { id: "a", text: { en: "More output at a lower price, increasing consumer surplus", zh: "产量更大、价格更低,消费者剩余更多" } },
+          { id: "b", text: { en: "Less output at a higher price, causing deadweight loss", zh: "产量更小、价格更高,产生无谓损失" } },
+          { id: "c", text: { en: "The same output and price as perfect competition", zh: "产量与价格同完全竞争相同" } },
+          { id: "d", text: { en: "Maximum consumer surplus", zh: "消费者剩余最大" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Monopoly restricts output (Q_m < Q_pc) and charges a higher price (P_m > P_pc = MC). Some mutually beneficial trades (where P > MC is willingness-to-pay > cost) don't happen → **deadweight loss triangle**. Consumer surplus falls; producer surplus rises; net welfare is lower.",
+          zh: "垄断限产 (Q_m < Q_pc) 并提价 (P_m > P_pc = MC)。一些双方互利的交易(价格 P > MC)未能发生 → **无谓损失三角**。消费者剩余减少、生产者剩余增加;净福利下降。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q052",
+        concept: { en: "First-Degree Price Discrimination", zh: "第一级价格歧视" },
+        prompt: {
+          en: "A monopolist that engages in **perfect (first-degree) price discrimination** charges each buyer exactly their willingness to pay. Compared to a single-price monopolist, the outcome is:",
+          zh: "实施**完全(第一级)价格歧视**的垄断者向每位买家收取其愿付价格。与单一定价垄断相比,其结果:",
+        },
+        choices: [
+          { id: "a", text: { en: "Lower output and more deadweight loss", zh: "产量更低、无谓损失更大" } },
+          { id: "b", text: { en: "Output equal to the perfectly competitive quantity; zero DWL; all surplus captured by the monopolist", zh: "产量等于完全竞争产量;无 DWL;所有剩余归垄断者" } },
+          { id: "c", text: { en: "Zero profit in the long run", zh: "长期利润为零" } },
+          { id: "d", text: { en: "Consumers gain more surplus", zh: "消费者剩余更多" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Perfect price discrimination: MR = demand curve, so MR = MC gives the **efficient quantity** (same as PC). No DWL. But **all consumer surplus is transferred to the monopolist** — very profitable for firm, no net welfare loss but very unequal distribution.",
+          zh: "完全价格歧视中 MR 就是需求曲线,所以 MR = MC 给出**有效率产量**(与完全竞争相同),无 DWL。但**所有消费者剩余都归垄断者**——对企业极赚钱,净福利不损失,但分配极不平等。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q053",
+        concept: { en: "Third-Degree Price Discrimination", zh: "第三级价格歧视" },
+        prompt: {
+          en: "Airlines charge business travelers more than leisure travelers for the same flight. This is an example of:",
+          zh: "航空公司对同一航班向商务旅客收取比休闲旅客更高的票价。这属于:",
+        },
+        choices: [
+          { id: "a", text: { en: "First-degree price discrimination", zh: "第一级价格歧视" } },
+          { id: "b", text: { en: "Second-degree price discrimination (by quantity)", zh: "第二级价格歧视(按数量)" } },
+          { id: "c", text: { en: "Third-degree price discrimination (by group/market)", zh: "第三级价格歧视(按群体/市场分)" } },
+          { id: "d", text: { en: "Collusion", zh: "共谋" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Third-degree: split buyers into identifiable **groups** with different elasticities and charge different prices. Business travelers have inelastic demand (must travel at specific times) → higher prices; leisure travelers are price-sensitive → lower prices. Saturday-night-stayover requirements separate the groups.",
+          zh: "第三级:按**群体**细分(弹性不同)并分别定价。商务旅客需求无弹性(行程固定)→ 高价;休闲旅客价格敏感 → 低价。通过「周六过夜」等规则将两类分开。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q054",
+        concept: { en: "Natural Monopoly", zh: "自然垄断" },
+        prompt: {
+          en: "A **natural monopoly** exists when:",
+          zh: "**自然垄断**的形成条件是:",
+        },
+        choices: [
+          { id: "a", text: { en: "The government owns all firms in the industry", zh: "政府拥有所有行业企业" } },
+          { id: "b", text: { en: "A single firm can supply the entire market at lower ATC than multiple firms could", zh: "单一企业以比多企业更低的 ATC 服务整个市场" } },
+          { id: "c", text: { en: "Firms agree not to compete", zh: "企业之间约定不竞争" } },
+          { id: "d", text: { en: "There is a patent on the good", zh: "商品受专利保护" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Natural monopolies arise from **economies of scale so large** that one firm has lower ATC across the relevant demand range than many firms would. Common in utilities (water, electric grid, gas pipes) where fixed infrastructure costs are huge. Choice (D) is a legal monopoly, not natural.",
+          zh: "自然垄断源于**规模经济巨大**,使一家企业在相关需求范围内的 ATC 比多家企业都低。常见于公用事业(水、电网、燃气管道),固定基础设施投资巨大。(D) 属法律垄断,非自然垄断。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q055",
+        concept: { en: "Regulating a Natural Monopoly", zh: "管制自然垄断" },
+        prompt: {
+          en: "A regulator wants a natural monopoly to produce the **allocatively efficient** quantity. It should set the price at:",
+          zh: "监管者希望自然垄断企业生产**配置有效**的产量,应将价格定为:",
+        },
+        choices: [
+          { id: "a", text: { en: "P = MC (but the firm will incur a loss and needs a subsidy)", zh: "P = MC(但企业亏损,需要补贴)" } },
+          { id: "b", text: { en: "P = ATC (fair-return / zero-profit pricing)", zh: "P = ATC(公平回报/零利润定价)" } },
+          { id: "c", text: { en: "P = minimum of ATC", zh: "P = ATC 的最低值" } },
+          { id: "d", text: { en: "The monopolist's unregulated profit-max price", zh: "未管制时的利润最大化价格" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "**Allocative efficiency** requires P = MC, but with declining ATC, MC < ATC everywhere → P = MC ⇒ losses. Regulators then face a trade-off: **MC pricing** (efficient but needs subsidy) vs **average-cost pricing** (zero profit, mildly inefficient, practical choice).",
+          zh: "**配置效率**要求 P = MC,但 ATC 下降时 MC < ATC 恒成立 → P = MC 会亏损。监管者面临取舍:**边际成本定价**(有效率但需补贴)vs **平均成本定价**(零利润,略欠效率,更实用)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q056",
+        concept: { en: "Lerner Index of Market Power", zh: "勒纳指数(市场力量)" },
+        prompt: {
+          en: "For a profit-maximizing monopolist with price P and marginal cost MC, the **Lerner index** is defined as L = (P − MC) / P. What does L measure?",
+          zh: "对利润最大化的垄断者,**勒纳指数** L = (P − MC) / P 用来衡量?",
+        },
+        choices: [
+          { id: "a", text: { en: "Accounting profit margin", zh: "会计利润率" } },
+          { id: "b", text: { en: "Degree of market power (markup over MC)", zh: "市场力量(相对 MC 的加价率)" } },
+          { id: "c", text: { en: "Total deadweight loss", zh: "总无谓损失" } },
+          { id: "d", text: { en: "Price elasticity of supply", zh: "供给价格弹性" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "The Lerner index is the **markup of price over marginal cost as a fraction of price**. L = 0 for a price-taker (P = MC); L > 0 when firms have market power. At profit max, L = 1 / |PED| — so more inelastic demand → more market power → higher markup.",
+          zh: "勒纳指数衡量**价格相对边际成本的加价率**。L = 0 表示价格接受者(P = MC);L > 0 表示有市场力量。利润最大化时 L = 1 / |PED|,需求弹性越小,市场力量越大,加价越高。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q057",
+        concept: { en: "Monopoly Efficiency Comparison", zh: "垄断与完全竞争的效率对比" },
+        prompt: {
+          en: "Compared to a perfectly competitive market with the same cost and demand conditions, a monopoly is:",
+          zh: "相同成本与需求条件下,垄断与完全竞争相比:",
+        },
+        choices: [
+          { id: "a", text: { en: "Allocatively and productively efficient", zh: "兼具配置效率与生产效率" } },
+          { id: "b", text: { en: "Allocatively efficient but not productively efficient", zh: "具有配置效率但无生产效率" } },
+          { id: "c", text: { en: "Neither allocatively nor productively efficient", zh: "既无配置效率,也无生产效率" } },
+          { id: "d", text: { en: "Productively efficient but not allocatively efficient", zh: "具有生产效率但无配置效率" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Monopoly: produces at **P > MC** (not allocatively efficient → DWL) and typically at **Q < min-ATC output** (not productively efficient). Both inefficiencies together justify antitrust action.",
+          zh: "垄断:P > MC(无配置效率 → DWL),且产量通常低于 min-ATC 对应产量(无生产效率)。这两项低效率共同构成反垄断的合理性。",
+        },
+      },
+
+      {
+        id: "mp-micro-mar1-q058",
+        concept: { en: "Monopolistic Competition: Characteristics", zh: "垄断竞争:特征" },
+        prompt: {
+          en: "Which of the following is a defining characteristic of **monopolistic competition**?",
+          zh: "下列哪项是**垄断竞争**的定义特征?",
+        },
+        choices: [
+          { id: "a", text: { en: "A single seller with no substitutes", zh: "单一卖家,无替代品" } },
+          { id: "b", text: { en: "Many firms selling differentiated products with easy entry", zh: "众多企业销售有差异的产品,进入容易" } },
+          { id: "c", text: { en: "A few firms interacting strategically", zh: "少数企业策略性互动" } },
+          { id: "d", text: { en: "Homogeneous products and price-taking firms", zh: "同质产品、价格接受者" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Monopolistic competition: **many firms** (like PC), **differentiated products** (brand, style, location — so each firm faces a downward-sloping demand), and **free entry/exit** (like PC, driving LR profits to zero). Restaurants, salons, clothing brands are classic examples. (C) is oligopoly; (D) is PC.",
+          zh: "垄断竞争:**众多企业**(类似 PC)、**产品差异化**(品牌、风格、位置,故每企业面对向下倾斜需求)、**自由进出**(类似 PC,长期利润归零)。餐厅、理发店、服装品牌是典型例子。(C) 是寡头;(D) 是完全竞争。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q059",
+        concept: { en: "Monopolistic Competition: Short Run", zh: "垄断竞争:短期" },
+        prompt: {
+          en: "In the short run, a monopolistically competitive firm may earn:",
+          zh: "短期内,垄断竞争企业可能获得:",
+        },
+        choices: [
+          { id: "a", text: { en: "Only zero economic profit", zh: "仅零经济利润" } },
+          { id: "b", text: { en: "Only economic losses", zh: "仅经济亏损" } },
+          { id: "c", text: { en: "Economic profits, losses, or zero profit (like PC in SR)", zh: "可盈可亏可零(类似完全竞争的 SR)" } },
+          { id: "d", text: { en: "Always positive economic profit", zh: "始终有正经济利润" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Short-run profit depends on where SR demand sits relative to ATC. Above ATC → profit; below → loss; tangent at Q_MRMC → zero. Long-run entry/exit then drives economic profit to zero.",
+          zh: "短期利润取决于 SR 需求相对 ATC 的位置:高于 ATC → 盈利;低于 → 亏损;在 Q_MRMC 处与 ATC 相切 → 零利润。长期进出使经济利润归零。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q060",
+        concept: { en: "Monopolistic Competition: Long-Run Excess Capacity", zh: "垄断竞争:长期过剩产能" },
+        prompt: {
+          en: "In long-run equilibrium, a monopolistically competitive firm:",
+          zh: "垄断竞争长期均衡中,企业:",
+        },
+        choices: [
+          { id: "a", text: { en: "Produces at minimum ATC (productively efficient)", zh: "在 ATC 最低处生产(生产有效率)" } },
+          { id: "b", text: { en: "Produces at an output level to the left of minimum ATC — \"excess capacity\"", zh: "在 ATC 最低点左侧生产——「过剩产能」" } },
+          { id: "c", text: { en: "Charges P = MC (allocatively efficient)", zh: "定价 P = MC(配置有效)" } },
+          { id: "d", text: { en: "Earns positive economic profit indefinitely", zh: "长期获正经济利润" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "LR equilibrium conditions: (1) MR = MC (profit max), (2) P = ATC (zero profit from entry), so demand is **tangent** to ATC on its downward-sloping side — not at the minimum. Firm produces **less than** the min-ATC output = \"excess capacity.\" Also P > MC → allocative inefficiency.",
+          zh: "长期均衡条件:(1) MR = MC;(2) P = ATC(进入使利润归零),因此需求与 ATC **相切**于 ATC 向下段,而非最低点。生产量**少于** min-ATC 对应产量 =「过剩产能」。同时 P > MC → 配置无效率。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q061",
+        concept: { en: "Product Differentiation", zh: "产品差异化" },
+        prompt: {
+          en: "Which of the following is NOT a form of product differentiation?",
+          zh: "下列哪项**不是**产品差异化的一种形式?",
+        },
+        choices: [
+          { id: "a", text: { en: "Branding and packaging", zh: "品牌与包装" } },
+          { id: "b", text: { en: "Location convenience", zh: "地理位置便利" } },
+          { id: "c", text: { en: "Advertising that emphasizes unique features", zh: "强调独特功能的广告" } },
+          { id: "d", text: { en: "Selling at the exact same price as competitors", zh: "与竞争者以完全相同的价格销售" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "Differentiation is about making the product **distinguishable** from competitors' — via brand (A), location (B), or features/advertising (C). Pricing the same as competitors doesn't differentiate — it's what commodities do. In monopolistic competition, **perceived** differences give each firm a downward-sloping demand curve.",
+          zh: "差异化使产品与竞争对手**可区分**——通过品牌(A)、位置(B)、功能/广告(C)等。与对手完全同价并非差异化,而是大宗商品的定价。垄断竞争中,**感知的**差异使每家企业面对向下倾斜的需求曲线。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q062",
+        concept: { en: "Advertising Effects", zh: "广告的影响" },
+        prompt: {
+          en: "A firm in monopolistic competition launches a successful advertising campaign. In the short run, its demand curve is likely to:",
+          zh: "垄断竞争企业推出成功的广告活动。短期内其需求曲线可能:",
+        },
+        choices: [
+          { id: "a", text: { en: "Shift right and become less elastic (more market power)", zh: "右移且弹性变小(市场力量增强)" } },
+          { id: "b", text: { en: "Shift left and become more elastic", zh: "左移且弹性变大" } },
+          { id: "c", text: { en: "Not move at all", zh: "完全不变" } },
+          { id: "d", text: { en: "Become perfectly elastic (horizontal)", zh: "变为完全弹性(水平)" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Successful advertising (1) **increases** demand at every price (shift right) and (2) **reduces** substitutability perception (more loyalty → more inelastic). Both effects raise the firm's market power and price. This is one reason firms spend on branding even when costs rise.",
+          zh: "成功广告:(1) 各价格下需求增加(右移);(2) 降低替代感知(更忠诚 → 更无弹性)。两种效应都增强企业的市场力量与价格。这也是企业即使成本上升也愿花钱做品牌的原因。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q063",
+        concept: { en: "Monopolistic Competition vs PC", zh: "垄断竞争 vs 完全竞争" },
+        prompt: {
+          en: "Which efficiency property holds for perfect competition in the long run but NOT for monopolistic competition?",
+          zh: "下列哪种效率性质**仅适用于**完全竞争长期均衡,而**不适用于**垄断竞争?",
+        },
+        choices: [
+          { id: "a", text: { en: "Zero economic profit", zh: "零经济利润" } },
+          { id: "b", text: { en: "Free entry", zh: "自由进入" } },
+          { id: "c", text: { en: "P = MC and production at minimum ATC", zh: "P = MC 且在 ATC 最低处生产" } },
+          { id: "d", text: { en: "Consumer sovereignty", zh: "消费者主权" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Both have zero LR profit (A) and free entry (B). Both respect consumer sovereignty (D). Only **perfect competition** produces at **P = MC** (allocatively efficient) and at **minimum ATC** (productively efficient). Monopolistic competition has P > MC and Q < min-ATC output — the \"cost of variety.\"",
+          zh: "两者都有零长期利润(A)和自由进入(B),都尊重消费者主权(D)。**仅完全竞争**能同时 **P = MC**(配置效率)和在 **ATC 最低处**生产(生产效率)。垄断竞争有 P > MC 且产量少于 min-ATC——「品类多样性的代价」。",
+        },
+      },
+
+      {
+        id: "mp-micro-mar1-q064",
+        concept: { en: "Oligopoly: Characteristics", zh: "寡头:特征" },
+        prompt: {
+          en: "Which of the following is the defining feature of an **oligopoly**?",
+          zh: "下列哪项是**寡头**市场的定义特征?",
+        },
+        choices: [
+          { id: "a", text: { en: "One seller with market power", zh: "一个拥有市场力量的卖家" } },
+          { id: "b", text: { en: "A small number of firms whose decisions are strategically interdependent", zh: "少数企业,决策相互战略依赖" } },
+          { id: "c", text: { en: "Many firms with differentiated products", zh: "众多企业销售差异化产品" } },
+          { id: "d", text: { en: "Perfect information and homogeneous goods", zh: "完全信息,同质产品" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Oligopoly: **few enough** firms that each one's decisions (price, output, advertising) noticeably affect the others — so firms must **react to each other's moves**. This mutual interdependence is why game theory is central. Autos, airlines, breakfast cereals, cell-phone carriers.",
+          zh: "寡头:企业数量**足够少**,每家决策(价格、产量、广告)都会显著影响他人 → 企业必须**对彼此的行动做出反应**。这种相互依赖使博弈论成为核心工具。汽车、航空、谷物、移动运营商都是典型。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q065",
+        concept: { en: "Game Theory: Dominant Strategy", zh: "博弈论:支配策略" },
+        prompt: {
+          en: "A strategy is **dominant** for a player if:",
+          zh: "对某参与者而言,**支配策略**的定义是:",
+        },
+        choices: [
+          { id: "a", text: { en: "It yields the highest payoff regardless of what the opponent does", zh: "无论对手如何选择,它都给自己带来最高收益" } },
+          { id: "b", text: { en: "It matches whatever the opponent chooses", zh: "与对手的选择相匹配" } },
+          { id: "c", text: { en: "It results in the best outcome for both players", zh: "对双方都最优" } },
+          { id: "d", text: { en: "It is chosen randomly to confuse the opponent", zh: "随机选择以迷惑对手" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Dominant = **best response no matter what the opponent does**. If both players have dominant strategies, the outcome where each plays their dominant strategy is a Nash equilibrium — even if both could do better by coordinating (prisoner's dilemma).",
+          zh: "支配策略 = **无论对手如何选择,都是最佳反应**。若双方都有支配策略,双方各选支配策略即为纳什均衡——即便共同协调能更好(囚徒困境)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q066",
+        concept: { en: "Prisoner's Dilemma", zh: "囚徒困境" },
+        prompt: {
+          en: "Two suspects are questioned separately. Each can **Confess** or **Stay Silent**. Payoffs (years in prison, lower is better):\n\n|           | B: Silent | B: Confess |\n|-----------|-----------|------------|\n| A: Silent | (1, 1)    | (10, 0)    |\n| A: Confess| (0, 10)   | (5, 5)     |\n\nWhat is the Nash equilibrium?",
+          zh: "两位嫌犯分别被讯问,各自可**坦白**或**沉默**。收益(刑期,越短越好):\n\n|           | B: 沉默   | B: 坦白    |\n|-----------|-----------|------------|\n| A: 沉默   | (1, 1)    | (10, 0)    |\n| A: 坦白   | (0, 10)   | (5, 5)     |\n\n纳什均衡为?",
+        },
+        choices: [
+          { id: "a", text: { en: "Both stay silent → (1, 1)", zh: "双方沉默 → (1, 1)" } },
+          { id: "b", text: { en: "Both confess → (5, 5)", zh: "双方坦白 → (5, 5)" } },
+          { id: "c", text: { en: "A confesses, B stays silent", zh: "A 坦白,B 沉默" } },
+          { id: "d", text: { en: "No Nash equilibrium exists", zh: "不存在纳什均衡" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "For A: if B stays silent, confess gives 0 < 1 (better); if B confesses, confess gives 5 < 10 (better). **Confess dominates** for A. Same for B. Nash: **(Confess, Confess) = (5, 5)**. But (Silent, Silent) = (1, 1) is Pareto-better — that's the dilemma. Cooperation is individually unstable.",
+          zh: "对 A:若 B 沉默,坦白 0 < 1(更优);若 B 坦白,5 < 10(更优)。**坦白支配 A**。对 B 对称。纳什:**(坦白, 坦白) = (5, 5)**。但 (沉默, 沉默) = (1, 1) 帕累托更优——正是困境所在,个体理性不稳定。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q067",
+        concept: { en: "Collusion & Cartels", zh: "共谋与卡特尔" },
+        prompt: {
+          en: "When oligopolists successfully **collude**, the combined outcome most resembles:",
+          zh: "寡头成功**共谋**时,整体结果最像:",
+        },
+        choices: [
+          { id: "a", text: { en: "A perfectly competitive market", zh: "完全竞争市场" } },
+          { id: "b", text: { en: "A single monopoly (higher price, lower quantity, higher profit)", zh: "单一垄断(价更高、量更少、利润更高)" } },
+          { id: "c", text: { en: "Monopolistic competition", zh: "垄断竞争" } },
+          { id: "d", text: { en: "A zero-profit equilibrium", zh: "零利润均衡" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "A successful cartel acts like a **single monopolist**: restrict total output to where MR = MC, split it among members, and enjoy monopoly profits. The problem: each member has an incentive to **cheat** (undercut the cartel price and steal market share), so cartels are unstable — this is why antitrust laws work.",
+          zh: "成功的卡特尔等同于**单一垄断者**:将总产量限制在 MR = MC 处,在成员之间分配并享受垄断利润。问题:每个成员都有**偷跑**诱因(低于卡特尔价抢市场),因此卡特尔不稳定——这也是反垄断法的着力点。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q068",
+        concept: { en: "Incentive to Defect from Cartel", zh: "退出卡特尔的诱因" },
+        prompt: {
+          en: "Why are cartels typically unstable in the absence of enforcement?",
+          zh: "无外部约束时,卡特尔为何通常不稳定?",
+        },
+        choices: [
+          { id: "a", text: { en: "Each member has a strong incentive to secretly increase output and undercut the cartel price", zh: "每位成员都有强烈诱因暗中增产并以更低价格抢市场" } },
+          { id: "b", text: { en: "Governments always break up cartels", zh: "政府总是拆散卡特尔" } },
+          { id: "c", text: { en: "Consumers boycott cartel products", zh: "消费者抵制卡特尔产品" } },
+          { id: "d", text: { en: "Marginal cost is always above the cartel price", zh: "边际成本始终高于卡特尔价" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "At the cartel price (monopoly price), each member's MC is **below** price. Cheating (producing more secretly) at P > MC adds profit for the cheater — classic prisoner's dilemma. Without strong enforcement (OPEC struggles with this), the cartel collapses.",
+          zh: "卡特尔价(垄断价)下,每个成员的 MC **低于**价格。偷偷增产可获 P > MC 的额外利润——经典囚徒困境。若无有力执行(OPEC 长期挣扎),卡特尔终会瓦解。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q069",
+        concept: { en: "Repeated Games & Cooperation", zh: "重复博弈与合作" },
+        prompt: {
+          en: "In a **repeated** prisoner's dilemma game played indefinitely, cooperation can be sustained because:",
+          zh: "在**重复**且无限期的囚徒困境中,可以维持合作的原因是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Players get to know each other better", zh: "参与者逐渐彼此熟悉" } },
+          { id: "b", text: { en: "Future punishment for defection outweighs the short-run gain from cheating", zh: "未来的惩罚超过短期偷跑收益" } },
+          { id: "c", text: { en: "The game theoretically has no equilibrium", zh: "该博弈理论上无均衡" } },
+          { id: "d", text: { en: "Repetition changes the payoffs of each round", zh: "重复改变了每轮的收益" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "**Folk theorem**: if the game is repeated **indefinitely** and players are patient, strategies like \"tit-for-tat\" or \"grim trigger\" can support cooperation. The threat of future retaliation makes defection unprofitable on net. In a **finite** game with known end, backward induction unravels cooperation.",
+          zh: "**民间定理**:博弈**无限期**重复且参与者足够有耐心时,「以牙还牙」或「冷酷策略」等可支持合作。未来惩罚威胁使偷跑总体不划算。**有限期**已知终点时,逆推归纳会瓦解合作。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q070",
+        concept: { en: "Kinked Demand Curve", zh: "弯折需求曲线" },
+        prompt: {
+          en: "The **kinked demand curve** model of oligopoly predicts that:",
+          zh: "寡头的**弯折需求曲线**模型预测:",
+        },
+        choices: [
+          { id: "a", text: { en: "Prices change frequently due to strategic moves", zh: "策略性调整使价格频繁变动" } },
+          { id: "b", text: { en: "Prices are rigid because rivals match price cuts but not price increases", zh: "价格僵化,因为对手跟进降价但不跟随涨价" } },
+          { id: "c", text: { en: "Firms always cooperate", zh: "企业总是合作" } },
+          { id: "d", text: { en: "Demand is perfectly elastic at the prevailing price", zh: "在现行价格上需求完全弹性" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Kinked-demand intuition: if a firm raises price, rivals don't follow → demand is elastic above current P (you lose lots of customers). If the firm cuts price, rivals match to protect share → demand is inelastic below current P. The kink creates a discontinuous MR, so small MC changes don't alter price → **price stickiness**.",
+          zh: "弯折需求的直觉:涨价时对手不跟 → 现价上方需求弹性大(客户大量流失);降价时对手跟进护市场 → 现价下方需求缺乏弹性。弯折使 MR 不连续,小幅 MC 变化不改变价格 → **价格粘性**。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q071",
+        concept: { en: "Four-Firm Concentration Ratio", zh: "四企业集中度" },
+        prompt: {
+          en: "A **four-firm concentration ratio (CR4)** of 85% for an industry suggests:",
+          zh: "某行业**四企业集中度 (CR4)** 为 85%,说明:",
+        },
+        choices: [
+          { id: "a", text: { en: "The market is perfectly competitive", zh: "市场是完全竞争" } },
+          { id: "b", text: { en: "The market is highly concentrated — likely an oligopoly", zh: "市场高度集中——很可能是寡头" } },
+          { id: "c", text: { en: "Each firm has exactly a 21% market share", zh: "每家企业恰好占 21% 市场份额" } },
+          { id: "d", text: { en: "The industry is a pure monopoly", zh: "行业是纯垄断" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "CR4 = combined market share of the 4 largest firms. CR4 ≥ ~60–80% is usually considered **highly concentrated** → oligopoly. A pure monopoly has one firm = 100% share; perfect competition has CR4 ≈ 0. The Herfindahl-Hirschman Index (HHI) is a finer-grained alternative.",
+          zh: "CR4 = 最大四家企业市场份额之和。CR4 ≥ 60–80% 通常视为**高度集中** → 寡头。纯垄断单家 100%;完全竞争 CR4 ≈ 0。HHI(赫芬达尔指数)是更精细的替代指标。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q072",
+        concept: { en: "Monopoly Output Numerical Problem", zh: "垄断产量数值问题" },
+        prompt: {
+          en: "A monopolist faces the linear demand P = 100 − Q with constant marginal cost MC = 20. The profit-maximizing quantity is:",
+          zh: "某垄断者面对线性需求 P = 100 − Q,边际成本恒为 MC = 20。使利润最大化的 Q 为?",
+        },
+        choices: [
+          { id: "a", text: { en: "Q = 20", zh: "Q = 20" } },
+          { id: "b", text: { en: "Q = 40", zh: "Q = 40" } },
+          { id: "c", text: { en: "Q = 60", zh: "Q = 60" } },
+          { id: "d", text: { en: "Q = 80", zh: "Q = 80" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "With linear demand P = a − bQ, MR = a − 2bQ → here MR = 100 − 2Q. Set MR = MC: 100 − 2Q = 20 → 2Q = 80 → **Q = 40**. The PC output would be where P = MC → Q_pc = 80; monopoly restricts output to half.",
+          zh: "线性需求 P = a − bQ 对应 MR = a − 2bQ → 此处 MR = 100 − 2Q。令 MR = MC:100 − 2Q = 20 → 2Q = 80 → **Q = 40**。完全竞争产量 P = MC 为 Q_pc = 80;垄断将产量限为一半。",
+        },
+      },
+
+      // ==================== UNIT 5 — Factor Markets (13 Qs) ====================
+      {
+        id: "mp-micro-mar1-q073",
+        concept: { en: "Derived Demand for Labor", zh: "劳动的派生需求" },
+        prompt: {
+          en: "The demand for labor is called \"derived demand\" because it is:",
+          zh: "劳动需求被称为「派生需求」,原因是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Derived from the value of goods that workers produce", zh: "源于工人所生产商品的价值" } },
+          { id: "b", text: { en: "Calculated using derivatives from calculus", zh: "用微积分中的导数计算" } },
+          { id: "c", text: { en: "Determined by government regulations", zh: "由政府法规决定" } },
+          { id: "d", text: { en: "A function of worker education only", zh: "仅取决于工人教育水平" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Firms hire labor *because* consumers want the goods the labor produces. Labor demand is **derived from product demand**: if demand for cars falls, demand for auto workers falls with it. Same logic for all factor markets (capital, land, entrepreneurship).",
+          zh: "企业雇用劳动**是因为**消费者需要工人生产的商品。劳动需求**派生自产品需求**:汽车需求下降,汽车工人需求也随之下降。对其他要素市场(资本、土地、企业家才能)同理。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q074",
+        concept: { en: "Marginal Revenue Product (MRP)", zh: "边际收益产品 (MRP)" },
+        prompt: {
+          en: "A worker produces 10 additional units per hour. The firm sells in a perfectly competitive product market at $4 per unit. The worker's marginal revenue product (MRP) is:",
+          zh: "一位工人每小时多产 10 单位产品,企业在完全竞争产品市场以 $4/单位售出。该工人的边际收益产品 (MRP) 为?",
+        },
+        choices: [
+          { id: "a", text: { en: "$4 per hour", zh: "$4/小时" } },
+          { id: "b", text: { en: "$10 per hour", zh: "$10/小时" } },
+          { id: "c", text: { en: "$40 per hour", zh: "$40/小时" } },
+          { id: "d", text: { en: "$2.50 per hour", zh: "$2.50/小时" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "MRP = MP × MR. In a PC product market, MR = P, so MRP = MP × P = 10 × $4 = **$40/hour**. This is the maximum wage the firm would pay this worker. If the product market were imperfectly competitive, MRP would use MR < P.",
+          zh: "MRP = MP × MR。完全竞争产品市场中 MR = P,故 MRP = MP × P = 10 × $4 = **$40/小时**。这是企业愿支付给该工人的最高工资。若产品市场非完全竞争,MRP 需用 MR < P。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q075",
+        concept: { en: "Labor Demand Curve = MRP", zh: "劳动需求曲线 = MRP" },
+        prompt: {
+          en: "For a firm hiring labor in a competitive labor market, the firm's **labor demand curve** is:",
+          zh: "在完全竞争劳动市场中,企业的**劳动需求曲线**是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Its total cost curve", zh: "总成本曲线" } },
+          { id: "b", text: { en: "Its marginal revenue product (MRP) curve", zh: "边际收益产品 (MRP) 曲线" } },
+          { id: "c", text: { en: "The market supply of labor", zh: "市场劳动供给曲线" } },
+          { id: "d", text: { en: "Horizontal at the minimum wage", zh: "在最低工资处水平" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "A firm hires an additional worker as long as MRP ≥ wage. So the downward-sloping **MRP curve IS the labor demand curve** — it shows how many workers the firm is willing to hire at each wage. Slope is downward because of diminishing marginal product.",
+          zh: "企业只要 MRP ≥ 工资就继续雇用 → 向下倾斜的 **MRP 曲线就是劳动需求曲线**——显示不同工资下企业愿雇用的劳动数量。因边际产量递减,曲线向下倾斜。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q076",
+        concept: { en: "Firm's Hiring Decision", zh: "企业雇佣决策" },
+        prompt: {
+          en: "In a competitive labor market with wage $20/hr, a firm should hire workers until:",
+          zh: "在工资为 $20/小时的完全竞争劳动市场中,企业应雇佣工人直到:",
+        },
+        choices: [
+          { id: "a", text: { en: "Total revenue is maximized", zh: "总收益最大" } },
+          { id: "b", text: { en: "MRP of the last worker = $20", zh: "最后一位工人的 MRP = $20" } },
+          { id: "c", text: { en: "Average product is maximized", zh: "平均产量最大" } },
+          { id: "d", text: { en: "Marginal product = $20", zh: "边际产量 = $20" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Profit max for factor hiring: **MRP = MFC** (marginal factor cost). In a competitive labor market, MFC = wage (hiring one more person doesn't bid up the wage). So: **hire until MRP = wage = $20**.",
+          zh: "要素使用利润最大化条件:**MRP = MFC**(边际要素成本)。完全竞争劳动市场中 MFC = 工资(多雇一人不抬高工资)。所以**雇佣直到 MRP = 工资 = $20**。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q077",
+        concept: { en: "Competitive Labor Market Wages", zh: "完全竞争劳动市场工资" },
+        prompt: {
+          en: "In a competitive labor market, the equilibrium wage is determined by:",
+          zh: "完全竞争劳动市场的均衡工资由什么决定?",
+        },
+        choices: [
+          { id: "a", text: { en: "Government regulation only", zh: "仅由政府法规" } },
+          { id: "b", text: { en: "Labor unions setting rates", zh: "工会设定" } },
+          { id: "c", text: { en: "The intersection of market labor supply and market labor demand", zh: "市场劳动供给与劳动需求的交点" } },
+          { id: "d", text: { en: "The highest-paid worker's productivity", zh: "收入最高工人的生产力" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Like any competitive market: price (wage) is set where **supply meets demand**. Individual firms then hire quantity where their MRP curve hits that wage. Each firm is a **wage-taker** (can hire any number at W*) — analogous to product market PC firms being price-takers.",
+          zh: "与任何竞争市场相同:价格(工资)在**供需交点**形成。个别企业在其 MRP 曲线与该工资的交点处确定雇用量。每个企业都是**工资接受者**(在 W* 下可雇任意人数)——与产品市场的完全竞争企业类似。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q078",
+        concept: { en: "Shifts in Labor Demand", zh: "劳动需求的移动" },
+        prompt: {
+          en: "Which event would cause the **labor demand curve** for software engineers to shift **right**?",
+          zh: "下列哪种情况会使软件工程师的**劳动需求曲线右移**?",
+        },
+        choices: [
+          { id: "a", text: { en: "An increase in the supply of software engineers", zh: "软件工程师供给增加" } },
+          { id: "b", text: { en: "A fall in the price of the software products the firm sells", zh: "企业所售软件产品价格下降" } },
+          { id: "c", text: { en: "A productivity-enhancing technology that makes each engineer more effective", zh: "提升生产力的新技术,使每位工程师更高产" } },
+          { id: "d", text: { en: "A minimum wage hike", zh: "提高最低工资" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Labor demand = MRP = MP × MR. Shifters: (1) productivity of labor (MP), (2) product price (MR in PC). Better tech raises MP → **MRP shifts right → labor demand rises**. Product-price drops reduce MRP (shifts left, so B is wrong). Labor supply (A) moves along demand, doesn't shift it. Minimum wage (D) affects price, not demand curve.",
+          zh: "劳动需求 = MRP = MP × MR。移动因素:(1) MP;(2) 产品价格(PC 中即 MR)。新技术提高 MP → **MRP 右移 → 劳动需求增加**。产品降价降低 MRP(左移,故 B 错)。劳动供给 (A) 只是沿需求曲线移动;最低工资 (D) 影响价格,不移动需求曲线。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q079",
+        concept: { en: "Shifts in Labor Supply", zh: "劳动供给的移动" },
+        prompt: {
+          en: "Immigration of skilled workers into a country would most likely:",
+          zh: "熟练工人移民至某国最可能导致:",
+        },
+        choices: [
+          { id: "a", text: { en: "Shift labor supply right; lower equilibrium wages", zh: "劳动供给右移,均衡工资下降" } },
+          { id: "b", text: { en: "Shift labor demand right; raise wages", zh: "劳动需求右移,工资上升" } },
+          { id: "c", text: { en: "Shift labor supply left; raise wages", zh: "劳动供给左移,工资上升" } },
+          { id: "d", text: { en: "Have no effect on the labor market", zh: "对劳动市场无影响" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "More workers available → labor supply curve shifts **right** → along an unchanged demand curve, wages **fall** and employment **rises** in that market. (Long-run wage impact also depends on what happens to labor demand as immigrants consume and start businesses.)",
+          zh: "可用工人增加 → 劳动供给曲线**右移** → 沿需求不变曲线,工资**下降**、就业**增加**。(长期工资还要看移民消费和创业带来的需求变化。)",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q080",
+        concept: { en: "Least-Cost Input Combination", zh: "最低成本要素组合" },
+        prompt: {
+          en: "A firm uses labor (L) and capital (K). The marginal product of labor is 20 units, wage is $10. The marginal product of capital is 15 units, rental rate is $5. To minimize cost for the current output level, the firm should:",
+          zh: "某企业同时使用劳动 (L) 与资本 (K)。劳动的 MP = 20 单位,工资 $10;资本的 MP = 15 单位,租金 $5。为在现有产量下最小化成本,企业应:",
+        },
+        choices: [
+          { id: "a", text: { en: "Use more labor and less capital", zh: "多用劳动,少用资本" } },
+          { id: "b", text: { en: "Use more capital and less labor", zh: "多用资本,少用劳动" } },
+          { id: "c", text: { en: "Maintain current input levels — they are optimal", zh: "维持现状——已最优" } },
+          { id: "d", text: { en: "Stop production — marginal products are too high", zh: "停产——边际产量太高" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Least-cost rule: **MP_L / W = MP_K / r**. Here MP_L/W = 20/10 = 2 (extra units per dollar), MP_K/r = 15/5 = 3. Capital gives more output per dollar → **use more capital and less labor** until the ratios equalize. Profit-max rule adds: both ratios should also equal 1/MR (or equivalently, MRP/MFC = 1 for each input).",
+          zh: "最低成本规则:**MP_L / W = MP_K / r**。此题 MP_L/W = 20/10 = 2(每美元增加产量),MP_K/r = 15/5 = 3。资本每美元贡献更多 → **多用资本、少用劳动**,直到两比值相等。利润最大化进一步要求比值等于 1/MR(即各投入 MRP/MFC = 1)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q081",
+        concept: { en: "Monopsony", zh: "雇主垄断(买方垄断)" },
+        prompt: {
+          en: "A **monopsony** labor market is one where:",
+          zh: "**雇主垄断**(Monopsony)劳动市场的定义是:",
+        },
+        choices: [
+          { id: "a", text: { en: "A single labor union controls all workers", zh: "单一工会控制所有工人" } },
+          { id: "b", text: { en: "A single employer is the only buyer of labor", zh: "单一雇主是劳动的唯一买家" } },
+          { id: "c", text: { en: "Workers can freely choose between many employers", zh: "工人可自由选择多家雇主" } },
+          { id: "d", text: { en: "All workers have identical skills", zh: "所有工人技能相同" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Monopsony = **single buyer** (here of labor). Classic examples: a company town, the only hospital in a rural area, or historically the NFL/MLB for a specific sport. Facing an upward-sloping market labor supply, the firm has **wage-setting power**, not wage-taking.",
+          zh: "雇主垄断 = **唯一买家**(此处是劳动)。典型例子:公司城、偏远唯一医院、历史上美国职业棒球/橄榄球联盟。面对向上倾斜的市场劳动供给,企业具有**定价权**,而非价格接受者。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q082",
+        concept: { en: "MFC vs. Wage under Monopsony", zh: "雇主垄断下 MFC 与工资的关系" },
+        prompt: {
+          en: "A monopsonist facing an upward-sloping labor supply curve hires an additional worker. Its **marginal factor cost (MFC)** is:",
+          zh: "面对向上倾斜的劳动供给曲线,雇主垄断者多雇一人时,其**边际要素成本 (MFC)**:",
+        },
+        choices: [
+          { id: "a", text: { en: "Equal to the wage paid to that worker", zh: "等于支付给该工人的工资" } },
+          { id: "b", text: { en: "Greater than the wage, because hiring one more requires raising the wage for ALL workers", zh: "大于工资,因为多雇一人需为**所有**工人提高工资" } },
+          { id: "c", text: { en: "Less than the wage", zh: "小于工资" } },
+          { id: "d", text: { en: "Zero", zh: "为零" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "To attract the next worker, the monopsonist must offer a higher wage — **and pay that higher wage to all existing workers** (assuming no discrimination). So MFC = new wage + (wage increase × existing workers) > wage. Graphically, MFC lies **above** the supply curve, just as MR lies below demand for a monopolist.",
+          zh: "为吸引下一位工人,雇主垄断者必须提高工资,并(假设无歧视)将**较高工资付给所有已雇工人**。故 MFC = 新工资 + (加薪 × 原有工人数) > 工资。图上 MFC 位于供给曲线**上方**,类似垄断者 MR 低于需求。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q083",
+        concept: { en: "Monopsony Wage & Employment", zh: "雇主垄断的工资与就业" },
+        prompt: {
+          en: "Compared to a perfectly competitive labor market, an unregulated monopsony typically:",
+          zh: "相比完全竞争劳动市场,未受管制的雇主垄断通常:",
+        },
+        choices: [
+          { id: "a", text: { en: "Pays higher wages and hires more workers", zh: "支付更高工资并雇用更多工人" } },
+          { id: "b", text: { en: "Pays lower wages and hires fewer workers", zh: "支付更低工资并雇用更少工人" } },
+          { id: "c", text: { en: "Pays the same wage as competitive markets", zh: "工资与竞争市场相同" } },
+          { id: "d", text: { en: "Hires more workers at lower wages (because of economies of scale)", zh: "以更低工资雇用更多工人(规模经济)" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Monopsony hires where MRP = MFC (not MRP = W). Because MFC > W, the resulting quantity is **less** than the competitive level, and the monopsonist pays a wage **off its supply curve at that low quantity** — **lower than the competitive wage**. Deadweight loss and wage suppression result.",
+          zh: "雇主垄断以 MRP = MFC(非 MRP = W)雇用。因 MFC > W,雇用量**低于**竞争市场;工资则按供给曲线上该低数量对应的 W 给付——**低于竞争工资**。造成无谓损失与工资压低。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q084",
+        concept: { en: "Minimum Wage in a Monopsony", zh: "雇主垄断下的最低工资" },
+        prompt: {
+          en: "In a **monopsony** labor market, a well-chosen minimum wage can:",
+          zh: "在**雇主垄断**劳动市场中,设置恰当的最低工资可以:",
+        },
+        choices: [
+          { id: "a", text: { en: "Only raise unemployment (as in competitive markets)", zh: "仅增加失业(如同竞争市场)" } },
+          { id: "b", text: { en: "Raise both wages and employment simultaneously", zh: "同时提高工资与就业" } },
+          { id: "c", text: { en: "Lower wages", zh: "降低工资" } },
+          { id: "d", text: { en: "Have no effect", zh: "毫无作用" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "A minimum wage set between the monopsony wage and the competitive wage flattens MFC at that wage floor for all units below the PC equilibrium. The monopsonist then hires where MRP = min-wage — **hiring more** than before **and** paying more. This is the counterintuitive result that sometimes justifies higher min-wage in concentrated labor markets.",
+          zh: "将最低工资设在雇主垄断工资与竞争工资之间时,MFC 在 PC 均衡以下会被「削平」至该工资。雇主按 MRP = 最低工资雇用 → **雇用量与工资都增加**。这就是在集中性劳动市场中,最低工资有时可同时提高两者的反直觉结论。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q085",
+        concept: { en: "Human Capital & Wage Differences", zh: "人力资本与工资差异" },
+        prompt: {
+          en: "A surgeon earns much more than a cashier. According to **human capital theory**, this is primarily because:",
+          zh: "外科医生比收银员工资高得多。根据**人力资本理论**,主要原因是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Surgeons are more inherently deserving", zh: "外科医生天生更值得" } },
+          { id: "b", text: { en: "Surgeons have invested in more education/training, and supply of surgeons is limited", zh: "外科医生投入了更多教育培训,供给有限" } },
+          { id: "c", text: { en: "Cashiers face monopsony power", zh: "收银员面临雇主垄断力量" } },
+          { id: "d", text: { en: "Luck alone determines wages", zh: "工资仅由运气决定" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Human capital theory: wage differences largely reflect differences in **productivity-enhancing investment** (education, training, experience) plus **supply restrictions** (licensing, long training pipeline) that keep the supply curve of highly-skilled labor to the left. Equally valid AP Micro answer: MRP of surgeons > MRP of cashiers.",
+          zh: "人力资本理论:工资差异主要反映**提高生产力的投资**(教育、培训、经验)以及**供给限制**(执照、漫长培训周期)使高技能劳动供给曲线靠左。AP 微观等价说法:外科医生的 MRP > 收银员的 MRP。",
+        },
+      },
+
+      // ==================== UNIT 6 — Market Failure & Role of Government (15 Qs) ====================
+      {
+        id: "mp-micro-mar1-q086",
+        concept: { en: "Negative Externality: Overproduction", zh: "负外部性:生产过剩" },
+        prompt: {
+          en: "A steel mill pollutes a river, imposing health costs on downstream residents. In an unregulated market, the output of steel will be:",
+          zh: "某钢铁厂污染河流,给下游居民带来健康损失。在无管制市场中,钢铁产量将:",
+        },
+        choices: [
+          { id: "a", text: { en: "At the socially optimal level", zh: "恰处于社会最优水平" } },
+          { id: "b", text: { en: "Greater than the socially optimal level", zh: "高于社会最优水平" } },
+          { id: "c", text: { en: "Less than the socially optimal level", zh: "低于社会最优水平" } },
+          { id: "d", text: { en: "Zero, because firms internalize externalities", zh: "为零,因为企业内部化外部性" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Negative production externality: **social marginal cost > private marginal cost**. Firms only pay private MC, so they **overproduce** (Q_mkt > Q_opt). A Pigouvian tax equal to the marginal external cost closes this gap.",
+          zh: "生产的负外部性:**社会边际成本 > 私人边际成本**。企业仅承担私人 MC,故**过度生产**(Q_市场 > Q_最优)。征收等于边际外部成本的庇古税可消除缺口。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q087",
+        concept: { en: "Positive Externality: Underproduction", zh: "正外部性:生产不足" },
+        prompt: {
+          en: "Vaccinations protect not only the person who gets the shot but also reduce disease spread in the community. In an unregulated market, vaccinations will be:",
+          zh: "接种疫苗不仅保护本人,还减少疾病在社区中的传播。在无管制市场中,疫苗接种量将:",
+        },
+        choices: [
+          { id: "a", text: { en: "Overprovided (too many shots given)", zh: "过度提供(接种过多)" } },
+          { id: "b", text: { en: "Underprovided (too few shots given)", zh: "提供不足(接种过少)" } },
+          { id: "c", text: { en: "At the socially optimal level", zh: "恰处社会最优水平" } },
+          { id: "d", text: { en: "Ignored entirely", zh: "完全被忽视" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Positive consumption externality: social marginal benefit > private marginal benefit. Individual buyers only consider their own benefit → **underconsumption** (Q_mkt < Q_opt). A Pigouvian **subsidy** equal to the marginal external benefit restores optimum (explains public vaccination programs).",
+          zh: "消费的正外部性:社会边际效用 > 私人边际效用。个人只考虑自身效用 → **消费不足**(Q_市场 < Q_最优)。等于边际外部效益的庇古**补贴**可恢复最优(公共疫苗项目即基于此)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q088",
+        concept: { en: "Pigouvian Taxes", zh: "庇古税" },
+        prompt: {
+          en: "To internalize a negative externality of $5 per unit, the government should impose:",
+          zh: "要将每单位 $5 的负外部性内部化,政府应设:",
+        },
+        choices: [
+          { id: "a", text: { en: "A tax of $5 per unit on producers", zh: "对生产者每单位征收 $5 的税" } },
+          { id: "b", text: { en: "A subsidy of $5 per unit to producers", zh: "向生产者每单位补贴 $5" } },
+          { id: "c", text: { en: "A lump-sum tax unrelated to output", zh: "与产量无关的一次性税" } },
+          { id: "d", text: { en: "A price ceiling", zh: "价格上限" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "A **Pigouvian tax** equal to the marginal external cost ($5/unit) raises the firm's private MC up to the social MC → firms now produce at Q_opt. Lump-sum taxes (C) don't affect marginal decisions, so they don't fix the externality.",
+          zh: "**庇古税**等于边际外部成本 ($5/单位),把企业的私人 MC 抬升至社会 MC → 产量回到 Q_最优。一次性税 (C) 不影响边际决策,故无法修正外部性。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q089",
+        concept: { en: "Coase Theorem", zh: "科斯定理" },
+        prompt: {
+          en: "The **Coase theorem** argues that private parties can solve externalities without government intervention as long as:",
+          zh: "**科斯定理**认为,只要满足某条件,私人当事方可在无政府介入下解决外部性。该条件是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Transaction costs are low and property rights are well-defined", zh: "交易成本低且产权清晰" } },
+          { id: "b", text: { en: "The government sets prices", zh: "政府定价" } },
+          { id: "c", text: { en: "There are many identical firms", zh: "有许多相同企业" } },
+          { id: "d", text: { en: "The externality is negative, not positive", zh: "外部性为负而非正" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Coase's insight: if **property rights are clearly assigned** and **negotiation is costless**, the affected parties will bargain to the efficient outcome — *regardless of who originally held the right*. In practice, transaction costs (lawyers, many parties, info asymmetry) often prevent this, which is why government intervention helps.",
+          zh: "科斯的洞见:只要**产权清晰**且**协商无成本**,相关方会通过谈判达到有效结果——与产权最初归属无关。现实中交易成本(律师、多方、信息不对称)常阻碍协商,故政府介入有用。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q090",
+        concept: { en: "Public Goods: Definition", zh: "公共品:定义" },
+        prompt: {
+          en: "A **public good** is characterized by which pair of properties?",
+          zh: "**公共品**的两个定义性质是?",
+        },
+        choices: [
+          { id: "a", text: { en: "Rival and excludable", zh: "竞争性与排他性" } },
+          { id: "b", text: { en: "Non-rival and non-excludable", zh: "非竞争性与非排他性" } },
+          { id: "c", text: { en: "Rival and non-excludable", zh: "竞争性与非排他性" } },
+          { id: "d", text: { en: "Non-rival and excludable", zh: "非竞争性与排他性" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "**Public good** = **non-rival** (my use doesn't reduce yours, e.g., national defense) + **non-excludable** (can't prevent non-payers from using it, e.g., open-air fireworks). This combination leads to the **free-rider problem** and market under-provision. Rival+non-excludable = **common resource** (tragedy of commons).",
+          zh: "**公共品** = **非竞争**(我用不减你用,如国防)+ **非排他**(难以阻止不付费者使用,如露天烟花)。二者结合导致**搭便车**问题,市场供给不足。竞争 + 非排他 = **公共资源**(公地悲剧)。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q091",
+        concept: { en: "Free Rider Problem", zh: "搭便车问题" },
+        prompt: {
+          en: "The **free rider problem** is a form of market failure because:",
+          zh: "**搭便车问题**之所以构成市场失灵,是因为:",
+        },
+        choices: [
+          { id: "a", text: { en: "Private markets produce too much of a public good", zh: "私人市场过度提供公共品" } },
+          { id: "b", text: { en: "People enjoy public goods without paying, so private markets underprovide them", zh: "人们不付费就可享用公共品,私人市场因此供给不足" } },
+          { id: "c", text: { en: "The government overtaxes citizens", zh: "政府对公民过度征税" } },
+          { id: "d", text: { en: "Externalities are always positive", zh: "外部性总是正的" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Non-excludability lets anyone use the good without paying → individual WTP understated → market **under-provides**. Classic examples: national defense, basic research, street lighting. Government funding via taxes is the standard solution.",
+          zh: "非排他性使任何人都能免费使用 → 个人显示偏好低估 → 市场**供给不足**。典型例子:国防、基础研究、路灯。由政府通过税收提供是标准解决方案。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q092",
+        concept: { en: "Common Resources & Tragedy of the Commons", zh: "公共资源与公地悲剧" },
+        prompt: {
+          en: "Which of the following is an example of a **common resource** (not a pure public good)?",
+          zh: "下列哪项属于**公共资源**(而非纯粹公共品)?",
+        },
+        choices: [
+          { id: "a", text: { en: "National defense", zh: "国防" } },
+          { id: "b", text: { en: "Ocean fisheries", zh: "公海渔业" } },
+          { id: "c", text: { en: "A private country club", zh: "私人乡村俱乐部" } },
+          { id: "d", text: { en: "Clean air in a clean-air region", zh: "空气清洁地区的清新空气" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Common resources are **rival** (one person's fish is another's forgone catch) but **non-excludable** (hard to fence the ocean). This leads to **overuse** — the \"tragedy of the commons.\" National defense (A) is non-rival (public good). Country club (C) is both rival and excludable (private good). Clean air (D) is closer to a pure public good.",
+          zh: "公共资源**有竞争性**(一人捞鱼等于别人少捞)但**非排他**(难以围海圈池),导致**过度使用**——「公地悲剧」。国防 (A) 非竞争(公共品);乡村俱乐部 (C) 竞争+排他(私人品);清洁空气 (D) 更接近纯公共品。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q093",
+        concept: { en: "Adverse Selection", zh: "逆向选择" },
+        prompt: {
+          en: "In the used car market, sellers know their car's true quality while buyers don't. As a result:",
+          zh: "二手车市场中,卖家比买家更了解车的真实质量。结果是:",
+        },
+        choices: [
+          { id: "a", text: { en: "High-quality cars are driven out of the market — \"adverse selection\"", zh: "好车被挤出市场——「逆向选择」" } },
+          { id: "b", text: { en: "Only high-quality cars are sold", zh: "只有高品质车被出售" } },
+          { id: "c", text: { en: "Prices are perfectly efficient", zh: "价格完全有效率" } },
+          { id: "d", text: { en: "Buyers always pay too much", zh: "买家总是付过高价格" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Akerlof's **\"market for lemons\"**: buyers, fearing they can't tell good from bad, offer only average prices. Good-car owners refuse to sell at average prices → market tilts toward lemons → average quality falls → prices fall more. Classic **adverse selection** from asymmetric information. Warranties, certifications, and reputation help.",
+          zh: "阿克尔洛夫的**「柠檬市场」**:买家担心无法辨别好坏,只愿出平均价。好车主拒绝以均价卖 → 市场向次品倾斜 → 平均质量下降 → 价格更低。典型的**信息不对称导致的逆向选择**。保修、认证、信誉可缓解。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q094",
+        concept: { en: "Moral Hazard", zh: "道德风险" },
+        prompt: {
+          en: "After buying comprehensive car insurance, a driver becomes noticeably less careful. This is an example of:",
+          zh: "购买全险后驾驶员变得明显更不小心。这属于:",
+        },
+        choices: [
+          { id: "a", text: { en: "Adverse selection", zh: "逆向选择" } },
+          { id: "b", text: { en: "Moral hazard", zh: "道德风险" } },
+          { id: "c", text: { en: "Signaling", zh: "信号发送" } },
+          { id: "d", text: { en: "A Pigouvian externality", zh: "庇古外部性" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "**Moral hazard**: the insured party changes behavior *after* the contract because they no longer bear the full cost of risky actions. Distinguish from **adverse selection**, which happens *before* the contract (risky drivers more likely to buy insurance in the first place). Deductibles and co-pays are designed to reduce moral hazard.",
+          zh: "**道德风险**:被保险方**签约后**改变行为,因不再承担全部风险成本。与**逆向选择**不同(后者发生在**签约前**——高风险驾驶员更可能购买保险)。免赔额与共付额设计就是为缓解道德风险。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q095",
+        concept: { en: "Gini Coefficient Interpretation", zh: "基尼系数的解读" },
+        prompt: {
+          en: "Country A has a Gini coefficient of 0.30; Country B has 0.55. Which statement is correct?",
+          zh: "A 国基尼系数为 0.30,B 国为 0.55。下列哪项正确?",
+        },
+        choices: [
+          { id: "a", text: { en: "A has more income inequality than B", zh: "A 国收入分配比 B 国更不平等" } },
+          { id: "b", text: { en: "B has more income inequality than A", zh: "B 国收入分配比 A 国更不平等" } },
+          { id: "c", text: { en: "A has lower average income", zh: "A 国平均收入更低" } },
+          { id: "d", text: { en: "The two countries have identical distributions", zh: "两国分布相同" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Gini coefficient ranges 0 (perfect equality) to 1 (one person has all income). **Higher Gini = more inequality**. 0.55 > 0.30 → **B has more inequality**. Gini says nothing about absolute income level — a country can be rich + unequal or poor + equal.",
+          zh: "基尼系数 0(完全平等)到 1(一人独占)。**Gini 越大越不平等**。0.55 > 0.30 → **B 更不平等**。Gini 不反映绝对收入水平——富国可以很不平等,穷国也可以很平等。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q096",
+        concept: { en: "Lorenz Curve Shift", zh: "洛伦兹曲线的变化" },
+        prompt: {
+          en: "A country's Lorenz curve **moves further away from** the 45° line of equality over time. What does this indicate?",
+          zh: "某国洛伦兹曲线随时间**逐渐远离** 45° 平等线。说明:",
+        },
+        choices: [
+          { id: "a", text: { en: "Inequality decreased; Gini coefficient fell", zh: "不平等下降,基尼系数下降" } },
+          { id: "b", text: { en: "Inequality increased; Gini coefficient rose", zh: "不平等上升,基尼系数上升" } },
+          { id: "c", text: { en: "Average income rose", zh: "平均收入上升" } },
+          { id: "d", text: { en: "Population aged", zh: "人口老龄化" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Lorenz curve away from 45° → **more** area between curve and diagonal → **higher Gini** → **more** inequality. Movement *toward* the 45° line would indicate declining inequality.",
+          zh: "洛伦兹曲线远离 45° → 曲线与对角线间**面积增大** → **Gini 增大** → **不平等上升**。向 45° 靠近则反之。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q097",
+        concept: { en: "Progressive vs. Regressive Taxes", zh: "累进税与累退税" },
+        prompt: {
+          en: "A tax is **progressive** if:",
+          zh: "**累进税**的定义是:",
+        },
+        choices: [
+          { id: "a", text: { en: "The average tax rate rises with income", zh: "平均税率随收入上升" } },
+          { id: "b", text: { en: "The average tax rate falls with income", zh: "平均税率随收入下降" } },
+          { id: "c", text: { en: "Everyone pays the same amount in taxes", zh: "所有人缴纳同等数额" } },
+          { id: "d", text: { en: "Only the rich pay taxes", zh: "仅富人缴税" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "**Progressive**: higher earners pay a **higher share** of income in tax (graduated income tax, US federal income tax). **Regressive**: higher earners pay a **lower share** (sales tax, many payroll taxes). **Proportional/flat**: same rate for everyone.",
+          zh: "**累进**:高收入者缴纳的**比例更高**(阶梯所得税,如美国联邦所得税)。**累退**:高收入者缴纳**比例更低**(销售税、许多工薪税)。**比例/单一税**:所有人同比例。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q098",
+        concept: { en: "Antitrust Policy", zh: "反垄断政策" },
+        prompt: {
+          en: "The primary goal of **antitrust (competition) policy** is to:",
+          zh: "**反垄断(竞争)政策**的主要目标是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Maximize government tax revenue from large firms", zh: "使政府从大企业获取的税收最大化" } },
+          { id: "b", text: { en: "Prevent firms from exercising excessive market power that harms consumers", zh: "防止企业运用过度市场力量损害消费者" } },
+          { id: "c", text: { en: "Ensure every firm earns positive economic profit", zh: "保证每家企业获正经济利润" } },
+          { id: "d", text: { en: "Eliminate all foreign competition", zh: "消除一切国外竞争" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Antitrust laws block mergers that overly concentrate markets, outlaw price-fixing cartels, and police monopolistic conduct — all aimed at protecting **consumer welfare and competition**. Examples: US Sherman/Clayton Acts, EU competition law. Not about raising revenue or protecting firm profits.",
+          zh: "反垄断法禁止使市场过度集中的并购、取缔操纵价格的卡特尔、监管垄断行为——核心目标是保护**消费者福利与竞争**。例如美国谢尔曼/克莱顿法、欧盟竞争法。并非为了增收或保护企业利润。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q099",
+        concept: { en: "Classifying Market Failures", zh: "市场失灵的分类" },
+        prompt: {
+          en: "Which of the following is **NOT** typically classified as a market failure?",
+          zh: "下列哪项**不**通常被归为市场失灵?",
+        },
+        choices: [
+          { id: "a", text: { en: "Externalities", zh: "外部性" } },
+          { id: "b", text: { en: "Public goods and free riders", zh: "公共品与搭便车" } },
+          { id: "c", text: { en: "Asymmetric information", zh: "信息不对称" } },
+          { id: "d", text: { en: "Voluntary trade in a competitive market", zh: "竞争市场上的自愿交易" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "Voluntary trade in a competitive market is the **opposite** of market failure — it's where markets work well. Market failures (A, B, C — plus monopoly/market power) are situations where market outcomes are **inefficient**, creating a *potential* role for government.",
+          zh: "竞争市场上的自愿交易是市场失灵的**反面**——正是市场最能发挥作用之处。市场失灵(A、B、C,加上垄断/市场力量)指市场结果**无效率**,可能需要政府介入。",
+        },
+      },
+      {
+        id: "mp-micro-mar1-q100",
+        concept: { en: "Role of Government in Markets", zh: "政府在市场中的作用" },
+        prompt: {
+          en: "Which of the following represents a *positive* role of government in a market economy?",
+          zh: "下列哪项属于政府在市场经济中的**积极作用**?",
+        },
+        choices: [
+          { id: "a", text: { en: "Setting prices for all goods and services", zh: "为所有商品与服务定价" } },
+          { id: "b", text: { en: "Owning every major firm", zh: "拥有每家大型企业" } },
+          { id: "c", text: { en: "Enforcing property rights, contracts, and antitrust laws", zh: "执行产权、合同与反垄断法" } },
+          { id: "d", text: { en: "Preventing all trade", zh: "阻止一切贸易" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Markets need a **legal infrastructure** to function: secure property rights (so investment makes sense), enforceable contracts (so promises are credible), and antitrust (so dominant firms don't extract consumers). This is the *supportive* role — distinct from direct price controls or nationalization.",
+          zh: "市场运作需要**法律基础设施**:稳固的产权(使投资合理)、可执行的合同(使承诺可信)、反垄断(防止主导企业盘剥消费者)。这是政府的**支持性**角色,与直接管制价格或国有化不同。",
+        },
+      },
+
+      // MARATHON_QUESTIONS_HERE
     ],
   },
 ];
