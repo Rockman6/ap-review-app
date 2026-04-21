@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Atom, BookOpen, CheckCircle2, Feather, FlaskConical, LineChart, Leaf, Sigma, TrendingUp } from "lucide-react";
+import { ArrowRight, Atom, BookOpen, CheckCircle2, Feather, FlaskConical, Landmark, LineChart, Leaf, Sigma, TrendingUp } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
 import { subjects, type Subject } from "@/lib/content";
 
@@ -43,6 +43,12 @@ const subjectStyles: Record<
     icon: <Feather size={22} />,
     gradient: "from-stone-600 via-zinc-700 to-slate-800",
     ring: "ring-stone-200",
+    iconBg: "bg-white/20",
+  },
+  "apush": {
+    icon: <Landmark size={22} />,
+    gradient: "from-red-600 via-rose-700 to-amber-800",
+    ring: "ring-red-200",
     iconBg: "bg-white/20",
   },
 };

@@ -19347,7 +19347,291 @@ export const topicQuestionsPhysics1: Record<string, Question[]> = {
   ],
 };
 
-export const subjects: Subject[] = [apMicro, apBio, apPhysics1, apChemistry, apCalculusBC, apEngLang];
+// ============================================================
+// AP U.S. History (APUSH)
+// ============================================================
+
+export const apush: Subject = {
+  slug: "apush",
+  title: { en: "AP U.S. History", zh: "AP 美国历史" },
+  tagline: {
+    en: "From pre-Columbian America to the present — nine periods of people, power, and ideas that built a nation.",
+    zh: "从前哥伦布时期到当代——九个时期中塑造一个国家的人、权力与思想。",
+  },
+  units: [
+    {
+      slug: "period-1",
+      number: 1,
+      title: { en: "Period 1: 1491–1607", zh: "第一时期:1491–1607" },
+      description: {
+        en: "Pre-Columbian America, European exploration, the Columbian Exchange, and early Spanish colonization.",
+        zh: "前哥伦布时期的美洲、欧洲的探险、哥伦布大交换以及早期的西班牙殖民。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Native American Societies Before Contact", zh: "接触前的美洲原住民社会" }, summary: { en: "Diverse cultures shaped by environment across North, Central, and South America.", zh: "北美、中美与南美因地理环境而形成的多样文化。" } },
+        { slug: "topic-2", title: { en: "European Exploration & Motives", zh: "欧洲探险及其动机" }, summary: { en: "Gold, God, glory — and the technology that made the voyages possible.", zh: "黄金、上帝、荣耀——以及使远航成为可能的技术。" } },
+        { slug: "topic-3", title: { en: "The Columbian Exchange", zh: "哥伦布大交换" }, summary: { en: "Biological and cultural transfers between the Old and New Worlds.", zh: "新旧世界之间的生物与文化交换。" } },
+        { slug: "topic-4", title: { en: "Spanish Conquest & the Encomienda System", zh: "西班牙征服与委托监护制" }, summary: { en: "Conquistadors, silver, and coerced Native labor under Spain's caste hierarchy.", zh: "征服者、白银,以及西班牙种姓等级下对原住民的强制劳役。" } },
+        { slug: "topic-5", title: { en: "Cultural Interactions: Europeans, Natives, Africans", zh: "文化互动:欧洲人、原住民与非洲人" }, summary: { en: "Exchange, resistance, and the origins of a racialized Atlantic world.", zh: "交流、抵抗,以及种族化大西洋世界的起源。" } },
+      ],
+    },
+    {
+      slug: "period-2",
+      number: 2,
+      title: { en: "Period 2: 1607–1754", zh: "第二时期:1607–1754" },
+      description: {
+        en: "English colonization, regional societies, the transatlantic economy, and the rise of chattel slavery.",
+        zh: "英国殖民、地域社会、跨大西洋经济,以及动产奴隶制的兴起。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Early English Colonization: Jamestown & Plymouth", zh: "早期英国殖民:詹姆斯敦与普利茅斯" }, summary: { en: "Joint-stock companies, Puritan settlers, and survival in a new world.", zh: "股份公司、清教徒移民,以及在新世界中的求生。" } },
+        { slug: "topic-2", title: { en: "Regional Colonial Societies", zh: "各殖民地的地区差异" }, summary: { en: "Chesapeake, New England, Middle, and Southern — four distinct social models.", zh: "切萨皮克、新英格兰、中部与南部——四种截然不同的社会模式。" } },
+        { slug: "topic-3", title: { en: "Transatlantic Economy & Mercantilism", zh: "跨大西洋经济与重商主义" }, summary: { en: "Triangular trade, Navigation Acts, and salutary neglect.", zh: "三角贸易、航海法与善意忽视。" } },
+        { slug: "topic-4", title: { en: "Slavery in the British Colonies", zh: "英属殖民地的奴隶制" }, summary: { en: "From indentured servitude to hereditary, race-based chattel slavery.", zh: "从契约仆役到世袭、基于种族的动产奴隶制。" } },
+        { slug: "topic-5", title: { en: "Relations with Native Americans", zh: "与原住民的关系" }, summary: { en: "King Philip's War, Pueblo Revolt, and shifting frontier alliances.", zh: "菲利普国王战争、普韦布洛起义,以及不断变化的边疆联盟。" } },
+        { slug: "topic-6", title: { en: "Colonial Society, Religion & Enlightenment", zh: "殖民地社会、宗教与启蒙" }, summary: { en: "Great Awakening, Enlightenment ideas, and an emerging colonial identity.", zh: "大觉醒运动、启蒙思想,以及日益形成的殖民地身份。" } },
+      ],
+    },
+    {
+      slug: "period-3",
+      number: 3,
+      title: { en: "Period 3: 1754–1800", zh: "第三时期:1754–1800" },
+      description: {
+        en: "From the Seven Years' War through the Revolution, Constitution, and Federalist era.",
+        zh: "从七年战争到独立革命、宪法制定与联邦党人时期。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "The Seven Years' War & Its Aftermath", zh: "七年战争及其后果" }, summary: { en: "British victory, imperial debt, and the Proclamation of 1763.", zh: "英国的胜利、帝国债务与 1763 年公告。" } },
+        { slug: "topic-2", title: { en: "Taxation & Colonial Resistance", zh: "征税与殖民地抵抗" }, summary: { en: "Stamp Act, Townshend, Tea Act, Intolerable Acts — steps toward revolution.", zh: "印花税、汤森法、茶叶法、不可容忍法——走向革命。" } },
+        { slug: "topic-3", title: { en: "Enlightenment Ideas & Common Sense", zh: "启蒙思想与《常识》" }, summary: { en: "Locke, Paine, and the philosophical basis for independence.", zh: "洛克、潘恩,以及独立的哲学基础。" } },
+        { slug: "topic-4", title: { en: "The American Revolution", zh: "美国独立革命" }, summary: { en: "Declaration, foreign alliances, and Yorktown.", zh: "《独立宣言》、外援联盟与约克镇。" } },
+        { slug: "topic-5", title: { en: "The Articles of Confederation", zh: "《邦联条例》" }, summary: { en: "A weak central government — strengths, failures, and lessons.", zh: "软弱的中央政府——其优点、失败与教训。" } },
+        { slug: "topic-6", title: { en: "Constitution & Ratification Debates", zh: "宪法与批准之争" }, summary: { en: "Federalists vs Anti-Federalists; compromises and the Bill of Rights.", zh: "联邦党人与反联邦党人;妥协与《权利法案》。" } },
+        { slug: "topic-7", title: { en: "Federalist Era: Washington & Adams", zh: "联邦党人时代:华盛顿与亚当斯" }, summary: { en: "First parties, Hamilton's plan, Whiskey Rebellion, XYZ Affair.", zh: "初期政党、汉密尔顿方案、威士忌起义、XYZ 事件。" } },
+      ],
+    },
+    {
+      slug: "period-4",
+      number: 4,
+      title: { en: "Period 4: 1800–1848", zh: "第四时期:1800–1848" },
+      description: {
+        en: "Jeffersonian republic, Market Revolution, Jacksonian democracy, and antebellum reform.",
+        zh: "杰斐逊共和、市场革命、杰克逊民主与战前改革。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Jefferson, Louisiana Purchase, War of 1812", zh: "杰斐逊、路易斯安那购地、1812 战争" }, summary: { en: "Republican simplicity, Western expansion, and a Second War of Independence.", zh: "共和党式的简朴、西部扩张与第二次独立战争。" } },
+        { slug: "topic-2", title: { en: "Political Parties & Era of Good Feelings", zh: "政党与好感时代" }, summary: { en: "Monroe Doctrine, American System, and rising sectionalism.", zh: "门罗主义、美利坚体系与日益加剧的地区主义。" } },
+        { slug: "topic-3", title: { en: "Market Revolution & Industrialization", zh: "市场革命与工业化" }, summary: { en: "Canals, railroads, factories, and the Lowell system.", zh: "运河、铁路、工厂与洛厄尔工厂制度。" } },
+        { slug: "topic-4", title: { en: "Jacksonian Democracy", zh: "杰克逊式民主" }, summary: { en: "Universal white male suffrage, Bank War, and Indian Removal.", zh: "白人男性普选权、银行之战与印第安人迁移。" } },
+        { slug: "topic-5", title: { en: "Second Great Awakening & Reform", zh: "第二次大觉醒与改革运动" }, summary: { en: "Temperance, abolition, women's rights, utopian communities.", zh: "禁酒、废奴、妇女权利与乌托邦公社。" } },
+        { slug: "topic-6", title: { en: "Antebellum Slavery & the South", zh: "战前奴隶制与南方" }, summary: { en: "Cotton Kingdom, slave resistance, and proslavery ideology.", zh: "棉花王国、奴隶的反抗与拥奴意识形态。" } },
+        { slug: "topic-7", title: { en: "American Culture & Identity", zh: "美国文化与身份" }, summary: { en: "Transcendentalism, Hudson River School, and a distinct national voice.", zh: "超验主义、哈德逊河画派,以及独立的民族声音。" } },
+      ],
+    },
+    {
+      slug: "period-5",
+      number: 5,
+      title: { en: "Period 5: 1844–1877", zh: "第五时期:1844–1877" },
+      description: {
+        en: "Manifest Destiny, sectional crisis, Civil War, and Reconstruction.",
+        zh: "昭昭天命、地区危机、内战与重建。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Manifest Destiny & the Mexican-American War", zh: "昭昭天命与美墨战争" }, summary: { en: "Continental expansion, Texas annexation, and the Mexican Cession.", zh: "大陆扩张、德克萨斯兼并与墨西哥割让。" } },
+        { slug: "topic-2", title: { en: "Sectional Compromises (1820, 1850)", zh: "地区妥协(1820、1850)" }, summary: { en: "Missouri Compromise, Compromise of 1850, Fugitive Slave Act.", zh: "密苏里妥协、1850 年妥协、《逃亡奴隶法》。" } },
+        { slug: "topic-3", title: { en: "Bleeding Kansas, Dred Scott, Election of 1860", zh: "堪萨斯流血、德雷德·斯科特、1860 大选" }, summary: { en: "Popular sovereignty, the collapse of compromise, Lincoln's win.", zh: "人民主权、妥协的崩溃、林肯当选。" } },
+        { slug: "topic-4", title: { en: "Secession & Early Civil War", zh: "南方脱离与内战初期" }, summary: { en: "Fort Sumter, border states, Anaconda Plan.", zh: "萨姆特堡、边境州、巨蟒计划。" } },
+        { slug: "topic-5", title: { en: "Turning Points & Emancipation", zh: "转折点与解放奴隶" }, summary: { en: "Antietam, Emancipation Proclamation, Gettysburg, Vicksburg.", zh: "安提塔姆、《解放黑奴宣言》、葛底斯堡、维克斯堡。" } },
+        { slug: "topic-6", title: { en: "Reconstruction: Plans & Amendments", zh: "重建:方案与修正案" }, summary: { en: "Presidential vs Radical Reconstruction; 13th, 14th, 15th Amendments.", zh: "总统重建与激进重建;第 13、14、15 修正案。" } },
+        { slug: "topic-7", title: { en: "End of Reconstruction", zh: "重建的终结" }, summary: { en: "Compromise of 1877, redeemers, and the New South.", zh: "1877 年妥协、赎回者与新南方。" } },
+      ],
+    },
+    {
+      slug: "period-6",
+      number: 6,
+      title: { en: "Period 6: 1865–1898", zh: "第六时期:1865–1898" },
+      description: {
+        en: "Westward expansion, industrial capitalism, immigration, and Gilded Age politics.",
+        zh: "西进扩张、工业资本主义、移民与镀金时代的政治。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Westward Expansion & the Frontier", zh: "西进扩张与边疆" }, summary: { en: "Homestead Act, transcontinental railroad, and Native dispossession.", zh: "《宅地法》、横贯大陆铁路与原住民被剥夺。" } },
+        { slug: "topic-2", title: { en: "Industrialization & Big Business", zh: "工业化与大企业" }, summary: { en: "Carnegie, Rockefeller, trusts, and vertical vs horizontal integration.", zh: "卡耐基、洛克菲勒、托拉斯;纵向与横向整合。" } },
+        { slug: "topic-3", title: { en: "Labor, Unions & Strikes", zh: "劳工、工会与罢工" }, summary: { en: "Knights of Labor, AFL, Haymarket, Homestead, Pullman.", zh: "劳工骑士团、美国劳工联合会、干草市场、霍姆斯特德、普尔曼。" } },
+        { slug: "topic-4", title: { en: "Immigration & Urbanization", zh: "移民与城市化" }, summary: { en: "New Immigration, tenements, nativism, Chinese Exclusion Act.", zh: "新移民潮、贫民窟、本土主义、《排华法案》。" } },
+        { slug: "topic-5", title: { en: "The \"New South\" & Jim Crow", zh: "“新南方”与吉姆·克劳法" }, summary: { en: "Sharecropping, disenfranchisement, Plessy v. Ferguson.", zh: "分成租佃、剥夺投票权、普莱西诉弗格森案。" } },
+        { slug: "topic-6", title: { en: "Populism & Agrarian Discontent", zh: "民粹主义与农民不满" }, summary: { en: "Grange, Farmers' Alliance, Free Silver, Bryan's Cross of Gold.", zh: "格兰奇、农民联盟、自由银币、布莱恩的《金十字架演说》。" } },
+        { slug: "topic-7", title: { en: "Gilded Age Politics & Reform", zh: "镀金时代的政治与改革" }, summary: { en: "Patronage, Pendleton Act, Social Gospel, early regulation.", zh: "分赃制、《彭德尔顿法》、社会福音、早期监管。" } },
+      ],
+    },
+    {
+      slug: "period-7",
+      number: 7,
+      title: { en: "Period 7: 1890–1945", zh: "第七时期:1890–1945" },
+      description: {
+        en: "Imperialism, Progressivism, two world wars, the Depression, and the New Deal.",
+        zh: "帝国主义、进步主义、两次世界大战、大萧条与新政。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Imperialism & the Spanish-American War", zh: "帝国主义与美西战争" }, summary: { en: "Philippines, Cuba, Open Door, and the anti-imperialist debate.", zh: "菲律宾、古巴、门户开放政策与反帝国主义之争。" } },
+        { slug: "topic-2", title: { en: "The Progressive Movement", zh: "进步主义运动" }, summary: { en: "Muckrakers, trust-busting, 16th–19th Amendments.", zh: "扒粪记者、反托拉斯、第 16–19 修正案。" } },
+        { slug: "topic-3", title: { en: "World War I", zh: "第一次世界大战" }, summary: { en: "Neutrality, mobilization, Wilson's 14 Points, Senate rejection of Versailles.", zh: "中立、动员、威尔逊十四点、参议院否决《凡尔赛条约》。" } },
+        { slug: "topic-4", title: { en: "The Roaring Twenties", zh: "咆哮的二十年代" }, summary: { en: "Mass consumption, flappers, Harlem Renaissance, nativism, Scopes Trial.", zh: "大众消费、飞女郎、哈莱姆文艺复兴、本土主义、斯科普斯审判。" } },
+        { slug: "topic-5", title: { en: "The Great Depression", zh: "大萧条" }, summary: { en: "Crash of 1929, causes, Hoover's response, and widespread hardship.", zh: "1929 股灾、原因、胡佛的回应与普遍困境。" } },
+        { slug: "topic-6", title: { en: "The New Deal", zh: "新政" }, summary: { en: "FDR's Three Rs; alphabet agencies; Court-packing; legacy.", zh: "罗斯福的 3R 原则;字母机构;填塞法院计划;遗产。" } },
+        { slug: "topic-7", title: { en: "World War II: Home Front & Military", zh: "二战:本土与军事" }, summary: { en: "Mobilization, Japanese internment, Double V, D-Day, island hopping.", zh: "动员、日裔拘留、双重胜利运动、诺曼底登陆、跳岛战术。" } },
+        { slug: "topic-8", title: { en: "Dawn of the Atomic Age", zh: "原子时代的黎明" }, summary: { en: "Manhattan Project, Hiroshima, Nagasaki, and the postwar order.", zh: "曼哈顿计划、广岛、长崎与战后秩序。" } },
+      ],
+    },
+    {
+      slug: "period-8",
+      number: 8,
+      title: { en: "Period 8: 1945–1980", zh: "第八时期:1945–1980" },
+      description: {
+        en: "Cold War, Civil Rights, Great Society, Vietnam, and the crises of the 1970s.",
+        zh: "冷战、民权运动、伟大社会、越战与 1970 年代的危机。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Early Cold War & Containment", zh: "冷战初期与遏制政策" }, summary: { en: "Truman Doctrine, Marshall Plan, Berlin, NATO, Korea.", zh: "杜鲁门主义、马歇尔计划、柏林、北约、朝鲜。" } },
+        { slug: "topic-2", title: { en: "McCarthyism & the Red Scare", zh: "麦卡锡主义与红色恐慌" }, summary: { en: "HUAC, loyalty oaths, Rosenbergs, and the politics of fear.", zh: "众议院非美活动调查委员会、忠诚宣誓、罗森堡夫妇与恐惧政治。" } },
+        { slug: "topic-3", title: { en: "Postwar Prosperity & Suburbia", zh: "战后繁荣与郊区化" }, summary: { en: "GI Bill, baby boom, Levittowns, consumer culture.", zh: "《退伍军人法案》、婴儿潮、莱维敦、消费文化。" } },
+        { slug: "topic-4", title: { en: "Civil Rights Movement (1940s–60s)", zh: "民权运动(1940–60 年代)" }, summary: { en: "Brown v. Board, Montgomery, Little Rock, MLK, Civil Rights Act.", zh: "布朗诉教育委员会案、蒙哥马利、小石城、马丁·路德·金、《民权法》。" } },
+        { slug: "topic-5", title: { en: "The Great Society", zh: "伟大社会" }, summary: { en: "LBJ's War on Poverty, Medicare, Medicaid, Voting Rights Act.", zh: "约翰逊的向贫困宣战、医疗保险、医疗补助、《投票权法》。" } },
+        { slug: "topic-6", title: { en: "The Vietnam War", zh: "越战" }, summary: { en: "Gulf of Tonkin, escalation, Tet Offensive, Vietnamization.", zh: "北部湾事件、升级、春节攻势、越南化。" } },
+        { slug: "topic-7", title: { en: "1960s Counterculture & Rights Movements", zh: "1960 年代反主流文化与权利运动" }, summary: { en: "Feminism, Chicano, AIM, gay liberation, environmentalism.", zh: "女权主义、奇卡诺运动、美国印第安人运动、同志解放、环保运动。" } },
+        { slug: "topic-8", title: { en: "Crisis of the 1970s", zh: "1970 年代的危机" }, summary: { en: "Watergate, stagflation, oil shocks, Iran hostage crisis.", zh: "水门事件、滞胀、石油危机、伊朗人质危机。" } },
+      ],
+    },
+    {
+      slug: "period-9",
+      number: 9,
+      title: { en: "Period 9: 1980–Present", zh: "第九时期:1980 至今" },
+      description: {
+        en: "Reagan Revolution, end of the Cold War, globalization, and 21st-century challenges.",
+        zh: "里根革命、冷战终结、全球化与 21 世纪的挑战。",
+      },
+      topics: [
+        { slug: "topic-1", title: { en: "Reagan & the Conservative Resurgence", zh: "里根与保守主义的复兴" }, summary: { en: "Supply-side economics, deregulation, New Right coalition.", zh: "供给侧经济、去管制、新右翼联盟。" } },
+        { slug: "topic-2", title: { en: "End of the Cold War", zh: "冷战的终结" }, summary: { en: "Gorbachev, INF Treaty, fall of the Berlin Wall, Soviet collapse.", zh: "戈尔巴乔夫、《中导条约》、柏林墙倒塌、苏联解体。" } },
+        { slug: "topic-3", title: { en: "New Economy & Globalization", zh: "新经济与全球化" }, summary: { en: "NAFTA, WTO, internet, outsourcing, and inequality.", zh: "北美自由贸易协定、世贸组织、互联网、外包与不平等。" } },
+        { slug: "topic-4", title: { en: "Migration & Demographic Change", zh: "移民与人口变迁" }, summary: { en: "Post-1965 immigration, Sunbelt growth, multicultural America.", zh: "1965 年后移民、阳光带增长、多元文化的美国。" } },
+        { slug: "topic-5", title: { en: "21st Century Challenges", zh: "21 世纪的挑战" }, summary: { en: "9/11, War on Terror, 2008 financial crisis, political polarization.", zh: "9/11、反恐战争、2008 金融危机、政治极化。" } },
+      ],
+    },
+  ],
+};
+
+export const topicNotesUSH: Record<string, NoteBlock[]> = {
+  "period-1/topic-1": [
+    { kind: "heading", text: { en: "A continent of many peoples", zh: "众多民族的大陆" } },
+    { kind: "paragraph", text: {
+      en: "By 1491, the Americas were home to tens of millions of people — not a wilderness, but a patchwork of societies as complex and varied as those of Eurasia. **Environment shaped culture**: the crops people could grow, the animals they could hunt, and the materials they could build with pushed each society in a different direction.",
+      zh: "到 1491 年,美洲已有数以千万计的居民——并非蛮荒之地,而是与欧亚大陆一样复杂多元的社会拼图。**环境塑造文化**:能种植的作物、可猎取的动物、可用的建筑材料,将每个社会推向不同的方向。" } },
+    { kind: "heading", text: { en: "Major culture regions", zh: "主要文化区域" } },
+    { kind: "table", caption: { en: "Representative societies before 1491", zh: "1491 年前的代表性社会" },
+      columns: [
+        { en: "Region", zh: "地区" },
+        { en: "Peoples", zh: "民族" },
+        { en: "Economy & Society", zh: "经济与社会" },
+      ],
+      rows: [
+        [{ en: "Mesoamerica", zh: "中美洲" }, { en: "Aztec, Maya", zh: "阿兹特克、玛雅" }, { en: "Maize-based cities, tribute empires, advanced astronomy & writing.", zh: "以玉米为基础的城市、纳贡帝国、先进的天文与文字。" }],
+        [{ en: "Andes", zh: "安第斯" }, { en: "Inca", zh: "印加" }, { en: "Terraced agriculture, roads, quipu record-keeping.", zh: "梯田农业、道路网、奇普结绳记事。" }],
+        [{ en: "Southwest", zh: "西南" }, { en: "Pueblo (Ancestral Puebloans)", zh: "普韦布洛(古普韦布洛人)" }, { en: "Adobe towns, irrigation for maize & beans.", zh: "土坯村镇、为玉米与豆类灌溉。" }],
+        [{ en: "Eastern Woodlands", zh: "东部林地" }, { en: "Iroquois, Algonquian", zh: "易洛魁、阿尔冈昆" }, { en: "Mixed farming + hunting; longhouses; Iroquois Confederacy.", zh: "混合农耕与狩猎;长屋;易洛魁联盟。" }],
+        [{ en: "Great Plains", zh: "大平原" }, { en: "Various nomadic groups", zh: "多个游牧群体" }, { en: "Buffalo hunting (on foot before the horse arrived).", zh: "狩猎野牛(马到来之前靠步行)。" }],
+        [{ en: "Pacific Northwest", zh: "太平洋西北" }, { en: "Chinook, Haida", zh: "奇努克、海达" }, { en: "Salmon-rich; plank houses; potlatch ceremonies.", zh: "鲑鱼资源丰富;板屋;夸富宴仪式。" }],
+      ],
+    },
+    { kind: "callout", label: { en: "Key idea", zh: "核心观点" }, text: {
+      en: "The \"three-sisters\" crop system — maize, beans, and squash — spread widely and supported large, settled populations across Mesoamerica and Eastern North America.",
+      zh: "“三姐妹”作物系统——玉米、豆类与南瓜——广泛传播,支撑了中美洲与北美东部大规模、定居的人口。" } },
+    { kind: "paragraph", text: {
+      en: "Most societies combined **spiritual beliefs tied to land and nature** with kin-based governance. There was no single \"Native American\" culture — generalizing across these peoples would be as misleading as lumping together the Chinese, French, and Egyptians of the same era.",
+      zh: "大多数社会将**与土地、自然相联的精神信仰**与基于血缘的治理结合在一起。不存在单一的“印第安文化”——把这些民族笼统归为一类,就像把同时代的中国人、法国人和埃及人混为一谈一样具有误导性。" } },
+  ],
+  "period-1/topic-2": [
+    { kind: "heading", text: { en: "Why Europeans sailed", zh: "欧洲人为何远航" } },
+    { kind: "paragraph", text: {
+      en: "Three forces converged at the end of the 15th century: **the desire for Asian trade goods**, the **Reconquista**'s religious energy (Spain finished reclaiming Iberia from Muslim rule in 1492), and **technology** — the caravel, astrolabe, magnetic compass, and better maps. Portugal began the push south along Africa; Spain leapt west.",
+      zh: "15 世纪末,三股力量汇合:**对亚洲商品的渴求**、**收复失地运动**的宗教热情(西班牙于 1492 年完成从穆斯林手中收复伊比利亚),以及**技术**——卡拉维尔帆船、星盘、磁罗盘和更精良的地图。葡萄牙沿非洲南下,西班牙则向西跨洋。" } },
+    { kind: "list", items: [
+      { en: "**Gold** — specie to pay for Asian silk, spice, and porcelain.", zh: "**黄金**——用以支付亚洲丝绸、香料与瓷器的硬通货。" },
+      { en: "**God** — spreading Christianity, especially after the Reformation intensified Catholic-Protestant rivalry.", zh: "**上帝**——传播基督教,尤其是宗教改革后天主教与新教的竞争加剧。" },
+      { en: "**Glory** — monarchs competing for power; captains competing for titles and estates.", zh: "**荣耀**——君主争夺权力;船长争取爵位与封地。" },
+    ] },
+    { kind: "heading", text: { en: "1492 and after", zh: "1492 年及其之后" } },
+    { kind: "paragraph", text: {
+      en: "Columbus's voyages (funded by Ferdinand and Isabella) did not find Asia, but they opened a **permanent link** between the hemispheres. The **Treaty of Tordesillas (1494)** split the non-European world between Spain and Portugal — Portugal got Brazil and the route around Africa; Spain got nearly everything else in the Americas.",
+      zh: "哥伦布的航行(由斐迪南与伊莎贝拉资助)并未抵达亚洲,却开启了两大半球之间的**永久联系**。**《托尔德西里亚斯条约》(1494)**将非欧世界划分给西班牙与葡萄牙——葡萄牙获得巴西和绕非洲的航线,西班牙则获得美洲几乎其他所有地区。" } },
+    { kind: "callout", label: { en: "AP connection", zh: "AP 要点" }, text: {
+      en: "Exploration was not \"discovery\" in a vacuum. It required **capital, state backing, religious motivation, and technology** — a bundle that had not existed in Europe before 1450.",
+      zh: "探险并非凭空的“发现”。它需要**资本、国家支持、宗教动机与技术**的组合——这一组合在 1450 年前的欧洲并不存在。" } },
+  ],
+  "period-1/topic-3": [
+    { kind: "heading", text: { en: "A two-way transfer", zh: "双向的交换" } },
+    { kind: "paragraph", text: {
+      en: "After 1492, plants, animals, people, and pathogens crossed the Atlantic in both directions. This **Columbian Exchange** remade diets, ecologies, and populations on every continent.",
+      zh: "1492 年之后,植物、动物、人与病原体在大西洋两岸往返流通。这场**哥伦布大交换**重塑了各大洲的饮食、生态与人口。" } },
+    { kind: "table", caption: { en: "Major items moved by the Columbian Exchange", zh: "哥伦布大交换中的主要物品" },
+      columns: [
+        { en: "Old → New World", zh: "旧世界 → 新世界" },
+        { en: "New → Old World", zh: "新世界 → 旧世界" },
+      ],
+      rows: [
+        [{ en: "Wheat, rice, sugar, coffee", zh: "小麦、水稻、甘蔗、咖啡" }, { en: "Maize, potato, tomato, cacao, tobacco", zh: "玉米、马铃薯、番茄、可可、烟草" }],
+        [{ en: "Horses, cattle, pigs, sheep", zh: "马、牛、猪、羊" }, { en: "Turkeys, llamas", zh: "火鸡、羊驼" }],
+        [{ en: "Smallpox, measles, influenza, malaria", zh: "天花、麻疹、流感、疟疾" }, { en: "Syphilis (likely)", zh: "梅毒(可能)" }],
+        [{ en: "Enslaved Africans (forced migration)", zh: "被奴役的非洲人(强制迁移)" }, { en: "Silver, gold → European inflation", zh: "白银、黄金 → 引发欧洲通胀" }],
+      ],
+    },
+    { kind: "callout", label: { en: "Demographic catastrophe", zh: "人口灾难" }, text: {
+      en: "Native Americans had no immunity to Old-World diseases. Estimates suggest **50–90% of the pre-contact population died** from epidemics within a century — the largest demographic collapse in recorded history.",
+      zh: "美洲原住民对旧世界疾病没有免疫力。估计在一个世纪内,**接触前人口的 50–90% 死于瘟疫**——这是有记载以来最大规模的人口崩溃。" } },
+    { kind: "paragraph", text: {
+      en: "The exchange also **reshaped Europe and Africa**: the potato fed Irish and Russian population booms; the horse transformed Plains Indian life after Spanish escapees bred on open grassland; American silver fueled the first truly global economy through Manila and Seville.",
+      zh: "这场交换也**重塑了欧洲与非洲**:马铃薯推动了爱尔兰与俄罗斯的人口激增;西班牙逃逸的马匹在草原繁殖后,改变了平原印第安人的生活;美洲白银经由马尼拉与塞维利亚,推动了史上首个真正全球化的经济。" } },
+  ],
+  "period-1/topic-4": [
+    { kind: "heading", text: { en: "Conquistadors and silver", zh: "征服者与白银" } },
+    { kind: "paragraph", text: {
+      en: "Small Spanish expeditions toppled the vast Aztec (Cortés, 1521) and Inca (Pizarro, 1533) empires by exploiting **disease, Native allies who resented tribute demands, steel weapons, horses, and internal succession disputes**. The Spanish then built a colonial economy around silver mines at **Potosí** and **Zacatecas**.",
+      zh: "西班牙的小规模远征推翻了庞大的阿兹特克帝国(科尔特斯,1521)与印加帝国(皮萨罗,1533),靠的是**疾病、对纳贡不满的原住民盟友、钢铁武器、马匹以及内部继承纠纷**。西班牙随后以**波托西**和**萨卡特卡斯**的银矿为中心,建立起殖民经济。" } },
+    { kind: "heading", text: { en: "The encomienda system", zh: "委托监护制" } },
+    { kind: "paragraph", text: {
+      en: "The Crown granted encomenderos the right to **extract labor and tribute from Native villages** in exchange for \"protecting\" and Christianizing them. In practice it resembled forced labor. Critics like the priest **Bartolomé de las Casas** denounced its brutality in his *Brief Account of the Destruction of the Indies* (1552), shaping the **Black Legend** of Spanish cruelty used by English and Dutch rivals.",
+      zh: "西班牙王室赋予委托监护人从原住民村庄**榨取劳动与贡品**的权利,以“保护”与基督教化作为交换。实际上它近似强制劳役。批评者如神父**巴托洛梅·德·拉斯·卡萨斯**在 1552 年的《西印度毁灭述略》中揭露其残暴,塑造了英荷对手利用的“**黑色传说**”。" } },
+    { kind: "heading", text: { en: "A racial caste system (casta)", zh: "种族等级制度(casta)" } },
+    { kind: "list", items: [
+      { en: "**Peninsulares** — born in Spain; held top political and church offices.", zh: "**半岛人**——出生于西班牙,担任最高政治与教会职位。" },
+      { en: "**Criollos** — of Spanish descent born in the Americas; wealthy but blocked from top offices.", zh: "**克里奥尔人**——出生于美洲的西班牙后裔;富有但无缘最高职位。" },
+      { en: "**Mestizos** — mixed Spanish and Native ancestry; growing majority.", zh: "**梅斯蒂索人**——西班牙与原住民混血;日益成为多数。" },
+      { en: "**Mulattoes** — mixed Spanish and African ancestry.", zh: "**穆拉托人**——西班牙与非洲混血。" },
+      { en: "**Natives** and **enslaved Africans** — at the bottom, with the fewest legal rights.", zh: "**原住民**与**被奴役的非洲人**——处于最底层,法律权利最少。" },
+    ] },
+    { kind: "callout", label: { en: "Comparison", zh: "比较" }, text: {
+      en: "Unlike later English colonies, Spanish colonization **incorporated Native labor into colonial society** rather than pushing Natives out. This produced a large mixed-race population that English settlements, focused on land and family farms, did not.",
+      zh: "与后来的英国殖民地不同,西班牙的殖民**将原住民劳力纳入殖民社会内部**,而非将其驱逐。这造就了庞大的混血人口;而以土地与家庭农场为重心的英国殖民地则没有形成这种人口结构。" } },
+  ],
+  "period-1/topic-5": [
+    { kind: "heading", text: { en: "Three worlds colliding", zh: "三个世界的碰撞" } },
+    { kind: "paragraph", text: {
+      en: "Period 1 set the pattern for the entire American story: **Europeans, Natives, and Africans** shaping each other through trade, violence, religion, and — crucially — labor. None of these groups was a passive victim or a simple conqueror; each adapted, resisted, and borrowed.",
+      zh: "第一时期为整部美国史奠定了基本格局:**欧洲人、原住民与非洲人**通过贸易、暴力、宗教,尤其是劳动,彼此塑造。没有哪一方只是被动的受害者或单纯的征服者;每一方都在适应、抵抗和借鉴。" } },
+    { kind: "list", items: [
+      { en: "**Native adaptation** — many peoples integrated European horses, metal tools, and firearms; others (Pueblo, 1680) successfully revolted against Spanish rule for over a decade.", zh: "**原住民的适应**——许多民族吸收了欧洲的马、金属工具与火器;另一些则成功反抗(如 1680 年普韦布洛起义),使西班牙的统治中断十余年。" },
+      { en: "**European justification** — some used *requerimiento* declarations and religious missions to claim legitimacy; others, like Las Casas, challenged this from inside the Church.", zh: "**欧洲人的辩护**——有些人用“劝降令”与传教活动为征服提供正当性;像拉斯·卡萨斯这样的人则在教会内部提出质疑。" },
+      { en: "**The origins of Atlantic slavery** — as Native populations collapsed from disease, Portuguese and Spanish colonists turned to **enslaved Africans**, laying the foundation for the later Atlantic slave trade.", zh: "**大西洋奴隶制的起源**——随着原住民人口因疾病而崩溃,葡西殖民者转向使用**被奴役的非洲人**,为后来的大西洋奴隶贸易奠定了基础。" },
+    ] },
+    { kind: "callout", label: { en: "Big picture", zh: "总体视角" }, text: {
+      en: "By 1607, the Americas were no longer \"new.\" They were a century into a **transatlantic system** of silver, sugar, disease, conversion, and coerced labor — the world the English would step into at Jamestown.",
+      zh: "到 1607 年,美洲早已不再“新”。它已进入一个跨大西洋体系近一个世纪——白银、蔗糖、疾病、改信与强制劳役交织其中——这正是英国人抵达詹姆斯敦时所踏入的世界。" } },
+  ],
+};
+
+export const topicQuestionsUSH: Record<string, Question[]> = {};
+
+export const subjects: Subject[] = [apMicro, apBio, apPhysics1, apChemistry, apCalculusBC, apEngLang, apush];
 
 const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
   "ap-micro": topicNotes,
@@ -19356,6 +19640,7 @@ const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
   "ap-chem": topicNotesChem,
   "ap-calculus-bc": {},
   "ap-eng-lang": {},
+  "apush": topicNotesUSH,
 };
 
 const questionsBySubject: Record<string, Record<string, Question[]>> = {
@@ -19365,6 +19650,7 @@ const questionsBySubject: Record<string, Record<string, Question[]>> = {
   "ap-chem": topicQuestionsChem,
   "ap-calculus-bc": {},
   "ap-eng-lang": {},
+  "apush": topicQuestionsUSH,
 };
 
 const unitQuestionsBySubject: Record<string, Record<string, Question[]>> = {
@@ -19374,6 +19660,7 @@ const unitQuestionsBySubject: Record<string, Record<string, Question[]>> = {
   "ap-chem": {},
   "ap-calculus-bc": {},
   "ap-eng-lang": {},
+  "apush": {},
 };
 
 // ============================================================
