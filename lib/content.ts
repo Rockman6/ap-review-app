@@ -19627,6 +19627,750 @@ export const topicNotesUSH: Record<string, NoteBlock[]> = {
       en: "By 1607, the Americas were no longer \"new.\" They were a century into a **transatlantic system** of silver, sugar, disease, conversion, and coerced labor — the world the English would step into at Jamestown.",
       zh: "到 1607 年,美洲早已不再“新”。它已进入一个跨大西洋体系近一个世纪——白银、蔗糖、疾病、改信与强制劳役交织其中——这正是英国人抵达詹姆斯敦时所踏入的世界。" } },
   ],
+
+  // ===== PERIOD 2: 1607–1754 =====
+  "period-2/topic-1": [
+    { kind: "heading", text: { en: "Jamestown (1607) and Plymouth (1620)", zh: "詹姆斯敦(1607)与普利茅斯(1620)" } },
+    { kind: "paragraph", text: {
+      en: "The English arrived a century after Spain, and with very different motives. **Jamestown**, founded by the Virginia Company, was a **joint-stock company** venture — investors hoping for gold. They found none, nearly starved, and survived only by planting **tobacco** (John Rolfe, 1612), which became the colony's cash crop.",
+      zh: "英国人比西班牙晚到一个世纪,动机也截然不同。**詹姆斯敦**由弗吉尼亚公司建立,是一次**股份公司**式的探险——投资者期盼黄金。他们一无所获,几近饿死,最终靠种植**烟草**(约翰·罗尔夫,1612)才得以存续,并使烟草成为殖民地的经济作物。" } },
+    { kind: "paragraph", text: {
+      en: "**Plymouth** was settled by **Pilgrims** (Separatists fleeing the Church of England) in 1620. The **Mayflower Compact** — a voluntary agreement to self-govern — became a foundational moment for democratic self-rule. A decade later the much larger **Massachusetts Bay Colony** (Puritans, 1630) was founded under John Winthrop's vision of a \"**city upon a hill**.\"",
+      zh: "**普利茅斯**于 1620 年由**清教分离派**(逃离英国国教的朝圣者)建立。他们签署的**《五月花公约》**——自愿结成自治政府的协议——成为民主自治的奠基时刻。十年后,规模更大的**马萨诸塞湾殖民地**(清教徒,1630)在约翰·温斯罗普“**山巅之城**”的愿景下建立。" } },
+    { kind: "callout", label: { en: "Contrast", zh: "对比" }, text: {
+      en: "Virginia sought **profit**; New England sought a **religious refuge**. That single difference shaped two completely different societies for the next 150 years.",
+      zh: "弗吉尼亚追求**利润**,新英格兰追求**宗教庇护**。这一差异塑造了此后 150 年两种截然不同的社会形态。" } },
+  ],
+  "period-2/topic-2": [
+    { kind: "heading", text: { en: "Four distinct colonial regions", zh: "四个截然不同的殖民地区" } },
+    { kind: "table", caption: { en: "Regional comparison, c. 1750", zh: "约 1750 年的各地区对比" },
+      columns: [
+        { en: "Region", zh: "地区" },
+        { en: "Economy", zh: "经济" },
+        { en: "Society", zh: "社会" },
+      ],
+      rows: [
+        [{ en: "New England", zh: "新英格兰" }, { en: "Mixed farms, shipbuilding, fishing, rum.", zh: "混合农业、造船、捕鱼、朗姆酒。" }, { en: "Puritan towns; town meetings; literate.", zh: "清教镇区;镇民会议;识字率高。" }],
+        [{ en: "Middle Colonies", zh: "中部殖民地" }, { en: "\"Breadbasket\" — wheat, grain; trade through NY/Philadelphia.", zh: "“面包篮”——小麦、谷物;经纽约/费城贸易。" }, { en: "Religiously diverse; Quakers in PA; ethnic mix.", zh: "宗教多元;宾州贵格会;族群混合。" }],
+        [{ en: "Chesapeake", zh: "切萨皮克" }, { en: "Tobacco plantations; indentured servants → slaves.", zh: "烟草种植园;契约仆役 → 奴隶。" }, { en: "Male-heavy, short lives; later landed gentry.", zh: "男性为主、寿命短;后期形成土地贵族。" }],
+        [{ en: "Southern (Carolinas/Georgia)", zh: "南部(卡罗来纳/佐治亚)" }, { en: "Rice, indigo; later cotton. Large plantations.", zh: "稻米、靛青;后期棉花。大型种植园。" }, { en: "Black slave majority in low country.", zh: "低地地区黑人奴隶占多数。" }],
+      ],
+    },
+    { kind: "callout", label: { en: "Key idea", zh: "核心观点" }, text: {
+      en: "Geography → economy → society. Rocky New England soil made small family farms and seafaring; fertile Chesapeake tidewater made tobacco plantations that required bound labor.",
+      zh: "地理 → 经济 → 社会。新英格兰土地贫瘠,催生小家庭农场与海上生计;切萨皮克潮汐水域土壤肥沃,形成依赖强制劳动的烟草种植园。" } },
+  ],
+  "period-2/topic-3": [
+    { kind: "heading", text: { en: "The transatlantic economy", zh: "跨大西洋经济" } },
+    { kind: "paragraph", text: {
+      en: "**Mercantilism** — the dominant economic theory — held that national wealth equaled bullion, and colonies existed to enrich the mother country. Britain enforced this through the **Navigation Acts (1651, 1660, 1663, 1673)**: enumerated goods (tobacco, sugar, indigo) could ship only to England; European imports had to pass through English ports first.",
+      zh: "**重商主义**——当时的主流经济学说——认为国家财富等于金银储备,殖民地是为宗主国积累财富而存在。英国通过**《航海法》(1651、1660、1663、1673)**强制执行:列名商品(烟草、蔗糖、靛青)只能运往英国;欧洲进口商品必须先经英国港口转运。" } },
+    { kind: "heading", text: { en: "Triangular trade & salutary neglect", zh: "三角贸易与善意忽视" } },
+    { kind: "list", items: [
+      { en: "**New England → Africa**: rum. **Africa → Caribbean**: enslaved people. **Caribbean → New England**: molasses (distilled into rum).", zh: "**新英格兰 → 非洲**:朗姆酒。**非洲 → 加勒比**:奴隶。**加勒比 → 新英格兰**:糖蜜(酿成朗姆酒)。" },
+      { en: "**Salutary neglect**: through the early 1700s, Britain loosely enforced the Acts, letting colonies develop self-rule and a smuggling habit that would bite after 1763.", zh: "**善意忽视**:18 世纪前期,英国对《航海法》执行松散,让殖民地形成自治与走私传统,这在 1763 年后埋下冲突隐患。" },
+    ] },
+  ],
+  "period-2/topic-4": [
+    { kind: "heading", text: { en: "From indentured servitude to chattel slavery", zh: "从契约仆役到动产奴隶制" } },
+    { kind: "paragraph", text: {
+      en: "The earliest Chesapeake labor force was **indentured servants** — poor English who traded 4–7 years of labor for passage and land. As life expectancy rose and land became scarce, elites feared a class of landless former servants — and **Bacon's Rebellion (1676)**, when indentured whites and Black freedmen burned Jamestown together, confirmed the risk.",
+      zh: "切萨皮克最早的劳动力是**契约仆役**——以 4–7 年劳役换取船费与土地的英国穷人。随着寿命延长、土地紧缺,精英开始担心出现一批失地的前仆役阶层——**培根起义(1676)**中,白人契约仆役与黑人自由民联合烧毁詹姆斯敦,印证了这种危险。" } },
+    { kind: "paragraph", text: {
+      en: "The solution, for elites: **shift to African chattel slavery**. The 1705 Virginia Slave Codes made slavery **hereditary, lifelong, and race-based** — the mother's status determined the child's, so enslaved women's children were born enslaved. By 1750, enslaved Africans were the primary labor force from Maryland south.",
+      zh: "精英的对策是**转向非洲动产奴隶制**。1705 年弗吉尼亚奴隶法典确立奴隶制为**世袭、终身、基于种族**——母亲的身份决定子女身份,被奴役妇女的子女生而为奴。至 1750 年,从马里兰向南的主要劳动力皆为被奴役的非洲人。" } },
+    { kind: "callout", label: { en: "Middle Passage", zh: "中央航路" }, text: {
+      en: "The forced voyage across the Atlantic killed roughly **15% of captives**. About 12.5 million Africans were shipped across over four centuries; fewer than 400,000 went directly to what is now the United States — but natural increase made the U.S. enslaved population the largest in the hemisphere by 1825.",
+      zh: "横渡大西洋的强制航行夺走约 **15% 被掳者**的生命。四个世纪中约有 1250 万非洲人被运送,其中不到 40 万直接抵达今日美国——但由于自然增长,至 1825 年美国的奴隶人口已是西半球最多。" } },
+  ],
+  "period-2/topic-5": [
+    { kind: "heading", text: { en: "Native resistance on the frontier", zh: "边疆上的原住民抵抗" } },
+    { kind: "list", items: [
+      { en: "**Powhatan Wars (1610–46)** — Chesapeake tribes vs Virginia settlers; ended with Native defeat and loss of tidewater lands.", zh: "**波瓦坦战争(1610–46)**——切萨皮克部族对抗弗吉尼亚殖民者,以原住民失败、丧失潮汐地告终。" },
+      { en: "**Pequot War (1636–38)** — New England destroyed the Pequot; most survivors sold into slavery.", zh: "**佩科特战争(1636–38)**——新英格兰殖民者消灭佩科特人,幸存者多被贩为奴。" },
+      { en: "**King Philip's War (1675–76)** — Metacom (\"King Philip\") led a pan-Native alliance; brutal war killed about 10% of New England's population before Native defeat.", zh: "**菲利普国王战争(1675–76)**——梅塔科姆(“菲利普国王”)率多部落联盟起事;战争惨烈,约 10% 的新英格兰人口丧生,原住民最终战败。" },
+      { en: "**Pueblo Revolt (1680)** — Popé led Pueblos in New Mexico; **expelled Spanish for 12 years** — the only sustained Native victory.", zh: "**普韦布洛起义(1680)**——波佩率新墨西哥普韦布洛人起义,**驱逐西班牙达 12 年**——是唯一一次持久的原住民胜利。" },
+    ] },
+    { kind: "callout", label: { en: "Pattern", zh: "规律" }, text: {
+      en: "As colonial populations grew, demand for Native land grew with them. War followed, and Native peoples — divided, outmanned, and weakened by disease — generally lost ground, though not without major victories along the way.",
+      zh: "殖民地人口增长带动了对原住民土地的渴求。战争随之而来——原住民因分裂、人数劣势与疾病而整体失利,但沿途仍有重要胜绩。" } },
+  ],
+  "period-2/topic-6": [
+    { kind: "heading", text: { en: "Awakening and Enlightenment", zh: "大觉醒与启蒙" } },
+    { kind: "paragraph", text: {
+      en: "The **First Great Awakening (1730s–40s)** was an emotional religious revival led by preachers like **Jonathan Edwards** (\"Sinners in the Hands of an Angry God\") and **George Whitefield**. It challenged established clergy, split churches into \"New Lights\" and \"Old Lights,\" and gave ordinary colonists practice in questioning authority.",
+      zh: "**第一次大觉醒(1730–40 年代)**是一场情感化的宗教复兴,由乔纳森·爱德华兹(《落在愤怒上帝手中的罪人》)与乔治·怀特菲尔德等牧师引领。它挑战现有教会权威,将教会分裂为“新光派”与“旧光派”,并让普通殖民者练习了质疑权威。" } },
+    { kind: "paragraph", text: {
+      en: "At the same time the **Enlightenment** reached the colonies. **Benjamin Franklin**, printer and scientist, personified rational inquiry and self-improvement. Enlightenment ideas — **natural rights, reason, limited government** — would later fuel revolutionary arguments.",
+      zh: "与此同时,**启蒙思想**也传入殖民地。**本杰明·富兰克林**作为印刷商与科学家,是理性探索与自我完善的化身。启蒙理念——**自然权利、理性、有限政府**——日后将为革命论证提供思想基础。" } },
+    { kind: "callout", label: { en: "Why both matter", zh: "为何两者都重要" }, text: {
+      en: "The Awakening taught colonists to **defy religious authority**; the Enlightenment gave them a vocabulary to **defy political authority**. Together they primed a generation for revolution.",
+      zh: "大觉醒教会殖民者**挑战宗教权威**;启蒙则为他们提供了**挑战政治权威**的语言。两者合力,为革命一代做了思想准备。" } },
+  ],
+
+  // ===== PERIOD 3: 1754–1800 =====
+  "period-3/topic-1": [
+    { kind: "heading", text: { en: "A global war fought in America", zh: "在美洲打响的全球战争" } },
+    { kind: "paragraph", text: {
+      en: "The **Seven Years' War (1756–63)**, called the **French and Indian War** in North America, began with disputes over the Ohio River Valley. Young Colonel **George Washington**'s skirmish at Fort Necessity (1754) sparked the conflict. Early British defeats gave way to victory after William Pitt poured resources into the war.",
+      zh: "**七年战争(1756–63)**(北美称**法印战争**)起因于俄亥俄河谷的领土争端。年轻的**乔治·华盛顿**上校在内赛西蒂堡的冲突(1754)点燃了战争。英国初期失利,后在威廉·皮特加大投入后扭转战局。" } },
+    { kind: "paragraph", text: {
+      en: "The **Treaty of Paris (1763)** gave Britain Canada and everything east of the Mississippi — but left Britain **£137 million in debt**. To manage angry Native allies of the French, Britain issued the **Proclamation of 1763**, banning colonial settlement west of the Appalachians. Colonists were furious: they had just fought to open that land.",
+      zh: "**《巴黎和约》(1763)**将加拿大与密西西比河以东全部交予英国,却让英国背负**1.37 亿英镑**债务。为安抚与法国结盟的原住民,英国发布**《1763 年公告》**,禁止殖民者越阿巴拉契亚山脉定居。殖民者为此震怒——他们正是为争取这些土地而战。" } },
+    { kind: "callout", label: { en: "Causation", zh: "因果" }, text: {
+      en: "Victory in 1763 contained the seeds of 1776. British debt → new colonial taxes; frontier restrictions → colonial anger; removal of French threat → colonies needed Britain less.",
+      zh: "1763 年的胜利孕育了 1776 年的革命。英国债务 → 向殖民地征新税;边疆限令 → 殖民者愤怒;法国威胁消失 → 殖民地对英国依赖下降。" } },
+  ],
+  "period-3/topic-2": [
+    { kind: "heading", text: { en: "\"No taxation without representation\"", zh: "“无代表,不纳税”" } },
+    { kind: "table", caption: { en: "Key British acts, 1764–1774", zh: "1764–1774 年英国关键法案" },
+      columns: [
+        { en: "Act (year)", zh: "法案(年份)" },
+        { en: "What it did", zh: "内容" },
+        { en: "Colonial response", zh: "殖民地回应" },
+      ],
+      rows: [
+        [{ en: "Sugar Act (1764)", zh: "《糖税法》(1764)" }, { en: "Tax on molasses with strict enforcement.", zh: "对糖蜜征税并严格执行。" }, { en: "Merchant protests; smuggling.", zh: "商人抗议;走私盛行。" }],
+        [{ en: "Stamp Act (1765)", zh: "《印花税法》(1765)" }, { en: "Tax stamp on legal docs, newspapers.", zh: "对法律文件、报刊等贴印花税。" }, { en: "Sons of Liberty; Stamp Act Congress; repeal (1766).", zh: "自由之子;印花税法会议;1766 年废除。" }],
+        [{ en: "Townshend Acts (1767)", zh: "《汤森法》(1767)" }, { en: "Taxes on glass, paper, tea, lead.", zh: "对玻璃、纸张、茶叶、铅征税。" }, { en: "Non-importation; Boston Massacre (1770).", zh: "拒绝进口;波士顿惨案(1770)。" }],
+        [{ en: "Tea Act (1773)", zh: "《茶叶法》(1773)" }, { en: "East India Co. monopoly on tea.", zh: "授予东印度公司茶叶专营。" }, { en: "Boston Tea Party.", zh: "波士顿倾茶事件。" }],
+        [{ en: "Coercive/Intolerable Acts (1774)", zh: "《强制法》/《不可容忍法》(1774)" }, { en: "Closed Boston Harbor; MA gov't annulled.", zh: "关闭波士顿港;废除马萨诸塞政府。" }, { en: "First Continental Congress.", zh: "第一届大陆会议。" }],
+      ],
+    },
+    { kind: "callout", label: { en: "Key argument", zh: "核心论点" }, text: {
+      en: "Colonists argued they had no **representation** in Parliament, so Parliament could not tax them for revenue. Britain replied with **virtual representation** — that every MP represented all subjects — but colonists rejected that doctrine.",
+      zh: "殖民者主张他们在议会没有**代表**,议会不得为筹款而征税。英国援引**虚拟代表制**(每位议员代表全体臣民)作答,但殖民者拒绝这一理论。" } },
+  ],
+  "period-3/topic-3": [
+    { kind: "heading", text: { en: "The ideas behind the Revolution", zh: "革命背后的思想" } },
+    { kind: "paragraph", text: {
+      en: "English philosopher **John Locke** argued that people are born with **natural rights** to \"life, liberty, and property,\" and that government exists by consent — when it violates rights, citizens may replace it. **Montesquieu** contributed the idea of **separation of powers**. Colonial pamphleteers blended these with Protestant anti-tyranny rhetoric.",
+      zh: "英国哲学家**洛克**主张人生而享有**自然权利**——“生命、自由与财产”,政府凭同意建立;一旦侵犯权利,公民可更换政府。**孟德斯鸠**贡献了**三权分立**理念。殖民地作家将这些思想与新教反暴政论结合。" } },
+    { kind: "paragraph", text: {
+      en: "In January 1776 **Thomas Paine**'s *Common Sense* sold 120,000 copies in three months — in a colony of 2.5 million people. It destroyed the idea that monarchy was natural and argued for **immediate independence** in plain language.",
+      zh: "1776 年 1 月,**托马斯·潘恩**的《常识》三个月销售 12 万册——面对仅 250 万人口的殖民地。该书以通俗语言摧毁了君主天然论,呼吁**立即独立**。" } },
+    { kind: "callout", label: { en: "From Locke to Jefferson", zh: "从洛克到杰斐逊" }, text: {
+      en: "Jefferson's \"life, liberty, and the pursuit of happiness\" is Locke's \"life, liberty, and property\" — a deliberate Enlightenment echo.",
+      zh: "杰斐逊的“生命、自由与追求幸福”正是洛克“生命、自由与财产”的回声——有意的启蒙思想呼应。" } },
+  ],
+  "period-3/topic-4": [
+    { kind: "heading", text: { en: "From Lexington to Yorktown", zh: "从莱克星顿到约克镇" } },
+    { kind: "list", items: [
+      { en: "**April 1775**: Lexington & Concord — \"shot heard 'round the world.\"", zh: "**1775 年 4 月**:莱克星顿与康科德——“震撼世界的一枪”。" },
+      { en: "**July 1776**: Declaration of Independence adopted.", zh: "**1776 年 7 月**:通过《独立宣言》。" },
+      { en: "**October 1777**: Saratoga — American victory that convinced France to ally.", zh: "**1777 年 10 月**:萨拉托加——美方胜利,促使法国结盟。" },
+      { en: "**1777–78 winter**: Valley Forge — Washington's army survives under von Steuben's drilling.", zh: "**1777–78 年冬**:福吉谷——华盛顿军队在冯·施托伊本训练下存续。" },
+      { en: "**October 1781**: Yorktown — Cornwallis trapped by Washington's army and the French navy, surrenders.", zh: "**1781 年 10 月**:约克镇——康沃利斯被华盛顿军队与法国海军合围,投降。" },
+      { en: "**September 1783**: Treaty of Paris — Britain recognizes independence; borders extend to Mississippi.", zh: "**1783 年 9 月**:《巴黎和约》——英国承认独立,边界西至密西西比河。" },
+    ] },
+    { kind: "callout", label: { en: "Why Americans won", zh: "美国人获胜的原因" }, text: {
+      en: "Home terrain, George Washington's strategic patience, unwillingness of Britain to commit enough troops for a distant unpopular war, and **French money, troops, and navy** after Saratoga.",
+      zh: "熟悉本土地形、华盛顿战略上的耐心、英国不愿为遥远且不得人心的战争投入足够兵力,以及萨拉托加之后**法国的资金、军队与海军援助**。" } },
+  ],
+  "period-3/topic-5": [
+    { kind: "heading", text: { en: "A weak first government", zh: "薄弱的首个政府" } },
+    { kind: "paragraph", text: {
+      en: "Written in 1777 and ratified in 1781, the **Articles of Confederation** created a \"league of friendship\" among sovereign states. Congress could declare war, run a post office, and negotiate treaties — but **could not tax or regulate trade**. Amendments required unanimous state consent.",
+      zh: "1777 年起草、1781 年批准的**《邦联条例》**在主权各州之间建立了一个“友谊联盟”。国会可宣战、办邮政、缔约——但**无权征税或管制贸易**。修订需全部州一致同意。" } },
+    { kind: "callout", label: { en: "One lasting success", zh: "一项持久的成就" }, text: {
+      en: "The **Northwest Ordinance (1787)** organized territory north of the Ohio into future states (equal to originals), banned slavery there, and required public schools. It set the template for orderly westward expansion.",
+      zh: "**《西北条例》(1787)**将俄亥俄河以北的领土组织为未来的州(与原州平等),禁止蓄奴,并要求设公立学校。它为有序西进扩张确立了模板。" } },
+    { kind: "paragraph", text: {
+      en: "Failures piled up: states taxed each other's goods, inflation raged, and the government could not pay war debts. **Shays' Rebellion (1786–87)** — armed Massachusetts farmers trying to stop debt foreclosures — showed Washington and others that a stronger central government was urgently needed.",
+      zh: "失败不断累积:各州互征关税、通胀猖獗、政府无力偿还战债。**谢斯起义(1786–87)**——马萨诸塞农民武装抗拒债务抵押——让华盛顿等人看到,迫切需要更强有力的中央政府。" } },
+  ],
+  "period-3/topic-6": [
+    { kind: "heading", text: { en: "Philadelphia, 1787", zh: "1787 年的费城" } },
+    { kind: "paragraph", text: {
+      en: "Fifty-five delegates (the \"Framers\") met in Philadelphia. They quickly abandoned revising the Articles and drafted a new **Constitution** with three branches and federalism. Compromises resolved the big splits:",
+      zh: "55 位代表(“立宪者”)齐聚费城。他们迅速放弃修订《邦联条例》,转而起草新的**《宪法》**,设三权分立与联邦制。重大分歧通过以下妥协解决:" } },
+    { kind: "list", items: [
+      { en: "**Great Compromise**: bicameral Congress — House by population, Senate two per state.", zh: "**大妥协**:两院制国会——众议院按人口,参议院每州两人。" },
+      { en: "**Three-Fifths Compromise**: each enslaved person counted as 3/5 of a person for representation and taxation.", zh: "**五分之三妥协**:每名奴隶按 3/5 人计算,用于代表权与征税。" },
+      { en: "**Slave Trade Compromise**: the Atlantic slave trade could not be banned until 1808.", zh: "**奴隶贸易妥协**:1808 年前不得禁止大西洋奴隶贸易。" },
+      { en: "**Electoral College**: indirect election of the president.", zh: "**选举人团**:总统由间接选举产生。" },
+    ] },
+    { kind: "heading", text: { en: "Federalists vs Anti-Federalists", zh: "联邦党人与反联邦党人" } },
+    { kind: "paragraph", text: {
+      en: "**Federalists** (Hamilton, Madison, Jay — writing as *Publius* in the *Federalist Papers*) favored a strong national government. **Anti-Federalists** (Patrick Henry, George Mason) feared centralized tyranny and demanded a **Bill of Rights**. Ratification succeeded in 1788 after supporters promised one — the first ten amendments, ratified 1791.",
+      zh: "**联邦党人**(汉密尔顿、麦迪逊、杰伊——以“普布利乌斯”之名合写《联邦党人文集》)主张强有力的全国政府。**反联邦党人**(帕特里克·亨利、乔治·梅森)担忧中央专制,要求**《权利法案》**。支持者承诺加入后,1788 年批准通过——前十条修正案于 1791 年批准。" } },
+  ],
+  "period-3/topic-7": [
+    { kind: "heading", text: { en: "Washington and Hamilton's financial plan", zh: "华盛顿与汉密尔顿的财政计划" } },
+    { kind: "paragraph", text: {
+      en: "As first Treasury Secretary, **Alexander Hamilton** proposed: (1) **assumption** of state debts by the federal government, (2) a **national bank**, and (3) **protective tariffs** and excise taxes. Jefferson and Madison opposed him; the fight split the country into the first **political parties** — **Federalists** (Hamilton, pro-bank, pro-Britain) vs **Democratic-Republicans** (Jefferson, pro-agriculture, pro-France).",
+      zh: "作为首任财政部长,**汉密尔顿**提出:(1)联邦政府**承担**各州债务,(2)设立**国家银行**,(3)**保护性关税**与消费税。杰斐逊与麦迪逊反对;此争端将国家分裂为首批**政党**——**联邦党人**(汉密尔顿,支持银行,亲英)对**民主共和党**(杰斐逊,重农业,亲法)。" } },
+    { kind: "heading", text: { en: "Foreign policy tests", zh: "外交政策考验" } },
+    { kind: "list", items: [
+      { en: "**Whiskey Rebellion (1794)**: PA farmers protested the excise tax; Washington led troops and crushed it — proof the new government could enforce laws.", zh: "**威士忌起义(1794)**:宾州农民抗议消费税;华盛顿亲率部队镇压——证明新政府能执行法律。" },
+      { en: "**Jay's Treaty (1795)**: resolved some British disputes but angered pro-French Americans.", zh: "**杰伊条约(1795)**:解决部分对英纠纷,但激怒了亲法派美国人。" },
+      { en: "**Washington's Farewell Address (1796)**: warned against **permanent alliances** and **party factions**.", zh: "**华盛顿告别演说(1796)**:警告勿结**永久性联盟**,勿陷入**政党派争**。" },
+      { en: "**XYZ Affair (1797–98)**: French demand for bribes; \"Millions for defense, not one cent for tribute!\"", zh: "**XYZ 事件(1797–98)**:法国索贿;“防御可花百万,纳贡一分不给!”" },
+      { en: "**Alien and Sedition Acts (1798)**: Adams cracked down on critics; Jefferson's **Virginia & Kentucky Resolutions** argued states could nullify federal law.", zh: "**《外侨法》与《煽动法》(1798)**:亚当斯压制批评者;杰斐逊的**《弗吉尼亚与肯塔基决议》**主张州可废除联邦法律。" },
+    ] },
+  ],
+
+  // ===== PERIOD 4: 1800–1848 =====
+  "period-4/topic-1": [
+    { kind: "heading", text: { en: "Jefferson's \"Revolution of 1800\"", zh: "杰斐逊的“1800 年革命”" } },
+    { kind: "paragraph", text: {
+      en: "The 1800 election — the **first peaceful transfer of power between parties** in modern history — ended Federalist rule. Jefferson shrank the military, repealed internal taxes, and promoted agrarian republicanism. But pragmatism trumped principle in the **Louisiana Purchase (1803)**: $15 million to Napoleon doubled U.S. territory, though strict Jeffersonians doubted the Constitution authorized it.",
+      zh: "1800 年大选是**现代史上首次政党间和平权力交接**,终结联邦党人执政。杰斐逊缩减军队、废除内部税、推行农业共和主义。但原则在**路易斯安那购地(1803)**面前让步——以 1500 万美元向拿破仑购地,美国领土倍增,尽管严格的杰斐逊主义者怀疑宪法未授权此举。" } },
+    { kind: "paragraph", text: {
+      en: "**Marbury v. Madison (1803)** established **judicial review** — the Supreme Court's power to strike down unconstitutional laws. The **Lewis and Clark Expedition (1804–06)** mapped the new west with Sacagawea's help. The **War of 1812** — fought against Britain over impressment and frontier conflict — ended in stalemate but produced Andrew Jackson's victory at New Orleans and a surge of nationalism (the \"Second War of Independence\").",
+      zh: "**马伯里诉麦迪逊案(1803)**确立了**司法审查权**——最高法院可宣告法律违宪。**刘易斯与克拉克探险(1804–06)**在萨卡加维亚协助下测绘新西部。**1812 年战争**——因征兵勒令与边疆冲突而对英开战——以僵局告终,却带来安德鲁·杰克逊在新奥尔良的胜利与民族主义高涨(“第二次独立战争”)。" } },
+  ],
+  "period-4/topic-2": [
+    { kind: "heading", text: { en: "The Era of Good Feelings", zh: "好感时代" } },
+    { kind: "paragraph", text: {
+      en: "After the Federalist Party collapsed (their **Hartford Convention** opposing the War of 1812 was seen as unpatriotic), James Monroe ran nearly unopposed. Despite the era's name, **sectionalism grew**. Henry Clay's **American System** (1815) proposed: (1) **protective tariffs** for industry, (2) a **Second Bank of the U.S.**, and (3) **federal infrastructure** — roads and canals.",
+      zh: "联邦党在**哈特福德会议**反对 1812 战争被视为不爱国而瓦解后,门罗几乎无人竞争。尽管名曰“好感时代”,**地区主义却在加深**。亨利·克莱的**美利坚体系**(1815)提出:(1)**保护性关税**扶植工业,(2)重建**美国第二银行**,(3)**联邦基建**——修建公路与运河。" } },
+    { kind: "callout", label: { en: "Monroe Doctrine (1823)", zh: "门罗主义(1823)" }, text: {
+      en: "Warned European powers against new colonization in the Western Hemisphere. The U.S. in turn pledged not to interfere in European affairs. It became a cornerstone of American foreign policy for a century.",
+      zh: "警告欧洲列强勿再在西半球殖民。作为回应,美国承诺不干涉欧洲事务。这一原则成为此后一个世纪美国外交的基石。" } },
+    { kind: "paragraph", text: {
+      en: "The **Missouri Compromise (1820)** preserved the Senate balance: Missouri entered as a slave state, Maine as free, and slavery was banned in the Louisiana Territory north of **36°30'**. Jefferson called it \"**a fire bell in the night**\" — a warning of worse to come.",
+      zh: "**《密苏里妥协》(1820)**维持参议院平衡:密苏里作为蓄奴州、缅因作为自由州入联,路易斯安那领地 **36°30'** 以北禁止蓄奴。杰斐逊称之为“**黑夜中的火警**”——预示更大危机。" } },
+  ],
+  "period-4/topic-3": [
+    { kind: "heading", text: { en: "The Market Revolution", zh: "市场革命" } },
+    { kind: "paragraph", text: {
+      en: "Between 1815 and 1848 the U.S. economy transformed from local subsistence farming to an integrated national market. Engines: **canals** (Erie Canal, 1825, linked Great Lakes to NYC), **steamboats** (Mississippi trade), **railroads** (took off after 1830), the **telegraph** (Morse, 1844), and the **Lowell factory system** (young women operating power looms in Massachusetts mills).",
+      zh: "1815–1848 年间,美国经济从地方自给农业转变为全国统一市场。推动力包括:**运河**(伊利运河,1825,将五大湖与纽约连通)、**蒸汽船**(密西西比河贸易)、**铁路**(1830 年后起飞)、**电报**(莫尔斯,1844)和**洛厄尔工厂制度**(年轻女工在马萨诸塞工厂操作动力织机)。" } },
+    { kind: "callout", label: { en: "Social cost", zh: "社会代价" }, text: {
+      en: "Artisans who owned their own tools became **wage workers** owning nothing but their labor. Boom-bust cycles hit hard in the **Panic of 1837**, and strikes began. The urban working class was born.",
+      zh: "拥有工具的工匠沦为只拥有自身劳动力的**雇佣工人**。1837 年恐慌带来剧烈周期性冲击,罢工兴起。城市工人阶级由此诞生。" } },
+  ],
+  "period-4/topic-4": [
+    { kind: "heading", text: { en: "\"The Age of Jackson\"", zh: "“杰克逊时代”" } },
+    { kind: "paragraph", text: {
+      en: "By 1828 most states had dropped property requirements for white male voters. **Andrew Jackson** — first \"common man\" president — won in 1828 on populist anger against elites (after losing the 1824 \"**Corrupt Bargain**\" when the House chose John Quincy Adams). Jackson used the **spoils system** (patronage) and relied on a \"**Kitchen Cabinet**\" of informal advisors.",
+      zh: "到 1828 年,大多数州已取消白人男性的财产投票限制。**安德鲁·杰克逊**——首位“平民总统”——在 1828 年凭借对精英的民粹愤怒当选(此前在 1824 年“**肮脏交易**”中,众议院选择了约翰·昆西·亚当斯)。杰克逊推行**分赃制**,并倚重非正式顾问组成的“**厨房内阁**”。" } },
+    { kind: "list", items: [
+      { en: "**Bank War (1832)**: Jackson vetoed the recharter of the Second Bank, called it a \"monster\"; caused financial instability.", zh: "**银行之战(1832)**:杰克逊否决第二银行续牌,称其为“怪兽”;引发金融动荡。" },
+      { en: "**Nullification Crisis (1832–33)**: SC tried to nullify the Tariff of Abominations; Jackson threatened force; Clay brokered compromise tariff.", zh: "**废除危机(1832–33)**:南卡试图废除“可憎关税”;杰克逊以武力相胁;克莱斡旋通过妥协关税。" },
+      { en: "**Indian Removal Act (1830)**: forced removal of southeastern tribes to Oklahoma; the Cherokee **Trail of Tears (1838)** killed ~4,000 of 15,000.", zh: "**《印第安人迁移法》(1830)**:强制东南部族迁至俄克拉何马;切罗基人的**血泪之路(1838)**致 1.5 万人中约 4 千人死亡。" },
+      { en: "**Worcester v. Georgia (1832)**: Supreme Court ruled states had no authority over tribes; Jackson ignored it.", zh: "**伍斯特诉佐治亚案(1832)**:最高法院裁决各州对部族无管辖权;杰克逊置之不理。" },
+    ] },
+  ],
+  "period-4/topic-5": [
+    { kind: "heading", text: { en: "Revival and reform", zh: "复兴与改革" } },
+    { kind: "paragraph", text: {
+      en: "The **Second Great Awakening (1790s–1840s)** swept the country with huge revival meetings and preachers like **Charles Grandison Finney**. Its theology — that anyone could be saved through choice and good works — fueled a **perfectionist** impulse to reform society.",
+      zh: "**第二次大觉醒(1790s–1840s)**以大型复兴聚会与查尔斯·格兰迪森·芬尼等牧师席卷全国。其神学——任何人都可通过选择与善行得救——催生**完美主义**冲动,推动社会改革。" } },
+    { kind: "list", items: [
+      { en: "**Temperance**: American Temperance Society (1826); Maine Laws banning alcohol (1851).", zh: "**禁酒运动**:美国禁酒协会(1826);缅因禁酒法(1851)。" },
+      { en: "**Abolition**: William Lloyd Garrison's *The Liberator* (1831); Frederick Douglass's autobiography (1845); Harriet Tubman's Underground Railroad.", zh: "**废奴**:加里森《解放者报》(1831);道格拉斯自传(1845);塔布曼的地下铁路。" },
+      { en: "**Women's rights**: Seneca Falls Convention (1848) — Declaration of Sentiments demanding suffrage and legal equality.", zh: "**妇女权利**:塞尼卡瀑布大会(1848)——《情感宣言》要求选举权与法律平等。" },
+      { en: "**Education**: Horace Mann's public school reforms in Massachusetts.", zh: "**教育**:贺瑞斯·曼在马萨诸塞的公立学校改革。" },
+      { en: "**Asylum/prison reform**: Dorothea Dix championed humane treatment of the mentally ill.", zh: "**精神病院与监狱改革**:多萝西娅·迪克斯倡导人道对待精神病患者。" },
+      { en: "**Utopian communities**: Oneida, Shakers, New Harmony, Brook Farm.", zh: "**乌托邦公社**:奥奈达、震颤派、新和谐、布鲁克农场。" },
+    ] },
+  ],
+  "period-4/topic-6": [
+    { kind: "heading", text: { en: "The Cotton Kingdom", zh: "棉花王国" } },
+    { kind: "paragraph", text: {
+      en: "Eli Whitney's **cotton gin (1793)** made short-staple cotton profitable, and the Market Revolution created global demand for cotton cloth. The result: slavery, which many Founders expected to fade, **expanded dramatically**. By 1860 the South produced 75% of the world's cotton and held 4 million enslaved people.",
+      zh: "惠特尼的**轧棉机(1793)**使短绒棉有利可图,市场革命推动全球棉布需求。结果是:许多开国者原以为会衰亡的奴隶制**急剧扩张**。到 1860 年,南方生产全球 75% 的棉花,奴役 400 万人。" } },
+    { kind: "list", items: [
+      { en: "**Slave resistance**: Nat Turner's rebellion (1831) killed ~60 whites; hundreds of enslaved people killed in retaliation; laws tightened.", zh: "**奴隶反抗**:纳特·特纳起义(1831)杀死约 60 名白人;报复中数百名奴隶被杀;法律更加严苛。" },
+      { en: "**Day-to-day resistance**: slow work, feigning illness, sabotage, preserving African culture (call-and-response, spirituals).", zh: "**日常抵抗**:怠工、装病、破坏工具、保存非洲文化(呼应式歌唱、灵歌)。" },
+      { en: "**Proslavery ideology**: John C. Calhoun called slavery a \"**positive good**\" — supposedly better than Northern wage labor.", zh: "**拥奴意识形态**:卡尔霍恩称奴隶制为“**正面之善**”——据称优于北方的雇佣劳动。" },
+    ] },
+    { kind: "callout", label: { en: "Southern class structure", zh: "南方阶级结构" }, text: {
+      en: "Only ~25% of white Southerners owned slaves; ~1% were planters with 20+ slaves. Yet the planter class dominated Southern politics, and slave ownership was the aspiration of most white men.",
+      zh: "仅约 25% 的南方白人拥有奴隶;约 1% 为拥有 20 名以上奴隶的大种植园主。然而种植园主阶层主宰南方政治,拥奴是多数白人男性的追求。" } },
+  ],
+  "period-4/topic-7": [
+    { kind: "heading", text: { en: "An American voice", zh: "美国的独立声音" } },
+    { kind: "list", items: [
+      { en: "**Transcendentalism** — Ralph Waldo Emerson (\"Self-Reliance\") and Henry David Thoreau (*Walden*, \"Civil Disobedience\"): spiritual truth through nature and individual conscience.", zh: "**超验主义**——爱默生(《论自恃》)与梭罗(《瓦尔登湖》《论公民不服从》):通过自然与个人良知追求精神真理。" },
+      { en: "**American literature** — Hawthorne (*Scarlet Letter*), Melville (*Moby Dick*), Poe, Whitman, Emily Dickinson.", zh: "**美国文学**——霍桑(《红字》)、梅尔维尔(《白鲸》)、爱伦·坡、惠特曼、狄金森。" },
+      { en: "**Hudson River School** — landscape painters celebrating the American wilderness (Cole, Church).", zh: "**哈德逊河画派**——歌颂美国荒野的风景画家(科尔、丘奇)。" },
+      { en: "**Minstrel shows** — popular but deeply racist entertainment; reveals the limits of democratic culture.", zh: "**吟游剧**——流行却极具种族主义的娱乐;揭示了民主文化的局限。" },
+    ] },
+  ],
+
+  // ===== PERIOD 5: 1844–1877 =====
+  "period-5/topic-1": [
+    { kind: "heading", text: { en: "\"Our manifest destiny\"", zh: "“我们昭昭的天命”" } },
+    { kind: "paragraph", text: {
+      en: "Journalist John O'Sullivan coined **Manifest Destiny** (1845): God had ordained the U.S. to spread across the continent. It blended racism, religious mission, and land hunger. Texas — an independent republic after its 1836 revolution — was **annexed in 1845**, which Mexico saw as theft.",
+      zh: "记者奥沙利文创造了**“昭昭天命”**(1845):上帝注定美国横跨大陆。它融合了种族主义、宗教使命与对土地的渴求。在 1836 年独立的德克萨斯共和国于 **1845 年被兼并**,墨西哥视之为盗窃。" } },
+    { kind: "paragraph", text: {
+      en: "President Polk provoked the **Mexican-American War (1846–48)**. U.S. victory and the **Treaty of Guadalupe Hidalgo** added the **Mexican Cession** — California, Utah, Nevada, most of Arizona, New Mexico, and parts of Colorado and Wyoming. The 1848 gold discovery triggered the **California Gold Rush**.",
+      zh: "波尔克总统挑起**美墨战争(1846–48)**。美国胜利,《瓜达卢佩-伊达尔戈条约》带来**墨西哥割让地**——加州、犹他、内华达、大部分亚利桑那、新墨西哥,以及科罗拉多和怀俄明部分地区。1848 年的金矿发现引发**加州淘金潮**。" } },
+    { kind: "callout", label: { en: "Wilmot Proviso (1846)", zh: "威尔莫特附加条款(1846)" }, text: {
+      en: "Proposed banning slavery in any land acquired from Mexico. It failed repeatedly — but turned the slavery question into a national **free soil** debate that could not be tabled again.",
+      zh: "提议禁止在从墨西哥所获任何土地上蓄奴。该提案屡遭否决——却将奴隶制问题推升为全国**自由土地**之争,再也无法回避。" } },
+  ],
+  "period-5/topic-2": [
+    { kind: "heading", text: { en: "Compromise after compromise", zh: "一再妥协" } },
+    { kind: "paragraph", text: {
+      en: "With new western land, the sectional balance was again in danger. Henry Clay (\"the Great Compromiser\") crafted the **Compromise of 1850**: (1) California admitted free, (2) popular sovereignty in Utah and New Mexico Territories, (3) slave trade banned in DC, (4) stricter **Fugitive Slave Act**.",
+      zh: "新增西部土地使地区平衡再度危急。“伟大妥协家”亨利·克莱构筑**《1850 年妥协》**:(1)加州作为自由州入联,(2)犹他与新墨西哥领地实行人民主权,(3)华盛顿特区禁止奴隶贸易,(4)更严苛的**《逃亡奴隶法》**。" } },
+    { kind: "paragraph", text: {
+      en: "The Fugitive Slave Act outraged the North: it required all citizens to help capture fugitives and denied them jury trials. **Harriet Beecher Stowe's *Uncle Tom's Cabin* (1852)** sold 300,000 copies in a year and transformed Northern opinion. Lincoln later joked, \"So this is the little lady who made this great war.\"",
+      zh: "《逃亡奴隶法》激怒北方:它要求全体公民协助缉拿逃奴,并剥夺其陪审权。**斯托夫人《汤姆叔叔的小屋》(1852)**一年内销售 30 万册,改变北方舆论。林肯后来戏言:“这就是挑起这场大战的小妇人。”" } },
+  ],
+  "period-5/topic-3": [
+    { kind: "heading", text: { en: "The collapse of compromise", zh: "妥协的崩溃" } },
+    { kind: "list", items: [
+      { en: "**Kansas-Nebraska Act (1854)**: Stephen Douglas's bill repealed the Missouri Compromise, applying **popular sovereignty** to both territories. Pro- and anti-slavery settlers flooded Kansas.", zh: "**《堪萨斯-内布拉斯加法》(1854)**:道格拉斯法案废除《密苏里妥协》,对两领地实行**人民主权**。拥奴与反奴殖民者涌入堪萨斯。" },
+      { en: "**\"Bleeding Kansas\"**: Border ruffians from Missouri and anti-slavery John Brown's Pottawatomie massacre made Kansas a small civil war.", zh: "**“堪萨斯流血”**:密苏里边境匪徒与废奴派约翰·布朗在波塔瓦托米的屠杀使堪萨斯成为小型内战。" },
+      { en: "**Caning of Charles Sumner (1856)**: Senator Sumner nearly beaten to death on the Senate floor by Preston Brooks. The North was horrified; the South cheered.", zh: "**萨姆纳遭殴事件(1856)**:参议员萨姆纳在参议院被普雷斯顿·布鲁克斯殴打几乎致死。北方震怒,南方欢呼。" },
+      { en: "**Birth of the Republican Party (1854)**: united free-soilers, ex-Whigs, abolitionists against slavery's expansion.", zh: "**共和党诞生(1854)**:团结自由土地派、前辉格党人与废奴者,反对奴隶制扩张。" },
+      { en: "**Dred Scott v. Sandford (1857)**: Supreme Court ruled African Americans were not citizens, Congress could not ban slavery in territories, and the Missouri Compromise was unconstitutional. Destroyed the Republican platform in law.", zh: "**德雷德·斯科特案(1857)**:最高法院裁决非裔美国人非公民,国会不得在领地禁奴,且《密苏里妥协》违宪。在法律上摧毁了共和党纲领。" },
+      { en: "**Election of 1860**: Democratic Party split; Lincoln won with 40% of the popular vote — without a single Southern state. The South saw no future in the Union.", zh: "**1860 年大选**:民主党分裂;林肯以 40% 普选票当选——未获一个南方州。南方认定联邦无前途。" },
+    ] },
+  ],
+  "period-5/topic-4": [
+    { kind: "heading", text: { en: "Secession and war", zh: "脱离与战争" } },
+    { kind: "paragraph", text: {
+      en: "South Carolina seceded in December 1860; six more Deep South states followed by February 1861, forming the **Confederate States of America** under Jefferson Davis. The war began at **Fort Sumter**, South Carolina, **April 12, 1861**.",
+      zh: "1860 年 12 月,南卡罗来纳脱离联邦;1861 年 2 月前又有六个深南方州加入,组成以杰斐逊·戴维斯为总统的**美利坚联盟国**。1861 年 4 月 12 日,**萨姆特堡**战役爆发。" } },
+    { kind: "list", items: [
+      { en: "**Border states** (MD, KY, MO, DE): slave states that stayed in the Union — Lincoln kept them with careful politics and, in MD, suspension of habeas corpus.", zh: "**边境州**(马、肯、密、特):留在联邦的蓄奴州——林肯凭谨慎政治手腕维系,并在马里兰暂停人身保护令。" },
+      { en: "**Union advantages**: more population (22M vs 9M, ~3.5M enslaved), more industry (90% of manufacturing), most railroads, navy, existing government.", zh: "**联邦优势**:人口更多(2200 万对 900 万,其中约 350 万为奴隶),工业更强(制造业 90%),铁路多,海军,现成政府。" },
+      { en: "**Confederate advantages**: defensive war on home soil, better early generals (Lee, Jackson), cotton diplomacy hope.", zh: "**联盟国优势**:本土防御战,初期将才较强(李、杰克逊),寄望“棉花外交”。" },
+      { en: "**Anaconda Plan**: naval blockade + capturing the Mississippi to strangle the South.", zh: "**巨蟒计划**:海军封锁 + 控制密西西比河,绞杀南方。" },
+    ] },
+  ],
+  "period-5/topic-5": [
+    { kind: "heading", text: { en: "Turning points: 1862–63", zh: "转折:1862–63" } },
+    { kind: "paragraph", text: {
+      en: "**Antietam (September 17, 1862)** — the bloodiest single day in American history (22,000 casualties) — stopped Lee's invasion of Maryland and gave Lincoln a victory big enough to issue the **Emancipation Proclamation (January 1, 1863)**. It freed enslaved people in rebel areas (not border states), redefined the war as a **war against slavery**, and kept Britain and France from recognizing the Confederacy.",
+      zh: "**安提塔姆战役(1862 年 9 月 17 日)**——美国史上死伤最惨重的一天(2.2 万人)——阻止李进攻马里兰,让林肯得以发布**《解放黑奴宣言》(1863 年 1 月 1 日)**。宣言解放叛乱地区(非边境州)的奴隶,将战争重塑为**反奴隶制之战**,并阻止英法承认联盟国。" } },
+    { kind: "paragraph", text: {
+      en: "**Gettysburg (July 1–3, 1863)**: Lee's second invasion of the North ended in disaster — he never invaded again. **Vicksburg (July 4, 1863)**: Grant's victory gave the Union the Mississippi, splitting the Confederacy. In **1864** Sherman's \"**March to the Sea**\" devastated Georgia; Grant ground Lee down in Virginia; Lincoln was re-elected. **April 9, 1865**: Lee surrendered at Appomattox. Five days later, Lincoln was assassinated.",
+      zh: "**葛底斯堡(1863 年 7 月 1–3 日)**:李二次北伐惨败,从此不再北进。**维克斯堡(1863 年 7 月 4 日)**:格兰特胜利使联邦控制密西西比河,联盟国被一分为二。**1864 年**谢尔曼“**向海进军**”重创佐治亚;格兰特在弗吉尼亚耗尽李;林肯连任。**1865 年 4 月 9 日**:李在阿波马托克斯投降。五天后,林肯遇刺。" } },
+    { kind: "callout", label: { en: "Black soldiers", zh: "黑人士兵" }, text: {
+      en: "About **180,000 African Americans** served in the Union Army, 10% of its total. The 54th Massachusetts's assault on Fort Wagner became iconic. Black enlistment helped win the war and underwrote demands for citizenship afterward.",
+      zh: "约 **18 万非裔美国人**在联邦军服役,占总数 10%。马萨诸塞第 54 团进攻瓦格纳堡成为经典一役。黑人入伍助胜战争,也为战后公民权诉求奠定基础。" } },
+  ],
+  "period-5/topic-6": [
+    { kind: "heading", text: { en: "Reconstruction plans and amendments", zh: "重建方案与修正案" } },
+    { kind: "list", items: [
+      { en: "**Lincoln's 10% Plan**: 10% of a state's 1860 voters take a loyalty oath → re-admission. Lenient.", zh: "**林肯的 10% 方案**:10% 的 1860 年选民宣誓效忠即可复归。宽松。" },
+      { en: "**Wade-Davis Bill (1864)**: 50% oath required; Lincoln pocket-vetoed. Radicals wanted tougher terms.", zh: "**韦德-戴维斯法案(1864)**:要求 50% 宣誓;林肯搁置否决。激进派希望更严苛。" },
+      { en: "**Johnson's Presidential Reconstruction (1865)**: lenient; allowed ex-Confederates back; states passed **Black Codes** restricting freedpeople.", zh: "**约翰逊的总统重建(1865)**:宽松;允许前联盟国人士回归;各州通过**黑人法典**限制自由黑人。" },
+      { en: "**Radical/Congressional Reconstruction (1867)**: divided South into 5 military districts; required 14th Amendment ratification and Black suffrage for readmission.", zh: "**激进/国会重建(1867)**:将南方分为五军事区;要求批准第 14 修正案并实行黑人选举权方得复归。" },
+      { en: "**Freedmen's Bureau (1865)**: federal agency providing food, education, legal aid to ex-slaves; built hundreds of schools.", zh: "**自由民局(1865)**:联邦机构,为前奴隶提供粮食、教育、法律援助;建立数百所学校。" },
+    ] },
+    { kind: "table", caption: { en: "The Reconstruction Amendments", zh: "重建修正案" },
+      columns: [
+        { en: "Amendment (year)", zh: "修正案(年份)" },
+        { en: "Effect", zh: "效果" },
+      ],
+      rows: [
+        [{ en: "13th (1865)", zh: "第 13(1865)" }, { en: "Abolished slavery.", zh: "废除奴隶制。" }],
+        [{ en: "14th (1868)", zh: "第 14(1868)" }, { en: "Birthright citizenship; equal protection; due process.", zh: "出生公民权;平等保护;正当程序。" }],
+        [{ en: "15th (1870)", zh: "第 15(1870)" }, { en: "Voting rights regardless of race (men only).", zh: "不论种族的投票权(仅男性)。" }],
+      ],
+    },
+    { kind: "paragraph", text: {
+      en: "Johnson's clashes with Congress led to his **impeachment (1868)** — acquitted by one Senate vote. Black men voted and served in Congress in unprecedented numbers during Reconstruction.",
+      zh: "约翰逊与国会冲突导致**1868 年弹劾**——仅以一票之差未被罢免。重建期间,黑人男性参政投票人数空前,多人进入国会。" } },
+  ],
+  "period-5/topic-7": [
+    { kind: "heading", text: { en: "Retreat from Reconstruction", zh: "重建的退却" } },
+    { kind: "list", items: [
+      { en: "**White terror**: Ku Klux Klan (founded 1866) attacked Black voters and Republican officials; federal Enforcement Acts hit back briefly.", zh: "**白人恐怖**:3K 党(1866 年成立)袭击黑人选民与共和党官员;联邦《执行法》短暂反击。" },
+      { en: "**Northern fatigue**: economic concerns, corruption scandals (Grant admin), Panic of 1873.", zh: "**北方疲惫**:经济忧虑、格兰特政府贪腐丑闻、1873 年恐慌。" },
+      { en: "**Supreme Court retreats**: *Slaughterhouse Cases* (1873) narrowed 14th Amendment; *U.S. v. Cruikshank* (1876) limited federal power to protect rights.", zh: "**最高法院退让**:《屠宰场案》(1873)缩窄第 14 修正案;《美国诉克鲁克香克案》(1876)限制联邦保护权利的权力。" },
+      { en: "**Compromise of 1877**: Rutherford Hayes became president; in exchange, federal troops withdrew from the South. Reconstruction ended.", zh: "**1877 年妥协**:海斯任总统,交换条件是联邦军队撤离南方。重建终结。" },
+    ] },
+    { kind: "callout", label: { en: "The verdict", zh: "评判" }, text: {
+      en: "Reconstruction achieved **constitutional revolution** (13–14–15th Amendments) but failed politically. \"Redeemer\" governments stripped Black Southerners of voting, jobs, and dignity for the next 90 years — until the Civil Rights Movement.",
+      zh: "重建在**宪法层面带来革命**(第 13–14–15 修正案),却在政治上失败。“赎回者”政府此后 90 年间剥夺黑人南方人的选举权、工作与尊严,直至民权运动才被扭转。" } },
+  ],
+
+  // ===== PERIOD 6: 1865–1898 =====
+  "period-6/topic-1": [
+    { kind: "heading", text: { en: "The \"closing\" of the frontier", zh: "边疆的“关闭”" } },
+    { kind: "paragraph", text: {
+      en: "The **Homestead Act (1862)** offered 160 acres free to anyone who farmed it for five years. The **Transcontinental Railroad (completed 1869)** linked coasts, subsidized by the **Pacific Railway Acts** with federal land grants. \"**Sodbusters**\" broke Plains prairie with John Deere's steel plow; barbed wire ended the open range.",
+      zh: "**《宅地法》(1862)**将 160 英亩土地免费授予耕种五年者。**横贯大陆铁路(1869 年完工)**贯通两岸,由《太平洋铁路法》以联邦赠地资助。“**拓荒者**”用约翰·迪尔钢犁开垦平原;带刺铁丝网终结了开放牧场时代。" } },
+    { kind: "paragraph", text: {
+      en: "For Plains Indians, this meant disaster. The buffalo — on which Lakota, Cheyenne, Comanche economies depended — were hunted nearly to extinction. **Battle of Little Bighorn (1876)** gave Sitting Bull and Crazy Horse a stunning victory; the U.S. responded with relentless pursuit. The **Dawes Act (1887)** broke up tribal lands into individual allotments, meant to force assimilation. The **massacre at Wounded Knee (1890)** ended armed resistance.",
+      zh: "对平原印第安人而言这是灾难。拉科塔、夏延、科曼奇人赖以为生的**野牛**几乎被猎灭。**小大角战役(1876)**令坐牛与疯马大胜;美国则以穷追不舍作答。**《道斯法案》(1887)**将部落土地分为个人份地,强迫同化。**伤膝河屠杀(1890)**终结武装抵抗。" } },
+    { kind: "callout", label: { en: "Turner's Thesis (1893)", zh: "特纳假说(1893)" }, text: {
+      en: "Historian Frederick Jackson Turner argued the frontier shaped American democracy — and that the 1890 census meant it was closed. Influential and highly debated.",
+      zh: "历史学家特纳主张边疆塑造了美国民主——而 1890 年人口普查表明边疆已然关闭。此论影响深远且争议不断。" } },
+  ],
+  "period-6/topic-2": [
+    { kind: "heading", text: { en: "Industrial titans", zh: "工业巨头" } },
+    { kind: "paragraph", text: {
+      en: "After 1865 the U.S. became the world's largest industrial economy, thanks to abundant natural resources, immigrant labor, rail and telegraph networks, and bold (often ruthless) entrepreneurs.",
+      zh: "1865 年后,美国凭借丰富资源、移民劳动力、铁路与电报网络和大胆(常常冷酷)的企业家,成为世界最大工业经济体。" } },
+    { kind: "list", items: [
+      { en: "**Andrew Carnegie** — steel; used **vertical integration** (owning every step of production); gave away fortune (Gospel of Wealth).", zh: "**卡耐基**——钢铁;使用**纵向整合**(掌控每一生产环节);晚年散财(《财富福音》)。" },
+      { en: "**John D. Rockefeller** — oil (Standard Oil); used **horizontal integration** / the **trust** (controlling 90% of refining).", zh: "**洛克菲勒**——石油(标准石油);使用**横向整合**/**托拉斯**(控制 90% 炼油)。" },
+      { en: "**J.P. Morgan** — finance; organized U.S. Steel (first billion-dollar corporation).", zh: "**摩根**——金融;组建美国钢铁公司(首个市值十亿的企业)。" },
+      { en: "**Cornelius Vanderbilt** — railroads.", zh: "**范德比尔特**——铁路。" },
+    ] },
+    { kind: "callout", label: { en: "\"Robber barons\" or \"captains of industry\"?", zh: "“强盗大亨”还是“工业舵手”?" }, text: {
+      en: "Critics called them ruthless monopolists who crushed workers and bought politicians. Defenders credited them with **Social Darwinism**'s \"survival of the fittest\" and philanthropy. Both views capture pieces of the truth.",
+      zh: "批评者称他们为压榨工人、收买政客的垄断者;辩护者则援引**社会达尔文主义**的“适者生存”与他们的慈善。两种说法都各有道理。" } },
+    { kind: "paragraph", text: {
+      en: "**Sherman Antitrust Act (1890)** — first federal attempt to outlaw monopolies; weakly enforced for a decade, often used **against unions** instead of trusts.",
+      zh: "**《谢尔曼反托拉斯法》(1890)**——联邦首次尝试取缔垄断;十年间执行乏力,且常被用来**针对工会**而非托拉斯。" },
+  },
+    { kind: "paragraph", text: {
+      en: "Innovations — **Bessemer steel, electricity (Edison, Tesla), telephone (Bell), typewriter, skyscrapers** — remade work and city life.",
+      zh: "**贝塞麦炼钢法、电力(爱迪生、特斯拉)、电话(贝尔)、打字机、摩天大楼**等创新,重塑了工作与城市生活。" } },
+  ],
+  "period-6/topic-3": [
+    { kind: "heading", text: { en: "Workers organize — and lose", zh: "工人组织——屡战屡败" } },
+    { kind: "list", items: [
+      { en: "**Knights of Labor (founded 1869)**: \"one big union\" for all workers including Black, women, unskilled.", zh: "**劳工骑士团(1869 年成立)**:全行业“大工会”,包括黑人、女性与非技术工人。" },
+      { en: "**American Federation of Labor (AFL, 1886)**: skilled-craft unions only; Samuel Gompers's \"bread and butter\" focus on wages and hours.", zh: "**美国劳工联合会(AFL,1886)**:仅限技术工种;龚帕斯专注工资与工时的“面包与黄油”策略。" },
+      { en: "**Haymarket Riot (1886)** — Chicago bombing discredited Knights and labor generally.", zh: "**干草市场事件(1886)**——芝加哥爆炸案使骑士团与工运整体形象受损。" },
+      { en: "**Homestead Strike (1892)** — Carnegie's steel plant; Pinkertons fought strikers; union broken.", zh: "**霍姆斯特德罢工(1892)**——卡耐基钢厂;平克顿侦探与罢工者交火;工会被击垮。" },
+      { en: "**Pullman Strike (1894)** — Eugene Debs's railway union; federal troops broke it with injunction.", zh: "**普尔曼罢工(1894)**——德布斯领导的铁路工会;联邦军队以禁令强行镇压。" },
+    ] },
+    { kind: "callout", label: { en: "Why unions struggled", zh: "工会难以壮大的原因" }, text: {
+      en: "Immigrant labor kept wages low; employers could fire strikers and hire replacements; courts issued injunctions; federal troops broke strikes. Organized labor would not win major gains until the New Deal.",
+      zh: "移民劳动力压低工资;雇主可解雇罢工者并招募替补;法院下达禁令;联邦军队镇压罢工。工运直到新政才取得重大胜利。" } },
+  ],
+  "period-6/topic-4": [
+    { kind: "heading", text: { en: "Old and new immigrants", zh: "旧移民与新移民" } },
+    { kind: "paragraph", text: {
+      en: "Before 1880 most immigrants were \"**Old Immigrants**\" from northern/western Europe (Germany, Ireland, UK, Scandinavia) — largely Protestant. After 1880 the \"**New Immigrants**\" from southern and eastern Europe (Italy, Poland, Russia, Greece) — Catholic, Jewish, Orthodox — poured through **Ellis Island (NY)**. On the West Coast **Chinese** immigrants came first for Gold Rush and railroads; **Japanese** followed.",
+      zh: "1880 年前多为来自西北欧(德、爱、英、斯堪的纳维亚)的“**旧移民**”——多为新教徒。1880 年后“**新移民**”自南欧与东欧(意、波、俄、希)——天主教、犹太教、东正教——经**纽约埃利斯岛**涌入。西海岸华人最先为淘金与铁路而来,日本人继之。" } },
+    { kind: "paragraph", text: {
+      en: "Cities exploded. **Tenements** — dense, unsanitary apartments — housed the poor. **Jacob Riis**'s *How the Other Half Lives* (1890) used photography to expose slum conditions. **Jane Addams**'s **Hull House** (1889) pioneered the settlement house movement, offering services to immigrants.",
+      zh: "城市急剧扩张。**贫民窟公寓**——密集而不卫生的住所——收纳穷人。**里斯**的《另一半人如何生活》(1890)以摄影揭露贫民窟状况。**亚当斯**创办的**赫尔之家**(1889)开创定居点运动,为移民提供服务。" } },
+  ],
+  "period-6/topic-5": [
+    { kind: "heading", text: { en: "Nativism & exclusion", zh: "本土主义与排斥" } },
+    { kind: "list", items: [
+      { en: "**Chinese Exclusion Act (1882)** — first U.S. law restricting immigration by nationality; barred Chinese laborers for 10 years (extended repeatedly).", zh: "**《排华法案》(1882)**——美国首部按国籍限制移民的法律;禁止华工入境 10 年(多次延长)。" },
+      { en: "**American Protective Association (1887)** — anti-Catholic, anti-immigrant nativist group.", zh: "**美国保护会(1887)**——反天主教、反移民的本土主义团体。" },
+      { en: "**Plessy v. Ferguson (1896)** — Supreme Court ruled \"**separate but equal**\" facilities constitutional — legal foundation of Jim Crow for 58 years.", zh: "**普莱西诉弗格森案(1896)**——最高法院裁决“**隔离但平等**”设施合宪——成为此后 58 年吉姆·克劳法的法律基础。" },
+      { en: "**\"New South\"** — Henry Grady promoted industrial diversification, but cotton and Jim Crow still dominated. **Sharecropping** tied Black and poor white farmers to the land in new forms of bondage.", zh: "**“新南方”**——格雷迪推动工业多元化,但棉花与吉姆·克劳法仍主导。**分成租佃**以新形式的束缚将黑人与贫苦白人农民绑定于土地。" },
+    ] },
+  ],
+  "period-6/topic-6": [
+    { kind: "heading", text: { en: "The farmers' revolt", zh: "农民的反抗" } },
+    { kind: "paragraph", text: {
+      en: "Farmers faced falling crop prices (from global surplus), high railroad shipping rates, and tight credit. The **Grange (1867)** organized farmers socially; **Farmers' Alliances (1870s–80s)** pushed political action. Out of them came the **People's (Populist) Party (1892)**.",
+      zh: "农民面对作物价格下跌(全球过剩)、高铁路运费和信贷紧缩。**格兰奇(1867)**将农民社交组织化;**农民联盟(1870s–80s)**推动政治行动。由此形成**人民党(民粹党)(1892)**。" } },
+    { kind: "list", items: [
+      { en: "**Omaha Platform (1892)**: free coinage of silver, graduated income tax, direct election of senators, 8-hour workday, government ownership of railroads.", zh: "**《奥马哈纲领》(1892)**:自由铸造银币、累进所得税、参议员直选、八小时工作制、铁路国有化。" },
+      { en: "**Election of 1896**: **William Jennings Bryan**'s \"**Cross of Gold**\" speech made him Democratic-Populist fusion candidate; William McKinley (pro-gold, pro-business) won. Populism collapsed — but its ideas lived on in Progressivism.", zh: "**1896 年大选**:**布莱恩**的**《金十字架演说》**使其成为民主党-民粹党融合候选人;麦金莱(金本位,亲商)胜出。民粹主义崩溃——但其主张为进步主义延续。" },
+    ] },
+  ],
+  "period-6/topic-7": [
+    { kind: "heading", text: { en: "Gilded Age politics", zh: "镀金时代的政治" } },
+    { kind: "paragraph", text: {
+      en: "Mark Twain's term **\"Gilded Age\"** captured an era of superficial splendor over deep corruption. Presidents — Grant, Hayes, Garfield (assassinated 1881), Arthur, Cleveland, Harrison — were generally weak; political machines like **Boss Tweed's Tammany Hall** in NYC ruled cities through patronage.",
+      zh: "马克·吐温的“**镀金时代**”一词描绘了表面华丽、内里腐败的时代。总统——格兰特、海斯、加菲尔德(1881 年遇刺)、阿瑟、克利夫兰、哈里森——普遍软弱;政治机器如纽约的**特威德的坦慕尼厅**以庇护制主宰城市。" } },
+    { kind: "list", items: [
+      { en: "**Pendleton Civil Service Act (1883)** — replaced spoils system with merit-based federal hiring; passed after Garfield's assassination by a disappointed office-seeker.", zh: "**《彭德尔顿文官法》(1883)**——以功绩制取代分赃制;在失意求职者刺杀加菲尔德后通过。" },
+      { en: "**Interstate Commerce Act (1887)** — first federal regulation of railroads (ICC).", zh: "**《州际商务法》(1887)**——联邦首次监管铁路(ICC)。" },
+      { en: "**Social Gospel** — progressive Protestant movement calling for social reform as religious duty (Walter Rauschenbusch).", zh: "**社会福音**——进步派新教运动,将社会改革视为宗教责任(劳申布希)。" },
+    ] },
+  ],
+
+  // ===== PERIOD 7: 1890–1945 =====
+  "period-7/topic-1": [
+    { kind: "heading", text: { en: "America goes imperial", zh: "美国走向帝国" } },
+    { kind: "paragraph", text: {
+      en: "Late-1800s arguments for expansion: Alfred Thayer Mahan's *Influence of Sea Power upon History* (need for navy, coaling stations); search for markets; missionary zeal; Social Darwinist racism (\"**White Man's Burden**\"). The U.S. annexed **Hawaii (1898)** after American planters overthrew Queen Liliuokalani.",
+      zh: "19 世纪末扩张论调:马汉《海权对历史的影响》(需要海军与加煤站)、寻找市场、传教热情、社会达尔文式种族主义(“**白人的负担**”)。美国在美国种植园主推翻利留卡拉尼女王后,于 **1898 年兼并夏威夷**。" } },
+    { kind: "paragraph", text: {
+      en: "**Spanish-American War (1898)** — sparked by the explosion of the USS *Maine* (cause disputed) and **yellow journalism** (Hearst, Pulitzer). A \"splendid little war\" — 10 weeks. Results: **Cuba** (nominally independent under Platt Amendment), **Puerto Rico**, **Guam**, and **Philippines** became U.S. possessions. The **Philippine-American War (1899–1902)** was longer and far bloodier, killing ~200,000 Filipinos.",
+      zh: "**美西战争(1898)**——因缅因号爆炸(原因存争议)与**黄色新闻**(赫斯特、普利策)而起。“一场精彩的小战争”——历时十周。结果:**古巴**(名义独立,受《普拉特修正案》约束)、**波多黎各**、**关岛**、**菲律宾**成为美国属地。**美菲战争(1899–1902)**更长更血腥,约 20 万菲律宾人丧生。" } },
+    { kind: "callout", label: { en: "Anti-imperialists", zh: "反帝国主义者" }, text: {
+      en: "Mark Twain, Andrew Carnegie, Jane Addams, William James: argued imperialism betrayed the Declaration of Independence's principles.",
+      zh: "马克·吐温、卡耐基、亚当斯、詹姆斯:认为帝国主义背叛了《独立宣言》的原则。" } },
+    { kind: "paragraph", text: {
+      en: "**Open Door Policy (1899)** in China — Secretary Hay called for equal trading access to keep China from being carved up by European powers. **Theodore Roosevelt's Big Stick**: **Panama Canal (completed 1914)** after backing Panamanian independence from Colombia; **Roosevelt Corollary (1904)** to the Monroe Doctrine — the U.S. claimed police power over Latin America.",
+      zh: "**门户开放政策(1899)**——国务卿海伊要求对华平等贸易,以免中国被列强瓜分。**西奥多·罗斯福的大棒外交**:支持巴拿马独立后修建**巴拿马运河(1914 完工)**;**罗斯福推论(1904)**将门罗主义扩展为美国在拉美行使警察权。" } },
+  ],
+  "period-7/topic-2": [
+    { kind: "heading", text: { en: "The Progressive Movement", zh: "进步主义运动" } },
+    { kind: "paragraph", text: {
+      en: "Progressives were a diverse middle-class reform movement (1890s–1920) who sought to use government to fix industrial society's problems. **Muckrakers** — investigative journalists — exposed abuses: **Ida Tarbell** (Standard Oil), **Upton Sinclair** (*The Jungle* — meatpacking), **Lincoln Steffens** (city corruption).",
+      zh: "进步派是一个中产阶级改革运动(1890s–1920),主张用政府解决工业社会的问题。**扒粪记者**——调查性记者——揭露弊端:**塔贝尔**(标准石油)、**辛克莱**(《屠场》——肉类加工业)、**斯蒂芬斯**(城市腐败)。" } },
+    { kind: "list", items: [
+      { en: "**Teddy Roosevelt (1901–09)** — trust-busting (Northern Securities), **Square Deal**, Pure Food & Drug Act (1906), Meat Inspection Act, Antiquities Act for national parks.", zh: "**老罗斯福(1901–09)**——反托拉斯(北方证券案)、**公平施政**、《纯净食品与药品法》(1906)、《肉类检验法》、《文物法》保护国家公园。" },
+      { en: "**William Howard Taft (1909–13)** — pursued more trust cases but alienated progressives.", zh: "**塔夫脱(1909–13)**——更积极反托拉斯,但与进步派疏远。" },
+      { en: "**Woodrow Wilson (1913–21)** — **New Freedom**: Underwood Tariff (lower), Federal Reserve (1913), Clayton Antitrust Act (1914), FTC.", zh: "**威尔逊(1913–21)**——**新自由**:《安德伍德关税》(降低)、联邦储备(1913)、《克莱顿反托拉斯法》(1914)、联邦贸易委员会。" },
+    ] },
+    { kind: "table", caption: { en: "Progressive-era amendments", zh: "进步时代的修正案" },
+      columns: [
+        { en: "Amendment (year)", zh: "修正案(年份)" },
+        { en: "Change", zh: "变化" },
+      ],
+      rows: [
+        [{ en: "16th (1913)", zh: "第 16(1913)" }, { en: "Federal income tax.", zh: "联邦所得税。" }],
+        [{ en: "17th (1913)", zh: "第 17(1913)" }, { en: "Direct election of senators.", zh: "参议员直选。" }],
+        [{ en: "18th (1919)", zh: "第 18(1919)" }, { en: "Prohibition of alcohol.", zh: "禁酒。" }],
+        [{ en: "19th (1920)", zh: "第 19(1920)" }, { en: "Women's suffrage.", zh: "妇女选举权。" }],
+      ],
+    },
+    { kind: "callout", label: { en: "Limits", zh: "局限" }, text: {
+      en: "Progressivism often excluded Black Americans; Wilson segregated federal workplaces. Booker T. Washington (Atlanta Compromise) and W.E.B. Du Bois (NAACP, 1909) took different paths on race.",
+      zh: "进步主义常忽视黑人;威尔逊在联邦工作场所推行种族隔离。布克·华盛顿(亚特兰大妥协)与杜波依斯(1909 年成立 NAACP)在种族问题上走了不同道路。" } },
+  ],
+  "period-7/topic-3": [
+    { kind: "heading", text: { en: "The Great War", zh: "第一次世界大战" } },
+    { kind: "paragraph", text: {
+      en: "WWI broke out in 1914; Wilson declared neutrality. U.S. entered in **April 1917** after Germany's **unrestricted submarine warfare** (Lusitania had been sunk in 1915) and the **Zimmermann Telegram** (Germany urging Mexico to attack the U.S.).",
+      zh: "1914 年一战爆发;威尔逊宣布中立。1917 年 4 月美国参战,原因是德国的**无限制潜艇战**(1915 年卢西塔尼亚号沉没)与**齐默曼电报**(德国怂恿墨西哥攻美)。" } },
+    { kind: "list", items: [
+      { en: "**Home front**: War Industries Board, Selective Service Act (draft), Committee on Public Information (propaganda).", zh: "**本土战线**:战争工业委员会、《选征法》、公共信息委员会(宣传)。" },
+      { en: "**Espionage Act (1917) & Sedition Act (1918)**: criminalized anti-war speech; upheld in *Schenck v. U.S.* (1919) — \"clear and present danger.\"", zh: "**《间谍法》(1917)与《煽动法》(1918)**:将反战言论入罪;*申克诉美国案*(1919)以“明显且即时的危险”维持合宪。" },
+      { en: "**Great Migration**: 500,000+ African Americans moved from the South to Northern cities for war-industry jobs.", zh: "**大迁徙**:50 万以上非裔美国人从南方迁往北方城市从事战时工业。" },
+      { en: "**Wilson's 14 Points** and the **League of Nations** idea. U.S. troops tipped the scale; Germany surrendered Nov 1918.", zh: "**威尔逊十四点**与**国际联盟**构想。美军扭转战局;德国于 1918 年 11 月投降。" },
+      { en: "**Senate rejection of Treaty of Versailles (1919–20)** — Henry Cabot Lodge led the opposition. U.S. returned to \"normalcy.\"", zh: "**参议院否决《凡尔赛条约》(1919–20)**——洛奇领导反对。美国回归“常态”。" },
+    ] },
+  ],
+  "period-7/topic-4": [
+    { kind: "heading", text: { en: "The Roaring Twenties", zh: "咆哮的二十年代" } },
+    { kind: "paragraph", text: {
+      en: "The 1920s brought mass consumer culture: **radio, movies, Ford's Model T on assembly lines**, installment buying, advertising. It was also the **Jazz Age** (Armstrong, Ellington) and the **Harlem Renaissance** (Langston Hughes, Zora Neale Hurston, Duke Ellington). **\"Flappers\"** symbolized new female freedoms.",
+      zh: "1920 年代带来大众消费文化:**收音机、电影、福特 T 型车流水线**、分期付款、广告。这也是**爵士时代**(阿姆斯特朗、埃林顿)与**哈莱姆文艺复兴**(休斯、赫斯顿、埃林顿)。**“飞女郎”**象征女性新自由。" } },
+    { kind: "list", items: [
+      { en: "**Red Scare (1919–20)**: Palmer Raids; Sacco and Vanzetti.", zh: "**红色恐慌(1919–20)**:帕尔默突袭;萨科与万泽蒂案。" },
+      { en: "**Immigration Acts (1921, 1924)**: national-origin quotas favoring northern Europe; barred Asian immigration.", zh: "**《移民法》(1921、1924)**:民族配额偏向北欧;禁止亚洲移民。" },
+      { en: "**Second KKK** revived — anti-Black, Catholic, Jewish, and immigrant; peaked at 4 million members.", zh: "**第二次 3K 党**复兴——反黑人、天主教、犹太人、移民;巅峰会员 400 万。" },
+      { en: "**Scopes Trial (1925)**: Tennessee teacher prosecuted for teaching evolution — clash of rural/traditional vs urban/modern.", zh: "**斯科普斯审判(1925)**:田纳西教师因教进化论被起诉——乡村/传统与城市/现代之争。" },
+      { en: "**Prohibition** created bootleggers, speakeasies, and organized crime (Al Capone).", zh: "**禁酒令**造就私酒贩、地下酒吧与有组织犯罪(卡彭)。" },
+    ] },
+  ],
+  "period-7/topic-5": [
+    { kind: "heading", text: { en: "The crash and the Depression", zh: "股灾与大萧条" } },
+    { kind: "paragraph", text: {
+      en: "The **Stock Market Crash of October 1929** destroyed wealth. But the **Great Depression** had deeper causes: overproduction, weak banks, unequal wealth (top 1% held 40%), collapse of international trade (**Smoot-Hawley Tariff, 1930** made it worse), and the **Dust Bowl** that drove \"Okies\" west.",
+      zh: "**1929 年 10 月股灾**摧毁了财富。但**大萧条**根源更深:生产过剩、银行脆弱、财富不均(最富 1% 占有 40%)、国际贸易崩溃(**《斯姆特-霍利关税法》(1930)**加剧)、以及驱使“俄克佬”西迁的**沙尘暴**。" } },
+    { kind: "paragraph", text: {
+      en: "By 1933, **25% unemployment**, thousands of banks failed, **Hoovervilles** (shantytowns) sprang up. Hoover believed in \"voluntary cooperation\" and limited intervention (Reconstruction Finance Corporation helped banks but not people). The **Bonus Army** (WWI vets demanding early pensions) was dispersed by the Army under MacArthur — a political disaster.",
+      zh: "到 1933 年,**失业率 25%**,数千家银行倒闭,**胡佛村**(棚户区)遍地。胡佛信奉“自愿合作”与有限干预(复兴金融公司助银行不助民)。**津贴大军**(要求提前发放退休金的一战老兵)被麦克阿瑟率军驱散——政治上一场灾难。" } },
+  ],
+  "period-7/topic-6": [
+    { kind: "heading", text: { en: "FDR's New Deal", zh: "罗斯福新政" } },
+    { kind: "paragraph", text: {
+      en: "Elected in 1932, **Franklin D. Roosevelt** promised a \"New Deal.\" His **First Hundred Days** were legislative whirlwinds. The Three Rs: **Relief** (immediate help), **Recovery** (restart economy), **Reform** (prevent recurrence).",
+      zh: "1932 年当选的**罗斯福**承诺“新政”。其**百日新政**立法如旋风。三 R:**救济**(即时援助)、**复苏**(重启经济)、**改革**(防范再发)。" } },
+    { kind: "table", caption: { en: "Major New Deal programs", zh: "主要新政项目" },
+      columns: [
+        { en: "Program", zh: "项目" },
+        { en: "What it did", zh: "作用" },
+      ],
+      rows: [
+        [{ en: "AAA", zh: "AAA" }, { en: "Paid farmers to reduce crops; raised prices.", zh: "补贴农民减产以提价。" }],
+        [{ en: "CCC", zh: "CCC" }, { en: "Employed young men on conservation projects.", zh: "雇佣青年从事生态保护工程。" }],
+        [{ en: "TVA", zh: "TVA" }, { en: "Built dams, electrified rural Tennessee Valley.", zh: "建坝并为田纳西河谷农村通电。" }],
+        [{ en: "NRA", zh: "NRA" }, { en: "Industry codes; struck down 1935 in Schechter v. U.S.", zh: "行业规范;1935 年谢克特诉美国案中被判违宪。" }],
+        [{ en: "FDIC", zh: "FDIC" }, { en: "Insured bank deposits.", zh: "为银行存款提供保险。" }],
+        [{ en: "SEC", zh: "SEC" }, { en: "Regulated stock market.", zh: "监管证券市场。" }],
+        [{ en: "Social Security (1935)", zh: "社会保障(1935)" }, { en: "Old-age pensions, unemployment insurance.", zh: "养老金、失业保险。" }],
+        [{ en: "Wagner Act (1935)", zh: "《瓦格纳法》(1935)" }, { en: "Guaranteed right to unionize.", zh: "保障组建工会的权利。" }],
+        [{ en: "WPA", zh: "WPA" }, { en: "Public works; employed 8.5 million (incl. artists).", zh: "公共工程;雇佣 850 万人(包括艺术家)。" }],
+      ],
+    },
+    { kind: "paragraph", text: {
+      en: "After the Supreme Court struck down NRA and AAA, FDR proposed his **court-packing plan (1937)** — adding justices to get favorable rulings. It failed politically but the Court began ruling his way anyway (\"the switch in time that saved nine\").",
+      zh: "最高法院宣告 NRA 与 AAA 违宪后,罗斯福于 1937 年提出**“填塞法院计划”**——扩充大法官以获得有利判决。政治上失败,但法院开始顺从他(“及时转向救了九人”)。" } },
+    { kind: "callout", label: { en: "Legacy", zh: "遗产" }, text: {
+      en: "The New Deal did not end the Depression (WWII did) but **permanently expanded the federal role** — regulating banks and markets, providing old-age security, and building the Democratic coalition of labor, urban ethnics, Black voters, and the South.",
+      zh: "新政未结束萧条(二战才结束),但**永久性地扩大了联邦角色**——监管银行与市场、提供养老保障,并建立了由工人、城市族裔、黑人选民与南方组成的民主党选民联盟。" } },
+  ],
+  "period-7/topic-7": [
+    { kind: "heading", text: { en: "Mobilizing for total war", zh: "全面战争的动员" } },
+    { kind: "paragraph", text: {
+      en: "After **Pearl Harbor (Dec 7, 1941)** the U.S. entered WWII. It became an \"**Arsenal of Democracy**\" — producing two-thirds of all Allied military equipment. War spending ended the Depression; unemployment dropped to 1%.",
+      zh: "**珍珠港事件(1941 年 12 月 7 日)**后美国参战。它成为“**民主兵工厂**”——生产盟军三分之二的军需。战时开支终结萧条;失业率降至 1%。" } },
+    { kind: "list", items: [
+      { en: "**Rosie the Riveter**: 6 million women entered the workforce (many left after 1945).", zh: "**“铆工萝茜”**:600 万女性进入劳动力市场(多数于 1945 年后退出)。" },
+      { en: "**Double V Campaign**: African Americans fought for victory abroad and against racism at home. A. Philip Randolph's threatened march forced FDR to issue **Executive Order 8802 (1941)**, banning defense-job discrimination.", zh: "**双重 V 运动**:非裔美国人在海外争胜利,在国内反种族主义。A. 菲利普·兰道夫威胁游行,迫使罗斯福发布**第 8802 号行政令(1941)**,禁止国防行业歧视。" },
+      { en: "**Japanese Internment**: **Executive Order 9066 (1942)** — 120,000 Japanese Americans, mostly U.S. citizens, forced into camps. Upheld in *Korematsu v. U.S.* (1944). Formal apology + reparations came in 1988.", zh: "**日裔拘留**:**第 9066 号行政令(1942)**——12 万日裔美国人(多为公民)被送入营地。*是松诉美国案*(1944)维持合宪。1988 年才有正式道歉与赔偿。" },
+      { en: "**War in Europe**: D-Day landings (June 6, 1944); V-E Day (May 8, 1945). **War in the Pacific**: island hopping; Battle of Midway (1942) turned the tide.", zh: "**欧洲战场**:诺曼底登陆(1944 年 6 月 6 日);欧洲胜利日(1945 年 5 月 8 日)。**太平洋战场**:跳岛战术;中途岛战役(1942)扭转战局。" },
+    ] },
+  ],
+  "period-7/topic-8": [
+    { kind: "heading", text: { en: "The atomic bomb & postwar order", zh: "原子弹与战后秩序" } },
+    { kind: "paragraph", text: {
+      en: "The **Manhattan Project** — led by J. Robert Oppenheimer — produced the world's first atomic weapons. After FDR's death in April 1945, **Harry Truman** ordered the bombings of **Hiroshima (August 6)** and **Nagasaki (August 9)**. Japan surrendered **August 15, 1945**. About 200,000 civilians died; the decision remains debated (save American lives vs. racism, signaling to USSR, unnecessary).",
+      zh: "**曼哈顿计划**——奥本海默领导——造出世界首批原子武器。1945 年 4 月罗斯福去世后,**杜鲁门**下令轰炸**广岛(8 月 6 日)**与**长崎(8 月 9 日)**。日本于 **1945 年 8 月 15 日**投降。约 20 万平民死亡;决策至今争议(救美军命 vs 种族主义、威慑苏联、非必要)。" } },
+    { kind: "list", items: [
+      { en: "**Yalta (Feb 1945)**: FDR, Churchill, Stalin agreed on postwar Europe; Stalin promised free elections in Eastern Europe (didn't deliver).", zh: "**雅尔塔(1945 年 2 月)**:罗斯福、丘吉尔、斯大林商定战后欧洲;斯大林承诺东欧自由选举(未兑现)。" },
+      { en: "**United Nations (1945)** — FDR's dream; U.S. was a founding member.", zh: "**联合国(1945)**——罗斯福的理想;美国为创始会员国。" },
+      { en: "**Nuremberg Trials**: Nazi leaders tried for war crimes and crimes against humanity.", zh: "**纽伦堡审判**:纳粹领导人因战争罪与反人类罪受审。" },
+      { en: "**Holocaust**: 6 million Jews murdered. U.S. had refused refugees before the war (St. Louis, 1939) — a moral stain.", zh: "**大屠杀**:600 万犹太人遇害。美国战前曾拒绝难民(1939 年“圣路易斯号”)——道德污点。" },
+    ] },
+  ],
+
+  // ===== PERIOD 8: 1945–1980 =====
+  "period-8/topic-1": [
+    { kind: "heading", text: { en: "Containment", zh: "遏制政策" } },
+    { kind: "paragraph", text: {
+      en: "Diplomat George Kennan's \"**Long Telegram**\" (1946) called for **containment** — preventing Soviet expansion. The **Truman Doctrine (1947)** pledged to support free peoples resisting \"armed minorities or outside pressures.\" The **Marshall Plan** ($13 billion to rebuild Western Europe) tied allies to the U.S. economy.",
+      zh: "外交官乔治·凯南的“**长电报**”(1946)主张**遏制**——阻止苏联扩张。**杜鲁门主义(1947)**承诺支持抵抗“武装少数或外来压力”的自由民族。**马歇尔计划**(130 亿美元重建西欧)将盟友绑定美国经济。" } },
+    { kind: "list", items: [
+      { en: "**Berlin Airlift (1948–49)**: Stalin blockaded West Berlin; U.S./UK flew in supplies for 11 months.", zh: "**柏林空运(1948–49)**:斯大林封锁西柏林;美英空投物资 11 个月。" },
+      { en: "**NATO (1949)**: 12-nation mutual defense alliance — first peacetime alliance in U.S. history.", zh: "**北约(1949)**:12 国共同防御联盟——美国史上首个和平时期军事联盟。" },
+      { en: "**Soviet atomic bomb (1949)**, **Communist China (1949)** — the Cold War globalized.", zh: "**苏联原子弹(1949)**、**中共建国(1949)**——冷战全球化。" },
+      { en: "**Korean War (1950–53)**: UN force (mostly U.S.) under MacArthur drove north; Chinese intervention pushed back; stalemate at 38th parallel.", zh: "**朝鲜战争(1950–53)**:联合国军(主要为美军)在麦克阿瑟率领下北进;中国介入逆转;最终在三八线僵持。" },
+      { en: "**NSC-68 (1950)**: called for massive military buildup — the template for Cold War defense spending.", zh: "**NSC-68(1950)**:主张大规模扩军——成为冷战军费开支的模板。" },
+    ] },
+  ],
+  "period-8/topic-2": [
+    { kind: "heading", text: { en: "The second Red Scare", zh: "第二次红色恐慌" } },
+    { kind: "paragraph", text: {
+      en: "**HUAC (House Un-American Activities Committee)** hunted Communists in Hollywood (**blacklist**), government, labor. **Alger Hiss** (State Department) was convicted of perjury in a spy case; the **Rosenbergs** were executed for atomic espionage (1953).",
+      zh: "**众议院非美活动调查委员会(HUAC)**在好莱坞(列入**黑名单**)、政府、工会中追查共产党人。**阿尔杰·希斯**(国务院)因涉嫌间谍案伪证被定罪;**罗森堡夫妇**因原子情报罪被处决(1953)。" } },
+    { kind: "paragraph", text: {
+      en: "**Senator Joseph McCarthy (R-WI)** claimed (without evidence) to hold lists of Communists in government. Four years of reckless accusations — **\"McCarthyism\"** — destroyed careers until the 1954 **Army-McCarthy hearings**, televised, turned the public against him. The Senate censured him.",
+      zh: "**威斯康星州共和党参议员麦卡锡**(毫无证据地)宣称手握政府共产党员名单。四年鲁莽指控——“**麦卡锡主义**”——毁人前程,直至 1954 年电视直播的**陆军-麦卡锡听证会**使公众转向反对他。参议院最终谴责之。" } },
+  ],
+  "period-8/topic-3": [
+    { kind: "heading", text: { en: "Affluence and suburbia", zh: "富足与郊区化" } },
+    { kind: "list", items: [
+      { en: "**GI Bill (1944)**: education, home loans, unemployment aid for 16 million veterans — built the postwar middle class.", zh: "**《退伍军人法》(1944)**:为 1600 万老兵提供教育、住房贷款、失业援助——造就战后中产阶级。" },
+      { en: "**Baby Boom (1946–64)**: 76 million babies born.", zh: "**婴儿潮(1946–64)**:共出生 7600 万婴儿。" },
+      { en: "**Levittowns**: mass-produced suburban houses; \"white only\" restrictive covenants. **Interstate Highway Act (1956)** under Eisenhower further enabled suburbanization.", zh: "**莱维敦**:批量建造的郊区住宅;仅限白人的限制性契约。艾森豪威尔的**《州际公路法》(1956)**进一步推动郊区化。" },
+      { en: "**Consumer culture**: TV (90% of homes by 1960), credit cards, fast food, shopping malls.", zh: "**消费文化**:电视(1960 年普及至 90% 家庭)、信用卡、快餐、购物中心。" },
+      { en: "**Dissent & anxiety**: Kerouac's Beat Generation; *The Lonely Crowd* (Riesman); fears of conformity and nuclear war (duck-and-cover drills).", zh: "**不满与焦虑**:凯鲁亚克的垮掉一代;《孤独的人群》(里斯曼);对顺从与核战的恐惧(“伏地掩护”演习)。" },
+    ] },
+  ],
+  "period-8/topic-4": [
+    { kind: "heading", text: { en: "Civil Rights: from Brown to Selma", zh: "民权运动:从布朗案到塞尔玛" } },
+    { kind: "paragraph", text: {
+      en: "**Brown v. Board of Education (1954)** — Thurgood Marshall argued, Chief Justice Warren's unanimous ruling overturned *Plessy*. Segregated schools \"inherently unequal.\" Implementation was slow and met massive resistance (Little Rock, 1957 — Eisenhower sent troops).",
+      zh: "**布朗诉教育委员会案(1954)**——瑟古德·马歇尔主辩,首席大法官沃伦一致裁决推翻《普莱西案》。种族隔离的学校“本质上不平等”。执行缓慢,遭遇大规模抵抗(1957 年小石城——艾森豪威尔派军护送)。" } },
+    { kind: "list", items: [
+      { en: "**Montgomery Bus Boycott (1955–56)** — Rosa Parks's refusal; MLK Jr. rose to national leadership.", zh: "**蒙哥马利公交抵制(1955–56)**——罗莎·帕克斯拒绝让座;马丁·路德·金由此成为全国领袖。" },
+      { en: "**SCLC (1957), SNCC (1960)**: organizations of nonviolent direct action.", zh: "**南方基督教领袖会议(1957)、学生非暴力协调委员会(1960)**:非暴力直接行动组织。" },
+      { en: "**Sit-ins (Greensboro, 1960)**; **Freedom Rides (1961)**; **Birmingham campaign (1963)** — Bull Connor's fire hoses and dogs shocked the nation.", zh: "**静坐运动(格林斯博罗,1960)**;**自由乘车运动(1961)**;**伯明翰运动(1963)**——“公牛”康纳的水炮与警犬震撼全国。" },
+      { en: "**March on Washington (August 1963)**: 250,000 people; MLK's \"I Have a Dream\" speech.", zh: "**华盛顿大游行(1963 年 8 月)**:25 万人;马丁·路德·金“我有一个梦想”演讲。" },
+      { en: "**Civil Rights Act (1964)**: banned discrimination in public accommodations, employment, federally funded programs.", zh: "**《1964 年民权法》**:禁止公共场所、就业、联邦资助项目的歧视。" },
+      { en: "**Voting Rights Act (1965)**: after Selma march and Bloody Sunday; ended literacy tests; federal oversight of elections.", zh: "**《1965 年投票权法》**:经塞尔玛大游行与“血腥星期天”后通过;终止识字测试;联邦监管选举。" },
+    ] },
+  ],
+  "period-8/topic-5": [
+    { kind: "heading", text: { en: "The Great Society", zh: "伟大社会" } },
+    { kind: "paragraph", text: {
+      en: "After JFK's assassination (Nov 1963), **Lyndon B. Johnson** used his legislative mastery to push **the most sweeping domestic agenda since the New Deal**. His \"**War on Poverty**\" and \"**Great Society**\" programs:",
+      zh: "肯尼迪遇刺(1963 年 11 月)后,**约翰逊**以其立法才能推动**自新政以来最全面的国内议程**。其“**向贫困宣战**”与“**伟大社会**”项目:" } },
+    { kind: "list", items: [
+      { en: "**Medicare** (health insurance for seniors) & **Medicaid** (for the poor) — 1965.", zh: "**医疗保险(Medicare)**(老人)与**医疗补助(Medicaid)**(穷人)——1965。" },
+      { en: "**Elementary & Secondary Education Act (1965)** — first major federal aid to schools.", zh: "**《中小学教育法》(1965)**——首项重要联邦教育援助。" },
+      { en: "**Immigration Act (1965)** — ended national-origin quotas; opened immigration from Asia and Latin America.", zh: "**《1965 年移民法》**——终结民族配额;开放亚洲与拉美移民。" },
+      { en: "**Head Start, Job Corps, VISTA, Food Stamps** — anti-poverty programs.", zh: "**Head Start、Job Corps、VISTA、食品券**——反贫困项目。" },
+      { en: "**Department of Housing & Urban Development**, **NEA**, **NEH**, **PBS**.", zh: "**住房与城市发展部**、**国家艺术基金会**、**国家人文基金会**、**PBS**。" },
+    ] },
+    { kind: "callout", label: { en: "Trade-off", zh: "代价" }, text: {
+      en: "Johnson's programs cut the poverty rate from 22% to 13% by 1970. But the Vietnam War drained funding and political capital — \"guns and butter\" strained the budget.",
+      zh: "约翰逊的项目将贫困率从 22% 降至 1970 年的 13%。但越战耗尽财政与政治资本——“枪炮与黄油”压垮预算。" } },
+  ],
+  "period-8/topic-6": [
+    { kind: "heading", text: { en: "Vietnam", zh: "越战" } },
+    { kind: "paragraph", text: {
+      en: "After French defeat at Dien Bien Phu (1954), Vietnam was split at the 17th parallel. The U.S., following the **domino theory**, backed anti-communist South Vietnam. **Gulf of Tonkin Resolution (1964)** — passed on disputed evidence — gave LBJ near-blank-check war powers. Troop numbers swelled to 500,000+ by 1968.",
+      zh: "法国在奠边府战败(1954)后,越南在北纬 17 度分裂。美国根据**多米诺理论**支持反共南越。**《北部湾决议》(1964)**——依据有争议的证据通过——赋予约翰逊近乎空白的战争授权。至 1968 年驻军逾 50 万。" } },
+    { kind: "list", items: [
+      { en: "**Tet Offensive (January 1968)**: coordinated Viet Cong/NVA attacks; militarily a U.S. win, politically a loss — shattered \"light at the end of the tunnel\" claims.", zh: "**春节攻势(1968 年 1 月)**:越共/北越协同进攻;军事上美方胜,政治上惨败——击碎“隧道尽头有光”的说辞。" },
+      { en: "**My Lai Massacre (1968)**: U.S. troops killed ~500 Vietnamese civilians; exposed 1969.", zh: "**美莱屠杀(1968)**:美军杀害约 500 越南平民;1969 年曝光。" },
+      { en: "**Anti-war movement**: campus protests, draft resistance; **Kent State shootings (1970)** killed 4 students.", zh: "**反战运动**:校园抗议、拒服兵役;**肯特州枪击(1970)**致 4 名学生死亡。" },
+      { en: "**Vietnamization**: Nixon gradually withdrew troops while expanding bombing (Cambodia, Laos).", zh: "**越南化**:尼克松逐步撤军,同时扩大轰炸(柬埔寨、老挝)。" },
+      { en: "**Paris Peace Accords (1973)**; **Fall of Saigon (April 1975)**. 58,000 Americans and 2+ million Vietnamese died.", zh: "**《巴黎和平协定》(1973)**;**西贡陷落(1975 年 4 月)**。5.8 万美军与 200 万以上越南人丧生。" },
+      { en: "**War Powers Act (1973)**: Congress tried to rein in presidential war-making.", zh: "**《战争权力法》(1973)**:国会试图遏制总统战争权。" },
+    ] },
+  ],
+  "period-8/topic-7": [
+    { kind: "heading", text: { en: "The 1960s: liberation and counterculture", zh: "1960 年代:解放与反主流文化" } },
+    { kind: "list", items: [
+      { en: "**Black Power**: Malcolm X (assassinated 1965); Black Panthers; Stokely Carmichael; rejection of integrationist gradualism.", zh: "**黑权运动**:马尔科姆·X(1965 年遇刺);黑豹党;斯托克利·卡迈克尔;拒绝融合主义的渐进路线。" },
+      { en: "**Feminism's \"second wave\"**: Friedan's *Feminine Mystique* (1963); NOW (1966); Title IX (1972); Roe v. Wade (1973). **ERA** passed Congress but failed ratification.", zh: "**女权“第二波”**:弗里丹《女性的奥秘》(1963);NOW(1966);《教育法修正案第九条》(1972);《罗诉韦德案》(1973)。**《平等权利修正案》**国会通过但未获批准。" },
+      { en: "**Chicano movement**: Cesar Chavez's United Farm Workers; La Raza Unida.", zh: "**奇卡诺运动**:塞萨尔·查维斯的联合农工;La Raza Unida。" },
+      { en: "**American Indian Movement (AIM)**: occupation of Alcatraz (1969), Wounded Knee (1973).", zh: "**美国印第安人运动(AIM)**:占领恶魔岛(1969),伤膝谷(1973)。" },
+      { en: "**Stonewall Riots (1969)**: birth of modern gay rights movement.", zh: "**石墙事件(1969)**:现代同志权利运动的诞生。" },
+      { en: "**Counterculture**: hippies, Woodstock (1969), rock music, drug use, free love, anti-authority ethos.", zh: "**反主流文化**:嬉皮士、伍德斯托克(1969)、摇滚、毒品使用、自由性爱、反权威精神。" },
+      { en: "**Environmental movement**: Rachel Carson's *Silent Spring* (1962); Earth Day (1970); EPA (1970); Clean Air & Water Acts.", zh: "**环保运动**:卡森《寂静的春天》(1962);地球日(1970);EPA(1970);《清洁空气与水法》。" },
+    ] },
+  ],
+  "period-8/topic-8": [
+    { kind: "heading", text: { en: "The troubled 1970s", zh: "动荡的 1970 年代" } },
+    { kind: "list", items: [
+      { en: "**Watergate (1972–74)**: Nixon's campaign burglarized DNC HQ; cover-up unraveled; tapes revealed obstruction; Nixon resigned August 1974 — first president to do so.", zh: "**水门事件(1972–74)**:尼克松竞选团队潜入民主党全国总部;掩盖行动曝光;录音带揭示妨碍司法;尼克松于 1974 年 8 月辞职——史上首位辞职总统。" },
+      { en: "**Stagflation**: high inflation + high unemployment. Keynesian tools failed.", zh: "**滞胀**:高通胀与高失业并存。凯恩斯主义手段失效。" },
+      { en: "**OPEC Oil Embargo (1973)**: gas lines, prices quadrupled; U.S. vulnerability exposed.", zh: "**OPEC 石油禁运(1973)**:排队加油、油价翻两番;暴露美国脆弱性。" },
+      { en: "**Iran Hostage Crisis (1979–81)**: 52 Americans held 444 days; Carter's failed rescue; released on Reagan's inauguration day.", zh: "**伊朗人质危机(1979–81)**:52 名美国人被扣 444 天;卡特解救失败;里根就职当日释放。" },
+      { en: "**End of Bretton Woods**: Nixon took dollar off gold in 1971.", zh: "**布雷顿森林体系终结**:尼克松于 1971 年使美元脱离金本位。" },
+      { en: "**Rise of the New Right**: evangelical Christians mobilized (Moral Majority, 1979); Proposition 13 (1978) sparked tax revolt.", zh: "**新右翼崛起**:福音派基督徒动员起来(道德多数派,1979);第 13 号提案(1978)引发减税风潮。" },
+    ] },
+  ],
+
+  // ===== PERIOD 9: 1980–Present =====
+  "period-9/topic-1": [
+    { kind: "heading", text: { en: "The Reagan Revolution", zh: "里根革命" } },
+    { kind: "paragraph", text: {
+      en: "**Ronald Reagan** won in 1980 on: **\"Government is the problem.\"** His program:",
+      zh: "**里根**于 1980 年以“**政府就是问题**”口号胜选。其施政纲领:" } },
+    { kind: "list", items: [
+      { en: "**Supply-side / \"Reaganomics\"**: major tax cuts (top rate 70% → 28% by 1986); deficits exploded nonetheless.", zh: "**供给学派/“里根经济学”**:大规模减税(最高税率从 70% 降至 1986 年 28%);赤字仍急剧攀升。" },
+      { en: "**Deregulation**: airlines, banking (later linked to S&L crisis).", zh: "**放松管制**:航空、银行(后与储贷危机相关)。" },
+      { en: "**Anti-union**: fired 11,000 air traffic controllers (PATCO, 1981).", zh: "**反工会**:解雇 1.1 万名空中交通管制员(PATCO,1981)。" },
+      { en: "**Massive military buildup**: Strategic Defense Initiative (\"Star Wars\").", zh: "**大规模扩军**:战略防御计划(“星球大战”)。" },
+      { en: "**New Right coalition**: evangelicals, neoconservatives, business, Sun Belt — reshaped the GOP.", zh: "**新右翼联盟**:福音派、新保守派、商界、阳光带——重塑共和党。" },
+      { en: "**Iran-Contra scandal (1986–87)**: administration secretly sold arms to Iran, funneled funds to Nicaraguan Contras — scandal dented Reagan but didn't unseat him.", zh: "**伊朗门事件(1986–87)**:政府秘密向伊朗售武,将资金转给尼加拉瓜反政府军——丑闻损伤里根但未使其下台。" },
+    ] },
+  ],
+  "period-9/topic-2": [
+    { kind: "heading", text: { en: "The Cold War ends", zh: "冷战终结" } },
+    { kind: "paragraph", text: {
+      en: "Soviet leader **Mikhail Gorbachev** (1985) launched **glasnost** (openness) and **perestroika** (restructuring). Reagan and Gorbachev signed the **INF Treaty (1987)** eliminating intermediate-range nuclear missiles. At Brandenburg Gate (1987) Reagan said, \"**Mr. Gorbachev, tear down this wall.**\"",
+      zh: "苏联领导人**戈尔巴乔夫**(1985)推行**开放性(glasnost)**与**改革(perestroika)**。里根与戈尔巴乔夫签署**《中导条约》(1987)**,销毁中程核导弹。在勃兰登堡门(1987),里根喊出:“**戈尔巴乔夫先生,拆掉这堵墙。**”" } },
+    { kind: "list", items: [
+      { en: "**1989**: Eastern European revolutions; **Berlin Wall falls** (November 9).", zh: "**1989**:东欧剧变;**柏林墙倒塌**(11 月 9 日)。" },
+      { en: "**1991**: Soviet Union dissolved into 15 nations.", zh: "**1991**:苏联解体为 15 国。" },
+      { en: "**Persian Gulf War (1991)**: Bush Sr. led 35-nation coalition to expel Iraq from Kuwait; decisive victory.", zh: "**海湾战争(1991)**:老布什率 35 国联军将伊拉克逐出科威特;一边倒的胜利。" },
+      { en: "U.S. emerged as **sole superpower** — a \"**unipolar moment**.\"", zh: "美国成为**唯一超级大国**——“**单极时刻**”。" },
+    ] },
+  ],
+  "period-9/topic-3": [
+    { kind: "heading", text: { en: "Globalization and the new economy", zh: "全球化与新经济" } },
+    { kind: "paragraph", text: {
+      en: "The 1990s brought an **information-technology boom**: personal computers, internet, World Wide Web, email. **Bill Clinton's** presidency (1993–2001) oversaw balanced budgets (briefly) and the **dot-com bubble** (burst 2000). **NAFTA (1994)** and the **WTO (1995)** accelerated global trade.",
+      zh: "1990 年代迎来**信息技术繁荣**:个人电脑、互联网、万维网、电子邮件。**克林顿**总统任期(1993–2001)见证(短暂的)预算平衡与**互联网泡沫**(2000 年破裂)。**北美自由贸易协定(1994)**与**世贸组织(1995)**加速全球贸易。" } },
+    { kind: "list", items: [
+      { en: "**Deindustrialization**: manufacturing jobs moved to Mexico, China; Rust Belt decline.", zh: "**去工业化**:制造业工作岗位外流墨西哥、中国;铁锈地带衰落。" },
+      { en: "**Rising inequality**: top 1% share of wealth doubled 1980–2020.", zh: "**不平等加剧**:最富 1% 的财富份额在 1980–2020 年翻倍。" },
+      { en: "**Welfare Reform (1996)**: Clinton signed; time limits and work requirements.", zh: "**1996 年福利改革**:克林顿签署;设时间上限与就业要求。" },
+      { en: "**Clinton impeached (1998)** over Lewinsky affair; Senate acquitted.", zh: "**克林顿 1998 年遭弹劾**(莱温斯基事件);参议院宣告无罪。" },
+    ] },
+  ],
+  "period-9/topic-4": [
+    { kind: "heading", text: { en: "A changing population", zh: "人口变迁" } },
+    { kind: "paragraph", text: {
+      en: "After the 1965 Immigration Act, immigration shifted dramatically: **Latin America and Asia** replaced Europe as primary sources. By 2020 the U.S. was **40% non-white** (vs. 11% in 1950). The Sun Belt (South, Southwest) gained population and political power at the Rust Belt's expense.",
+      zh: "1965 年《移民法》后,移民来源剧变:**拉美与亚洲**取代欧洲成为主要来源。到 2020 年,美国**非白人占 40%**(1950 年仅 11%)。阳光带(南部、西南)以铁锈地带为代价获得人口与政治权力。" } },
+    { kind: "list", items: [
+      { en: "**Immigration debates**: undocumented migration (est. 11 million by 2020); Reagan's 1986 amnesty; 2006–today: polarized debates, border wall proposals, DACA (2012).", zh: "**移民争论**:无证移民(2020 年估约 1100 万);里根 1986 年大赦;2006 年至今:两极化辩论、边境墙提议、DACA(2012)。" },
+      { en: "**Aging population**: Social Security and Medicare costs rising; political pressure mounting.", zh: "**人口老龄化**:社会保障与医疗保险开支上升;政治压力加大。" },
+      { en: "**Marriage & family change**: same-sex marriage legalized nationwide in *Obergefell v. Hodges* (2015).", zh: "**婚姻与家庭变化**:同性婚姻经 *奥贝格费尔诉霍奇斯案*(2015)全国合法化。" },
+    ] },
+  ],
+  "period-9/topic-5": [
+    { kind: "heading", text: { en: "21st-century challenges", zh: "21 世纪的挑战" } },
+    { kind: "list", items: [
+      { en: "**9/11 (2001)**: al-Qaeda attacks killed ~3,000. Bush declared the **War on Terror**. **Patriot Act (2001)** expanded surveillance; **Department of Homeland Security** created.", zh: "**9/11(2001)**:基地组织袭击致约 3000 人亡。布什宣告**反恐战争**。**《爱国者法》(2001)**扩大监控;**国土安全部**成立。" },
+      { en: "**Afghanistan War (2001–21)**: toppled Taliban, but 20-year counter-insurgency ended with Taliban's return.", zh: "**阿富汗战争(2001–21)**:推翻塔利班,但 20 年反叛乱战争终以塔利班重返告终。" },
+      { en: "**Iraq War (2003)**: launched on false WMD claims; Saddam toppled; long insurgency; ISIS rose in its aftermath.", zh: "**伊拉克战争(2003)**:以虚假的大规模杀伤性武器为由开战;萨达姆倒台;漫长叛乱;伊斯兰国在其后兴起。" },
+      { en: "**2008 Financial Crisis**: housing bubble burst, Lehman collapsed, TARP bailout, deep recession. **Occupy Wall Street (2011)** and **Tea Party (2009)** were twin populist responses.", zh: "**2008 金融危机**:房地产泡沫破裂、雷曼倒闭、TARP 救助、深度衰退。**占领华尔街(2011)**与**茶党(2009)**为对立的民粹回应。" },
+      { en: "**Obama (2009–17)**: first Black president; **ACA (2010)** expanded health insurance; drone warfare, Iran Deal, Paris Agreement.", zh: "**奥巴马(2009–17)**:首位黑人总统;**《平价医疗法案》(2010)**扩展医保;无人机战争、伊朗协议、《巴黎协定》。" },
+      { en: "**Trump era (2017–21)**: Republican populist; trade war with China; first impeachment; COVID-19 pandemic; January 6, 2021 Capitol attack.", zh: "**特朗普时代(2017–21)**:共和党民粹;与中国贸易战;首次弹劾;新冠疫情;2021 年 1 月 6 日国会山事件。" },
+      { en: "**Climate change**: growing scientific consensus and political polarization; extreme weather intensifying.", zh: "**气候变化**:科学共识与政治极化并存;极端天气加剧。" },
+      { en: "**Polarization**: partisan sorting, social media, distrust in institutions define modern politics.", zh: "**极化**:党派分化、社交媒体、对机构的不信任定义现代政治。" },
+    ] },
+    { kind: "callout", label: { en: "Historians' view", zh: "史家视角" }, text: {
+      en: "Period 9 is \"recent history\" and still contested. Be cautious about strong judgments — historians usually need a generation's distance to weigh what mattered most.",
+      zh: "第九时期属“当代史”,仍有争议。下强判断需谨慎——史家通常需要一代人的距离来权衡何者最为重要。" } },
+  ],
 };
 
 export const topicQuestionsUSH: Record<string, Question[]> = {};
