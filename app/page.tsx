@@ -1,57 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Atom, BookOpen, CheckCircle2, Feather, Flame, FlaskConical, Landmark, LineChart, Leaf, Sigma, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, Flame, LineChart, Zap } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
 import { subjects, type Subject } from "@/lib/content";
-
-const subjectStyles: Record<
-  string,
-  { icon: React.ReactNode; gradient: string; ring: string; iconBg: string }
-> = {
-  "ap-micro": {
-    icon: <TrendingUp size={22} />,
-    gradient: "from-blue-500 via-indigo-500 to-violet-500",
-    ring: "ring-blue-200",
-    iconBg: "bg-white/20",
-  },
-  "ap-bio": {
-    icon: <Leaf size={22} />,
-    gradient: "from-emerald-500 via-green-500 to-teal-500",
-    ring: "ring-emerald-200",
-    iconBg: "bg-white/20",
-  },
-  "ap-physics-1": {
-    icon: <Atom size={22} />,
-    gradient: "from-amber-500 via-orange-500 to-rose-500",
-    ring: "ring-amber-200",
-    iconBg: "bg-white/20",
-  },
-  "ap-chem": {
-    icon: <FlaskConical size={22} />,
-    gradient: "from-fuchsia-500 via-purple-500 to-pink-500",
-    ring: "ring-fuchsia-200",
-    iconBg: "bg-white/20",
-  },
-  "ap-calculus-bc": {
-    icon: <Sigma size={22} />,
-    gradient: "from-sky-500 via-cyan-500 to-teal-500",
-    ring: "ring-sky-200",
-    iconBg: "bg-white/20",
-  },
-  "ap-eng-lang": {
-    icon: <Feather size={22} />,
-    gradient: "from-stone-600 via-zinc-700 to-slate-800",
-    ring: "ring-stone-200",
-    iconBg: "bg-white/20",
-  },
-  "apush": {
-    icon: <Landmark size={22} />,
-    gradient: "from-red-600 via-rose-700 to-amber-800",
-    ring: "ring-red-200",
-    iconBg: "bg-white/20",
-  },
-};
+import { getSubjectStyle } from "@/lib/subject-styles";
 
 export default function Landing() {
   const t = useT();
@@ -119,21 +72,16 @@ export default function Landing() {
 
 function SubjectButton({ subject }: { subject: Subject }) {
   const t = useT();
-  const style = subjectStyles[subject.slug] ?? {
-    icon: <BookOpen size={22} />,
-    gradient: "from-slate-600 via-slate-700 to-slate-800",
-    ring: "ring-slate-200",
-    iconBg: "bg-white/20",
-  };
+  const { Icon, gradient, ring, iconBg } = getSubjectStyle(subject.slug);
   return (
     <Link
       href={`/subjects/${subject.slug}`}
-      className={`group relative block overflow-hidden rounded-2xl bg-gradient-to-br ${style.gradient} p-6 text-white shadow-sm ring-1 ${style.ring} transition hover:-translate-y-0.5 hover:shadow-lg`}
+      className={`group relative block overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} p-6 text-white shadow-sm ring-1 ${ring} transition hover:-translate-y-0.5 hover:shadow-lg`}
     >
       <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 blur-2xl transition group-hover:bg-white/20" />
       <div className="relative flex items-start gap-4">
-        <div className={`flex h-11 w-11 flex-none items-center justify-center rounded-xl ${style.iconBg} backdrop-blur-sm`}>
-          {style.icon}
+        <div className={`flex h-11 w-11 flex-none items-center justify-center rounded-xl ${iconBg} backdrop-blur-sm`}>
+          <Icon size={22} />
         </div>
         <div className="flex-1">
           <h3 className="text-lg font-semibold leading-tight">{t(subject.title)}</h3>
