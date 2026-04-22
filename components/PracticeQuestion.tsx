@@ -26,6 +26,25 @@ export function PracticeQuestion({
           <NoteBlockRenderer block={question.figure} />
         </div>
       )}
+      {question.difficulty && (
+        <div className="mb-2">
+          <span
+            className={
+              question.difficulty === "easy"
+                ? "inline-block rounded-full border border-green-200 bg-green-50 px-2.5 py-0.5 text-xs font-semibold text-green-700"
+                : question.difficulty === "medium"
+                  ? "inline-block rounded-full border border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700"
+                  : "inline-block rounded-full border border-rose-200 bg-rose-50 px-2.5 py-0.5 text-xs font-semibold text-rose-700"
+            }
+          >
+            {question.difficulty === "easy"
+              ? t({ en: "Easy", zh: "简单" })
+              : question.difficulty === "medium"
+                ? t({ en: "Medium", zh: "中等" })
+                : t({ en: "Hard", zh: "困难" })}
+          </span>
+        </div>
+      )}
       <h2 className="text-xl font-semibold text-slate-900">
         <Highlighted text={t(question.prompt)} />
       </h2>
