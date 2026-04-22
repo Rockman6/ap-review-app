@@ -22694,6 +22694,3630 @@ export const practiceSets: PracticeSet[] = [
       // MARATHON_QUESTIONS_HERE
     ],
   },
+  {
+    slug: "ap-physics-1-marathon-1",
+    category: { en: "Marathon", zh: "马拉松" },
+    title: { en: "AP Physics 1 — Marathon 1", zh: "AP 物理 1 — 马拉松 1" },
+    subject: { en: "AP Physics 1", zh: "AP 物理 1" },
+    subjectSlug: "ap-physics-1",
+    description: {
+      en: "200 questions. All 8 units mixed. Kinematics to fluids. Survive the distance.",
+      zh: "200 题。8 个单元混合。从运动学到流体力学。挺住到底。",
+    },
+    questions: [
+      // ==================== UNIT 1 — Kinematics (24 Qs) ====================
+      {
+        id: "mp-phys1-mar1-q001",
+        concept: { en: "Scalars vs Vectors", zh: "标量与矢量" },
+        prompt: { en: "Which of the following is a **vector** quantity?", zh: "下列哪个量是**矢量**?" },
+        choices: [
+          { id: "a", text: { en: "Distance", zh: "路程" } },
+          { id: "b", text: { en: "Speed", zh: "速率" } },
+          { id: "c", text: { en: "Displacement", zh: "位移" } },
+          { id: "d", text: { en: "Time", zh: "时间" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Vectors have both magnitude **and direction**. Displacement (change in position, with direction) is a vector; distance, speed, and time are scalars. Velocity and acceleration are also vectors.",
+          zh: "矢量既有**大小**也有**方向**。位移(带方向的位置变化)是矢量;路程、速率、时间都是标量。速度和加速度也是矢量。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q002",
+        concept: { en: "Distance vs Displacement", zh: "路程与位移" },
+        prompt: {
+          en: "A runner jogs 300 m east, then 400 m west. What is his total distance traveled and displacement?",
+          zh: "一位跑步者先向东跑 300 m,再向西跑 400 m。他的总路程与位移分别是多少?",
+        },
+        choices: [
+          { id: "a", text: { en: "Distance 100 m, displacement 100 m east", zh: "路程 100 m;位移 100 m 向东" } },
+          { id: "b", text: { en: "Distance 700 m, displacement 100 m west", zh: "路程 700 m;位移 100 m 向西" } },
+          { id: "c", text: { en: "Distance 700 m, displacement 700 m west", zh: "路程 700 m;位移 700 m 向西" } },
+          { id: "d", text: { en: "Distance 100 m, displacement 700 m west", zh: "路程 100 m;位移 700 m 向西" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Distance sums path lengths: 300 + 400 = 700 m. Displacement is start-to-finish vector: 300 E + 400 W = **100 m west**.",
+          zh: "路程为路径长度之和:300 + 400 = 700 m。位移为从起点到终点的矢量:300 m 东 + 400 m 西 = **100 m 向西**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q003",
+        concept: { en: "Average Velocity", zh: "平均速度" },
+        prompt: {
+          en: "An object goes from x = +4 m to x = −8 m in 3.0 s. What is its average velocity?",
+          zh: "物体在 3.0 s 内从 x = +4 m 移动到 x = −8 m。平均速度为?",
+        },
+        choices: [
+          { id: "a", text: { en: "+4.0 m/s", zh: "+4.0 m/s" } },
+          { id: "b", text: { en: "−4.0 m/s", zh: "−4.0 m/s" } },
+          { id: "c", text: { en: "+12 m/s", zh: "+12 m/s" } },
+          { id: "d", text: { en: "−12 m/s", zh: "−12 m/s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "v_avg = Δx / Δt = (−8 − 4) / 3.0 = **−4.0 m/s**. Average velocity uses displacement, not distance, and carries a sign.",
+          zh: "v_avg = Δx / Δt = (−8 − 4) / 3.0 = **−4.0 m/s**。平均速度用位移而非路程,且带有符号。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q004",
+        concept: { en: "Instantaneous vs Average Velocity", zh: "瞬时速度与平均速度" },
+        prompt: {
+          en: "Which statement about instantaneous velocity is correct?",
+          zh: "关于**瞬时速度**,下列哪项正确?",
+        },
+        choices: [
+          { id: "a", text: { en: "It equals the slope of the secant line on an x-t graph", zh: "它等于 x-t 图上割线的斜率" } },
+          { id: "b", text: { en: "It equals the slope of the tangent line on an x-t graph", zh: "它等于 x-t 图上切线的斜率" } },
+          { id: "c", text: { en: "It is always equal to the average velocity", zh: "它始终等于平均速度" } },
+          { id: "d", text: { en: "It is the total distance divided by time", zh: "它是总路程除以时间" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Instantaneous velocity = dx/dt = **tangent line slope** at a specific time. The secant line slope gives average velocity over an interval.",
+          zh: "瞬时速度 = dx/dt = 某时刻的**切线斜率**。割线斜率给出一段时间内的平均速度。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q005",
+        concept: { en: "Sign Convention (v and a)", zh: "v 与 a 的符号约定" },
+        prompt: {
+          en: "A car moves in the +x direction and has acceleration in the −x direction. The car is:",
+          zh: "一辆车沿 +x 方向运动,加速度沿 −x 方向。此时车在:",
+        },
+        choices: [
+          { id: "a", text: { en: "Speeding up", zh: "加速" } },
+          { id: "b", text: { en: "Slowing down", zh: "减速" } },
+          { id: "c", text: { en: "Moving at constant velocity", zh: "匀速运动" } },
+          { id: "d", text: { en: "Stopped", zh: "静止" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "When **v and a have opposite signs**, the object is **slowing down**. Same signs → speeding up. The sign of a alone doesn't determine it.",
+          zh: "当 **v 与 a 符号相反**时,物体**减速**;符号相同则加速。仅看 a 的符号不能判断。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q006",
+        concept: { en: "Position-Time Graph Slope", zh: "位置—时间图斜率" },
+        prompt: {
+          en: "On a position–time graph, an object's motion shows a straight line with positive slope. This means:",
+          zh: "在位置—时间图上,物体运动的图像是一条斜率为正的直线,这说明:",
+        },
+        choices: [
+          { id: "a", text: { en: "The object has constant positive velocity", zh: "物体以恒定正速度运动" } },
+          { id: "b", text: { en: "The object is accelerating in the + direction", zh: "物体沿 + 方向加速" } },
+          { id: "c", text: { en: "The object is at rest", zh: "物体静止" } },
+          { id: "d", text: { en: "The object has variable velocity", zh: "物体速度变化" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "x-t slope = velocity. **Straight line** → constant slope → **constant velocity**. Positive slope → velocity in + direction. Acceleration would curve the line.",
+          zh: "x-t 图的斜率 = 速度。**直线** → 恒定斜率 → **恒定速度**。正斜率即 + 方向速度。加速度会使曲线弯曲。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q007",
+        concept: { en: "Velocity-Time Graph Area", zh: "速度—时间图面积" },
+        prompt: {
+          en: "On a v-t graph, an object moves at +4 m/s for 3 s, then −2 m/s for 2 s. The object's **displacement** over the full 5 s is:",
+          zh: "在 v-t 图上,物体先以 +4 m/s 运动 3 s,再以 −2 m/s 运动 2 s。整个 5 s 的**位移**为?",
+        },
+        choices: [
+          { id: "a", text: { en: "+16 m", zh: "+16 m" } },
+          { id: "b", text: { en: "+12 m", zh: "+12 m" } },
+          { id: "c", text: { en: "+8 m", zh: "+8 m" } },
+          { id: "d", text: { en: "+10 m", zh: "+10 m" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Displacement = **signed area** under v-t. Area 1 = (+4)(3) = +12 m; Area 2 = (−2)(2) = −4 m. Total = **+8 m**. Absolute area (+16 m) would give total **distance**, not displacement.",
+          zh: "位移 = v-t 图下方**带符号**的面积。第一段 = (+4)(3) = +12 m;第二段 = (−2)(2) = −4 m。总位移 = **+8 m**。绝对面积 (+16 m) 给出**路程**而非位移。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q008",
+        concept: { en: "Velocity-Time Graph Slope", zh: "速度—时间图斜率" },
+        prompt: {
+          en: "On a v-t graph, a horizontal line above the time axis represents:",
+          zh: "在 v-t 图上,位于时间轴上方的水平直线表示:",
+        },
+        choices: [
+          { id: "a", text: { en: "Constant positive velocity, zero acceleration", zh: "恒定正速度,零加速度" } },
+          { id: "b", text: { en: "Constant positive acceleration", zh: "恒定正加速度" } },
+          { id: "c", text: { en: "Object is at rest", zh: "物体静止" } },
+          { id: "d", text: { en: "Object is speeding up", zh: "物体加速" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "v-t slope = acceleration. Horizontal line → zero slope → **zero acceleration**. Horizontal above axis → v > 0. So: **constant positive velocity**.",
+          zh: "v-t 图斜率 = 加速度。水平线 → 零斜率 → **加速度为零**。在轴上方水平 → v > 0。即**恒定正速度**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q009",
+        concept: { en: "Acceleration-Time Graph Area", zh: "加速度—时间图面积" },
+        prompt: {
+          en: "An object's a-t graph is constant at +3 m/s² for 4 s. If v₀ = +2 m/s, what is v at t = 4 s?",
+          zh: "某物体的 a-t 图在 4 s 内恒为 +3 m/s²。若初速度 v₀ = +2 m/s,t = 4 s 时 v 是?",
+        },
+        choices: [
+          { id: "a", text: { en: "+3 m/s", zh: "+3 m/s" } },
+          { id: "b", text: { en: "+12 m/s", zh: "+12 m/s" } },
+          { id: "c", text: { en: "+14 m/s", zh: "+14 m/s" } },
+          { id: "d", text: { en: "+24 m/s", zh: "+24 m/s" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Δv = area under a-t = (3)(4) = 12 m/s. v_f = v₀ + Δv = 2 + 12 = **+14 m/s**. Equivalent to v = v₀ + at.",
+          zh: "Δv = a-t 图下方面积 = (3)(4) = 12 m/s。v_f = v₀ + Δv = 2 + 12 = **+14 m/s**。等价于 v = v₀ + at。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q010",
+        concept: { en: "Kinematic Equation: v from v₀, a, t", zh: "运动学方程:由 v₀、a、t 求 v" },
+        prompt: {
+          en: "A car starts at 10 m/s and accelerates at 2.0 m/s² for 5.0 s. Its final velocity is:",
+          zh: "一辆车从 10 m/s 出发,以 2.0 m/s² 加速 5.0 s。末速度为?",
+        },
+        choices: [
+          { id: "a", text: { en: "10 m/s", zh: "10 m/s" } },
+          { id: "b", text: { en: "15 m/s", zh: "15 m/s" } },
+          { id: "c", text: { en: "20 m/s", zh: "20 m/s" } },
+          { id: "d", text: { en: "25 m/s", zh: "25 m/s" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "v = v₀ + at = 10 + (2.0)(5.0) = **20 m/s**. Direct use of kinematic eq 1.",
+          zh: "v = v₀ + at = 10 + (2.0)(5.0) = **20 m/s**。直接套用运动学方程 1。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q011",
+        concept: { en: "Kinematic Equation: Δx from v₀, a, t", zh: "运动学方程:由 v₀、a、t 求 Δx" },
+        prompt: {
+          en: "A ball rolls from rest down a ramp with constant acceleration 4.0 m/s² for 3.0 s. Distance traveled:",
+          zh: "一只球从静止沿斜面以恒定加速度 4.0 m/s² 滑下 3.0 s。位移为?",
+        },
+        choices: [
+          { id: "a", text: { en: "6.0 m", zh: "6.0 m" } },
+          { id: "b", text: { en: "12 m", zh: "12 m" } },
+          { id: "c", text: { en: "18 m", zh: "18 m" } },
+          { id: "d", text: { en: "36 m", zh: "36 m" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Δx = v₀t + ½at² = 0 + ½(4.0)(3.0)² = ½(4.0)(9) = **18 m**.",
+          zh: "Δx = v₀t + ½at² = 0 + ½(4.0)(3.0)² = ½(4.0)(9) = **18 m**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q012",
+        concept: { en: "Kinematic Equation: v² from v₀, a, Δx", zh: "运动学方程:由 v₀、a、Δx 求 v²" },
+        prompt: {
+          en: "A car moving at 20 m/s decelerates at 4.0 m/s² until it stops. The stopping distance is:",
+          zh: "一辆车以 20 m/s 运动,以 4.0 m/s² 减速至停止。刹车距离为?",
+        },
+        choices: [
+          { id: "a", text: { en: "25 m", zh: "25 m" } },
+          { id: "b", text: { en: "40 m", zh: "40 m" } },
+          { id: "c", text: { en: "50 m", zh: "50 m" } },
+          { id: "d", text: { en: "100 m", zh: "100 m" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "v² = v₀² + 2aΔx: 0 = (20)² + 2(−4)Δx → Δx = 400/8 = **50 m**. No time given → use this equation.",
+          zh: "v² = v₀² + 2aΔx:0 = (20)² + 2(−4)Δx → Δx = 400/8 = **50 m**。题中无时间 → 选此方程。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q013",
+        concept: { en: "Free Fall: Drop Time", zh: "自由落体:下落时间" },
+        prompt: {
+          en: "A ball is dropped from rest from a 45 m cliff. Ignoring air resistance, time to reach ground? (g = 10 m/s²)",
+          zh: "一只球从 45 m 高的悬崖由静止释放。忽略空气阻力,落地时间为?(g = 10 m/s²)",
+        },
+        choices: [
+          { id: "a", text: { en: "2.0 s", zh: "2.0 s" } },
+          { id: "b", text: { en: "3.0 s", zh: "3.0 s" } },
+          { id: "c", text: { en: "4.5 s", zh: "4.5 s" } },
+          { id: "d", text: { en: "9.0 s", zh: "9.0 s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "With v₀ = 0: h = ½gt² → t = √(2h/g) = √(90/10) = **3.0 s**.",
+          zh: "v₀ = 0:h = ½gt² → t = √(2h/g) = √(90/10) = **3.0 s**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q014",
+        concept: { en: "Free Fall: Max Height", zh: "自由落体:最大高度" },
+        prompt: {
+          en: "A ball is thrown straight up at 30 m/s. Max height above launch? (g = 10 m/s², no air resistance)",
+          zh: "一只球以 30 m/s 竖直上抛。相对发射点的最大高度?(g = 10 m/s²,忽略空气阻力)",
+        },
+        choices: [
+          { id: "a", text: { en: "15 m", zh: "15 m" } },
+          { id: "b", text: { en: "30 m", zh: "30 m" } },
+          { id: "c", text: { en: "45 m", zh: "45 m" } },
+          { id: "d", text: { en: "90 m", zh: "90 m" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "At peak v = 0. v² = v₀² + 2(−g)h → 0 = 900 − 20h → h = **45 m**.",
+          zh: "最高点 v = 0。v² = v₀² + 2(−g)h → 0 = 900 − 20h → h = **45 m**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q015",
+        concept: { en: "Free Fall Symmetry", zh: "自由落体对称性" },
+        prompt: {
+          en: "A ball thrown straight up takes 2 s to reach max height. Total time of flight to return to launch height?",
+          zh: "竖直上抛的球 2 s 后到达最高点。回到发射高度的总时间为?",
+        },
+        choices: [
+          { id: "a", text: { en: "2 s", zh: "2 s" } },
+          { id: "b", text: { en: "4 s", zh: "4 s" } },
+          { id: "c", text: { en: "3 s", zh: "3 s" } },
+          { id: "d", text: { en: "Depends on g", zh: "取决于 g" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Symmetry: time up = time down. Total flight = 2 × t_up = **4 s**.",
+          zh: "对称性:上升时间 = 下落时间。总飞行时间 = 2 × t_上 = **4 s**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q016",
+        concept: { en: "Peak of Thrown Object", zh: "上抛物体最高点" },
+        prompt: {
+          en: "At the highest point of a ball thrown straight up (air resistance ignored), which is true?",
+          zh: "(忽略空气阻力)竖直上抛球的最高点处,下列哪项正确?",
+        },
+        choices: [
+          { id: "a", text: { en: "v = 0, a = 0", zh: "v = 0,a = 0" } },
+          { id: "b", text: { en: "v = 0, a = +g upward", zh: "v = 0,a = +g 向上" } },
+          { id: "c", text: { en: "v = 0, a = g downward", zh: "v = 0,a = g 向下" } },
+          { id: "d", text: { en: "v = g, a = 0", zh: "v = g,a = 0" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "At peak, v = 0 **momentarily**, but gravity never switches off → **a = g downward**. Classic trap.",
+          zh: "最高点处 v 瞬时 = 0,但重力始终存在 → **a = g 向下**。经典陷阱。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q017",
+        concept: { en: "Horizontal Launch", zh: "水平抛体" },
+        prompt: {
+          en: "A ball rolls off a 5.0 m high table at 3.0 m/s horizontally. How far from the table's base does it land? (g = 10 m/s²)",
+          zh: "一只球以水平 3.0 m/s 从 5.0 m 高的桌边滚出。落地时距桌边多远?(g = 10 m/s²)",
+        },
+        choices: [
+          { id: "a", text: { en: "1.5 m", zh: "1.5 m" } },
+          { id: "b", text: { en: "3.0 m", zh: "3.0 m" } },
+          { id: "c", text: { en: "6.0 m", zh: "6.0 m" } },
+          { id: "d", text: { en: "15 m", zh: "15 m" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Fall time: t = √(2h/g) = √(1.0) = 1.0 s. Range = vₓ·t = (3.0)(1.0) = **3.0 m**.",
+          zh: "下落时间:t = √(2h/g) = √(1.0) = 1.0 s。射程 = vₓ·t = (3.0)(1.0) = **3.0 m**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q018",
+        concept: { en: "Angled Projectile: Time of Flight", zh: "斜抛:飞行时间" },
+        prompt: {
+          en: "A projectile is launched at 20 m/s at 30° above horizontal over flat ground. Time in the air? (g = 10 m/s²)",
+          zh: "一抛体以 20 m/s、与水平成 30° 发射,平地。在空中时间?(g = 10 m/s²)",
+        },
+        choices: [
+          { id: "a", text: { en: "1.0 s", zh: "1.0 s" } },
+          { id: "b", text: { en: "2.0 s", zh: "2.0 s" } },
+          { id: "c", text: { en: "3.5 s", zh: "3.5 s" } },
+          { id: "d", text: { en: "4.0 s", zh: "4.0 s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "v₀ᵧ = 20·sin 30° = 10 m/s. Flight time = 2v₀ᵧ / g = 20/10 = **2.0 s**.",
+          zh: "v₀ᵧ = 20·sin 30° = 10 m/s。飞行时间 = 2v₀ᵧ / g = 20/10 = **2.0 s**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q019",
+        concept: { en: "Angled Projectile: Range", zh: "斜抛:射程" },
+        prompt: {
+          en: "Same projectile (20 m/s at 30°). What is the horizontal range on flat ground? (g = 10 m/s²)",
+          zh: "同上抛体(20 m/s,30°)。平地水平射程为?(g = 10 m/s²)",
+        },
+        choices: [
+          { id: "a", text: { en: "10 m", zh: "10 m" } },
+          { id: "b", text: { en: "20 m", zh: "20 m" } },
+          { id: "c", text: { en: "35 m", zh: "35 m" } },
+          { id: "d", text: { en: "40 m", zh: "40 m" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "v₀ₓ = 20·cos 30° ≈ 17.3 m/s. Range = v₀ₓ·t = 17.3 · 2.0 ≈ **34.6 m ≈ 35 m**. Or: R = v₀² sin(2θ)/g = 400·sin 60°/10 ≈ 34.6 m.",
+          zh: "v₀ₓ = 20·cos 30° ≈ 17.3 m/s。射程 = v₀ₓ·t = 17.3 · 2.0 ≈ **34.6 m ≈ 35 m**。或:R = v₀² sin(2θ)/g = 400·sin 60°/10 ≈ 34.6 m。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q020",
+        concept: { en: "Velocity at Projectile Peak", zh: "抛体顶点的速度" },
+        prompt: {
+          en: "At the peak of an angled projectile's trajectory, its velocity is:",
+          zh: "斜抛抛体轨迹最高点处,其速度为:",
+        },
+        choices: [
+          { id: "a", text: { en: "Zero", zh: "零" } },
+          { id: "b", text: { en: "Equal to the launch velocity", zh: "等于发射速度" } },
+          { id: "c", text: { en: "Horizontal, equal to v₀ₓ", zh: "水平方向,等于 v₀ₓ" } },
+          { id: "d", text: { en: "Vertical, equal to v₀ᵧ", zh: "竖直方向,等于 v₀ᵧ" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "At peak, vᵧ = 0 momentarily. But vₓ never changes (no horizontal force). Velocity = **vₓ only, purely horizontal**.",
+          zh: "最高点处 vᵧ 瞬时 = 0,但 vₓ 始终不变(无水平力)。速度 = **仅有 vₓ,纯水平**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q021",
+        concept: { en: "Independence of x and y", zh: "x 与 y 的独立性" },
+        prompt: {
+          en: "Ball A is dropped from 10 m. Ball B is fired horizontally from 10 m at the same instant. Ignoring air, which lands first?",
+          zh: "A 球从 10 m 静止释放。同一时刻,B 球从 10 m 以水平方向抛出。忽略空气,哪个先落地?",
+        },
+        choices: [
+          { id: "a", text: { en: "Ball A", zh: "A 球" } },
+          { id: "b", text: { en: "Ball B", zh: "B 球" } },
+          { id: "c", text: { en: "They tie", zh: "同时落地" } },
+          { id: "d", text: { en: "Depends on B's speed", zh: "取决于 B 的速率" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Vertical motion is **independent** of horizontal motion. Both start with v_y = 0 and fall 10 m under g → **same landing time**. Ball B lands farther along x.",
+          zh: "竖直运动与水平运动**独立**。两球初始 v_y = 0,皆在 g 下下落 10 m → **同时落地**。B 球只是落得水平更远。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q022",
+        concept: { en: "Relative Velocity", zh: "相对速度" },
+        prompt: {
+          en: "Train A moves east at 20 m/s. Train B moves east at 30 m/s (same track). The velocity of B relative to A is:",
+          zh: "A 车以 20 m/s 向东行驶。B 车在同一轨道上以 30 m/s 向东行驶。B 相对 A 的速度是?",
+        },
+        choices: [
+          { id: "a", text: { en: "+10 m/s east", zh: "+10 m/s 向东" } },
+          { id: "b", text: { en: "+50 m/s east", zh: "+50 m/s 向东" } },
+          { id: "c", text: { en: "−10 m/s east", zh: "−10 m/s 向东" } },
+          { id: "d", text: { en: "Zero", zh: "零" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "v_BA = v_B − v_A = 30 − 20 = **+10 m/s east**. B pulls ahead of A at 10 m/s.",
+          zh: "v_BA = v_B − v_A = 30 − 20 = **+10 m/s 向东**。B 相对 A 每秒超出 10 m。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q023",
+        concept: { en: "Acceleration from v-t Graph", zh: "由 v-t 图求加速度" },
+        prompt: {
+          en: "A v-t graph rises linearly from 0 to 12 m/s over 3.0 s. The acceleration during this interval is:",
+          zh: "v-t 图在 3.0 s 内由 0 线性增加到 12 m/s。此段的加速度为?",
+        },
+        choices: [
+          { id: "a", text: { en: "4.0 m/s²", zh: "4.0 m/s²" } },
+          { id: "b", text: { en: "12 m/s²", zh: "12 m/s²" } },
+          { id: "c", text: { en: "36 m/s²", zh: "36 m/s²" } },
+          { id: "d", text: { en: "0.25 m/s²", zh: "0.25 m/s²" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "a = slope of v-t = Δv/Δt = 12/3.0 = **4.0 m/s²**.",
+          zh: "a = v-t 图斜率 = Δv/Δt = 12/3.0 = **4.0 m/s²**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q024",
+        concept: { en: "Vertical Throw with Cliff", zh: "悬崖上的上抛" },
+        prompt: {
+          en: "A rock is thrown straight up at 15 m/s from the top of a 30 m cliff. Speed when it hits the ground? (g = 10 m/s², no air)",
+          zh: "在 30 m 高悬崖顶部以 15 m/s 竖直上抛一块石头。落地时速率?(g = 10 m/s²,忽略空气)",
+        },
+        choices: [
+          { id: "a", text: { en: "15 m/s", zh: "15 m/s" } },
+          { id: "b", text: { en: "25 m/s", zh: "25 m/s" } },
+          { id: "c", text: { en: "27 m/s", zh: "27 m/s" } },
+          { id: "d", text: { en: "45 m/s", zh: "45 m/s" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Use v² = v₀² + 2a·Δy with Δy = −30 m (ground below launch), a = −g: v² = 225 + 2(10)(30) = 225 + 600 = 825 → v = √825 ≈ **27 m/s** (taking magnitude).",
+          zh: "用 v² = v₀² + 2a·Δy,Δy = −30 m(地面在发射点下方),a = −g:v² = 225 + 2(10)(30) = 225 + 600 = 825 → v = √825 ≈ **27 m/s**(取大小)。",
+        },
+      },
+
+      // ==================== UNIT 2 — Force & Translational Dynamics (32 Qs) ====================
+      {
+        id: "mp-phys1-mar1-q025",
+        concept: { en: "Newton's First Law (Inertia)", zh: "牛顿第一定律(惯性)" },
+        prompt: {
+          en: "A hockey puck slides across frictionless ice at constant velocity. What is the net force on it?",
+          zh: "一只冰球在无摩擦冰面上匀速滑行。它受到的合力为?",
+        },
+        choices: [
+          { id: "a", text: { en: "Equal to the puck's weight", zh: "等于冰球的重力" } },
+          { id: "b", text: { en: "In the direction of motion", zh: "沿运动方向" } },
+          { id: "c", text: { en: "Zero", zh: "零" } },
+          { id: "d", text: { en: "Increases with speed", zh: "随速度增大" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Constant velocity ⇒ a = 0 ⇒ **ΣF = 0**. No force needed to *maintain* motion — Newton's 1st law.",
+          zh: "匀速 ⇒ a = 0 ⇒ **ΣF = 0**。**维持**运动不需要力——牛顿第一定律。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q026",
+        concept: { en: "Newton's Second Law", zh: "牛顿第二定律" },
+        prompt: {
+          en: "A 4.0 kg object experiences a net force of 12 N. What is its acceleration?",
+          zh: "4.0 kg 物体受到合力 12 N。加速度为?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.33 m/s²", zh: "0.33 m/s²" } },
+          { id: "b", text: { en: "3.0 m/s²", zh: "3.0 m/s²" } },
+          { id: "c", text: { en: "8.0 m/s²", zh: "8.0 m/s²" } },
+          { id: "d", text: { en: "48 m/s²", zh: "48 m/s²" } },
+        ],
+        answerId: "b",
+        explanation: { en: "a = F/m = 12/4 = **3.0 m/s²**.", zh: "a = F/m = 12/4 = **3.0 m/s²**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q027",
+        concept: { en: "Net Force in 1D", zh: "一维合力" },
+        prompt: {
+          en: "A 2.0 kg block on frictionless ice is pulled east with 10 N and pushed west with 4 N. Its acceleration is:",
+          zh: "一块 2.0 kg 物块在无摩擦冰面上,向东拉 10 N,向西推 4 N。加速度为?",
+        },
+        choices: [
+          { id: "a", text: { en: "7 m/s² east", zh: "7 m/s² 向东" } },
+          { id: "b", text: { en: "3 m/s² east", zh: "3 m/s² 向东" } },
+          { id: "c", text: { en: "6 m/s² east", zh: "6 m/s² 向东" } },
+          { id: "d", text: { en: "14 m/s² east", zh: "14 m/s² 向东" } },
+        ],
+        answerId: "b",
+        explanation: { en: "Net F = 10 − 4 = 6 N east. a = 6/2 = **3 m/s² east**.", zh: "合力 = 10 − 4 = 6 N 向东。a = 6/2 = **3 m/s² 向东**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q028",
+        concept: { en: "Force at an Angle", zh: "有角度的力" },
+        prompt: {
+          en: "A 3.0 kg block on frictionless ground is pulled with 20 N at 60° above horizontal. Horizontal acceleration?",
+          zh: "一块 3.0 kg 物块在无摩擦地面上,被 20 N 的力以斜向上 60° 拉动。水平加速度为?",
+        },
+        choices: [
+          { id: "a", text: { en: "3.3 m/s²", zh: "3.3 m/s²" } },
+          { id: "b", text: { en: "5.8 m/s²", zh: "5.8 m/s²" } },
+          { id: "c", text: { en: "6.7 m/s²", zh: "6.7 m/s²" } },
+          { id: "d", text: { en: "10 m/s²", zh: "10 m/s²" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Horizontal component: F·cos 60° = 20·0.5 = 10 N. a = 10/3 ≈ **3.3 m/s²**.",
+          zh: "水平分量:F·cos 60° = 20·0.5 = 10 N。a = 10/3 ≈ **3.3 m/s²**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q029",
+        concept: { en: "Normal Force on Horizontal", zh: "水平面上的法向力" },
+        prompt: {
+          en: "A 5.0 kg book rests on a table. Normal force from table? (g = 10 m/s²)",
+          zh: "一本 5.0 kg 的书放在桌面上。桌面的法向力?(g = 10 m/s²)",
+        },
+        choices: [
+          { id: "a", text: { en: "5 N", zh: "5 N" } },
+          { id: "b", text: { en: "50 N", zh: "50 N" } },
+          { id: "c", text: { en: "25 N", zh: "25 N" } },
+          { id: "d", text: { en: "Zero", zh: "零" } },
+        ],
+        answerId: "b",
+        explanation: { en: "Vertical equilibrium: N = mg = 5·10 = **50 N**.", zh: "竖直平衡:N = mg = 5·10 = **50 N**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q030",
+        concept: { en: "Normal Force with Push", zh: "加下压时的法向力" },
+        prompt: {
+          en: "A 2.0 kg box is on a table. Someone presses down with 15 N from above. Normal force? (g = 10)",
+          zh: "一只 2.0 kg 盒子放在桌上,有人从上方下压 15 N。法向力?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "5 N", zh: "5 N" } },
+          { id: "b", text: { en: "20 N", zh: "20 N" } },
+          { id: "c", text: { en: "35 N", zh: "35 N" } },
+          { id: "d", text: { en: "15 N", zh: "15 N" } },
+        ],
+        answerId: "c",
+        explanation: { en: "N = mg + F_push = 20 + 15 = **35 N**. Not always equal to mg.", zh: "N = mg + F_push = 20 + 15 = **35 N**。并非总等于 mg。" },
+      },
+      {
+        id: "mp-phys1-mar1-q031",
+        concept: { en: "Normal Force on Incline", zh: "斜面法向力" },
+        prompt: {
+          en: "A 10 kg block rests on a 30° incline. The normal force is approximately: (g = 10)",
+          zh: "10 kg 物块静置于 30° 斜面上。法向力约为:(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "50 N", zh: "50 N" } },
+          { id: "b", text: { en: "87 N", zh: "87 N" } },
+          { id: "c", text: { en: "100 N", zh: "100 N" } },
+          { id: "d", text: { en: "115 N", zh: "115 N" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Perpendicular equilibrium: N = mg·cos θ = 100·cos 30° ≈ 100·0.866 ≈ **87 N**.",
+          zh: "垂直平衡:N = mg·cos θ = 100·cos 30° ≈ 100·0.866 ≈ **87 N**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q032",
+        concept: { en: "Incline: Acceleration Down (frictionless)", zh: "斜面加速度(无摩擦)" },
+        prompt: {
+          en: "A block slides down a 30° frictionless incline. Its acceleration is: (g = 10)",
+          zh: "一物块沿 30° 无摩擦斜面下滑。其加速度为:(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "2.5 m/s²", zh: "2.5 m/s²" } },
+          { id: "b", text: { en: "5.0 m/s²", zh: "5.0 m/s²" } },
+          { id: "c", text: { en: "8.7 m/s²", zh: "8.7 m/s²" } },
+          { id: "d", text: { en: "10 m/s²", zh: "10 m/s²" } },
+        ],
+        answerId: "b",
+        explanation: { en: "Along incline: a = g·sin θ = 10·sin 30° = **5.0 m/s²**.", zh: "沿斜面:a = g·sin θ = 10·sin 30° = **5.0 m/s²**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q033",
+        concept: { en: "Tension in Rope", zh: "绳中张力" },
+        prompt: {
+          en: "A 2.0 kg mass hangs from a rope in equilibrium. The tension in the rope is: (g = 10)",
+          zh: "一 2.0 kg 物体由绳悬挂,处于平衡。绳的张力为:(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "2 N", zh: "2 N" } },
+          { id: "b", text: { en: "10 N", zh: "10 N" } },
+          { id: "c", text: { en: "20 N", zh: "20 N" } },
+          { id: "d", text: { en: "Zero", zh: "零" } },
+        ],
+        answerId: "c",
+        explanation: { en: "Equilibrium: T = mg = 2·10 = **20 N**.", zh: "平衡:T = mg = 2·10 = **20 N**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q034",
+        concept: { en: "Tension in Elevator", zh: "电梯中绳的张力" },
+        prompt: {
+          en: "A 5.0 kg object hangs in an elevator accelerating **upward** at 2.0 m/s². Rope tension? (g = 10)",
+          zh: "一 5.0 kg 物体挂在一部以 2.0 m/s² **向上**加速的电梯中。绳的张力?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "40 N", zh: "40 N" } },
+          { id: "b", text: { en: "50 N", zh: "50 N" } },
+          { id: "c", text: { en: "60 N", zh: "60 N" } },
+          { id: "d", text: { en: "10 N", zh: "10 N" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "T − mg = ma → T = m(g + a) = 5(12) = **60 N**. Greater than weight because accelerating up.",
+          zh: "T − mg = ma → T = m(g + a) = 5(12) = **60 N**。向上加速,张力大于重力。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q035",
+        concept: { en: "Static Friction (Not Moving)", zh: "静摩擦(未动)" },
+        prompt: {
+          en: "A 10 kg block on a horizontal floor (μ_s = 0.4, μ_k = 0.3) is pushed horizontally with 30 N. Friction force? (g = 10)",
+          zh: "10 kg 物块放在水平面(μ_s = 0.4,μ_k = 0.3),水平施加 30 N。摩擦力为?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "30 N", zh: "30 N" } },
+          { id: "b", text: { en: "40 N", zh: "40 N" } },
+          { id: "c", text: { en: "3 N", zh: "3 N" } },
+          { id: "d", text: { en: "0 N", zh: "0 N" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Max static = μ_s·N = 0.4·100 = 40 N > 30 N. Still static, so friction **equals the applied force = 30 N**.",
+          zh: "最大静摩擦 = μ_s·N = 0.4·100 = 40 N > 30 N。仍静止,摩擦力 = **施加力 = 30 N**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q036",
+        concept: { en: "Kinetic Friction", zh: "动摩擦" },
+        prompt: {
+          en: "Same 10 kg block, μ_k = 0.3, now sliding. Kinetic friction force? (g = 10)",
+          zh: "同一 10 kg 物块,μ_k = 0.3,现在滑动中。动摩擦力?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "3 N", zh: "3 N" } },
+          { id: "b", text: { en: "30 N", zh: "30 N" } },
+          { id: "c", text: { en: "40 N", zh: "40 N" } },
+          { id: "d", text: { en: "100 N", zh: "100 N" } },
+        ],
+        answerId: "b",
+        explanation: { en: "f_k = μ_k·N = 0.3·(mg) = 0.3·100 = **30 N**.", zh: "f_k = μ_k·N = 0.3·(mg) = 0.3·100 = **30 N**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q037",
+        concept: { en: "Why μ_s > μ_k", zh: "为何 μ_s > μ_k" },
+        prompt: {
+          en: "It's typically harder to **start** an object sliding than to **keep** it sliding. This is because:",
+          zh: "通常**启动**滑动比**保持**滑动更难。原因是:",
+        },
+        choices: [
+          { id: "a", text: { en: "μ_s < μ_k", zh: "μ_s < μ_k" } },
+          { id: "b", text: { en: "μ_s > μ_k", zh: "μ_s > μ_k" } },
+          { id: "c", text: { en: "μ_s = μ_k", zh: "μ_s = μ_k" } },
+          { id: "d", text: { en: "Normal force drops once moving", zh: "移动后法向力下降" } },
+        ],
+        answerId: "b",
+        explanation: { en: "Static friction coefficient is usually larger than kinetic: **μ_s > μ_k**.", zh: "静摩擦系数通常大于动摩擦系数:**μ_s > μ_k**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q038",
+        concept: { en: "Hooke's Law", zh: "胡克定律" },
+        prompt: {
+          en: "A spring has k = 200 N/m. How much force is needed to stretch it 0.15 m from equilibrium?",
+          zh: "弹簧 k = 200 N/m。将其从平衡位置拉伸 0.15 m 需要多大力?",
+        },
+        choices: [
+          { id: "a", text: { en: "13 N", zh: "13 N" } },
+          { id: "b", text: { en: "20 N", zh: "20 N" } },
+          { id: "c", text: { en: "30 N", zh: "30 N" } },
+          { id: "d", text: { en: "45 N", zh: "45 N" } },
+        ],
+        answerId: "c",
+        explanation: { en: "|F| = k·x = 200·0.15 = **30 N**.", zh: "|F| = k·x = 200·0.15 = **30 N**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q039",
+        concept: { en: "Spring Compression Force", zh: "弹簧压缩力" },
+        prompt: {
+          en: "A spring (k = 500 N/m) is compressed 0.1 m. The spring exerts a force of:",
+          zh: "弹簧(k = 500 N/m)被压缩 0.1 m。弹簧施加的力为?",
+        },
+        choices: [
+          { id: "a", text: { en: "5 N outward (away from equilibrium)", zh: "5 N 向外(远离平衡)" } },
+          { id: "b", text: { en: "50 N outward, pushing back toward equilibrium", zh: "50 N 向外,推回平衡位置" } },
+          { id: "c", text: { en: "50 N inward (toward compression)", zh: "50 N 向内(指向压缩方向)" } },
+          { id: "d", text: { en: "Zero", zh: "零" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "|F| = k·x = 500·0.1 = 50 N. A compressed spring pushes **back toward its natural length** (restoring force).",
+          zh: "|F| = k·x = 500·0.1 = 50 N。被压缩的弹簧**推回自然长度方向**(回复力)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q040",
+        concept: { en: "Newton's Third Law", zh: "牛顿第三定律" },
+        prompt: {
+          en: "According to Newton's third law, if Earth pulls a 2.0 kg ball with 19.6 N down, the ball pulls Earth with:",
+          zh: "由牛顿第三定律,若地球以 19.6 N 向下拉一只 2.0 kg 的球,球对地球施加的力为?",
+        },
+        choices: [
+          { id: "a", text: { en: "19.6 N down", zh: "19.6 N 向下" } },
+          { id: "b", text: { en: "19.6 N up", zh: "19.6 N 向上" } },
+          { id: "c", text: { en: "Zero (the ball has small mass)", zh: "零(球质量太小)" } },
+          { id: "d", text: { en: "9.8 N up", zh: "9.8 N 向上" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "3rd law pair: same magnitude, opposite direction, different objects. Earth → ball: 19.6 N down. Ball → Earth: **19.6 N up**. Earth's mass is huge so its acceleration is tiny.",
+          zh: "第三定律对:大小相等、方向相反、作用于不同物体。地 → 球:19.6 N 向下;球 → 地:**19.6 N 向上**。地球质量很大,加速度极小。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q041",
+        concept: { en: "Identifying 3rd Law Pair", zh: "识别第三定律对" },
+        prompt: {
+          en: "A book rests on a table. Which pair is a Newton's **third law pair**?",
+          zh: "一本书放在桌上。哪对是牛顿**第三定律对**?",
+        },
+        choices: [
+          { id: "a", text: { en: "Book's weight and normal force from table", zh: "书的重力与桌面的法向力" } },
+          { id: "b", text: { en: "Earth pulling book down and book pulling Earth up", zh: "地球向下拉书 和 书向上拉地球" } },
+          { id: "c", text: { en: "Book's weight and the book's mass", zh: "书的重力与书的质量" } },
+          { id: "d", text: { en: "Table's weight and normal force", zh: "桌子的重力与法向力" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "3rd-law pairs act on **different objects** and share the same type. Earth-ball gravity pair is correct. Weight-normal (A) both act on the book (same object, not a 3rd-law pair).",
+          zh: "第三定律对作用于**不同物体**且性质相同。地—书之间的引力对正确。重力—法向力 (A) 都作用在书上(同一物体,非第三定律对)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q042",
+        concept: { en: "Horse-Cart Paradox", zh: "马—车悖论" },
+        prompt: {
+          en: "A horse pulls a cart forward; the cart pulls back on the horse with equal force. How does the system accelerate forward?",
+          zh: "马向前拉车;车以等大力向后拉马。系统如何向前加速?",
+        },
+        choices: [
+          { id: "a", text: { en: "The horse pulls harder than the cart pulls back", zh: "马的拉力大于车的反拉力" } },
+          { id: "b", text: { en: "Those are 3rd-law forces on different objects; ground friction on horse's hooves pushes system forward", zh: "二者是作用在不同物体上的第三定律力;地面对马蹄的摩擦推系统向前" } },
+          { id: "c", text: { en: "Newton's third law fails for connected objects", zh: "连接物体不适用第三定律" } },
+          { id: "d", text: { en: "The cart has no inertia", zh: "车无惯性" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Horse↔cart forces act on different bodies; internal to the system they cancel. External **friction from ground on hooves** accelerates horse+cart forward.",
+          zh: "马↔车之间的力作用于不同物体;对系统内部互相抵消。真正使系统加速的是**地面对马蹄的外力摩擦**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q043",
+        concept: { en: "Circular Motion: Acceleration", zh: "圆周运动:加速度" },
+        prompt: {
+          en: "A car drives in a circle at constant speed. Which statement is true?",
+          zh: "一辆车以恒定速率绕圆周行驶。下列哪项正确?",
+        },
+        choices: [
+          { id: "a", text: { en: "Acceleration is zero because speed is constant", zh: "速率不变,加速度为零" } },
+          { id: "b", text: { en: "Acceleration points toward the center of the circle", zh: "加速度指向圆心" } },
+          { id: "c", text: { en: "Acceleration points in the direction of motion", zh: "加速度沿运动方向" } },
+          { id: "d", text: { en: "Acceleration points outward (centrifugal)", zh: "加速度向外(离心)" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Direction of velocity changes → non-zero acceleration. It is **centripetal (inward)**.",
+          zh: "速度方向在变 → 加速度不为零,方向**指向圆心(向心)**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q044",
+        concept: { en: "Centripetal Acceleration Formula", zh: "向心加速度公式" },
+        prompt: {
+          en: "A ball moves in a circle of radius 2.0 m at 6.0 m/s. Magnitude of centripetal acceleration?",
+          zh: "一球以 6.0 m/s 绕半径 2.0 m 的圆运动。向心加速度大小?",
+        },
+        choices: [
+          { id: "a", text: { en: "3.0 m/s²", zh: "3.0 m/s²" } },
+          { id: "b", text: { en: "12 m/s²", zh: "12 m/s²" } },
+          { id: "c", text: { en: "18 m/s²", zh: "18 m/s²" } },
+          { id: "d", text: { en: "36 m/s²", zh: "36 m/s²" } },
+        ],
+        answerId: "c",
+        explanation: { en: "a_c = v²/r = 36/2 = **18 m/s²**.", zh: "a_c = v²/r = 36/2 = **18 m/s²**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q045",
+        concept: { en: "Centripetal Force Source", zh: "向心力的来源" },
+        prompt: {
+          en: "A 1200 kg car rounds a flat curve of radius 40 m at 10 m/s. What provides the centripetal force?",
+          zh: "1200 kg 的车以 10 m/s 过半径 40 m 的平坦弯道。向心力由什么提供?",
+        },
+        choices: [
+          { id: "a", text: { en: "Gravity (weight)", zh: "重力" } },
+          { id: "b", text: { en: "Normal force", zh: "法向力" } },
+          { id: "c", text: { en: "Friction between tires and road", zh: "轮胎与路面的摩擦" } },
+          { id: "d", text: { en: "An invisible \"centripetal force\"", zh: "某种无形的「向心力」" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "On a flat curve, the only horizontal force is friction, which provides the centripetal force: F = m·v²/r = 1200·100/40 = 3000 N.",
+          zh: "平坦弯道上,唯一水平力是摩擦力,它提供向心力:F = m·v²/r = 1200·100/40 = 3000 N。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q046",
+        concept: { en: "String Breaks in Circular Motion", zh: "圆周运动中绳断裂" },
+        prompt: {
+          en: "A ball swings in a horizontal circle on a string. If the string suddenly breaks, the ball flies off:",
+          zh: "小球用绳做水平圆周运动。绳突然断裂时,球会:",
+        },
+        choices: [
+          { id: "a", text: { en: "Radially outward", zh: "径向向外飞出" } },
+          { id: "b", text: { en: "Along the tangent at the instant of breaking", zh: "沿断裂瞬间的切线方向飞出" } },
+          { id: "c", text: { en: "Continues in a circle", zh: "继续圆周运动" } },
+          { id: "d", text: { en: "Falls straight down immediately", zh: "立即直接下落" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "After tension vanishes, Newton's 1st law → ball moves in a **straight line tangent** to the circle (direction of velocity at that moment).",
+          zh: "张力消失后,由牛顿第一定律,球沿**切线方向直线**飞出(即断裂时的速度方向)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q047",
+        concept: { en: "Vertical Circle at Top", zh: "竖直圆周最高点" },
+        prompt: {
+          en: "A ball swings in a vertical circle on a string. At the **top** of the loop, the centripetal force is provided by:",
+          zh: "球用绳做竖直圆周运动。在圆环**最高点**,向心力由什么提供?",
+        },
+        choices: [
+          { id: "a", text: { en: "Gravity alone (if minimum speed)", zh: "仅重力(最小速率时)" } },
+          { id: "b", text: { en: "Tension alone", zh: "仅张力" } },
+          { id: "c", text: { en: "Tension minus gravity", zh: "张力 − 重力" } },
+          { id: "d", text: { en: "Gravity + tension, both downward toward center", zh: "重力 + 张力,均向下指向圆心" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "At top, both gravity (down) and tension (down toward center) point **inward**. F_net_radial = T + mg = m·v²/r. At minimum speed (T = 0), gravity alone provides F_c.",
+          zh: "最高点处,重力(向下)与张力(向下指向圆心)都**指向圆心**。F_net_径 = T + mg = m·v²/r。最小速率时(T = 0),重力单独提供向心力。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q048",
+        concept: { en: "Universal Gravitation", zh: "万有引力" },
+        prompt: {
+          en: "If the distance between two masses doubles, the gravitational force between them:",
+          zh: "两个质量之间的距离翻倍时,彼此的万有引力:",
+        },
+        choices: [
+          { id: "a", text: { en: "Doubles", zh: "翻倍" } },
+          { id: "b", text: { en: "Halves", zh: "减半" } },
+          { id: "c", text: { en: "Becomes 1/4 of original", zh: "变为原来的 1/4" } },
+          { id: "d", text: { en: "Becomes 1/2 of original", zh: "变为原来的 1/2" } },
+        ],
+        answerId: "c",
+        explanation: { en: "F = G·m₁m₂/r². Doubling r: F → F/4. Inverse-square law.", zh: "F = G·m₁m₂/r²。r 翻倍 → F 变为 1/4。平方反比律。" },
+      },
+      {
+        id: "mp-phys1-mar1-q049",
+        concept: { en: "Weight on Another Planet", zh: "其他星球的重量" },
+        prompt: {
+          en: "A person weighs 600 N on Earth. On a planet where g = 5.0 m/s², their weight is: (Earth g = 10)",
+          zh: "某人在地球上重 600 N。在 g = 5.0 m/s² 的行星上,其重量为:(地球 g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "60 N", zh: "60 N" } },
+          { id: "b", text: { en: "300 N", zh: "300 N" } },
+          { id: "c", text: { en: "600 N", zh: "600 N" } },
+          { id: "d", text: { en: "1200 N", zh: "1200 N" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Mass = 600/10 = 60 kg. New weight = mg = 60·5 = **300 N**. Mass doesn't change; weight scales with g.",
+          zh: "质量 = 600/10 = 60 kg。新重量 = mg = 60·5 = **300 N**。质量不变,重量与 g 成正比。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q050",
+        concept: { en: "Atwood Machine Acceleration", zh: "阿特伍德机加速度" },
+        prompt: {
+          en: "Masses m₁ = 3 kg and m₂ = 5 kg hang from an ideal pulley. Acceleration? (g = 10)",
+          zh: "质量 m₁ = 3 kg 与 m₂ = 5 kg 挂在理想滑轮上。加速度?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "1.25 m/s²", zh: "1.25 m/s²" } },
+          { id: "b", text: { en: "2.5 m/s²", zh: "2.5 m/s²" } },
+          { id: "c", text: { en: "5.0 m/s²", zh: "5.0 m/s²" } },
+          { id: "d", text: { en: "10 m/s²", zh: "10 m/s²" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "a = (m₂ − m₁)g / (m₁ + m₂) = (2)(10)/8 = **2.5 m/s²**. Heavier side accelerates down.",
+          zh: "a = (m₂ − m₁)g / (m₁ + m₂) = (2)(10)/8 = **2.5 m/s²**。较重一侧下加速。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q051",
+        concept: { en: "Free Body Diagram", zh: "受力图" },
+        prompt: {
+          en: "A box slides at constant velocity across a rough horizontal floor under a horizontal push. Which forces act on it?",
+          zh: "一只箱子在水平推力作用下以匀速滑过粗糙水平地面。受到哪些力?",
+        },
+        choices: [
+          { id: "a", text: { en: "Only the applied push", zh: "只有施加的推力" } },
+          { id: "b", text: { en: "Gravity, normal, applied push, kinetic friction", zh: "重力、法向力、施加推力、动摩擦力" } },
+          { id: "c", text: { en: "Gravity, normal, applied push only", zh: "仅重力、法向力、施加推力" } },
+          { id: "d", text: { en: "Motion force, gravity, normal", zh: "运动力、重力、法向力" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "FBD shows all real forces on the object: weight (down), normal (up), applied push (forward), kinetic friction (backward). There's no \"motion force\".",
+          zh: "受力图应包含所有真实的力:重力(下)、法向力(上)、施加推力(前)、动摩擦力(后)。不存在「运动力」。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q052",
+        concept: { en: "Net Force Direction", zh: "合力方向" },
+        prompt: {
+          en: "An object accelerates northward. Which statement must be true?",
+          zh: "一物体向北加速。以下哪项**必然成立**?",
+        },
+        choices: [
+          { id: "a", text: { en: "Velocity points northward", zh: "速度指向北" } },
+          { id: "b", text: { en: "Net force points northward", zh: "合力指向北" } },
+          { id: "c", text: { en: "The object is moving northward", zh: "物体沿北方向运动" } },
+          { id: "d", text: { en: "Gravity points northward", zh: "重力指向北" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "ΣF = ma → net force is always in the **direction of acceleration**. Velocity could be any direction (e.g., an object moving south but decelerating accelerates north).",
+          zh: "ΣF = ma → 合力方向与**加速度方向相同**。速度可为任意方向(如向南运动且减速的物体向北加速)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q053",
+        concept: { en: "Banked Curve", zh: "倾斜弯道" },
+        prompt: {
+          en: "On a **frictionless** banked curve, which force provides the centripetal force?",
+          zh: "在**无摩擦**的倾斜弯道上,谁提供向心力?",
+        },
+        choices: [
+          { id: "a", text: { en: "Friction", zh: "摩擦力" } },
+          { id: "b", text: { en: "Horizontal component of normal force", zh: "法向力的水平分量" } },
+          { id: "c", text: { en: "Gravity", zh: "重力" } },
+          { id: "d", text: { en: "Air resistance", zh: "空气阻力" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "On a banked curve, normal force tilts inward. Its **horizontal component** = m·v²/r (centripetal), vertical component balances gravity. No friction needed at the design speed.",
+          zh: "倾斜弯道上,法向力向内倾斜。其**水平分量** = m·v²/r(向心),竖直分量平衡重力。设计车速下不需摩擦。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q054",
+        concept: { en: "Apparent Weight in Elevator", zh: "电梯中的视重" },
+        prompt: {
+          en: "A person stands on a scale in an elevator accelerating **downward** at 2.0 m/s². If mass = 50 kg, scale reads: (g = 10)",
+          zh: "某人站在一部以 2.0 m/s² **向下**加速的电梯中的秤上。若质量 = 50 kg,秤读数为:(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "400 N", zh: "400 N" } },
+          { id: "b", text: { en: "500 N", zh: "500 N" } },
+          { id: "c", text: { en: "600 N", zh: "600 N" } },
+          { id: "d", text: { en: "100 N", zh: "100 N" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Scale reads normal force: N = m(g − a) = 50·(10 − 2) = **400 N**. Less than weight during downward acceleration (\"lighter\" feeling).",
+          zh: "秤读法向力:N = m(g − a) = 50·(10 − 2) = **400 N**。向下加速时视重小于重力(感觉「变轻」)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q055",
+        concept: { en: "Two Masses on Incline Connected", zh: "斜面上两连接质量" },
+        prompt: {
+          en: "A hanging 5 kg block is connected by a rope over a pulley to a 3 kg block on a frictionless table. The system accelerates at: (g = 10)",
+          zh: "一个 5 kg 悬挂块通过滑轮用绳连到无摩擦桌面上的 3 kg 物块。系统加速度为:(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "2.5 m/s²", zh: "2.5 m/s²" } },
+          { id: "b", text: { en: "6.25 m/s²", zh: "6.25 m/s²" } },
+          { id: "c", text: { en: "5.0 m/s²", zh: "5.0 m/s²" } },
+          { id: "d", text: { en: "10 m/s²", zh: "10 m/s²" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Treat as one system: only gravity on hanging block accelerates total mass. a = mg/(m₁ + m₂) = 5·10/8 = **6.25 m/s²**.",
+          zh: "视为整体:悬挂块的重力加速总质量。a = mg/(m₁ + m₂) = 5·10/8 = **6.25 m/s²**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q056",
+        concept: { en: "Friction on Incline (static)", zh: "斜面静摩擦" },
+        prompt: {
+          en: "A block rests on a 20° incline without sliding. The minimum coefficient of static friction required is approximately:",
+          zh: "一物块静置于 20° 斜面上不下滑。所需最小静摩擦系数约为:",
+        },
+        choices: [
+          { id: "a", text: { en: "0.18", zh: "0.18" } },
+          { id: "b", text: { en: "0.36", zh: "0.36" } },
+          { id: "c", text: { en: "0.50", zh: "0.50" } },
+          { id: "d", text: { en: "0.94", zh: "0.94" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "At threshold: μ_s·mg·cos θ = mg·sin θ → μ_s = tan θ = tan 20° ≈ **0.36**.",
+          zh: "临界条件:μ_s·mg·cos θ = mg·sin θ → μ_s = tan θ = tan 20° ≈ **0.36**。",
+        },
+      },
+
+      // ==================== UNIT 3 — Work, Energy & Power (28 Qs) ====================
+      {
+        id: "mp-phys1-mar1-q057",
+        concept: { en: "Work Definition", zh: "功的定义" },
+        prompt: {
+          en: "A 10 N horizontal force pushes a box 3.0 m horizontally. Work done by the force?",
+          zh: "10 N 水平力推动一只箱子水平方向移动 3.0 m。该力做功?",
+        },
+        choices: [
+          { id: "a", text: { en: "3.3 J", zh: "3.3 J" } },
+          { id: "b", text: { en: "13 J", zh: "13 J" } },
+          { id: "c", text: { en: "30 J", zh: "30 J" } },
+          { id: "d", text: { en: "0", zh: "0" } },
+        ],
+        answerId: "c",
+        explanation: { en: "W = F·d·cos 0° = 10·3·1 = **30 J**.", zh: "W = F·d·cos 0° = 10·3·1 = **30 J**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q058",
+        concept: { en: "Work Angle Dependence", zh: "功的角度依赖" },
+        prompt: {
+          en: "A waiter carries a tray horizontally at constant velocity while walking 5 m. Work done by the lifting (vertical) force?",
+          zh: "侍者以匀速水平搬运托盘,走 5 m。竖直抬起力所做的功?",
+        },
+        choices: [
+          { id: "a", text: { en: "Equal to weight × 5 m", zh: "等于 重量 × 5 m" } },
+          { id: "b", text: { en: "Zero", zh: "零" } },
+          { id: "c", text: { en: "Positive but less than weight × 5 m", zh: "正的,但小于 重量 × 5 m" } },
+          { id: "d", text: { en: "Negative", zh: "负的" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Force is vertical, displacement is horizontal → θ = 90° → **W = 0**. Carrying weight horizontally does no physics-work, even though it feels tiring.",
+          zh: "力竖直,位移水平 → θ = 90° → **W = 0**。水平搬运重物做零功,尽管感觉累。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q059",
+        concept: { en: "Work by Gravity", zh: "重力做功" },
+        prompt: {
+          en: "A 2.0 kg ball falls 5.0 m. Work done by gravity? (g = 10)",
+          zh: "一 2.0 kg 球下落 5.0 m。重力做功?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "+100 J", zh: "+100 J" } },
+          { id: "b", text: { en: "−100 J", zh: "−100 J" } },
+          { id: "c", text: { en: "+10 J", zh: "+10 J" } },
+          { id: "d", text: { en: "0 J", zh: "0 J" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Gravity and motion both downward → θ = 0° → W = +F·d = +mg·h = +2·10·5 = **+100 J**.",
+          zh: "重力与位移同向 → θ = 0° → W = +F·d = +mg·h = +2·10·5 = **+100 J**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q060",
+        concept: { en: "Work by Friction", zh: "摩擦做功" },
+        prompt: {
+          en: "A 10 N kinetic friction force acts opposite to a block's motion as it slides 2.0 m. Work by friction?",
+          zh: "10 N 动摩擦力与物块运动方向相反,物块滑行 2.0 m。摩擦做功?",
+        },
+        choices: [
+          { id: "a", text: { en: "+20 J", zh: "+20 J" } },
+          { id: "b", text: { en: "−20 J", zh: "−20 J" } },
+          { id: "c", text: { en: "0", zh: "0" } },
+          { id: "d", text: { en: "−10 J", zh: "−10 J" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Friction opposes motion → θ = 180° → W = −F·d = **−20 J**. Kinetic friction always does negative work on the moving object.",
+          zh: "摩擦与运动反向 → θ = 180° → W = −F·d = **−20 J**。动摩擦对运动物体始终做负功。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q061",
+        concept: { en: "Work from F-x Graph", zh: "F-x 图求功" },
+        prompt: {
+          en: "A force varies with position. If an F-x graph shows a triangle of base 4 m and height 10 N, the work done over the 4 m is:",
+          zh: "力随位置变化。F-x 图为三角形,底 4 m,高 10 N。在 4 m 上做功?",
+        },
+        choices: [
+          { id: "a", text: { en: "10 J", zh: "10 J" } },
+          { id: "b", text: { en: "20 J", zh: "20 J" } },
+          { id: "c", text: { en: "40 J", zh: "40 J" } },
+          { id: "d", text: { en: "80 J", zh: "80 J" } },
+        ],
+        answerId: "b",
+        explanation: { en: "W = area under F-x = ½·4·10 = **20 J**.", zh: "W = F-x 图下方面积 = ½·4·10 = **20 J**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q062",
+        concept: { en: "Kinetic Energy Formula", zh: "动能公式" },
+        prompt: {
+          en: "A 3.0 kg object moves at 4.0 m/s. Its kinetic energy?",
+          zh: "3.0 kg 物体以 4.0 m/s 运动。动能?",
+        },
+        choices: [
+          { id: "a", text: { en: "12 J", zh: "12 J" } },
+          { id: "b", text: { en: "24 J", zh: "24 J" } },
+          { id: "c", text: { en: "48 J", zh: "48 J" } },
+          { id: "d", text: { en: "6 J", zh: "6 J" } },
+        ],
+        answerId: "b",
+        explanation: { en: "KE = ½·m·v² = ½·3·16 = **24 J**.", zh: "KE = ½·m·v² = ½·3·16 = **24 J**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q063",
+        concept: { en: "KE vs Mass", zh: "动能与质量" },
+        prompt: {
+          en: "Object A has twice the mass of Object B but the same speed. How do their KEs compare?",
+          zh: "A 物体质量是 B 的两倍,速率相同。两者动能对比?",
+        },
+        choices: [
+          { id: "a", text: { en: "KE_A = ½·KE_B", zh: "KE_A = ½·KE_B" } },
+          { id: "b", text: { en: "KE_A = KE_B", zh: "KE_A = KE_B" } },
+          { id: "c", text: { en: "KE_A = 2·KE_B", zh: "KE_A = 2·KE_B" } },
+          { id: "d", text: { en: "KE_A = 4·KE_B", zh: "KE_A = 4·KE_B" } },
+        ],
+        answerId: "c",
+        explanation: { en: "KE ∝ m at constant v → 2× mass → **2× KE**.", zh: "v 不变时 KE ∝ m → 质量翻倍 → **KE 翻倍**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q064",
+        concept: { en: "KE vs Speed", zh: "动能与速率" },
+        prompt: {
+          en: "If an object's speed triples, its kinetic energy:",
+          zh: "物体速率变为原来 3 倍,动能:",
+        },
+        choices: [
+          { id: "a", text: { en: "Triples", zh: "变为 3 倍" } },
+          { id: "b", text: { en: "Becomes 6×", zh: "变为 6 倍" } },
+          { id: "c", text: { en: "Becomes 9×", zh: "变为 9 倍" } },
+          { id: "d", text: { en: "Stays the same", zh: "不变" } },
+        ],
+        answerId: "c",
+        explanation: { en: "KE ∝ v² → 3× v → **9× KE**. Doubling v quadruples KE (why crash damage scales so fast).", zh: "KE ∝ v² → v 变 3 倍 → **KE 变 9 倍**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q065",
+        concept: { en: "Work-Energy Theorem", zh: "动能定理" },
+        prompt: {
+          en: "A 2.0 kg object's speed changes from 3.0 m/s to 5.0 m/s. Net work done on it?",
+          zh: "一 2.0 kg 物体速率由 3.0 m/s 变到 5.0 m/s。对它做的净功?",
+        },
+        choices: [
+          { id: "a", text: { en: "4 J", zh: "4 J" } },
+          { id: "b", text: { en: "8 J", zh: "8 J" } },
+          { id: "c", text: { en: "16 J", zh: "16 J" } },
+          { id: "d", text: { en: "25 J", zh: "25 J" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "W_net = ΔKE = ½·2·(25 − 9) = **16 J**.",
+          zh: "W_net = ΔKE = ½·2·(25 − 9) = **16 J**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q066",
+        concept: { en: "Stopping Distance", zh: "刹车距离" },
+        prompt: {
+          en: "A car moving at 20 m/s stops. If a constant braking force does work equal to its KE, doubling initial speed means stopping distance becomes:",
+          zh: "一辆车从 20 m/s 停下。若刹车力恒定,做功等于初动能。若初速度翻倍,刹车距离变为:",
+        },
+        choices: [
+          { id: "a", text: { en: "Half as far", zh: "一半" } },
+          { id: "b", text: { en: "Same", zh: "相同" } },
+          { id: "c", text: { en: "2× as far", zh: "2 倍" } },
+          { id: "d", text: { en: "4× as far", zh: "4 倍" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "F·d = ½mv² → d ∝ v². Double v → **4× stopping distance**. Why speed limits matter so much.",
+          zh: "F·d = ½mv² → d ∝ v²。v 翻倍 → **刹车距离 4 倍**。这就是限速的物理原因。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q067",
+        concept: { en: "Gravitational PE", zh: "重力势能" },
+        prompt: {
+          en: "A 4.0 kg object is raised 2.5 m. Change in gravitational PE? (g = 10)",
+          zh: "一 4.0 kg 物体升高 2.5 m。重力势能变化?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "10 J", zh: "10 J" } },
+          { id: "b", text: { en: "40 J", zh: "40 J" } },
+          { id: "c", text: { en: "100 J", zh: "100 J" } },
+          { id: "d", text: { en: "250 J", zh: "250 J" } },
+        ],
+        answerId: "c",
+        explanation: { en: "ΔU = m·g·Δh = 4·10·2.5 = **100 J**.", zh: "ΔU = m·g·Δh = 4·10·2.5 = **100 J**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q068",
+        concept: { en: "Reference Point for PE", zh: "势能参考点" },
+        prompt: {
+          en: "Regarding gravitational potential energy:",
+          zh: "关于重力势能:",
+        },
+        choices: [
+          { id: "a", text: { en: "It is absolute — zero at sea level only", zh: "为绝对量——仅在海平面为零" } },
+          { id: "b", text: { en: "Only the **change** in PE is physically meaningful; reference point is a choice", zh: "只有势能**变化**有物理意义;参考点任选" } },
+          { id: "c", text: { en: "PE cannot be negative", zh: "势能不能为负" } },
+          { id: "d", text: { en: "PE depends on the path taken", zh: "势能取决于路径" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Only ΔU matters. You pick h = 0 wherever convenient (table top, floor). PE can be negative relative to a reference. For conservative forces, path doesn't matter.",
+          zh: "只有 ΔU 有意义。h = 0 可任选(桌面、地面)。相对参考点,PE 可为负。对保守力,与路径无关。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q069",
+        concept: { en: "Elastic PE", zh: "弹性势能" },
+        prompt: {
+          en: "A spring (k = 400 N/m) is compressed 0.20 m. Elastic PE stored?",
+          zh: "弹簧(k = 400 N/m)压缩 0.20 m。储存的弹性势能?",
+        },
+        choices: [
+          { id: "a", text: { en: "4 J", zh: "4 J" } },
+          { id: "b", text: { en: "8 J", zh: "8 J" } },
+          { id: "c", text: { en: "16 J", zh: "16 J" } },
+          { id: "d", text: { en: "40 J", zh: "40 J" } },
+        ],
+        answerId: "b",
+        explanation: { en: "U_s = ½·k·x² = ½·400·0.04 = **8 J**.", zh: "U_s = ½·k·x² = ½·400·0.04 = **8 J**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q070",
+        concept: { en: "Conservation: Dropped Object", zh: "能量守恒:自由落体" },
+        prompt: {
+          en: "A ball is dropped from 20 m. Speed when it hits the ground? (g = 10, no air)",
+          zh: "球由 20 m 高释放。落地速率?(g = 10,忽略空气)",
+        },
+        choices: [
+          { id: "a", text: { en: "10 m/s", zh: "10 m/s" } },
+          { id: "b", text: { en: "14 m/s", zh: "14 m/s" } },
+          { id: "c", text: { en: "20 m/s", zh: "20 m/s" } },
+          { id: "d", text: { en: "40 m/s", zh: "40 m/s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "mgh = ½mv² → v = √(2gh) = √(400) = **20 m/s**.", zh: "mgh = ½mv² → v = √(2gh) = √(400) = **20 m/s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q071",
+        concept: { en: "Pendulum Speed at Bottom", zh: "单摆底部速率" },
+        prompt: {
+          en: "A 1.0 kg pendulum bob swings from rest at a height 0.80 m above the lowest point. Speed at bottom? (g = 10)",
+          zh: "一 1.0 kg 单摆由静止从最低点上方 0.80 m 开始摆动。最低点速率?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "2.0 m/s", zh: "2.0 m/s" } },
+          { id: "b", text: { en: "4.0 m/s", zh: "4.0 m/s" } },
+          { id: "c", text: { en: "6.3 m/s", zh: "6.3 m/s" } },
+          { id: "d", text: { en: "16 m/s", zh: "16 m/s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Conservation (T does no work): mgh = ½mv² → v = √(2·10·0.8) = **4.0 m/s**.",
+          zh: "能量守恒(张力不做功):mgh = ½mv² → v = √(2·10·0.8) = **4.0 m/s**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q072",
+        concept: { en: "Roller Coaster Energy", zh: "过山车能量" },
+        prompt: {
+          en: "A roller coaster starts from rest at 45 m. Ignoring friction, its speed at a point 20 m below the start is: (g = 10)",
+          zh: "过山车由 45 m 高处静止出发。忽略摩擦,在比起点低 20 m 处的速率?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "14 m/s", zh: "14 m/s" } },
+          { id: "b", text: { en: "20 m/s", zh: "20 m/s" } },
+          { id: "c", text: { en: "30 m/s", zh: "30 m/s" } },
+          { id: "d", text: { en: "45 m/s", zh: "45 m/s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Only drop of 20 m matters for Δh: ½mv² = mgh → v = √(2·10·20) = **20 m/s**.",
+          zh: "只有下落 20 m 关键:½mv² = mgh → v = √(2·10·20) = **20 m/s**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q073",
+        concept: { en: "Spring-Launched Mass", zh: "弹簧发射质量" },
+        prompt: {
+          en: "A horizontal spring (k = 800 N/m) is compressed 0.10 m and released, pushing a 0.50 kg block along a frictionless surface. Block's launch speed?",
+          zh: "水平弹簧(k = 800 N/m)压缩 0.10 m 后释放,推一块 0.50 kg 的物块沿无摩擦面运动。发射速率?",
+        },
+        choices: [
+          { id: "a", text: { en: "2.0 m/s", zh: "2.0 m/s" } },
+          { id: "b", text: { en: "4.0 m/s", zh: "4.0 m/s" } },
+          { id: "c", text: { en: "6.0 m/s", zh: "6.0 m/s" } },
+          { id: "d", text: { en: "8.0 m/s", zh: "8.0 m/s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "½kx² = ½mv² → v = x·√(k/m) = 0.1·√(1600) = 0.1·40 = **4.0 m/s**.",
+          zh: "½kx² = ½mv² → v = x·√(k/m) = 0.1·√(1600) = 0.1·40 = **4.0 m/s**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q074",
+        concept: { en: "Energy with Friction", zh: "含摩擦的能量" },
+        prompt: {
+          en: "A 2 kg block slides down a 5 m rough ramp, descending 3 m vertically. Friction dissipates 20 J. Speed at bottom (starts from rest)? (g = 10)",
+          zh: "2 kg 物块沿 5 m 粗糙斜面下滑,竖直下降 3 m。摩擦耗散 20 J。底端速率(静止开始)?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "2.0 m/s", zh: "2.0 m/s" } },
+          { id: "b", text: { en: "4.5 m/s", zh: "4.5 m/s" } },
+          { id: "c", text: { en: "6.0 m/s", zh: "6.0 m/s" } },
+          { id: "d", text: { en: "7.7 m/s", zh: "7.7 m/s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Initial PE = mgh = 2·10·3 = 60 J. Final KE = 60 − 20 = 40 J = ½·2·v² → v = √40 ≈ **6.3 m/s**. (Closest printed: b with g = 10 approximation gives ~6 m/s; with g = 9.8 gives ~5 m/s range). Use choice c 6 m/s.",
+          zh: "初势能 = mgh = 2·10·3 = 60 J。末动能 = 60 − 20 = 40 J = ½·2·v² → v = √40 ≈ **6.3 m/s**。最接近的是选项 c,6.0 m/s。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q075",
+        concept: { en: "Stopping on Rough Surface", zh: "粗糙面上停下" },
+        prompt: {
+          en: "A 5 kg block moving at 6 m/s slides on a rough floor (μ_k = 0.30) until stopping. Distance traveled? (g = 10)",
+          zh: "5 kg 物块以 6 m/s 在粗糙地面(μ_k = 0.30)上滑行至停。滑行距离?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "2.0 m", zh: "2.0 m" } },
+          { id: "b", text: { en: "6.0 m", zh: "6.0 m" } },
+          { id: "c", text: { en: "12 m", zh: "12 m" } },
+          { id: "d", text: { en: "18 m", zh: "18 m" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "KE lost = f·d = μ_k·mg·d. ½·5·36 = 0.3·5·10·d → 90 = 15d → d = **6.0 m**.",
+          zh: "损失 KE = f·d = μ_k·mg·d。½·5·36 = 0.3·5·10·d → 90 = 15d → d = **6.0 m**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q076",
+        concept: { en: "Power (W/t)", zh: "功率 (W/t)" },
+        prompt: {
+          en: "A motor lifts a 100 kg crate 5.0 m at constant speed in 10 s. Average power? (g = 10)",
+          zh: "电机以匀速在 10 s 内将 100 kg 板条箱提升 5.0 m。平均功率?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "50 W", zh: "50 W" } },
+          { id: "b", text: { en: "500 W", zh: "500 W" } },
+          { id: "c", text: { en: "5000 W", zh: "5000 W" } },
+          { id: "d", text: { en: "50000 W", zh: "50000 W" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "W = mgh = 5000 J. P = W/t = 5000/10 = **500 W**.",
+          zh: "W = mgh = 5000 J。P = W/t = 5000/10 = **500 W**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q077",
+        concept: { en: "Power (F·v)", zh: "功率 (F·v)" },
+        prompt: {
+          en: "A car maintains 25 m/s against total resistive forces of 800 N. Engine power?",
+          zh: "汽车以 25 m/s 匀速抵抗总阻力 800 N。发动机功率?",
+        },
+        choices: [
+          { id: "a", text: { en: "32 W", zh: "32 W" } },
+          { id: "b", text: { en: "800 W", zh: "800 W" } },
+          { id: "c", text: { en: "20 kW", zh: "20 kW" } },
+          { id: "d", text: { en: "200 kW", zh: "200 kW" } },
+        ],
+        answerId: "c",
+        explanation: { en: "P = F·v = 800·25 = **20 000 W = 20 kW**.", zh: "P = F·v = 800·25 = **20 000 W = 20 kW**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q078",
+        concept: { en: "Climbing Stairs Power", zh: "登楼功率" },
+        prompt: {
+          en: "A 60 kg person climbs 3.0 m of stairs in 5.0 s. Power output? (g = 10)",
+          zh: "一 60 kg 人在 5.0 s 内爬 3.0 m 楼梯。功率输出?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "180 W", zh: "180 W" } },
+          { id: "b", text: { en: "360 W", zh: "360 W" } },
+          { id: "c", text: { en: "600 W", zh: "600 W" } },
+          { id: "d", text: { en: "1800 W", zh: "1800 W" } },
+        ],
+        answerId: "b",
+        explanation: { en: "P = mgh/t = 60·10·3 / 5 = **360 W**.", zh: "P = mgh/t = 60·10·3 / 5 = **360 W**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q079",
+        concept: { en: "Work = 0 at Constant KE", zh: "KE 不变时 W_net = 0" },
+        prompt: {
+          en: "A ball moves in a horizontal circle on a string at constant speed. Net work on it per revolution?",
+          zh: "小球用绳做水平匀速圆周运动。每周期的净功?",
+        },
+        choices: [
+          { id: "a", text: { en: "Positive (tension does work)", zh: "正值(张力做功)" } },
+          { id: "b", text: { en: "Negative", zh: "负值" } },
+          { id: "c", text: { en: "Zero", zh: "零" } },
+          { id: "d", text: { en: "Equal to KE", zh: "等于 KE" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Constant speed → ΔKE = 0 → W_net = 0. Tension is always ⊥ to velocity, so it does zero work at every instant.",
+          zh: "速率不变 → ΔKE = 0 → W_net = 0。张力始终 ⊥ 速度,每一瞬都做零功。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q080",
+        concept: { en: "Units of Work and Power", zh: "功与功率的单位" },
+        prompt: {
+          en: "Which of the following is a unit of power?",
+          zh: "下列哪个是功率的单位?",
+        },
+        choices: [
+          { id: "a", text: { en: "Joule (J)", zh: "焦耳 (J)" } },
+          { id: "b", text: { en: "Newton-meter (N·m)", zh: "牛·米 (N·m)" } },
+          { id: "c", text: { en: "Joule per second (J/s)", zh: "焦/秒 (J/s)" } },
+          { id: "d", text: { en: "Kilogram·meter (kg·m)", zh: "千克·米 (kg·m)" } },
+        ],
+        answerId: "c",
+        explanation: { en: "1 watt = 1 J/s. N·m is a unit of work (= J), not power.", zh: "1 瓦 = 1 J/s。N·m 是功的单位(= J),不是功率。" },
+      },
+      {
+        id: "mp-phys1-mar1-q081",
+        concept: { en: "Kinematic-Energy Connection", zh: "运动学与能量的联系" },
+        prompt: {
+          en: "A car goes from 0 to 20 m/s. To accelerate from 20 to 40 m/s requires energy equivalent to:",
+          zh: "一车从 0 加速到 20 m/s。再从 20 m/s 加速到 40 m/s 所需能量相当于:",
+        },
+        choices: [
+          { id: "a", text: { en: "Same as 0 to 20 m/s", zh: "与 0 → 20 m/s 相同" } },
+          { id: "b", text: { en: "Twice as much as 0 to 20 m/s", zh: "是 0 → 20 m/s 的两倍" } },
+          { id: "c", text: { en: "Three times as much", zh: "三倍" } },
+          { id: "d", text: { en: "Half as much", zh: "一半" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "KE₁ = ½m(20)² = 200m; KE₂ needs ½m(40)² = 800m. Extra energy 20→40 = 800m − 200m = 600m, which is 3× the energy 0→20 (200m).",
+          zh: "KE₁ = ½m(20)² = 200m;KE₂ 需 ½m(40)² = 800m。20 → 40 额外能量 = 800m − 200m = 600m,是 0 → 20 (200m) 的 3 倍。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q082",
+        concept: { en: "Energy Bar Chart", zh: "能量条形图" },
+        prompt: {
+          en: "At the lowest point of a pendulum swing, compared to the highest point:",
+          zh: "单摆最低点相对最高点时:",
+        },
+        choices: [
+          { id: "a", text: { en: "Both KE and PE are maximum", zh: "KE 与 PE 均最大" } },
+          { id: "b", text: { en: "KE is maximum; PE is minimum", zh: "KE 最大,PE 最小" } },
+          { id: "c", text: { en: "PE is maximum; KE is minimum", zh: "PE 最大,KE 最小" } },
+          { id: "d", text: { en: "Both are zero", zh: "均为零" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Lowest point: fastest (max KE), lowest height (min PE). Highest point: momentarily at rest (KE = 0), highest position (max PE). Total E conserved.",
+          zh: "最低点:最快(KE 最大),高度最低(PE 最小)。最高点:瞬时静止(KE = 0),位置最高(PE 最大)。总 E 守恒。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q083",
+        concept: { en: "Work by Variable Force", zh: "变力做功" },
+        prompt: {
+          en: "A horizontal force on a block varies linearly from 0 to 10 N as the block moves from x = 0 to x = 5 m. Total work done?",
+          zh: "水平力随 x 从 0 线性增加到 10 N,物块从 x = 0 移动到 x = 5 m。总功?",
+        },
+        choices: [
+          { id: "a", text: { en: "25 J", zh: "25 J" } },
+          { id: "b", text: { en: "50 J", zh: "50 J" } },
+          { id: "c", text: { en: "10 J", zh: "10 J" } },
+          { id: "d", text: { en: "100 J", zh: "100 J" } },
+        ],
+        answerId: "a",
+        explanation: { en: "Area under F-x triangle = ½·5·10 = **25 J**.", zh: "F-x 图三角形面积 = ½·5·10 = **25 J**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q084",
+        concept: { en: "Conservative vs Nonconservative", zh: "保守力与非保守力" },
+        prompt: {
+          en: "Which of the following is a **nonconservative** force?",
+          zh: "下列哪项是**非保守力**?",
+        },
+        choices: [
+          { id: "a", text: { en: "Gravity", zh: "重力" } },
+          { id: "b", text: { en: "Ideal spring force", zh: "理想弹簧力" } },
+          { id: "c", text: { en: "Kinetic friction", zh: "动摩擦力" } },
+          { id: "d", text: { en: "Electrostatic force", zh: "静电力" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Kinetic friction (and drag) are nonconservative — energy lost to heat depends on the path. Gravity, ideal springs, and electrostatic force are conservative.",
+          zh: "动摩擦(与阻力)是非保守力——耗散为热的能量与路径有关。重力、理想弹簧、静电力都是保守力。",
+        },
+      },
+
+      // ==================== UNIT 4 — Linear Momentum (24 Qs) ====================
+      {
+        id: "mp-phys1-mar1-q085",
+        concept: { en: "Momentum Definition", zh: "动量定义" },
+        prompt: {
+          en: "A 3.0 kg object moves at 4.0 m/s east. Its momentum?",
+          zh: "3.0 kg 物体以 4.0 m/s 向东运动。动量?",
+        },
+        choices: [
+          { id: "a", text: { en: "6 kg·m/s east", zh: "6 kg·m/s 向东" } },
+          { id: "b", text: { en: "12 kg·m/s east", zh: "12 kg·m/s 向东" } },
+          { id: "c", text: { en: "7 kg·m/s east", zh: "7 kg·m/s 向东" } },
+          { id: "d", text: { en: "0.75 kg·m/s east", zh: "0.75 kg·m/s 向东" } },
+        ],
+        answerId: "b",
+        explanation: { en: "p = mv = 3·4 = **12 kg·m/s east** (vector, direction matters).", zh: "p = mv = 3·4 = **12 kg·m/s 向东**(矢量,方向重要)。" },
+      },
+      {
+        id: "mp-phys1-mar1-q086",
+        concept: { en: "Momentum vs KE", zh: "动量与动能" },
+        prompt: {
+          en: "If an object's speed doubles, which statement is correct?",
+          zh: "物体速率翻倍时,下列哪项正确?",
+        },
+        choices: [
+          { id: "a", text: { en: "Both p and KE double", zh: "p 与 KE 都翻倍" } },
+          { id: "b", text: { en: "p doubles; KE quadruples", zh: "p 翻倍,KE 变 4 倍" } },
+          { id: "c", text: { en: "p quadruples; KE doubles", zh: "p 变 4 倍,KE 翻倍" } },
+          { id: "d", text: { en: "Both quadruple", zh: "都变 4 倍" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "p ∝ v (linear), KE ∝ v² (quadratic). Double v → **p doubles, KE quadruples**.",
+          zh: "p ∝ v(线性),KE ∝ v²(平方)。v 翻倍 → **p 翻倍,KE 变 4 倍**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q087",
+        concept: { en: "Impulse from Constant Force", zh: "恒力冲量" },
+        prompt: {
+          en: "A constant 5.0 N force acts for 3.0 s. Impulse delivered?",
+          zh: "恒力 5.0 N 作用 3.0 s。施加的冲量?",
+        },
+        choices: [
+          { id: "a", text: { en: "1.67 N·s", zh: "1.67 N·s" } },
+          { id: "b", text: { en: "8.0 N·s", zh: "8.0 N·s" } },
+          { id: "c", text: { en: "15 N·s", zh: "15 N·s" } },
+          { id: "d", text: { en: "0.6 N·s", zh: "0.6 N·s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "J = F·Δt = 5·3 = **15 N·s**.", zh: "J = F·Δt = 5·3 = **15 N·s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q088",
+        concept: { en: "Impulse-Momentum Theorem", zh: "动量—冲量定理" },
+        prompt: {
+          en: "A net impulse of 20 N·s acts on a 4.0 kg object initially at rest. Its final velocity?",
+          zh: "净冲量 20 N·s 作用于一 4.0 kg 物体,初始静止。末速度?",
+        },
+        choices: [
+          { id: "a", text: { en: "5.0 m/s", zh: "5.0 m/s" } },
+          { id: "b", text: { en: "20 m/s", zh: "20 m/s" } },
+          { id: "c", text: { en: "80 m/s", zh: "80 m/s" } },
+          { id: "d", text: { en: "0.2 m/s", zh: "0.2 m/s" } },
+        ],
+        answerId: "a",
+        explanation: { en: "J = Δp = m·Δv. 20 = 4·v → v = **5.0 m/s**.", zh: "J = Δp = m·Δv。20 = 4·v → v = **5.0 m/s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q089",
+        concept: { en: "Impulse from F-t Graph", zh: "由 F-t 图求冲量" },
+        prompt: {
+          en: "An F-t graph shows a rectangle from t = 0 to t = 4 s at F = 6 N, followed by F = 0. Total impulse?",
+          zh: "F-t 图在 t = 0 到 4 s 区间呈矩形,F = 6 N,之后 F = 0。总冲量?",
+        },
+        choices: [
+          { id: "a", text: { en: "4 N·s", zh: "4 N·s" } },
+          { id: "b", text: { en: "12 N·s", zh: "12 N·s" } },
+          { id: "c", text: { en: "24 N·s", zh: "24 N·s" } },
+          { id: "d", text: { en: "1.5 N·s", zh: "1.5 N·s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "J = area under F-t = 6·4 = **24 N·s**.", zh: "J = F-t 图下方面积 = 6·4 = **24 N·s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q090",
+        concept: { en: "Reversing Direction: Impulse", zh: "反向后的冲量" },
+        prompt: {
+          en: "A 0.5 kg ball hits a wall at +10 m/s and bounces back at −8 m/s. Magnitude of impulse from wall on ball?",
+          zh: "0.5 kg 球以 +10 m/s 撞墙,反弹 −8 m/s。墙对球的冲量大小?",
+        },
+        choices: [
+          { id: "a", text: { en: "1.0 N·s", zh: "1.0 N·s" } },
+          { id: "b", text: { en: "5.0 N·s", zh: "5.0 N·s" } },
+          { id: "c", text: { en: "9.0 N·s", zh: "9.0 N·s" } },
+          { id: "d", text: { en: "18 N·s", zh: "18 N·s" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Δp = m(v_f − v_i) = 0.5·(−8 − 10) = **−9 kg·m/s** → magnitude **9 N·s**. Change is bigger than if ball had just stopped.",
+          zh: "Δp = m(v_f − v_i) = 0.5·(−8 − 10) = **−9 kg·m/s** → 大小 **9 N·s**。反弹时动量变化大于仅停止的情况。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q091",
+        concept: { en: "Airbag Physics", zh: "气囊物理" },
+        prompt: {
+          en: "An airbag reduces injury in a crash because:",
+          zh: "碰撞中气囊减轻伤害的原因是:",
+        },
+        choices: [
+          { id: "a", text: { en: "It reduces the total change in momentum", zh: "它减小了总动量变化" } },
+          { id: "b", text: { en: "It lengthens the stopping time, decreasing the peak force", zh: "它延长制停时间,减小峰值力" } },
+          { id: "c", text: { en: "It absorbs all kinetic energy", zh: "它吸收全部动能" } },
+          { id: "d", text: { en: "It decreases the mass of the person", zh: "它减小人的质量" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Δp is fixed (body must go from v to 0). F_avg = Δp/Δt, so **larger Δt → smaller force**.",
+          zh: "Δp 固定(人必须从 v 减到 0)。F_avg = Δp/Δt,**Δt 越长 → 力越小**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q092",
+        concept: { en: "Conservation of Momentum", zh: "动量守恒" },
+        prompt: {
+          en: "For a collision between two carts on frictionless ice, total momentum of the system is conserved because:",
+          zh: "两辆小车在无摩擦冰面上碰撞,系统总动量守恒的原因是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Masses don't change", zh: "质量不变" } },
+          { id: "b", text: { en: "No external net force acts on the system", zh: "系统外部合力为零" } },
+          { id: "c", text: { en: "Energy is conserved", zh: "能量守恒" } },
+          { id: "d", text: { en: "The carts are identical", zh: "两车相同" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Momentum conservation requires **ΣF_ext = 0**. Internal forces (cart-on-cart) cancel by Newton's 3rd law.",
+          zh: "动量守恒要求**外部合力为零**。内力(车与车之间)由牛顿第三定律互相抵消。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q093",
+        concept: { en: "Recoil / Explosion", zh: "反冲 / 爆炸" },
+        prompt: {
+          en: "A 100 kg astronaut at rest in space throws a 2.0 kg wrench at 10 m/s. Astronaut's recoil speed?",
+          zh: "100 kg 宇航员在太空中静止,扔出一 2.0 kg 扳手,速度 10 m/s。宇航员反冲速率?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.05 m/s", zh: "0.05 m/s" } },
+          { id: "b", text: { en: "0.20 m/s", zh: "0.20 m/s" } },
+          { id: "c", text: { en: "2.0 m/s", zh: "2.0 m/s" } },
+          { id: "d", text: { en: "10 m/s", zh: "10 m/s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "0 = (2)(10) + (100)v → v = −20/100 = **−0.20 m/s** (opposite direction). Lighter object moves faster.",
+          zh: "0 = (2)(10) + (100)v → v = −20/100 = **−0.20 m/s**(反向)。轻者反向速率更大。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q094",
+        concept: { en: "Perfectly Inelastic Collision", zh: "完全非弹性碰撞" },
+        prompt: {
+          en: "A 2 kg cart at 6 m/s hits a stationary 4 kg cart and they stick together. Their common final speed?",
+          zh: "2 kg 小车以 6 m/s 撞上静止 4 kg 小车,粘在一起。共同末速率?",
+        },
+        choices: [
+          { id: "a", text: { en: "1.0 m/s", zh: "1.0 m/s" } },
+          { id: "b", text: { en: "2.0 m/s", zh: "2.0 m/s" } },
+          { id: "c", text: { en: "3.0 m/s", zh: "3.0 m/s" } },
+          { id: "d", text: { en: "6.0 m/s", zh: "6.0 m/s" } },
+        ],
+        answerId: "b",
+        explanation: { en: "p_i = p_f → 2·6 = 6·v → v = **2.0 m/s**.", zh: "p_i = p_f → 2·6 = 6·v → v = **2.0 m/s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q095",
+        concept: { en: "KE Lost in Inelastic Collision", zh: "非弹性碰撞动能损失" },
+        prompt: {
+          en: "In the previous problem (2 kg + 4 kg, perfectly inelastic), KE lost is:",
+          zh: "上题(2 kg + 4 kg,完全非弹性),损失的动能是?",
+        },
+        choices: [
+          { id: "a", text: { en: "0 J (KE is always conserved)", zh: "0 J(动能始终守恒)" } },
+          { id: "b", text: { en: "12 J", zh: "12 J" } },
+          { id: "c", text: { en: "24 J", zh: "24 J" } },
+          { id: "d", text: { en: "36 J", zh: "36 J" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "KE_i = ½·2·36 = 36 J. KE_f = ½·6·4 = 12 J. Lost = **24 J** (to heat, sound, deformation).",
+          zh: "KE_i = ½·2·36 = 36 J;KE_f = ½·6·4 = 12 J。损失 = **24 J**(热、声、形变)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q096",
+        concept: { en: "Elastic vs Inelastic", zh: "弹性 vs 非弹性" },
+        prompt: {
+          en: "In an **elastic** collision, which quantities are conserved?",
+          zh: "**弹性**碰撞中哪些量守恒?",
+        },
+        choices: [
+          { id: "a", text: { en: "Only momentum", zh: "仅动量" } },
+          { id: "b", text: { en: "Only kinetic energy", zh: "仅动能" } },
+          { id: "c", text: { en: "Both momentum and kinetic energy", zh: "动量与动能都守恒" } },
+          { id: "d", text: { en: "Only total energy (KE + PE)", zh: "仅总能量 (KE + PE)" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Elastic = **both p and KE conserved**. Momentum is always conserved if no external force; KE is conserved only in elastic collisions.",
+          zh: "弹性 = **动量与动能都守恒**。无外力则动量恒守;动能仅在弹性碰撞中守恒。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q097",
+        concept: { en: "Equal-Mass Elastic Collision", zh: "同质量弹性碰撞" },
+        prompt: {
+          en: "Two identical balls: ball 1 at v, ball 2 at rest. After elastic 1D collision:",
+          zh: "两相同球:球 1 速度 v,球 2 静止。一维弹性碰撞后:",
+        },
+        choices: [
+          { id: "a", text: { en: "Both move forward at v/2", zh: "两球同向以 v/2 运动" } },
+          { id: "b", text: { en: "Ball 1 stops; ball 2 moves at v", zh: "球 1 停下,球 2 以 v 运动" } },
+          { id: "c", text: { en: "Both continue at v", zh: "两球仍以 v 运动" } },
+          { id: "d", text: { en: "Ball 1 bounces back at v; ball 2 stays still", zh: "球 1 以 v 反弹,球 2 不动" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Equal-mass 1D elastic: they **exchange velocities**. Ball 1 stops, ball 2 gets v. Newton's cradle intuition.",
+          zh: "等质量一维弹性碰撞:**速度互换**。球 1 停下,球 2 以 v 运动。这就是牛顿摆的原理。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q098",
+        concept: { en: "Light Hits Heavy (Elastic)", zh: "轻撞重(弹性)" },
+        prompt: {
+          en: "A ping-pong ball elastically collides with a stationary bowling ball. The ping-pong ball:",
+          zh: "乒乓球弹性碰撞静止的保龄球。乒乓球:",
+        },
+        choices: [
+          { id: "a", text: { en: "Sticks to the bowling ball", zh: "粘到保龄球上" } },
+          { id: "b", text: { en: "Bounces back at nearly its original speed", zh: "以近乎原速率反弹" } },
+          { id: "c", text: { en: "Continues at nearly its original speed", zh: "以近乎原速率继续" } },
+          { id: "d", text: { en: "Stops", zh: "停下" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Light elastic onto heavy → light object **bounces back at nearly original speed**; heavy object hardly moves. (Like bouncing off a wall.)",
+          zh: "轻物弹性碰重物 → 轻物**以近乎原速反弹**;重物几乎不动。(如从墙上反弹。)",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q099",
+        concept: { en: "Heavy Hits Light (Elastic)", zh: "重撞轻(弹性)" },
+        prompt: {
+          en: "A bowling ball at v elastically hits a stationary ping-pong ball. After:",
+          zh: "保龄球以 v 弹性撞一静止乒乓球。碰后:",
+        },
+        choices: [
+          { id: "a", text: { en: "Bowling ball stops; ping-pong has v", zh: "保龄球停下;乒乓球 v" } },
+          { id: "b", text: { en: "Bowling ball continues at ≈ v; ping-pong flies off at ≈ 2v", zh: "保龄球仍以 ≈ v 前进;乒乓球以 ≈ 2v 飞出" } },
+          { id: "c", text: { en: "Both stop", zh: "两者停下" } },
+          { id: "d", text: { en: "Both go at v/2", zh: "两者以 v/2 运动" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Heavy elastic onto light → heavy barely slows, light flies off at up to **2v**. (Limit: big mass ≈ immovable, so light reverses from its frame gets 2v.)",
+          zh: "重物弹性碰轻物 → 重物几乎不减,轻物最高以 **2v** 飞出。(极限:重物近似不动,轻物从其参考系反弹得 2v。)",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q100",
+        concept: { en: "Inelastic Collision (not stuck)", zh: "非弹性(不粘)碰撞" },
+        prompt: {
+          en: "In a general inelastic (not perfectly inelastic) collision, which is conserved?",
+          zh: "一般非弹性(非完全非弹性)碰撞中,哪项守恒?",
+        },
+        choices: [
+          { id: "a", text: { en: "KE only", zh: "仅动能" } },
+          { id: "b", text: { en: "Momentum only", zh: "仅动量" } },
+          { id: "c", text: { en: "Both", zh: "均守恒" } },
+          { id: "d", text: { en: "Neither", zh: "均不守恒" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "All collisions conserve momentum (if no external force). Only elastic collisions also conserve KE.",
+          zh: "所有碰撞(无外力时)都保持动量守恒。仅弹性碰撞另外保持动能守恒。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q101",
+        concept: { en: "2D Collision: Components", zh: "二维碰撞:分量" },
+        prompt: {
+          en: "A 2 kg ball at +3 m/s east hits a 2 kg ball at +4 m/s north. They stick. Combined speed?",
+          zh: "一 2 kg 球以 +3 m/s 向东运动,撞另一 2 kg 球以 +4 m/s 向北运动。粘在一起。合体速率?",
+        },
+        choices: [
+          { id: "a", text: { en: "2.5 m/s", zh: "2.5 m/s" } },
+          { id: "b", text: { en: "3.5 m/s", zh: "3.5 m/s" } },
+          { id: "c", text: { en: "5.0 m/s", zh: "5.0 m/s" } },
+          { id: "d", text: { en: "7.0 m/s", zh: "7.0 m/s" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "p_x total = 6, p_y total = 8, |p| = 10 kg·m/s. After: |p| = (m_tot)·v = 4v = 10 → v = **2.5 m/s**.",
+          zh: "p_x 总 = 6,p_y 总 = 8,|p| = 10 kg·m/s。碰后 |p| = 4v = 10 → v = **2.5 m/s**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q102",
+        concept: { en: "Explosion from Rest", zh: "静止爆炸" },
+        prompt: {
+          en: "A 10 kg object at rest explodes into a 3 kg piece moving right at 20 m/s and a 7 kg piece. The 7 kg piece moves:",
+          zh: "10 kg 静止物体爆炸成两块:3 kg 以 20 m/s 向右运动,7 kg 另一块运动方向和速度为?",
+        },
+        choices: [
+          { id: "a", text: { en: "Right at 8.6 m/s", zh: "向右 8.6 m/s" } },
+          { id: "b", text: { en: "Left at 8.6 m/s", zh: "向左 8.6 m/s" } },
+          { id: "c", text: { en: "Right at 20 m/s", zh: "向右 20 m/s" } },
+          { id: "d", text: { en: "At rest", zh: "静止" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Initial p = 0. 0 = 3·20 + 7·v → v = −60/7 ≈ **−8.6 m/s** (left).",
+          zh: "初动量 p = 0。0 = 3·20 + 7·v → v = −60/7 ≈ **−8.6 m/s**(向左)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q103",
+        concept: { en: "Changing Direction Impulse", zh: "方向变化的冲量" },
+        prompt: {
+          en: "A 0.30 kg ball changes velocity from +6 m/s to −4 m/s. Magnitude of impulse?",
+          zh: "0.30 kg 球速度由 +6 m/s 变为 −4 m/s。冲量大小?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.60 N·s", zh: "0.60 N·s" } },
+          { id: "b", text: { en: "1.2 N·s", zh: "1.2 N·s" } },
+          { id: "c", text: { en: "3.0 N·s", zh: "3.0 N·s" } },
+          { id: "d", text: { en: "0.3 N·s", zh: "0.3 N·s" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Δv = −4 − 6 = −10 m/s. |J| = m·|Δv| = 0.3·10 = **3.0 N·s**. Direction change adds, not subtracts!",
+          zh: "Δv = −4 − 6 = −10 m/s。|J| = m·|Δv| = 0.3·10 = **3.0 N·s**。方向变化是相加,不是相减!",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q104",
+        concept: { en: "Momentum and External Force", zh: "动量与外力" },
+        prompt: {
+          en: "Which scenario does NOT conserve total momentum?",
+          zh: "下列哪种情形下总动量**不**守恒?",
+        },
+        choices: [
+          { id: "a", text: { en: "Collision between two ice-skaters on frictionless ice", zh: "无摩擦冰面上两滑冰者碰撞" } },
+          { id: "b", text: { en: "A ball falling in vacuum near Earth", zh: "地球附近真空中下落的球" } },
+          { id: "c", text: { en: "Explosion in deep space", zh: "深空中爆炸" } },
+          { id: "d", text: { en: "Two carts colliding on a level air track", zh: "水平气垫轨道上两车碰撞" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "A falling ball has an external force (gravity from Earth) → **momentum of ball alone changes**. (Total p of ball+Earth system IS conserved.) Other options have ΣF_ext ≈ 0 for the two-object system.",
+          zh: "下落球受到外力(地球重力)→ **球自己的动量会变**。(球+地球系统的总动量仍守恒。)其他选项中两物体系统的外力 ≈ 0。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q105",
+        concept: { en: "Average Force from Collision", zh: "碰撞中的平均力" },
+        prompt: {
+          en: "A 0.15 kg baseball changes velocity from −40 m/s to +50 m/s in 2.0 ms after being hit. Magnitude of average force on ball?",
+          zh: "0.15 kg 棒球被击中后,在 2.0 ms 内速度由 −40 m/s 变为 +50 m/s。球所受平均力的大小?",
+        },
+        choices: [
+          { id: "a", text: { en: "675 N", zh: "675 N" } },
+          { id: "b", text: { en: "6750 N", zh: "6750 N" } },
+          { id: "c", text: { en: "135 N", zh: "135 N" } },
+          { id: "d", text: { en: "1500 N", zh: "1500 N" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Δp = m·Δv = 0.15·(50 − (−40)) = 13.5 kg·m/s. F = Δp/Δt = 13.5/0.002 = **6750 N**.",
+          zh: "Δp = m·Δv = 0.15·(50 − (−40)) = 13.5 kg·m/s。F = Δp/Δt = 13.5/0.002 = **6750 N**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q106",
+        concept: { en: "Momentum of System", zh: "系统动量" },
+        prompt: {
+          en: "Two carts (2 kg at +3 m/s and 3 kg at −2 m/s) approach each other. Total system momentum?",
+          zh: "两小车:2 kg 以 +3 m/s、3 kg 以 −2 m/s 相向运动。系统总动量?",
+        },
+        choices: [
+          { id: "a", text: { en: "+12 kg·m/s", zh: "+12 kg·m/s" } },
+          { id: "b", text: { en: "+6 kg·m/s", zh: "+6 kg·m/s" } },
+          { id: "c", text: { en: "0", zh: "0" } },
+          { id: "d", text: { en: "−12 kg·m/s", zh: "−12 kg·m/s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "p_sys = 2·3 + 3·(−2) = 6 − 6 = **0**.", zh: "p_sys = 2·3 + 3·(−2) = 6 − 6 = **0**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q107",
+        concept: { en: "Ballistic Pendulum", zh: "弹道摆" },
+        prompt: {
+          en: "A 0.010 kg bullet at 400 m/s embeds in a 2.0 kg block at rest. Just-after speed of the block-bullet system?",
+          zh: "0.010 kg 子弹以 400 m/s 射入 2.0 kg 静止物块。紧接着 合成系统的速率?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.5 m/s", zh: "0.5 m/s" } },
+          { id: "b", text: { en: "1.0 m/s", zh: "1.0 m/s" } },
+          { id: "c", text: { en: "2.0 m/s", zh: "2.0 m/s" } },
+          { id: "d", text: { en: "4.0 m/s", zh: "4.0 m/s" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "0.010·400 = 2.010·v → v = 4/2.010 ≈ **2.0 m/s**. Perfectly inelastic.",
+          zh: "0.010·400 = 2.010·v → v = 4/2.010 ≈ **2.0 m/s**。完全非弹性。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q108",
+        concept: { en: "Crumple Zone", zh: "溃缩区" },
+        prompt: {
+          en: "Cars are designed with crumple zones. How do they protect occupants?",
+          zh: "汽车设有溃缩区。它们如何保护乘员?",
+        },
+        choices: [
+          { id: "a", text: { en: "They change the total momentum of the collision", zh: "它们改变碰撞总动量" } },
+          { id: "b", text: { en: "They extend the collision time, reducing average force", zh: "它们延长碰撞时间,减小平均力" } },
+          { id: "c", text: { en: "They absorb all the kinetic energy", zh: "它们吸收全部动能" } },
+          { id: "d", text: { en: "They reflect the force to another car", zh: "它们把力反射给另一车" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Same Δp, longer Δt → smaller F_avg on occupants. Same idea as airbags.",
+          zh: "相同 Δp,延长 Δt → 乘员受到的 F_avg 更小。与气囊同理。",
+        },
+      },
+
+      // ==================== UNIT 5 — Torque & Rotational Dynamics (28 Qs) ====================
+      {
+        id: "mp-phys1-mar1-q109",
+        concept: { en: "Radians vs Degrees", zh: "弧度与度数" },
+        prompt: {
+          en: "A wheel turns 180°. In radians, this is:",
+          zh: "轮子转 180°。换算为弧度?",
+        },
+        choices: [
+          { id: "a", text: { en: "π rad", zh: "π rad" } },
+          { id: "b", text: { en: "2π rad", zh: "2π rad" } },
+          { id: "c", text: { en: "π/2 rad", zh: "π/2 rad" } },
+          { id: "d", text: { en: "180 rad", zh: "180 rad" } },
+        ],
+        answerId: "a",
+        explanation: { en: "360° = 2π rad → 180° = **π rad ≈ 3.14 rad**. Always use radians in rotational equations.", zh: "360° = 2π rad → 180° = **π rad ≈ 3.14 rad**。转动公式中一律用弧度。" },
+      },
+      {
+        id: "mp-phys1-mar1-q110",
+        concept: { en: "Angular Velocity", zh: "角速度" },
+        prompt: {
+          en: "A wheel rotates through 30 rad in 5.0 s at constant ω. Its angular velocity?",
+          zh: "一轮以恒定角速度 ω 在 5.0 s 内转过 30 rad。角速度?",
+        },
+        choices: [
+          { id: "a", text: { en: "3 rad/s", zh: "3 rad/s" } },
+          { id: "b", text: { en: "6 rad/s", zh: "6 rad/s" } },
+          { id: "c", text: { en: "25 rad/s", zh: "25 rad/s" } },
+          { id: "d", text: { en: "150 rad/s", zh: "150 rad/s" } },
+        ],
+        answerId: "b",
+        explanation: { en: "ω = Δθ/Δt = 30/5 = **6 rad/s**.", zh: "ω = Δθ/Δt = 30/5 = **6 rad/s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q111",
+        concept: { en: "Rotational Kinematic Eq 1", zh: "转动运动学方程 1" },
+        prompt: {
+          en: "A wheel starts from rest, accelerates at α = 4.0 rad/s². After 3.0 s, ω is:",
+          zh: "一轮从静止出发,α = 4.0 rad/s²。3.0 s 后 ω?",
+        },
+        choices: [
+          { id: "a", text: { en: "4 rad/s", zh: "4 rad/s" } },
+          { id: "b", text: { en: "7 rad/s", zh: "7 rad/s" } },
+          { id: "c", text: { en: "12 rad/s", zh: "12 rad/s" } },
+          { id: "d", text: { en: "36 rad/s", zh: "36 rad/s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "ω = ω₀ + αt = 0 + 4·3 = **12 rad/s**. Linear analog: v = v₀ + at.", zh: "ω = ω₀ + αt = 0 + 4·3 = **12 rad/s**。线性类比:v = v₀ + at。" },
+      },
+      {
+        id: "mp-phys1-mar1-q112",
+        concept: { en: "Linear-Angular Relation (v = rω)", zh: "线速—角速 (v = rω)" },
+        prompt: {
+          en: "A merry-go-round of radius 3.0 m rotates at ω = 2.0 rad/s. A rider on the edge has tangential speed:",
+          zh: "半径 3.0 m 的旋转木马以 ω = 2.0 rad/s 旋转。边缘乘客的切向速率?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.67 m/s", zh: "0.67 m/s" } },
+          { id: "b", text: { en: "1.5 m/s", zh: "1.5 m/s" } },
+          { id: "c", text: { en: "5.0 m/s", zh: "5.0 m/s" } },
+          { id: "d", text: { en: "6.0 m/s", zh: "6.0 m/s" } },
+        ],
+        answerId: "d",
+        explanation: { en: "v = r·ω = 3·2 = **6 m/s**.", zh: "v = r·ω = 3·2 = **6 m/s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q113",
+        concept: { en: "Tangential vs Centripetal a", zh: "切向与向心加速度" },
+        prompt: {
+          en: "A disk with radius 0.50 m rotates at ω = 10 rad/s with α = 2 rad/s². At the rim, tangential acceleration and centripetal acceleration are:",
+          zh: "半径 0.50 m 的圆盘,ω = 10 rad/s,α = 2 rad/s²。边缘的切向加速度与向心加速度分别为?",
+        },
+        choices: [
+          { id: "a", text: { en: "a_t = 1, a_c = 50", zh: "a_t = 1,a_c = 50" } },
+          { id: "b", text: { en: "a_t = 1, a_c = 25", zh: "a_t = 1,a_c = 25" } },
+          { id: "c", text: { en: "a_t = 2, a_c = 50", zh: "a_t = 2,a_c = 50" } },
+          { id: "d", text: { en: "a_t = 5, a_c = 10", zh: "a_t = 5,a_c = 10" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "a_t = rα = 0.5·2 = **1 m/s²**. a_c = ω²·r = 100·0.5 = **50 m/s²**. Tangential speeds up rotation; centripetal keeps it curved.",
+          zh: "a_t = rα = 0.5·2 = **1 m/s²**。a_c = ω²·r = 100·0.5 = **50 m/s²**。切向使转动加快,向心维持转弯。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q114",
+        concept: { en: "Rotational Δθ", zh: "转动位移 Δθ" },
+        prompt: {
+          en: "A wheel from rest with α = 6 rad/s². Through how many radians does it turn in 4.0 s?",
+          zh: "一轮从静止,α = 6 rad/s²。4.0 s 内转过多少弧度?",
+        },
+        choices: [
+          { id: "a", text: { en: "24 rad", zh: "24 rad" } },
+          { id: "b", text: { en: "48 rad", zh: "48 rad" } },
+          { id: "c", text: { en: "96 rad", zh: "96 rad" } },
+          { id: "d", text: { en: "12 rad", zh: "12 rad" } },
+        ],
+        answerId: "b",
+        explanation: { en: "Δθ = ω₀t + ½αt² = 0 + ½·6·16 = **48 rad**.", zh: "Δθ = ω₀t + ½αt² = 0 + ½·6·16 = **48 rad**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q115",
+        concept: { en: "Torque Definition", zh: "力矩定义" },
+        prompt: {
+          en: "A 20 N force is applied perpendicular to the end of a 0.50 m lever arm. Torque about the pivot?",
+          zh: "20 N 力垂直施于 0.50 m 杆的末端。相对支点的力矩?",
+        },
+        choices: [
+          { id: "a", text: { en: "4 N·m", zh: "4 N·m" } },
+          { id: "b", text: { en: "10 N·m", zh: "10 N·m" } },
+          { id: "c", text: { en: "40 N·m", zh: "40 N·m" } },
+          { id: "d", text: { en: "20.5 N·m", zh: "20.5 N·m" } },
+        ],
+        answerId: "b",
+        explanation: { en: "τ = r·F·sin 90° = 0.5·20·1 = **10 N·m**.", zh: "τ = r·F·sin 90° = 0.5·20·1 = **10 N·m**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q116",
+        concept: { en: "Torque with Angle", zh: "带角度的力矩" },
+        prompt: {
+          en: "A 10 N force at 30° to a 0.40 m lever arm. Torque?",
+          zh: "10 N 力与 0.40 m 杆成 30° 方向施加。力矩?",
+        },
+        choices: [
+          { id: "a", text: { en: "2.0 N·m", zh: "2.0 N·m" } },
+          { id: "b", text: { en: "4.0 N·m", zh: "4.0 N·m" } },
+          { id: "c", text: { en: "3.5 N·m", zh: "3.5 N·m" } },
+          { id: "d", text: { en: "5.0 N·m", zh: "5.0 N·m" } },
+        ],
+        answerId: "a",
+        explanation: { en: "τ = r·F·sin θ = 0.4·10·sin 30° = 0.4·10·0.5 = **2.0 N·m**.", zh: "τ = r·F·sin θ = 0.4·10·sin 30° = 0.4·10·0.5 = **2.0 N·m**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q117",
+        concept: { en: "Maximum Torque on Door", zh: "门上的最大力矩" },
+        prompt: {
+          en: "Which action produces the greatest torque on a door about its hinges?",
+          zh: "下列哪种操作对门绕铰链产生最大力矩?",
+        },
+        choices: [
+          { id: "a", text: { en: "Push perpendicular to the door at the doorknob", zh: "垂直于门在把手处推" } },
+          { id: "b", text: { en: "Push perpendicular to the door near the hinge", zh: "垂直于门在铰链附近推" } },
+          { id: "c", text: { en: "Push the doorknob parallel to the door (toward the hinge)", zh: "在把手处沿门面推向铰链" } },
+          { id: "d", text: { en: "Pull on the hinge directly", zh: "直接拉铰链" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "τ = rF sin θ: maximize r (away from hinge) and sin θ (90°). Perpendicular push at the knob = **biggest torque**.",
+          zh: "τ = rF sin θ:最大化 r(远离铰链)与 sin θ(90°)。在把手处垂直推 = **力矩最大**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q118",
+        concept: { en: "Force Through Axis → No Torque", zh: "过轴力 → 无力矩" },
+        prompt: {
+          en: "A force applied at the pivot (or along the line through the pivot) produces torque of:",
+          zh: "在支点处(或沿过支点直线)施加力,产生的力矩为?",
+        },
+        choices: [
+          { id: "a", text: { en: "Maximum", zh: "最大" } },
+          { id: "b", text: { en: "Zero", zh: "零" } },
+          { id: "c", text: { en: "Equal to F·r", zh: "等于 F·r" } },
+          { id: "d", text: { en: "Negative", zh: "负值" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Lever arm r_⊥ = 0 (force line passes through axis) → **τ = 0**. Pushing a door at the hinge does nothing.",
+          zh: "力臂 r_⊥ = 0(力作用线过轴)→ **τ = 0**。在铰链处推门无效。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q119",
+        concept: { en: "Net Torque (Balanced)", zh: "净力矩(平衡)" },
+        prompt: {
+          en: "On a balanced seesaw, two children on opposite sides create equal-magnitude torques. Net torque on the seesaw?",
+          zh: "平衡的跷跷板,两侧儿童产生等大力矩。跷跷板上的净力矩?",
+        },
+        choices: [
+          { id: "a", text: { en: "Zero", zh: "零" } },
+          { id: "b", text: { en: "Twice one child's torque", zh: "一位儿童力矩的两倍" } },
+          { id: "c", text: { en: "Equal to the heavier child's torque", zh: "等于较重儿童的力矩" } },
+          { id: "d", text: { en: "Can't tell without weights", zh: "需知体重才能判断" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "The children produce **opposite-direction** torques (one CW, one CCW). Equal magnitudes → net = 0 → rotational equilibrium.",
+          zh: "两名儿童产生**方向相反**的力矩(一 CW、一 CCW)。大小相等 → 净 = 0 → 转动平衡。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q120",
+        concept: { en: "Moment of Inertia: Point Mass", zh: "转动惯量:点质量" },
+        prompt: {
+          en: "A 0.50 kg point mass rotates in a circle of radius 0.40 m about an axis through the center. Its moment of inertia?",
+          zh: "0.50 kg 点质量以半径 0.40 m 绕过中心的轴做圆周。转动惯量?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.020 kg·m²", zh: "0.020 kg·m²" } },
+          { id: "b", text: { en: "0.080 kg·m²", zh: "0.080 kg·m²" } },
+          { id: "c", text: { en: "0.20 kg·m²", zh: "0.20 kg·m²" } },
+          { id: "d", text: { en: "2.0 kg·m²", zh: "2.0 kg·m²" } },
+        ],
+        answerId: "b",
+        explanation: { en: "I = m·r² = 0.5·(0.4)² = 0.5·0.16 = **0.080 kg·m²**.", zh: "I = m·r² = 0.5·(0.4)² = 0.5·0.16 = **0.080 kg·m²**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q121",
+        concept: { en: "Moment of Inertia: Distribution", zh: "转动惯量:质量分布" },
+        prompt: {
+          en: "Two identical wheels have the same mass. Wheel A has mass concentrated near the rim; wheel B has mass uniformly distributed. Which has larger moment of inertia?",
+          zh: "两相同轮同质量。轮 A 质量集中在轮缘;轮 B 均匀分布。转动惯量更大的是?",
+        },
+        choices: [
+          { id: "a", text: { en: "Wheel A", zh: "轮 A" } },
+          { id: "b", text: { en: "Wheel B", zh: "轮 B" } },
+          { id: "c", text: { en: "Equal", zh: "相等" } },
+          { id: "d", text: { en: "Depends on radius", zh: "取决于半径" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "I = Σmr²: farther mass contributes **more** (r² factor). Rim-concentrated → larger I. (Hoop vs disk: I_hoop > I_disk.)",
+          zh: "I = Σmr²:远处质量贡献**更大**(r² 因子)。集中在轮缘 → I 更大。(环 vs 盘:I_环 > I_盘。)",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q122",
+        concept: { en: "I for Common Shapes", zh: "常见形状的 I" },
+        prompt: {
+          en: "Which has the smallest moment of inertia (about its symmetry axis) for the same mass and radius?",
+          zh: "相同质量和半径下,绕对称轴的 I 最小的是?",
+        },
+        choices: [
+          { id: "a", text: { en: "Hoop: I = mR²", zh: "圆环:I = mR²" } },
+          { id: "b", text: { en: "Solid disk: I = ½mR²", zh: "实心盘:I = ½mR²" } },
+          { id: "c", text: { en: "Solid sphere: I = ⅖mR²", zh: "实心球:I = ⅖mR²" } },
+          { id: "d", text: { en: "Hollow sphere: I = ⅔mR²", zh: "空心球:I = ⅔mR²" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Comparing coefficients: 1 > ⅔ > ½ > ⅖. **Solid sphere** (⅖) wins. Explains why solid spheres roll fastest down inclines.",
+          zh: "系数比较:1 > ⅔ > ½ > ⅖。**实心球**(⅖)最小。这也是实心球滚得最快的原因。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q123",
+        concept: { en: "Parallel Axis Theorem", zh: "平行轴定理" },
+        prompt: {
+          en: "A 2.0 kg thin rod, length 1.0 m, has I_cm = 1/12·mL² about its center. About its end, I is:",
+          zh: "2.0 kg 细杆,长 1.0 m,绕中心的 I_cm = 1/12·mL²。绕一端的 I 为?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.17 kg·m²", zh: "0.17 kg·m²" } },
+          { id: "b", text: { en: "0.67 kg·m²", zh: "0.67 kg·m²" } },
+          { id: "c", text: { en: "1.0 kg·m²", zh: "1.0 kg·m²" } },
+          { id: "d", text: { en: "2.0 kg·m²", zh: "2.0 kg·m²" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "I = I_cm + m·d². d = L/2 = 0.5. I = (1/12)(2)(1) + 2·(0.5)² = 0.167 + 0.5 = **0.67 kg·m²** = ⅓mL².",
+          zh: "I = I_cm + m·d²。d = L/2 = 0.5。I = (1/12)(2)(1) + 2·(0.5)² = 0.167 + 0.5 = **0.67 kg·m²** = ⅓mL²。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q124",
+        concept: { en: "Rotational Newton's Second Law", zh: "转动牛顿第二定律" },
+        prompt: {
+          en: "A net torque of 6.0 N·m acts on an object with I = 2.0 kg·m². Angular acceleration?",
+          zh: "净力矩 6.0 N·m 作用于 I = 2.0 kg·m² 的物体。角加速度?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.33 rad/s²", zh: "0.33 rad/s²" } },
+          { id: "b", text: { en: "3.0 rad/s²", zh: "3.0 rad/s²" } },
+          { id: "c", text: { en: "8.0 rad/s²", zh: "8.0 rad/s²" } },
+          { id: "d", text: { en: "12 rad/s²", zh: "12 rad/s²" } },
+        ],
+        answerId: "b",
+        explanation: { en: "Στ = Iα → α = τ/I = 6/2 = **3.0 rad/s²**.", zh: "Στ = Iα → α = τ/I = 6/2 = **3.0 rad/s²**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q125",
+        concept: { en: "Tangential Force from Torque", zh: "由力矩得切向力" },
+        prompt: {
+          en: "A disk (I = 0.10 kg·m², radius 0.20 m) has α = 5 rad/s². Tangential force on rim?",
+          zh: "圆盘(I = 0.10 kg·m²,半径 0.20 m),α = 5 rad/s²。轮缘切向力?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.1 N", zh: "0.1 N" } },
+          { id: "b", text: { en: "0.5 N", zh: "0.5 N" } },
+          { id: "c", text: { en: "2.5 N", zh: "2.5 N" } },
+          { id: "d", text: { en: "25 N", zh: "25 N" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "τ = Iα = 0.1·5 = 0.5 N·m. F = τ/r = 0.5/0.2 = **2.5 N**.",
+          zh: "τ = Iα = 0.1·5 = 0.5 N·m。F = τ/r = 0.5/0.2 = **2.5 N**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q126",
+        concept: { en: "Pulley with Mass", zh: "有质量的滑轮" },
+        prompt: {
+          en: "A mass m hangs from a rope wound on a pulley (I, radius R). Compared to a massless pulley, the mass will:",
+          zh: "绳绕在有质量滑轮(I,半径 R)上,挂质量 m。相比无质量滑轮,质量下落时:",
+        },
+        choices: [
+          { id: "a", text: { en: "Accelerate faster", zh: "加速更快" } },
+          { id: "b", text: { en: "Accelerate slower", zh: "加速更慢" } },
+          { id: "c", text: { en: "Have the same acceleration", zh: "加速度相同" } },
+          { id: "d", text: { en: "Not accelerate at all", zh: "不加速" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Some of the gravitational energy goes into spinning the pulley (rotational KE), so the mass **accelerates more slowly**. a = mg/(m + I/R²).",
+          zh: "部分重力势能转为滑轮的转动动能,质量**加速变慢**。a = mg/(m + I/R²)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q127",
+        concept: { en: "Static Equilibrium: Seesaw", zh: "静平衡:跷跷板" },
+        prompt: {
+          en: "A 30 kg child sits 2.0 m from the pivot. How far from the pivot should a 20 kg child sit on the opposite side for balance?",
+          zh: "30 kg 儿童坐在离支点 2.0 m 处。20 kg 儿童应坐在对侧离支点多远处以平衡?",
+        },
+        choices: [
+          { id: "a", text: { en: "1.3 m", zh: "1.3 m" } },
+          { id: "b", text: { en: "2.0 m", zh: "2.0 m" } },
+          { id: "c", text: { en: "3.0 m", zh: "3.0 m" } },
+          { id: "d", text: { en: "4.0 m", zh: "4.0 m" } },
+        ],
+        answerId: "c",
+        explanation: { en: "m₁·r₁ = m₂·r₂ → 30·2 = 20·r₂ → r₂ = **3.0 m**.", zh: "m₁·r₁ = m₂·r₂ → 30·2 = 20·r₂ → r₂ = **3.0 m**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q128",
+        concept: { en: "Meter Stick Balance", zh: "米尺平衡" },
+        prompt: {
+          en: "A uniform meter stick (mass 0.30 kg) is balanced at its 30 cm mark when a weight is hung at the 0 cm end. What is the weight? (Stick's CM is at 50 cm.) (g = 10)",
+          zh: "质量 0.30 kg 的均匀米尺在 30 cm 刻度处保持平衡,0 cm 端挂一重物。重物的重量?(尺心在 50 cm 处,g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "0.6 N", zh: "0.6 N" } },
+          { id: "b", text: { en: "1.0 N", zh: "1.0 N" } },
+          { id: "c", text: { en: "2.0 N", zh: "2.0 N" } },
+          { id: "d", text: { en: "3.0 N", zh: "3.0 N" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Torques about pivot (30 cm): W·0.30 = mg·0.20. W = 0.3·10·0.2 / 0.3 = **2.0 N**.",
+          zh: "对支点(30 cm)取矩:W·0.30 = mg·0.20。W = 0.3·10·0.2 / 0.3 = **2.0 N**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q129",
+        concept: { en: "Equilibrium: Two Conditions", zh: "平衡的两个条件" },
+        prompt: {
+          en: "For an extended object to be in static equilibrium, which conditions must hold?",
+          zh: "刚体处于静平衡的条件是?",
+        },
+        choices: [
+          { id: "a", text: { en: "ΣF = 0 only", zh: "仅 ΣF = 0" } },
+          { id: "b", text: { en: "Στ = 0 only", zh: "仅 Στ = 0" } },
+          { id: "c", text: { en: "Both ΣF = 0 and Στ = 0", zh: "ΣF = 0 且 Στ = 0" } },
+          { id: "d", text: { en: "Mass must be uniformly distributed", zh: "质量必须均匀分布" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Static equilibrium requires **both translational (ΣF = 0) and rotational (Στ = 0) equilibrium**. Otherwise object could translate or spin.",
+          zh: "静平衡需**平动平衡(ΣF = 0)与转动平衡(Στ = 0)同时满足**,否则会平动或转动。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q130",
+        concept: { en: "Center of Mass in Equilibrium", zh: "平衡中的质心" },
+        prompt: {
+          en: "A uniform 2.0 m long beam (mass 10 kg) rests on two supports: one at each end. Force on each support? (g = 10)",
+          zh: "均匀梁长 2.0 m,质量 10 kg,两端各有一支座。每个支座上的力?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "25 N each", zh: "各 25 N" } },
+          { id: "b", text: { en: "50 N each", zh: "各 50 N" } },
+          { id: "c", text: { en: "75 N each", zh: "各 75 N" } },
+          { id: "d", text: { en: "100 N each", zh: "各 100 N" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "By symmetry (CM at middle), weight = mg = 100 N splits equally → **50 N on each**.",
+          zh: "对称性(CM 在中点),重力 mg = 100 N 平分 → **每支座 50 N**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q131",
+        concept: { en: "Torque Direction (Sign)", zh: "力矩方向(符号)" },
+        prompt: {
+          en: "Using the convention CCW = positive, a force that tends to rotate a body **clockwise** produces:",
+          zh: "约定 CCW 为正时,使物体趋于**顺时针**旋转的力产生:",
+        },
+        choices: [
+          { id: "a", text: { en: "Positive torque", zh: "正力矩" } },
+          { id: "b", text: { en: "Negative torque", zh: "负力矩" } },
+          { id: "c", text: { en: "Zero torque", zh: "零力矩" } },
+          { id: "d", text: { en: "Undefined", zh: "未定义" } },
+        ],
+        answerId: "b",
+        explanation: { en: "CW → negative. CCW → positive. Add signed torques to find net.", zh: "CW → 负;CCW → 正。加上带符号的力矩求净矩。" },
+      },
+      {
+        id: "mp-phys1-mar1-q132",
+        concept: { en: "Atwood with Pulley Mass", zh: "有质量滑轮的阿特伍德机" },
+        prompt: {
+          en: "Compared to an ideal (massless) pulley, the tension in each side of an Atwood machine with a massive pulley is:",
+          zh: "相比理想(无质量)滑轮,有质量滑轮的阿特伍德机两侧张力:",
+        },
+        choices: [
+          { id: "a", text: { en: "Equal on both sides", zh: "两侧相等" } },
+          { id: "b", text: { en: "Unequal (the side accelerating down has smaller T)", zh: "不相等(向下加速侧 T 更小)" } },
+          { id: "c", text: { en: "Zero", zh: "零" } },
+          { id: "d", text: { en: "The same as with a massless pulley", zh: "与无质量滑轮相同" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "A massive pulley requires a net torque to angularly accelerate → tensions on the two sides **must differ**. T_up side > T_down side. With a massless pulley, tensions are equal everywhere.",
+          zh: "有质量滑轮需净力矩才能角加速度 → 两侧张力**不相等**。上升侧张力 > 下降侧张力。无质量滑轮则处处相等。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q133",
+        concept: { en: "Torque Units", zh: "力矩单位" },
+        prompt: {
+          en: "The SI unit of torque is:",
+          zh: "力矩的 SI 单位是?",
+        },
+        choices: [
+          { id: "a", text: { en: "Joule (J)", zh: "焦耳 (J)" } },
+          { id: "b", text: { en: "Newton·meter (N·m)", zh: "牛·米 (N·m)" } },
+          { id: "c", text: { en: "Newton·second (N·s)", zh: "牛·秒 (N·s)" } },
+          { id: "d", text: { en: "kg·m/s²", zh: "kg·m/s²" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "τ = r·F → units of N·m. Dimensionally same as Joule, but torque is **not** energy — convention keeps them separate.",
+          zh: "τ = r·F → 单位 N·m。虽与焦耳同维,但力矩**不是**能量——约定上区分书写。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q134",
+        concept: { en: "Constant ω", zh: "ω 恒定" },
+        prompt: {
+          en: "A wheel rotates at constant angular velocity. Net torque?",
+          zh: "一轮以恒定角速度旋转。净力矩?",
+        },
+        choices: [
+          { id: "a", text: { en: "Maximum", zh: "最大" } },
+          { id: "b", text: { en: "Equal to I·ω", zh: "等于 I·ω" } },
+          { id: "c", text: { en: "Zero", zh: "零" } },
+          { id: "d", text: { en: "Positive", zh: "正的" } },
+        ],
+        answerId: "c",
+        explanation: { en: "Constant ω → α = 0 → **Στ = Iα = 0**. Rotational analog of constant-v → ΣF = 0.", zh: "ω 恒定 → α = 0 → **Στ = Iα = 0**。与 v 恒定 → ΣF = 0 对应。" },
+      },
+      {
+        id: "mp-phys1-mar1-q135",
+        concept: { en: "Linear-Angular: Same a vs Same α?", zh: "线-角:相同 a vs 相同 α?" },
+        prompt: {
+          en: "A wheel rolls without slipping. Two points: one at the rim (r = R), one at half-radius (r = R/2). They have the same:",
+          zh: "轮子无滑滚动。边缘点(r = R)与半径中点(r = R/2)相同的是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Linear speed", zh: "线速度" } },
+          { id: "b", text: { en: "Angular velocity", zh: "角速度" } },
+          { id: "c", text: { en: "Centripetal acceleration", zh: "向心加速度" } },
+          { id: "d", text: { en: "Tangential acceleration", zh: "切向加速度" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "All points on a rigid body share the same ω and α. But linear quantities (v = rω, a_c = ω²r) **scale with r**.",
+          zh: "刚体上所有点 ω 与 α 都相同。但线量(v = rω,a_c = ω²r)**随 r 变化**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q136",
+        concept: { en: "Doorknob Placement", zh: "门把手位置" },
+        prompt: {
+          en: "Why are doorknobs placed at the **edge of the door**, far from the hinges?",
+          zh: "门把手为什么放在门的**边缘**,远离铰链?",
+        },
+        choices: [
+          { id: "a", text: { en: "Aesthetics", zh: "美观" } },
+          { id: "b", text: { en: "To maximize the lever arm, so less force is needed for the same torque", zh: "最大化力臂,用较小的力即可产生相同的力矩" } },
+          { id: "c", text: { en: "To minimize torque", zh: "以最小化力矩" } },
+          { id: "d", text: { en: "To increase friction", zh: "以增加摩擦" } },
+        ],
+        answerId: "b",
+        explanation: { en: "τ = r·F·sin θ. Big r → small F for the same τ. Easier to push open a door.", zh: "τ = r·F·sin θ。r 大 → 相同 τ 所需 F 小。推门更省力。" },
+      },
+
+      // ==================== UNIT 6 — Energy & Momentum of Rotating Systems (24 Qs) ====================
+      {
+        id: "mp-phys1-mar1-q137",
+        concept: { en: "Rotational KE", zh: "转动动能" },
+        prompt: {
+          en: "A disk with I = 0.40 kg·m² spins at ω = 10 rad/s. Its rotational kinetic energy?",
+          zh: "I = 0.40 kg·m² 的圆盘以 ω = 10 rad/s 旋转。转动动能?",
+        },
+        choices: [
+          { id: "a", text: { en: "2 J", zh: "2 J" } },
+          { id: "b", text: { en: "4 J", zh: "4 J" } },
+          { id: "c", text: { en: "20 J", zh: "20 J" } },
+          { id: "d", text: { en: "40 J", zh: "40 J" } },
+        ],
+        answerId: "c",
+        explanation: { en: "KE_rot = ½·I·ω² = ½·0.4·100 = **20 J**.", zh: "KE_rot = ½·I·ω² = ½·0.4·100 = **20 J**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q138",
+        concept: { en: "Rolling without Slipping", zh: "无滑滚动" },
+        prompt: {
+          en: "A ball rolls without slipping on a surface. Which relation must hold?",
+          zh: "球在表面上无滑滚动。哪个关系必然成立?",
+        },
+        choices: [
+          { id: "a", text: { en: "v = rω", zh: "v = rω" } },
+          { id: "b", text: { en: "v = 2rω", zh: "v = 2rω" } },
+          { id: "c", text: { en: "v = ω/r", zh: "v = ω/r" } },
+          { id: "d", text: { en: "v = r·ω²", zh: "v = r·ω²" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Rolling without slipping: CM linear speed = tangential speed at rim → **v = rω**. Also a = rα for angular acceleration.",
+          zh: "无滑滚动:质心线速度 = 轮缘切向速度 → **v = rω**。对加速度同理,a = rα。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q139",
+        concept: { en: "Total KE of Rolling Object", zh: "滚动物体的总动能" },
+        prompt: {
+          en: "A rolling object's total KE equals:",
+          zh: "滚动物体的总动能为:",
+        },
+        choices: [
+          { id: "a", text: { en: "½mv² only", zh: "仅 ½mv²" } },
+          { id: "b", text: { en: "½Iω² only", zh: "仅 ½Iω²" } },
+          { id: "c", text: { en: "½mv² + ½Iω²", zh: "½mv² + ½Iω²" } },
+          { id: "d", text: { en: "mv² + Iω²", zh: "mv² + Iω²" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Rolling splits KE into **translational (CM) + rotational (about CM)**. Both are real.",
+          zh: "滚动动能 = **平动(质心)+ 转动(绕质心)**。两部分均为真实能量。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q140",
+        concept: { en: "Race Down Incline: Winner", zh: "斜面比赛:冠军" },
+        prompt: {
+          en: "Four objects of equal mass and radius roll from rest down an incline: hoop, solid disk, solid sphere, hollow sphere. Winner (fastest at bottom)?",
+          zh: "同质量同半径的四物体从斜面静止滚下:圆环、实心盘、实心球、空心球。底端最快的(冠军)?",
+        },
+        choices: [
+          { id: "a", text: { en: "Hoop", zh: "圆环" } },
+          { id: "b", text: { en: "Solid disk", zh: "实心盘" } },
+          { id: "c", text: { en: "Solid sphere", zh: "实心球" } },
+          { id: "d", text: { en: "All tie", zh: "并列" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "mgh = ½mv² + ½Iω² with ω = v/r → **smaller I/(mr²) → higher v**. Coefficients: sphere ⅖ < disk ½ < hollow sphere ⅔ < hoop 1. Solid sphere wins.",
+          zh: "mgh = ½mv² + ½Iω²,ω = v/r → **I/(mr²) 越小,v 越大**。系数:球 ⅖ < 盘 ½ < 空心球 ⅔ < 环 1。实心球冠军。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q141",
+        concept: { en: "Mass and Radius Don't Matter in Race", zh: "比赛中质量与半径无关" },
+        prompt: {
+          en: "Two solid spheres with different masses and radii roll from rest down the same incline. Which reaches the bottom first?",
+          zh: "两实心球质量和半径不同,从同一斜面静止滚下。哪个先到底?",
+        },
+        choices: [
+          { id: "a", text: { en: "The heavier one", zh: "较重者" } },
+          { id: "b", text: { en: "The lighter one", zh: "较轻者" } },
+          { id: "c", text: { en: "The larger radius one", zh: "半径较大者" } },
+          { id: "d", text: { en: "They tie", zh: "并列" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "v = √(10gh/7) for solid sphere — **no m or R**. Both cancel. Shape alone determines the speed.",
+          zh: "实心球 v = √(10gh/7)——**不含 m 或 R**。均被约去。只有形状决定速率。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q142",
+        concept: { en: "Sliding vs Rolling", zh: "滑动 vs 滚动" },
+        prompt: {
+          en: "A block and a solid sphere of equal mass are released from rest at the top of an incline. The block slides without friction; the sphere rolls without slipping. Which reaches the bottom first?",
+          zh: "同质量的物块与实心球从斜面顶部静止释放。物块无摩擦滑下;球无滑滚下。哪个先到底?",
+        },
+        choices: [
+          { id: "a", text: { en: "The block", zh: "物块" } },
+          { id: "b", text: { en: "The sphere", zh: "球" } },
+          { id: "c", text: { en: "They tie", zh: "并列" } },
+          { id: "d", text: { en: "Depends on height", zh: "取决于高度" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Sliding block: mgh = ½mv² → v = √(2gh). Rolling sphere: mgh = ½mv² + ½Iω² → v = √(10gh/7) < √(2gh). **Block wins** — no rotational \"tax.\"",
+          zh: "滑动物块:mgh = ½mv² → v = √(2gh)。滚动球:mgh = ½mv² + ½Iω² → v = √(10gh/7) < √(2gh)。**物块胜出**——没有转动「税」。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q143",
+        concept: { en: "Static Friction in Rolling", zh: "滚动中的静摩擦" },
+        prompt: {
+          en: "A ball rolls without slipping down an incline. The static friction force that causes it to spin does:",
+          zh: "球沿斜面无滑滚下。使其转动的静摩擦力做:",
+        },
+        choices: [
+          { id: "a", text: { en: "Positive work", zh: "正功" } },
+          { id: "b", text: { en: "Negative work", zh: "负功" } },
+          { id: "c", text: { en: "Zero work", zh: "零功" } },
+          { id: "d", text: { en: "Equal to gravity's work", zh: "与重力做功相等" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "At the contact point, the surface is **instantaneously at rest**. Static friction acts there but displacement = 0 → **zero work**. Mechanical energy conserved even with friction.",
+          zh: "接触点**瞬时静止**。静摩擦力在该点作用但位移为零 → **做零功**。即使有摩擦,机械能仍守恒。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q144",
+        concept: { en: "Angular Momentum Formula", zh: "角动量公式" },
+        prompt: {
+          en: "A disk (I = 0.50 kg·m²) rotates at ω = 8.0 rad/s. Angular momentum?",
+          zh: "圆盘(I = 0.50 kg·m²)以 ω = 8.0 rad/s 转动。角动量?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.063 kg·m²/s", zh: "0.063 kg·m²/s" } },
+          { id: "b", text: { en: "4.0 kg·m²/s", zh: "4.0 kg·m²/s" } },
+          { id: "c", text: { en: "16 kg·m²/s", zh: "16 kg·m²/s" } },
+          { id: "d", text: { en: "64 kg·m²/s", zh: "64 kg·m²/s" } },
+        ],
+        answerId: "b",
+        explanation: { en: "L = I·ω = 0.5·8 = **4.0 kg·m²/s**.", zh: "L = I·ω = 0.5·8 = **4.0 kg·m²/s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q145",
+        concept: { en: "Angular Momentum Units", zh: "角动量单位" },
+        prompt: {
+          en: "SI units of angular momentum are:",
+          zh: "角动量的 SI 单位是?",
+        },
+        choices: [
+          { id: "a", text: { en: "kg·m/s", zh: "kg·m/s" } },
+          { id: "b", text: { en: "kg·m²/s", zh: "kg·m²/s" } },
+          { id: "c", text: { en: "N·s", zh: "N·s" } },
+          { id: "d", text: { en: "J·s", zh: "J·s" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "L = Iω has units (kg·m²)(rad/s) = **kg·m²/s**. (Also equivalent to J·s, but kg·m²/s is standard.)",
+          zh: "L = Iω 的单位 (kg·m²)(rad/s) = **kg·m²/s**。(等价于 J·s,但 kg·m²/s 更常用。)",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q146",
+        concept: { en: "Angular Momentum Conservation Condition", zh: "角动量守恒条件" },
+        prompt: {
+          en: "Angular momentum of a system is conserved when:",
+          zh: "系统角动量守恒的条件是:",
+        },
+        choices: [
+          { id: "a", text: { en: "Net external force is zero", zh: "外部合力为零" } },
+          { id: "b", text: { en: "Net external torque is zero", zh: "外部合力矩为零" } },
+          { id: "c", text: { en: "Kinetic energy is conserved", zh: "动能守恒" } },
+          { id: "d", text: { en: "The system is in translational equilibrium", zh: "系统处于平动平衡" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "dL/dt = τ_ext. Zero net external **torque** → L conserved. Analog of F and p.",
+          zh: "dL/dt = τ_ext。外部净**力矩**为零 → L 守恒。与 F、p 类比。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q147",
+        concept: { en: "Figure Skater Pulls Arms In", zh: "花样滑冰选手收臂" },
+        prompt: {
+          en: "A skater spinning at ω₀ pulls in her arms, reducing I to ⅓·I₀. New ω?",
+          zh: "以 ω₀ 旋转的选手收回手臂,I 减为 ⅓·I₀。新的 ω?",
+        },
+        choices: [
+          { id: "a", text: { en: "ω₀/3", zh: "ω₀/3" } },
+          { id: "b", text: { en: "ω₀", zh: "ω₀" } },
+          { id: "c", text: { en: "3·ω₀", zh: "3·ω₀" } },
+          { id: "d", text: { en: "9·ω₀", zh: "9·ω₀" } },
+        ],
+        answerId: "c",
+        explanation: { en: "I₀·ω₀ = (⅓·I₀)·ω → ω = **3·ω₀**. Smaller I → faster spin.", zh: "I₀·ω₀ = (⅓·I₀)·ω → ω = **3·ω₀**。I 变小 → 转得更快。" },
+      },
+      {
+        id: "mp-phys1-mar1-q148",
+        concept: { en: "KE Change When I Decreases", zh: "I 减小时的 KE 变化" },
+        prompt: {
+          en: "In the previous problem, compared to ω₀ and I₀, the skater's rotational KE:",
+          zh: "上题中,选手的转动动能相比初始:",
+        },
+        choices: [
+          { id: "a", text: { en: "Stays the same (L is conserved)", zh: "不变(L 守恒)" } },
+          { id: "b", text: { en: "Decreases to ⅓ of original", zh: "减为原来的 ⅓" } },
+          { id: "c", text: { en: "Increases to 3× original", zh: "增为原来的 3 倍" } },
+          { id: "d", text: { en: "Increases to 9× original", zh: "增为原来的 9 倍" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "KE = L²/(2I). L constant, I → I/3 → **KE triples**. Extra energy comes from skater's muscles doing work pulling arms in against centrifugal tendency.",
+          zh: "KE = L²/(2I)。L 不变,I → I/3 → **KE 变 3 倍**。多余能量来自肌肉对抗「离心趋势」收臂做功。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q149",
+        concept: { en: "Diver Tucking", zh: "跳水抱团" },
+        prompt: {
+          en: "A diver in mid-air tucks into a ball. Compared to her extended position, her:",
+          zh: "跳水运动员空中抱团。相比伸展姿势:",
+        },
+        choices: [
+          { id: "a", text: { en: "Angular momentum increases", zh: "角动量增加" } },
+          { id: "b", text: { en: "Angular momentum stays the same, but spin rate increases", zh: "角动量不变,转速增加" } },
+          { id: "c", text: { en: "Both increase", zh: "均增加" } },
+          { id: "d", text: { en: "Both decrease", zh: "均减少" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "In mid-air gravity acts on CM → no torque about CM → L conserved. Tucking reduces I → **ω increases**.",
+          zh: "空中重力作用于质心 → 对质心无力矩 → L 守恒。抱团减小 I → **ω 增加**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q150",
+        concept: { en: "Person Stepping onto Merry-go-round", zh: "人走上旋转木马" },
+        prompt: {
+          en: "A 50 kg person steps onto the edge of a rotating merry-go-round (I = 200 kg·m², ω = 2.0 rad/s). If radius = 2.0 m, the new ω after the step is approximately:",
+          zh: "50 kg 的人走到旋转木马边缘(I = 200 kg·m²,ω = 2.0 rad/s)。若半径 = 2.0 m,人跨上后新的 ω 约为?",
+        },
+        choices: [
+          { id: "a", text: { en: "1.0 rad/s", zh: "1.0 rad/s" } },
+          { id: "b", text: { en: "2.0 rad/s", zh: "2.0 rad/s" } },
+          { id: "c", text: { en: "4.0 rad/s", zh: "4.0 rad/s" } },
+          { id: "d", text: { en: "5.0 rad/s", zh: "5.0 rad/s" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Person's I = mr² = 50·4 = 200 kg·m². New total I = 400. L conserved: 200·2 = 400·ω → ω = **1.0 rad/s** (half).",
+          zh: "人的 I = mr² = 50·4 = 200 kg·m²。新总 I = 400。L 守恒:200·2 = 400·ω → ω = **1.0 rad/s**(变一半)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q151",
+        concept: { en: "Walking Inward on Rotating Platform", zh: "在旋转平台上向内走" },
+        prompt: {
+          en: "A person walks from the edge toward the center of a rotating turntable (frictionless bearing). The turntable's angular speed:",
+          zh: "某人在旋转转盘上(轴承无摩擦)由边缘走向中心。转盘角速度:",
+        },
+        choices: [
+          { id: "a", text: { en: "Increases", zh: "增加" } },
+          { id: "b", text: { en: "Decreases", zh: "减小" } },
+          { id: "c", text: { en: "Stays the same", zh: "不变" } },
+          { id: "d", text: { en: "Goes to zero", zh: "降为零" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Person moves toward axis → his contribution to I drops → total I decreases → **ω increases** (L conserved).",
+          zh: "人靠近轴 → 对 I 贡献减小 → 总 I 减小 → **ω 增加**(L 守恒)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q152",
+        concept: { en: "Neutron Star Formation", zh: "中子星形成" },
+        prompt: {
+          en: "A massive star collapses into a neutron star. Compared to the star, the neutron star's angular speed is:",
+          zh: "大质量恒星塌缩为中子星。中子星相对原恒星的角速度?",
+        },
+        choices: [
+          { id: "a", text: { en: "Much lower", zh: "小得多" } },
+          { id: "b", text: { en: "Much higher", zh: "大得多" } },
+          { id: "c", text: { en: "Zero", zh: "零" } },
+          { id: "d", text: { en: "The same", zh: "相同" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Radius shrinks drastically → I plummets (I ~ mR²) → L conserved → **ω skyrockets**. Pulsars spin at thousands of rev/s.",
+          zh: "半径剧减 → I 大幅下降(I ~ mR²)→ L 守恒 → **ω 急速增加**。脉冲星每秒自转上千圈。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q153",
+        concept: { en: "Angular Impulse", zh: "角冲量" },
+        prompt: {
+          en: "A constant torque of 5.0 N·m acts on a wheel for 4.0 s. Change in angular momentum?",
+          zh: "恒力矩 5.0 N·m 作用于一轮 4.0 s。角动量变化?",
+        },
+        choices: [
+          { id: "a", text: { en: "1.25 kg·m²/s", zh: "1.25 kg·m²/s" } },
+          { id: "b", text: { en: "9 kg·m²/s", zh: "9 kg·m²/s" } },
+          { id: "c", text: { en: "20 kg·m²/s", zh: "20 kg·m²/s" } },
+          { id: "d", text: { en: "0.8 kg·m²/s", zh: "0.8 kg·m²/s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "ΔL = τ·Δt = 5·4 = **20 kg·m²/s**. Angular analog of Δp = F·Δt.", zh: "ΔL = τ·Δt = 5·4 = **20 kg·m²/s**。对应 Δp = F·Δt。" },
+      },
+      {
+        id: "mp-phys1-mar1-q154",
+        concept: { en: "Point Particle Angular Momentum", zh: "点粒子角动量" },
+        prompt: {
+          en: "A 0.20 kg particle moves at 3.0 m/s along a straight line that passes 2.0 m from a reference point. Magnitude of angular momentum about that point?",
+          zh: "0.20 kg 粒子以 3.0 m/s 沿直线运动,直线距某参考点 2.0 m。相对该点的角动量大小?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.6 kg·m²/s", zh: "0.6 kg·m²/s" } },
+          { id: "b", text: { en: "1.2 kg·m²/s", zh: "1.2 kg·m²/s" } },
+          { id: "c", text: { en: "3.0 kg·m²/s", zh: "3.0 kg·m²/s" } },
+          { id: "d", text: { en: "0 (straight line)", zh: "0(直线)" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "L = m·v·d_⊥ = 0.2·3·2 = **1.2 kg·m²/s**. Even a particle moving in a straight line has angular momentum about any point NOT on that line.",
+          zh: "L = m·v·d_⊥ = 0.2·3·2 = **1.2 kg·m²/s**。即使沿直线运动的粒子,相对线外任一点也有角动量。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q155",
+        concept: { en: "Rolling KE Split", zh: "滚动动能分配" },
+        prompt: {
+          en: "For a solid sphere rolling without slipping, what fraction of total KE is translational?",
+          zh: "实心球无滑滚动时,总动能中平动动能所占比例?",
+        },
+        choices: [
+          { id: "a", text: { en: "2/7", zh: "2/7" } },
+          { id: "b", text: { en: "2/5", zh: "2/5" } },
+          { id: "c", text: { en: "5/7", zh: "5/7" } },
+          { id: "d", text: { en: "1/2", zh: "1/2" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "KE_trans = ½mv². KE_rot = ½·(⅖mR²)·(v/R)² = ⅕mv². Total = ½ + ⅕ = 7/10. Translational fraction = (½) / (7/10) = **5/7**.",
+          zh: "KE_平 = ½mv²。KE_转 = ½·(⅖mR²)·(v/R)² = ⅕mv²。总 = ½ + ⅕ = 7/10。平动占比 = (½)/(7/10) = **5/7**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q156",
+        concept: { en: "Contact Point of Rolling Wheel", zh: "滚动轮的接触点" },
+        prompt: {
+          en: "At the instant a wheel rolls forward at speed v (no slipping), the velocity of the **bottom** point (in contact with ground) is:",
+          zh: "轮子以速率 v 向前无滑滚动的瞬间,**底部**(接触地面)点的速度?",
+        },
+        choices: [
+          { id: "a", text: { en: "+v", zh: "+v" } },
+          { id: "b", text: { en: "+2v", zh: "+2v" } },
+          { id: "c", text: { en: "0", zh: "0" } },
+          { id: "d", text: { en: "−v", zh: "−v" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "No-slip condition: contact point is **instantaneously at rest**. Translation (+v) + rotation (−v at the bottom) = 0. The top moves at +2v.",
+          zh: "无滑条件:接触点**瞬时静止**。平动 (+v) + 底部转动 (−v) = 0。顶部以 +2v 运动。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q157",
+        concept: { en: "Rotational KE and L Relation", zh: "转动动能与 L 的关系" },
+        prompt: {
+          en: "For a rotating rigid body, which relation holds?",
+          zh: "刚体转动中,下列哪个关系成立?",
+        },
+        choices: [
+          { id: "a", text: { en: "KE_rot = L·ω", zh: "KE_rot = L·ω" } },
+          { id: "b", text: { en: "KE_rot = L²/(2I)", zh: "KE_rot = L²/(2I)" } },
+          { id: "c", text: { en: "KE_rot = L·I", zh: "KE_rot = L·I" } },
+          { id: "d", text: { en: "KE_rot = L/I", zh: "KE_rot = L/I" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "KE = ½Iω² and L = Iω → KE = L²/(2I). Analog of KE = p²/(2m).",
+          zh: "KE = ½Iω² 且 L = Iω → KE = L²/(2I)。类比 KE = p²/(2m)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q158",
+        concept: { en: "Analogies Linear-Angular", zh: "线与角的对应" },
+        prompt: {
+          en: "Which pairing of linear and angular quantities is INCORRECT?",
+          zh: "下列哪一对线—角对应是**错误**的?",
+        },
+        choices: [
+          { id: "a", text: { en: "Force ↔ Torque", zh: "力 ↔ 力矩" } },
+          { id: "b", text: { en: "Mass ↔ Moment of inertia", zh: "质量 ↔ 转动惯量" } },
+          { id: "c", text: { en: "Momentum ↔ Angular momentum", zh: "动量 ↔ 角动量" } },
+          { id: "d", text: { en: "Velocity ↔ Angular acceleration", zh: "速度 ↔ 角加速度" } },
+        ],
+        answerId: "d",
+        explanation: { en: "Velocity ↔ angular **velocity** (ω), not angular acceleration (α). Others are correct.", zh: "速度 ↔ 角**速度**(ω),而非角加速度(α)。其他正确。" },
+      },
+      {
+        id: "mp-phys1-mar1-q159",
+        concept: { en: "Conservation with Changing I", zh: "I 变化时的守恒" },
+        prompt: {
+          en: "A student sitting on a frictionless rotating stool holds two masses out at arm's length. When she pulls them in, her angular speed:",
+          zh: "某学生坐在无摩擦旋转凳上,两手伸展持重物。收回手臂后,角速度:",
+        },
+        choices: [
+          { id: "a", text: { en: "Decreases (I decreases so ω decreases)", zh: "减小(I 变小故 ω 减小)" } },
+          { id: "b", text: { en: "Increases (L conserved, I decreased)", zh: "增加(L 守恒,I 减小)" } },
+          { id: "c", text: { en: "Stays the same", zh: "不变" } },
+          { id: "d", text: { en: "Becomes zero", zh: "为零" } },
+        ],
+        answerId: "b",
+        explanation: { en: "L = Iω conserved; smaller I → bigger ω.", zh: "L = Iω 守恒;I 变小 → ω 变大。" },
+      },
+      {
+        id: "mp-phys1-mar1-q160",
+        concept: { en: "Energy vs L Conservation", zh: "能量与 L 守恒的区别" },
+        prompt: {
+          en: "Which of the following conserves BOTH angular momentum AND kinetic energy?",
+          zh: "下列哪种情形**同时**保持角动量与动能守恒?",
+        },
+        choices: [
+          { id: "a", text: { en: "Figure skater pulling arms in", zh: "花样滑冰收臂" } },
+          { id: "b", text: { en: "Person stepping onto a merry-go-round", zh: "人走上旋转木马" } },
+          { id: "c", text: { en: "Elastic collision between two disks with no external torque", zh: "两盘之间无外力矩的弹性碰撞" } },
+          { id: "d", text: { en: "Star collapsing to a neutron star", zh: "恒星塌缩为中子星" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Elastic collisions conserve both momentum (and angular momentum) and KE. The others conserve L but not KE (internal work done, energy dissipated, or gravitational PE lost).",
+          zh: "弹性碰撞同时保持动量(角动量)与动能守恒。其他情形 L 守恒但 KE 不守恒(做内功、耗散能量或重力势能下降)。",
+        },
+      },
+
+      // ==================== UNIT 7 — Oscillations (20 Qs) ====================
+      {
+        id: "mp-phys1-mar1-q161",
+        concept: { en: "SHM Definition", zh: "SHM 定义" },
+        prompt: {
+          en: "Simple harmonic motion occurs when the restoring force is:",
+          zh: "简谐运动的条件是回复力:",
+        },
+        choices: [
+          { id: "a", text: { en: "Constant in magnitude", zh: "大小恒定" } },
+          { id: "b", text: { en: "Proportional to displacement and directed opposite to it", zh: "与位移成正比且反向" } },
+          { id: "c", text: { en: "Proportional to velocity", zh: "与速度成正比" } },
+          { id: "d", text: { en: "Inversely proportional to displacement", zh: "与位移成反比" } },
+        ],
+        answerId: "b",
+        explanation: { en: "SHM signature: **F = −kx**. Linear restoring force → sinusoidal motion.", zh: "SHM 特征:**F = −kx**。线性回复力 → 正弦运动。" },
+      },
+      {
+        id: "mp-phys1-mar1-q162",
+        concept: { en: "Period-Frequency Relation", zh: "周期—频率关系" },
+        prompt: {
+          en: "An oscillator has period T = 0.5 s. Its frequency?",
+          zh: "振子周期 T = 0.5 s。频率?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.5 Hz", zh: "0.5 Hz" } },
+          { id: "b", text: { en: "1 Hz", zh: "1 Hz" } },
+          { id: "c", text: { en: "2 Hz", zh: "2 Hz" } },
+          { id: "d", text: { en: "π Hz", zh: "π Hz" } },
+        ],
+        answerId: "c",
+        explanation: { en: "f = 1/T = 1/0.5 = **2 Hz**.", zh: "f = 1/T = 1/0.5 = **2 Hz**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q163",
+        concept: { en: "Mass-Spring Period", zh: "弹簧振子周期" },
+        prompt: {
+          en: "A 0.50 kg mass on a spring (k = 200 N/m) oscillates. Period?",
+          zh: "0.50 kg 质量接在 k = 200 N/m 的弹簧上振动。周期?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.10 s", zh: "0.10 s" } },
+          { id: "b", text: { en: "0.31 s", zh: "0.31 s" } },
+          { id: "c", text: { en: "1.0 s", zh: "1.0 s" } },
+          { id: "d", text: { en: "6.28 s", zh: "6.28 s" } },
+        ],
+        answerId: "b",
+        explanation: { en: "T = 2π√(m/k) = 2π√(0.0025) = 2π·0.05 ≈ **0.31 s**.", zh: "T = 2π√(m/k) = 2π√(0.0025) = 2π·0.05 ≈ **0.31 s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q164",
+        concept: { en: "T Independent of Amplitude", zh: "T 与振幅无关" },
+        prompt: {
+          en: "A mass-spring oscillator's amplitude is doubled. Its period:",
+          zh: "弹簧振子振幅翻倍。周期:",
+        },
+        choices: [
+          { id: "a", text: { en: "Doubles", zh: "翻倍" } },
+          { id: "b", text: { en: "Quadruples", zh: "4 倍" } },
+          { id: "c", text: { en: "Halves", zh: "减半" } },
+          { id: "d", text: { en: "Stays the same", zh: "不变" } },
+        ],
+        answerId: "d",
+        explanation: {
+          en: "T = 2π√(m/k) — depends only on m and k, **not A**. Larger A → larger v_max that travels proportionally more distance. Period unchanged.",
+          zh: "T = 2π√(m/k)——只取决于 m 与 k,**与 A 无关**。振幅大则 v_max 也大,行程比例增大,周期不变。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q165",
+        concept: { en: "Effect of Mass on T (spring)", zh: "质量对 T 的影响(弹簧)" },
+        prompt: {
+          en: "If a mass-spring oscillator's mass is quadrupled, period becomes:",
+          zh: "弹簧振子质量变为 4 倍,周期变为?",
+        },
+        choices: [
+          { id: "a", text: { en: "1/4 of original", zh: "原来的 1/4" } },
+          { id: "b", text: { en: "1/2 of original", zh: "原来的 1/2" } },
+          { id: "c", text: { en: "2× original", zh: "原来的 2 倍" } },
+          { id: "d", text: { en: "4× original", zh: "原来的 4 倍" } },
+        ],
+        answerId: "c",
+        explanation: { en: "T ∝ √m. 4× m → **2× T**.", zh: "T ∝ √m。4 倍 m → **2 倍 T**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q166",
+        concept: { en: "Effect of k on T", zh: "k 对 T 的影响" },
+        prompt: {
+          en: "A stiffer spring (larger k) leads to:",
+          zh: "更硬的弹簧(k 更大)会导致:",
+        },
+        choices: [
+          { id: "a", text: { en: "Longer period", zh: "周期变长" } },
+          { id: "b", text: { en: "Shorter period", zh: "周期变短" } },
+          { id: "c", text: { en: "No change in period", zh: "周期不变" } },
+          { id: "d", text: { en: "Larger amplitude", zh: "振幅变大" } },
+        ],
+        answerId: "b",
+        explanation: { en: "T ∝ 1/√k. Larger k → **shorter T** (faster oscillation).", zh: "T ∝ 1/√k。k 越大 → **T 越短**(振动更快)。" },
+      },
+      {
+        id: "mp-phys1-mar1-q167",
+        concept: { en: "Pendulum Period", zh: "单摆周期" },
+        prompt: {
+          en: "A simple pendulum of length 2.5 m on Earth has period:",
+          zh: "长 2.5 m 的单摆在地球上的周期?",
+        },
+        choices: [
+          { id: "a", text: { en: "1.0 s", zh: "1.0 s" } },
+          { id: "b", text: { en: "2.0 s", zh: "2.0 s" } },
+          { id: "c", text: { en: "3.14 s", zh: "3.14 s" } },
+          { id: "d", text: { en: "6.28 s", zh: "6.28 s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "T = 2π√(L/g) = 2π√(2.5/10) = 2π√(0.25) = 2π·0.5 ≈ **3.14 s**.", zh: "T = 2π√(L/g) = 2π√(2.5/10) = 2π√(0.25) = 2π·0.5 ≈ **3.14 s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q168",
+        concept: { en: "Pendulum Mass Independence", zh: "单摆与质量无关" },
+        prompt: {
+          en: "A simple pendulum's period depends on:",
+          zh: "单摆周期取决于:",
+        },
+        choices: [
+          { id: "a", text: { en: "Mass of the bob", zh: "摆锤质量" } },
+          { id: "b", text: { en: "Length and gravitational acceleration", zh: "长度与重力加速度" } },
+          { id: "c", text: { en: "Amplitude of swing (small angle)", zh: "小角度振幅" } },
+          { id: "d", text: { en: "All of the above", zh: "以上皆是" } },
+        ],
+        answerId: "b",
+        explanation: { en: "T = 2π√(L/g) — only L and g matter. Mass cancels. Amplitude doesn't enter (for small θ).", zh: "T = 2π√(L/g)——只取决于 L 与 g。质量约去。小角度下与振幅无关。" },
+      },
+      {
+        id: "mp-phys1-mar1-q169",
+        concept: { en: "Pendulum on Moon", zh: "月球上的单摆" },
+        prompt: {
+          en: "A pendulum has period 2.0 s on Earth. On the Moon where g is 1/6 Earth's, its period becomes approximately:",
+          zh: "单摆在地球上 T = 2.0 s。在月球(g 为地球的 1/6)上,T 约为?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.82 s", zh: "0.82 s" } },
+          { id: "b", text: { en: "2.0 s", zh: "2.0 s" } },
+          { id: "c", text: { en: "4.9 s", zh: "4.9 s" } },
+          { id: "d", text: { en: "12 s", zh: "12 s" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "T ∝ 1/√g. g → g/6 → T → T·√6 = 2·2.45 ≈ **4.9 s**. Lower g → slower swing.",
+          zh: "T ∝ 1/√g。g → g/6 → T → T·√6 = 2·2.45 ≈ **4.9 s**。g 更小 → 摆动更慢。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q170",
+        concept: { en: "Small-Angle Approximation", zh: "小角度近似" },
+        prompt: {
+          en: "Why does the simple pendulum formula T = 2π√(L/g) require small angles?",
+          zh: "单摆公式 T = 2π√(L/g) 为何要求小角度?",
+        },
+        choices: [
+          { id: "a", text: { en: "The pendulum moves too fast otherwise", zh: "否则摆动过快" } },
+          { id: "b", text: { en: "Large angles violate conservation of energy", zh: "大角度违反能量守恒" } },
+          { id: "c", text: { en: "Only for small θ is sin θ ≈ θ, making restoring \"force\" linear in displacement (SHM)", zh: "只有小 θ 时 sin θ ≈ θ,使回复「力」与位移线性(SHM)" } },
+          { id: "d", text: { en: "Large angles cause resonance", zh: "大角度引起共振" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "Restoring force ∝ sin θ. For SHM we need linear dependence, i.e., sin θ ≈ θ. Valid up to ~15° with <1% error.",
+          zh: "回复力 ∝ sin θ。SHM 要求线性,即 sin θ ≈ θ。在 ~15° 内误差 < 1%。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q171",
+        concept: { en: "Total Energy in SHM", zh: "SHM 中的总能量" },
+        prompt: {
+          en: "A mass-spring oscillator has amplitude A and spring constant k. Its total mechanical energy is:",
+          zh: "振幅为 A、劲度系数为 k 的弹簧振子,总机械能为?",
+        },
+        choices: [
+          { id: "a", text: { en: "kA", zh: "kA" } },
+          { id: "b", text: { en: "½kA", zh: "½kA" } },
+          { id: "c", text: { en: "½kA²", zh: "½kA²" } },
+          { id: "d", text: { en: "kA²", zh: "kA²" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "At the turning point, all energy is elastic PE = ½kA². Total E = **½kA²**, constant throughout motion.",
+          zh: "转折点处能量全为弹性势能 = ½kA²。总 E = **½kA²**,全程不变。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q172",
+        concept: { en: "Max Velocity in SHM", zh: "SHM 最大速度" },
+        prompt: {
+          en: "For a mass-spring oscillator with amplitude A and angular frequency ω, maximum speed is:",
+          zh: "弹簧振子振幅 A,角频率 ω。最大速率?",
+        },
+        choices: [
+          { id: "a", text: { en: "A", zh: "A" } },
+          { id: "b", text: { en: "Aω", zh: "Aω" } },
+          { id: "c", text: { en: "Aω²", zh: "Aω²" } },
+          { id: "d", text: { en: "ω/A", zh: "ω/A" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "v(t) = −Aω·sin(ωt + φ) → max speed = **Aω** (at equilibrium position).",
+          zh: "v(t) = −Aω·sin(ωt + φ) → 最大速率 = **Aω**(在平衡位置)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q173",
+        concept: { en: "Max Acceleration in SHM", zh: "SHM 最大加速度" },
+        prompt: {
+          en: "Maximum acceleration in SHM (amplitude A, angular frequency ω) is:",
+          zh: "SHM 中最大加速度(振幅 A,角频率 ω)?",
+        },
+        choices: [
+          { id: "a", text: { en: "Aω", zh: "Aω" } },
+          { id: "b", text: { en: "Aω²", zh: "Aω²" } },
+          { id: "c", text: { en: "ω²/A", zh: "ω²/A" } },
+          { id: "d", text: { en: "A/ω", zh: "A/ω" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "a(t) = −ω²·x(t) → max |a| = **Aω²** (at turning points where |x| = A).",
+          zh: "a(t) = −ω²·x(t) → 最大 |a| = **Aω²**(在 |x| = A 的转折点)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q174",
+        concept: { en: "Where v is Max", zh: "v 最大的位置" },
+        prompt: {
+          en: "In SHM, at what position is speed maximum?",
+          zh: "SHM 中哪里速率最大?",
+        },
+        choices: [
+          { id: "a", text: { en: "At x = +A", zh: "x = +A" } },
+          { id: "b", text: { en: "At x = −A", zh: "x = −A" } },
+          { id: "c", text: { en: "At x = 0 (equilibrium)", zh: "x = 0(平衡位置)" } },
+          { id: "d", text: { en: "At x = A/2", zh: "x = A/2" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "At equilibrium, all energy is KE → v maximum. At turning points (±A), v = 0.",
+          zh: "平衡位置处,所有能量为 KE → v 最大。转折点(±A)处 v = 0。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q175",
+        concept: { en: "Where a is Max", zh: "a 最大的位置" },
+        prompt: {
+          en: "In SHM, at what position is acceleration's magnitude maximum?",
+          zh: "SHM 中哪里加速度大小最大?",
+        },
+        choices: [
+          { id: "a", text: { en: "At x = 0", zh: "x = 0" } },
+          { id: "b", text: { en: "At x = ±A", zh: "x = ±A" } },
+          { id: "c", text: { en: "Halfway to A", zh: "介于 0 和 A 中间" } },
+          { id: "d", text: { en: "Where v is maximum", zh: "v 最大处" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "a = −ω²·x → |a| is largest where |x| is largest = **turning points (±A)**. Restoring force is largest there.",
+          zh: "a = −ω²·x → |a| 在 |x| 最大处最大 = **转折点(±A)**。此处回复力最大。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q176",
+        concept: { en: "KE and PE Equal", zh: "KE 与 PE 相等" },
+        prompt: {
+          en: "For a mass-spring SHM oscillator with amplitude A, KE = PE when x equals:",
+          zh: "振幅 A 的弹簧振子,KE = PE 时 x = ?",
+        },
+        choices: [
+          { id: "a", text: { en: "A", zh: "A" } },
+          { id: "b", text: { en: "A/2", zh: "A/2" } },
+          { id: "c", text: { en: "A/√2", zh: "A/√2" } },
+          { id: "d", text: { en: "0", zh: "0" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "PE = ½kx², total = ½kA². For PE = ½·total: ½kx² = ¼kA² → x² = A²/2 → x = **A/√2** ≈ 0.707A.",
+          zh: "PE = ½kx²,总 = ½kA²。PE = ½·总 ⇒ ½kx² = ¼kA² → x² = A²/2 → x = **A/√2** ≈ 0.707A。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q177",
+        concept: { en: "Phase and Initial Conditions", zh: "相位与初始条件" },
+        prompt: {
+          en: "A mass-spring oscillator is described by x(t) = A cos(ωt + φ). If at t = 0 the mass is at x = A (maximum displacement), the phase φ is:",
+          zh: "弹簧振子 x(t) = A cos(ωt + φ)。若 t = 0 时 x = A(最大位移),相位 φ?",
+        },
+        choices: [
+          { id: "a", text: { en: "0", zh: "0" } },
+          { id: "b", text: { en: "π/2", zh: "π/2" } },
+          { id: "c", text: { en: "π", zh: "π" } },
+          { id: "d", text: { en: "3π/2", zh: "3π/2" } },
+        ],
+        answerId: "a",
+        explanation: { en: "x(0) = A·cos(φ) = A → cos φ = 1 → **φ = 0**.", zh: "x(0) = A·cos(φ) = A → cos φ = 1 → **φ = 0**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q178",
+        concept: { en: "Vertical Spring", zh: "竖直弹簧" },
+        prompt: {
+          en: "A vertical spring-mass system (mass hanging). Compared to horizontal system:",
+          zh: "竖直弹簧振子(质量下挂)相比水平系统:",
+        },
+        choices: [
+          { id: "a", text: { en: "Period doubles because of gravity", zh: "因重力周期翻倍" } },
+          { id: "b", text: { en: "Period is the same (gravity just shifts the equilibrium)", zh: "周期相同(重力只是把平衡点平移)" } },
+          { id: "c", text: { en: "Period depends on how high it hangs", zh: "周期取决于悬挂高度" } },
+          { id: "d", text: { en: "It won't oscillate", zh: "不会振动" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Gravity shifts the equilibrium by mg/k. Motion about the **new** equilibrium is identical SHM: T = 2π√(m/k). Amplitude measured from new equilibrium.",
+          zh: "重力将平衡点下移 mg/k。围绕**新**平衡点的运动仍是 SHM:T = 2π√(m/k)。振幅从新平衡点量起。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q179",
+        concept: { en: "Spring Energy at Half-Amplitude", zh: "半振幅处能量" },
+        prompt: {
+          en: "A mass-spring oscillator at amplitude A. When x = A/2, KE is what fraction of total E?",
+          zh: "振幅 A 的弹簧振子,x = A/2 时 KE 占总 E 的比例?",
+        },
+        choices: [
+          { id: "a", text: { en: "1/4", zh: "1/4" } },
+          { id: "b", text: { en: "1/2", zh: "1/2" } },
+          { id: "c", text: { en: "3/4", zh: "3/4" } },
+          { id: "d", text: { en: "0", zh: "0" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "PE = ½k(A/2)² = (1/4)·½kA² = E/4. So KE = E − PE = **3E/4**. Ratio = **3/4**.",
+          zh: "PE = ½k(A/2)² = (1/4)·½kA² = E/4。故 KE = E − PE = **3E/4**。占比 **3/4**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q180",
+        concept: { en: "Oscillating Graph Reading", zh: "振动图像解读" },
+        prompt: {
+          en: "An x-t graph of a mass-spring shows a cosine that repeats every 0.40 s. The angular frequency ω is approximately:",
+          zh: "弹簧振子 x-t 图呈余弦,每 0.40 s 重复一次。角频率 ω 约为?",
+        },
+        choices: [
+          { id: "a", text: { en: "2.5 rad/s", zh: "2.5 rad/s" } },
+          { id: "b", text: { en: "6.3 rad/s", zh: "6.3 rad/s" } },
+          { id: "c", text: { en: "15.7 rad/s", zh: "15.7 rad/s" } },
+          { id: "d", text: { en: "40 rad/s", zh: "40 rad/s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "ω = 2π/T = 2π/0.4 ≈ **15.7 rad/s**.", zh: "ω = 2π/T = 2π/0.4 ≈ **15.7 rad/s**。" },
+      },
+
+      // ==================== UNIT 8 — Fluids (20 Qs) ====================
+      {
+        id: "mp-phys1-mar1-q181",
+        concept: { en: "Density Definition", zh: "密度定义" },
+        prompt: {
+          en: "An object has mass 500 g and volume 250 cm³. Its density?",
+          zh: "物体质量 500 g,体积 250 cm³。密度?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.5 g/cm³", zh: "0.5 g/cm³" } },
+          { id: "b", text: { en: "2.0 g/cm³", zh: "2.0 g/cm³" } },
+          { id: "c", text: { en: "250 g/cm³", zh: "250 g/cm³" } },
+          { id: "d", text: { en: "125000 g/cm³", zh: "125000 g/cm³" } },
+        ],
+        answerId: "b",
+        explanation: { en: "ρ = m/V = 500/250 = **2.0 g/cm³**. Denser than water (1 g/cm³) → it would sink.", zh: "ρ = m/V = 500/250 = **2.0 g/cm³**。密度大于水(1 g/cm³)→ 会下沉。" },
+      },
+      {
+        id: "mp-phys1-mar1-q182",
+        concept: { en: "Float or Sink Test", zh: "漂浮或下沉" },
+        prompt: {
+          en: "Which object will float in water (ρ_water = 1000 kg/m³)?",
+          zh: "下列哪个物体能漂浮在水中(ρ_水 = 1000 kg/m³)?",
+        },
+        choices: [
+          { id: "a", text: { en: "Aluminum (ρ = 2700 kg/m³)", zh: "铝(ρ = 2700 kg/m³)" } },
+          { id: "b", text: { en: "Iron (ρ = 7800 kg/m³)", zh: "铁(ρ = 7800 kg/m³)" } },
+          { id: "c", text: { en: "Wood (ρ = 700 kg/m³)", zh: "木(ρ = 700 kg/m³)" } },
+          { id: "d", text: { en: "Mercury (ρ = 13600 kg/m³)", zh: "汞(ρ = 13600 kg/m³)" } },
+        ],
+        answerId: "c",
+        explanation: { en: "Floats if ρ_obj < ρ_fluid. Only wood (700 < 1000) floats.", zh: "ρ_物 < ρ_流体 则漂浮。仅木(700 < 1000)漂浮。" },
+      },
+      {
+        id: "mp-phys1-mar1-q183",
+        concept: { en: "Pressure Definition", zh: "压强定义" },
+        prompt: {
+          en: "A 500 N force is applied on 0.25 m². Pressure exerted?",
+          zh: "500 N 的力施加在 0.25 m² 的面上。压强?",
+        },
+        choices: [
+          { id: "a", text: { en: "125 Pa", zh: "125 Pa" } },
+          { id: "b", text: { en: "500 Pa", zh: "500 Pa" } },
+          { id: "c", text: { en: "2000 Pa", zh: "2000 Pa" } },
+          { id: "d", text: { en: "125000 Pa", zh: "125000 Pa" } },
+        ],
+        answerId: "c",
+        explanation: { en: "P = F/A = 500/0.25 = **2000 Pa**. Units: 1 Pa = 1 N/m².", zh: "P = F/A = 500/0.25 = **2000 Pa**。单位:1 Pa = 1 N/m²。" },
+      },
+      {
+        id: "mp-phys1-mar1-q184",
+        concept: { en: "Hydrostatic Pressure", zh: "静水压" },
+        prompt: {
+          en: "Gauge pressure 10 m below water's surface? (ρ = 1000, g = 10)",
+          zh: "水面下 10 m 处的压表压力?(ρ = 1000,g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "1 × 10³ Pa", zh: "1 × 10³ Pa" } },
+          { id: "b", text: { en: "1 × 10⁴ Pa", zh: "1 × 10⁴ Pa" } },
+          { id: "c", text: { en: "1 × 10⁵ Pa", zh: "1 × 10⁵ Pa" } },
+          { id: "d", text: { en: "1 × 10⁶ Pa", zh: "1 × 10⁶ Pa" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "P_gauge = ρgh = 1000·10·10 = **10⁵ Pa ≈ 1 atm**. Absolute pressure would add atmospheric (~1 atm more).",
+          zh: "P_表 = ρgh = 1000·10·10 = **10⁵ Pa ≈ 1 atm**。绝对压强还需加大气压(约再 1 atm)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q185",
+        concept: { en: "Absolute vs Gauge Pressure", zh: "绝对压强与压表压力" },
+        prompt: {
+          en: "**Absolute** pressure at a depth equals:",
+          zh: "某深度的**绝对**压强等于:",
+        },
+        choices: [
+          { id: "a", text: { en: "ρgh only", zh: "仅 ρgh" } },
+          { id: "b", text: { en: "Atmospheric pressure only", zh: "仅大气压" } },
+          { id: "c", text: { en: "Atmospheric pressure + ρgh", zh: "大气压 + ρgh" } },
+          { id: "d", text: { en: "ρgh − atmospheric pressure", zh: "ρgh − 大气压" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "P_abs = P_atm + ρgh. Gauge pressure = ρgh (atmospheric subtracted). Tire gauges read gauge pressure.",
+          zh: "P_绝 = P_atm + ρgh。压表压力 = ρgh(减去大气压)。胎压计读压表压力。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q186",
+        concept: { en: "Pascal's Hydrostatic Paradox", zh: "帕斯卡静水悖论" },
+        prompt: {
+          en: "Two containers are filled with water to the same height. Container A is wide, B is narrow. Pressure at the bottom:",
+          zh: "两容器盛水高度相同。A 宽,B 窄。底部压强:",
+        },
+        choices: [
+          { id: "a", text: { en: "Greater in A", zh: "A 中更大" } },
+          { id: "b", text: { en: "Greater in B", zh: "B 中更大" } },
+          { id: "c", text: { en: "Equal", zh: "相等" } },
+          { id: "d", text: { en: "Depends on volume", zh: "取决于体积" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "P = P₀ + ρgh depends only on **depth and fluid**, not on shape or total volume. Famous \"hydrostatic paradox.\"",
+          zh: "P = P₀ + ρgh 仅取决于**深度与流体**,与形状或总体积无关。著名的「静水悖论」。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q187",
+        concept: { en: "Buoyancy Formula", zh: "浮力公式" },
+        prompt: {
+          en: "An object displaces 0.050 m³ of water. Buoyant force on it? (ρ_water = 1000, g = 10)",
+          zh: "某物体排开 0.050 m³ 的水。浮力?(ρ_水 = 1000,g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "5 N", zh: "5 N" } },
+          { id: "b", text: { en: "50 N", zh: "50 N" } },
+          { id: "c", text: { en: "500 N", zh: "500 N" } },
+          { id: "d", text: { en: "5000 N", zh: "5000 N" } },
+        ],
+        answerId: "c",
+        explanation: { en: "F_b = ρ_fluid·V_disp·g = 1000·0.05·10 = **500 N**.", zh: "F_b = ρ_流体·V_排开·g = 1000·0.05·10 = **500 N**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q188",
+        concept: { en: "Archimedes' Principle", zh: "阿基米德原理" },
+        prompt: {
+          en: "Archimedes' principle states that the buoyant force on an object submerged in a fluid equals:",
+          zh: "阿基米德原理:浸在流体中的物体所受浮力等于:",
+        },
+        choices: [
+          { id: "a", text: { en: "The weight of the object", zh: "物体的重量" } },
+          { id: "b", text: { en: "The weight of the fluid displaced", zh: "排开流体的重量" } },
+          { id: "c", text: { en: "The mass of the object", zh: "物体的质量" } },
+          { id: "d", text: { en: "Zero, since the object is submerged", zh: "浸没时为零" } },
+        ],
+        answerId: "b",
+        explanation: { en: "F_b = weight of displaced fluid = ρ_fluid·V_disp·g.", zh: "F_b = 排开流体的重量 = ρ_流体·V_排开·g。" },
+      },
+      {
+        id: "mp-phys1-mar1-q189",
+        concept: { en: "Fraction Submerged (Float)", zh: "漂浮浸没比例" },
+        prompt: {
+          en: "A floating wood block (ρ = 600 kg/m³) in water (ρ = 1000 kg/m³). Fraction of volume submerged?",
+          zh: "漂浮的木块(ρ = 600 kg/m³)在水中(ρ = 1000 kg/m³)。浸没体积比例?",
+        },
+        choices: [
+          { id: "a", text: { en: "40%", zh: "40%" } },
+          { id: "b", text: { en: "50%", zh: "50%" } },
+          { id: "c", text: { en: "60%", zh: "60%" } },
+          { id: "d", text: { en: "100%", zh: "100%" } },
+        ],
+        answerId: "c",
+        explanation: {
+          en: "V_sub/V_total = ρ_obj/ρ_fluid = 600/1000 = **0.60 = 60%**. 40% above water.",
+          zh: "V_沉/V_总 = ρ_物/ρ_流体 = 600/1000 = **0.60 = 60%**。水上 40%。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q190",
+        concept: { en: "Iceberg Fraction", zh: "冰山比例" },
+        prompt: {
+          en: "An iceberg (ρ = 917 kg/m³) floats in seawater (ρ = 1025 kg/m³). Fraction **above** water is approximately:",
+          zh: "冰山(ρ = 917 kg/m³)漂浮在海水中(ρ = 1025 kg/m³)。**水面上**的比例约为?",
+        },
+        choices: [
+          { id: "a", text: { en: "5%", zh: "5%" } },
+          { id: "b", text: { en: "10%", zh: "10%" } },
+          { id: "c", text: { en: "50%", zh: "50%" } },
+          { id: "d", text: { en: "90%", zh: "90%" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Submerged: 917/1025 ≈ 89.5%. Above water: ≈ **10%**. Origin of \"tip of the iceberg.\"",
+          zh: "浸没比例:917/1025 ≈ 89.5%。水面上约 **10%**。「冰山一角」由此而来。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q191",
+        concept: { en: "Apparent Weight Underwater", zh: "水下视重" },
+        prompt: {
+          en: "A rock weighs 50 N in air. When fully submerged, buoyancy is 18 N. Its apparent weight in water?",
+          zh: "石块在空气中重 50 N。完全浸没时浮力 18 N。水下视重?",
+        },
+        choices: [
+          { id: "a", text: { en: "18 N", zh: "18 N" } },
+          { id: "b", text: { en: "32 N", zh: "32 N" } },
+          { id: "c", text: { en: "50 N", zh: "50 N" } },
+          { id: "d", text: { en: "68 N", zh: "68 N" } },
+        ],
+        answerId: "b",
+        explanation: { en: "Apparent weight = actual weight − buoyancy = 50 − 18 = **32 N**.", zh: "视重 = 实际重量 − 浮力 = 50 − 18 = **32 N**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q192",
+        concept: { en: "Continuity Equation", zh: "连续性方程" },
+        prompt: {
+          en: "Water flows through a pipe. Section A has area 8 cm² and speed 2 m/s. Section B has area 4 cm². Speed at B?",
+          zh: "水流过管道。A 段面积 8 cm²,速度 2 m/s。B 段面积 4 cm²。B 处速度?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.5 m/s", zh: "0.5 m/s" } },
+          { id: "b", text: { en: "1.0 m/s", zh: "1.0 m/s" } },
+          { id: "c", text: { en: "4.0 m/s", zh: "4.0 m/s" } },
+          { id: "d", text: { en: "8.0 m/s", zh: "8.0 m/s" } },
+        ],
+        answerId: "c",
+        explanation: { en: "A₁v₁ = A₂v₂ → 8·2 = 4·v → v = **4 m/s**. Smaller area → faster flow.", zh: "A₁v₁ = A₂v₂ → 8·2 = 4·v → v = **4 m/s**。面积小 → 流速快。" },
+      },
+      {
+        id: "mp-phys1-mar1-q193",
+        concept: { en: "Volume Flow Rate", zh: "体积流量" },
+        prompt: {
+          en: "If water flows at 3.0 m/s through a pipe of cross-section 0.02 m², the volume flow rate is:",
+          zh: "水以 3.0 m/s 通过截面 0.02 m² 的管道。体积流量?",
+        },
+        choices: [
+          { id: "a", text: { en: "0.006 m³/s", zh: "0.006 m³/s" } },
+          { id: "b", text: { en: "0.06 m³/s", zh: "0.06 m³/s" } },
+          { id: "c", text: { en: "0.6 m³/s", zh: "0.6 m³/s" } },
+          { id: "d", text: { en: "150 m³/s", zh: "150 m³/s" } },
+        ],
+        answerId: "b",
+        explanation: { en: "Q = A·v = 0.02·3 = **0.06 m³/s**.", zh: "Q = A·v = 0.02·3 = **0.06 m³/s**。" },
+      },
+      {
+        id: "mp-phys1-mar1-q194",
+        concept: { en: "Bernoulli Intuition", zh: "伯努利直觉" },
+        prompt: {
+          en: "Along a horizontal streamline, where the fluid flows **faster**, the pressure is:",
+          zh: "水平流线上,流速**更快**处,压强:",
+        },
+        choices: [
+          { id: "a", text: { en: "Higher", zh: "更高" } },
+          { id: "b", text: { en: "Lower", zh: "更低" } },
+          { id: "c", text: { en: "The same", zh: "相同" } },
+          { id: "d", text: { en: "Equal to atmospheric", zh: "等于大气压" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Bernoulli: P + ½ρv² = const (horizontal). Faster v → smaller P. Explains airfoil lift, shower curtains, and Venturi effect.",
+          zh: "伯努利:P + ½ρv² = 常量(水平)。v 大 → P 小。这就是机翼升力、浴帘被吸入、文丘里效应的原理。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q195",
+        concept: { en: "Airfoil Lift", zh: "机翼升力" },
+        prompt: {
+          en: "Why does an airplane wing generate lift (according to a Bernoulli-based argument)?",
+          zh: "(用伯努利解释)机翼为何产生升力?",
+        },
+        choices: [
+          { id: "a", text: { en: "Gravity pulls less on moving wings", zh: "运动的翼受重力较小" } },
+          { id: "b", text: { en: "Higher air speed above the wing → lower pressure above → net upward force", zh: "翼面上方气流更快 → 压强更低 → 合力向上" } },
+          { id: "c", text: { en: "Higher pressure above the wing pushes it up", zh: "上方压强更大推翼上升" } },
+          { id: "d", text: { en: "Wings attract air molecules upward", zh: "翼吸引空气分子向上" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Bernoulli: faster air (over curved top) → lower pressure → net upward force = lift. (Real lift is more nuanced, but this is the standard AP explanation.)",
+          zh: "伯努利:翼面上方气流更快 → 压强更低 → 净向上力 = 升力。(实际升力更复杂,但此为 AP 标准解释。)",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q196",
+        concept: { en: "Torricelli's Law", zh: "托里切利定律" },
+        prompt: {
+          en: "Water in a large open tank has a hole at a depth of 5.0 m. Exit speed from the hole? (g = 10)",
+          zh: "敞口大水箱中水面下 5.0 m 处有小孔。水流出孔的速率?(g = 10)",
+        },
+        choices: [
+          { id: "a", text: { en: "5 m/s", zh: "5 m/s" } },
+          { id: "b", text: { en: "10 m/s", zh: "10 m/s" } },
+          { id: "c", text: { en: "50 m/s", zh: "50 m/s" } },
+          { id: "d", text: { en: "100 m/s", zh: "100 m/s" } },
+        ],
+        answerId: "b",
+        explanation: { en: "v = √(2gh) = √(100) = **10 m/s**. Same as free-fall speed from height h.", zh: "v = √(2gh) = √(100) = **10 m/s**。与从高度 h 自由下落的速率相同。" },
+      },
+      {
+        id: "mp-phys1-mar1-q197",
+        concept: { en: "Bernoulli's Equation", zh: "伯努利方程" },
+        prompt: {
+          en: "Bernoulli's equation relates which quantities along a streamline of an ideal fluid?",
+          zh: "理想流体沿流线,伯努利方程联系哪些量?",
+        },
+        choices: [
+          { id: "a", text: { en: "Density, temperature, and pressure", zh: "密度、温度、压强" } },
+          { id: "b", text: { en: "Pressure, speed, and elevation", zh: "压强、速率、高度" } },
+          { id: "c", text: { en: "Only pressure and velocity", zh: "仅压强与速度" } },
+          { id: "d", text: { en: "Mass, acceleration, and time", zh: "质量、加速度、时间" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "P + ½ρv² + ρgh = constant. Energy conservation for fluid: pressure energy + kinetic + gravitational potential per unit volume.",
+          zh: "P + ½ρv² + ρgh = 常量。流体的能量守恒:压强能量 + 动能 + 重力势能(每单位体积)。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q198",
+        concept: { en: "Bernoulli Assumptions", zh: "伯努利方程的前提" },
+        prompt: {
+          en: "Bernoulli's equation assumes the fluid is:",
+          zh: "伯努利方程假设流体:",
+        },
+        choices: [
+          { id: "a", text: { en: "Steady, incompressible, and non-viscous, along a streamline", zh: "稳态、不可压、无粘性,沿流线" } },
+          { id: "b", text: { en: "Turbulent and compressible", zh: "湍流且可压" } },
+          { id: "c", text: { en: "Only for gases", zh: "仅适用于气体" } },
+          { id: "d", text: { en: "At rest", zh: "静止" } },
+        ],
+        answerId: "a",
+        explanation: { en: "Bernoulli: **steady, incompressible, non-viscous, along a streamline**. Real flows approximate this to varying degrees.", zh: "伯努利要求:**稳态、不可压、无粘性、沿流线**。真实流动在不同程度上近似这些条件。" },
+      },
+      {
+        id: "mp-phys1-mar1-q199",
+        concept: { en: "Narrow Pipe Pressure", zh: "窄管压强" },
+        prompt: {
+          en: "Water flows through a horizontal pipe that narrows. In the narrow section, compared to the wide section, the pressure is:",
+          zh: "水通过水平变窄管道。窄段相比宽段,压强:",
+        },
+        choices: [
+          { id: "a", text: { en: "Higher", zh: "更大" } },
+          { id: "b", text: { en: "Lower", zh: "更小" } },
+          { id: "c", text: { en: "The same (water is incompressible)", zh: "相同(水不可压)" } },
+          { id: "d", text: { en: "Depends on water density", zh: "取决于水的密度" } },
+        ],
+        answerId: "b",
+        explanation: {
+          en: "Continuity: narrower → faster. Bernoulli (same height): faster → lower P. So narrow section has **lower pressure**.",
+          zh: "连续性:窄 → 快。伯努利(同高度):快 → P 低。因此窄段**压强更小**。",
+        },
+      },
+      {
+        id: "mp-phys1-mar1-q200",
+        concept: { en: "Fluid at Rest", zh: "静止流体" },
+        prompt: {
+          en: "In a fluid at rest, pressure at a given depth:",
+          zh: "静止流体中,同一深度处的压强:",
+        },
+        choices: [
+          { id: "a", text: { en: "Is the same in all directions", zh: "各方向相同" } },
+          { id: "b", text: { en: "Acts only downward", zh: "只作用于向下方向" } },
+          { id: "c", text: { en: "Acts only toward the walls", zh: "只作用于壁面" } },
+          { id: "d", text: { en: "Increases with horizontal distance", zh: "随水平距离增大" } },
+        ],
+        answerId: "a",
+        explanation: {
+          en: "Pressure in a static fluid is a **scalar** — same in every direction at a given depth. (That's why buoyancy works regardless of orientation.)",
+          zh: "静止流体中的压强是**标量**——同一深度各方向相同。(这也是无论朝向,浮力都有效的原因。)",
+        },
+      },
+    ],
+  },
 ];
 
 export function getPracticeSet(slug: string): PracticeSet | undefined {
