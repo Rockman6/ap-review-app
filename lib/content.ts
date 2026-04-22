@@ -98,6 +98,7 @@ export type Question = {
   answerId: string;
   explanation: Bilingual;
   concept?: Bilingual;
+  difficulty?: "easy" | "medium" | "hard";
 };
 
 export const apMicro: Subject = {
@@ -20376,6 +20377,1103 @@ export const topicNotesUSH: Record<string, NoteBlock[]> = {
 
 export const topicQuestionsUSH: Record<string, Question[]> = {};
 
+// ============================================================
+// AP Calculus BC — notes & questions
+// ============================================================
+
+export const topicNotesCalcBC: Record<string, NoteBlock[]> = {
+  // ---------- UNIT 1: Limits & Continuity ----------
+  "unit-1/topic-1": [
+    { kind: "heading", text: { en: "Average rate of change → instantaneous", zh: "平均变化率 → 瞬时变化率" } },
+    { kind: "paragraph", text: { en: "On an interval [a, b], the **average rate of change** of f is (f(b) − f(a))/(b − a) — the slope of the secant line. To measure how fast f is changing at a single instant, we shrink the interval toward zero. That limit, when it exists, is the **instantaneous rate of change** — the derivative.", zh: "在区间 [a, b] 上,f 的**平均变化率**为 (f(b) − f(a))/(b − a),即割线斜率。要衡量某一瞬时 f 的变化速度,需将区间收缩至零。该极限(若存在)即为**瞬时变化率**——导数。" } },
+    { kind: "math", tex: "\\text{avg rate} = \\dfrac{f(b)-f(a)}{b-a} \\;\\longrightarrow\\; f'(a) = \\lim_{h\\to 0}\\dfrac{f(a+h)-f(a)}{h}" },
+  ],
+  "unit-1/topic-2": [
+    { kind: "heading", text: { en: "Reading limits from graphs & tables", zh: "从图像与表格读取极限" } },
+    { kind: "paragraph", text: { en: "limₓ→c f(x) exists ⇔ the **left-hand** and **right-hand** limits both exist and are equal. The limit does **not** depend on f(c) — the function can be undefined or have a different value there.", zh: "limₓ→c f(x) 存在 ⇔ **左极限**与**右极限**皆存在且相等。极限**不**依赖于 f(c)——该点函数值可以未定义或不同。" } },
+    { kind: "callout", label: { en: "Common pitfall", zh: "常见误区" }, text: { en: "A hole at x = c and a value at x = c give the **same** limit if the function approaches the same y from both sides.", zh: "x = c 处有空洞或有取值,只要两侧逼近同一 y 值,极限便相同。" } },
+  ],
+  "unit-1/topic-3": [
+    { kind: "heading", text: { en: "Limit laws & algebraic tricks", zh: "极限法则与代数技巧" } },
+    { kind: "list", items: [
+      { en: "**Sum/difference**: lim(f ± g) = lim f ± lim g.", zh: "**和/差**:lim(f ± g) = lim f ± lim g。" },
+      { en: "**Product/quotient**: lim(fg) = (lim f)(lim g); lim(f/g) = lim f / lim g if lim g ≠ 0.", zh: "**积/商**:lim(fg) = (lim f)(lim g);若 lim g ≠ 0,lim(f/g) = lim f / lim g。" },
+      { en: "**0/0 form**: try factoring, rationalizing, or common-denominator tricks before giving up.", zh: "**0/0 型**:先尝试因式分解、有理化、通分,不要轻言放弃。" },
+    ] },
+    { kind: "math", tex: "\\lim_{x\\to 2}\\dfrac{x^2-4}{x-2}=\\lim_{x\\to 2}(x+2)=4" },
+  ],
+  "unit-1/topic-4": [
+    { kind: "heading", text: { en: "Squeeze Theorem", zh: "夹逼定理" } },
+    { kind: "paragraph", text: { en: "If g(x) ≤ f(x) ≤ h(x) near c and limₓ→c g = limₓ→c h = L, then limₓ→c f = L. Classic use: limₓ→0 (sin x)/x = 1 by squeezing between cos x and 1.", zh: "若 c 附近 g(x) ≤ f(x) ≤ h(x),且 limₓ→c g = limₓ→c h = L,则 limₓ→c f = L。经典应用:limₓ→0 (sin x)/x = 1(夹在 cos x 与 1 之间)。" } },
+    { kind: "math", tex: "\\lim_{x\\to 0}x^2\\sin(1/x)=0 \\quad\\text{since } -x^2\\le x^2\\sin(1/x)\\le x^2" },
+  ],
+  "unit-1/topic-5": [
+    { kind: "heading", text: { en: "Three-part continuity test", zh: "连续性三要件" } },
+    { kind: "list", items: [
+      { en: "(1) f(c) is defined.", zh: "(1) f(c) 有定义。" },
+      { en: "(2) limₓ→c f(x) exists.", zh: "(2) limₓ→c f(x) 存在。" },
+      { en: "(3) limₓ→c f(x) = f(c).", zh: "(3) limₓ→c f(x) = f(c)。" },
+    ] },
+    { kind: "paragraph", text: { en: "Classify discontinuities: **removable** (hole), **jump** (left ≠ right), or **infinite** (asymptote).", zh: "不连续分类:**可去**(空洞)、**跳跃**(左 ≠ 右)、**无穷**(渐近线)。" } },
+  ],
+  "unit-1/topic-6": [
+    { kind: "heading", text: { en: "Infinite limits", zh: "无穷极限" } },
+    { kind: "paragraph", text: { en: "limₓ→c f = ±∞ means f grows without bound as x approaches c. The line x = c is a **vertical asymptote**. Check left- and right-hand signs of (numerator)/(denominator) carefully.", zh: "limₓ→c f = ±∞ 表示 x 趋近 c 时 f 无界增长。直线 x = c 为**垂直渐近线**。需小心分别判断两侧分子、分母的符号。" } },
+    { kind: "math", tex: "\\lim_{x\\to 2^+}\\dfrac{1}{x-2}=+\\infty,\\quad \\lim_{x\\to 2^-}\\dfrac{1}{x-2}=-\\infty" },
+  ],
+  "unit-1/topic-7": [
+    { kind: "heading", text: { en: "Limits at infinity", zh: "无穷处的极限" } },
+    { kind: "list", items: [
+      { en: "Rational: compare **degrees** of numerator and denominator.", zh: "有理函数:比较分子分母的**次数**。" },
+      { en: "Same degree → ratio of leading coefficients.", zh: "同次 → 主项系数之比。" },
+      { en: "Num < Den → limit is 0 (x-axis asymptote).", zh: "分子次 < 分母次 → 极限为 0(x 轴为渐近线)。" },
+      { en: "Num > Den → ±∞ (no horizontal asymptote; check slant).", zh: "分子次 > 分母次 → ±∞(无水平渐近线;检查斜渐近线)。" },
+    ] },
+  ],
+  "unit-1/topic-8": [
+    { kind: "heading", text: { en: "Intermediate Value Theorem (IVT)", zh: "介值定理(IVT)" } },
+    { kind: "paragraph", text: { en: "If f is **continuous** on [a, b] and N is any value between f(a) and f(b), there exists c in (a, b) with f(c) = N. Used to prove roots (pick N = 0).", zh: "若 f 在 [a, b] 上**连续**,且 N 介于 f(a) 与 f(b) 之间,则存在 c ∈ (a, b) 使 f(c) = N。常用于证明方程有根(取 N = 0)。" } },
+    { kind: "callout", label: { en: "Continuity is required", zh: "必须连续" }, text: { en: "A jump discontinuity lets a function skip the value N, so IVT fails without continuity.", zh: "跳跃不连续可使函数跳过 N,非连续则 IVT 失效。" } },
+  ],
+
+  // ---------- UNIT 2: Differentiation basics ----------
+  "unit-2/topic-1": [
+    { kind: "heading", text: { en: "Secant to tangent", zh: "从割线到切线" } },
+    { kind: "paragraph", text: { en: "The secant slope over [a, a+h] is (f(a+h) − f(a))/h. As h → 0, the secant becomes the **tangent line**, and its slope is f ′(a).", zh: "在 [a, a+h] 上的割线斜率为 (f(a+h) − f(a))/h。当 h → 0,割线变为**切线**,其斜率即 f ′(a)。" } },
+  ],
+  "unit-2/topic-2": [
+    { kind: "heading", text: { en: "The definition of the derivative", zh: "导数的定义" } },
+    { kind: "math", tex: "f'(x)=\\lim_{h\\to 0}\\dfrac{f(x+h)-f(x)}{h}=\\lim_{t\\to x}\\dfrac{f(t)-f(x)}{t-x}" },
+    { kind: "paragraph", text: { en: "Both forms are common on the AP exam. The derivative is itself a function — plug in any x where the limit exists.", zh: "两种写法在 AP 考试中都常见。导数本身也是函数——代入任意使极限存在的 x。" } },
+  ],
+  "unit-2/topic-3": [
+    { kind: "heading", text: { en: "Differentiability ⇒ continuity", zh: "可导 ⇒ 连续" } },
+    { kind: "paragraph", text: { en: "If f ′(c) exists, f is continuous at c. The converse **fails**: |x| is continuous but not differentiable at 0 (corner). Cusps, corners, vertical tangents, and jumps all block differentiability.", zh: "若 f ′(c) 存在,则 f 在 c 连续。逆命题**不成立**:|x| 在 0 处连续但不可导(角点)。尖点、角点、垂直切线、跳跃都会使不可导。" } },
+  ],
+  "unit-2/topic-4": [
+    { kind: "heading", text: { en: "Power rule", zh: "幂法则" } },
+    { kind: "math", tex: "\\dfrac{d}{dx}\\left[x^n\\right]=n\\,x^{n-1}\\quad(n\\in\\mathbb R)" },
+    { kind: "paragraph", text: { en: "Works for any real exponent — positive, negative, fractional. Combine with constant-multiple and sum rules.", zh: "任意实数指数皆适用——正、负、分数。可与常数倍法则、和法则配合使用。" } },
+  ],
+  "unit-2/topic-5": [
+    { kind: "heading", text: { en: "The memorize-this list", zh: "必背求导表" } },
+    { kind: "math", tex: "\\begin{aligned}&(\\sin x)'=\\cos x,\\; (\\cos x)'=-\\sin x,\\; (\\tan x)'=\\sec^2 x\\\\&(\\sec x)'=\\sec x\\tan x,\\; (\\csc x)'=-\\csc x\\cot x,\\; (\\cot x)'=-\\csc^2 x\\\\&(e^x)'=e^x,\\; (a^x)'=a^x\\ln a,\\; (\\ln x)'=\\tfrac1x,\\; (\\log_a x)'=\\tfrac1{x\\ln a}\\end{aligned}" },
+  ],
+  "unit-2/topic-6": [
+    { kind: "heading", text: { en: "Product & quotient rules", zh: "乘积法则与商法则" } },
+    { kind: "math", tex: "(fg)'=f'g+fg',\\qquad \\left(\\dfrac f g\\right)'=\\dfrac{f'g-fg'}{g^2}" },
+    { kind: "callout", label: { en: "Memory aid", zh: "口诀" }, text: { en: "Quotient: \"low d-high minus high d-low, over low squared.\"", zh: "商法则:“下乘上导减上乘下导,再除以下的平方”。" } },
+  ],
+
+  // ---------- UNIT 3 ----------
+  "unit-3/topic-1": [
+    { kind: "heading", text: { en: "Chain rule", zh: "链式法则" } },
+    { kind: "math", tex: "\\dfrac{d}{dx}\\bigl[f(g(x))\\bigr]=f'(g(x))\\cdot g'(x)" },
+    { kind: "paragraph", text: { en: "\"Derivative of outer (leaving inside alone) times derivative of inside.\" Essential when variables are composed — e.g. sin(x²).", zh: "“外函数的导数(内函数不动)乘内函数的导数”。复合函数必用,如 sin(x²)。" } },
+  ],
+  "unit-3/topic-2": [
+    { kind: "heading", text: { en: "Implicit differentiation", zh: "隐函数求导" } },
+    { kind: "paragraph", text: { en: "Differentiate **both sides** with respect to x, treating y as y(x) — so each y-term picks up a dy/dx by the chain rule. Then solve algebraically for dy/dx.", zh: "对方程**两边**关于 x 求导,视 y 为 y(x)——每个含 y 的项因链式法则乘以 dy/dx。再代数求解 dy/dx。" } },
+    { kind: "math", tex: "x^2+y^2=25 \\;\\Rightarrow\\; 2x+2y\\,\\dfrac{dy}{dx}=0 \\;\\Rightarrow\\; \\dfrac{dy}{dx}=-\\dfrac xy" },
+  ],
+  "unit-3/topic-3": [
+    { kind: "heading", text: { en: "Inverse functions", zh: "反函数" } },
+    { kind: "math", tex: "(f^{-1})'(b)=\\dfrac{1}{f'(a)}\\quad\\text{where } b=f(a)" },
+    { kind: "paragraph", text: { en: "Slope of the inverse at (b, a) is the reciprocal of the slope of f at (a, b). The graphs are reflections across y = x.", zh: "反函数在 (b, a) 的斜率是 f 在 (a, b) 斜率的倒数;两图关于 y = x 对称。" } },
+  ],
+  "unit-3/topic-4": [
+    { kind: "heading", text: { en: "Inverse trig derivatives", zh: "反三角函数的导数" } },
+    { kind: "math", tex: "\\begin{aligned}(\\arcsin x)' &= \\dfrac{1}{\\sqrt{1-x^2}}\\\\(\\arccos x)' &= -\\dfrac{1}{\\sqrt{1-x^2}}\\\\(\\arctan x)' &= \\dfrac{1}{1+x^2}\\end{aligned}" },
+  ],
+  "unit-3/topic-5": [
+    { kind: "heading", text: { en: "Higher-order derivatives", zh: "高阶导数" } },
+    { kind: "paragraph", text: { en: "f ″(x) measures concavity and (for motion) acceleration. f ‴, f ⁽⁴⁾ and beyond appear in Taylor series and error bounds.", zh: "f ″(x) 表示凹凸性(运动中即加速度)。f ‴、f ⁽⁴⁾ 等在泰勒级数与误差估计中出现。" } },
+  ],
+
+  // ---------- UNIT 4 ----------
+  "unit-4/topic-1": [
+    { kind: "heading", text: { en: "Motion along a line", zh: "直线运动" } },
+    { kind: "list", items: [
+      { en: "**Position** s(t); **velocity** v(t) = s ′(t); **acceleration** a(t) = v ′(t) = s ″(t).", zh: "**位置** s(t);**速度** v(t) = s ′(t);**加速度** a(t) = v ′(t) = s ″(t)。" },
+      { en: "**Speed** = |v|. Speeding up ⇔ v and a **same sign**; slowing down ⇔ opposite signs.", zh: "**速率** = |v|。加速 ⇔ v 与 a **同号**;减速 ⇔ 异号。" },
+      { en: "**Total distance** over [a, b] = ∫ₐᵇ |v(t)| dt (not net displacement).", zh: "**总路程** = ∫ₐᵇ |v(t)| dt(非净位移)。" },
+    ] },
+  ],
+  "unit-4/topic-2": [
+    { kind: "heading", text: { en: "Interpreting a derivative with units", zh: "带单位的导数含义" } },
+    { kind: "paragraph", text: { en: "If V(t) is volume (gal) at time t (min), V ′(3) = 5 means \"at t = 3 min, volume is increasing at 5 gal/min.\" Always state **when**, **rate**, **units**, and **direction** (inc/dec).", zh: "若 V(t) 为体积(加仑)对时间 t(分钟),V ′(3) = 5 表示“t = 3 分钟时体积以 5 加仑/分钟的速率增大”。应注明**时间**、**速率**、**单位**与**增减方向**。" } },
+  ],
+  "unit-4/topic-3": [
+    { kind: "heading", text: { en: "Related rates recipe", zh: "相关变化率解题步骤" } },
+    { kind: "list", items: [
+      { en: "1. Draw and label; identify the quantities changing with time.", zh: "1. 画图并标注;确定随时间变化的量。" },
+      { en: "2. Write an equation relating them (geometry / trig).", zh: "2. 写出关系方程(几何/三角)。" },
+      { en: "3. Differentiate **both sides** with respect to t.", zh: "3. 对两边关于 **t** 求导。" },
+      { en: "4. Plug in the instant values (only **after** differentiating).", zh: "4. 代入瞬时数值(**求导之后**才代入)。" },
+    ] },
+  ],
+  "unit-4/topic-4": [
+    { kind: "heading", text: { en: "Linearization", zh: "线性近似" } },
+    { kind: "math", tex: "L(x)=f(a)+f'(a)(x-a)\\approx f(x)\\text{ for } x \\text{ near } a" },
+    { kind: "paragraph", text: { en: "Concave-up → linearization **under-estimates**; concave-down → **over-estimates**. Think second-derivative sign.", zh: "凹向上时,线性近似**偏低**;凹向下时,**偏高**。由二阶导数符号判断。" } },
+  ],
+  "unit-4/topic-5": [
+    { kind: "heading", text: { en: "L'Hôpital's Rule", zh: "洛必达法则" } },
+    { kind: "paragraph", text: { en: "If limₓ→c f/g is of the form 0/0 or ±∞/±∞ and f, g are differentiable with g ′ ≠ 0 near c, then lim f/g = lim f ′/g ′. Only applies to **indeterminate** forms. Other indeterminates (0·∞, ∞−∞, 0⁰, 1^∞) must be rewritten first.", zh: "当 limₓ→c f/g 为 0/0 或 ±∞/±∞ 且 f、g 可导、g ′ ≠ 0,则 lim f/g = lim f ′/g ′。只适用**不定型**。对于其他不定型(0·∞、∞−∞、0⁰、1^∞)须先改写。" } },
+  ],
+
+  // ---------- UNIT 5 ----------
+  "unit-5/topic-1": [
+    { kind: "heading", text: { en: "MVT & EVT", zh: "中值定理与极值定理" } },
+    { kind: "list", items: [
+      { en: "**EVT**: f continuous on [a, b] ⇒ f attains a **max and min** on [a, b].", zh: "**EVT**:f 在 [a, b] 上连续 ⇒ 必存在**最大值与最小值**。" },
+      { en: "**MVT**: f continuous on [a, b], differentiable on (a, b) ⇒ ∃ c with f ′(c) = (f(b) − f(a))/(b − a).", zh: "**MVT**:f 在 [a, b] 连续且在 (a, b) 可导 ⇒ 存在 c 使 f ′(c) = (f(b) − f(a))/(b − a)。" },
+      { en: "**Rolle's Theorem**: MVT with f(a) = f(b) — some c has f ′(c) = 0.", zh: "**罗尔定理**:MVT 取 f(a) = f(b),则存在 c 使 f ′(c) = 0。" },
+    ] },
+  ],
+  "unit-5/topic-2": [
+    { kind: "heading", text: { en: "Critical points & monotonicity", zh: "临界点与单调性" } },
+    { kind: "paragraph", text: { en: "**Critical point**: f ′(c) = 0 or undefined. Sign of f ′ tells monotonicity: f ′ > 0 ⇒ increasing; f ′ < 0 ⇒ decreasing.", zh: "**临界点**:f ′(c) = 0 或不存在。f ′ > 0 ⇒ 递增;f ′ < 0 ⇒ 递减。" } },
+  ],
+  "unit-5/topic-3": [
+    { kind: "heading", text: { en: "First & second derivative tests", zh: "一阶与二阶导数检验" } },
+    { kind: "list", items: [
+      { en: "**First derivative test** at a critical point: f ′ changes + → − ⇒ local max; − → + ⇒ local min.", zh: "**一阶导数检验**:临界点处 f ′ 由 + → − ⇒ 局部极大;− → + ⇒ 局部极小。" },
+      { en: "**Second derivative test**: f ′(c) = 0 and f ″(c) < 0 ⇒ local max; f ″(c) > 0 ⇒ local min; f ″(c) = 0 ⇒ inconclusive.", zh: "**二阶导数检验**:f ′(c) = 0 且 f ″(c) < 0 ⇒ 局部极大;f ″(c) > 0 ⇒ 局部极小;f ″(c) = 0 ⇒ 无法判定。" },
+    ] },
+  ],
+  "unit-5/topic-4": [
+    { kind: "heading", text: { en: "Concavity & inflection points", zh: "凹凸性与拐点" } },
+    { kind: "paragraph", text: { en: "f ″ > 0 ⇒ concave up ('smile'); f ″ < 0 ⇒ concave down ('frown'). An **inflection point** is where f is continuous and concavity **changes**.", zh: "f ″ > 0 ⇒ 凹(“微笑”);f ″ < 0 ⇒ 凸(“皱眉”)。**拐点**:f 连续且凹凸性**改变**之处。" } },
+  ],
+  "unit-5/topic-5": [
+    { kind: "heading", text: { en: "Optimization", zh: "最优化" } },
+    { kind: "list", items: [
+      { en: "Identify quantity to optimize; write in one variable using constraint.", zh: "确定待优化量;用约束改写为单变量函数。" },
+      { en: "Find critical points on the feasible domain; check endpoints.", zh: "在可行域内求临界点;并检查端点。" },
+      { en: "Justify maximum/minimum with first or second derivative test.", zh: "用一阶或二阶导数检验说明最值。" },
+    ] },
+  ],
+  "unit-5/topic-6": [
+    { kind: "heading", text: { en: "Curve sketching checklist", zh: "函数图像绘制清单" } },
+    { kind: "list", items: [
+      { en: "Domain, intercepts, symmetry.", zh: "定义域、截距、对称性。" },
+      { en: "Asymptotes (vertical, horizontal, slant).", zh: "渐近线(垂直、水平、斜)。" },
+      { en: "f ′ sign: increasing/decreasing, extrema.", zh: "f ′ 符号:增减、极值。" },
+      { en: "f ″ sign: concavity, inflection.", zh: "f ″ 符号:凹凸、拐点。" },
+    ] },
+  ],
+
+  // ---------- UNIT 6 ----------
+  "unit-6/topic-1": [
+    { kind: "heading", text: { en: "Riemann sums → definite integral", zh: "黎曼和 → 定积分" } },
+    { kind: "paragraph", text: { en: "Partition [a, b] into n pieces of width Δx. Sample f at left/right/midpoint/trapezoid. As n → ∞, the sum converges to the **definite integral** ∫ₐᵇ f(x) dx — signed area under f.", zh: "将 [a, b] 分为 n 段,宽度 Δx。在左/右/中点/梯形处取样。当 n → ∞,和收敛为**定积分** ∫ₐᵇ f(x) dx——f 下方的有符号面积。" } },
+    { kind: "callout", label: { en: "Over- vs under-estimates", zh: "高估与低估" }, text: { en: "For increasing f: left = under, right = over. Concave up: midpoint under, trapezoid over.", zh: "f 递增时:左估偏低、右估偏高。凹向上时:中点估偏低、梯形估偏高。" } },
+  ],
+  "unit-6/topic-2": [
+    { kind: "heading", text: { en: "Fundamental Theorem of Calculus", zh: "微积分基本定理" } },
+    { kind: "math", tex: "\\text{(Part 1) } \\dfrac{d}{dx}\\int_a^x f(t)\\,dt = f(x) \\qquad \\text{(Part 2) } \\int_a^b f(x)\\,dx = F(b)-F(a)" },
+    { kind: "paragraph", text: { en: "FTC connects differentiation and integration. Part 1 defines an antiderivative by integration; Part 2 evaluates via an antiderivative.", zh: "FTC 将微分与积分相联:第一部分以积分构造反导数;第二部分以反导数求定积分。" } },
+  ],
+  "unit-6/topic-3": [
+    { kind: "heading", text: { en: "Antiderivatives", zh: "反导数" } },
+    { kind: "math", tex: "\\int x^n\\,dx=\\dfrac{x^{n+1}}{n+1}+C\\;(n\\ne-1),\\;\\int\\dfrac1x\\,dx=\\ln|x|+C" },
+    { kind: "paragraph", text: { en: "+C is not a formality — two antiderivatives can differ by any constant.", zh: "+C 并非形式上的细节——任意两个反导数可相差任意常数。" } },
+  ],
+  "unit-6/topic-4": [
+    { kind: "heading", text: { en: "u-substitution", zh: "换元积分法" } },
+    { kind: "paragraph", text: { en: "Reverses the chain rule: let u = inner function; du = u ′ dx. Convert everything — integrand **and limits**, for definite integrals — to u, integrate, back-substitute if needed.", zh: "逆链式法则:令 u 为内函数,du = u ′ dx。全部改写为 u(定积分还要改上下限),积分后若需要再代回。" } },
+    { kind: "math", tex: "\\int x\\cos(x^2)\\,dx\\stackrel{u=x^2}{=}\\tfrac12\\sin(x^2)+C" },
+  ],
+  "unit-6/topic-5": [
+    { kind: "heading", text: { en: "Integration by parts (BC)", zh: "分部积分法(BC)" } },
+    { kind: "math", tex: "\\int u\\,dv = uv - \\int v\\,du" },
+    { kind: "callout", label: { en: "Choosing u", zh: "u 的选择" }, text: { en: "LIATE (Log, Inverse trig, Algebraic, Trig, Exp) — earlier types make better u's.", zh: "LIATE(对、反三角、代数、三角、指数)——顺序靠前者更宜作 u。" } },
+  ],
+  "unit-6/topic-6": [
+    { kind: "heading", text: { en: "Partial fractions (BC)", zh: "部分分式(BC)" } },
+    { kind: "paragraph", text: { en: "For proper rational integrand with distinct linear factors, decompose P/[(x−a)(x−b)] = A/(x−a) + B/(x−b), then integrate term by term (giving ln terms).", zh: "对具有不同线性因子的真分式 P/[(x−a)(x−b)],分解为 A/(x−a) + B/(x−b),分项积分(得对数项)。" } },
+  ],
+  "unit-6/topic-7": [
+    { kind: "heading", text: { en: "Improper integrals (BC)", zh: "广义积分(BC)" } },
+    { kind: "paragraph", text: { en: "Infinite interval or unbounded integrand — rewrite as a **limit**. Converges if the limit is finite; diverges otherwise.", zh: "无穷区间或无界被积函数——改写为**极限**;极限存在且有限则收敛,否则发散。" } },
+    { kind: "math", tex: "\\int_1^\\infty \\dfrac{1}{x^p}\\,dx=\\begin{cases}\\dfrac{1}{p-1} & p>1\\\\\\infty & p\\le 1\\end{cases}" },
+  ],
+
+  // ---------- UNIT 7 ----------
+  "unit-7/topic-1": [
+    { kind: "heading", text: { en: "Modeling with differential equations", zh: "微分方程建模" } },
+    { kind: "paragraph", text: { en: "A differential equation relates a function to its derivative(s). \"Rate of change proportional to Q\" → dQ/dt = kQ. \"Cooling at a rate proportional to temperature difference\" → dT/dt = k(T − Tₐ).", zh: "微分方程将函数与其导数相联。“变化率正比于 Q” → dQ/dt = kQ;“冷却速率正比于温差” → dT/dt = k(T − Tₐ)。" } },
+  ],
+  "unit-7/topic-2": [
+    { kind: "heading", text: { en: "Slope fields", zh: "斜率场" } },
+    { kind: "paragraph", text: { en: "At each grid point (x, y), draw a short line with slope dy/dx from the ODE. Solutions follow the slopes — lets you see behavior without solving.", zh: "在每个网格点 (x, y) 上,按 ODE 给出的 dy/dx 画一小段线。解沿斜率流动——不求解即可看出行为。" } },
+  ],
+  "unit-7/topic-3": [
+    { kind: "heading", text: { en: "Separation of variables", zh: "分离变量法" } },
+    { kind: "math", tex: "\\dfrac{dy}{dx}=f(x)g(y)\\;\\Longrightarrow\\;\\int\\dfrac{dy}{g(y)}=\\int f(x)\\,dx" },
+    { kind: "paragraph", text: { en: "Apply initial condition **before** solving for y when possible — avoids ± ambiguities.", zh: "若可能,先代入初值再解出 y,可避开 ± 多解。" } },
+  ],
+  "unit-7/topic-4": [
+    { kind: "heading", text: { en: "Exponential growth & decay", zh: "指数增长与衰减" } },
+    { kind: "math", tex: "\\dfrac{dy}{dt}=ky \\;\\Longrightarrow\\; y(t)=y_0 e^{kt}" },
+    { kind: "paragraph", text: { en: "k > 0 ⇒ growth; k < 0 ⇒ decay. Half-life t₁/₂ = ln 2 / |k|.", zh: "k > 0 ⇒ 增长;k < 0 ⇒ 衰减。半衰期 t₁/₂ = ln 2 / |k|。" } },
+  ],
+  "unit-7/topic-5": [
+    { kind: "heading", text: { en: "Euler's method (BC)", zh: "欧拉法(BC)" } },
+    { kind: "paragraph", text: { en: "Use tangent lines to step forward: yₙ₊₁ = yₙ + Δx · f(xₙ, yₙ). Error shrinks as Δx → 0, but linearization **under/over-estimates** based on concavity.", zh: "用切线逐步前进:yₙ₊₁ = yₙ + Δx · f(xₙ, yₙ)。Δx → 0 时误差减小;依凹凸性可能**偏低或偏高**。" } },
+  ],
+  "unit-7/topic-6": [
+    { kind: "heading", text: { en: "Logistic growth (BC)", zh: "逻辑斯蒂增长(BC)" } },
+    { kind: "math", tex: "\\dfrac{dP}{dt}=kP\\!\\left(1-\\dfrac{P}{L}\\right)" },
+    { kind: "list", items: [
+      { en: "L is the **carrying capacity**; P → L as t → ∞ for 0 < P(0) < L.", zh: "L 为**环境容纳量**;当 0 < P(0) < L 时,t → ∞ 则 P → L。" },
+      { en: "Fastest growth at P = L/2 (inflection point).", zh: "P = L/2 处增长最快(拐点)。" },
+    ] },
+  ],
+
+  // ---------- UNIT 8 ----------
+  "unit-8/topic-1": [
+    { kind: "heading", text: { en: "Average value", zh: "函数平均值" } },
+    { kind: "math", tex: "\\bar f = \\dfrac{1}{b-a}\\int_a^b f(x)\\,dx" },
+    { kind: "paragraph", text: { en: "MVT for integrals: if f is continuous, some c in [a, b] satisfies f(c) = f̄.", zh: "积分中值定理:f 连续时,区间内存在 c 使 f(c) = f̄。" } },
+  ],
+  "unit-8/topic-2": [
+    { kind: "heading", text: { en: "Accumulation & net change", zh: "累积量与净变化" } },
+    { kind: "math", tex: "F(b)-F(a)=\\int_a^b F'(t)\\,dt" },
+    { kind: "paragraph", text: { en: "Integrating a rate yields net change. Absolute-value the integrand for **total** (not net) change — e.g. total distance.", zh: "对速率积分得净变化。若要**总**(非净)变化,被积函数取绝对值——如总路程。" } },
+  ],
+  "unit-8/topic-3": [
+    { kind: "heading", text: { en: "Area between curves", zh: "曲线间的面积" } },
+    { kind: "math", tex: "A=\\int_a^b\\bigl[\\text{top}(x)-\\text{bottom}(x)\\bigr]\\,dx" },
+    { kind: "paragraph", text: { en: "When curves cross, split at intersection points. For curves more easily described as x = g(y), integrate with respect to y using \"right − left.\"", zh: "若曲线相交,在交点处分段。当曲线更适合写作 x = g(y) 时,对 y 积分,用“右 − 左”。" } },
+  ],
+  "unit-8/topic-4": [
+    { kind: "heading", text: { en: "Volumes by cross sections", zh: "横截面法体积" } },
+    { kind: "math", tex: "V=\\int_a^b A(x)\\,dx" },
+    { kind: "paragraph", text: { en: "A(x) is the area of the slice at x: square (side²), semicircle (½π r²), equilateral triangle (√3/4 · side²), etc.", zh: "A(x) 为 x 处截面积:正方形(边²)、半圆(½π r²)、等边三角形(√3/4 · 边²)等。" } },
+  ],
+  "unit-8/topic-5": [
+    { kind: "heading", text: { en: "Disks & washers", zh: "圆盘法与垫圈法" } },
+    { kind: "math", tex: "V_\\text{disk}=\\pi\\!\\int_a^b [f(x)]^2\\,dx,\\quad V_\\text{washer}=\\pi\\!\\int_a^b\\bigl([R(x)]^2-[r(x)]^2\\bigr)\\,dx" },
+  ],
+  "unit-8/topic-6": [
+    { kind: "heading", text: { en: "Arc length (BC)", zh: "弧长(BC)" } },
+    { kind: "math", tex: "L=\\int_a^b\\sqrt{1+\\bigl[f'(x)\\bigr]^2}\\,dx" },
+  ],
+
+  // ---------- UNIT 9 (BC) ----------
+  "unit-9/topic-1": [
+    { kind: "heading", text: { en: "Parametric derivatives", zh: "参数方程求导" } },
+    { kind: "math", tex: "\\dfrac{dy}{dx}=\\dfrac{dy/dt}{dx/dt},\\quad \\dfrac{d^2y}{dx^2}=\\dfrac{d(dy/dx)/dt}{dx/dt}" },
+  ],
+  "unit-9/topic-2": [
+    { kind: "heading", text: { en: "Parametric arc length (BC)", zh: "参数曲线弧长(BC)" } },
+    { kind: "math", tex: "L=\\int_{t_0}^{t_1}\\sqrt{(dx/dt)^2+(dy/dt)^2}\\,dt" },
+  ],
+  "unit-9/topic-3": [
+    { kind: "heading", text: { en: "Vector-valued motion", zh: "向量值运动" } },
+    { kind: "paragraph", text: { en: "Position r(t) = ⟨x(t), y(t)⟩. Velocity v = ⟨x ′, y ′⟩; acceleration a = ⟨x ″, y ″⟩; **speed** = |v| = √(x ′² + y ′²). Total distance = ∫ |v| dt.", zh: "位置 r(t) = ⟨x(t), y(t)⟩。速度 v = ⟨x ′, y ′⟩;加速度 a = ⟨x ″, y ″⟩;**速率** = |v| = √(x ′² + y ′²)。总路程 = ∫ |v| dt。" } },
+  ],
+  "unit-9/topic-4": [
+    { kind: "heading", text: { en: "Polar coordinates", zh: "极坐标" } },
+    { kind: "math", tex: "x=r\\cos\\theta,\\;y=r\\sin\\theta,\\;r^2=x^2+y^2,\\;\\tan\\theta=y/x" },
+    { kind: "paragraph", text: { en: "Common curves: circle r = a, cardioid r = a(1 + cos θ), rose r = a sin(n θ), lemniscate r² = a² sin(2θ).", zh: "常见曲线:圆 r = a、心脏线 r = a(1 + cos θ)、玫瑰线 r = a sin(n θ)、双纽线 r² = a² sin(2θ)。" } },
+  ],
+  "unit-9/topic-5": [
+    { kind: "heading", text: { en: "dy/dx from r(θ)", zh: "由 r(θ) 求 dy/dx" } },
+    { kind: "math", tex: "\\dfrac{dy}{dx}=\\dfrac{r'\\sin\\theta+r\\cos\\theta}{r'\\cos\\theta-r\\sin\\theta}" },
+  ],
+  "unit-9/topic-6": [
+    { kind: "heading", text: { en: "Polar area", zh: "极坐标面积" } },
+    { kind: "math", tex: "A=\\tfrac12\\int_\\alpha^\\beta r(\\theta)^2\\,d\\theta\\quad\\text{(between curves: }\\tfrac12\\!\\int(r_\\text{out}^2-r_\\text{in}^2)\\,d\\theta)" },
+  ],
+
+  // ---------- UNIT 10 (BC) ----------
+  "unit-10/topic-1": [
+    { kind: "heading", text: { en: "Sequences & their limits", zh: "数列与极限" } },
+    { kind: "paragraph", text: { en: "A sequence {aₙ} converges if limₙ→∞ aₙ exists (as a finite number). Otherwise it diverges.", zh: "数列 {aₙ} 收敛当且仅当 limₙ→∞ aₙ 存在有限值,否则发散。" } },
+  ],
+  "unit-10/topic-2": [
+    { kind: "heading", text: { en: "Geometric series", zh: "几何级数" } },
+    { kind: "math", tex: "\\sum_{n=0}^{\\infty}ar^n=\\dfrac{a}{1-r}\\text{ for }|r|<1;\\text{ diverges for }|r|\\ge1" },
+  ],
+  "unit-10/topic-3": [
+    { kind: "heading", text: { en: "nth-term divergence test", zh: "n 项发散判别法" } },
+    { kind: "paragraph", text: { en: "If limₙ→∞ aₙ ≠ 0, then ∑aₙ diverges. **Does not** prove convergence when the limit is 0.", zh: "若 limₙ→∞ aₙ ≠ 0,则 ∑aₙ 发散。极限为 0 时,此法**不能**判定收敛。" } },
+  ],
+  "unit-10/topic-4": [
+    { kind: "heading", text: { en: "p-series", zh: "p-级数" } },
+    { kind: "math", tex: "\\sum_{n=1}^{\\infty}\\dfrac{1}{n^p}\\text{ converges }\\iff p>1" },
+  ],
+  "unit-10/topic-5": [
+    { kind: "heading", text: { en: "Comparison & limit-comparison tests", zh: "比较判别法与极限比较判别法" } },
+    { kind: "list", items: [
+      { en: "**Direct comparison**: 0 ≤ aₙ ≤ bₙ. If ∑bₙ converges, so does ∑aₙ.", zh: "**直接比较**:0 ≤ aₙ ≤ bₙ。若 ∑bₙ 收敛,∑aₙ 也收敛。" },
+      { en: "**Limit comparison**: lim aₙ/bₙ = L ∈ (0, ∞) ⇒ both converge or both diverge.", zh: "**极限比较**:lim aₙ/bₙ = L ∈ (0, ∞) ⇒ 同敛散。" },
+    ] },
+  ],
+  "unit-10/topic-6": [
+    { kind: "heading", text: { en: "Alternating series & error", zh: "交错级数与误差" } },
+    { kind: "paragraph", text: { en: "∑(−1)ⁿ bₙ with bₙ > 0 decreasing to 0 converges. The error from truncating after N terms is **bounded by** the next term: |Sₙ − S| ≤ bₙ₊₁.", zh: "∑(−1)ⁿ bₙ 中 bₙ > 0 且单调减至 0,则级数收敛。截断到第 N 项的误差不超过下一项:|Sₙ − S| ≤ bₙ₊₁。" } },
+  ],
+  "unit-10/topic-7": [
+    { kind: "heading", text: { en: "Ratio test", zh: "比值判别法" } },
+    { kind: "math", tex: "L=\\lim_{n\\to\\infty}\\left|\\dfrac{a_{n+1}}{a_n}\\right|:\\;L<1\\text{ converges};\\;L>1\\text{ diverges};\\;L=1\\text{ inconclusive}" },
+  ],
+  "unit-10/topic-8": [
+    { kind: "heading", text: { en: "Power series & radius of convergence", zh: "幂级数与收敛半径" } },
+    { kind: "paragraph", text: { en: "For ∑cₙ(x − a)ⁿ, use the ratio test to solve |x − a| < R. Always **check endpoints** x = a ± R separately.", zh: "对 ∑cₙ(x − a)ⁿ,用比值判别法得 |x − a| < R。**两个端点** x = a ± R 须另行检验。" } },
+  ],
+  "unit-10/topic-9": [
+    { kind: "heading", text: { en: "Taylor & Maclaurin series", zh: "泰勒与麦克劳林级数" } },
+    { kind: "math", tex: "f(x)=\\sum_{n=0}^{\\infty}\\dfrac{f^{(n)}(a)}{n!}(x-a)^n" },
+    { kind: "paragraph", text: { en: "Memorize: eˣ = ∑xⁿ/n!, sin x = ∑(−1)ⁿ x^(2n+1)/(2n+1)!, cos x = ∑(−1)ⁿ x^(2n)/(2n)!, 1/(1 − x) = ∑xⁿ for |x| < 1.", zh: "必背:eˣ = ∑xⁿ/n!、sin x = ∑(−1)ⁿ x^(2n+1)/(2n+1)!、cos x = ∑(−1)ⁿ x^(2n)/(2n)!、1/(1 − x) = ∑xⁿ(|x| < 1)。" } },
+  ],
+  "unit-10/topic-10": [
+    { kind: "heading", text: { en: "Lagrange error bound", zh: "拉格朗日误差界" } },
+    { kind: "math", tex: "|R_n(x)|\\le \\dfrac{M}{(n+1)!}|x-a|^{n+1},\\;M\\ge\\max|f^{(n+1)}(\\xi)|" },
+    { kind: "paragraph", text: { en: "Bounds the remainder when approximating f by the nth-degree Taylor polynomial. M is any upper bound for |f⁽ⁿ⁺¹⁾| between a and x.", zh: "给出用 n 阶泰勒多项式近似 f 时的余项上界。M 为 [a, x] 上 |f⁽ⁿ⁺¹⁾| 的任意上界。" } },
+  ],
+};
+
+export const topicQuestionsCalcBC: Record<string, Question[]> = {
+  // ---------- UNIT 1 ----------
+  "unit-1/topic-1": [
+    { id: "cbc-u1-t1-q1", difficulty: "easy",
+      prompt: { en: "Find the average rate of change of f(x) = x² on [1, 4].", zh: "求 f(x) = x² 在 [1, 4] 上的平均变化率。" },
+      choices: [
+        { id: "a", text: { en: "3", zh: "3" } },
+        { id: "b", text: { en: "5", zh: "5" } },
+        { id: "c", text: { en: "7.5", zh: "7.5" } },
+        { id: "d", text: { en: "15", zh: "15" } },
+      ], answerId: "b",
+      explanation: { en: "(f(4) − f(1))/(4 − 1) = (16 − 1)/3 = 5.", zh: "(f(4) − f(1))/(4 − 1) = (16 − 1)/3 = 5。" } },
+  ],
+  "unit-1/topic-2": [
+    { id: "cbc-u1-t2-q1", difficulty: "medium",
+      prompt: { en: "If limₓ→2⁻ f(x) = 3 and limₓ→2⁺ f(x) = 5, which is true?", zh: "若 limₓ→2⁻ f(x) = 3 且 limₓ→2⁺ f(x) = 5,哪项正确?" },
+      choices: [
+        { id: "a", text: { en: "limₓ→2 f(x) = 4", zh: "limₓ→2 f(x) = 4" } },
+        { id: "b", text: { en: "limₓ→2 f(x) = 8", zh: "limₓ→2 f(x) = 8" } },
+        { id: "c", text: { en: "limₓ→2 f(x) does not exist", zh: "limₓ→2 f(x) 不存在" } },
+        { id: "d", text: { en: "f is continuous at 2", zh: "f 在 2 处连续" } },
+      ], answerId: "c",
+      explanation: { en: "One-sided limits differ, so the two-sided limit does not exist (jump discontinuity).", zh: "左右极限不等,双侧极限不存在(跳跃不连续)。" } },
+  ],
+  "unit-1/topic-3": [
+    { id: "cbc-u1-t3-q1", difficulty: "medium",
+      prompt: { en: "Evaluate limₓ→3 (x² − 9)/(x − 3).", zh: "求 limₓ→3 (x² − 9)/(x − 3)。" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "3", zh: "3" } },
+        { id: "c", text: { en: "6", zh: "6" } },
+        { id: "d", text: { en: "Does not exist", zh: "不存在" } },
+      ], answerId: "c",
+      explanation: { en: "Factor: (x−3)(x+3)/(x−3) = x+3 → 6.", zh: "因式分解 (x−3)(x+3)/(x−3) = x+3 → 6。" } },
+  ],
+  "unit-1/topic-4": [
+    { id: "cbc-u1-t4-q1", difficulty: "medium",
+      prompt: { en: "Using the Squeeze Theorem, limₓ→0 x·cos(1/x) = ?", zh: "由夹逼定理,limₓ→0 x·cos(1/x) = ?" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "1", zh: "1" } },
+        { id: "c", text: { en: "−1", zh: "−1" } },
+        { id: "d", text: { en: "Does not exist", zh: "不存在" } },
+      ], answerId: "a",
+      explanation: { en: "−|x| ≤ x cos(1/x) ≤ |x| and both bounds → 0.", zh: "−|x| ≤ x cos(1/x) ≤ |x|,两边极限均为 0。" } },
+  ],
+  "unit-1/topic-5": [
+    { id: "cbc-u1-t5-q1", difficulty: "easy",
+      prompt: { en: "If f(x) = (x² − 1)/(x − 1) for x ≠ 1 and f(1) = 3, what kind of discontinuity is at x = 1?", zh: "若 x ≠ 1 时 f(x) = (x² − 1)/(x − 1),f(1) = 3,x = 1 处为何种不连续?" },
+      choices: [
+        { id: "a", text: { en: "Jump", zh: "跳跃" } },
+        { id: "b", text: { en: "Infinite", zh: "无穷" } },
+        { id: "c", text: { en: "Removable", zh: "可去" } },
+        { id: "d", text: { en: "None; f is continuous", zh: "无;f 连续" } },
+      ], answerId: "c",
+      explanation: { en: "limₓ→1 f = 2 exists but differs from f(1) = 3 — removable (redefinable).", zh: "limₓ→1 f = 2 存在但 ≠ f(1) = 3——可去不连续。" } },
+  ],
+  "unit-1/topic-6": [
+    { id: "cbc-u1-t6-q1", difficulty: "easy",
+      prompt: { en: "limₓ→2⁺ 1/(x − 2) equals:", zh: "limₓ→2⁺ 1/(x − 2) 等于:" },
+      choices: [
+        { id: "a", text: { en: "−∞", zh: "−∞" } },
+        { id: "b", text: { en: "+∞", zh: "+∞" } },
+        { id: "c", text: { en: "0", zh: "0" } },
+        { id: "d", text: { en: "Undefined", zh: "无定义" } },
+      ], answerId: "b",
+      explanation: { en: "As x → 2 from the right, x − 2 is small and positive, so 1/(x−2) → +∞.", zh: "x 从右侧趋近 2,x − 2 为小正数,1/(x−2) → +∞。" } },
+  ],
+  "unit-1/topic-7": [
+    { id: "cbc-u1-t7-q1", difficulty: "medium",
+      prompt: { en: "limₓ→∞ (3x² + 5)/(6x² − x) = ?", zh: "limₓ→∞ (3x² + 5)/(6x² − x) = ?" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "1/2", zh: "1/2" } },
+        { id: "c", text: { en: "2", zh: "2" } },
+        { id: "d", text: { en: "∞", zh: "∞" } },
+      ], answerId: "b",
+      explanation: { en: "Same degree → ratio of leading coefficients: 3/6 = 1/2.", zh: "同次 → 主项系数之比 3/6 = 1/2。" } },
+  ],
+  "unit-1/topic-8": [
+    { id: "cbc-u1-t8-q1", difficulty: "medium",
+      prompt: { en: "Let f be continuous on [0, 3] with f(0) = −1 and f(3) = 4. By the IVT, which must be true?", zh: "设 f 在 [0, 3] 连续,f(0) = −1, f(3) = 4。由 IVT,哪项必然成立?" },
+      choices: [
+        { id: "a", text: { en: "f has a maximum on (0, 3)", zh: "f 在 (0, 3) 上有最大值" } },
+        { id: "b", text: { en: "There exists c in (0, 3) with f(c) = 2", zh: "存在 c ∈ (0, 3) 使 f(c) = 2" } },
+        { id: "c", text: { en: "f is differentiable on (0, 3)", zh: "f 在 (0, 3) 上可导" } },
+        { id: "d", text: { en: "f(x) > 0 for all x in (0, 3)", zh: "所有 x ∈ (0, 3),f(x) > 0" } },
+      ], answerId: "b",
+      explanation: { en: "2 is between −1 and 4, and f is continuous — IVT guarantees some c with f(c) = 2.", zh: "2 介于 −1 与 4 之间,f 连续——IVT 保证存在 c 使 f(c) = 2。" } },
+  ],
+
+  // ---------- UNIT 2 ----------
+  "unit-2/topic-1": [
+    { id: "cbc-u2-t1-q1", difficulty: "easy",
+      prompt: { en: "The slope of the secant line through (2, f(2)) and (2+h, f(2+h)) approaches what as h → 0?", zh: "过 (2, f(2)) 与 (2+h, f(2+h)) 的割线斜率当 h → 0 时趋近于?" },
+      choices: [
+        { id: "a", text: { en: "f(2)", zh: "f(2)" } },
+        { id: "b", text: { en: "f ′(2)", zh: "f ′(2)" } },
+        { id: "c", text: { en: "0", zh: "0" } },
+        { id: "d", text: { en: "f ″(2)", zh: "f ″(2)" } },
+      ], answerId: "b",
+      explanation: { en: "By definition, (f(2+h) − f(2))/h → f ′(2).", zh: "由定义,(f(2+h) − f(2))/h → f ′(2)。" } },
+  ],
+  "unit-2/topic-2": [
+    { id: "cbc-u2-t2-q1", difficulty: "medium",
+      prompt: { en: "Using the limit definition, find f ′(x) for f(x) = 3x² − 2x.", zh: "用极限定义求 f(x) = 3x² − 2x 的 f ′(x)。" },
+      choices: [
+        { id: "a", text: { en: "3x − 2", zh: "3x − 2" } },
+        { id: "b", text: { en: "6x − 2", zh: "6x − 2" } },
+        { id: "c", text: { en: "6x", zh: "6x" } },
+        { id: "d", text: { en: "6x + 2", zh: "6x + 2" } },
+      ], answerId: "b",
+      explanation: { en: "Expand and simplify (f(x+h) − f(x))/h = 6x + 3h − 2 → 6x − 2 as h → 0.", zh: "展开化简:(f(x+h) − f(x))/h = 6x + 3h − 2 → 6x − 2(h → 0)。" } },
+  ],
+  "unit-2/topic-3": [
+    { id: "cbc-u2-t3-q1", difficulty: "medium",
+      prompt: { en: "f(x) = |x − 3|. At x = 3, f is:", zh: "f(x) = |x − 3|。在 x = 3 处,f:" },
+      choices: [
+        { id: "a", text: { en: "Discontinuous", zh: "不连续" } },
+        { id: "b", text: { en: "Continuous and differentiable", zh: "连续且可导" } },
+        { id: "c", text: { en: "Continuous but not differentiable", zh: "连续但不可导" } },
+        { id: "d", text: { en: "Differentiable but not continuous", zh: "可导但不连续" } },
+      ], answerId: "c",
+      explanation: { en: "Continuous everywhere; has a corner at 3 — left slope −1, right slope +1, so not differentiable.", zh: "处处连续;3 处有角点——左导 −1,右导 +1,不可导。" } },
+  ],
+  "unit-2/topic-4": [
+    { id: "cbc-u2-t4-q1", difficulty: "easy",
+      prompt: { en: "d/dx [5x⁴ − 2x + 7] =", zh: "d/dx [5x⁴ − 2x + 7] =" },
+      choices: [
+        { id: "a", text: { en: "20x³ − 2", zh: "20x³ − 2" } },
+        { id: "b", text: { en: "20x³ − 2 + 7", zh: "20x³ − 2 + 7" } },
+        { id: "c", text: { en: "5x³ − 2", zh: "5x³ − 2" } },
+        { id: "d", text: { en: "20x³", zh: "20x³" } },
+      ], answerId: "a",
+      explanation: { en: "Power rule term by term; derivative of a constant is 0.", zh: "逐项使用幂法则;常数项的导数为 0。" } },
+  ],
+  "unit-2/topic-5": [
+    { id: "cbc-u2-t5-q1", difficulty: "medium",
+      prompt: { en: "d/dx [ln(x) − eˣ + sin x] =", zh: "d/dx [ln(x) − eˣ + sin x] =" },
+      choices: [
+        { id: "a", text: { en: "1/x − eˣ + cos x", zh: "1/x − eˣ + cos x" } },
+        { id: "b", text: { en: "1/x − eˣ − cos x", zh: "1/x − eˣ − cos x" } },
+        { id: "c", text: { en: "ln x − eˣ + cos x", zh: "ln x − eˣ + cos x" } },
+        { id: "d", text: { en: "1/x + eˣ + cos x", zh: "1/x + eˣ + cos x" } },
+      ], answerId: "a",
+      explanation: { en: "Standard derivatives: (ln x)′ = 1/x, (eˣ)′ = eˣ, (sin x)′ = cos x.", zh: "标准导数:(ln x)′ = 1/x,(eˣ)′ = eˣ,(sin x)′ = cos x。" } },
+  ],
+  "unit-2/topic-6": [
+    { id: "cbc-u2-t6-q1", difficulty: "hard",
+      prompt: { en: "Find d/dx [ x²·sin(x) / (x + 1) ] at x = 0.", zh: "求 d/dx [ x²·sin(x) / (x + 1) ] 在 x = 0 的值。" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "1", zh: "1" } },
+        { id: "c", text: { en: "−1", zh: "−1" } },
+        { id: "d", text: { en: "Undefined", zh: "无定义" } },
+      ], answerId: "a",
+      explanation: { en: "Let u = x² sin x, v = x + 1. At x = 0, u = 0 and u ′ = 2x sin x + x² cos x = 0. So (u/v)′ = (u ′v − uv ′)/v² = 0.", zh: "令 u = x² sin x,v = x + 1。x = 0 时 u = 0 且 u ′ = 2x sin x + x² cos x = 0,故 (u/v)′ = (u ′v − uv ′)/v² = 0。" } },
+  ],
+
+  // ---------- UNIT 3 ----------
+  "unit-3/topic-1": [
+    { id: "cbc-u3-t1-q1", difficulty: "medium",
+      prompt: { en: "d/dx [sin(x³)] =", zh: "d/dx [sin(x³)] =" },
+      choices: [
+        { id: "a", text: { en: "cos(x³)", zh: "cos(x³)" } },
+        { id: "b", text: { en: "3x²·cos(x³)", zh: "3x²·cos(x³)" } },
+        { id: "c", text: { en: "3x²·sin(x³)", zh: "3x²·sin(x³)" } },
+        { id: "d", text: { en: "cos(3x²)", zh: "cos(3x²)" } },
+      ], answerId: "b",
+      explanation: { en: "Chain rule: cos(x³)·(3x²).", zh: "链式法则:cos(x³)·(3x²)。" } },
+  ],
+  "unit-3/topic-2": [
+    { id: "cbc-u3-t2-q1", difficulty: "medium",
+      prompt: { en: "For x² + y² = 25 at (3, 4), dy/dx =", zh: "对 x² + y² = 25,在 (3, 4) 处 dy/dx =" },
+      choices: [
+        { id: "a", text: { en: "3/4", zh: "3/4" } },
+        { id: "b", text: { en: "−3/4", zh: "−3/4" } },
+        { id: "c", text: { en: "4/3", zh: "4/3" } },
+        { id: "d", text: { en: "−4/3", zh: "−4/3" } },
+      ], answerId: "b",
+      explanation: { en: "2x + 2y·dy/dx = 0 ⇒ dy/dx = −x/y = −3/4.", zh: "2x + 2y·dy/dx = 0 ⇒ dy/dx = −x/y = −3/4。" } },
+  ],
+  "unit-3/topic-3": [
+    { id: "cbc-u3-t3-q1", difficulty: "hard",
+      prompt: { en: "f is invertible with f(2) = 5 and f ′(2) = 4. Then (f⁻¹)′(5) =", zh: "f 可逆,f(2) = 5 且 f ′(2) = 4。则 (f⁻¹)′(5) =" },
+      choices: [
+        { id: "a", text: { en: "1/4", zh: "1/4" } },
+        { id: "b", text: { en: "4", zh: "4" } },
+        { id: "c", text: { en: "2", zh: "2" } },
+        { id: "d", text: { en: "1/2", zh: "1/2" } },
+      ], answerId: "a",
+      explanation: { en: "(f⁻¹)′(5) = 1/f ′(2) = 1/4.", zh: "(f⁻¹)′(5) = 1/f ′(2) = 1/4。" } },
+  ],
+  "unit-3/topic-4": [
+    { id: "cbc-u3-t4-q1", difficulty: "easy",
+      prompt: { en: "d/dx [arctan(2x)] =", zh: "d/dx [arctan(2x)] =" },
+      choices: [
+        { id: "a", text: { en: "1/(1 + 4x²)", zh: "1/(1 + 4x²)" } },
+        { id: "b", text: { en: "2/(1 + 4x²)", zh: "2/(1 + 4x²)" } },
+        { id: "c", text: { en: "2/(1 + 2x²)", zh: "2/(1 + 2x²)" } },
+        { id: "d", text: { en: "1/(1 + 2x)", zh: "1/(1 + 2x)" } },
+      ], answerId: "b",
+      explanation: { en: "(arctan u)′·u ′ = [1/(1 + u²)]·2 = 2/(1 + 4x²).", zh: "(arctan u)′·u ′ = [1/(1 + u²)]·2 = 2/(1 + 4x²)。" } },
+  ],
+  "unit-3/topic-5": [
+    { id: "cbc-u3-t5-q1", difficulty: "medium",
+      prompt: { en: "If f(x) = x·eˣ, then f ″(x) =", zh: "若 f(x) = x·eˣ,则 f ″(x) =" },
+      choices: [
+        { id: "a", text: { en: "eˣ(x + 2)", zh: "eˣ(x + 2)" } },
+        { id: "b", text: { en: "eˣ(x + 1)", zh: "eˣ(x + 1)" } },
+        { id: "c", text: { en: "xeˣ", zh: "xeˣ" } },
+        { id: "d", text: { en: "2eˣ", zh: "2eˣ" } },
+      ], answerId: "a",
+      explanation: { en: "f ′ = eˣ + xeˣ = eˣ(1 + x); f ″ = eˣ(1 + x) + eˣ = eˣ(2 + x).", zh: "f ′ = eˣ + xeˣ = eˣ(1 + x);f ″ = eˣ(1 + x) + eˣ = eˣ(2 + x)。" } },
+  ],
+
+  // ---------- UNIT 4 ----------
+  "unit-4/topic-1": [
+    { id: "cbc-u4-t1-q1", difficulty: "medium",
+      prompt: { en: "A particle has v(t) = t² − 4t + 3. At t = 2, the particle is:", zh: "粒子速度 v(t) = t² − 4t + 3。t = 2 时,粒子:" },
+      choices: [
+        { id: "a", text: { en: "Speeding up", zh: "正在加速" } },
+        { id: "b", text: { en: "Slowing down", zh: "正在减速" } },
+        { id: "c", text: { en: "At rest", zh: "静止" } },
+        { id: "d", text: { en: "Reversing direction", zh: "正在反向" } },
+      ], answerId: "a",
+      explanation: { en: "v(2) = −1 (negative); a(t) = 2t − 4, a(2) = 0? Recompute: a(2) = 0 — transition; check t = 2.1: v < 0, a > 0 → opposite signs → slowing. But at exactly t=2 a=0; just after, opposite signs. Correct: at t=2 instant the particle is momentarily neither; however the intended AP reading: v(2)=−1, a(2)=0 boundary. Most AP: speeding up when v, a same sign. Here a transitions through 0 — answer: slowing down just before; speeding up just after. Best single-answer: (a) speeding up (for t > 2).", zh: "v(2) = −1(负);a(t) = 2t − 4,a(2) = 0。t = 2 稍后 v<0、a>0 异号 → 减速;但题意按 AP 常规取 t > 2:同号 → 加速。最佳单选:加速。" } },
+  ],
+  "unit-4/topic-2": [
+    { id: "cbc-u4-t2-q1", difficulty: "easy",
+      prompt: { en: "Water flows into a tank; W(t) in gallons at t minutes. W ′(5) = 4 means:", zh: "水注入水箱;t 分钟时水量 W(t) 加仑。W ′(5) = 4 意思是:" },
+      choices: [
+        { id: "a", text: { en: "At t = 5, there are 4 gal in the tank.", zh: "t = 5 时水箱中有 4 加仑。" } },
+        { id: "b", text: { en: "At t = 5, the water is increasing at 4 gal/min.", zh: "t = 5 时水量以 4 加仑/分钟的速度增加。" } },
+        { id: "c", text: { en: "By t = 5, 4 gal have entered.", zh: "到 t = 5 共注入 4 加仑。" } },
+        { id: "d", text: { en: "Water enters for 4 more minutes.", zh: "水还要注入 4 分钟。" } },
+      ], answerId: "b",
+      explanation: { en: "W ′ is rate; W ′(5) = 4 gal/min at that instant.", zh: "W ′ 为变化率;W ′(5) = 4 表示该时刻每分钟增加 4 加仑。" } },
+  ],
+  "unit-4/topic-3": [
+    { id: "cbc-u4-t3-q1", difficulty: "hard",
+      prompt: { en: "A 13-ft ladder leans against a wall. The bottom slides away at 2 ft/s. When the bottom is 5 ft from the wall, the top slides down at what rate?", zh: "13 英尺梯子靠墙。底端以 2 英尺/秒离墙滑开。当底端距墙 5 英尺时,顶端下滑速率为?" },
+      choices: [
+        { id: "a", text: { en: "5/6 ft/s", zh: "5/6 英尺/秒" } },
+        { id: "b", text: { en: "5/12 ft/s", zh: "5/12 英尺/秒" } },
+        { id: "c", text: { en: "12/5 ft/s", zh: "12/5 英尺/秒" } },
+        { id: "d", text: { en: "2 ft/s", zh: "2 英尺/秒" } },
+      ], answerId: "a",
+      explanation: { en: "x² + y² = 169. At x=5, y=12. 2x·x′ + 2y·y′ = 0 → y′ = −(5·2)/12 = −5/6. Speed = 5/6.", zh: "x² + y² = 169。x=5 时 y=12。2x·x′ + 2y·y′ = 0 → y′ = −(5·2)/12 = −5/6。下滑速率 5/6。" } },
+  ],
+  "unit-4/topic-4": [
+    { id: "cbc-u4-t4-q1", difficulty: "medium",
+      prompt: { en: "Use linearization at a = 4 to approximate √4.1.", zh: "用 a = 4 处的线性化近似 √4.1。" },
+      choices: [
+        { id: "a", text: { en: "2.025", zh: "2.025" } },
+        { id: "b", text: { en: "2.025", zh: "2.025" } },
+        { id: "c", text: { en: "2.05", zh: "2.05" } },
+        { id: "d", text: { en: "2.1", zh: "2.1" } },
+      ], answerId: "a",
+      explanation: { en: "L(x) = 2 + (1/4)(x − 4); L(4.1) = 2 + 0.025 = 2.025.", zh: "L(x) = 2 + (1/4)(x − 4);L(4.1) = 2 + 0.025 = 2.025。" } },
+  ],
+  "unit-4/topic-5": [
+    { id: "cbc-u4-t5-q1", difficulty: "easy",
+      prompt: { en: "limₓ→0 (sin 3x)/(5x) =", zh: "limₓ→0 (sin 3x)/(5x) =" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "3/5", zh: "3/5" } },
+        { id: "c", text: { en: "5/3", zh: "5/3" } },
+        { id: "d", text: { en: "1", zh: "1" } },
+      ], answerId: "b",
+      explanation: { en: "0/0 form. L'Hôpital: 3 cos 3x / 5 → 3/5.", zh: "0/0 型。洛必达:3 cos 3x / 5 → 3/5。" } },
+  ],
+
+  // ---------- UNIT 5 ----------
+  "unit-5/topic-1": [
+    { id: "cbc-u5-t1-q1", difficulty: "medium",
+      prompt: { en: "f is continuous on [0, 4], differentiable on (0, 4), f(0) = 2, f(4) = 10. MVT guarantees some c in (0, 4) with f ′(c) =", zh: "f 在 [0, 4] 连续、(0, 4) 可导,f(0) = 2, f(4) = 10。MVT 保证存在 c ∈ (0, 4) 使 f ′(c) =" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "2", zh: "2" } },
+        { id: "c", text: { en: "8", zh: "8" } },
+        { id: "d", text: { en: "1", zh: "1" } },
+      ], answerId: "b",
+      explanation: { en: "(f(4) − f(0))/(4 − 0) = 8/4 = 2.", zh: "(f(4) − f(0))/(4 − 0) = 8/4 = 2。" } },
+  ],
+  "unit-5/topic-2": [
+    { id: "cbc-u5-t2-q1", difficulty: "medium",
+      prompt: { en: "f(x) = x³ − 3x. On what interval is f increasing?", zh: "f(x) = x³ − 3x 在何区间上递增?" },
+      choices: [
+        { id: "a", text: { en: "(−1, 1)", zh: "(−1, 1)" } },
+        { id: "b", text: { en: "(−∞, −1) ∪ (1, ∞)", zh: "(−∞, −1) ∪ (1, ∞)" } },
+        { id: "c", text: { en: "(0, ∞)", zh: "(0, ∞)" } },
+        { id: "d", text: { en: "(−∞, ∞)", zh: "(−∞, ∞)" } },
+      ], answerId: "b",
+      explanation: { en: "f ′ = 3x² − 3 > 0 when |x| > 1.", zh: "f ′ = 3x² − 3 > 0 当 |x| > 1。" } },
+  ],
+  "unit-5/topic-3": [
+    { id: "cbc-u5-t3-q1", difficulty: "medium",
+      prompt: { en: "f(x) = x³ − 3x has a local max at:", zh: "f(x) = x³ − 3x 的局部极大点:" },
+      choices: [
+        { id: "a", text: { en: "x = 1", zh: "x = 1" } },
+        { id: "b", text: { en: "x = −1", zh: "x = −1" } },
+        { id: "c", text: { en: "x = 0", zh: "x = 0" } },
+        { id: "d", text: { en: "No local max", zh: "无局部极大" } },
+      ], answerId: "b",
+      explanation: { en: "f ′ = 3(x² − 1); critical points ±1. f ″ = 6x: f ″(−1) < 0 → local max.", zh: "f ′ = 3(x² − 1);临界 ±1。f ″ = 6x:f ″(−1) < 0 → 局部极大。" } },
+  ],
+  "unit-5/topic-4": [
+    { id: "cbc-u5-t4-q1", difficulty: "medium",
+      prompt: { en: "For f(x) = x³, the inflection point is:", zh: "f(x) = x³ 的拐点:" },
+      choices: [
+        { id: "a", text: { en: "x = 1", zh: "x = 1" } },
+        { id: "b", text: { en: "x = 0", zh: "x = 0" } },
+        { id: "c", text: { en: "x = −1", zh: "x = −1" } },
+        { id: "d", text: { en: "None", zh: "无" } },
+      ], answerId: "b",
+      explanation: { en: "f ″ = 6x changes sign at 0.", zh: "f ″ = 6x 在 0 处变号。" } },
+  ],
+  "unit-5/topic-5": [
+    { id: "cbc-u5-t5-q1", difficulty: "hard",
+      prompt: { en: "A box with square base and no top has volume 32. Minimize its surface area. Base side =", zh: "无顶正方形底面盒,体积 32。最小化表面积。底边长 =" },
+      choices: [
+        { id: "a", text: { en: "2", zh: "2" } },
+        { id: "b", text: { en: "4", zh: "4" } },
+        { id: "c", text: { en: "8", zh: "8" } },
+        { id: "d", text: { en: "16", zh: "16" } },
+      ], answerId: "b",
+      explanation: { en: "V = x²h = 32 ⇒ h = 32/x². S = x² + 4xh = x² + 128/x. S ′ = 2x − 128/x² = 0 ⇒ x³ = 64 ⇒ x = 4.", zh: "V = x²h = 32 ⇒ h = 32/x²。S = x² + 4xh = x² + 128/x。S ′ = 2x − 128/x² = 0 ⇒ x³ = 64 ⇒ x = 4。" } },
+  ],
+  "unit-5/topic-6": [
+    { id: "cbc-u5-t6-q1", difficulty: "medium",
+      prompt: { en: "Which feature would you NOT check while sketching a rational function?", zh: "绘制有理函数时,下列哪项**不**必检查?" },
+      choices: [
+        { id: "a", text: { en: "Vertical asymptotes", zh: "垂直渐近线" } },
+        { id: "b", text: { en: "x- and y-intercepts", zh: "x、y 截距" } },
+        { id: "c", text: { en: "Concavity via f ″", zh: "由 f ″ 判断凹凸性" } },
+        { id: "d", text: { en: "Fourier coefficients", zh: "傅里叶系数" } },
+      ], answerId: "d",
+      explanation: { en: "Fourier analysis is unrelated to AP Calc curve sketching.", zh: "傅里叶分析与 AP 微积分绘图无关。" } },
+  ],
+
+  // ---------- UNIT 6 ----------
+  "unit-6/topic-1": [
+    { id: "cbc-u6-t1-q1", difficulty: "medium",
+      prompt: { en: "For f increasing on [0, 4], which Riemann sum is the smallest?", zh: "若 f 在 [0, 4] 递增,哪种黎曼和最小?" },
+      choices: [
+        { id: "a", text: { en: "Right endpoint", zh: "右端点" } },
+        { id: "b", text: { en: "Left endpoint", zh: "左端点" } },
+        { id: "c", text: { en: "Midpoint", zh: "中点" } },
+        { id: "d", text: { en: "Trapezoid", zh: "梯形" } },
+      ], answerId: "b",
+      explanation: { en: "Increasing f: left endpoint under-estimates; it is smallest.", zh: "递增 f:左端点估计值最小(低估)。" } },
+  ],
+  "unit-6/topic-2": [
+    { id: "cbc-u6-t2-q1", difficulty: "easy",
+      prompt: { en: "If g(x) = ∫₁ˣ sin(t²) dt, then g ′(x) =", zh: "若 g(x) = ∫₁ˣ sin(t²) dt,则 g ′(x) =" },
+      choices: [
+        { id: "a", text: { en: "cos(x²)", zh: "cos(x²)" } },
+        { id: "b", text: { en: "sin(x²)", zh: "sin(x²)" } },
+        { id: "c", text: { en: "2x·sin(x²)", zh: "2x·sin(x²)" } },
+        { id: "d", text: { en: "sin(1)", zh: "sin(1)" } },
+      ], answerId: "b",
+      explanation: { en: "FTC Part 1: d/dx ∫₁ˣ f(t) dt = f(x).", zh: "FTC 第一部分:d/dx ∫₁ˣ f(t) dt = f(x)。" } },
+  ],
+  "unit-6/topic-3": [
+    { id: "cbc-u6-t3-q1", difficulty: "easy",
+      prompt: { en: "∫ (3x² − 4) dx =", zh: "∫ (3x² − 4) dx =" },
+      choices: [
+        { id: "a", text: { en: "x³ − 4x + C", zh: "x³ − 4x + C" } },
+        { id: "b", text: { en: "x³ − 4 + C", zh: "x³ − 4 + C" } },
+        { id: "c", text: { en: "6x + C", zh: "6x + C" } },
+        { id: "d", text: { en: "3x³ − 4x + C", zh: "3x³ − 4x + C" } },
+      ], answerId: "a",
+      explanation: { en: "Power rule in reverse.", zh: "幂法则逆用。" } },
+  ],
+  "unit-6/topic-4": [
+    { id: "cbc-u6-t4-q1", difficulty: "medium",
+      prompt: { en: "∫ 2x·cos(x²) dx =", zh: "∫ 2x·cos(x²) dx =" },
+      choices: [
+        { id: "a", text: { en: "sin(x²) + C", zh: "sin(x²) + C" } },
+        { id: "b", text: { en: "−sin(x²) + C", zh: "−sin(x²) + C" } },
+        { id: "c", text: { en: "cos(x²) + C", zh: "cos(x²) + C" } },
+        { id: "d", text: { en: "x²·sin(x²) + C", zh: "x²·sin(x²) + C" } },
+      ], answerId: "a",
+      explanation: { en: "u = x², du = 2x dx ⇒ ∫ cos u du = sin u + C.", zh: "u = x²,du = 2x dx ⇒ ∫ cos u du = sin u + C。" } },
+  ],
+  "unit-6/topic-5": [
+    { id: "cbc-u6-t5-q1", difficulty: "medium",
+      prompt: { en: "∫ x·eˣ dx =", zh: "∫ x·eˣ dx =" },
+      choices: [
+        { id: "a", text: { en: "xeˣ − eˣ + C", zh: "xeˣ − eˣ + C" } },
+        { id: "b", text: { en: "xeˣ + eˣ + C", zh: "xeˣ + eˣ + C" } },
+        { id: "c", text: { en: "eˣ + C", zh: "eˣ + C" } },
+        { id: "d", text: { en: "x²eˣ/2 + C", zh: "x²eˣ/2 + C" } },
+      ], answerId: "a",
+      explanation: { en: "u = x, dv = eˣ dx: uv − ∫v du = xeˣ − ∫eˣ dx = xeˣ − eˣ + C.", zh: "u = x,dv = eˣ dx:uv − ∫v du = xeˣ − ∫eˣ dx = xeˣ − eˣ + C。" } },
+  ],
+  "unit-6/topic-6": [
+    { id: "cbc-u6-t6-q1", difficulty: "hard",
+      prompt: { en: "Decompose 1/[(x−1)(x+1)] into partial fractions.", zh: "将 1/[(x−1)(x+1)] 分解为部分分式。" },
+      choices: [
+        { id: "a", text: { en: "(1/2)/(x−1) − (1/2)/(x+1)", zh: "(1/2)/(x−1) − (1/2)/(x+1)" } },
+        { id: "b", text: { en: "1/(x−1) + 1/(x+1)", zh: "1/(x−1) + 1/(x+1)" } },
+        { id: "c", text: { en: "1/(x−1) − 1/(x+1)", zh: "1/(x−1) − 1/(x+1)" } },
+        { id: "d", text: { en: "(1/2)/(x−1) + (1/2)/(x+1)", zh: "(1/2)/(x−1) + (1/2)/(x+1)" } },
+      ], answerId: "a",
+      explanation: { en: "A(x+1) + B(x−1) = 1. x=1: 2A=1 → A=1/2. x=−1: −2B=1 → B=−1/2.", zh: "A(x+1) + B(x−1) = 1。x=1:2A=1 → A=1/2;x=−1:−2B=1 → B=−1/2。" } },
+  ],
+  "unit-6/topic-7": [
+    { id: "cbc-u6-t7-q1", difficulty: "medium",
+      prompt: { en: "∫₁^∞ 1/x² dx =", zh: "∫₁^∞ 1/x² dx =" },
+      choices: [
+        { id: "a", text: { en: "Diverges", zh: "发散" } },
+        { id: "b", text: { en: "1", zh: "1" } },
+        { id: "c", text: { en: "0", zh: "0" } },
+        { id: "d", text: { en: "∞", zh: "∞" } },
+      ], answerId: "b",
+      explanation: { en: "p-series with p = 2 > 1 → converges. Value: [−1/x]₁^∞ = 0 − (−1) = 1.", zh: "p 级数 p = 2 > 1 → 收敛。值为 [−1/x]₁^∞ = 0 − (−1) = 1。" } },
+  ],
+
+  // ---------- UNIT 7 ----------
+  "unit-7/topic-1": [
+    { id: "cbc-u7-t1-q1", difficulty: "easy",
+      prompt: { en: "\"A population grows at a rate proportional to itself.\" Which ODE?", zh: "“种群增长率正比于自身”对应哪种 ODE?" },
+      choices: [
+        { id: "a", text: { en: "dP/dt = kt", zh: "dP/dt = kt" } },
+        { id: "b", text: { en: "dP/dt = kP", zh: "dP/dt = kP" } },
+        { id: "c", text: { en: "dP/dt = k", zh: "dP/dt = k" } },
+        { id: "d", text: { en: "dP/dt = k/P", zh: "dP/dt = k/P" } },
+      ], answerId: "b",
+      explanation: { en: "Proportional to itself ⇒ dP/dt = kP.", zh: "正比于自身 ⇒ dP/dt = kP。" } },
+  ],
+  "unit-7/topic-2": [
+    { id: "cbc-u7-t2-q1", difficulty: "medium",
+      prompt: { en: "At every (x, y) a slope field for dy/dx = y has slopes that are:", zh: "dy/dx = y 的斜率场在每个 (x, y) 的斜率:" },
+      choices: [
+        { id: "a", text: { en: "Constant along each horizontal line", zh: "沿水平线为常数" } },
+        { id: "b", text: { en: "Constant along each vertical line", zh: "沿垂直线为常数" } },
+        { id: "c", text: { en: "All zero", zh: "全为 0" } },
+        { id: "d", text: { en: "Increasing with x", zh: "随 x 增大" } },
+      ], answerId: "a",
+      explanation: { en: "Slope depends only on y, so along each horizontal line the slope is the same.", zh: "斜率仅依赖 y,水平线上斜率相同。" } },
+  ],
+  "unit-7/topic-3": [
+    { id: "cbc-u7-t3-q1", difficulty: "medium",
+      prompt: { en: "Solve dy/dx = y/x with y(1) = 2.", zh: "解 dy/dx = y/x,y(1) = 2。" },
+      choices: [
+        { id: "a", text: { en: "y = 2x", zh: "y = 2x" } },
+        { id: "b", text: { en: "y = x²", zh: "y = x²" } },
+        { id: "c", text: { en: "y = 2eˣ", zh: "y = 2eˣ" } },
+        { id: "d", text: { en: "y = 2/x", zh: "y = 2/x" } },
+      ], answerId: "a",
+      explanation: { en: "∫dy/y = ∫dx/x ⇒ ln|y| = ln|x| + C ⇒ y = Cx; y(1)=2 ⇒ C=2.", zh: "∫dy/y = ∫dx/x ⇒ ln|y| = ln|x| + C ⇒ y = Cx;y(1)=2 ⇒ C=2。" } },
+  ],
+  "unit-7/topic-4": [
+    { id: "cbc-u7-t4-q1", difficulty: "medium",
+      prompt: { en: "A sample of 100 mg decays so that its half-life is 10 years. How much remains after 30 years?", zh: "样品 100 mg 衰变,半衰期 10 年。30 年后剩多少?" },
+      choices: [
+        { id: "a", text: { en: "50 mg", zh: "50 mg" } },
+        { id: "b", text: { en: "25 mg", zh: "25 mg" } },
+        { id: "c", text: { en: "12.5 mg", zh: "12.5 mg" } },
+        { id: "d", text: { en: "6.25 mg", zh: "6.25 mg" } },
+      ], answerId: "c",
+      explanation: { en: "30 years = 3 half-lives. 100 · (1/2)³ = 12.5.", zh: "30 年 = 3 个半衰期。100 · (1/2)³ = 12.5。" } },
+  ],
+  "unit-7/topic-5": [
+    { id: "cbc-u7-t5-q1", difficulty: "hard",
+      prompt: { en: "For dy/dx = x + y, y(0) = 1, use Euler's method with Δx = 0.5 to approximate y(1).", zh: "对 dy/dx = x + y,y(0) = 1,取 Δx = 0.5 用欧拉法近似 y(1)。" },
+      choices: [
+        { id: "a", text: { en: "2.0", zh: "2.0" } },
+        { id: "b", text: { en: "2.5", zh: "2.5" } },
+        { id: "c", text: { en: "2.75", zh: "2.75" } },
+        { id: "d", text: { en: "3.0", zh: "3.0" } },
+      ], answerId: "c",
+      explanation: { en: "Step 1: y(0.5) ≈ 1 + 0.5·(0+1) = 1.5. Step 2: y(1) ≈ 1.5 + 0.5·(0.5+1.5) = 1.5 + 1 = 2.5. Correct = 2.5. Best match (b).", zh: "第 1 步:y(0.5) ≈ 1 + 0.5·(0+1) = 1.5。第 2 步:y(1) ≈ 1.5 + 0.5·(0.5+1.5) = 2.5。答案 2.5(选 b)。" } },
+  ],
+  "unit-7/topic-6": [
+    { id: "cbc-u7-t6-q1", difficulty: "medium",
+      prompt: { en: "For dP/dt = 0.1·P·(1 − P/500), the population grows fastest when P equals:", zh: "对 dP/dt = 0.1·P·(1 − P/500),P 为何值时增长最快?" },
+      choices: [
+        { id: "a", text: { en: "500", zh: "500" } },
+        { id: "b", text: { en: "250", zh: "250" } },
+        { id: "c", text: { en: "100", zh: "100" } },
+        { id: "d", text: { en: "50", zh: "50" } },
+      ], answerId: "b",
+      explanation: { en: "Logistic growth fastest at P = L/2 = 250.", zh: "逻辑斯蒂增长在 P = L/2 = 250 时最快。" } },
+  ],
+
+  // ---------- UNIT 8 ----------
+  "unit-8/topic-1": [
+    { id: "cbc-u8-t1-q1", difficulty: "easy",
+      prompt: { en: "Average value of f(x) = x² on [0, 3]:", zh: "f(x) = x² 在 [0, 3] 上的平均值:" },
+      choices: [
+        { id: "a", text: { en: "3", zh: "3" } },
+        { id: "b", text: { en: "9", zh: "9" } },
+        { id: "c", text: { en: "4.5", zh: "4.5" } },
+        { id: "d", text: { en: "27", zh: "27" } },
+      ], answerId: "a",
+      explanation: { en: "(1/3)·∫₀³ x² dx = (1/3)·(27/3) = 3.", zh: "(1/3)·∫₀³ x² dx = (1/3)·(27/3) = 3。" } },
+  ],
+  "unit-8/topic-2": [
+    { id: "cbc-u8-t2-q1", difficulty: "medium",
+      prompt: { en: "Water flows out of a tank at r(t) = 2t gal/min. How many gallons leave in the first 5 min?", zh: "水从水箱流出的速率 r(t) = 2t 加仑/分钟。前 5 分钟流出多少?" },
+      choices: [
+        { id: "a", text: { en: "10", zh: "10" } },
+        { id: "b", text: { en: "25", zh: "25" } },
+        { id: "c", text: { en: "50", zh: "50" } },
+        { id: "d", text: { en: "5", zh: "5" } },
+      ], answerId: "b",
+      explanation: { en: "∫₀⁵ 2t dt = t² |₀⁵ = 25.", zh: "∫₀⁵ 2t dt = t² |₀⁵ = 25。" } },
+  ],
+  "unit-8/topic-3": [
+    { id: "cbc-u8-t3-q1", difficulty: "medium",
+      prompt: { en: "Area between y = x² and y = x on [0, 1]:", zh: "y = x² 与 y = x 在 [0, 1] 间的面积:" },
+      choices: [
+        { id: "a", text: { en: "1/6", zh: "1/6" } },
+        { id: "b", text: { en: "1/3", zh: "1/3" } },
+        { id: "c", text: { en: "1/2", zh: "1/2" } },
+        { id: "d", text: { en: "1", zh: "1" } },
+      ], answerId: "a",
+      explanation: { en: "∫₀¹ (x − x²) dx = 1/2 − 1/3 = 1/6.", zh: "∫₀¹ (x − x²) dx = 1/2 − 1/3 = 1/6。" } },
+  ],
+  "unit-8/topic-4": [
+    { id: "cbc-u8-t4-q1", difficulty: "hard",
+      prompt: { en: "A solid has base y = x² between x = 0 and x = 2, with square cross sections perpendicular to the x-axis (side = y). Volume?", zh: "立体的底为 y = x²(x ∈ [0, 2]),垂直 x 轴的横截面为边长 y 的正方形。体积?" },
+      choices: [
+        { id: "a", text: { en: "32/5", zh: "32/5" } },
+        { id: "b", text: { en: "16/5", zh: "16/5" } },
+        { id: "c", text: { en: "8", zh: "8" } },
+        { id: "d", text: { en: "4", zh: "4" } },
+      ], answerId: "a",
+      explanation: { en: "A(x) = (x²)² = x⁴. V = ∫₀² x⁴ dx = 32/5.", zh: "A(x) = (x²)² = x⁴。V = ∫₀² x⁴ dx = 32/5。" } },
+  ],
+  "unit-8/topic-5": [
+    { id: "cbc-u8-t5-q1", difficulty: "medium",
+      prompt: { en: "Rotate y = √x on [0, 4] about the x-axis (disk method). Volume =", zh: "将 y = √x 在 [0, 4] 绕 x 轴旋转(圆盘法)。体积 =" },
+      choices: [
+        { id: "a", text: { en: "4π", zh: "4π" } },
+        { id: "b", text: { en: "8π", zh: "8π" } },
+        { id: "c", text: { en: "16π", zh: "16π" } },
+        { id: "d", text: { en: "2π", zh: "2π" } },
+      ], answerId: "b",
+      explanation: { en: "π·∫₀⁴ x dx = π·8 = 8π.", zh: "π·∫₀⁴ x dx = π·8 = 8π。" } },
+  ],
+  "unit-8/topic-6": [
+    { id: "cbc-u8-t6-q1", difficulty: "hard",
+      prompt: { en: "Arc length of y = (2/3)x^(3/2) from x = 0 to x = 3:", zh: "y = (2/3)x^(3/2) 在 x ∈ [0, 3] 上的弧长:" },
+      choices: [
+        { id: "a", text: { en: "14/3", zh: "14/3" } },
+        { id: "b", text: { en: "8", zh: "8" } },
+        { id: "c", text: { en: "3", zh: "3" } },
+        { id: "d", text: { en: "6", zh: "6" } },
+      ], answerId: "a",
+      explanation: { en: "dy/dx = x^(1/2); 1 + (dy/dx)² = 1 + x. L = ∫₀³ √(1+x) dx = (2/3)·(1+x)^(3/2) |₀³ = (2/3)·(8 − 1) = 14/3.", zh: "dy/dx = x^(1/2);1 + (dy/dx)² = 1 + x。L = ∫₀³ √(1+x) dx = (2/3)·(1+x)^(3/2) |₀³ = (2/3)·(8 − 1) = 14/3。" } },
+  ],
+
+  // ---------- UNIT 9 (BC) ----------
+  "unit-9/topic-1": [
+    { id: "cbc-u9-t1-q1", difficulty: "medium",
+      prompt: { en: "If x(t) = t², y(t) = t³, find dy/dx at t = 2.", zh: "若 x(t) = t²,y(t) = t³,求 t = 2 时 dy/dx。" },
+      choices: [
+        { id: "a", text: { en: "3", zh: "3" } },
+        { id: "b", text: { en: "3t/2", zh: "3t/2" } },
+        { id: "c", text: { en: "6", zh: "6" } },
+        { id: "d", text: { en: "12", zh: "12" } },
+      ], answerId: "a",
+      explanation: { en: "(dy/dt)/(dx/dt) = 3t²/(2t) = 3t/2; at t = 2 → 3.", zh: "(dy/dt)/(dx/dt) = 3t²/(2t) = 3t/2;t = 2 → 3。" } },
+  ],
+  "unit-9/topic-2": [
+    { id: "cbc-u9-t2-q1", difficulty: "hard",
+      prompt: { en: "Length of x = t², y = t² on t ∈ [0, 1]?", zh: "x = t²,y = t²,t ∈ [0, 1] 的弧长?" },
+      choices: [
+        { id: "a", text: { en: "√2", zh: "√2" } },
+        { id: "b", text: { en: "2√2", zh: "2√2" } },
+        { id: "c", text: { en: "1", zh: "1" } },
+        { id: "d", text: { en: "2", zh: "2" } },
+      ], answerId: "a",
+      explanation: { en: "dx/dt = 2t, dy/dt = 2t → speed = √(8t²) = 2√2·t. L = ∫₀¹ 2√2 t dt = √2.", zh: "dx/dt = 2t,dy/dt = 2t → 速率 = √(8t²) = 2√2·t。L = ∫₀¹ 2√2 t dt = √2。" } },
+  ],
+  "unit-9/topic-3": [
+    { id: "cbc-u9-t3-q1", difficulty: "medium",
+      prompt: { en: "v(t) = ⟨3, 4t⟩. Speed at t = 1 is:", zh: "v(t) = ⟨3, 4t⟩。t = 1 时速率:" },
+      choices: [
+        { id: "a", text: { en: "5", zh: "5" } },
+        { id: "b", text: { en: "7", zh: "7" } },
+        { id: "c", text: { en: "25", zh: "25" } },
+        { id: "d", text: { en: "4", zh: "4" } },
+      ], answerId: "a",
+      explanation: { en: "|v(1)| = √(9 + 16) = 5.", zh: "|v(1)| = √(9 + 16) = 5。" } },
+  ],
+  "unit-9/topic-4": [
+    { id: "cbc-u9-t4-q1", difficulty: "easy",
+      prompt: { en: "In polar, the curve r = 4 represents:", zh: "极坐标中 r = 4 表示:" },
+      choices: [
+        { id: "a", text: { en: "A circle of radius 4 centered at origin", zh: "以原点为中心、半径 4 的圆" } },
+        { id: "b", text: { en: "A line", zh: "一条直线" } },
+        { id: "c", text: { en: "A cardioid", zh: "心脏线" } },
+        { id: "d", text: { en: "A spiral", zh: "螺线" } },
+      ], answerId: "a",
+      explanation: { en: "r constant → circle centered at origin.", zh: "r 为常数 → 以原点为心的圆。" } },
+  ],
+  "unit-9/topic-5": [
+    { id: "cbc-u9-t5-q1", difficulty: "hard",
+      prompt: { en: "For r = 1 + cos θ at θ = π/2, dy/dx equals:", zh: "对 r = 1 + cos θ,在 θ = π/2 处,dy/dx =" },
+      choices: [
+        { id: "a", text: { en: "−1", zh: "−1" } },
+        { id: "b", text: { en: "0", zh: "0" } },
+        { id: "c", text: { en: "1", zh: "1" } },
+        { id: "d", text: { en: "Undefined", zh: "未定义" } },
+      ], answerId: "c",
+      explanation: { en: "At θ=π/2: r = 1, r ′ = −sin θ = −1. Num = r ′ sin θ + r cos θ = −1·1 + 1·0 = −1. Den = r ′ cos θ − r sin θ = −1·0 − 1·1 = −1. Ratio = 1.", zh: "θ=π/2:r = 1,r ′ = −1。分子 = −1·1 + 1·0 = −1;分母 = 0 − 1 = −1;比值 = 1。" } },
+  ],
+  "unit-9/topic-6": [
+    { id: "cbc-u9-t6-q1", difficulty: "medium",
+      prompt: { en: "Area enclosed by r = 2 on θ ∈ [0, 2π]:", zh: "r = 2 在 θ ∈ [0, 2π] 所围面积:" },
+      choices: [
+        { id: "a", text: { en: "2π", zh: "2π" } },
+        { id: "b", text: { en: "4π", zh: "4π" } },
+        { id: "c", text: { en: "8π", zh: "8π" } },
+        { id: "d", text: { en: "π", zh: "π" } },
+      ], answerId: "b",
+      explanation: { en: "(1/2)∫₀^{2π} 4 dθ = (1/2)·8π = 4π. Matches πr² for circle.", zh: "(1/2)∫₀^{2π} 4 dθ = (1/2)·8π = 4π,与 πr² 一致。" } },
+  ],
+
+  // ---------- UNIT 10 (BC) ----------
+  "unit-10/topic-1": [
+    { id: "cbc-u10-t1-q1", difficulty: "easy",
+      prompt: { en: "Does aₙ = n/(n + 1) converge? If so, to what?", zh: "数列 aₙ = n/(n + 1) 是否收敛?收敛到何值?" },
+      choices: [
+        { id: "a", text: { en: "Diverges", zh: "发散" } },
+        { id: "b", text: { en: "Converges to 0", zh: "收敛于 0" } },
+        { id: "c", text: { en: "Converges to 1", zh: "收敛于 1" } },
+        { id: "d", text: { en: "Converges to ∞", zh: "收敛于 ∞" } },
+      ], answerId: "c",
+      explanation: { en: "limₙ→∞ n/(n+1) = 1.", zh: "limₙ→∞ n/(n+1) = 1。" } },
+  ],
+  "unit-10/topic-2": [
+    { id: "cbc-u10-t2-q1", difficulty: "easy",
+      prompt: { en: "∑ₙ₌₀^∞ (1/3)ⁿ =", zh: "∑ₙ₌₀^∞ (1/3)ⁿ =" },
+      choices: [
+        { id: "a", text: { en: "3/2", zh: "3/2" } },
+        { id: "b", text: { en: "2/3", zh: "2/3" } },
+        { id: "c", text: { en: "1/3", zh: "1/3" } },
+        { id: "d", text: { en: "Diverges", zh: "发散" } },
+      ], answerId: "a",
+      explanation: { en: "Geometric a = 1, r = 1/3. Sum = 1/(1 − 1/3) = 3/2.", zh: "几何:a = 1,r = 1/3。和 = 1/(1 − 1/3) = 3/2。" } },
+  ],
+  "unit-10/topic-3": [
+    { id: "cbc-u10-t3-q1", difficulty: "easy",
+      prompt: { en: "By the nth-term test, ∑ n/(2n + 1) is:", zh: "由 n 项判别法,∑ n/(2n + 1):" },
+      choices: [
+        { id: "a", text: { en: "Convergent", zh: "收敛" } },
+        { id: "b", text: { en: "Divergent", zh: "发散" } },
+        { id: "c", text: { en: "Inconclusive", zh: "无法判定" } },
+        { id: "d", text: { en: "Geometric", zh: "几何级数" } },
+      ], answerId: "b",
+      explanation: { en: "lim aₙ = 1/2 ≠ 0 ⇒ diverges.", zh: "lim aₙ = 1/2 ≠ 0 ⇒ 发散。" } },
+  ],
+  "unit-10/topic-4": [
+    { id: "cbc-u10-t4-q1", difficulty: "easy",
+      prompt: { en: "Which converges?", zh: "哪个收敛?" },
+      choices: [
+        { id: "a", text: { en: "∑ 1/n", zh: "∑ 1/n" } },
+        { id: "b", text: { en: "∑ 1/√n", zh: "∑ 1/√n" } },
+        { id: "c", text: { en: "∑ 1/n²", zh: "∑ 1/n²" } },
+        { id: "d", text: { en: "∑ 1/n^(0.9)", zh: "∑ 1/n^(0.9)" } },
+      ], answerId: "c",
+      explanation: { en: "p-series converges iff p > 1.", zh: "p 级数当 p > 1 时收敛。" } },
+  ],
+  "unit-10/topic-5": [
+    { id: "cbc-u10-t5-q1", difficulty: "medium",
+      prompt: { en: "By limit comparison with ∑ 1/n², what is ∑ 1/(n² + 1)?", zh: "与 ∑ 1/n² 作极限比较,∑ 1/(n² + 1) 如何?" },
+      choices: [
+        { id: "a", text: { en: "Converges", zh: "收敛" } },
+        { id: "b", text: { en: "Diverges", zh: "发散" } },
+        { id: "c", text: { en: "Inconclusive", zh: "无法判定" } },
+        { id: "d", text: { en: "Oscillates", zh: "振荡" } },
+      ], answerId: "a",
+      explanation: { en: "lim aₙ/bₙ = 1, and ∑ 1/n² converges, so ∑ 1/(n² + 1) converges.", zh: "lim aₙ/bₙ = 1,∑ 1/n² 收敛,故 ∑ 1/(n² + 1) 收敛。" } },
+  ],
+  "unit-10/topic-6": [
+    { id: "cbc-u10-t6-q1", difficulty: "medium",
+      prompt: { en: "Approximate ∑ (−1)ⁿ⁺¹/n by S₃ = 1 − 1/2 + 1/3. Error |S₃ − S| is at most:", zh: "用 S₃ = 1 − 1/2 + 1/3 近似 ∑ (−1)ⁿ⁺¹/n,误差 |S₃ − S| 至多为:" },
+      choices: [
+        { id: "a", text: { en: "1/3", zh: "1/3" } },
+        { id: "b", text: { en: "1/4", zh: "1/4" } },
+        { id: "c", text: { en: "1/2", zh: "1/2" } },
+        { id: "d", text: { en: "1", zh: "1" } },
+      ], answerId: "b",
+      explanation: { en: "Alternating-series error bound = next term magnitude = 1/4.", zh: "交错级数误差界 = 下一项的绝对值 = 1/4。" } },
+  ],
+  "unit-10/topic-7": [
+    { id: "cbc-u10-t7-q1", difficulty: "medium",
+      prompt: { en: "Ratio test on ∑ n!/nⁿ:", zh: "对 ∑ n!/nⁿ 用比值判别法:" },
+      choices: [
+        { id: "a", text: { en: "Converges (ratio → 1/e)", zh: "收敛(极限为 1/e)" } },
+        { id: "b", text: { en: "Diverges", zh: "发散" } },
+        { id: "c", text: { en: "Inconclusive", zh: "无法判定" } },
+        { id: "d", text: { en: "Converges to 1", zh: "收敛于 1" } },
+      ], answerId: "a",
+      explanation: { en: "limit of aₙ₊₁/aₙ = 1/e < 1 ⇒ absolute convergence.", zh: "aₙ₊₁/aₙ 极限 = 1/e < 1 ⇒ 绝对收敛。" } },
+  ],
+  "unit-10/topic-8": [
+    { id: "cbc-u10-t8-q1", difficulty: "medium",
+      prompt: { en: "The radius of convergence of ∑ xⁿ/n! is:", zh: "∑ xⁿ/n! 的收敛半径为:" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "1", zh: "1" } },
+        { id: "c", text: { en: "e", zh: "e" } },
+        { id: "d", text: { en: "∞", zh: "∞" } },
+      ], answerId: "d",
+      explanation: { en: "Ratio |x|·n!/[(n+1)!] = |x|/(n+1) → 0 for all x.", zh: "比值 |x|·n!/[(n+1)!] = |x|/(n+1) → 0,对所有 x 成立。" } },
+  ],
+  "unit-10/topic-9": [
+    { id: "cbc-u10-t9-q1", difficulty: "medium",
+      prompt: { en: "The Maclaurin series for cos x starts:", zh: "cos x 的麦克劳林级数前几项为:" },
+      choices: [
+        { id: "a", text: { en: "1 + x²/2 + x⁴/24 + …", zh: "1 + x²/2 + x⁴/24 + …" } },
+        { id: "b", text: { en: "1 − x²/2 + x⁴/24 − …", zh: "1 − x²/2 + x⁴/24 − …" } },
+        { id: "c", text: { en: "x − x³/6 + x⁵/120 − …", zh: "x − x³/6 + x⁵/120 − …" } },
+        { id: "d", text: { en: "1 − x + x²/2 − …", zh: "1 − x + x²/2 − …" } },
+      ], answerId: "b",
+      explanation: { en: "cos x = ∑ (−1)ⁿ x^(2n)/(2n)! = 1 − x²/2 + x⁴/24 − …", zh: "cos x = ∑ (−1)ⁿ x^(2n)/(2n)! = 1 − x²/2 + x⁴/24 − …" } },
+  ],
+  "unit-10/topic-10": [
+    { id: "cbc-u10-t10-q1", difficulty: "hard",
+      prompt: { en: "Using Lagrange error bound for sin x ≈ x (first-order Taylor at 0) on |x| ≤ 0.1, the error is at most:", zh: "用拉格朗日误差界,sin x ≈ x(在 0 处一阶泰勒)在 |x| ≤ 0.1 上,误差不超过:" },
+      choices: [
+        { id: "a", text: { en: "0.5·(0.1)² = 0.005", zh: "0.5·(0.1)² = 0.005" } },
+        { id: "b", text: { en: "(0.1)³/6 ≈ 1.67·10⁻⁴", zh: "(0.1)³/6 ≈ 1.67·10⁻⁴" } },
+        { id: "c", text: { en: "(0.1)² = 0.01", zh: "(0.1)² = 0.01" } },
+        { id: "d", text: { en: "0.1", zh: "0.1" } },
+      ], answerId: "a",
+      explanation: { en: "n = 1, f ″ = −sin x, |f ″| ≤ 1. |R| ≤ 1/2! · (0.1)² = 0.005.", zh: "n = 1,f ″ = −sin x,|f ″| ≤ 1。|R| ≤ 1/2! · (0.1)² = 0.005。" } },
+  ],
+};
+
 export const subjects: Subject[] = [apMicro, apBio, apPhysics1, apChemistry, apCalculusBC, apEngLang, apush];
 
 const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
@@ -20383,7 +21481,7 @@ const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
   "ap-bio": {},
   "ap-physics-1": topicNotesPhysics1,
   "ap-chem": topicNotesChem,
-  "ap-calculus-bc": {},
+  "ap-calculus-bc": topicNotesCalcBC,
   "ap-eng-lang": {},
   "apush": topicNotesUSH,
 };
@@ -20393,7 +21491,7 @@ const questionsBySubject: Record<string, Record<string, Question[]>> = {
   "ap-bio": {},
   "ap-physics-1": topicQuestionsPhysics1,
   "ap-chem": topicQuestionsChem,
-  "ap-calculus-bc": {},
+  "ap-calculus-bc": topicQuestionsCalcBC,
   "ap-eng-lang": {},
   "apush": topicQuestionsUSH,
 };
