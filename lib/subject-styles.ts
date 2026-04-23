@@ -1,5 +1,6 @@
 import {
   Atom,
+  Beaker,
   BookOpen,
   Feather,
   FlaskConical,
@@ -58,6 +59,12 @@ export const subjectStyles: Record<string, SubjectStyle> = {
     Icon: Landmark,
     gradient: "from-red-600 via-rose-700 to-amber-800",
     ring: "ring-red-200",
+    iconBg: "bg-white/20",
+  },
+  ukcho: {
+    Icon: Beaker,
+    gradient: "from-blue-700 via-indigo-700 to-slate-900",
+    ring: "ring-blue-200",
     iconBg: "bg-white/20",
   },
 };

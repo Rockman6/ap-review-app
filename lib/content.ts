@@ -21474,7 +21474,143 @@ export const topicQuestionsCalcBC: Record<string, Question[]> = {
   ],
 };
 
-export const subjects: Subject[] = [apMicro, apBio, apPhysics1, apChemistry, apCalculusBC, apEngLang, apush];
+// ============================================================
+// UK Chemistry Olympiad (UKCHO)
+// ============================================================
+
+export const apUKCHO: Subject = {
+  slug: "ukcho",
+  title: { en: "UK Chemistry Olympiad", zh: "英国化学奥林匹克" },
+  tagline: {
+    en: "Olympiad-flavored chemistry — structure, energy, kinetics, organic, and spectroscopy, with interactive visualizations.",
+    zh: "奥林匹克风格的化学——结构、能量、动力学、有机与谱学,配合交互式可视化。",
+  },
+  units: [
+    {
+      slug: "unit-1", number: 1,
+      title: { en: "Atomic Structure & Bonding", zh: "原子结构与化学键" },
+      description: { en: "Electron configurations, orbitals, MO theory, VSEPR, Born–Haber, and IMFs.", zh: "电子排布、原子轨道、分子轨道理论、VSEPR、Born–Haber 与分子间作用力。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Atomic Structure & Electron Configuration", zh: "原子结构与电子排布" }, summary: { en: "Aufbau, Hund's rule, Pauli exclusion — and exceptions like Cr and Cu.", zh: "构造原理、洪特规则、泡利不相容——以及 Cr、Cu 等例外。" } },
+        { slug: "topic-2", title: { en: "Atomic Orbitals: Shapes & Energies", zh: "原子轨道:形状与能量" }, summary: { en: "Interactive 3D views of s, p, d orbitals and their nodes.", zh: "s、p、d 轨道的三维交互视图及其节面。" } },
+        { slug: "topic-3", title: { en: "Periodic Trends", zh: "周期性规律" }, summary: { en: "Effective nuclear charge, radii, IE, EA, electronegativity.", zh: "有效核电荷、半径、电离能、电子亲和能、电负性。" } },
+        { slug: "topic-4", title: { en: "Ionic Bonding & Lattice Energy", zh: "离子键与晶格能" }, summary: { en: "Born–Haber cycles for NaCl, MgO, CaF₂.", zh: "NaCl、MgO、CaF₂ 的 Born–Haber 循环。" } },
+        { slug: "topic-5", title: { en: "Covalent Bonding & VSEPR", zh: "共价键与 VSEPR" }, summary: { en: "Lewis structures, electron-domain geometry, 3D shapes.", zh: "路易斯结构、电子域几何、三维形状。" } },
+        { slug: "topic-6", title: { en: "Molecular Orbital Theory", zh: "分子轨道理论" }, summary: { en: "MO diagrams for H₂, N₂, O₂, CO — bonding, antibonding, bond order, paramagnetism.", zh: "H₂、N₂、O₂、CO 的分子轨道图——成键、反键、键级、顺磁性。" } },
+        { slug: "topic-7", title: { en: "Intermolecular Forces", zh: "分子间作用力" }, summary: { en: "Dispersion, dipole–dipole, hydrogen bonding, ion–dipole.", zh: "色散力、偶极-偶极、氢键、离子-偶极。" } },
+      ],
+    },
+    {
+      slug: "unit-2", number: 2,
+      title: { en: "Thermodynamics", zh: "热力学" },
+      description: { en: "Enthalpy, entropy, Gibbs free energy, spontaneity, and phase behavior.", zh: "焓、熵、吉布斯自由能、自发性与相变。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Enthalpy & Hess's Law", zh: "焓与赫斯定律" }, summary: { en: "ΔH as a state function; combining reactions to find unknown enthalpies.", zh: "ΔH 为状态函数;通过反应加减求未知焓变。" } },
+        { slug: "topic-2", title: { en: "Bond Enthalpy Calculations", zh: "键能计算" }, summary: { en: "Estimating ΔH from average bond energies.", zh: "由平均键能估算 ΔH。" } },
+        { slug: "topic-3", title: { en: "Entropy (ΔS)", zh: "熵(ΔS)" }, summary: { en: "Disorder, phase changes, and the second law.", zh: "无序度、相变与热力学第二定律。" } },
+        { slug: "topic-4", title: { en: "Gibbs Free Energy & Spontaneity", zh: "吉布斯自由能与自发性" }, summary: { en: "ΔG = ΔH − TΔS; the four sign combinations.", zh: "ΔG = ΔH − TΔS;四种符号组合。" } },
+        { slug: "topic-5", title: { en: "Temperature Dependence of ΔG", zh: "ΔG 的温度依赖" }, summary: { en: "Crossover temperature and ΔG vs T plots.", zh: "反转温度与 ΔG–T 图。" } },
+        { slug: "topic-6", title: { en: "Phase Diagrams", zh: "相图" }, summary: { en: "Interactive P–T diagrams for H₂O and CO₂; triple & critical points.", zh: "H₂O 与 CO₂ 的交互 P–T 相图;三相点与临界点。" } },
+      ],
+    },
+    {
+      slug: "unit-3", number: 3,
+      title: { en: "Chemical Kinetics", zh: "化学动力学" },
+      description: { en: "Rate laws, integrated rates, mechanisms, Arrhenius, catalysis.", zh: "速率定律、积分速率式、机理、Arrhenius 方程与催化作用。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Rate & Rate Laws", zh: "反应速率与速率定律" }, summary: { en: "Rate = k[A]^m[B]^n; determining orders experimentally.", zh: "rate = k[A]^m[B]^n;实验确定反应级数。" } },
+        { slug: "topic-2", title: { en: "Integrated Rate Laws", zh: "积分速率方程" }, summary: { en: "Zero, first, and second order — linear test plots.", zh: "零级、一级、二级——线性化检验图。" } },
+        { slug: "topic-3", title: { en: "Half-Life", zh: "半衰期" }, summary: { en: "First-order t½ = ln 2/k; half-lives for other orders.", zh: "一级 t½ = ln 2/k;其他级数的半衰期。" } },
+        { slug: "topic-4", title: { en: "Reaction Mechanisms & RDS", zh: "反应机理与速控步" }, summary: { en: "Deriving rate laws from elementary steps.", zh: "由基元反应步推导速率定律。" } },
+        { slug: "topic-5", title: { en: "Arrhenius Equation", zh: "Arrhenius 方程" }, summary: { en: "k = A·exp(−Eₐ/RT); interactive slope on an Arrhenius plot.", zh: "k = A·exp(−Eₐ/RT);Arrhenius 图上的交互斜率。" } },
+        { slug: "topic-6", title: { en: "Catalysis", zh: "催化作用" }, summary: { en: "Lowering Eₐ with homogeneous, heterogeneous, enzymatic catalysts.", zh: "同相、多相、酶催化降低 Eₐ。" } },
+      ],
+    },
+    {
+      slug: "unit-4", number: 4,
+      title: { en: "Chemical Equilibria", zh: "化学平衡" },
+      description: { en: "Kc/Kp, Le Chatelier, acids & bases, buffers, titration, Ksp.", zh: "Kc/Kp、勒夏特列原理、酸碱、缓冲液、滴定与 Ksp。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Kc & Kp", zh: "Kc 与 Kp" }, summary: { en: "Equilibrium expressions; Kp = Kc·(RT)^Δn.", zh: "平衡表达式;Kp = Kc·(RT)^Δn。" } },
+        { slug: "topic-2", title: { en: "Le Chatelier's Principle", zh: "勒夏特列原理" }, summary: { en: "How concentration, pressure, and temperature shifts the equilibrium.", zh: "浓度、压强、温度如何推动平衡移动。" } },
+        { slug: "topic-3", title: { en: "Acid–Base Equilibria", zh: "酸碱平衡" }, summary: { en: "Ka, Kb, Kw, and the relationship pKa + pKb = 14 at 25 °C.", zh: "Ka、Kb、Kw;25 °C 下 pKa + pKb = 14。" } },
+        { slug: "topic-4", title: { en: "pH & pOH Calculations", zh: "pH 与 pOH 计算" }, summary: { en: "Strong/weak acids & bases; approximations and exact solutions.", zh: "强/弱酸碱;近似与精确解。" } },
+        { slug: "topic-5", title: { en: "Buffers", zh: "缓冲溶液" }, summary: { en: "Henderson–Hasselbalch; buffer capacity and pH range.", zh: "亨德森-哈塞尔巴尔赫方程;缓冲容量与 pH 范围。" } },
+        { slug: "topic-6", title: { en: "Titration Curves", zh: "滴定曲线" }, summary: { en: "Interactive pKa/concentration sliders with live pH curves.", zh: "pKa/浓度滑块实时重绘 pH 曲线。" } },
+        { slug: "topic-7", title: { en: "Solubility (Ksp)", zh: "溶解度(Ksp)" }, summary: { en: "Predicting precipitation and the common-ion effect.", zh: "预测沉淀与同离子效应。" } },
+      ],
+    },
+    {
+      slug: "unit-5", number: 5,
+      title: { en: "Electrochemistry", zh: "电化学" },
+      description: { en: "Redox, galvanic cells, Nernst equation, electrolysis, fuel cells.", zh: "氧化还原、原电池、能斯特方程、电解与燃料电池。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Redox & Oxidation Numbers", zh: "氧化还原与氧化数" }, summary: { en: "Assigning oxidation states; balancing redox half-equations.", zh: "指定氧化态;配平氧化还原半反应。" } },
+        { slug: "topic-2", title: { en: "Galvanic Cells & E°_cell", zh: "原电池与 E°_cell" }, summary: { en: "Interactive builder — pick two half-cells, see cell potential.", zh: "交互式构建——选择两个半电池,查看电池电势。" } },
+        { slug: "topic-3", title: { en: "Nernst Equation", zh: "能斯特方程" }, summary: { en: "E = E° − (RT/nF)·ln Q; interactive concentration sliders.", zh: "E = E° − (RT/nF)·ln Q;浓度交互滑块。" } },
+        { slug: "topic-4", title: { en: "Electrolysis & Faraday's Laws", zh: "电解与法拉第定律" }, summary: { en: "Q = It, n = Q/(zF) — stoichiometry of the electrode.", zh: "Q = It,n = Q/(zF)——电极反应的化学计量。" } },
+        { slug: "topic-5", title: { en: "Batteries & Fuel Cells", zh: "电池与燃料电池" }, summary: { en: "Primary, secondary, and H₂/O₂ fuel cells in practice.", zh: "一次电池、二次电池与 H₂/O₂ 燃料电池的应用。" } },
+      ],
+    },
+    {
+      slug: "unit-6", number: 6,
+      title: { en: "Inorganic & Transition-Metal Chemistry", zh: "无机与过渡金属化学" },
+      description: { en: "Periodic reactivity, d-block, coordination complexes, crystal-field theory.", zh: "周期性反应活性、d 区元素、配位化合物与晶体场理论。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Periodic Reactivity (s & p blocks)", zh: "s 与 p 区的周期性反应活性" }, summary: { en: "Trends in Group 1, 2, and 17 chemistry.", zh: "第 1、2、17 族化学的周期性变化。" } },
+        { slug: "topic-2", title: { en: "Transition Metals: General Properties", zh: "过渡金属:一般性质" }, summary: { en: "Variable oxidation states, coloured ions, catalytic activity.", zh: "可变氧化态、有色离子、催化活性。" } },
+        { slug: "topic-3", title: { en: "Coordination Complexes & Ligands", zh: "配位化合物与配体" }, summary: { en: "Monodentate, bidentate, chelation; naming conventions.", zh: "单齿、双齿、螯合;命名规则。" } },
+        { slug: "topic-4", title: { en: "Crystal Field Theory & Colour", zh: "晶体场理论与颜色" }, summary: { en: "Interactive Oh/Td/square-planar d-orbital splittings.", zh: "八面体/四面体/平面正方形 d 轨道分裂的交互图。" } },
+        { slug: "topic-5", title: { en: "High-Spin vs Low-Spin, Magnetism", zh: "高自旋与低自旋、磁性" }, summary: { en: "Spectrochemical series and the spin-only magnetic moment.", zh: "光谱化学序列与纯自旋磁矩。" } },
+        { slug: "topic-6", title: { en: "Main-Group Reactions", zh: "主族反应" }, summary: { en: "Flame tests, halide reactions, and classic identification tests.", zh: "焰色反应、卤化物反应与经典鉴别实验。" } },
+      ],
+    },
+    {
+      slug: "unit-7", number: 7,
+      title: { en: "Organic Reactions & Mechanisms", zh: "有机反应与机理" },
+      description: { en: "SN1/SN2, E1/E2, addition, carbonyl, aromatic substitution — with arrow-pushing walkthroughs.", zh: "SN1/SN2、E1/E2、加成、羰基、芳香取代——配合推电子箭头的分步演示。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Hybridization & Structure Review", zh: "杂化与结构回顾" }, summary: { en: "sp, sp², sp³ — shapes, bond angles, σ vs π bonds.", zh: "sp、sp²、sp³——形状、键角、σ 与 π 键。" } },
+        { slug: "topic-2", title: { en: "Free-Radical Substitution", zh: "自由基取代" }, summary: { en: "Alkane halogenation: initiation, propagation, termination.", zh: "烷烃卤代:引发、链传递、终止。" } },
+        { slug: "topic-3", title: { en: "Nucleophilic Substitution (SN1/SN2)", zh: "亲核取代(SN1/SN2)" }, summary: { en: "Transition states, stereochemistry, substrate & solvent effects.", zh: "过渡态、立体化学、底物与溶剂效应。" } },
+        { slug: "topic-4", title: { en: "Elimination (E1/E2)", zh: "消除(E1/E2)" }, summary: { en: "Zaitsev vs Hofmann products; competition with substitution.", zh: "札依采夫与霍夫曼产物;与取代反应的竞争。" } },
+        { slug: "topic-5", title: { en: "Electrophilic Addition to Alkenes", zh: "烯烃的亲电加成" }, summary: { en: "Markovnikov's rule, carbocation stability, halohydrin formation.", zh: "马氏规则、碳正离子稳定性、卤醇生成。" } },
+        { slug: "topic-6", title: { en: "Carbonyl Chemistry", zh: "羰基化学" }, summary: { en: "Nucleophilic addition, enolates, aldol, haloform.", zh: "亲核加成、烯醇负离子、羟醛缩合、卤仿反应。" } },
+        { slug: "topic-7", title: { en: "Electrophilic Aromatic Substitution", zh: "亲电芳香取代(EAS)" }, summary: { en: "Nitration, halogenation, FC — activators, deactivators, directors.", zh: "硝化、卤代、F-C——活化、钝化、定位基团。" } },
+      ],
+    },
+    {
+      slug: "unit-8", number: 8,
+      title: { en: "Organic Synthesis & Stereochemistry", zh: "有机合成与立体化学" },
+      description: { en: "Chirality, geometric isomers, retrosynthesis, protecting groups, FGIs.", zh: "手性、几何异构、逆合成、保护基与官能团转化。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Chirality & R/S Assignment", zh: "手性与 R/S 指定" }, summary: { en: "CIP priority rules; interactive 3D R/S trainer.", zh: "CIP 优先级规则;交互式三维 R/S 训练。" } },
+        { slug: "topic-2", title: { en: "E/Z & Geometric Isomerism", zh: "E/Z 与几何异构" }, summary: { en: "Assigning E/Z at C=C double bonds.", zh: "为 C=C 双键指定 E/Z。" } },
+        { slug: "topic-3", title: { en: "Protecting Groups", zh: "保护基" }, summary: { en: "Acetals, silyl ethers, Boc, Fmoc — when and why.", zh: "缩醛、硅醚、Boc、Fmoc——使用时机与原因。" } },
+        { slug: "topic-4", title: { en: "Multi-Step Synthesis & Retrosynthesis", zh: "多步合成与逆合成" }, summary: { en: "Disconnection strategy; draw-the-product exercises.", zh: "拆键策略;画产物练习。" } },
+        { slug: "topic-5", title: { en: "Functional-Group Interconversions", zh: "官能团转化" }, summary: { en: "Canonical transformations every olympiad solver should know.", zh: "每个奥林匹克选手都该掌握的经典转化。" } },
+      ],
+    },
+    {
+      slug: "unit-9", number: 9,
+      title: { en: "Spectroscopy & Structure Elucidation", zh: "谱学与结构解析" },
+      description: { en: "MS, IR, ¹H/¹³C NMR — read real spectra and solve structures.", zh: "质谱、红外、¹H/¹³C 核磁——读取真实谱图并解出结构。" },
+      topics: [
+        { slug: "topic-1", title: { en: "Mass Spectrometry", zh: "质谱" }, summary: { en: "Molecular ion, isotope patterns, common fragmentations.", zh: "分子离子、同位素模式、常见裂解。" } },
+        { slug: "topic-2", title: { en: "Infrared Spectroscopy", zh: "红外光谱" }, summary: { en: "Functional-group regions: O–H, N–H, C=O, C≡N, C=C.", zh: "官能团区:O–H、N–H、C=O、C≡N、C=C。" } },
+        { slug: "topic-3", title: { en: "¹H NMR: Chemical Shift", zh: "¹H NMR:化学位移" }, summary: { en: "δ tables for aliphatic, aromatic, and exchangeable protons.", zh: "脂肪、芳香、可交换质子的 δ 表。" } },
+        { slug: "topic-4", title: { en: "¹H NMR: Integration & Splitting", zh: "¹H NMR:积分与裂分" }, summary: { en: "n+1 rule; coupling constants and splitting trees.", zh: "n+1 规则;耦合常数与裂分树。" } },
+        { slug: "topic-5", title: { en: "¹³C NMR & DEPT", zh: "¹³C NMR 与 DEPT" }, summary: { en: "Counting carbons; CH, CH₂, CH₃ from DEPT.", zh: "碳原子计数;由 DEPT 区分 CH、CH₂、CH₃。" } },
+        { slug: "topic-6", title: { en: "Combined Structure Elucidation", zh: "综合结构解析" }, summary: { en: "Real-style problems: given MS + IR + NMR, find the compound.", zh: "奥赛风格题:由 MS + IR + NMR 综合推断化合物。" } },
+      ],
+    },
+  ],
+};
+
+export const topicNotesUKCHO: Record<string, NoteBlock[]> = {};
+export const topicQuestionsUKCHO: Record<string, Question[]> = {};
+
+export const subjects: Subject[] = [apMicro, apBio, apPhysics1, apChemistry, apCalculusBC, apEngLang, apush, apUKCHO];
 
 const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
   "ap-micro": topicNotes,
@@ -21484,6 +21620,7 @@ const notesBySubject: Record<string, Record<string, NoteBlock[]>> = {
   "ap-calculus-bc": topicNotesCalcBC,
   "ap-eng-lang": {},
   "apush": topicNotesUSH,
+  "ukcho": topicNotesUKCHO,
 };
 
 const questionsBySubject: Record<string, Record<string, Question[]>> = {
@@ -21494,6 +21631,7 @@ const questionsBySubject: Record<string, Record<string, Question[]>> = {
   "ap-calculus-bc": topicQuestionsCalcBC,
   "ap-eng-lang": {},
   "apush": topicQuestionsUSH,
+  "ukcho": topicQuestionsUKCHO,
 };
 
 const unitQuestionsBySubject: Record<string, Record<string, Question[]>> = {
@@ -21504,6 +21642,7 @@ const unitQuestionsBySubject: Record<string, Record<string, Question[]>> = {
   "ap-calculus-bc": {},
   "ap-eng-lang": {},
   "apush": {},
+  "ukcho": {},
 };
 
 // ============================================================
@@ -21542,6 +21681,19 @@ export function getFinalQuestions(subjectSlug: string): Question[] | undefined {
 // MORE PRACTICE — standalone MCQ practice sets
 // ============================================================
 
+export type FRQBlock =
+  | { kind: "text"; text: Bilingual }
+  | { kind: "part"; letter: string; instruction: Bilingual; text?: Bilingual }
+  | { kind: "part-group"; letter: string; subparts: Array<{ numeral: string; instruction: Bilingual; text?: Bilingual }> }
+  | { kind: "figure"; src: string; title?: Bilingual; caption?: Bilingual }
+  | { kind: "table"; title?: Bilingual; columns: Bilingual[]; rows: Bilingual[][] };
+
+export type FRQItem = {
+  id: string;
+  number: number;
+  blocks: FRQBlock[];
+};
+
 export type PracticeSet = {
   slug: string;
   title: Bilingual;
@@ -21550,6 +21702,7 @@ export type PracticeSet = {
   category: Bilingual;
   description: Bilingual;
   questions: Question[];
+  frqs?: FRQItem[];
 };
 
 export const practiceSets: PracticeSet[] = [
@@ -27413,6 +27566,184 @@ export const practiceSets: PracticeSet[] = [
           en: "Pressure in a static fluid is a **scalar** — same in every direction at a given depth. (That's why buoyancy works regardless of orientation.)",
           zh: "静止流体中的压强是**标量**——同一深度各方向相同。(这也是无论朝向,浮力都有效的原因。)",
         },
+      },
+    ],
+  },
+  {
+    slug: "ap-bio-2025-mock-exam",
+    category: { en: "Mock Exam", zh: "模拟考试" },
+    title: { en: "AP Biology — 2025 Mock Exam", zh: "AP 生物学 — 2025 模拟考试" },
+    subject: { en: "AP Biology", zh: "AP 生物学" },
+    subjectSlug: "ap-bio",
+    description: {
+      en: "Full-length 2025 mock exam for AP Biology. Questions will be added.",
+      zh: "AP 生物学 2025 年完整模拟考试。题目稍后添加。",
+    },
+    questions: [],
+    frqs: [
+      {
+        id: "bio-2025-mock-frq-1",
+        number: 1,
+        blocks: [
+          { kind: "text", text: {
+            en: "Most proteins that are secreted from a cell must be transported to the endoplasmic reticulum (ER) either during translation or after translation.",
+            zh: "大多数从细胞分泌的蛋白质必须在翻译过程中或翻译结束后被运送到内质网(ER)。",
+          } },
+          { kind: "part", letter: "A", instruction: {
+            en: "Describe the function of ribosomes.",
+            zh: "描述核糖体的功能。",
+          } },
+          { kind: "text", text: {
+            en: "For proteins transported during translation, this process begins in the cytosol and pauses when a specific sequence of amino acids is translated. The translation complex is then transported to the surface of the ER where translation continues. Proteins that are transported after translation are translated entirely in the cytosol and then transported to the ER. In both instances, the translated proteins enter the ER through a protein channel in the membrane of the ER.",
+            zh: "对于翻译过程中被运送的蛋白质,该过程始于细胞质,在翻译出特定的氨基酸序列后暂停。此时翻译复合物被运送到内质网表面,翻译继续进行。翻译后被运送的蛋白质则完全在细胞质中翻译,然后运送到内质网。两种情况下,翻译好的蛋白质都通过内质网膜上的蛋白通道进入内质网。",
+          } },
+          { kind: "text", text: {
+            en: "Researchers studying the two types of protein transport identified that the ER membrane protein SR is necessary for transport during translation, while the ER membrane protein Sec62 is necessary for transport after translation. To investigate which transport mechanism is used for different proteins, researchers first created small interfering RNAs (siRNAs) that reduce expression of either SR or Sec62. They then treated groups of cells with either the SR siRNA or the Sec62 siRNA and determined the relative amount of SR and Sec62 protein in each group of cells compared with cells treated with a control siRNA (Figure 1).",
+            zh: "研究这两种蛋白运送方式的科学家发现,内质网膜蛋白 SR 是翻译过程中运送所必需的,而内质网膜蛋白 Sec62 是翻译后运送所必需的。为研究不同蛋白使用的运送机制,研究者首先制备了可降低 SR 或 Sec62 表达的小干扰 RNA(siRNA)。随后,他们分别用 SR siRNA 或 Sec62 siRNA 处理各组细胞,并与对照 siRNA 处理的细胞相比较,测定了每组细胞中 SR 与 Sec62 蛋白的相对含量(图 1)。",
+          } },
+          { kind: "figure",
+            src: "/figures/bio-2025-mock-frq-fig1.svg",
+            title: {
+              en: "Figure 1. Average relative amounts of Sec62 and SR proteins in cells treated with control siRNA, Sec62 siRNA, or SR siRNA. Error bars represent ±SE_x̄.",
+              zh: "图 1. 用对照 siRNA、Sec62 siRNA 或 SR siRNA 处理的细胞中 Sec62 与 SR 蛋白的平均相对含量。误差棒表示 ±SE_x̄。",
+            },
+          },
+          { kind: "part-group", letter: "B", subparts: [
+            { numeral: "i", instruction: {
+              en: "Identify the dependent variable in the experiments shown in Figure 1.",
+              zh: "指出图 1 所示实验中的因变量。",
+            } },
+            { numeral: "ii", instruction: {
+              en: "Justify why the researchers included the control of measuring the relative amounts of both Sec62 and SR proteins in cells that were treated with Sec62 siRNA only (data shown in Figure 1).",
+              zh: "说明研究者为何在仅用 Sec62 siRNA 处理的细胞中(图 1)还同时测量 Sec62 与 SR 两种蛋白的相对含量,以证明此对照的必要性。",
+            } },
+            { numeral: "iii", instruction: {
+              en: "Based on Figure 1, describe the effect on the production of SR protein when cells are treated with Sec62 siRNA.",
+              zh: "根据图 1,描述细胞用 Sec62 siRNA 处理后 SR 蛋白生成的影响。",
+            } },
+          ] },
+          { kind: "text", text: {
+            en: "The researchers then measured the amount of each of three different proteins that was transported to the ER in cells treated with Sec62 siRNA or SR siRNA. The researchers calculated the percent transported relative to the cells treated with control siRNA (Figure 2).",
+            zh: "研究者随后测量了用 Sec62 siRNA 或 SR siRNA 处理的细胞中三种不同蛋白被运送到内质网的量,并以对照 siRNA 处理的细胞为基准计算了相对运送百分比(图 2)。",
+          } },
+          { kind: "figure",
+            src: "/figures/bio-2025-mock-frq-fig2.svg",
+            title: {
+              en: "Figure 2. Average relative amounts of three proteins that were transported to the ER when treated with control siRNA, Sec62 siRNA, or SR siRNA. Error bars represent ±SE_x̄.",
+              zh: "图 2. 用对照 siRNA、Sec62 siRNA 或 SR siRNA 处理时三种蛋白被运送到内质网的平均相对含量。误差棒表示 ±SE_x̄。",
+            },
+          },
+          { kind: "part-group", letter: "C", subparts: [
+            { numeral: "i", instruction: {
+              en: "Identify the independent variable in the researchers' second experiment (data shown in Figure 2).",
+              zh: "指出研究者第二个实验中的自变量(数据见图 2)。",
+            } },
+            { numeral: "ii", instruction: {
+              en: "Based on Figure 2, identify the protein(s) that when treated with Sec62 siRNA showed an increase in percent transport to the ER compared with the control.",
+              zh: "根据图 2,指出用 Sec62 siRNA 处理后,向内质网的运送百分比相较对照组增加的蛋白。",
+            } },
+            { numeral: "iii", instruction: {
+              en: "Protein 1 is encoded by 234 nucleotides, while protein 2 is encoded by 495 nucleotides. Assuming all nucleotides for both proteins encode amino acids, calculate the difference in the number of amino acids between the two proteins.",
+              zh: "蛋白 1 由 234 个核苷酸编码,蛋白 2 由 495 个核苷酸编码。假设两种蛋白的所有核苷酸都编码氨基酸,计算两种蛋白之间氨基酸数量的差值。",
+            } },
+          ] },
+          { kind: "part-group", letter: "D", subparts: [
+            { numeral: "i", instruction: {
+              en: "Researchers claim that protein 1 is the only tested protein that is transported to the ER following its complete translation in the cytosol. Using data from Figure 2, support the researchers' claim.",
+              zh: "研究者主张,在所测试的蛋白中,蛋白 1 是唯一一个在细胞质中完全翻译后才被运送到内质网的蛋白。请利用图 2 的数据支持该主张。",
+            } },
+            { numeral: "ii", instruction: {
+              en: "For any protein that enters the ER, researchers claim that amino acids close to the protein's amino terminus determine how likely the protein is to pass through the protein channel within the ER membrane. Justify the researchers' claim based on your understanding of factors that affect the transport of proteins across membranes.",
+              zh: "对于任何进入内质网的蛋白,研究者主张靠近其氨基末端的氨基酸决定了该蛋白通过内质网膜上蛋白通道的可能性。请基于你对跨膜运送蛋白因素的理解,论证这一主张。",
+            } },
+          ] },
+        ],
+      },
+      {
+        id: "bio-2025-mock-frq-2",
+        number: 2,
+        blocks: [
+          { kind: "text", text: {
+            en: "Many insects rely on pheromones (chemical signals) that are released by the females to find mating partners. Scientists hypothesize that, in a certain type of moth, the behavior of male moths in response to pheromones is regulated by the extracellular signaling molecule 20E.",
+            zh: "许多昆虫依赖雌虫释放的信息素(化学信号)寻找交配对象。科学家假设,在某种蛾类中,雄蛾对信息素的行为反应受胞外信号分子 20E 调控。",
+          } },
+          { kind: "part", letter: "A", instruction: {
+            en: "Describe the polarity of the portion of the receptor that is inside the membrane.",
+            zh: "描述受体位于膜内部分的极性。",
+          } },
+          { kind: "text", text: {
+            en: "To investigate whether the binding of 20E to its receptor, DopEcR, affects behavior in moths, scientists injected male moths with saline (control solution) or with small interfering RNA molecules (siRNAs) that inhibit the expression of the gene encoding DopEcR. The scientists then exposed the moths to the pheromone and determined the percent of total time observed that the moths engaged in general activity, defined as movement in any direction. The scientists also determined the percent of the general activity time that the moths spent in oriented activity, defined as movement toward an area of high pheromone concentration (Table 1).",
+            zh: "为研究 20E 与其受体 DopEcR 的结合是否影响蛾类的行为,科学家向雄蛾注射生理盐水(对照)或抑制编码 DopEcR 基因表达的小干扰 RNA(siRNA)。随后让蛾接触信息素,测定观察总时间中蛾从事一般活动(定义为朝任一方向的运动)的百分比,以及一般活动时间中蛾从事定向活动(定义为朝信息素高浓度区域运动)的百分比(表 1)。",
+          } },
+          { kind: "table",
+            title: {
+              en: "Table 1. Average General and Oriented Activity in Male Moths Injected With Saline or siRNA Molecules",
+              zh: "表 1. 注射生理盐水或 siRNA 分子的雄蛾平均一般活动与定向活动",
+            },
+            columns: [
+              { en: "Treatment", zh: "处理" },
+              { en: "General Activity (percent of total time observed, average ±2SE_x̄)", zh: "一般活动(观察总时间的百分比,平均值 ±2SE_x̄)" },
+              { en: "Oriented Activity (percent of general activity, average ±2SE_x̄)", zh: "定向活动(一般活动时间的百分比,平均值 ±2SE_x̄)" },
+            ],
+            rows: [
+              [
+                { en: "Male moths injected with saline (control solution)", zh: "注射生理盐水(对照)的雄蛾" },
+                { en: "95 ± 5", zh: "95 ± 5" },
+                { en: "60 ± 4", zh: "60 ± 4" },
+              ],
+              [
+                { en: "Male moths injected with siRNAs that inhibit expression of the gene encoding DopEcR", zh: "注射抑制 DopEcR 基因表达的 siRNA 的雄蛾" },
+                { en: "90 ± 8", zh: "90 ± 8" },
+                { en: "25 ± 6", zh: "25 ± 6" },
+              ],
+            ],
+          },
+          { kind: "text", text: {
+            en: "DopEcR is a G protein-coupled receptor. When 20E binds to DopEcR, GTP displaces the GDP bound to the G protein, and a signaling pathway is activated. The scientists hypothesize that this leads to the transcription of genes associated with the oriented activity observed in the male moths (Figure 1).",
+            zh: "DopEcR 是一种 G 蛋白偶联受体。当 20E 与 DopEcR 结合时,GTP 取代与 G 蛋白结合的 GDP,信号通路被激活。科学家假设这导致与雄蛾定向活动相关的基因发生转录(图 1)。",
+          } },
+          { kind: "figure",
+            src: "/figures/bio-2025-mock-frq-q2-fig1.svg",
+            title: {
+              en: "Figure 1. A simplified model of a signaling pathway activated by the binding of 20E to its receptor, DopEcR.",
+              zh: "图 1. 20E 与其受体 DopEcR 结合所激活信号通路的简化模型。",
+            },
+          },
+          { kind: "part-group", letter: "B", subparts: [
+            { numeral: "i", instruction: {
+              en: "Using the template in the space provided for your response, construct an appropriate type of graph that represents the data in Table 1. Your graph should be appropriately plotted and labeled.",
+              zh: "利用为你的答题空间提供的模板,构建一个合适类型的图来展示表 1 中的数据。图应标注合理并绘制得当。",
+            } },
+            { numeral: "ii", instruction: {
+              en: "Based on the data in Table 1, determine the type of activity that was affected by inhibiting the expression of the DopEcR receptor.",
+              zh: "根据表 1 的数据,判断抑制 DopEcR 受体表达所影响的活动类型。",
+            } },
+          ] },
+          { kind: "part-group", letter: "C", subparts: [
+            { numeral: "i", instruction: {
+              en: "Based on Table 1, identify the treatment group in which the oriented activity was greater than 50% of the general activity.",
+              zh: "根据表 1,指出定向活动高于一般活动 50% 的处理组。",
+            } },
+            { numeral: "ii", instruction: {
+              en: "The scientists studied some moths with a mutation in the gene encoding the G protein. The mutation prevents GTP from displacing the GDP bound to the G protein. Based on Figure 1, predict the effect of this mutation on the oriented activity in male moths exposed to the pheromone.",
+              zh: "科学家研究了一些在编码 G 蛋白基因上发生突变的蛾。该突变使 GTP 无法取代结合在 G 蛋白上的 GDP。根据图 1,预测该突变对暴露于信息素的雄蛾定向活动的影响。",
+            } },
+          ] },
+          { kind: "text", text: {
+            en: "Expression of the gene encoding DopEcR is low in the male moths during their first few days as adults, when they are sexually immature. Gene expression rapidly increases as the moths reach sexual maturity. The scientists claim that this increase in gene expression increases the likelihood of males finding females with whom to mate.",
+            zh: "DopEcR 基因在雄蛾成虫的头几天(性未成熟期)表达量较低。当蛾达到性成熟时,基因表达迅速升高。科学家声称,基因表达的这种升高提高了雄蛾找到可交配雌蛾的可能性。",
+          } },
+          { kind: "part-group", letter: "D", subparts: [
+            { numeral: "i", instruction: {
+              en: "Use evidence from the information provided to support the scientists' claim.",
+              zh: "根据所提供的信息,用证据支持科学家的主张。",
+            } },
+            { numeral: "ii", instruction: {
+              en: "Based on Figure 1, explain how an inhibitor of the DopEcR pathway might serve as an effective chemical to protect crops from moth damage.",
+              zh: "根据图 1,解释 DopEcR 通路的抑制剂为何可作为保护作物免受蛾害的有效化学制剂。",
+            } },
+          ] },
+        ],
       },
     ],
   },
