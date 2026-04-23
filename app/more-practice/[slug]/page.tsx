@@ -5,7 +5,7 @@ import { use, useEffect, useMemo, useRef, useState } from "react";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, Flame, PartyPopper, RotateCcw, X } from "lucide-react";
 import { useT } from "@/components/LocaleProvider";
-import { getPracticeSet, type Question, type Bilingual } from "@/lib/content";
+import { getPracticeSet, type Question, type Bilingual, type FRQItem } from "@/lib/content";
 import { PracticeQuestion } from "@/components/PracticeQuestion";
 import { createClient } from "@/lib/supabase/browser";
 
@@ -127,21 +127,34 @@ export default function MorePracticeSetPage({
           <Flame size={12} />
           {t({ en: "More Practice", zh: "更多练习" })}
         </p>
-        {!finished && (
+        {!finished && total > 0 && (
           <span className="text-xs text-slate-500">
             {t({ en: "Question", zh: "第" })} {index + 1} / {total}
           </span>
         )}
       </div>
 
-      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-slate-200">
-        <div
-          className="h-full rounded-full bg-red-600 transition-all duration-300"
-          style={{ width: finished ? "100%" : `${progressPct}%` }}
-        />
-      </div>
+      {set.frqs && set.frqs.length > 0 && (
+        <section className="mt-6 space-y-5">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500">
+            {t({ en: "Free-Response Questions", zh: "自由应答题" })}
+          </h2>
+          {set.frqs.map((frq) => (
+            <FRQCard key={frq.id} frq={frq} />
+          ))}
+        </section>
+      )}
 
-      {finished ? (
+      {total > 0 && (
+        <div className="mt-6 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+          <div
+            className="h-full rounded-full bg-red-600 transition-all duration-300"
+            style={{ width: finished ? "100%" : `${progressPct}%` }}
+          />
+        </div>
+      )}
+
+      {total === 0 ? null : finished ? (
         <Finished
           correct={correctCount}
           total={total}
@@ -334,5 +347,139 @@ function ReviewRow({ question, result }: { question: Question; result: AttemptRe
         </div>
       </div>
     </li>
+  );
+}
+
+function FRQCard({ frq }: { frq: FRQItem }) {
+  const t = useT();
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const setAnswer = (key: string, v: string) =>
+    setAnswers((prev) => ({ ...prev, [key]: v }));
+
+  function ResponseBox({ k, rows = 6 }: { k: string; rows?: number }) {
+    return (
+      <div className="mt-3">
+        <label className="block text-[10px] font-semibold uppercase tracking-widest text-slate-500">
+          {t({ en: `Your response — ${k}`, zh: `你的答案 — ${k}` })}
+        </label>
+        <textarea
+          value={answers[k] ?? ""}
+          onChange={(e) => setAnswer(k, e.target.value)}
+          rows={rows}
+          placeholder={t({ en: "Type your response here…", zh: "在此输入你的答案…" })}
+          className="mt-1 w-full rounded-lg border border-slate-300 bg-white p-3 text-sm leading-6 text-slate-900 shadow-inner focus:border-slate-600 focus:outline-none"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <article className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-lg font-semibold text-slate-900">
+          {t({ en: `Question ${frq.number}`, zh: `第 ${frq.number} 题` })}
+        </h3>
+        <span className="rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-700">
+          FRQ
+        </span>
+      </div>
+      <div className="space-y-4 text-[15px] leading-7 text-slate-800">
+        {frq.blocks.map((block, i) => {
+          if (block.kind === "text") {
+            return <p key={i}>{t(block.text)}</p>;
+          }
+          if (block.kind === "part") {
+            return (
+              <div key={i} className="rounded-lg bg-slate-50 px-4 py-3">
+                <p>
+                  <span className="font-bold">{block.letter}.</span>{" "}
+                  <span className="font-semibold">{t(block.instruction)}</span>
+                  {block.text && <> {t(block.text)}</>}
+                </p>
+                <ResponseBox k={block.letter} />
+              </div>
+            );
+          }
+          if (block.kind === "part-group") {
+            return (
+              <div key={i} className="rounded-lg bg-slate-50 px-4 py-3">
+                <p className="font-bold text-slate-900">{block.letter}.</p>
+                <ol className="mt-2 space-y-4 pl-6">
+                  {block.subparts.map((sp, j) => (
+                    <li key={j}>
+                      <div className="flex gap-2">
+                        <span className="min-w-[2rem] italic text-slate-600">{sp.numeral}.</span>
+                        <span>
+                          <span className="font-semibold">{t(sp.instruction)}</span>
+                          {sp.text && <> {t(sp.text)}</>}
+                        </span>
+                      </div>
+                      <ResponseBox k={`${block.letter}.${sp.numeral}`} rows={4} />
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            );
+          }
+          if (block.kind === "table") {
+            return (
+              <figure key={i} className="my-2 overflow-hidden rounded-lg border border-slate-300 bg-white">
+                {block.title && (
+                  <figcaption className="border-b border-slate-200 bg-slate-50 px-4 py-2 text-center text-sm font-semibold text-slate-800">
+                    {t(block.title)}
+                  </figcaption>
+                )}
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse text-sm">
+                    <thead>
+                      <tr className="bg-slate-50 text-slate-800">
+                        {block.columns.map((col, j) => (
+                          <th key={j} className="border border-slate-300 px-3 py-2 text-center font-semibold">
+                            {t(col)}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, r) => (
+                        <tr key={r}>
+                          {row.map((cell, c) => (
+                            <td key={c} className="border border-slate-300 px-3 py-2 text-slate-800">
+                              {t(cell)}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </figure>
+            );
+          }
+          if (block.kind === "figure") {
+            return (
+              <figure key={i} className="my-2">
+                {block.title && (
+                  <figcaption className="mb-2 text-center text-sm font-semibold text-slate-800">
+                    {t(block.title)}
+                  </figcaption>
+                )}
+                <img
+                  src={block.src}
+                  alt={block.title ? t(block.title) : "figure"}
+                  className="mx-auto w-full max-w-2xl rounded-md border border-slate-200 bg-white"
+                />
+                {block.caption && (
+                  <figcaption className="mt-2 text-center text-xs text-slate-500">
+                    {t(block.caption)}
+                  </figcaption>
+                )}
+              </figure>
+            );
+          }
+          return null;
+        })}
+      </div>
+    </article>
   );
 }

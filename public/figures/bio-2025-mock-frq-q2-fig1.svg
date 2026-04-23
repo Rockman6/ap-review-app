@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" font-family="Georgia, 'Times New Roman', serif" font-size="13">
+  <style>
+    .line { stroke: #111; fill: none; stroke-width: 1.4; }
+    .thin { stroke: #111; fill: none; stroke-width: 1; }
+    .lbl { fill: #111; }
+    .receptor { fill: #fff; stroke: #111; stroke-width: 1.4; }
+    .pill { fill: #fff; stroke: #111; stroke-width: 1; }
+  </style>
+
+  <!-- Plasma membrane: two curved lines representing the bilayer -->
+  <path class="line" d="M40 110 C 180 90, 540 90, 700 110"/>
+  <path class="line" d="M40 135 C 180 115, 540 115, 700 135"/>
+
+  <!-- Plasma Membrane label with leader -->
+  <text x="560" y="70"  class="lbl">Plasma</text>
+  <text x="560" y="86"  class="lbl">Membrane</text>
+  <path class="thin" d="M600 92 L 620 108"/>
+
+  <!-- ===== Left side: 20E binding DopEcR, inactive G-protein ===== -->
+  <!-- 20E ligand (small open circle) -->
+  <circle cx="215" cy="80" r="6" class="receptor"/>
+  <text x="140" y="84" class="lbl">20E</text>
+  <line class="thin" x1="165" y1="80" x2="208" y2="80"/>
+
+  <!-- DopEcR receptor: transmembrane "H"-like shape crossing the bilayer -->
+  <path class="receptor" d="M198 95 L198 155 L232 155 L232 95 L222 95 L222 110 L208 110 L208 95 Z"/>
+  <!-- DopEcR label -->
+  <text x="270" y="100" class="lbl">DopEcR</text>
+  <line class="thin" x1="240" y1="105" x2="265" y2="97"/>
+
+  <!-- Inactive G-protein group beneath receptor -->
+  <!-- GDP pill -->
+  <rect x="170" y="170" width="38" height="20" rx="10" class="pill"/>
+  <text x="189" y="184" class="lbl" text-anchor="middle">GDP</text>
+  <!-- Gα pill -->
+  <rect x="208" y="170" width="30" height="20" rx="4" class="pill"/>
+  <text x="223" y="184" class="lbl" text-anchor="middle">Gα</text>
+
+  <!-- Label "G-Protein (Inactive)" with leader -->
+  <text x="165" y="215" class="lbl">G-Protein</text>
+  <text x="165" y="232" class="lbl">(Inactive)</text>
+  <path class="thin" d="M205 198 L 200 210"/>
+
+  <!-- ===== Right side: Active G-protein with GTP ===== -->
+  <!-- second DopEcR (without ligand bound) -->
+  <path class="receptor" d="M438 95 L438 155 L472 155 L472 95 L462 95 L462 110 L448 110 L448 95 Z"/>
+
+  <!-- GTP circle with Gα attached -->
+  <circle cx="420" cy="200" r="15" class="pill"/>
+  <text x="420" y="204" class="lbl" text-anchor="middle">GTP</text>
+
+  <!-- Gα (arrow-shape) separate, to right of GTP -->
+  <path class="pill" d="M440 190 L470 190 L478 200 L470 212 L440 212 L448 202 Z"/>
+  <text x="458" y="205" class="lbl" text-anchor="middle">Gα</text>
+
+  <!-- Curved activation arrow from receptor down to Gα -->
+  <path class="thin" d="M452 160 C 452 175, 450 180, 460 188" marker-end="url(#arrow)"/>
+
+  <!-- Curved arrow from Gα down to gene expression text -->
+  <path class="thin" stroke-dasharray="5 4" d="M458 215 L 458 300 L 440 340" marker-end="url(#arrow)"/>
+
+  <!-- Label "G-Protein (Active)" -->
+  <text x="505" y="220" class="lbl">G-Protein</text>
+  <text x="505" y="237" class="lbl">(Active)</text>
+  <path class="thin" d="M480 205 L 500 212"/>
+
+  <!-- Arrowhead marker -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#111"/>
+    </marker>
+  </defs>
+
+  <!-- Bottom caption -->
+  <g text-anchor="middle" class="lbl">
+    <text x="360" y="380" font-weight="bold">Increased Expression of Genes</text>
+    <text x="360" y="400" font-weight="bold">Associated with Oriented Activity</text>
+    <text x="360" y="420" font-weight="bold">in Male Moths</text>
+  </g>
+</svg>

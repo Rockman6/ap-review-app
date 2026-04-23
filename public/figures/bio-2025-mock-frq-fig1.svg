@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-70 0 790 460" font-family="Georgia, 'Times New Roman', serif" font-size="13">
+  <style>
+    .bar { fill: #b9b9b9; stroke: #222; stroke-width: 1; }
+    .axis { stroke: #222; stroke-width: 1.2; fill: none; }
+    .tick { stroke: #222; stroke-width: 1; }
+    .err { stroke: #222; stroke-width: 1.4; fill: none; }
+    .lbl { fill: #111; }
+    .lbl-axis { font-style: italic; }
+  </style>
+
+  <!-- Plot area: x 120..660 (width 540), y 40..340 (height 300 for values 0..175) -->
+  <!-- Y scale: 175 units over 300 px → 1 unit = 1.7143 px; y(v) = 340 - v*1.7143 -->
+
+  <!-- Y-axis line -->
+  <line class="axis" x1="120" y1="40" x2="120" y2="340"/>
+  <!-- X-axis line -->
+  <line class="axis" x1="120" y1="340" x2="660" y2="340"/>
+
+  <!-- Y-axis ticks and labels: 0, 25, 50, 75, 100, 125, 150, 175 -->
+  <g>
+    <line class="tick" x1="115" y1="340" x2="120" y2="340"/><text x="110" y="344" text-anchor="end">0</text>
+    <line class="tick" x1="115" y1="297" x2="120" y2="297"/><text x="110" y="301" text-anchor="end">25</text>
+    <line class="tick" x1="115" y1="254" x2="120" y2="254"/><text x="110" y="258" text-anchor="end">50</text>
+    <line class="tick" x1="115" y1="211" x2="120" y2="211"/><text x="110" y="215" text-anchor="end">75</text>
+    <line class="tick" x1="115" y1="168" x2="120" y2="168"/><text x="110" y="172" text-anchor="end">100</text>
+    <line class="tick" x1="115" y1="126" x2="120" y2="126"/><text x="110" y="130" text-anchor="end">125</text>
+    <line class="tick" x1="115" y1="83"  x2="120" y2="83" /><text x="110" y="87"  text-anchor="end">150</text>
+    <line class="tick" x1="115" y1="40"  x2="120" y2="40" /><text x="110" y="44"  text-anchor="end">175</text>
+  </g>
+
+  <!-- Y-axis title (multi-line) -->
+  <g class="lbl">
+    <text x="40" y="170" text-anchor="middle">Relative</text>
+    <text x="40" y="188" text-anchor="middle">Protein Content</text>
+    <text x="40" y="206" text-anchor="middle">(% of control)</text>
+  </g>
+
+  <!-- Helper: center-x for each of 6 bars. Three groups centered at 210, 390, 570; within each group Sec62 at -35, SR at +35. Bar width 50. -->
+  <!-- Group 1: Control siRNA. Sec62=100 (y=168), SR=100 (y=168). SE ~1. -->
+  <rect class="bar" x="150" y="168" width="50" height="172"/>
+  <rect class="bar" x="220" y="168" width="50" height="172"/>
+  <!-- error bars (±1): cap y = 166 and 170 -->
+  <line class="err" x1="175" y1="166" x2="175" y2="170"/>
+  <line class="err" x1="170" y1="166" x2="180" y2="166"/>
+  <line class="err" x1="170" y1="170" x2="180" y2="170"/>
+  <line class="err" x1="245" y1="166" x2="245" y2="170"/>
+  <line class="err" x1="240" y1="166" x2="250" y2="166"/>
+  <line class="err" x1="240" y1="170" x2="250" y2="170"/>
+
+  <!-- Group 2: Sec62 siRNA. Sec62=22 (y=340 - 22*1.7143 = 302.3); SE=10 ⇒ top cap y=302.3-17.14=285.2, bot cap y=319.4 -->
+  <rect class="bar" x="330" y="302" width="50" height="38"/>
+  <rect class="bar" x="400" y="52" width="50" height="288"/>
+  <!-- Sec62 siRNA: Sec62 Protein error (±10) -->
+  <line class="err" x1="355" y1="285" x2="355" y2="319"/>
+  <line class="err" x1="348" y1="285" x2="362" y2="285"/>
+  <line class="err" x1="348" y1="319" x2="362" y2="319"/>
+  <!-- SR Protein = 168 (y=340 - 168*1.7143 = 52.0); SE=10 -->
+  <line class="err" x1="425" y1="35"  x2="425" y2="69"/>
+  <line class="err" x1="418" y1="35"  x2="432" y2="35"/>
+  <line class="err" x1="418" y1="69"  x2="432" y2="69"/>
+
+  <!-- Group 3: SR siRNA. Sec62=125 (y=340 - 125*1.7143 = 125.7); SE=50 ⇒ cap y = 125.7±85.7 -->
+  <rect class="bar" x="510" y="126" width="50" height="214"/>
+  <rect class="bar" x="580" y="320" width="50" height="20"/>
+  <line class="err" x1="535" y1="40"  x2="535" y2="211"/>
+  <line class="err" x1="528" y1="40"  x2="542" y2="40"/>
+  <line class="err" x1="528" y1="211" x2="542" y2="211"/>
+  <!-- SR Protein = 12 (y = 340 - 12*1.7143 = 319.4); SE=5 -->
+  <line class="err" x1="605" y1="311" x2="605" y2="328"/>
+  <line class="err" x1="598" y1="311" x2="612" y2="311"/>
+  <line class="err" x1="598" y1="328" x2="612" y2="328"/>
+
+  <!-- Bar labels (under bars): Sec62 Protein / SR Protein for each group -->
+  <g class="lbl" text-anchor="middle">
+    <text x="175" y="360">Sec62</text><text x="175" y="376">Protein</text>
+    <text x="245" y="360">SR</text><text x="245" y="376">Protein</text>
+
+    <text x="355" y="360">Sec62</text><text x="355" y="376">Protein</text>
+    <text x="425" y="360">SR</text><text x="425" y="376">Protein</text>
+
+    <text x="535" y="360">Sec62</text><text x="535" y="376">Protein</text>
+    <text x="605" y="360">SR</text><text x="605" y="376">Protein</text>
+  </g>
+
+  <!-- Braces under each pair (simplified as curly arcs) -->
+  <g stroke="#222" stroke-width="1" fill="none">
+    <path d="M150 384 Q150 392 170 392 L205 392 Q210 392 210 398 Q210 392 215 392 L250 392 Q270 392 270 384"/>
+    <path d="M330 384 Q330 392 350 392 L385 392 Q390 392 390 398 Q390 392 395 392 L430 392 Q450 392 450 384"/>
+    <path d="M510 384 Q510 392 530 392 L565 392 Q570 392 570 398 Q570 392 575 392 L610 392 Q630 392 630 384"/>
+  </g>
+
+  <!-- Group labels -->
+  <g class="lbl" text-anchor="middle">
+    <text x="210" y="416">Control siRNA</text>
+    <text x="390" y="416">Sec62 siRNA</text>
+    <text x="570" y="416">SR siRNA</text>
+  </g>
+
+  <!-- X-axis title (left of group labels) -->
+  <text x="118" y="416" text-anchor="end" class="lbl">siRNA Added to Cells:</text>
+</svg>
