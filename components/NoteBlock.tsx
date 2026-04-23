@@ -26,6 +26,13 @@ function InlineMath({ math }: { math: string }) {
 import { MoleculeDiagram, MoleculeRow } from "./MoleculeDiagram";
 import { Mol3DViewer } from "./Mol3DViewer";
 import { LewisStructure, LewisRow } from "./LewisStructure";
+import { OrbitalViewer } from "./interactive/OrbitalViewer";
+import { BornHaberCycle } from "./interactive/BornHaberCycle";
+import { ArrheniusPlot } from "./interactive/ArrheniusPlot";
+import { InteractiveTitration } from "./interactive/InteractiveTitration";
+import { CrystalFieldDiagram } from "./interactive/CrystalFieldDiagram";
+import { MODiagram } from "./interactive/MODiagram";
+import { KineticsSimulator } from "./interactive/KineticsSimulator";
 import {
   BeerLambert,
   BondPotentialEnergy,
@@ -277,5 +284,19 @@ export function NoteBlockRenderer({ block }: { block: NoteBlock }) {
           </div>
         </figure>
       );
+    case "orbital":
+      return <OrbitalViewer orbital={block.orbital} />;
+    case "born-haber":
+      return <BornHaberCycle compound={block.compound} />;
+    case "arrhenius-plot":
+      return <ArrheniusPlot />;
+    case "titration-sim":
+      return <InteractiveTitration />;
+    case "crystal-field":
+      return <CrystalFieldDiagram geometry={block.geometry} />;
+    case "mo-diagram":
+      return <MODiagram molecule={block.molecule} />;
+    case "kinetics-sim":
+      return <KineticsSimulator />;
   }
 }

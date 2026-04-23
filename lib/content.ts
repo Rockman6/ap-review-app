@@ -83,7 +83,14 @@ export type NoteBlock =
       columns: Bilingual[];
       rows: Bilingual[][];
       highlightLastRow?: boolean;
-    };
+    }
+  | { kind: "orbital"; orbital: "1s" | "2s" | "2p" | "3s" | "3p" | "3dz2" | "3dxy" | "3dxz" | "3dyz" | "3dx2y2" }
+  | { kind: "born-haber"; compound: "NaCl" | "MgO" | "CaF2" }
+  | { kind: "arrhenius-plot" }
+  | { kind: "titration-sim" }
+  | { kind: "crystal-field"; geometry?: "octahedral" | "tetrahedral" | "square-planar" }
+  | { kind: "mo-diagram"; molecule?: "H2" | "N2" | "O2" | "F2" | "CO" | "NO" }
+  | { kind: "kinetics-sim" };
 
 export type QuestionChoice = {
   id: string;
