@@ -21855,6 +21855,200 @@ export const topicNotesUKCHO: Record<string, NoteBlock[]> = {
       { en: "**H₂/O₂ fuel cell**: 2H₂ + O₂ → 2H₂O, E° ≈ 1.23 V, theoretical efficiency ~ 83%.", zh: "**H₂/O₂ 燃料电池**:2H₂ + O₂ → 2H₂O,E° ≈ 1.23 V,理论效率约 83%。" },
     ] },
   ],
+
+  // ===== UNIT 6: Inorganic & Transition-Metal Chemistry =====
+  "unit-6/topic-1": [
+    { kind: "heading", text: { en: "s- and p-block reactivity trends", zh: "s 与 p 区反应活性趋势" } },
+    { kind: "list", items: [
+      { en: "**Group 1** reactivity with H₂O increases down: Li < Na < K < Rb < Cs (lower IE).", zh: "**第 1 族**与 H₂O 反应活性向下增大:Li < Na < K < Rb < Cs(电离能降低)。" },
+      { en: "**Group 2** similar but milder; Mg reacts slowly with cold water, fast with steam.", zh: "**第 2 族**类似但较温和;Mg 与冷水反应慢,与水蒸气快。" },
+      { en: "**Group 17** oxidizing power decreases down: F₂ > Cl₂ > Br₂ > I₂ (bond + EA balance).", zh: "**第 17 族**氧化性向下减弱:F₂ > Cl₂ > Br₂ > I₂。" },
+    ] },
+    { kind: "callout", label: { en: "Displacement rule", zh: "置换规则" }, text: { en: "A more reactive halogen displaces a less reactive one from its salt: Cl₂ + 2 KI → 2 KCl + I₂.", zh: "活性较强的卤素能把活性较弱的从其盐中置换:Cl₂ + 2 KI → 2 KCl + I₂。" } },
+  ],
+  "unit-6/topic-2": [
+    { kind: "heading", text: { en: "Hallmarks of transition metals", zh: "过渡金属的特征" } },
+    { kind: "list", items: [
+      { en: "**Variable oxidation states** (e.g. Fe²⁺/Fe³⁺, Mn²⁺ through Mn⁷⁺).", zh: "**可变氧化态**(如 Fe²⁺/Fe³⁺,Mn²⁺ ~ Mn⁷⁺)。" },
+      { en: "**Coloured ions** — d–d transitions absorb visible light.", zh: "**有色离子**——d-d 跃迁吸收可见光。" },
+      { en: "**Catalytic activity** — partially filled d-orbitals bind substrates.", zh: "**催化活性**——未充满的 d 轨道能结合底物。" },
+      { en: "**Complex formation** with ligands (Lewis bases).", zh: "**形成配合物**(与 Lewis 碱配位)。" },
+    ] },
+  ],
+  "unit-6/topic-3": [
+    { kind: "heading", text: { en: "Coordination complexes", zh: "配位化合物" } },
+    { kind: "paragraph", text: { en: "A metal centre surrounded by ligands bound via lone pairs. Common geometries: octahedral (6 ligands), tetrahedral (4), square planar (4; d⁸: Pt²⁺, Ni²⁺, Pd²⁺).", zh: "金属中心由配体通过孤对配位。常见几何:八面体(6 配体)、四面体(4)、平面正方形(4,d⁸:Pt²⁺、Ni²⁺、Pd²⁺)。" } },
+    { kind: "list", items: [
+      { en: "**Monodentate**: H₂O, NH₃, CN⁻, Cl⁻.", zh: "**单齿**:H₂O、NH₃、CN⁻、Cl⁻。" },
+      { en: "**Bidentate**: ethylenediamine (en), oxalate (ox).", zh: "**双齿**:乙二胺(en)、草酸根(ox)。" },
+      { en: "**Hexadentate**: EDTA — locks a metal in six-point chelation.", zh: "**六齿**:EDTA——以六点螯合锁定金属。" },
+    ] },
+  ],
+  "unit-6/topic-4": [
+    { kind: "heading", text: { en: "Crystal-field splitting and colour", zh: "晶体场分裂与颜色" } },
+    { kind: "paragraph", text: { en: "In an octahedral field, five d-orbitals split into lower t_{2g} (xy, xz, yz) and higher e_g (z², x²−y²). The gap Δ₀ is the energy of visible light the complex absorbs — transmitted light gives the colour you see.", zh: "八面体场中五个 d 轨道分裂为较低的 t_{2g}(xy、xz、yz)和较高的 e_g(z²、x²−y²)。能隙 Δ₀ 对应可见光能,被吸收后透射光显色。" } },
+    { kind: "crystal-field", geometry: "octahedral" },
+    { kind: "crystal-field", geometry: "tetrahedral" },
+    { kind: "crystal-field", geometry: "square-planar" },
+  ],
+  "unit-6/topic-5": [
+    { kind: "heading", text: { en: "Spectrochemical series & magnetism", zh: "光谱化学序列与磁性" } },
+    { kind: "paragraph", text: { en: "Weak-field ligands (I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O) give small Δ → high-spin. Strong-field (NH₃ < en < CN⁻ < CO) give large Δ → low-spin.", zh: "弱场配体(I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O)Δ 小 → 高自旋;强场(NH₃ < en < CN⁻ < CO)Δ 大 → 低自旋。" } },
+    { kind: "math", tex: "\\mu_s = \\sqrt{n(n+2)}\\;\\mu_B\\quad(n=\\text{unpaired electrons})" },
+    { kind: "callout", label: { en: "Why [Fe(CN)₆]⁴⁻ is diamagnetic", zh: "[Fe(CN)₆]⁴⁻ 为何抗磁" }, text: { en: "Fe²⁺ is d⁶. CN⁻ is strong field → all 6 electrons paired in t_{2g} → no unpaired electrons → diamagnetic.", zh: "Fe²⁺ 是 d⁶。CN⁻ 为强场 → 全部 6 电子配对在 t_{2g} → 无未成对电子 → 抗磁。" } },
+  ],
+  "unit-6/topic-6": [
+    { kind: "heading", text: { en: "Classic identification tests", zh: "经典鉴别实验" } },
+    { kind: "list", items: [
+      { en: "**Flame tests**: Li crimson, Na yellow, K lilac, Ca brick-red, Cu blue-green.", zh: "**焰色反应**:Li 深红,Na 黄,K 淡紫,Ca 砖红,Cu 蓝绿。" },
+      { en: "**Halide + AgNO₃**: Cl⁻ white (dissolves in NH₃), Br⁻ cream, I⁻ yellow.", zh: "**卤化物 + AgNO₃**:Cl⁻ 白(溶于 NH₃),Br⁻ 淡黄,I⁻ 黄。" },
+      { en: "**SO₄²⁻ + BaCl₂**: white ppt insoluble in dilute HCl.", zh: "**SO₄²⁻ + BaCl₂**:白沉淀,不溶于稀 HCl。" },
+      { en: "**CO₃²⁻ + acid**: fizzes with CO₂, turns limewater milky.", zh: "**CO₃²⁻ + 酸**:释放 CO₂,使石灰水变浑浊。" },
+    ] },
+  ],
+
+  // ===== UNIT 7: Organic Reactions & Mechanisms =====
+  "unit-7/topic-1": [
+    { kind: "heading", text: { en: "Hybridization & bond geometry", zh: "杂化与键几何" } },
+    { kind: "list", items: [
+      { en: "**sp³**: tetrahedral, 109.5°, 4 σ bonds (alkanes, CH₃–OH).", zh: "**sp³**:四面体,109.5°,4 个 σ 键(烷烃、CH₃–OH)。" },
+      { en: "**sp²**: trigonal planar, 120°, 3 σ + 1 π (alkenes, C=O, aromatic).", zh: "**sp²**:平面三角,120°,3σ + 1π(烯烃、C=O、芳香)。" },
+      { en: "**sp**: linear, 180°, 2 σ + 2 π (alkynes, CO₂).", zh: "**sp**:直线,180°,2σ + 2π(炔烃、CO₂)。" },
+    ] },
+  ],
+  "unit-7/topic-2": [
+    { kind: "heading", text: { en: "Free-radical halogenation", zh: "自由基卤代" } },
+    { kind: "paragraph", text: { en: "CH₄ + Cl₂ → CH₃Cl + HCl, initiated by UV. Chain propagation: Cl· + CH₄ → CH₃· + HCl; CH₃· + Cl₂ → CH₃Cl + Cl·. Selectivity: 3° > 2° > 1° H, because the radical intermediate is more stable.", zh: "CH₄ + Cl₂ → CH₃Cl + HCl,由 UV 引发。链传递:Cl· + CH₄ → CH₃· + HCl;CH₃· + Cl₂ → CH₃Cl + Cl·。选择性:3° > 2° > 1° H,因为自由基越稳越优先。" } },
+  ],
+  "unit-7/topic-3": [
+    { kind: "heading", text: { en: "SN1 vs SN2", zh: "SN1 与 SN2" } },
+    { kind: "table", caption: { en: "Choosing SN1 vs SN2", zh: "SN1 与 SN2 的选择" },
+      columns: [{ en: "Factor", zh: "因素" }, { en: "SN1", zh: "SN1" }, { en: "SN2", zh: "SN2" }],
+      rows: [
+        [{ en: "Rate law", zh: "速率定律" }, { en: "k[RX]", zh: "k[RX]" }, { en: "k[RX][Nu]", zh: "k[RX][Nu]" }],
+        [{ en: "Substrate", zh: "底物" }, { en: "3° > 2° ≫ 1°", zh: "3° > 2° ≫ 1°" }, { en: "CH₃ > 1° > 2° ≫ 3°", zh: "CH₃ > 1° > 2° ≫ 3°" }],
+        [{ en: "Nucleophile", zh: "亲核试剂" }, { en: "Weak (often solvent)", zh: "弱(常为溶剂)" }, { en: "Strong", zh: "强" }],
+        [{ en: "Solvent", zh: "溶剂" }, { en: "Polar protic", zh: "质子极性" }, { en: "Polar aprotic", zh: "非质子极性" }],
+        [{ en: "Stereochem.", zh: "立体化学" }, { en: "Racemization", zh: "外消旋化" }, { en: "Inversion (Walden)", zh: "构型反转(Walden)" }],
+      ] },
+  ],
+  "unit-7/topic-4": [
+    { kind: "heading", text: { en: "E1 vs E2 — and Zaitsev vs Hofmann", zh: "E1 与 E2——Zaitsev 与 Hofmann" } },
+    { kind: "list", items: [
+      { en: "**E2** is one-step: anti-periplanar H & leaving group; favoured by bulky strong base (LDA, t-BuO⁻).", zh: "**E2** 一步,H 与离去基团反平面;强体积大碱(LDA、t-BuO⁻)有利。" },
+      { en: "**E1** goes through a carbocation — rearrangements possible; same cations as SN1.", zh: "**E1** 经碳正离子,可能重排;与 SN1 同一中间体。" },
+      { en: "**Zaitsev product** (more substituted alkene) dominates with small bases; **Hofmann** (less substituted) with bulky bases.", zh: "小碱主导 **Zaitsev 产物**(取代较多的烯);大碱主导 **Hofmann**(取代较少)。" },
+    ] },
+  ],
+  "unit-7/topic-5": [
+    { kind: "heading", text: { en: "Electrophilic addition", zh: "亲电加成" } },
+    { kind: "paragraph", text: { en: "Alkene + HX → alkyl halide (Markovnikov: H goes to the C with more H's, X to the more substituted). Mechanism: π attack → carbocation → nucleophile capture. More stable carbocation wins.", zh: "烯烃 + HX → 卤代烷(马氏:H 加至含 H 多的碳,X 加至取代较多的碳)。机理:π 进攻 → 碳正离子 → 亲核捕获。稳定碳正离子优先。" } },
+    { kind: "callout", label: { en: "Anti-Markovnikov", zh: "反马氏" }, text: { en: "HBr + peroxides → radical mechanism → Br goes to the less substituted C (the opposite orientation).", zh: "HBr + 过氧化物 → 自由基机理 → Br 加至取代较少的碳(方向相反)。" } },
+  ],
+  "unit-7/topic-6": [
+    { kind: "heading", text: { en: "Carbonyls: addition, enolates, aldol", zh: "羰基:加成、烯醇盐、羟醛" } },
+    { kind: "list", items: [
+      { en: "**Nucleophilic addition to C=O**: H⁻ (NaBH₄, LAH), R⁻ (Grignards), CN⁻ (cyanohydrins).", zh: "**对 C=O 亲核加成**:H⁻(NaBH₄、LAH)、R⁻(格氏试剂)、CN⁻(氰醇)。" },
+      { en: "**α-H acidity**: pKa ≈ 20; deprotonate with LDA to make enolates.", zh: "**α-H 酸性**:pKa ≈ 20;用 LDA 去质子生成烯醇盐。" },
+      { en: "**Aldol condensation**: enolate + C=O → β-hydroxy carbonyl → dehydration → α,β-unsaturated carbonyl.", zh: "**羟醛缩合**:烯醇盐 + C=O → β-羟基羰基 → 脱水 → α,β-不饱和羰基。" },
+    ] },
+  ],
+  "unit-7/topic-7": [
+    { kind: "heading", text: { en: "EAS and directing effects", zh: "EAS 与定位效应" } },
+    { kind: "list", items: [
+      { en: "**Activators / o,p directors**: –NH₂, –OH, –OR, –R (donate electrons).", zh: "**活化基 / 邻、对位定位基**:–NH₂、–OH、–OR、–R(给电子)。" },
+      { en: "**Deactivators / m directors**: –NO₂, –CN, –SO₃H, –CO₂R (withdraw electrons).", zh: "**钝化基 / 间位定位基**:–NO₂、–CN、–SO₃H、–CO₂R(吸电子)。" },
+      { en: "**Halogens**: deactivators but o,p directors (−I dominant, +M selects o,p).", zh: "**卤素**:钝化但邻、对位定位(−I 主导,+M 定向邻、对)。" },
+    ] },
+  ],
+
+  // ===== UNIT 8: Synthesis & Stereochemistry =====
+  "unit-8/topic-1": [
+    { kind: "heading", text: { en: "Chirality & CIP priority", zh: "手性与 CIP 优先级" } },
+    { kind: "paragraph", text: { en: "A carbon with 4 different groups is a stereocentre. Assign R/S: (1) rank substituents by atomic number (CIP), (2) orient the lowest priority away, (3) if 1→2→3 is clockwise: R, counter-clockwise: S.", zh: "含 4 个不同基团的碳为立体中心。判 R/S:(1) 按原子序数 CIP 排序,(2) 最低优先级朝后,(3) 1→2→3 顺时针 R,逆时针 S。" } },
+    { kind: "callout", label: { en: "Tie-breaker", zh: "同分判定" }, text: { en: "When atoms tied, compare what they're attached to, sphere by sphere. A double-bonded atom counts twice (phantom atom).", zh: "原子相同则比较下一层(逐圈往外)。双键原子记两次(幻影原子)。" } },
+  ],
+  "unit-8/topic-2": [
+    { kind: "heading", text: { en: "E/Z at alkenes", zh: "烯烃的 E/Z" } },
+    { kind: "paragraph", text: { en: "For a C=C with two different groups on each carbon, rank each pair by CIP. If highest-priority groups are on the **same** side: Z (zusammen). **Opposite** side: E (entgegen).", zh: "对 C=C 两侧各有两不同基团者,用 CIP 分别排序。高优先级在**同**侧:Z(合);**异**侧:E(反)。" } },
+  ],
+  "unit-8/topic-3": [
+    { kind: "heading", text: { en: "Protecting groups", zh: "保护基" } },
+    { kind: "list", items: [
+      { en: "**Acetals**: protect aldehydes/ketones from nucleophiles; cleaved by aqueous acid.", zh: "**缩醛**:保护醛/酮避亲核;稀酸脱保护。" },
+      { en: "**TBDMS/TIPS silyl ethers**: protect OH; cleaved with F⁻ (TBAF).", zh: "**TBDMS/TIPS 硅醚**:保护 OH;F⁻(TBAF)脱保护。" },
+      { en: "**Boc**: protect amines with (Boc)₂O; cleaved by TFA.", zh: "**Boc**:(Boc)₂O 保护胺;TFA 脱保护。" },
+      { en: "**Fmoc**: protect amines; cleaved by mild base (piperidine). Used in solid-phase peptide synthesis.", zh: "**Fmoc**:保护胺;温和碱(哌啶)脱保护。用于固相肽合成。" },
+    ] },
+  ],
+  "unit-8/topic-4": [
+    { kind: "heading", text: { en: "Retrosynthesis: working backward", zh: "逆合成:倒推" } },
+    { kind: "paragraph", text: { en: "Start with the target; identify **disconnections** that correspond to known reactions. Each disconnection gives **synthons** — idealised reactive fragments (e.g. acyl cation, enolate anion). Match synthons to real reagents.", zh: "由目标出发,找出对应已知反应的**拆键**。每一拆键给出**合成子**——理想活性碎片(如酰基阳离子、烯醇阴离子)。再用真实试剂对应。" } },
+    { kind: "callout", label: { en: "Classic aldol retro", zh: "经典羟醛逆合成" }, text: { en: "α,β-unsaturated ketone ⇒ aldol condensation ⇒ ketone (enolate) + aldehyde.", zh: "α,β-不饱和酮 ⇒ 羟醛缩合 ⇒ 酮(烯醇盐)+ 醛。" } },
+  ],
+  "unit-8/topic-5": [
+    { kind: "heading", text: { en: "Functional-group interconversions", zh: "官能团转化" } },
+    { kind: "list", items: [
+      { en: "Alcohol → aldehyde: PCC. Alcohol → carboxylic acid: CrO₃/H⁺ or KMnO₄.", zh: "醇 → 醛:PCC。醇 → 羧酸:CrO₃/H⁺ 或 KMnO₄。" },
+      { en: "Aldehyde ↔ alcohol: NaBH₄ (aldehyde/ketone only) or LAH (also esters, acids).", zh: "醛 ↔ 醇:NaBH₄(仅醛酮)或 LAH(兼酯、酸)。" },
+      { en: "C=C → diol (syn): OsO₄; → diol (anti): mCPBA then H₃O⁺.", zh: "C=C → 顺式二醇:OsO₄;→ 反式二醇:mCPBA 后 H₃O⁺。" },
+      { en: "Nitrile → amine: LAH. Nitrile → carboxylic acid: H₃O⁺ reflux.", zh: "腈 → 胺:LAH。腈 → 羧酸:H₃O⁺ 回流。" },
+    ] },
+  ],
+
+  // ===== UNIT 9: Spectroscopy & Structure Elucidation =====
+  "unit-9/topic-1": [
+    { kind: "heading", text: { en: "Mass spectrometry", zh: "质谱" } },
+    { kind: "paragraph", text: { en: "Ionisation ejects an electron from M (molecular ion M⁺•). The heaviest significant peak is the molecular ion; the tallest is the base peak. Isotope patterns reveal Br (1:1 at M & M+2) and Cl (3:1 at M & M+2).", zh: "电离后 M 失电子生成分子离子(M⁺•)。最重的显著峰为分子离子,最高者为基峰。同位素模式可辨识 Br(M 与 M+2 为 1:1)与 Cl(3:1)。" } },
+    { kind: "mass-spectrum", peaks: [{ mz: 43, pct: 100 }, { mz: 58, pct: 60 }, { mz: 29, pct: 40 }, { mz: 15, pct: 20 }] },
+    { kind: "callout", label: { en: "Common losses", zh: "常见失重" }, text: { en: "−15 (CH₃), −18 (H₂O), −29 (CHO or C₂H₅), −43 (C₃H₇ or CH₃CO).", zh: "−15(CH₃)、−18(H₂O)、−29(CHO 或 C₂H₅)、−43(C₃H₇ 或 CH₃CO)。" } },
+  ],
+  "unit-9/topic-2": [
+    { kind: "heading", text: { en: "Infrared: the functional-group map", zh: "红外:官能团分区" } },
+    { kind: "table", caption: { en: "Diagnostic IR bands", zh: "IR 诊断谱带" },
+      columns: [{ en: "Bond", zh: "键" }, { en: "Wavenumber (cm⁻¹)", zh: "波数(cm⁻¹)" }, { en: "Note", zh: "备注" }],
+      rows: [
+        [{ en: "O–H (alcohol)", zh: "O–H(醇)" }, { en: "3200–3550 broad", zh: "3200–3550,宽" }, { en: "H-bonded", zh: "有氢键" }],
+        [{ en: "O–H (acid)", zh: "O–H(酸)" }, { en: "2500–3300 very broad", zh: "2500–3300,极宽" }, { en: "On top of C–H", zh: "与 C–H 重叠" }],
+        [{ en: "N–H", zh: "N–H" }, { en: "3300–3500", zh: "3300–3500" }, { en: "1° amine shows 2 bands", zh: "一级胺有两条带" }],
+        [{ en: "C=O", zh: "C=O" }, { en: "1680–1750 strong", zh: "1680–1750,强" }, { en: "Ester > acid > ketone > aldehyde > amide (approx.)", zh: "酯 > 酸 > 酮 > 醛 > 酰胺(大致)" }],
+        [{ en: "C≡N", zh: "C≡N" }, { en: "2200–2260", zh: "2200–2260" }, { en: "Sharp", zh: "尖锐" }],
+        [{ en: "C=C", zh: "C=C" }, { en: "1620–1680", zh: "1620–1680" }, { en: "Alkenes", zh: "烯烃" }],
+      ] },
+  ],
+  "unit-9/topic-3": [
+    { kind: "heading", text: { en: "¹H NMR chemical shift", zh: "¹H NMR 化学位移" } },
+    { kind: "list", items: [
+      { en: "0–1 ppm: alkyl CH₃/CH₂. 1–2 ppm: CH next to sp³ groups.", zh: "0–1 ppm:烷基 CH₃/CH₂。1–2 ppm:与 sp³ 基团相邻的 CH。" },
+      { en: "2–3 ppm: CH₂ next to C=O, Ar. 3–4 ppm: CH–O (ethers, alcohols, esters).", zh: "2–3 ppm:与 C=O、Ar 相邻的 CH₂。3–4 ppm:CH–O(醚、醇、酯)。" },
+      { en: "5–7 ppm: alkene CH. 7–8 ppm: aromatic H. 9–10 ppm: aldehyde. 10–12 ppm: carboxylic acid.", zh: "5–7 ppm:烯烃 CH。7–8 ppm:芳香 H。9–10 ppm:醛。10–12 ppm:羧酸。" },
+    ] },
+  ],
+  "unit-9/topic-4": [
+    { kind: "heading", text: { en: "Multiplicity & J-coupling", zh: "裂分与 J 耦合" } },
+    { kind: "paragraph", text: { en: "Each neighbouring (vicinal) H gives an n+1 pattern. J-values (Hz): typical vicinal 6–8 Hz; geminal 12–15 Hz; trans (alkene) 12–18 Hz; cis (alkene) 6–12 Hz.", zh: "每个相邻(邻位)H 产生 n+1 裂分。J 值(Hz):邻位约 6–8 Hz;同碳 12–15 Hz;反式(烯)12–18 Hz;顺式(烯)6–12 Hz。" } },
+    { kind: "callout", label: { en: "Integration", zh: "积分" }, text: { en: "Peak areas give relative number of protons — calibrate to the smallest integer ratio.", zh: "峰面积给出质子相对数目——按最小整数比归一。" } },
+  ],
+  "unit-9/topic-5": [
+    { kind: "heading", text: { en: "¹³C NMR & DEPT", zh: "¹³C NMR 与 DEPT" } },
+    { kind: "list", items: [
+      { en: "Number of peaks = number of chemically distinct carbons.", zh: "峰数 = 化学等价碳数。" },
+      { en: "Similar shift ranges to ¹H but wider (0–220 ppm).", zh: "位移分区与 ¹H 类似但更宽(0–220 ppm)。" },
+      { en: "C=O: 170–220 ppm. Aromatic C: 110–150 ppm. sp³ C: 10–70 ppm.", zh: "C=O:170–220 ppm;芳香 C:110–150 ppm;sp³ C:10–70 ppm。" },
+      { en: "**DEPT**: CH, CH₃ up; CH₂ down; quaternary C absent.", zh: "**DEPT**:CH、CH₃ 向上;CH₂ 向下;季碳不出现。" },
+    ] },
+  ],
+  "unit-9/topic-6": [
+    { kind: "heading", text: { en: "Reading combined spectra", zh: "综合谱解读步骤" } },
+    { kind: "list", items: [
+      { en: "1. Get the **molecular formula** from M⁺• (MS).", zh: "1. 由 MS 分子离子 M⁺• 得**分子式**。" },
+      { en: "2. Compute **degree of unsaturation** = (2C + 2 − H + N − X)/2.", zh: "2. 算**不饱和度** = (2C + 2 − H + N − X)/2。" },
+      { en: "3. Scan **IR** for functional groups.", zh: "3. 由 **IR** 确定官能团。" },
+      { en: "4. Use **¹H NMR** integrals, shifts, splitting to build fragments.", zh: "4. 用 **¹H NMR** 的积分、位移、裂分拼合碎片。" },
+      { en: "5. Check against **¹³C NMR** (C count).", zh: "5. 用 **¹³C NMR** 核对碳数。" },
+      { en: "6. Assemble — does it match the parent mass?", zh: "6. 组装并验证分子式。" },
+    ] },
+  ],
 };
 
 export const topicQuestionsUKCHO: Record<string, Question[]> = {
@@ -22198,6 +22392,270 @@ export const topicQuestionsUKCHO: Record<string, Question[]> = {
         { id: "d", text: { en: "2.50 V", zh: "2.50 V" } },
       ], answerId: "c",
       explanation: { en: "E°_cell for 2H₂ + O₂ → 2H₂O is 1.23 V at 25 °C.", zh: "2H₂ + O₂ → 2H₂O 在 25 °C 下的 E°_cell = 1.23 V。" } },
+  ],
+  "unit-6/topic-1": [
+    { id: "ukcho-u6-t1-q1", difficulty: "easy",
+      prompt: { en: "Which halogen is the strongest oxidising agent?", zh: "哪种卤素氧化性最强?" },
+      choices: [
+        { id: "a", text: { en: "F₂", zh: "F₂" } },
+        { id: "b", text: { en: "Cl₂", zh: "Cl₂" } },
+        { id: "c", text: { en: "Br₂", zh: "Br₂" } },
+        { id: "d", text: { en: "I₂", zh: "I₂" } },
+      ], answerId: "a",
+      explanation: { en: "Oxidising power in Group 17 decreases down: F₂ > Cl₂ > Br₂ > I₂.", zh: "第 17 族氧化性向下减弱:F₂ > Cl₂ > Br₂ > I₂。" } },
+  ],
+  "unit-6/topic-2": [
+    { id: "ukcho-u6-t2-q1", difficulty: "medium",
+      prompt: { en: "Which is NOT typical of transition metals?", zh: "下列哪项**不是**过渡金属的典型特征?" },
+      choices: [
+        { id: "a", text: { en: "Variable oxidation states", zh: "可变氧化态" } },
+        { id: "b", text: { en: "Coloured complexes", zh: "有色配合物" } },
+        { id: "c", text: { en: "Catalytic activity", zh: "催化活性" } },
+        { id: "d", text: { en: "Full d-shell", zh: "d 亚层全满" } },
+      ], answerId: "d",
+      explanation: { en: "Transition metals are defined by **partially filled** d orbitals. Zn (d¹⁰) is borderline.", zh: "过渡金属的定义是 d 轨道**部分填充**;Zn(d¹⁰)属于边界情况。" } },
+  ],
+  "unit-6/topic-3": [
+    { id: "ukcho-u6-t3-q1", difficulty: "medium",
+      prompt: { en: "How many donor atoms does EDTA provide in a complex?", zh: "EDTA 在配合物中提供多少个给体原子?" },
+      choices: [
+        { id: "a", text: { en: "2", zh: "2" } },
+        { id: "b", text: { en: "4", zh: "4" } },
+        { id: "c", text: { en: "6", zh: "6" } },
+        { id: "d", text: { en: "8", zh: "8" } },
+      ], answerId: "c",
+      explanation: { en: "EDTA is hexadentate — 2 amine N + 4 carboxylate O donors wrap around the metal.", zh: "EDTA 为六齿配体——2 个胺 N + 4 个羧酸 O 围绕金属。" } },
+  ],
+  "unit-6/topic-4": [
+    { id: "ukcho-u6-t4-q1", difficulty: "medium",
+      prompt: { en: "A complex absorbs at λ = 500 nm (green). What colour does it appear?", zh: "配合物吸收 λ = 500 nm(绿)。它呈现什么颜色?" },
+      choices: [
+        { id: "a", text: { en: "Green", zh: "绿色" } },
+        { id: "b", text: { en: "Red", zh: "红色" } },
+        { id: "c", text: { en: "Blue", zh: "蓝色" } },
+        { id: "d", text: { en: "Yellow", zh: "黄色" } },
+      ], answerId: "b",
+      explanation: { en: "The transmitted colour is the complement of absorbed. Green absorption ⇒ red appearance.", zh: "透射色是吸收色的补色。吸绿 ⇒ 呈红。" } },
+  ],
+  "unit-6/topic-5": [
+    { id: "ukcho-u6-t5-q1", difficulty: "hard",
+      prompt: { en: "How many unpaired electrons does [Fe(H₂O)₆]³⁺ have? (Fe³⁺ = d⁵; H₂O weak field.)", zh: "[Fe(H₂O)₆]³⁺ 中未成对电子数?(Fe³⁺ = d⁵;H₂O 为弱场。)" },
+      choices: [
+        { id: "a", text: { en: "1", zh: "1" } },
+        { id: "b", text: { en: "3", zh: "3" } },
+        { id: "c", text: { en: "5", zh: "5" } },
+        { id: "d", text: { en: "0", zh: "0" } },
+      ], answerId: "c",
+      explanation: { en: "Weak field → high spin: all 5 electrons unpaired (t_{2g}³ e_g²).", zh: "弱场 → 高自旋:5 电子全部未成对(t_{2g}³ e_g²)。" } },
+  ],
+  "unit-6/topic-6": [
+    { id: "ukcho-u6-t6-q1", difficulty: "easy",
+      prompt: { en: "Adding dilute HCl to a Na₂CO₃ solution produces:", zh: "向 Na₂CO₃ 溶液加入稀 HCl 产生:" },
+      choices: [
+        { id: "a", text: { en: "A brown gas (NO₂)", zh: "棕色气体(NO₂)" } },
+        { id: "b", text: { en: "A gas that turns limewater milky (CO₂)", zh: "使石灰水变浑的气体(CO₂)" } },
+        { id: "c", text: { en: "A pale yellow ppt", zh: "淡黄沉淀" } },
+        { id: "d", text: { en: "No reaction", zh: "不反应" } },
+      ], answerId: "b",
+      explanation: { en: "Na₂CO₃ + 2 HCl → 2 NaCl + H₂O + CO₂↑; CO₂ + Ca(OH)₂ → CaCO₃↓ (milky).", zh: "Na₂CO₃ + 2 HCl → 2 NaCl + H₂O + CO₂↑;CO₂ + Ca(OH)₂ → CaCO₃↓(变浑)。" } },
+  ],
+  "unit-7/topic-1": [
+    { id: "ukcho-u7-t1-q1", difficulty: "easy",
+      prompt: { en: "The central C in CH₃–C≡N is hybridised as:", zh: "CH₃–C≡N 中中心碳的杂化:" },
+      choices: [
+        { id: "a", text: { en: "sp", zh: "sp" } },
+        { id: "b", text: { en: "sp²", zh: "sp²" } },
+        { id: "c", text: { en: "sp³", zh: "sp³" } },
+        { id: "d", text: { en: "dsp³", zh: "dsp³" } },
+      ], answerId: "a",
+      explanation: { en: "Two σ bonds (to CH₃ and N), plus two π bonds in the triple bond → sp.", zh: "两个 σ 键(接 CH₃ 与 N)加三键中的两个 π → sp。" } },
+  ],
+  "unit-7/topic-2": [
+    { id: "ukcho-u7-t2-q1", difficulty: "medium",
+      prompt: { en: "Chlorination of 2-methylpropane gives mainly which product (per reactive H)?", zh: "2-甲基丙烷(异丁烷)氯代最易生成(按 H 的活性)?" },
+      choices: [
+        { id: "a", text: { en: "1-chloro-2-methylpropane", zh: "1-氯-2-甲基丙烷" } },
+        { id: "b", text: { en: "2-chloro-2-methylpropane (tert-butyl chloride)", zh: "2-氯-2-甲基丙烷(叔丁基氯)" } },
+        { id: "c", text: { en: "Equal mix", zh: "等量混合" } },
+        { id: "d", text: { en: "No reaction", zh: "不反应" } },
+      ], answerId: "b",
+      explanation: { en: "Tertiary radical more stable → 3° C–H is preferentially substituted.", zh: "三级自由基更稳定 → 3° C–H 优先取代。" } },
+  ],
+  "unit-7/topic-3": [
+    { id: "ukcho-u7-t3-q1", difficulty: "medium",
+      prompt: { en: "Which conditions favour SN2?", zh: "哪种条件有利于 SN2?" },
+      choices: [
+        { id: "a", text: { en: "Tertiary substrate, polar protic solvent", zh: "三级底物,质子极性溶剂" } },
+        { id: "b", text: { en: "Primary substrate, strong nucleophile, polar aprotic solvent", zh: "一级底物,强亲核试剂,非质子极性溶剂" } },
+        { id: "c", text: { en: "Tertiary substrate, weak nucleophile", zh: "三级底物,弱亲核试剂" } },
+        { id: "d", text: { en: "Vinyl halide, any solvent", zh: "乙烯基卤,任何溶剂" } },
+      ], answerId: "b",
+      explanation: { en: "SN2 needs backside attack (primary, unhindered), a strong nucleophile, and an aprotic solvent that doesn't cage the Nu.", zh: "SN2 需要背面进攻(一级、无位阻)、强亲核试剂,以及不束缚亲核试剂的非质子溶剂。" } },
+  ],
+  "unit-7/topic-4": [
+    { id: "ukcho-u7-t4-q1", difficulty: "medium",
+      prompt: { en: "t-BuO⁻ on 2-bromo-2-methylbutane gives mainly:", zh: "t-BuO⁻ 与 2-溴-2-甲基丁烷主要生成:" },
+      choices: [
+        { id: "a", text: { en: "Zaitsev (more substituted) alkene", zh: "Zaitsev(取代较多)烯" } },
+        { id: "b", text: { en: "Hofmann (less substituted) alkene", zh: "Hofmann(取代较少)烯" } },
+        { id: "c", text: { en: "SN2 product", zh: "SN2 产物" } },
+        { id: "d", text: { en: "No reaction", zh: "不反应" } },
+      ], answerId: "b",
+      explanation: { en: "Bulky base favours the less hindered β-H → Hofmann product.", zh: "大体积碱倾向进攻位阻较小的 β-H → Hofmann 产物。" } },
+  ],
+  "unit-7/topic-5": [
+    { id: "ukcho-u7-t5-q1", difficulty: "easy",
+      prompt: { en: "HBr adds to propene (no peroxides) to give chiefly:", zh: "HBr 加成丙烯(无过氧化物)主要产物:" },
+      choices: [
+        { id: "a", text: { en: "1-bromopropane", zh: "1-溴丙烷" } },
+        { id: "b", text: { en: "2-bromopropane", zh: "2-溴丙烷" } },
+        { id: "c", text: { en: "1,2-dibromopropane", zh: "1,2-二溴丙烷" } },
+        { id: "d", text: { en: "Allyl bromide", zh: "烯丙基溴" } },
+      ], answerId: "b",
+      explanation: { en: "Markovnikov: H to terminal C; Br on 2° (more stable carbocation).", zh: "马氏规则:H 加端位;Br 加到 2°(更稳定的碳正离子)。" } },
+  ],
+  "unit-7/topic-6": [
+    { id: "ukcho-u7-t6-q1", difficulty: "medium",
+      prompt: { en: "Which reagent reduces RCOOH to RCH₂OH?", zh: "哪种试剂将 RCOOH 还原为 RCH₂OH?" },
+      choices: [
+        { id: "a", text: { en: "NaBH₄", zh: "NaBH₄" } },
+        { id: "b", text: { en: "LiAlH₄ (LAH)", zh: "LiAlH₄(LAH)" } },
+        { id: "c", text: { en: "H₂ / Pd", zh: "H₂ / Pd" } },
+        { id: "d", text: { en: "PCC", zh: "PCC" } },
+      ], answerId: "b",
+      explanation: { en: "NaBH₄ is too weak for acids/esters. LAH reduces RCOOH → RCH₂OH.", zh: "NaBH₄ 还原能力不足;LAH 能将 RCOOH 还原为 RCH₂OH。" } },
+  ],
+  "unit-7/topic-7": [
+    { id: "ukcho-u7-t7-q1", difficulty: "medium",
+      prompt: { en: "Nitration of toluene gives mainly:", zh: "甲苯硝化主要产物:" },
+      choices: [
+        { id: "a", text: { en: "meta-nitrotoluene", zh: "间硝基甲苯" } },
+        { id: "b", text: { en: "ortho- and para-nitrotoluene", zh: "邻硝基与对硝基甲苯" } },
+        { id: "c", text: { en: "1,3,5-trinitrotoluene directly", zh: "1,3,5-三硝基甲苯" } },
+        { id: "d", text: { en: "benzoic acid", zh: "苯甲酸" } },
+      ], answerId: "b",
+      explanation: { en: "Methyl group activates and directs o,p.", zh: "甲基为活化基,定位邻、对位。" } },
+  ],
+  "unit-8/topic-1": [
+    { id: "ukcho-u8-t1-q1", difficulty: "hard",
+      prompt: { en: "Assign the stereocentre in (R)-lactic acid: HOOC–C*(H)(OH)–CH₃. The priority ranking of groups is:", zh: "(R)-乳酸 HOOC–C*(H)(OH)–CH₃ 中各基团 CIP 优先级:" },
+      choices: [
+        { id: "a", text: { en: "OH > COOH > CH₃ > H", zh: "OH > COOH > CH₃ > H" } },
+        { id: "b", text: { en: "COOH > OH > CH₃ > H", zh: "COOH > OH > CH₃ > H" } },
+        { id: "c", text: { en: "OH > CH₃ > COOH > H", zh: "OH > CH₃ > COOH > H" } },
+        { id: "d", text: { en: "COOH > CH₃ > OH > H", zh: "COOH > CH₃ > OH > H" } },
+      ], answerId: "a",
+      explanation: { en: "First atom: O (OH) > C (COOH) = C (CH₃) > H. Between two Cs, COOH has more O than CH₃ → COOH > CH₃. Final: OH > COOH > CH₃ > H.", zh: "第一层原子:O(OH)> C(COOH)= C(CH₃)> H。两 C 比较第二层 O 数:COOH > CH₃。最终:OH > COOH > CH₃ > H。" } },
+  ],
+  "unit-8/topic-2": [
+    { id: "ukcho-u8-t2-q1", difficulty: "medium",
+      prompt: { en: "For ClHC=CHBr, the Z isomer has:", zh: "ClHC=CHBr 中 Z 式特点:" },
+      choices: [
+        { id: "a", text: { en: "Cl and Br on the same side", zh: "Cl 与 Br 同侧" } },
+        { id: "b", text: { en: "Cl and Br on opposite sides", zh: "Cl 与 Br 异侧" } },
+        { id: "c", text: { en: "H and H on the same side", zh: "H 与 H 同侧" } },
+        { id: "d", text: { en: "No E/Z is defined", zh: "不可定 E/Z" } },
+      ], answerId: "a",
+      explanation: { en: "On each carbon: higher priority = halogen (Br > Cl > H). Same side → Z.", zh: "每个碳上高优先级为卤素(Br > Cl > H)。高优先级同侧 → Z。" } },
+  ],
+  "unit-8/topic-3": [
+    { id: "ukcho-u8-t3-q1", difficulty: "medium",
+      prompt: { en: "To protect an alcohol before a Grignard reaction, use:", zh: "在格氏反应前保护醇,应使用:" },
+      choices: [
+        { id: "a", text: { en: "Boc₂O", zh: "Boc₂O" } },
+        { id: "b", text: { en: "TBDMS-Cl with imidazole", zh: "TBDMS-Cl 与咪唑" } },
+        { id: "c", text: { en: "Ac₂O", zh: "Ac₂O" } },
+        { id: "d", text: { en: "mCPBA", zh: "mCPBA" } },
+      ], answerId: "b",
+      explanation: { en: "TBDMS silyl ether is inert to Grignards and is removed later with TBAF.", zh: "TBDMS 硅醚对格氏试剂惰性,后用 TBAF 脱保护。" } },
+  ],
+  "unit-8/topic-4": [
+    { id: "ukcho-u8-t4-q1", difficulty: "hard",
+      prompt: { en: "For retrosynthesis of 1-phenyl-1-propanol, a good disconnection is:", zh: "1-苯基-1-丙醇的逆合成,合适的拆键:" },
+      choices: [
+        { id: "a", text: { en: "PhCHO + CH₃CH₂MgBr (Grignard)", zh: "PhCHO + CH₃CH₂MgBr(格氏)" } },
+        { id: "b", text: { en: "PhMgBr + acetone", zh: "PhMgBr + 丙酮" } },
+        { id: "c", text: { en: "Ph–CH₂–CH₂–CH₃ oxidation", zh: "Ph–CH₂–CH₂–CH₃ 氧化" } },
+        { id: "d", text: { en: "Benzene + propanol", zh: "苯 + 丙醇" } },
+      ], answerId: "a",
+      explanation: { en: "Disconnect at C–OH and C–C adjacent: PhCHO + EtMgBr → PhCH(OH)Et (1-phenyl-1-propanol).", zh: "在 C–OH 与相邻 C–C 处拆键:PhCHO + EtMgBr → PhCH(OH)Et(1-苯基-1-丙醇)。" } },
+  ],
+  "unit-8/topic-5": [
+    { id: "ukcho-u8-t5-q1", difficulty: "medium",
+      prompt: { en: "To convert 1-butanol to butanoic acid, use:", zh: "将 1-丁醇转化为丁酸,使用:" },
+      choices: [
+        { id: "a", text: { en: "PCC", zh: "PCC" } },
+        { id: "b", text: { en: "KMnO₄/H⁺", zh: "KMnO₄/H⁺" } },
+        { id: "c", text: { en: "NaBH₄", zh: "NaBH₄" } },
+        { id: "d", text: { en: "H₂/Pd", zh: "H₂/Pd" } },
+      ], answerId: "b",
+      explanation: { en: "PCC stops at aldehyde; strong oxidants (KMnO₄, CrO₃/H⁺, Jones) go all the way to the acid.", zh: "PCC 停在醛;强氧化剂(KMnO₄、CrO₃/H⁺、Jones)氧化至羧酸。" } },
+  ],
+  "unit-9/topic-1": [
+    { id: "ukcho-u9-t1-q1", difficulty: "medium",
+      prompt: { en: "A compound's mass spectrum has M⁺ = 78, M+2 = 78 (1:1 intensity). It most likely contains:", zh: "化合物质谱 M⁺ = 78,M+2 相对强度 1:1。最可能含:" },
+      choices: [
+        { id: "a", text: { en: "Cl", zh: "Cl" } },
+        { id: "b", text: { en: "Br", zh: "Br" } },
+        { id: "c", text: { en: "N", zh: "N" } },
+        { id: "d", text: { en: "S", zh: "S" } },
+      ], answerId: "b",
+      explanation: { en: "Br has two isotopes (⁷⁹Br, ⁸¹Br) in roughly equal abundance → 1:1 M and M+2 peaks.", zh: "Br 两种同位素(⁷⁹Br、⁸¹Br)近等丰度 → M 与 M+2 强度 1:1。" } },
+  ],
+  "unit-9/topic-2": [
+    { id: "ukcho-u9-t2-q1", difficulty: "easy",
+      prompt: { en: "A strong, broad IR band at 2500–3300 cm⁻¹ indicates:", zh: "2500–3300 cm⁻¹ 强而极宽的 IR 带表明:" },
+      choices: [
+        { id: "a", text: { en: "An alcohol", zh: "醇" } },
+        { id: "b", text: { en: "A carboxylic acid", zh: "羧酸" } },
+        { id: "c", text: { en: "A nitrile", zh: "腈" } },
+        { id: "d", text: { en: "An aromatic C=C", zh: "芳香 C=C" } },
+      ], answerId: "b",
+      explanation: { en: "Very broad O–H of a carboxylic acid extends from 2500 into the C–H region.", zh: "羧酸 O–H 极宽,延伸至 C–H 区。" } },
+  ],
+  "unit-9/topic-3": [
+    { id: "ukcho-u9-t3-q1", difficulty: "medium",
+      prompt: { en: "A ¹H NMR signal at δ 9.8 ppm (singlet, 1 H) is most likely:", zh: "¹H NMR δ 9.8 ppm(单峰,1 H)最可能是:" },
+      choices: [
+        { id: "a", text: { en: "Aromatic H", zh: "芳香 H" } },
+        { id: "b", text: { en: "Carboxylic acid O–H", zh: "羧酸 O–H" } },
+        { id: "c", text: { en: "Aldehyde C(=O)–H", zh: "醛 C(=O)–H" } },
+        { id: "d", text: { en: "Alkene CH", zh: "烯 CH" } },
+      ], answerId: "c",
+      explanation: { en: "Aldehyde H is 9–10 ppm. Acid O–H appears further downfield (10–12) and is broad.", zh: "醛 H 位于 9–10 ppm。酸 O–H 更偏左(10–12)且较宽。" } },
+  ],
+  "unit-9/topic-4": [
+    { id: "ukcho-u9-t4-q1", difficulty: "medium",
+      prompt: { en: "How many ¹H signals and what splitting for ethanol (CH₃CH₂OH) in a dry sample?", zh: "干燥的乙醇(CH₃CH₂OH)¹H 信号数与裂分:" },
+      choices: [
+        { id: "a", text: { en: "2 signals: singlet + singlet", zh: "2 组:单 + 单" } },
+        { id: "b", text: { en: "3 signals: triplet, quartet, singlet (or 1H exchangeable)", zh: "3 组:三、四、单(或 1H 可交换)" } },
+        { id: "c", text: { en: "3 signals: doublet, doublet, singlet", zh: "3 组:双、双、单" } },
+        { id: "d", text: { en: "1 signal: singlet", zh: "1 组:单" } },
+      ], answerId: "b",
+      explanation: { en: "CH₃ (t, 3H), CH₂ (q, 2H), OH (singlet or broad, exchangeable). n+1 rule.", zh: "CH₃(t,3H)、CH₂(q,2H)、OH(单或宽,易交换)。n+1 规则。" } },
+  ],
+  "unit-9/topic-5": [
+    { id: "ukcho-u9-t5-q1", difficulty: "medium",
+      prompt: { en: "A DEPT shows a peak pointing down at δ 40. This carbon is:", zh: "DEPT 在 δ 40 处向下的峰,其碳为:" },
+      choices: [
+        { id: "a", text: { en: "CH₃", zh: "CH₃" } },
+        { id: "b", text: { en: "CH₂", zh: "CH₂" } },
+        { id: "c", text: { en: "CH", zh: "CH" } },
+        { id: "d", text: { en: "Quaternary C", zh: "季碳" } },
+      ], answerId: "b",
+      explanation: { en: "In DEPT-135: CH and CH₃ point up; CH₂ points down; quaternary absent.", zh: "DEPT-135 中:CH 与 CH₃ 向上;CH₂ 向下;季碳不显。" } },
+  ],
+  "unit-9/topic-6": [
+    { id: "ukcho-u9-t6-q1", difficulty: "hard",
+      prompt: { en: "C₄H₈O₂. IR has strong C=O at 1735 cm⁻¹, no O–H band. ¹H NMR: triplet δ 1.25 (3H), quartet δ 4.12 (2H), singlet δ 2.02 (3H). Structure?", zh: "分子式 C₄H₈O₂。IR:1735 cm⁻¹ 强 C=O,无 O–H。¹H NMR:1.25(t, 3H)、4.12(q, 2H)、2.02(s, 3H)。结构是?" },
+      choices: [
+        { id: "a", text: { en: "Butanoic acid", zh: "丁酸" } },
+        { id: "b", text: { en: "Ethyl acetate (CH₃COOCH₂CH₃)", zh: "乙酸乙酯(CH₃COOCH₂CH₃)" } },
+        { id: "c", text: { en: "Methyl propanoate", zh: "丙酸甲酯" } },
+        { id: "d", text: { en: "2-butanone", zh: "2-丁酮" } },
+      ], answerId: "b",
+      explanation: { en: "No O–H (not an acid). 1735 cm⁻¹ = ester. t+q pattern of –OCH₂CH₃, plus singlet for CH₃C(=O)O. Matches ethyl acetate.", zh: "无 O–H(非酸);1735 cm⁻¹ 为酯羰基;–OCH₂CH₃ 为 t + q,CH₃C(=O)O 为单峰。与乙酸乙酯一致。" } },
   ],
 };
 
