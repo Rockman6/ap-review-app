@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" font-family="Georgia, 'Times New Roman', serif" font-size="13">
+  <style>
+    .box  { fill:none; stroke:#111; stroke-width:1.2; }
+    .band { fill:#111; }
+    .lbl  { fill:#111; }
+  </style>
+
+  <!-- Outer panel -->
+  <rect class="box" x="140" y="30" width="560" height="100"/>
+
+  <!-- "ALD Protein" label -->
+  <text x="200" y="85" class="lbl" text-anchor="middle">ALD Protein</text>
+
+  <!-- Bands: 5 genotypes. Thickness decreases left→right. Bar centers at x=290, 380, 470, 560, 650; band width 60 px -->
+  <!-- WT/WT: thickest solid block -->
+  <rect class="band" x="260" y="68" width="60" height="26"/>
+  <!-- WT/del: medium -->
+  <rect class="band" x="350" y="73" width="60" height="16"/>
+  <!-- ald1/del: medium (problem implies similar to WT/del) -->
+  <rect class="band" x="440" y="73" width="60" height="16"/>
+  <!-- ald3/ald23: thin band -->
+  <rect class="band" x="530" y="78" width="60" height="6"/>
+  <!-- ald23/del: very thin line -->
+  <rect class="band" x="620" y="80" width="60" height="2"/>
+
+  <!-- x-axis labels -->
+  <g class="lbl" text-anchor="middle" font-size="13" font-style="italic">
+    <text x="290" y="158">WT/WT</text>
+    <text x="380" y="158">WT/del</text>
+    <text x="470" y="158">ald1/del</text>
+    <text x="560" y="158">ald3/ald23</text>
+    <text x="650" y="158">ald23/del</text>
+  </g>
+</svg>
