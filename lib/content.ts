@@ -21614,8 +21614,592 @@ export const apUKCHO: Subject = {
   ],
 };
 
-export const topicNotesUKCHO: Record<string, NoteBlock[]> = {};
-export const topicQuestionsUKCHO: Record<string, Question[]> = {};
+export const topicNotesUKCHO: Record<string, NoteBlock[]> = {
+  // ===== UNIT 1: Atomic Structure & Bonding =====
+  "unit-1/topic-1": [
+    { kind: "heading", text: { en: "Building atoms: Aufbau, Hund, Pauli", zh: "构建原子:Aufbau、洪特、泡利" } },
+    { kind: "paragraph", text: {
+      en: "Electrons fill orbitals in order of increasing energy (**Aufbau principle**), with **no two electrons sharing all four quantum numbers** (Pauli), and **half-fill degenerate orbitals singly with parallel spins** before pairing (Hund's rule).",
+      zh: "电子按能量升序填入轨道(**Aufbau**);**不可有两电子四量子数相同**(泡利);对简并轨道**先单占、自旋平行**,再配对(洪特规则)。" } },
+    { kind: "math", tex: "1s^2\\,2s^2\\,2p^6\\,3s^2\\,3p^6\\,4s^2\\,3d^{10}\\,4p^6\\,5s^2 \\ldots" },
+    { kind: "callout", label: { en: "Exceptions worth memorizing", zh: "需记忆的例外" }, text: {
+      en: "Cr: [Ar] 3d⁵ 4s¹ and Cu: [Ar] 3d¹⁰ 4s¹ — a half-filled or fully filled d sub-shell is extra stable.",
+      zh: "Cr:[Ar] 3d⁵ 4s¹;Cu:[Ar] 3d¹⁰ 4s¹——半满或全满 d 亚层更稳定。" } },
+  ],
+  "unit-1/topic-2": [
+    { kind: "heading", text: { en: "Shapes of atomic orbitals", zh: "原子轨道的形状" } },
+    { kind: "paragraph", text: {
+      en: "s-orbitals are spherical (no angular nodes). p-orbitals have two lobes separated by a nodal plane. d-orbitals have four lobes (except d_z², which has a donut). **Nodes**: angular = directional zeros; radial = sphere of zero amplitude.",
+      zh: "s 轨道为球形(无角节面)。p 轨道有两瓣,中间有节面。d 轨道通常有四瓣(d_z² 除外,含环带)。**节面**:角节面=方向性零面;径向节面=球面上振幅为零。" } },
+    { kind: "orbital", orbital: "1s" },
+    { kind: "orbital", orbital: "2p" },
+    { kind: "orbital", orbital: "3dz2" },
+    { kind: "orbital", orbital: "3dxy" },
+    { kind: "callout", label: { en: "Node counting", zh: "节面计数" }, text: { en: "For orbital nℓ: (n − ℓ − 1) radial nodes and ℓ angular nodes — total n − 1.", zh: "对 nℓ 轨道:径向节面 n − ℓ − 1 个,角节面 ℓ 个,合计 n − 1。" } },
+  ],
+  "unit-1/topic-3": [
+    { kind: "heading", text: { en: "Periodic trends at a glance", zh: "周期性规律一览" } },
+    { kind: "list", items: [
+      { en: "**Atomic radius**: decreases across a period (↑Z_eff), increases down a group (more shells).", zh: "**原子半径**:周期向右减小(Z_eff 增大),族向下增大(壳层增多)。" },
+      { en: "**1st ionization energy**: increases across, decreases down. Dips at group 13 (p vs s) and 16 (paired 2p⁴).", zh: "**第一电离能**:周期向右增大,族向下减小;在第 13 族(p 对 s)与第 16 族(成对 2p⁴)有下降。" },
+      { en: "**Electron affinity**: most exothermic for halogens; noble gases effectively zero.", zh: "**电子亲和能**:卤素最放热;稀有气体近乎为零。" },
+      { en: "**Electronegativity (Pauling)**: F > O > N ≈ Cl > Br > C ≈ H. 4.0 → 2.1 range.", zh: "**电负性(Pauling)**:F > O > N ≈ Cl > Br > C ≈ H,区间约 4.0 → 2.1。" },
+    ] },
+  ],
+  "unit-1/topic-4": [
+    { kind: "heading", text: { en: "Ionic bonding and the Born–Haber cycle", zh: "离子键与 Born–Haber 循环" } },
+    { kind: "paragraph", text: {
+      en: "Lattice energy (exothermic) drives ionic compound formation. The Born–Haber cycle applies Hess's law to compute it from: atomization, ionization, electron affinity, and overall enthalpy of formation.",
+      zh: "晶格能(放热)是离子化合物形成的动力。Born–Haber 循环运用 Hess 定律,由原子化、电离、电子亲和与生成焓共同确定晶格能。" } },
+    { kind: "born-haber", compound: "NaCl" },
+    { kind: "born-haber", compound: "MgO" },
+    { kind: "callout", label: { en: "Lattice energy scaling", zh: "晶格能的规律" }, text: { en: "U ∝ |z⁺z⁻|/(r⁺+r⁻). MgO (2+,2−) is much more exothermic than NaCl (1+,1−) even though ions are similar in size.", zh: "U ∝ |z⁺z⁻|/(r⁺+r⁻)。MgO(2+、2−)的放热远大于 NaCl(1+、1−),即使离子半径相近。" } },
+  ],
+  "unit-1/topic-5": [
+    { kind: "heading", text: { en: "VSEPR shapes", zh: "VSEPR 几何形状" } },
+    { kind: "paragraph", text: {
+      en: "Total electron domains (bonding + lone pairs) set the geometry; lone pairs bend the shape further. Lone-pair repulsion > bonding-pair repulsion, so lone pairs squeeze bond angles (H₂O ≈ 104.5°, NH₃ ≈ 107°).",
+      zh: "总电子域数(成键+孤对)决定几何;孤对进一步弯曲形状。孤对-孤对斥力 > 成键斥力,孤对压缩键角(H₂O ≈ 104.5°,NH₃ ≈ 107°)。" } },
+    { kind: "mol3d", geometry: "tetrahedral" },
+    { kind: "mol3d", geometry: "trigonal-pyramidal" },
+    { kind: "mol3d", geometry: "bent" },
+    { kind: "mol3d", geometry: "trigonal-bipyramidal" },
+  ],
+  "unit-1/topic-6": [
+    { kind: "heading", text: { en: "MO theory for diatomics", zh: "双原子分子的分子轨道理论" } },
+    { kind: "paragraph", text: {
+      en: "Atomic orbitals on two atoms combine into bonding (lower energy, σ or π) and antibonding (higher, σ* or π*) molecular orbitals. Bond order = (bonding − antibonding electrons)/2. Unpaired electrons → paramagnetism.",
+      zh: "两原子上的原子轨道组合成成键(低能,σ 或 π)与反键(高能,σ* 或 π*)分子轨道。键级 = (成键−反键电子)/2。有未成对电子 → 顺磁性。" } },
+    { kind: "mo-diagram", molecule: "O2" },
+    { kind: "mo-diagram", molecule: "N2" },
+    { kind: "callout", label: { en: "Why O₂ is paramagnetic", zh: "O₂ 为何是顺磁性" }, text: {
+      en: "O₂ has two unpaired electrons in the degenerate π* orbitals — a fact Lewis structures fail to explain but MO theory predicts exactly.",
+      zh: "O₂ 在简并的 π* 轨道上有两个未成对电子——Lewis 结构无法解释,而 MO 理论精确预言。" } },
+  ],
+  "unit-1/topic-7": [
+    { kind: "heading", text: { en: "Ranking IMFs", zh: "分子间作用力的强弱" } },
+    { kind: "list", items: [
+      { en: "**Ion–ion** (only in ionic compounds): strongest.", zh: "**离子-离子**(仅在离子化合物):最强。" },
+      { en: "**Ion–dipole**: dominant in aqueous salt solutions.", zh: "**离子-偶极**:盐水溶液中主导。" },
+      { en: "**Hydrogen bonding** (F, O, N with H): water's high b.p., DNA base pairing.", zh: "**氢键**(F、O、N 与 H):水沸点高、DNA 碱基配对。" },
+      { en: "**Dipole–dipole**: polar molecules attract.", zh: "**偶极-偶极**:极性分子相互吸引。" },
+      { en: "**London dispersion**: all molecules; stronger with more electrons/surface area.", zh: "**London 色散力**:所有分子皆有;电子越多、表面越大越强。" },
+    ] },
+    { kind: "callout", label: { en: "Boiling-point trick", zh: "沸点判断窍门" }, text: { en: "For similar-mass molecules: H-bond > polar dipole > nonpolar dispersion.", zh: "质量相近时:氢键 > 极性偶极 > 非极性色散。" } },
+  ],
+
+  // ===== UNIT 2: Thermodynamics =====
+  "unit-2/topic-1": [
+    { kind: "heading", text: { en: "Enthalpy is a state function", zh: "焓是状态函数" } },
+    { kind: "paragraph", text: { en: "ΔH depends only on initial and final states, not on the path — so reactions can be added (with their ΔH's) like algebraic equations. This is Hess's law.", zh: "ΔH 仅取决于始末态,与路径无关——因此反应可像代数方程那样相加。此即 Hess 定律。" } },
+    { kind: "math", tex: "\\Delta H_\\text{rxn}^\\circ = \\sum \\Delta H_f^\\circ(\\text{products}) - \\sum \\Delta H_f^\\circ(\\text{reactants})" },
+    { kind: "callout", label: { en: "Sign convention", zh: "符号约定" }, text: { en: "ΔH > 0 endothermic (absorbs heat); ΔH < 0 exothermic (releases heat).", zh: "ΔH > 0 吸热;ΔH < 0 放热。" } },
+  ],
+  "unit-2/topic-2": [
+    { kind: "heading", text: { en: "ΔH from bond energies", zh: "由键能估算 ΔH" } },
+    { kind: "math", tex: "\\Delta H \\approx \\sum \\text{BE}_\\text{broken} - \\sum \\text{BE}_\\text{formed}" },
+    { kind: "paragraph", text: { en: "Breaking bonds costs energy (+); forming bonds releases it (−). This gives rough estimates because average bond enthalpies average over many molecules.", zh: "断键吸能(+),成键放能(−)。由于取平均值,此法只是近似。" } },
+    { kind: "callout", label: { en: "Only for gaseous molecules", zh: "仅适用于气态分子" }, text: { en: "For liquids or solids, use ΔH_f° tables — not bond enthalpies.", zh: "液态或固态物质应查 ΔH_f° 表,不能用键能。" } },
+  ],
+  "unit-2/topic-3": [
+    { kind: "heading", text: { en: "Entropy and the 2nd law", zh: "熵与热力学第二定律" } },
+    { kind: "paragraph", text: { en: "Entropy ≈ disorder / number of accessible microstates. **ΔS > 0 favoured**: gas formation, more moles, dissolving a solid. **ΔS < 0**: condensation, precipitation.", zh: "熵 ≈ 无序度 / 可达微观态数。**ΔS > 0 有利**:生成气体、摩尔数增多、固体溶解。**ΔS < 0**:凝聚、析出。" } },
+    { kind: "math", tex: "\\Delta S^\\circ_\\text{rxn}=\\sum S^\\circ(\\text{prod})-\\sum S^\\circ(\\text{react})" },
+  ],
+  "unit-2/topic-4": [
+    { kind: "heading", text: { en: "Gibbs free energy", zh: "吉布斯自由能" } },
+    { kind: "math", tex: "\\Delta G = \\Delta H - T\\Delta S" },
+    { kind: "table", caption: { en: "Spontaneity at a glance", zh: "自发性一览" },
+      columns: [{ en: "ΔH", zh: "ΔH" }, { en: "ΔS", zh: "ΔS" }, { en: "Spontaneity", zh: "自发性" }],
+      rows: [
+        [{ en: "−", zh: "−" }, { en: "+", zh: "+" }, { en: "Always spontaneous", zh: "总是自发" }],
+        [{ en: "+", zh: "+" }, { en: "−", zh: "−" }, { en: "Never spontaneous", zh: "永不自发" }],
+        [{ en: "−", zh: "−" }, { en: "−", zh: "−" }, { en: "Spontaneous at low T", zh: "低温自发" }],
+        [{ en: "+", zh: "+" }, { en: "+", zh: "+" }, { en: "Spontaneous at high T", zh: "高温自发" }],
+      ] },
+  ],
+  "unit-2/topic-5": [
+    { kind: "heading", text: { en: "Crossover temperature", zh: "反转温度" } },
+    { kind: "paragraph", text: { en: "When ΔH and ΔS have the same sign, there's a crossover temperature T_c = ΔH/ΔS where ΔG = 0. Below/above T_c the reaction flips spontaneity.", zh: "当 ΔH 与 ΔS 同号时存在反转温度 T_c = ΔH/ΔS,ΔG = 0。高于或低于此温度自发性相反。" } },
+    { kind: "math", tex: "\\Delta G = 0 \\;\\Rightarrow\\; T_c = \\dfrac{\\Delta H}{\\Delta S}" },
+  ],
+  "unit-2/topic-6": [
+    { kind: "heading", text: { en: "Phase diagrams: pressure vs temperature", zh: "相图:压强 vs 温度" } },
+    { kind: "list", items: [
+      { en: "**Triple point**: three phases coexist (H₂O: 0.01 °C, 612 Pa).", zh: "**三相点**:三相共存(H₂O 为 0.01 °C, 612 Pa)。" },
+      { en: "**Critical point**: liquid/gas distinction disappears — supercritical fluid beyond.", zh: "**临界点**:液气界限消失——之后为超临界流体。" },
+      { en: "**Water is weird**: its solid–liquid line slopes left (ice less dense than water).", zh: "**水反常**:固-液线向左倾斜(冰比水密度小)。" },
+    ] },
+    { kind: "callout", label: { en: "CO₂ vs H₂O", zh: "CO₂ 与 H₂O" }, text: { en: "CO₂'s triple point is above 1 atm, so solid CO₂ (dry ice) sublimes directly at atmospheric pressure.", zh: "CO₂ 三相点压强高于 1 atm,故常压下干冰直接升华。" } },
+  ],
+
+  // ===== UNIT 3: Chemical Kinetics =====
+  "unit-3/topic-1": [
+    { kind: "heading", text: { en: "Rate laws from experiment", zh: "通过实验得到速率方程" } },
+    { kind: "math", tex: "\\text{rate}=k[A]^m[B]^n" },
+    { kind: "paragraph", text: { en: "Orders m, n are **experimental** — not the stoichiometric coefficients. Determine by the **method of initial rates**: double one reactant, see how rate changes.", zh: "级数 m、n 由**实验**确定,不是方程式系数。用**初始速率法**:使某反应物浓度加倍,观察速率的变化。" } },
+  ],
+  "unit-3/topic-2": [
+    { kind: "heading", text: { en: "Integrated rate laws & test plots", zh: "积分速率方程与检验图" } },
+    { kind: "table", caption: { en: "Rate-law summary", zh: "速率定律汇总" },
+      columns: [{ en: "Order", zh: "级数" }, { en: "Integrated form", zh: "积分形式" }, { en: "Linear plot", zh: "线性化图" }, { en: "t½", zh: "半衰期" }],
+      rows: [
+        [{ en: "0", zh: "0" }, { en: "[A]=[A]₀−kt", zh: "[A]=[A]₀−kt" }, { en: "[A] vs t", zh: "[A]–t" }, { en: "[A]₀/(2k)", zh: "[A]₀/(2k)" }],
+        [{ en: "1", zh: "1" }, { en: "ln[A]=ln[A]₀−kt", zh: "ln[A]=ln[A]₀−kt" }, { en: "ln[A] vs t", zh: "ln[A]–t" }, { en: "ln 2 / k", zh: "ln 2 / k" }],
+        [{ en: "2", zh: "2" }, { en: "1/[A]=1/[A]₀+kt", zh: "1/[A]=1/[A]₀+kt" }, { en: "1/[A] vs t", zh: "1/[A]–t" }, { en: "1/(k[A]₀)", zh: "1/(k[A]₀)" }],
+      ] },
+    { kind: "kinetics-sim" },
+  ],
+  "unit-3/topic-3": [
+    { kind: "heading", text: { en: "First-order half-life is unique", zh: "一级半衰期的特殊性" } },
+    { kind: "paragraph", text: { en: "For a **first-order** reaction, t½ is independent of [A]₀ — a signature of radioactive decay and many drug-elimination profiles.", zh: "**一级**反应的 t½ 不依赖 [A]₀——是放射性衰变与许多药物代谢的特征。" } },
+    { kind: "math", tex: "t_{1/2}=\\dfrac{\\ln 2}{k}\\;(\\text{first order only})" },
+  ],
+  "unit-3/topic-4": [
+    { kind: "heading", text: { en: "Mechanisms and the RDS", zh: "反应机理与速控步" } },
+    { kind: "paragraph", text: { en: "A multi-step mechanism has an overall rate law determined by the **slowest step (RDS)**. Intermediates in the rate law must be eliminated using pre-equilibrium steps.", zh: "多步机理的总速率由**最慢的一步(RDS)**决定。用前置平衡关系消去速率定律中出现的中间体。" } },
+    { kind: "callout", label: { en: "Fast pre-equilibrium", zh: "快速前置平衡" }, text: { en: "For A + B ⇌ I (fast), I + C → P (slow): rate = k[I][C] = k·K·[A][B][C] — the observed rate constant combines k and K.", zh: "对 A + B ⇌ I(快)、I + C → P(慢):rate = k[I][C] = kK·[A][B][C],观测速率常数同时包含 k 与 K。" } },
+  ],
+  "unit-3/topic-5": [
+    { kind: "heading", text: { en: "Arrhenius equation", zh: "Arrhenius 方程" } },
+    { kind: "math", tex: "k = A\\,e^{-E_a/(RT)}\\;\\Longleftrightarrow\\;\\ln k = \\ln A - \\dfrac{E_a}{R}\\cdot\\dfrac{1}{T}" },
+    { kind: "arrhenius-plot" },
+  ],
+  "unit-3/topic-6": [
+    { kind: "heading", text: { en: "Catalysts lower Eₐ", zh: "催化剂降低 Eₐ" } },
+    { kind: "list", items: [
+      { en: "**Homogeneous**: same phase as reactants (H⁺ in ester hydrolysis).", zh: "**均相**:与反应物同相(酯水解中的 H⁺)。" },
+      { en: "**Heterogeneous**: different phase (Pt in car exhaust).", zh: "**多相**:不同相(汽车尾气中的 Pt)。" },
+      { en: "**Enzymatic**: biological catalysts with astonishing specificity.", zh: "**酶催化**:具有惊人专一性的生物催化剂。" },
+    ] },
+    { kind: "chem-chart", chartType: "catalyst-effect" },
+  ],
+
+  // ===== UNIT 4: Chemical Equilibria =====
+  "unit-4/topic-1": [
+    { kind: "heading", text: { en: "Equilibrium constant expressions", zh: "平衡常数表达式" } },
+    { kind: "math", tex: "K_c = \\dfrac{[\\text{products}]}{[\\text{reactants}]},\\quad K_p = K_c\\,(RT)^{\\Delta n}" },
+    { kind: "callout", label: { en: "Pure solids/liquids omitted", zh: "纯固液体不计入" }, text: { en: "Activities of pure solids and pure liquids are 1 — they never appear in K.", zh: "纯固、纯液体的活度为 1,不出现在 K 中。" } },
+  ],
+  "unit-4/topic-2": [
+    { kind: "heading", text: { en: "Le Chatelier in practice", zh: "勒夏特列原理的应用" } },
+    { kind: "list", items: [
+      { en: "Add reactant → shift right; add product → shift left.", zh: "加入反应物 → 右移;加入产物 → 左移。" },
+      { en: "Increase pressure → shift to **fewer moles of gas**.", zh: "加压 → 向**气态摩尔数较少**一侧移动。" },
+      { en: "Increase T on endothermic → shift right; on exothermic → shift left.", zh: "对吸热反应升温 → 右移;对放热 → 左移。" },
+      { en: "Catalysts do **not** shift equilibrium (only speed to reach it).", zh: "催化剂**不**改变平衡(只加快达到平衡)。" },
+    ] },
+    { kind: "chem-chart", chartType: "lechatelier-shift" },
+  ],
+  "unit-4/topic-3": [
+    { kind: "heading", text: { en: "Ka, Kb, and the water constant", zh: "Ka、Kb 与水的常数" } },
+    { kind: "math", tex: "K_w = [\\text{H}_3\\text{O}^+][\\text{OH}^-] = 10^{-14}\\;\\text{at 25 °C};\\;\\;K_a\\cdot K_b = K_w" },
+    { kind: "paragraph", text: { en: "Stronger acid ⇒ larger Ka ⇒ smaller pKa. pKa of HCl ≈ −7; pKa of CH₃COOH ≈ 4.76; pKa of NH₄⁺ ≈ 9.25.", zh: "酸越强 ⇒ Ka 越大 ⇒ pKa 越小。HCl 的 pKa ≈ −7;CH₃COOH ≈ 4.76;NH₄⁺ ≈ 9.25。" } },
+  ],
+  "unit-4/topic-4": [
+    { kind: "heading", text: { en: "Quick pH recipes", zh: "快速计算 pH" } },
+    { kind: "list", items: [
+      { en: "**Strong acid** of concentration C: pH = −log C (for C ≳ 10⁻⁶ M).", zh: "**强酸**浓度 C:pH = −log C(C ≳ 10⁻⁶ M 时)。" },
+      { en: "**Weak acid**: [H⁺] ≈ √(Ka·C) when Ka·C ≫ Kw and dissociation < 5%.", zh: "**弱酸**:当 Ka·C ≫ Kw 且离解度 < 5% 时,[H⁺] ≈ √(Ka·C)。" },
+      { en: "**Strong base**: pOH = −log C, pH = 14 − pOH.", zh: "**强碱**:pOH = −log C,pH = 14 − pOH。" },
+    ] },
+  ],
+  "unit-4/topic-5": [
+    { kind: "heading", text: { en: "Buffers: Henderson–Hasselbalch", zh: "缓冲液:亨德森-哈塞尔巴尔赫方程" } },
+    { kind: "math", tex: "\\text{pH} = pK_a + \\log\\!\\left(\\dfrac{[A^-]}{[HA]}\\right)" },
+    { kind: "callout", label: { en: "Buffer range", zh: "缓冲范围" }, text: { en: "Most effective within pKa ± 1. Outside this, small added acid/base causes large pH jumps.", zh: "最有效范围为 pKa ± 1 之内。之外则少量酸碱也会导致 pH 大幅变化。" } },
+  ],
+  "unit-4/topic-6": [
+    { kind: "heading", text: { en: "Interactive titration curve", zh: "交互式滴定曲线" } },
+    { kind: "titration-sim" },
+    { kind: "callout", label: { en: "Key features", zh: "关键特征" }, text: { en: "At half-equivalence, pH = pKa (buffer peak). Equivalence pH > 7 for a weak acid / strong base (conjugate base is basic).", zh: "半当量点 pH = pKa(缓冲峰)。弱酸-强碱的当量点 pH > 7(共轭碱呈碱性)。" } },
+  ],
+  "unit-4/topic-7": [
+    { kind: "heading", text: { en: "Solubility product Ksp", zh: "溶度积 Ksp" } },
+    { kind: "paragraph", text: { en: "For AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq), Ksp = [Ag⁺][Cl⁻]. Compare **Q to Ksp**: Q > Ksp → precipitates; Q < Ksp → more dissolves.", zh: "对 AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq),Ksp = [Ag⁺][Cl⁻]。比较 **Q 与 Ksp**:Q > Ksp → 沉淀;Q < Ksp → 继续溶解。" } },
+    { kind: "callout", label: { en: "Common-ion effect", zh: "同离子效应" }, text: { en: "Adding Cl⁻ to a saturated AgCl solution pushes Ag⁺ out — solubility drops.", zh: "向饱和 AgCl 溶液加入 Cl⁻ 会使 Ag⁺ 析出——溶解度降低。" } },
+  ],
+
+  // ===== UNIT 5: Electrochemistry =====
+  "unit-5/topic-1": [
+    { kind: "heading", text: { en: "Oxidation numbers and half-equations", zh: "氧化数与半反应" } },
+    { kind: "list", items: [
+      { en: "O is −2 (except peroxides −1, OF₂ +2).", zh: "O 为 −2(过氧化物为 −1,OF₂ 为 +2)。" },
+      { en: "H is +1 (except metal hydrides −1).", zh: "H 为 +1(金属氢化物为 −1)。" },
+      { en: "Sum of oxidation states = overall charge.", zh: "各原子氧化数之和 = 总电荷。" },
+    ] },
+    { kind: "paragraph", text: { en: "**Oxidation** = loss of electrons (OIL). **Reduction** = gain (RIG). Balance half-equations for mass and charge separately; then combine with equal electrons.", zh: "**氧化**=失电子(OIL),**还原**=得电子(RIG)。半反应先分别配平质量和电荷,再以等电子数合并。" } },
+  ],
+  "unit-5/topic-2": [
+    { kind: "heading", text: { en: "Galvanic cells and E°", zh: "原电池与 E°" } },
+    { kind: "math", tex: "E^\\circ_\\text{cell} = E^\\circ_\\text{cathode} - E^\\circ_\\text{anode}" },
+    { kind: "callout", label: { en: "Spontaneity", zh: "自发性判据" }, text: { en: "E°_cell > 0 ⇔ ΔG° < 0 ⇔ K > 1. Larger E° ⇒ more spontaneous.", zh: "E°_cell > 0 ⇔ ΔG° < 0 ⇔ K > 1。E° 越大越自发。" } },
+    { kind: "chem-chart", chartType: "galvanic-cell" },
+  ],
+  "unit-5/topic-3": [
+    { kind: "heading", text: { en: "Nernst equation", zh: "能斯特方程" } },
+    { kind: "math", tex: "E = E^\\circ - \\dfrac{RT}{nF}\\ln Q = E^\\circ - \\dfrac{0.0592}{n}\\log Q\\;\\;(\\text{25 °C})" },
+    { kind: "chem-chart", chartType: "nernst-curve" },
+    { kind: "paragraph", text: { en: "Increasing [product] or decreasing [reactant] shifts Q up, lowering E — eventually the cell stops when Q = K and E = 0.", zh: "产物浓度升高或反应物浓度降低使 Q 变大,E 下降;当 Q = K 时 E = 0,电池停止工作。" } },
+  ],
+  "unit-5/topic-4": [
+    { kind: "heading", text: { en: "Faraday's laws of electrolysis", zh: "法拉第电解定律" } },
+    { kind: "math", tex: "Q = I\\,t,\\quad n = \\dfrac{Q}{zF},\\quad F = 96{,}485\\;\\text{C/mol}" },
+    { kind: "paragraph", text: { en: "Moles of substance deposited or evolved at an electrode is proportional to charge passed, divided by (electrons required × F).", zh: "电极上生成或消耗的物质的量正比于通过的电量,再除以(所需电子数 × F)。" } },
+  ],
+  "unit-5/topic-5": [
+    { kind: "heading", text: { en: "Batteries and fuel cells", zh: "电池与燃料电池" } },
+    { kind: "list", items: [
+      { en: "**Primary**: single-use (alkaline, Zn-C).", zh: "**一次电池**:一次性(碱性、Zn-C)。" },
+      { en: "**Secondary**: rechargeable (Pb-acid, Li-ion, NiMH).", zh: "**二次电池**:可充电(铅酸、锂离子、NiMH)。" },
+      { en: "**H₂/O₂ fuel cell**: 2H₂ + O₂ → 2H₂O, E° ≈ 1.23 V, theoretical efficiency ~ 83%.", zh: "**H₂/O₂ 燃料电池**:2H₂ + O₂ → 2H₂O,E° ≈ 1.23 V,理论效率约 83%。" },
+    ] },
+  ],
+};
+
+export const topicQuestionsUKCHO: Record<string, Question[]> = {
+  "unit-1/topic-1": [
+    { id: "ukcho-u1-t1-q1", difficulty: "easy",
+      prompt: { en: "Write the ground-state electron configuration of Cr (Z = 24).", zh: "写出 Cr(Z = 24)基态电子排布。" },
+      choices: [
+        { id: "a", text: { en: "[Ar] 3d⁴ 4s²", zh: "[Ar] 3d⁴ 4s²" } },
+        { id: "b", text: { en: "[Ar] 3d⁵ 4s¹", zh: "[Ar] 3d⁵ 4s¹" } },
+        { id: "c", text: { en: "[Ar] 3d⁶ 4s⁰", zh: "[Ar] 3d⁶ 4s⁰" } },
+        { id: "d", text: { en: "[Ar] 3d⁵ 4s²", zh: "[Ar] 3d⁵ 4s²" } },
+      ], answerId: "b",
+      explanation: { en: "Half-filled 3d⁵ with one 4s electron is more stable than 3d⁴ 4s² — classic anomaly.", zh: "半满 3d⁵ 配 4s¹ 比 3d⁴ 4s² 更稳定——经典例外。" } },
+  ],
+  "unit-1/topic-2": [
+    { id: "ukcho-u1-t2-q1", difficulty: "medium",
+      prompt: { en: "How many total nodes does a 3p orbital have?", zh: "3p 轨道共有几个节面?" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "1", zh: "1" } },
+        { id: "c", text: { en: "2", zh: "2" } },
+        { id: "d", text: { en: "3", zh: "3" } },
+      ], answerId: "c",
+      explanation: { en: "Total nodes = n − 1 = 2 (one radial + one angular).", zh: "总节面 = n − 1 = 2(一径向 + 一角)。" } },
+  ],
+  "unit-1/topic-3": [
+    { id: "ukcho-u1-t3-q1", difficulty: "medium",
+      prompt: { en: "Which atom has the largest first ionization energy?", zh: "下列哪种原子的第一电离能最大?" },
+      choices: [
+        { id: "a", text: { en: "N", zh: "N" } },
+        { id: "b", text: { en: "O", zh: "O" } },
+        { id: "c", text: { en: "F", zh: "F" } },
+        { id: "d", text: { en: "Ne", zh: "Ne" } },
+      ], answerId: "d",
+      explanation: { en: "Trend: IE increases across a period; Ne is at the far right (full 2p⁶).", zh: "IE 周期向右增大;Ne 位于最右(2p⁶ 全满)。" } },
+  ],
+  "unit-1/topic-4": [
+    { id: "ukcho-u1-t4-q1", difficulty: "hard",
+      prompt: { en: "In the Born–Haber cycle of MgO, which is by far the largest negative term?", zh: "MgO 的 Born–Haber 循环中,哪一项是最大的负项?" },
+      choices: [
+        { id: "a", text: { en: "ΔH_atomization of Mg", zh: "Mg 的原子化焓" } },
+        { id: "b", text: { en: "EA of O (total)", zh: "O 的总电子亲和能" } },
+        { id: "c", text: { en: "Lattice formation energy", zh: "晶格生成能" } },
+        { id: "d", text: { en: "ΔH_f of MgO", zh: "MgO 的生成焓" } },
+      ], answerId: "c",
+      explanation: { en: "U_L(MgO) ≈ −3791 kJ/mol dominates, overcoming the large positive IE₁+IE₂ of Mg.", zh: "U_L(MgO) ≈ −3791 kJ/mol 为主导,足以抵消 Mg 很大的正 IE₁+IE₂。" } },
+  ],
+  "unit-1/topic-5": [
+    { id: "ukcho-u1-t5-q1", difficulty: "medium",
+      prompt: { en: "Rank the bond angles in CH₄, NH₃, H₂O from largest to smallest.", zh: "将 CH₄、NH₃、H₂O 的键角按从大到小排列。" },
+      choices: [
+        { id: "a", text: { en: "H₂O > NH₃ > CH₄", zh: "H₂O > NH₃ > CH₄" } },
+        { id: "b", text: { en: "CH₄ > NH₃ > H₂O", zh: "CH₄ > NH₃ > H₂O" } },
+        { id: "c", text: { en: "NH₃ > CH₄ > H₂O", zh: "NH₃ > CH₄ > H₂O" } },
+        { id: "d", text: { en: "CH₄ = NH₃ = H₂O", zh: "CH₄ = NH₃ = H₂O" } },
+      ], answerId: "b",
+      explanation: { en: "Lone pairs squeeze the angle: CH₄ 109.5° > NH₃ 107° > H₂O 104.5°.", zh: "孤对压缩键角:CH₄ 109.5° > NH₃ 107° > H₂O 104.5°。" } },
+  ],
+  "unit-1/topic-6": [
+    { id: "ukcho-u1-t6-q1", difficulty: "medium",
+      prompt: { en: "What is the bond order of O₂⁻ (superoxide)?", zh: "O₂⁻(超氧负离子)的键级是多少?" },
+      choices: [
+        { id: "a", text: { en: "1", zh: "1" } },
+        { id: "b", text: { en: "1.5", zh: "1.5" } },
+        { id: "c", text: { en: "2", zh: "2" } },
+        { id: "d", text: { en: "2.5", zh: "2.5" } },
+      ], answerId: "b",
+      explanation: { en: "O₂ has bond order 2 with 2 π* electrons. Adding one electron gives 3 π* → (bonding 8 − antibonding 5)/2 = 1.5.", zh: "O₂ 键级为 2(有 2 个 π* 电子)。再加一个电子后 π* 有 3 个 → (成键 8 − 反键 5)/2 = 1.5。" } },
+  ],
+  "unit-1/topic-7": [
+    { id: "ukcho-u1-t7-q1", difficulty: "easy",
+      prompt: { en: "Which pair exhibits hydrogen bonding between molecules?", zh: "哪一对分子间存在氢键?" },
+      choices: [
+        { id: "a", text: { en: "CH₄ · CH₄", zh: "CH₄ · CH₄" } },
+        { id: "b", text: { en: "CH₃OCH₃ · CH₃OCH₃", zh: "CH₃OCH₃ · CH₃OCH₃" } },
+        { id: "c", text: { en: "CH₃OH · CH₃OH", zh: "CH₃OH · CH₃OH" } },
+        { id: "d", text: { en: "H₂ · H₂", zh: "H₂ · H₂" } },
+      ], answerId: "c",
+      explanation: { en: "H-bonding requires H bonded to F, O, or N. CH₃OH has O–H.", zh: "氢键要求 H 与 F、O、N 直接相连。CH₃OH 含 O–H。" } },
+  ],
+  "unit-2/topic-1": [
+    { id: "ukcho-u2-t1-q1", difficulty: "medium",
+      prompt: { en: "Given ΔH_f°(CO₂) = −394, ΔH_f°(H₂O, l) = −286 kJ/mol, ΔH_f°(CH₄) = −75 kJ/mol. Find ΔH° of CH₄ + 2 O₂ → CO₂ + 2 H₂O(l).", zh: "已知 ΔH_f°(CO₂) = −394,ΔH_f°(H₂O, l) = −286 kJ/mol,ΔH_f°(CH₄) = −75 kJ/mol。求反应 CH₄ + 2 O₂ → CO₂ + 2 H₂O(l) 的 ΔH°。" },
+      choices: [
+        { id: "a", text: { en: "−755 kJ/mol", zh: "−755 kJ/mol" } },
+        { id: "b", text: { en: "−891 kJ/mol", zh: "−891 kJ/mol" } },
+        { id: "c", text: { en: "+891 kJ/mol", zh: "+891 kJ/mol" } },
+        { id: "d", text: { en: "−394 kJ/mol", zh: "−394 kJ/mol" } },
+      ], answerId: "b",
+      explanation: { en: "ΔH° = [−394 + 2(−286)] − [−75 + 0] = −966 + 75 = −891 kJ/mol.", zh: "ΔH° = [−394 + 2(−286)] − [−75 + 0] = −966 + 75 = −891 kJ/mol。" } },
+  ],
+  "unit-2/topic-2": [
+    { id: "ukcho-u2-t2-q1", difficulty: "medium",
+      prompt: { en: "Use bond enthalpies: H–H 436, Cl–Cl 242, H–Cl 431 (all kJ/mol). ΔH for H₂ + Cl₂ → 2 HCl =", zh: "给定键能:H–H 436,Cl–Cl 242,H–Cl 431(kJ/mol)。H₂ + Cl₂ → 2 HCl 的 ΔH =" },
+      choices: [
+        { id: "a", text: { en: "+184 kJ/mol", zh: "+184 kJ/mol" } },
+        { id: "b", text: { en: "−184 kJ/mol", zh: "−184 kJ/mol" } },
+        { id: "c", text: { en: "−247 kJ/mol", zh: "−247 kJ/mol" } },
+        { id: "d", text: { en: "+247 kJ/mol", zh: "+247 kJ/mol" } },
+      ], answerId: "b",
+      explanation: { en: "Broken: 436 + 242 = 678. Formed: 2(431) = 862. ΔH = 678 − 862 = −184 kJ/mol.", zh: "断键:436 + 242 = 678;成键:2·431 = 862。ΔH = 678 − 862 = −184 kJ/mol。" } },
+  ],
+  "unit-2/topic-3": [
+    { id: "ukcho-u2-t3-q1", difficulty: "easy",
+      prompt: { en: "Which process has ΔS > 0?", zh: "哪一过程 ΔS > 0?" },
+      choices: [
+        { id: "a", text: { en: "Freezing water", zh: "水结冰" } },
+        { id: "b", text: { en: "2 NO₂ → N₂O₄", zh: "2 NO₂ → N₂O₄" } },
+        { id: "c", text: { en: "CaCO₃(s) → CaO(s) + CO₂(g)", zh: "CaCO₃(s) → CaO(s) + CO₂(g)" } },
+        { id: "d", text: { en: "Gaseous solute dissolving in water", zh: "气态溶质溶于水" } },
+      ], answerId: "c",
+      explanation: { en: "Producing a gas from a solid strongly increases the number of accessible microstates.", zh: "固体分解生成气体使可达微观态数显著增加。" } },
+  ],
+  "unit-2/topic-4": [
+    { id: "ukcho-u2-t4-q1", difficulty: "medium",
+      prompt: { en: "For a reaction, ΔH = +50 kJ/mol, ΔS = +100 J/(mol·K). Above what T (K) is the reaction spontaneous?", zh: "某反应 ΔH = +50 kJ/mol,ΔS = +100 J/(mol·K)。温度高于多少 K 时反应自发?" },
+      choices: [
+        { id: "a", text: { en: "200 K", zh: "200 K" } },
+        { id: "b", text: { en: "298 K", zh: "298 K" } },
+        { id: "c", text: { en: "500 K", zh: "500 K" } },
+        { id: "d", text: { en: "1000 K", zh: "1000 K" } },
+      ], answerId: "c",
+      explanation: { en: "T_c = ΔH/ΔS = 50000/100 = 500 K.", zh: "T_c = ΔH/ΔS = 50000/100 = 500 K。" } },
+  ],
+  "unit-2/topic-5": [
+    { id: "ukcho-u2-t5-q1", difficulty: "medium",
+      prompt: { en: "ΔH < 0 and ΔS < 0. The reaction is:", zh: "若 ΔH < 0 且 ΔS < 0,则反应:" },
+      choices: [
+        { id: "a", text: { en: "Always spontaneous", zh: "始终自发" } },
+        { id: "b", text: { en: "Never spontaneous", zh: "永不自发" } },
+        { id: "c", text: { en: "Spontaneous only at low T", zh: "仅在低温自发" } },
+        { id: "d", text: { en: "Spontaneous only at high T", zh: "仅在高温自发" } },
+      ], answerId: "c",
+      explanation: { en: "ΔG = ΔH − TΔS. Both negative: ΔG is negative only when T is small enough.", zh: "ΔG = ΔH − TΔS。二者皆负时,只有 T 足够小才使 ΔG < 0。" } },
+  ],
+  "unit-2/topic-6": [
+    { id: "ukcho-u2-t6-q1", difficulty: "easy",
+      prompt: { en: "On a water phase diagram, increasing pressure at 0 °C:", zh: "在水的相图上,0 °C 下增大压强:" },
+      choices: [
+        { id: "a", text: { en: "Freezes liquid to solid", zh: "使液体冻结为固体" } },
+        { id: "b", text: { en: "Melts solid to liquid", zh: "使固体熔化为液体" } },
+        { id: "c", text: { en: "Vaporizes liquid to gas", zh: "使液体汽化" } },
+        { id: "d", text: { en: "No phase change", zh: "无相变" } },
+      ], answerId: "b",
+      explanation: { en: "Water's solid–liquid line slopes left (ice less dense). Pressure favors the denser liquid.", zh: "水的固-液线向左倾斜(冰密度较小),加压有利于更致密的液相。" } },
+  ],
+  "unit-3/topic-1": [
+    { id: "ukcho-u3-t1-q1", difficulty: "medium",
+      prompt: { en: "Doubling [A] quadruples the rate; [B] has no effect. Overall order =", zh: "将 [A] 加倍使速率变为 4 倍;[B] 无影响。总级数 =" },
+      choices: [
+        { id: "a", text: { en: "1", zh: "1" } },
+        { id: "b", text: { en: "2", zh: "2" } },
+        { id: "c", text: { en: "3", zh: "3" } },
+        { id: "d", text: { en: "4", zh: "4" } },
+      ], answerId: "b",
+      explanation: { en: "Rate ∝ [A]²·[B]⁰; overall = 2 + 0 = 2.", zh: "rate ∝ [A]²·[B]⁰;总级数 = 2 + 0 = 2。" } },
+  ],
+  "unit-3/topic-2": [
+    { id: "ukcho-u3-t2-q1", difficulty: "medium",
+      prompt: { en: "A plot of ln[A] vs t is linear. What is the order?", zh: "ln[A] 对 t 作图为直线。反应级数为?" },
+      choices: [
+        { id: "a", text: { en: "0", zh: "0" } },
+        { id: "b", text: { en: "1", zh: "1" } },
+        { id: "c", text: { en: "2", zh: "2" } },
+        { id: "d", text: { en: "Fractional", zh: "分数级" } },
+      ], answerId: "b",
+      explanation: { en: "Linear ln[A]–t is the signature of first order.", zh: "ln[A]–t 为直线是一级反应的特征。" } },
+  ],
+  "unit-3/topic-3": [
+    { id: "ukcho-u3-t3-q1", difficulty: "easy",
+      prompt: { en: "A first-order reaction has k = 0.0693 s⁻¹. t½ =", zh: "一级反应 k = 0.0693 s⁻¹,t½ =" },
+      choices: [
+        { id: "a", text: { en: "10 s", zh: "10 s" } },
+        { id: "b", text: { en: "20 s", zh: "20 s" } },
+        { id: "c", text: { en: "100 s", zh: "100 s" } },
+        { id: "d", text: { en: "depends on [A]₀", zh: "取决于 [A]₀" } },
+      ], answerId: "a",
+      explanation: { en: "t½ = ln 2 / k = 0.693/0.0693 = 10 s.", zh: "t½ = ln 2 / k = 0.693/0.0693 = 10 s。" } },
+  ],
+  "unit-3/topic-4": [
+    { id: "ukcho-u3-t4-q1", difficulty: "hard",
+      prompt: { en: "Step 1: A + B ⇌ I (fast). Step 2: I + B → P (slow). Overall rate law =", zh: "第一步:A + B ⇌ I(快);第二步:I + B → P(慢)。总速率定律为?" },
+      choices: [
+        { id: "a", text: { en: "k[A][B]", zh: "k[A][B]" } },
+        { id: "b", text: { en: "k[A][B]²", zh: "k[A][B]²" } },
+        { id: "c", text: { en: "k[I][B]", zh: "k[I][B]" } },
+        { id: "d", text: { en: "k[A]²[B]", zh: "k[A]²[B]" } },
+      ], answerId: "b",
+      explanation: { en: "Rate = k₂[I][B]. From fast equilibrium, [I] = K₁[A][B]. Combine: rate = k₂K₁[A][B]² ∝ [A][B]².", zh: "rate = k₂[I][B];由快速平衡 [I] = K₁[A][B],代入得 rate ∝ [A][B]²。" } },
+  ],
+  "unit-3/topic-5": [
+    { id: "ukcho-u3-t5-q1", difficulty: "medium",
+      prompt: { en: "When T rises from 300 K to 310 K, a reaction's rate roughly doubles. Its Eₐ is about:", zh: "温度由 300 K 升到 310 K,反应速率约增加一倍。Eₐ 约为:" },
+      choices: [
+        { id: "a", text: { en: "5 kJ/mol", zh: "5 kJ/mol" } },
+        { id: "b", text: { en: "20 kJ/mol", zh: "20 kJ/mol" } },
+        { id: "c", text: { en: "53 kJ/mol", zh: "53 kJ/mol" } },
+        { id: "d", text: { en: "200 kJ/mol", zh: "200 kJ/mol" } },
+      ], answerId: "c",
+      explanation: { en: "ln 2 = Eₐ/R · (1/300 − 1/310). Eₐ ≈ 8.314·0.693 / (1.075e−4) ≈ 53 kJ/mol.", zh: "ln 2 = Eₐ/R · (1/300 − 1/310)。Eₐ ≈ 8.314·0.693 / (1.075e−4) ≈ 53 kJ/mol。" } },
+  ],
+  "unit-3/topic-6": [
+    { id: "ukcho-u3-t6-q1", difficulty: "easy",
+      prompt: { en: "A catalyst affects which quantity?", zh: "催化剂影响下列哪项?" },
+      choices: [
+        { id: "a", text: { en: "ΔH", zh: "ΔH" } },
+        { id: "b", text: { en: "Equilibrium constant K", zh: "平衡常数 K" } },
+        { id: "c", text: { en: "Activation energy Eₐ", zh: "活化能 Eₐ" } },
+        { id: "d", text: { en: "Product identity", zh: "产物种类" } },
+      ], answerId: "c",
+      explanation: { en: "Catalysts lower Eₐ (both forward and reverse) without changing ΔH or K.", zh: "催化剂降低 Eₐ(正反向同时降低),但不改变 ΔH 或 K。" } },
+  ],
+  "unit-4/topic-1": [
+    { id: "ukcho-u4-t1-q1", difficulty: "easy",
+      prompt: { en: "For N₂ + 3 H₂ ⇌ 2 NH₃, Kp vs Kc:", zh: "对 N₂ + 3 H₂ ⇌ 2 NH₃,Kp 与 Kc 的关系:" },
+      choices: [
+        { id: "a", text: { en: "Kp = Kc", zh: "Kp = Kc" } },
+        { id: "b", text: { en: "Kp = Kc·(RT)", zh: "Kp = Kc·(RT)" } },
+        { id: "c", text: { en: "Kp = Kc·(RT)⁻²", zh: "Kp = Kc·(RT)⁻²" } },
+        { id: "d", text: { en: "Kp = Kc·(RT)²", zh: "Kp = Kc·(RT)²" } },
+      ], answerId: "c",
+      explanation: { en: "Δn = 2 − (1 + 3) = −2; Kp = Kc·(RT)^Δn = Kc·(RT)⁻².", zh: "Δn = 2 − 4 = −2;Kp = Kc·(RT)^Δn = Kc·(RT)⁻²。" } },
+  ],
+  "unit-4/topic-2": [
+    { id: "ukcho-u4-t2-q1", difficulty: "medium",
+      prompt: { en: "For the exothermic reaction 2 SO₂ + O₂ ⇌ 2 SO₃, which change favours more SO₃?", zh: "对放热反应 2 SO₂ + O₂ ⇌ 2 SO₃,哪种操作更有利于生成 SO₃?" },
+      choices: [
+        { id: "a", text: { en: "Raise temperature", zh: "升高温度" } },
+        { id: "b", text: { en: "Lower pressure", zh: "降低压强" } },
+        { id: "c", text: { en: "Increase pressure", zh: "增大压强" } },
+        { id: "d", text: { en: "Add a catalyst", zh: "加入催化剂" } },
+      ], answerId: "c",
+      explanation: { en: "Fewer moles of gas on right (3 → 2) ⇒ higher P shifts right. Exothermic, so heat disfavours; catalyst doesn't shift.", zh: "右侧气体摩尔数较少(3 → 2),加压右移。放热反应,升温左移;催化剂不改变平衡。" } },
+  ],
+  "unit-4/topic-3": [
+    { id: "ukcho-u4-t3-q1", difficulty: "easy",
+      prompt: { en: "An acid with pKa = 4.76 has Ka ≈", zh: "pKa = 4.76 的酸,Ka ≈" },
+      choices: [
+        { id: "a", text: { en: "1.7 × 10⁻⁵", zh: "1.7 × 10⁻⁵" } },
+        { id: "b", text: { en: "1.7 × 10⁻⁴", zh: "1.7 × 10⁻⁴" } },
+        { id: "c", text: { en: "4.76", zh: "4.76" } },
+        { id: "d", text: { en: "10⁴·⁷⁶", zh: "10⁴·⁷⁶" } },
+      ], answerId: "a",
+      explanation: { en: "Ka = 10^(−pKa) = 10^−4.76 ≈ 1.74 × 10⁻⁵ (this is acetic acid).", zh: "Ka = 10^(−pKa) = 10^−4.76 ≈ 1.74 × 10⁻⁵(醋酸)。" } },
+  ],
+  "unit-4/topic-4": [
+    { id: "ukcho-u4-t4-q1", difficulty: "medium",
+      prompt: { en: "pH of 0.10 M CH₃COOH (Ka = 1.8 × 10⁻⁵) ≈", zh: "0.10 M CH₃COOH(Ka = 1.8 × 10⁻⁵)的 pH ≈" },
+      choices: [
+        { id: "a", text: { en: "1.0", zh: "1.0" } },
+        { id: "b", text: { en: "2.87", zh: "2.87" } },
+        { id: "c", text: { en: "4.76", zh: "4.76" } },
+        { id: "d", text: { en: "7.00", zh: "7.00" } },
+      ], answerId: "b",
+      explanation: { en: "[H⁺] ≈ √(Ka·C) = √(1.8e−5 · 0.1) ≈ 1.34 × 10⁻³. pH ≈ 2.87.", zh: "[H⁺] ≈ √(Ka·C) = √(1.8e−5 · 0.1) ≈ 1.34 × 10⁻³。pH ≈ 2.87。" } },
+  ],
+  "unit-4/topic-5": [
+    { id: "ukcho-u4-t5-q1", difficulty: "medium",
+      prompt: { en: "Buffer of 0.20 M CH₃COOH and 0.40 M CH₃COO⁻ (pKa = 4.76). pH =", zh: "0.20 M CH₃COOH 与 0.40 M CH₃COO⁻(pKa = 4.76)组成的缓冲液,pH =" },
+      choices: [
+        { id: "a", text: { en: "4.46", zh: "4.46" } },
+        { id: "b", text: { en: "4.76", zh: "4.76" } },
+        { id: "c", text: { en: "5.06", zh: "5.06" } },
+        { id: "d", text: { en: "9.25", zh: "9.25" } },
+      ], answerId: "c",
+      explanation: { en: "pH = 4.76 + log(0.40/0.20) = 4.76 + 0.30 = 5.06.", zh: "pH = 4.76 + log(0.40/0.20) = 4.76 + 0.30 = 5.06。" } },
+  ],
+  "unit-4/topic-6": [
+    { id: "ukcho-u4-t6-q1", difficulty: "medium",
+      prompt: { en: "In titrating a weak acid (pKa = 5) with NaOH, at half-equivalence the pH is:", zh: "用 NaOH 滴定弱酸(pKa = 5)时,半当量点的 pH:" },
+      choices: [
+        { id: "a", text: { en: "5", zh: "5" } },
+        { id: "b", text: { en: "7", zh: "7" } },
+        { id: "c", text: { en: "9", zh: "9" } },
+        { id: "d", text: { en: "10", zh: "10" } },
+      ], answerId: "a",
+      explanation: { en: "Half-equivalence: [HA] = [A⁻], so pH = pKa = 5.", zh: "半当量点:[HA] = [A⁻],故 pH = pKa = 5。" } },
+  ],
+  "unit-4/topic-7": [
+    { id: "ukcho-u4-t7-q1", difficulty: "hard",
+      prompt: { en: "Ksp(AgCl) = 1.8 × 10⁻¹⁰. Molar solubility in 0.10 M NaCl is about:", zh: "Ksp(AgCl) = 1.8 × 10⁻¹⁰。在 0.10 M NaCl 中的摩尔溶解度约为:" },
+      choices: [
+        { id: "a", text: { en: "1.3 × 10⁻⁵ M", zh: "1.3 × 10⁻⁵ M" } },
+        { id: "b", text: { en: "1.8 × 10⁻⁹ M", zh: "1.8 × 10⁻⁹ M" } },
+        { id: "c", text: { en: "1.8 × 10⁻⁷ M", zh: "1.8 × 10⁻⁷ M" } },
+        { id: "d", text: { en: "0.10 M", zh: "0.10 M" } },
+      ], answerId: "b",
+      explanation: { en: "Common-ion effect: [Cl⁻] ≈ 0.10. [Ag⁺] = Ksp/[Cl⁻] = 1.8e−10/0.10 = 1.8 × 10⁻⁹ M.", zh: "同离子效应:[Cl⁻] ≈ 0.10。[Ag⁺] = Ksp/[Cl⁻] = 1.8e−10/0.10 = 1.8 × 10⁻⁹ M。" } },
+  ],
+  "unit-5/topic-1": [
+    { id: "ukcho-u5-t1-q1", difficulty: "easy",
+      prompt: { en: "Oxidation state of Mn in KMnO₄:", zh: "KMnO₄ 中 Mn 的氧化数:" },
+      choices: [
+        { id: "a", text: { en: "+3", zh: "+3" } },
+        { id: "b", text: { en: "+5", zh: "+5" } },
+        { id: "c", text: { en: "+7", zh: "+7" } },
+        { id: "d", text: { en: "+4", zh: "+4" } },
+      ], answerId: "c",
+      explanation: { en: "K = +1; 4 O = −8. Charge of salt = 0 ⇒ Mn = +7.", zh: "K = +1;4 O = −8;盐电荷为 0 ⇒ Mn = +7。" } },
+  ],
+  "unit-5/topic-2": [
+    { id: "ukcho-u5-t2-q1", difficulty: "medium",
+      prompt: { en: "Given E°(Zn²⁺/Zn) = −0.76 V and E°(Cu²⁺/Cu) = +0.34 V, E°_cell for a Zn/Cu galvanic cell is:", zh: "给定 E°(Zn²⁺/Zn) = −0.76 V,E°(Cu²⁺/Cu) = +0.34 V。Zn/Cu 原电池的 E°_cell 为:" },
+      choices: [
+        { id: "a", text: { en: "+0.42 V", zh: "+0.42 V" } },
+        { id: "b", text: { en: "+1.10 V", zh: "+1.10 V" } },
+        { id: "c", text: { en: "−1.10 V", zh: "−1.10 V" } },
+        { id: "d", text: { en: "−0.42 V", zh: "−0.42 V" } },
+      ], answerId: "b",
+      explanation: { en: "E°_cell = E°(cathode) − E°(anode) = 0.34 − (−0.76) = 1.10 V.", zh: "E°_cell = E°(阴极) − E°(阳极) = 0.34 − (−0.76) = 1.10 V。" } },
+  ],
+  "unit-5/topic-3": [
+    { id: "ukcho-u5-t3-q1", difficulty: "medium",
+      prompt: { en: "A concentration cell Cu|Cu²⁺(0.01 M)||Cu²⁺(1 M)|Cu at 298 K has E ≈", zh: "浓差电池 Cu|Cu²⁺(0.01 M)||Cu²⁺(1 M)|Cu 在 298 K 下 E ≈" },
+      choices: [
+        { id: "a", text: { en: "0 V", zh: "0 V" } },
+        { id: "b", text: { en: "0.0296 V", zh: "0.0296 V" } },
+        { id: "c", text: { en: "0.0592 V", zh: "0.0592 V" } },
+        { id: "d", text: { en: "0.118 V", zh: "0.118 V" } },
+      ], answerId: "c",
+      explanation: { en: "E = (0.0592/2)·log(1/0.01) = 0.0296·2 = 0.0592 V.", zh: "E = (0.0592/2)·log(1/0.01) = 0.0296·2 = 0.0592 V。" } },
+  ],
+  "unit-5/topic-4": [
+    { id: "ukcho-u5-t4-q1", difficulty: "medium",
+      prompt: { en: "A current of 1.50 A passes through molten NaCl for 1 hour. Mass of Na deposited (M_Na = 23) ≈", zh: "1.50 A 电流通过熔融 NaCl 1 小时。沉积 Na 质量(M_Na = 23)≈" },
+      choices: [
+        { id: "a", text: { en: "0.64 g", zh: "0.64 g" } },
+        { id: "b", text: { en: "1.29 g", zh: "1.29 g" } },
+        { id: "c", text: { en: "2.58 g", zh: "2.58 g" } },
+        { id: "d", text: { en: "5.15 g", zh: "5.15 g" } },
+      ], answerId: "b",
+      explanation: { en: "Q = 1.50·3600 = 5400 C. n(Na) = Q/F = 5400/96485 = 0.056 mol (z = 1). m = 0.056·23 ≈ 1.29 g.", zh: "Q = 1.50·3600 = 5400 C。n(Na) = Q/F = 5400/96485 = 0.056 mol(z = 1)。m = 0.056·23 ≈ 1.29 g。" } },
+  ],
+  "unit-5/topic-5": [
+    { id: "ukcho-u5-t5-q1", difficulty: "easy",
+      prompt: { en: "A H₂/O₂ fuel cell's standard cell potential is approximately:", zh: "H₂/O₂ 燃料电池的标准电池电势约为:" },
+      choices: [
+        { id: "a", text: { en: "0.34 V", zh: "0.34 V" } },
+        { id: "b", text: { en: "1.10 V", zh: "1.10 V" } },
+        { id: "c", text: { en: "1.23 V", zh: "1.23 V" } },
+        { id: "d", text: { en: "2.50 V", zh: "2.50 V" } },
+      ], answerId: "c",
+      explanation: { en: "E°_cell for 2H₂ + O₂ → 2H₂O is 1.23 V at 25 °C.", zh: "2H₂ + O₂ → 2H₂O 在 25 °C 下的 E°_cell = 1.23 V。" } },
+  ],
+};
 
 export const subjects: Subject[] = [apMicro, apBio, apPhysics1, apChemistry, apCalculusBC, apEngLang, apush, apUKCHO];
 
@@ -27750,6 +28334,86 @@ export const practiceSets: PracticeSet[] = [
               zh: "根据图 1,解释 DopEcR 通路的抑制剂为何可作为保护作物免受蛾害的有效化学制剂。",
             } },
           ] },
+        ],
+      },
+      {
+        id: "bio-2025-mock-frq-3",
+        number: 3,
+        blocks: [
+          { kind: "text", text: {
+            en: "Buffelgrass, an invasive grass species in southwestern desert ecosystems, is threatening the saguaro cactus, a keystone species in these ecosystems. Buffelgrass is drought-tolerant and can survive wildfires. However, the dry buffelgrass also acts as fuel for wildfires, causing the fires to be more severe. Older saguaro cacti can survive wildfires; however, many of the young cacti cannot.",
+            zh: "水牛草是美国西南部沙漠生态系统中的入侵草种,正威胁着这些生态系统中的关键物种——巨人柱仙人掌。水牛草耐旱并能在野火中存活。但干燥的水牛草也作为野火的燃料,使火势更为猛烈。年老的巨人柱仙人掌可以在野火中存活;许多年幼的仙人掌则无法存活。",
+          } },
+          { kind: "text", text: {
+            en: "Scientists conducted an experiment to determine whether they could control the abundance of the buffelgrass population. The scientists identified several native grass species that, when grown with buffelgrass, might reduce the abundance of buffelgrass. They grew buffelgrass in the presence of several different native grass species in greenhouses, in either nondrought (watered every 3 days) or drought (watered every 9 days) conditions. After twelve weeks, they measured the height and dry weight of the buffelgrass in each treatment group.",
+            zh: "科学家开展实验,以判定能否控制水牛草种群丰度。他们识别出若干本地草种,这些草种与水牛草同栽时可能降低水牛草的丰度。研究者在温室中将水牛草与不同本地草种共同种植,分别处于非干旱(每 3 天浇水)或干旱(每 9 天浇水)条件。十二周后,他们测量了各处理组中水牛草的高度与干重。",
+          } },
+          { kind: "part", letter: "A", instruction: { en: "Describe the effect that removing a keystone species will have on an ecosystem.", zh: "描述去除关键物种对生态系统的影响。" } },
+          { kind: "part", letter: "B", instruction: { en: "Identify a control group the scientists should include in their experiment.", zh: "指出研究者应在实验中设置的对照组。" } },
+          { kind: "part", letter: "C", instruction: { en: "State the null hypothesis of the experiment in which buffelgrass is grown in the presence of native grass species.", zh: "陈述“将水牛草与本地草种共同种植”这一实验的零假设。" } },
+          { kind: "part", letter: "D", instruction: { en: "Scientists have found that the population growth rates of native grasses are much slower than the population growth rate of buffelgrass following a wildfire. The scientists claim that wildfires will therefore increase the abundance of buffelgrass plants in the ecosystem. Based on the information given, justify the scientists' claim.", zh: "科学家发现,野火之后本地草种的种群增长速率远低于水牛草。因此科学家主张野火会使生态系统中水牛草的数量增加。根据所给信息,论证该主张。" } },
+        ],
+      },
+      {
+        id: "bio-2025-mock-frq-4",
+        number: 4,
+        blocks: [
+          { kind: "text", text: {
+            en: "Twenty million years ago the Caribbean Sea and Pacific Ocean were connected, and water flowed freely between the two bodies of water. Many of the same marine species were found in both areas. Over millions of years, the land referred to as the Isthmus of Panama formed, eventually closing off the connection between the Caribbean Sea and Pacific Ocean and creating two separate bodies of water. The ecology of these two marine habitats was dramatically altered by this land formation. The warmer Caribbean water could no longer flow west, so the Pacific water cooled and became more nutrient-rich, while the Caribbean water became warmer.",
+            zh: "两千万年前,加勒比海与太平洋相连,水可在两者之间自由流动,许多相同的海洋物种同时分布于两地。数百万年间,被称为巴拿马地峡的陆地逐渐形成,最终切断了加勒比海与太平洋之间的联系,形成两片独立的海域。这一地质变化极大地改变了两个海洋栖息地的生态环境。温暖的加勒比海水不再西流,太平洋水因此冷却、营养更为丰富,而加勒比海水则变得更温暖。",
+          } },
+          { kind: "part", letter: "A", instruction: { en: "Describe the genetic evidence that evolution is occurring in a population.", zh: "描述可表明种群正在进化的遗传学证据。" } },
+          { kind: "part", letter: "B", instruction: { en: "Explain how the isolation of marine species by the formation of a land barrier can lead to divergent evolution of those species.", zh: "解释陆桥形成引起的海洋物种隔离如何导致这些物种发生分化进化。" } },
+          { kind: "text", text: {
+            en: "The formation of the Isthmus of Panama connected two continents, North America and South America. Many North American land animal species migrated to South America after the formation of the isthmus and occupied similar niches as South American species.",
+            zh: "巴拿马地峡的形成连通了北美洲与南美洲两块大陆。许多北美陆生动物在地峡形成后迁入南美洲,并占据与南美本地物种相似的生态位。",
+          } },
+          { kind: "part", letter: "C", instruction: { en: "Predict the effect the formation of the isthmus had on resource availability for South American species.", zh: "预测地峡的形成对南美物种可利用资源的影响。" } },
+          { kind: "part", letter: "D", instruction: { en: "Justify your prediction in part C.", zh: "为你在 C 部分中的预测提供论证。" } },
+        ],
+      },
+      {
+        id: "bio-2025-mock-frq-5",
+        number: 5,
+        blocks: [
+          { kind: "text", text: {
+            en: "Figure 1 shows the reactions of the metabolic pathway used to synthesize amino acid B from amino acid A in cells.",
+            zh: "图 1 显示了细胞中由氨基酸 A 合成氨基酸 B 所用代谢通路的反应。",
+          } },
+          { kind: "figure",
+            src: "/figures/bio-2025-mock-frq-q5-fig1.svg",
+            title: { en: "Figure 1. Synthesis of amino acid B from amino acid A", zh: "图 1. 由氨基酸 A 合成氨基酸 B" },
+          },
+          { kind: "part", letter: "A", instruction: { en: "Describe a characteristic of an enzyme's active site that allows it to catalyze a specific chemical reaction.", zh: "描述酶活性位点使其能够催化特定化学反应的一个特征。" } },
+          { kind: "part", letter: "B", instruction: { en: "Based on Figure 1, explain how the binding of amino acid A to enzyme 1 is regulated by amino acid B.", zh: "根据图 1,解释氨基酸 A 与酶 1 的结合如何被氨基酸 B 调节。" } },
+          { kind: "part", letter: "C", instruction: { en: "Using the information in Figure 1, identify the product of the reaction catalyzed by enzyme 2: intermediate X, intermediate Y, or amino acid B.", zh: "根据图 1 的信息,指出酶 2 所催化反应的产物:中间体 X、中间体 Y,还是氨基酸 B。" } },
+          { kind: "part", letter: "D", instruction: { en: "Based on Figure 1, explain how a change in pH could affect enzyme 3 in such a way that amino acid B cannot be produced.", zh: "根据图 1,解释 pH 的变化如何使酶 3 受影响,从而无法生成氨基酸 B。" } },
+        ],
+      },
+      {
+        id: "bio-2025-mock-frq-6",
+        number: 6,
+        blocks: [
+          { kind: "text", text: {
+            en: "The ald gene of fruit flies encodes the ALD protein, which is associated with both the centromeres of chromosomes and protein filaments produced during meiosis. In the absence of functional ALD proteins, gamete-producing cells enter anaphase I before homologous chromosomes are correctly aligned. As a result, the gametes produced do not contain the correct numbers of chromosomes.",
+            zh: "果蝇的 ald 基因编码 ALD 蛋白,该蛋白与染色体着丝粒及减数分裂中形成的蛋白丝相关。缺乏功能性 ALD 蛋白时,产生配子的细胞在同源染色体正确排列之前就进入减数第一次分裂的后期,结果所产生的配子染色体数目不正确。",
+          } },
+          { kind: "text", text: {
+            en: "Scientists generated four mutations in the ald gene: ald1, ald3, ald23, and del, which was a deletion of the gene. To study the role of the ALD protein in meiosis, scientists used gamete-forming metaphase cells from groups of flies with different ald genotypes. Some of the flies were homozygous for the wild-type allele of ald: WT/WT. Other flies were heterozygous for different ald alleles: WT/del; ald1/del; ald3/ald23; ald23/del. The scientists measured the percent of metaphase cells that contained ALD-associated filaments (Figure 1A) and the amount of ALD protein produced by each of the cell types (Figure 1B).",
+            zh: "科学家在 ald 基因上制造了四种突变:ald1、ald3、ald23 和 del(基因缺失)。为研究 ALD 蛋白在减数分裂中的作用,他们使用了具有不同 ald 基因型的果蝇组的配子形成中期细胞。部分果蝇对 ald 野生型等位基因纯合(WT/WT),另一些为不同 ald 等位基因的杂合(WT/del、ald1/del、ald3/ald23、ald23/del)。科学家测量了含 ALD 相关蛋白丝的中期细胞百分比(图 1A),以及各类细胞所产生的 ALD 蛋白量(图 1B)。",
+          } },
+          { kind: "figure",
+            src: "/figures/bio-2025-mock-frq-q6-fig1a.svg",
+            title: { en: "Figure 1A. The average percent of gamete-forming metaphase cells that contained filaments associated with ALD.", zh: "图 1A. 含 ALD 相关蛋白丝的配子形成中期细胞平均百分比。" },
+          },
+          { kind: "figure",
+            src: "/figures/bio-2025-mock-frq-q6-fig1b.svg",
+            title: { en: "Figure 1B. The amount of ALD protein produced by each cell type. A thicker band indicates a greater amount of ALD protein.", zh: "图 1B. 各类细胞所产生 ALD 蛋白的量;条带越粗表示 ALD 蛋白量越大。" },
+          },
+          { kind: "part", letter: "A", instruction: { en: "Based on Figure 1A, identify the fly genotype in which the average percent of metaphase cells with ALD-associated filaments is close to 12%.", zh: "根据图 1A,指出含 ALD 相关蛋白丝的中期细胞平均百分比接近 12% 的果蝇基因型。" } },
+          { kind: "part", letter: "B", instruction: { en: "Based on Figure 1B, describe the difference in ALD protein production between gamete-forming metaphase cells of flies with the genotype ald3/ald23 and flies with the genotype ald23/del.", zh: "根据图 1B,描述基因型为 ald3/ald23 的果蝇与基因型为 ald23/del 的果蝇在配子形成中期细胞中 ALD 蛋白产量的差异。" } },
+          { kind: "part", letter: "C", instruction: { en: "Scientists hypothesize that gamete-forming metaphase cells can produce a normal amount of ALD-associated filaments even when they produce about half as much ALD protein as the wild-type cells produce. Use the data in Figures 1A and 1B to support the scientists' hypothesis.", zh: "科学家假设,即使配子形成中期细胞所产生的 ALD 蛋白约为野生型的一半,这些细胞仍能产生正常数量的 ALD 相关蛋白丝。利用图 1A 与图 1B 的数据支持这一假设。" } },
+          { kind: "part", letter: "D", instruction: { en: "For gamete-forming metaphase cells of the WT/del and ald1/del flies, explain why the phenotypes observed in Figure 1A differ even though the amount of ALD protein produced (Figure 1B) does not.", zh: "对于 WT/del 与 ald1/del 果蝇的配子形成中期细胞,解释为何图 1A 中观察到的表型不同,尽管所产生的 ALD 蛋白量(图 1B)相同。" } },
         ],
       },
     ],

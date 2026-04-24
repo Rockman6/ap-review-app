@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" font-family="Georgia, 'Times New Roman', serif" font-size="13">
+  <defs>
+    <marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#111"/>
+    </marker>
+  </defs>
+  <style>
+    .ln    { stroke:#111; fill:none; stroke-width:1.4; }
+    .thin  { stroke:#111; fill:none; stroke-width:1.2; }
+    .gray1 { fill:#c9c9c9; stroke:#111; stroke-width:1.3; }
+    .gray2 { fill:#9a9a9a; stroke:#111; stroke-width:1.3; }
+    .gray3 { fill:#6e6e6e; stroke:#111; stroke-width:1.3; }
+    .open  { fill:#fff;    stroke:#111; stroke-width:1.3; }
+    .lbl   { fill:#111; }
+  </style>
+
+  <!-- ======= Top labels ======= -->
+  <g class="lbl" text-anchor="middle" font-size="14">
+    <text x="60"  y="70">Amino</text><text x="60"  y="88">Acid</text><text x="60"  y="106">A</text>
+    <text x="180" y="88">Enzyme</text><text x="180" y="106">1</text>
+    <text x="430" y="88">Enzyme</text><text x="430" y="106">2</text>
+    <text x="680" y="88">Enzyme</text><text x="680" y="106">3</text>
+    <text x="810" y="70">Amino</text><text x="810" y="88">Acid</text><text x="810" y="106">B</text>
+  </g>
+
+  <!-- ======= Bottom labels (intermediates) ======= -->
+  <g class="lbl" text-anchor="middle" font-size="14">
+    <text x="510" y="215">Intermediate</text><text x="510" y="233">X</text>
+    <text x="620" y="215">Intermediate</text><text x="620" y="233">Y</text>
+  </g>
+
+  <!-- =========================================================
+       Horizontal pathway centerline at y = 165
+       ========================================================= -->
+
+  <!-- 1. Amino Acid A: open right-triangle -->
+  <polygon class="open" points="40,145 40,185 72,165"/>
+  <line class="thin" x1="76" y1="165" x2="140" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 2. Enzyme 1 (light gray oval) with triangular notch on right side holding bound substrate A -->
+  <!-- body: oval with notch carved out (use path) -->
+  <path class="gray1"
+        d="M 145 140
+           A 28 25 0 1 1 145 190
+           L 175 190
+           L 175 175
+           L 190 165
+           L 175 155
+           L 175 140
+           Z"/>
+  <!-- substrate triangle fitted into notch -->
+  <polygon class="open" points="177,157 177,173 190,165"/>
+  <line class="thin" x1="212" y1="165" x2="260" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 3. Enzyme 1 after release: same shape, darker shade, notch empty (same orientation) -->
+  <path class="gray2"
+        d="M 265 140
+           A 28 25 0 1 1 265 190
+           L 295 190
+           L 295 175
+           L 310 165
+           L 295 155
+           L 295 140
+           Z"/>
+  <line class="thin" x1="312" y1="165" x2="345" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 4. Small unlabeled intermediate triangle -->
+  <polygon class="open" points="349,150 349,180 377,165"/>
+  <line class="thin" x1="380" y1="165" x2="400" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 5. Enzyme 2: dark filled rectangle with zig-zag bite on its LEFT side -->
+  <path class="gray3"
+        d="M 405 135
+           L 405 145
+           L 422 155
+           L 405 165
+           L 422 175
+           L 405 185
+           L 405 195
+           L 465 195
+           L 465 135
+           Z"/>
+  <line class="thin" x1="468" y1="165" x2="497" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 6. Intermediate X: open triangle -->
+  <polygon class="open" points="500,148 500,182 530,165"/>
+  <line class="thin" x1="533" y1="165" x2="560" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 7. Unlabeled enzyme (white half-circle D-shape, flat side right) -->
+  <path class="open" d="M 585 143 A 22 22 0 0 0 585 187 Z"/>
+  <line class="thin" x1="587" y1="165" x2="610" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 8. Intermediate Y: gray half-circle D-shape -->
+  <path class="gray1" d="M 635 143 A 22 22 0 0 0 635 187 Z"/>
+  <line class="thin" x1="637" y1="165" x2="660" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 9. Enzyme 3: gray oval with notched right side (similar style to Enzyme 1) -->
+  <path class="gray1"
+        d="M 665 140
+           A 26 25 0 1 1 665 190
+           L 693 190
+           L 693 175
+           L 706 165
+           L 693 155
+           L 693 140
+           Z"/>
+  <line class="thin" x1="710" y1="165" x2="790" y2="165" marker-end="url(#a5)"/>
+
+  <!-- 10. Amino Acid B: tall open rectangle -->
+  <rect class="open" x="793" y="135" width="16" height="60"/>
+
+  <!-- =========================================================
+       FEEDBACK INHIBITION from B  ->  bottom Enzyme 1 oval (with B-binding pocket)
+       Then T-bar from that oval UP to the A -> E1 arrow.
+       ========================================================= -->
+
+  <!-- Long curve from bottom of B, down and left, ending with arrowhead into the pocket on the right side of the bottom Enzyme 1 oval -->
+  <path class="ln"
+        d="M 801 196
+           C 801 310, 640 420, 350 420
+           C 230 420, 180 400, 165 390"
+        marker-end="url(#a5)"/>
+
+  <!-- Bottom Enzyme 1 oval -->
+  <ellipse class="gray1" cx="118" cy="380" rx="36" ry="22"/>
+  <!-- Rectangular binding pocket on the right side of the oval (matches Amino Acid B's shape) -->
+  <rect class="open" x="150" y="370" width="18" height="20"/>
+
+  <!-- "Enzyme 1" label under the oval -->
+  <text x="118" y="425" class="lbl" text-anchor="middle">Enzyme</text>
+  <text x="118" y="443" class="lbl" text-anchor="middle">1</text>
+
+  <!-- Inhibition T-bar: from top of bottom-E1 oval up to the A -> E1 arrow -->
+  <line class="ln" x1="108" y1="358" x2="108" y2="190"/>
+  <line class="ln" x1="96"  y1="190" x2="120" y2="190"/>
+</svg>
